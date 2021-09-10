@@ -14,7 +14,7 @@ import c.a.e.e.j.b.a;
 import c.a.e.e.p.j;
 import c.a.e.e.p.k;
 import c.a.e.e.p.q;
-import c.a.p0.q0.b;
+import c.a.q0.s0.b;
 import com.baidu.adp.lib.network.http.BdHttpCancelException;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -297,9 +297,9 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                             bVar.d(dVar.f2313h);
                             bVar.b(dVar.q + "_" + dVar.n + "_" + dVar.l + "_" + dVar.m + "_" + dVar.o);
                             bVar.f(dVar.s);
-                            bVar.f13749f = dVar.w;
-                            bVar.f13750g = dVar.x;
-                            bVar.f13751h = dVar.y;
+                            bVar.f14583f = dVar.w;
+                            bVar.f14584g = dVar.x;
+                            bVar.f14585h = dVar.y;
                         }
                     }
                 } catch (OutOfMemoryError e4) {
@@ -318,9 +318,9 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                             bVar.d(dVar2.f2313h);
                             bVar.b(dVar2.q + "_" + dVar2.n + "_" + dVar2.l + "_" + dVar2.m + "_" + dVar2.o);
                             bVar.f(dVar2.s);
-                            bVar.f13749f = dVar2.w;
-                            bVar.f13750g = dVar2.x;
-                            bVar.f13751h = dVar2.y;
+                            bVar.f14583f = dVar2.w;
+                            bVar.f14584g = dVar2.x;
+                            bVar.f14585h = dVar2.y;
                         }
                     }
                 }
@@ -398,9 +398,9 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         bVar.d(dVar3.f2313h);
                         bVar.b(dVar3.q + "_" + dVar3.n + "_" + dVar3.l + "_" + dVar3.m + "_" + dVar3.o);
                         bVar.f(dVar3.s);
-                        bVar.f13749f = dVar3.w;
-                        bVar.f13750g = dVar3.x;
-                        bVar.f13751h = dVar3.y;
+                        bVar.f14583f = dVar3.w;
+                        bVar.f14584g = dVar3.x;
+                        bVar.f14585h = dVar3.y;
                     }
                     handler.dispatchMessage(handler.obtainMessage(-1, i5, -1, bVar));
                 }
@@ -419,9 +419,9 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         bVar2.d(dVar4.f2313h);
                         bVar2.b(dVar4.q + "_" + dVar4.n + "_" + dVar4.l + "_" + dVar4.m + "_" + dVar4.o);
                         bVar2.f(dVar4.s);
-                        bVar2.f13749f = dVar4.w;
-                        bVar2.f13750g = dVar4.x;
-                        bVar2.f13751h = dVar4.y;
+                        bVar2.f14583f = dVar4.w;
+                        bVar2.f14584g = dVar4.x;
+                        bVar2.f14585h = dVar4.y;
                     }
                     handler.dispatchMessage(handler.obtainMessage(-1, i6, -1, bVar2));
                 }
@@ -624,7 +624,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         int i3 = parseInt * 10;
                         if (i3 > 0) {
                             BdLog.isDebugMode();
-                            if (!c.a.p0.b0.c.k().i(i3)) {
+                            if (!c.a.q0.c0.c.k().i(i3)) {
                                 BdLog.d("Image download cacelled. out of memory. url:[" + this.netContext.getRequest().getNetWorkParam().mUrl + "], size:" + i3);
                                 this.netContext.getResponse().mNetErrorCode = -16;
                                 TiebaStatic.net(this.netContext);

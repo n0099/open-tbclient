@@ -26,10 +26,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f1578a;
+    public List<c> f1578a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c> f1579b;
+    public Context f1579b;
 
     /* renamed from: c  reason: collision with root package name */
     public Map<String, Integer> f1580c;
@@ -87,7 +87,12 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 try {
                     this.f1583c.renameTo(this.f1584d);
-                    String str2 = "unzip:" + this.f1584d + "---" + this.f1585e;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("unzip:");
+                    sb.append(this.f1584d);
+                    sb.append("---");
+                    sb.append(this.f1585e);
+                    sb.toString();
                     c.a.a.e.a.e(this.f1584d, this.f1585e);
                     c.a.a.e.a.b(this.f1584d.getAbsolutePath());
                     this.f1586f.h(this.f1581a, this.f1582b, this.f1585e);
@@ -174,7 +179,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            b.f1587a.f1578a = context.getApplicationContext();
+            b.f1587a.f1579b = context.getApplicationContext();
             return b.f1587a;
         }
         return (a) invokeL.objValue;
@@ -187,9 +192,9 @@ public class a {
             if (cVar != null) {
                 cVar.onDownloadFail(str, i2, str2);
             }
-            if (this.f1579b != null) {
-                for (int i3 = 0; i3 < this.f1579b.size(); i3++) {
-                    this.f1579b.get(i3).onDownloadFail(str, i2, str2);
+            if (this.f1578a != null) {
+                for (int i3 = 0; i3 < this.f1578a.size(); i3++) {
+                    this.f1578a.get(i3).onDownloadFail(str, i2, str2);
                 }
             }
         }
@@ -201,9 +206,9 @@ public class a {
             if (cVar != null) {
                 cVar.onDownloadProgress(f2);
             }
-            if (this.f1579b != null) {
-                for (int i2 = 0; i2 < this.f1579b.size(); i2++) {
-                    this.f1579b.get(i2).onDownloadProgress(f2);
+            if (this.f1578a != null) {
+                for (int i2 = 0; i2 < this.f1578a.size(); i2++) {
+                    this.f1578a.get(i2).onDownloadProgress(f2);
                 }
             }
         }
@@ -215,9 +220,9 @@ public class a {
             if (cVar != null) {
                 cVar.onDownloadStart(str);
             }
-            if (this.f1579b != null) {
-                for (int i2 = 0; i2 < this.f1579b.size(); i2++) {
-                    this.f1579b.get(i2).onDownloadStart(str);
+            if (this.f1578a != null) {
+                for (int i2 = 0; i2 < this.f1578a.size(); i2++) {
+                    this.f1578a.get(i2).onDownloadStart(str);
                 }
             }
         }
@@ -230,9 +235,9 @@ public class a {
             if (cVar != null) {
                 cVar.onDownloadSuccess(str, str2);
             }
-            if (this.f1579b != null) {
-                for (int i2 = 0; i2 < this.f1579b.size(); i2++) {
-                    this.f1579b.get(i2).onDownloadSuccess(str, str2);
+            if (this.f1578a != null) {
+                for (int i2 = 0; i2 < this.f1578a.size(); i2++) {
+                    this.f1578a.get(i2).onDownloadSuccess(str, str2);
                 }
             }
         }
@@ -249,7 +254,7 @@ public class a {
                 file.mkdirs();
             }
             this.f1580c.put(str, 1);
-            String d2 = c.a.a.b.b.d(this.f1578a, str, str2);
+            String d2 = c.a.a.b.b.d(this.f1579b, str, str2);
             File file2 = new File(d2 + XAdSimpleImageLoader.TEMP_SUFFIX);
             String str3 = "start down folder=" + str2 + "name=" + file2.getName();
             c.a.a.c.a.i().h(str, str2, file2.getName(), looper, new C0012a(this, cVar, str, file2, new File(d2 + ".zip"), d2));
@@ -259,19 +264,23 @@ public class a {
     public void j(@NonNull String str, boolean z, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Boolean.valueOf(z), cVar}) == null) {
-            String b2 = c.a.a.b.b.b(this.f1578a);
+            String b2 = c.a.a.b.b.b(this.f1579b);
             if (TextUtils.isEmpty(str)) {
                 cVar.onDownloadFail(str, 108, "download url is empty.");
             } else if (l(str, b2)) {
                 if (cVar != null) {
-                    cVar.onDownloadSuccess(str, c.a.a.b.b.d(this.f1578a, str, b2));
+                    cVar.onDownloadSuccess(str, c.a.a.b.b.d(this.f1579b, str, b2));
                 }
-            } else if (!z || Looper.getMainLooper().getThread() == Thread.currentThread()) {
-                i(str, b2, Looper.getMainLooper(), cVar);
-            } else {
+            } else if (z) {
+                if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                    i(str, b2, Looper.getMainLooper(), cVar);
+                    return;
+                }
                 Looper.prepare();
                 i(str, b2, Looper.myLooper(), cVar);
                 Looper.loop();
+            } else {
+                i(str, b2, Looper.getMainLooper(), cVar);
             }
         }
     }
@@ -279,7 +288,7 @@ public class a {
     public boolean l(@NonNull String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) ? c.a.a.b.b.m(this.f1578a, str, str2) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) ? c.a.a.b.b.m(this.f1579b, str, str2) : invokeLL.booleanValue;
     }
 
     public final boolean m(String str) {
@@ -294,16 +303,16 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
             File file = new File(str);
             if (file.exists()) {
-                Context context = this.f1578a;
+                Context context = this.f1579b;
                 if (context == null ? false : b.a.a.c.a.c.a().a(context, file)) {
                     return true;
                 }
                 try {
-                    b.a.a.c.a.c.a().b(this.f1578a, file);
+                    b.a.a.c.a.c.a().b(this.f1579b, file);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                Context context2 = this.f1578a;
+                Context context2 = this.f1579b;
                 if (context2 == null) {
                     return false;
                 }
@@ -314,9 +323,19 @@ public class a {
         return invokeL.booleanValue;
     }
 
-    public void o(String str) {
+    public void o() {
+        List<c> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (list = this.f1578a) == null) {
+            return;
+        }
+        list.clear();
+        this.f1578a = null;
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             c.a.a.b.b.o(str);
         }
     }

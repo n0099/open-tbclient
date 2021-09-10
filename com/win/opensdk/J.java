@@ -15,7 +15,7 @@ public class J extends WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ H5OpenActivity f76625a;
+    public final /* synthetic */ H5OpenActivity f76805a;
 
     public J(H5OpenActivity h5OpenActivity) {
         Interceptable interceptable = $ic;
@@ -32,19 +32,19 @@ public class J extends WebChromeClient {
                 return;
             }
         }
-        this.f76625a = h5OpenActivity;
+        this.f76805a = h5OpenActivity;
     }
 
     @Override // android.webkit.WebChromeClient
     public void onProgressChanged(WebView webView, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i2) == null) {
-            ProgressBar progressBar = this.f76625a.f76780b;
+            ProgressBar progressBar = this.f76805a.f76960b;
             if (progressBar != null) {
                 progressBar.setVisibility(0);
-                this.f76625a.f76780b.setProgress(i2);
+                this.f76805a.f76960b.setProgress(i2);
                 if (i2 == 100) {
-                    this.f76625a.f76780b.setVisibility(8);
+                    this.f76805a.f76960b.setVisibility(8);
                 }
             }
             super.onProgressChanged(webView, i2);

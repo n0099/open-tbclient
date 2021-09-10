@@ -14,7 +14,7 @@ public class c implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RandomAccessFile f38263a;
+    public RandomAccessFile f38382a;
 
     public c(RandomAccessFile randomAccessFile) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class c implements d {
         if (randomAccessFile == null) {
             throw new NullPointerException("input RandomAccessFile is null");
         }
-        this.f38263a = randomAccessFile;
+        this.f38382a = randomAccessFile;
     }
 
     @Override // com.baidu.appsearch.update.patchupdate.d
@@ -42,7 +42,7 @@ public class c implements d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) {
-            int read = this.f38263a.read(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
+            int read = this.f38382a.read(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
             if (read == -1) {
                 return -1;
             }
@@ -56,7 +56,7 @@ public class c implements d {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f38263a.seek(j2);
+            this.f38382a.seek(j2);
         }
     }
 
@@ -64,7 +64,7 @@ public class c implements d {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f38263a.close();
+            this.f38382a.close();
         }
     }
 }

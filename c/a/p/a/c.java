@@ -21,34 +21,34 @@ import io.flutter.view.TextureRegistry;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnVideoSizeChangedListener, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnMediaSourceChangedListener, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextureRegistry.SurfaceTextureEntry f12475e;
+    public TextureRegistry.SurfaceTextureEntry f4360e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<Context> f12476f;
+    public WeakReference<Context> f4361f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12477g;
+    public String f4362g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f12478h;
+    public Context f4363h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FlutterCyberView f12479i;
+    public FlutterCyberView f4364i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Surface f12480j;
+    public Surface f4365j;
     public CyberPlayer k;
     public long l;
     public MethodChannel m;
     public a n;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void a(long j2);
     }
@@ -68,35 +68,35 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
                 return;
             }
         }
-        this.f12476f = new WeakReference<>(context);
-        this.f12475e = surfaceTextureEntry;
-        this.f12477g = str;
-        this.f12478h = context;
+        this.f4361f = new WeakReference<>(context);
+        this.f4360e = surfaceTextureEntry;
+        this.f4362g = str;
+        this.f4363h = context;
         FlutterCyberView flutterCyberView = new FlutterCyberView(context);
-        this.f12479i = flutterCyberView;
+        this.f4364i = flutterCyberView;
         flutterCyberView.setOnPreparedListener(this);
-        this.f12479i.setOnCompletionListener(this);
-        this.f12479i.setOnErrorListener(this);
-        this.f12479i.setOnInfoListener(this);
-        this.f12479i.setOnBufferingUpdateListener(this);
-        this.f12479i.setOnSeekCompleteListener(this);
-        this.f12479i.setOnMediaSourceChangedListener(this);
+        this.f4364i.setOnCompletionListener(this);
+        this.f4364i.setOnErrorListener(this);
+        this.f4364i.setOnInfoListener(this);
+        this.f4364i.setOnBufferingUpdateListener(this);
+        this.f4364i.setOnSeekCompleteListener(this);
+        this.f4364i.setOnMediaSourceChangedListener(this);
         if (hashMap != null) {
             g(hashMap);
         }
         if (str2 != null) {
-            this.f12479i.setClarityInfo(str2);
+            this.f4364i.setClarityInfo(str2);
         }
         if (i2 != -1) {
-            this.f12479i.switchMediaSource(i2);
+            this.f4364i.switchMediaSource(i2);
         }
-        this.f12479i.setVideoPath(str);
-        this.f12479i.setLooping(z);
-        this.f12479i.setContinuePlayEnable(true);
-        this.f12480j = new Surface(surfaceTextureEntry.surfaceTexture());
-        CyberPlayer cyberPlayer = this.f12479i.getCyberPlayer();
+        this.f4364i.setVideoPath(str);
+        this.f4364i.setLooping(z);
+        this.f4364i.setContinuePlayEnable(true);
+        this.f4365j = new Surface(surfaceTextureEntry.surfaceTexture());
+        CyberPlayer cyberPlayer = this.f4364i.getCyberPlayer();
         this.k = cyberPlayer;
-        cyberPlayer.setSurface(this.f12480j);
+        cyberPlayer.setSurface(this.f4365j);
         this.l = surfaceTextureEntry.id();
         MethodChannel methodChannel = new MethodChannel(binaryMessenger, "bd_video_player_" + this.l);
         this.m = methodChannel;
@@ -111,15 +111,15 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
                 methodChannel.setMethodCallHandler(null);
                 this.m = null;
             }
-            FlutterCyberView flutterCyberView = this.f12479i;
+            FlutterCyberView flutterCyberView = this.f4364i;
             if (flutterCyberView != null) {
                 flutterCyberView.stop();
             }
-            Surface surface = this.f12480j;
+            Surface surface = this.f4365j;
             if (surface != null) {
                 surface.release();
             }
-            TextureRegistry.SurfaceTextureEntry surfaceTextureEntry = this.f12475e;
+            TextureRegistry.SurfaceTextureEntry surfaceTextureEntry = this.f4360e;
             if (surfaceTextureEntry != null) {
                 surfaceTextureEntry.release();
             }
@@ -141,16 +141,16 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, methodCall, result) == null) {
             if (methodCall.method.equals("contentURL")) {
-                this.f12479i.setVideoPath((String) methodCall.arguments);
+                this.f4364i.setVideoPath((String) methodCall.arguments);
                 result.success(Boolean.TRUE);
             } else if (methodCall.method.equals("scalModel")) {
-                this.f12479i.setVideoScalingMode(((Integer) methodCall.arguments).intValue());
+                this.f4364i.setVideoScalingMode(((Integer) methodCall.arguments).intValue());
                 result.success(Boolean.TRUE);
             } else if (methodCall.method.equals("setVideoRotation")) {
-                this.f12479i.setVideoRotation(((Integer) methodCall.arguments).intValue());
+                this.f4364i.setVideoRotation(((Integer) methodCall.arguments).intValue());
                 result.success(Boolean.TRUE);
             } else if (methodCall.method.equals("setVideoDecodeMode")) {
-                this.f12479i.setDecodeMode(((Integer) methodCall.arguments).intValue());
+                this.f4364i.setDecodeMode(((Integer) methodCall.arguments).intValue());
                 result.success(Boolean.TRUE);
             } else if (methodCall.method.equals("getNaturalSize")) {
                 int videoWidth = this.k.getVideoWidth();
@@ -166,7 +166,7 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f12479i.pause();
+            this.f4364i.pause();
         }
     }
 
@@ -182,11 +182,11 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             if (z) {
                 this.k.setVolume(0.0f, 0.0f);
-                b.a(this.f12476f, true);
+                b.a(this.f4361f, true);
                 return;
             }
             this.k.setVolume(1.0f, 1.0f);
-            b.a(this.f12476f, false);
+            b.a(this.f4361f, false);
         }
     }
 
@@ -194,7 +194,7 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, hashMap) == null) {
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                this.f12479i.setOption(entry.getKey(), entry.getValue());
+                this.f4364i.setOption(entry.getKey(), entry.getValue());
             }
         }
     }
@@ -202,7 +202,7 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12479i.isPlaying() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f4364i.isPlaying() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
@@ -217,7 +217,7 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
     public void onCompletion() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            d.b().c(this.f12477g);
+            d.b().c(this.f4362g);
             this.m.invokeMethod("onCompletion", "");
         }
     }
@@ -272,7 +272,7 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
                 a();
                 result.success(Boolean.TRUE);
             } else if (methodCall.method.equals("reset")) {
-                this.f12479i.reset();
+                this.f4364i.reset();
                 result.success(Boolean.TRUE);
             } else if (methodCall.method.equals("setMute")) {
                 f(((Boolean) methodCall.arguments).booleanValue());
@@ -296,27 +296,27 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
                 if (doubleValue2 > duration) {
                     doubleValue2 = duration;
                 }
-                this.f12479i.seekTo(doubleValue2);
+                this.f4364i.seekTo(doubleValue2);
                 result.success(Boolean.TRUE);
             } else if (methodCall.method.equals("setEnableLooping")) {
-                this.f12479i.setLooping(((Boolean) methodCall.arguments).booleanValue());
+                this.f4364i.setLooping(((Boolean) methodCall.arguments).booleanValue());
                 result.success(Boolean.TRUE);
             } else if (methodCall.method.equals("getDownloadSpeed")) {
-                result.success(Long.valueOf(this.f12479i.getDownloadSpeed()));
+                result.success(Long.valueOf(this.f4364i.getDownloadSpeed()));
             } else if (methodCall.method.equals("setDecodeMode")) {
-                this.f12479i.setDecodeMode(((Integer) methodCall.arguments).intValue());
+                this.f4364i.setDecodeMode(((Integer) methodCall.arguments).intValue());
                 result.success(Boolean.TRUE);
             } else if (methodCall.method.equals("setExternalInfo")) {
-                this.f12479i.setExternalInfo((String) methodCall.argument("what"), (HashMap) methodCall.argument("info"));
+                this.f4364i.setExternalInfo((String) methodCall.argument("what"), (HashMap) methodCall.argument("info"));
                 result.success(Boolean.TRUE);
             } else if (methodCall.method.equals("setClarityInfo")) {
-                this.f12479i.setClarityInfo((String) methodCall.arguments);
+                this.f4364i.setClarityInfo((String) methodCall.arguments);
                 result.success(Boolean.TRUE);
             } else if (methodCall.method.equals("setPlayJson")) {
-                this.f12479i.setPlayJson((String) methodCall.arguments);
+                this.f4364i.setPlayJson((String) methodCall.arguments);
                 result.success(Boolean.TRUE);
             } else if (methodCall.method.equals("switchMediaSource")) {
-                this.f12479i.switchMediaSource(((Integer) methodCall.arguments).intValue());
+                this.f4364i.switchMediaSource(((Integer) methodCall.arguments).intValue());
                 result.success(Boolean.TRUE);
             } else {
                 c(methodCall, result);
@@ -356,6 +356,6 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
         if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || isPlaying()) {
             return;
         }
-        this.f12479i.start();
+        this.f4364i.start();
     }
 }

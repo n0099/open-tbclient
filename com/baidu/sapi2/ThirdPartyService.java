@@ -44,17 +44,17 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f44452b = 500;
+    public static final long f44567b = 500;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ThirdLoginCallback f44453c;
+    public static ThirdLoginCallback f44568c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f44454d;
+    public static boolean f44569d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f44455a;
+    public long f44570a;
 
     static {
         InterceptResult invokeClinit;
@@ -84,20 +84,20 @@ public class ThirdPartyService implements AbstractThirdPartyService {
                 return;
             }
         }
-        this.f44455a = 0L;
+        this.f44570a = 0L;
         CoreViewRouter.getInstance().setThirdPartyService(this);
     }
 
     public static ThirdLoginCallback getThirdLoginCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f44453c : (ThirdLoginCallback) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f44568c : (ThirdLoginCallback) invokeV.objValue;
     }
 
     public static void releaseThirdLoginCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f44453c = null;
+            f44568c = null;
         }
     }
 
@@ -105,15 +105,15 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     public void handleWXLoginResp(Activity activity, String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048576, this, activity, str, str2, i2) == null) {
-            if (f44454d) {
+            if (f44569d) {
                 if (i2 == 0) {
                     String urlWeixinBind = ParamsUtil.getUrlWeixinBind(SapiAccountManager.getInstance().getConfignation(), str2, str, false);
-                    f44453c.onAuthSuccess();
-                    a.a().a(urlWeixinBind, f44453c);
+                    f44568c.onAuthSuccess();
+                    a.a().a(urlWeixinBind, f44568c);
                 } else {
-                    f44453c.onAuthFailure(i2, OAuthResult.ERROR_MSG_UNKNOWN);
+                    f44568c.onAuthFailure(i2, OAuthResult.ERROR_MSG_UNKNOWN);
                 }
-                f44454d = false;
+                f44569d = false;
                 return;
             }
             Intent intent = new Intent(activity, WXLoginActivity.class);
@@ -150,7 +150,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     public void loadWechatLogin(Context context, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, context, i2) == null) {
-            f44454d = true;
+            f44569d = true;
             Intent intent = new Intent(context, WXLoginActivity.class);
             intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i2);
             if (!(context instanceof Activity)) {
@@ -212,7 +212,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     public void socialBind(Activity activity, SocialType socialType, int i2, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLIL(1048585, this, activity, socialType, i2, str) == null) && socialType == SocialType.WEIXIN) {
-            f44454d = false;
+            f44569d = false;
             Intent intent = new Intent(activity, WXLoginActivity.class);
             intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i2);
             intent.putExtra(AccountCenterActivity.EXTRA_WEIIXIN_BIND_URL, str);
@@ -224,7 +224,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i2, ThirdLoginCallback thirdLoginCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048579, this, context, socialType, i2, thirdLoginCallback) == null) {
-            f44453c = thirdLoginCallback;
+            f44568c = thirdLoginCallback;
             loadThirdPartyLogin(context, socialType, i2, null, false);
         }
     }
@@ -241,10 +241,10 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i2, String str, boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, socialType, Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) || System.currentTimeMillis() - this.f44455a < 500) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, socialType, Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) || System.currentTimeMillis() - this.f44570a < 500) {
             return;
         }
-        this.f44455a = System.currentTimeMillis();
+        this.f44570a = System.currentTimeMillis();
         SapiStatUtil.statThirdLoginEnter(socialType);
         boolean z2 = context instanceof Activity;
         if (socialType == SocialType.SINA_WEIBO_SSO) {
@@ -252,7 +252,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
         } else if (socialType == SocialType.HUAWEI) {
             intent = new Intent(context, HuaweiSSOLoginActivity.class);
         } else if (socialType == SocialType.WEIXIN) {
-            f44454d = false;
+            f44569d = false;
             intent = new Intent(context, WXLoginActivity.class);
         } else if (socialType == SocialType.QQ_SSO) {
             intent = new Intent(context, QQSSOLoginActivity.class);

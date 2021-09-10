@@ -20,10 +20,10 @@ public class UEGCancelModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f57362e;
+    public b f57524e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.e.c.g.a f57363f;
+    public final c.a.e.c.g.a f57525f;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.a {
@@ -31,7 +31,7 @@ public class UEGCancelModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UEGCancelModel f57364a;
+        public final /* synthetic */ UEGCancelModel f57526a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(UEGCancelModel uEGCancelModel, int i2, int i3) {
@@ -52,7 +52,7 @@ public class UEGCancelModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f57364a = uEGCancelModel;
+            this.f57526a = uEGCancelModel;
         }
 
         @Override // c.a.e.c.g.a
@@ -63,14 +63,14 @@ public class UEGCancelModel extends BdBaseModel {
                 return;
             }
             boolean z = responsedMessage instanceof UEGCancelSocketResponseMessage;
-            if ((z || (responsedMessage instanceof UEGCancelResponsedMessage)) && this.f57364a.f57362e != null) {
+            if ((z || (responsedMessage instanceof UEGCancelResponsedMessage)) && this.f57526a.f57524e != null) {
                 if (z) {
                     UEGCancelSocketResponseMessage uEGCancelSocketResponseMessage = (UEGCancelSocketResponseMessage) responsedMessage;
                     if (uEGCancelSocketResponseMessage != null && uEGCancelSocketResponseMessage.getError() == 0) {
-                        this.f57364a.f57362e.a(uEGCancelSocketResponseMessage.getData());
+                        this.f57526a.f57524e.a(uEGCancelSocketResponseMessage.getData());
                     }
                 } else if ((responsedMessage instanceof UEGCancelResponsedMessage) && (uEGCancelResponsedMessage = (UEGCancelResponsedMessage) responsedMessage) != null && uEGCancelResponsedMessage.getError() == 0) {
-                    this.f57364a.f57362e.a(uEGCancelResponsedMessage.getData());
+                    this.f57526a.f57524e.a(uEGCancelResponsedMessage.getData());
                 }
             }
         }
@@ -94,10 +94,10 @@ public class UEGCancelModel extends BdBaseModel {
                 return;
             }
         }
-        this.f57363f = new a(this, CmdConfigHttp.CMD_UEG_CANCEL, 309615);
-        c.a.q0.i3.d0.a.h(309615, UEGCancelSocketResponseMessage.class, false, false);
-        c.a.q0.i3.d0.a.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
-        registerListener(this.f57363f);
+        this.f57525f = new a(this, CmdConfigHttp.CMD_UEG_CANCEL, 309615);
+        c.a.r0.j3.d0.a.h(309615, UEGCancelSocketResponseMessage.class, false, false);
+        c.a.r0.j3.d0.a.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
+        registerListener(this.f57525f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -123,7 +123,7 @@ public class UEGCancelModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f57363f);
+            MessageManager.getInstance().unRegisterListener(this.f57525f);
         }
     }
 
@@ -139,7 +139,7 @@ public class UEGCancelModel extends BdBaseModel {
     public void y(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f57362e = bVar;
+            this.f57524e = bVar;
         }
     }
 }

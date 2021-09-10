@@ -29,10 +29,10 @@ public class a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f35798a = "RecordPref";
+        public static final String f35907a = "RecordPref";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f35799b = "alipay_cashier_statistic_record";
+        public static final String f35908b = "alipay_cashier_statistic_record";
         public transient /* synthetic */ FieldHolder $fh;
 
         public C1561a() {
@@ -54,16 +54,16 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
                 synchronized (C1561a.class) {
-                    com.alipay.sdk.util.c.a(f35798a, "stat append " + str2 + " , " + str);
+                    com.alipay.sdk.util.c.a(f35907a, "stat append " + str2 + " , " + str);
                     if (context != null && !TextUtils.isEmpty(str)) {
                         if (TextUtils.isEmpty(str2)) {
                             str2 = UUID.randomUUID().toString();
                         }
                         C1562a b2 = b(context);
-                        if (b2.f35800a.size() > 20) {
-                            b2.f35800a.clear();
+                        if (b2.f35909a.size() > 20) {
+                            b2.f35909a.clear();
                         }
-                        b2.f35800a.put(str2, str);
+                        b2.f35909a.put(str2, str);
                         a(context, b2);
                         return str2;
                     }
@@ -79,7 +79,7 @@ public class a {
             if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
                 synchronized (C1561a.class) {
                     try {
-                        String b2 = g.b(null, context, f35799b, null);
+                        String b2 = g.b(null, context, f35908b, null);
                         if (TextUtils.isEmpty(b2)) {
                             return new C1562a();
                         }
@@ -100,7 +100,7 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final LinkedHashMap<String, String> f35800a;
+            public final LinkedHashMap<String, String> f35909a;
 
             public C1562a() {
                 Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class a {
                         return;
                     }
                 }
-                this.f35800a = new LinkedHashMap<>();
+                this.f35909a = new LinkedHashMap<>();
             }
 
             public String a() {
@@ -124,7 +124,7 @@ public class a {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     try {
                         JSONArray jSONArray = new JSONArray();
-                        for (Map.Entry<String, String> entry : this.f35800a.entrySet()) {
+                        for (Map.Entry<String, String> entry : this.f35909a.entrySet()) {
                             JSONArray jSONArray2 = new JSONArray();
                             jSONArray2.put(entry.getKey()).put(entry.getValue());
                             jSONArray.put(jSONArray2);
@@ -153,12 +153,12 @@ public class a {
                         return;
                     }
                 }
-                this.f35800a = new LinkedHashMap<>();
+                this.f35909a = new LinkedHashMap<>();
                 try {
                     JSONArray jSONArray = new JSONArray(str);
                     for (int i4 = 0; i4 < jSONArray.length(); i4++) {
                         JSONArray jSONArray2 = jSONArray.getJSONArray(i4);
-                        this.f35800a.put(jSONArray2.getString(0), jSONArray2.getString(1));
+                        this.f35909a.put(jSONArray2.getString(0), jSONArray2.getString(1));
                     }
                 } catch (Throwable th) {
                     com.alipay.sdk.util.c.a(th);
@@ -171,15 +171,15 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
                 synchronized (C1561a.class) {
-                    com.alipay.sdk.util.c.a(f35798a, "stat peek");
+                    com.alipay.sdk.util.c.a(f35907a, "stat peek");
                     if (context == null) {
                         return null;
                     }
                     C1562a b2 = b(context);
-                    if (b2.f35800a.isEmpty()) {
+                    if (b2.f35909a.isEmpty()) {
                         return null;
                     }
-                    return b2.f35800a.entrySet().iterator().next().getValue();
+                    return b2.f35909a.entrySet().iterator().next().getValue();
                 }
             }
             return (String) invokeL.objValue;
@@ -190,21 +190,21 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
                 synchronized (C1561a.class) {
-                    com.alipay.sdk.util.c.a(f35798a, "stat remove " + str);
+                    com.alipay.sdk.util.c.a(f35907a, "stat remove " + str);
                     if (context != null && !TextUtils.isEmpty(str)) {
                         C1562a b2 = b(context);
-                        if (b2.f35800a.isEmpty()) {
+                        if (b2.f35909a.isEmpty()) {
                             return 0;
                         }
                         ArrayList arrayList = new ArrayList();
-                        for (Map.Entry<String, String> entry : b2.f35800a.entrySet()) {
+                        for (Map.Entry<String, String> entry : b2.f35909a.entrySet()) {
                             if (str.equals(entry.getValue())) {
                                 arrayList.add(entry.getKey());
                             }
                         }
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
-                            b2.f35800a.remove((String) it.next());
+                            b2.f35909a.remove((String) it.next());
                         }
                         a(context, b2);
                         return arrayList.size();
@@ -226,7 +226,7 @@ public class a {
                             com.alipay.sdk.util.c.a(th);
                         }
                     }
-                    g.a(null, context, f35799b, c1562a.a());
+                    g.a(null, context, f35908b, c1562a.a());
                 }
             }
         }
@@ -303,10 +303,10 @@ public class a {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ String f35801a;
+                        public final /* synthetic */ String f35910a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ Context f35802b;
+                        public final /* synthetic */ Context f35911b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -323,18 +323,18 @@ public class a {
                                     return;
                                 }
                             }
-                            this.f35801a = str;
-                            this.f35802b = context;
+                            this.f35910a = str;
+                            this.f35911b = context;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                if (TextUtils.isEmpty(this.f35801a) || b.b(this.f35802b, this.f35801a)) {
+                                if (TextUtils.isEmpty(this.f35910a) || b.b(this.f35911b, this.f35910a)) {
                                     for (int i2 = 0; i2 < 4; i2++) {
-                                        String a2 = C1561a.a(this.f35802b);
-                                        if (TextUtils.isEmpty(a2) || !b.b(this.f35802b, a2)) {
+                                        String a2 = C1561a.a(this.f35911b);
+                                        if (TextUtils.isEmpty(a2) || !b.b(this.f35911b, a2)) {
                                             return;
                                         }
                                     }
@@ -352,7 +352,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f35803a = "alipay_cashier_statistic_v";
+        public static final String f35912a = "alipay_cashier_statistic_v";
         public transient /* synthetic */ FieldHolder $fh;
 
         public c() {
@@ -377,7 +377,7 @@ public class a {
                 synchronized (c.class) {
                     long j3 = 0;
                     try {
-                        String b2 = g.b(null, context, f35803a, null);
+                        String b2 = g.b(null, context, f35912a, null);
                         if (!TextUtils.isEmpty(b2)) {
                             j3 = Long.parseLong(b2);
                         }
@@ -385,7 +385,7 @@ public class a {
                     }
                     j2 = j3 + 1;
                     try {
-                        g.a(null, context, f35803a, Long.toString(j2));
+                        g.a(null, context, f35912a, Long.toString(j2));
                     } catch (Throwable unused2) {
                     }
                 }

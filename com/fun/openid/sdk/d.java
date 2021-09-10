@@ -27,10 +27,10 @@ public class d implements f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f69847a;
+        public boolean f70027a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final LinkedBlockingQueue<IBinder> f69848b;
+        public final LinkedBlockingQueue<IBinder> f70028b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -45,19 +45,19 @@ public class d implements f {
                     return;
                 }
             }
-            this.f69847a = false;
-            this.f69848b = new LinkedBlockingQueue<>();
+            this.f70027a = false;
+            this.f70028b = new LinkedBlockingQueue<>();
         }
 
         public IBinder a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f69847a) {
+                if (this.f70027a) {
                     throw new IllegalStateException();
                 }
-                this.f69847a = true;
-                return this.f69848b.poll(5L, TimeUnit.SECONDS);
+                this.f70027a = true;
+                return this.f70028b.poll(5L, TimeUnit.SECONDS);
             }
             return (IBinder) invokeV.objValue;
         }
@@ -67,7 +67,7 @@ public class d implements f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
                 try {
-                    this.f69848b.put(iBinder);
+                    this.f70028b.put(iBinder);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }

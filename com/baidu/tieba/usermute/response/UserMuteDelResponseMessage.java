@@ -51,7 +51,7 @@ public class UserMuteDelResponseMessage extends JsonHttpResponsedMessage {
     public int getMuteErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b.d(this.errorNo, -1) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b.e(this.errorNo, -1) : invokeV.intValue;
     }
 
     public String getMuteMessage() {

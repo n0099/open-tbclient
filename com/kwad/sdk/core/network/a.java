@@ -19,11 +19,11 @@ public abstract class a<R extends g> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ExecutorService f71781a;
+    public static final ExecutorService f71961a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Future<?> f71782b;
+    public Future<?> f71962b;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public abstract class a<R extends g> {
                 return;
             }
         }
-        f71781a = com.kwad.sdk.core.i.b.h();
+        f71961a = com.kwad.sdk.core.i.b.h();
     }
 
     public a() {
@@ -64,12 +64,12 @@ public abstract class a<R extends g> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                this.f71782b = f71781a.submit(new Runnable(this) { // from class: com.kwad.sdk.core.network.a.1
+                this.f71962b = f71961a.submit(new Runnable(this) { // from class: com.kwad.sdk.core.network.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f71783a;
+                    public final /* synthetic */ a f71963a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -86,7 +86,7 @@ public abstract class a<R extends g> {
                                 return;
                             }
                         }
-                        this.f71783a = this;
+                        this.f71963a = this;
                     }
 
                     @Override // java.lang.Runnable
@@ -94,7 +94,7 @@ public abstract class a<R extends g> {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                this.f71783a.f();
+                                this.f71963a.f();
                             } catch (Exception e2) {
                                 com.kwad.sdk.core.d.a.a(e2);
                             }
@@ -111,7 +111,7 @@ public abstract class a<R extends g> {
     public void e() {
         Future<?> future;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (future = this.f71782b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (future = this.f71962b) == null) {
             return;
         }
         future.cancel(true);

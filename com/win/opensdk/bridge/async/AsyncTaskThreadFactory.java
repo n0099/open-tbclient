@@ -36,7 +36,7 @@ public class AsyncTaskThreadFactory implements ThreadFactory {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Runnable f76792a;
+                public final /* synthetic */ Runnable f76972a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -53,7 +53,7 @@ public class AsyncTaskThreadFactory implements ThreadFactory {
                             return;
                         }
                     }
-                    this.f76792a = runnable;
+                    this.f76972a = runnable;
                 }
 
                 @Override // java.lang.Runnable
@@ -65,7 +65,7 @@ public class AsyncTaskThreadFactory implements ThreadFactory {
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
-                        this.f76792a.run();
+                        this.f76972a.run();
                     }
                 }
             }, "JsBridge AsyncTaskExecutor");

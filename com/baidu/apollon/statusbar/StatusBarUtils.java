@@ -132,13 +132,13 @@ public class StatusBarUtils {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f38058a;
+            public final /* synthetic */ View f38177a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ ViewGroup.LayoutParams f38059b;
+            public final /* synthetic */ ViewGroup.LayoutParams f38178b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Context f38060c;
+            public final /* synthetic */ Context f38179c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -155,9 +155,9 @@ public class StatusBarUtils {
                         return;
                     }
                 }
-                this.f38058a = view;
-                this.f38059b = layoutParams;
-                this.f38060c = context;
+                this.f38177a = view;
+                this.f38178b = layoutParams;
+                this.f38179c = context;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -166,11 +166,11 @@ public class StatusBarUtils {
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || Build.VERSION.SDK_INT < 19) {
                     return;
                 }
-                this.f38058a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                this.f38059b.height = this.f38058a.getHeight() + StatusBarUtils.getStatusBarHeight(this.f38060c);
-                View view2 = this.f38058a;
-                view2.setPadding(view2.getPaddingLeft(), this.f38058a.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f38060c), this.f38058a.getPaddingRight(), this.f38058a.getPaddingBottom());
-                this.f38058a.setLayoutParams(this.f38059b);
+                this.f38177a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                this.f38178b.height = this.f38177a.getHeight() + StatusBarUtils.getStatusBarHeight(this.f38179c);
+                View view2 = this.f38177a;
+                view2.setPadding(view2.getPaddingLeft(), this.f38177a.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f38179c), this.f38177a.getPaddingRight(), this.f38177a.getPaddingBottom());
+                this.f38177a.setLayoutParams(this.f38178b);
             }
         });
     }

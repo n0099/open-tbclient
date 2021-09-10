@@ -41,9 +41,8 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("com.baidu.ar.vo.VOAR", 1300);
-            Integer valueOf = Integer.valueOf((int) FeatureCodes.POSE);
-            hashMap.put("com.baidu.ar.pose.PoseAR", valueOf);
-            hashMap.put("com.baidu.ar.stretch.StretchAR", valueOf);
+            hashMap.put("com.baidu.ar.pose.PoseAR", 1400);
+            hashMap.put("com.baidu.ar.stretch.StretchAR", 1400);
             hashMap.put("com.baidu.ar.gesture.GestureAR", 1500);
             return hashMap;
         }
@@ -59,9 +58,8 @@ public class a {
             hashMap.put("ability_face_filter", 1000);
             hashMap.put("ability_makeup_filter", Integer.valueOf((int) FeatureCodes.BEAUTY_MAKEUP));
             hashMap.put("ability_vo", 1300);
-            Integer valueOf = Integer.valueOf((int) FeatureCodes.POSE);
-            hashMap.put("ability_pose", valueOf);
-            hashMap.put("ability_body_detect", valueOf);
+            hashMap.put("ability_pose", 1400);
+            hashMap.put("ability_body_detect", 1400);
             hashMap.put("ability_gesture", 1500);
             hashMap.put("ability_image_segmentation", Integer.valueOf((int) FeatureCodes.BODY_SEG));
             hashMap.put("ability_sky_segmentation", 1900);

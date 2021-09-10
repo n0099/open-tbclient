@@ -13,7 +13,7 @@ public final class PoiSortType {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ PoiSortType[] f41731a;
+    public static final /* synthetic */ PoiSortType[] f41842a;
     public static final PoiSortType comprehensive;
     public static final PoiSortType distance_from_near_to_far;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public final class PoiSortType {
         comprehensive = new PoiSortType("comprehensive", 0);
         PoiSortType poiSortType = new PoiSortType("distance_from_near_to_far", 1);
         distance_from_near_to_far = poiSortType;
-        f41731a = new PoiSortType[]{comprehensive, poiSortType};
+        f41842a = new PoiSortType[]{comprehensive, poiSortType};
     }
 
     public PoiSortType(String str, int i2) {
@@ -65,6 +65,6 @@ public final class PoiSortType {
     public static PoiSortType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PoiSortType[]) f41731a.clone() : (PoiSortType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PoiSortType[]) f41842a.clone() : (PoiSortType[]) invokeV.objValue;
     }
 }

@@ -14,7 +14,7 @@ public class am extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ al f77167a;
+    public final /* synthetic */ al f77347a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public am(al alVar, Looper looper) {
@@ -34,7 +34,7 @@ public class am extends Handler {
                 return;
             }
         }
-        this.f77167a = alVar;
+        this.f77347a = alVar;
     }
 
     @Override // android.os.Handler

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shadow.ShadowRenderer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ShapePath {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float ANGLE_LEFT = 180.0f;
@@ -276,7 +276,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PathCubicOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -401,7 +401,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PathLineOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -435,7 +435,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -460,7 +460,7 @@ public class ShapePath {
         public abstract void applyToPath(Matrix matrix, Path path);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PathQuadOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -556,7 +556,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class ShadowCompatOperation {
         public static /* synthetic */ Interceptable $ic;
         public static final Matrix IDENTITY_MATRIX;

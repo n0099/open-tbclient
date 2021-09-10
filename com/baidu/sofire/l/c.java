@@ -16,10 +16,10 @@ public final class c implements com.baidu.sofire.j.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f45267a;
+    public b f45382a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45268b;
+    public String f45383b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class c implements com.baidu.sofire.j.b {
                 return;
             }
         }
-        this.f45267a = null;
+        this.f45382a = null;
     }
 
     @Override // com.baidu.sofire.j.b
@@ -42,11 +42,11 @@ public final class c implements com.baidu.sofire.j.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, cVar) == null) {
             b bVar = new b(context, cVar);
-            this.f45267a = bVar;
+            this.f45382a = bVar;
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            bVar.f45262b.bindService(intent, bVar.f45264d, 1);
+            bVar.f45377b.bindService(intent, bVar.f45379d, 1);
         }
     }
 
@@ -55,13 +55,13 @@ public final class c implements com.baidu.sofire.j.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.f45268b)) {
-                b bVar = this.f45267a;
-                String a2 = bVar.f45261a == null ? "" : bVar.a("OUID");
-                this.f45268b = a2;
+            if (TextUtils.isEmpty(this.f45383b)) {
+                b bVar = this.f45382a;
+                String a2 = bVar.f45376a == null ? "" : bVar.a("OUID");
+                this.f45383b = a2;
                 return a2;
             }
-            return this.f45268b;
+            return this.f45383b;
         }
         return (String) invokeV.objValue;
     }

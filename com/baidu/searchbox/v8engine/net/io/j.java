@@ -11,7 +11,7 @@ public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f45042a;
+    public static final Charset f45157a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public final class j {
                 return;
             }
         }
-        f45042a = Charset.forName("UTF-8");
+        f45157a = Charset.forName("UTF-8");
     }
 
     public static void a(long j2, long j3, long j4) {

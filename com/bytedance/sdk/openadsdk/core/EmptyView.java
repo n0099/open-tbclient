@@ -26,35 +26,35 @@ public class EmptyView extends View implements w.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f65956a;
+    public boolean f66136a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f65957b;
+    public boolean f66137b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f65958c;
+    public a f66138c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f65959d;
+    public View f66139d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Activity> f65960e;
+    public WeakReference<Activity> f66140e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<View> f65961f;
+    public List<View> f66141f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public List<View> f65962g;
+    public List<View> f66142g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f65963h;
+    public boolean f66143h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f65964i;
+    public int f66144i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Handler f65965j;
+    public final Handler f66145j;
     public final AtomicBoolean k;
 
     /* loaded from: classes9.dex */
@@ -86,19 +86,19 @@ public class EmptyView extends View implements w.a {
                 return;
             }
         }
-        this.f65965j = new com.bytedance.sdk.component.utils.w(Looper.getMainLooper(), this);
+        this.f66145j = new com.bytedance.sdk.component.utils.w(Looper.getMainLooper(), this);
         this.k = new AtomicBoolean(true);
         if (context instanceof Activity) {
-            this.f65960e = new WeakReference<>((Activity) context);
+            this.f66140e = new WeakReference<>((Activity) context);
         }
-        this.f65959d = view;
+        this.f66139d = view;
         setLayoutParams(new ViewGroup.LayoutParams(0, 0));
     }
 
     private void b() {
         a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.k.getAndSet(false) && (aVar = this.f65958c) != null) {
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.k.getAndSet(false) && (aVar = this.f66138c) != null) {
             aVar.a();
         }
     }
@@ -106,7 +106,7 @@ public class EmptyView extends View implements w.a {
     private void c() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.k.getAndSet(true) || (aVar = this.f65958c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.k.getAndSet(true) || (aVar = this.f66138c) == null) {
             return;
         }
         aVar.b();
@@ -114,18 +114,18 @@ public class EmptyView extends View implements w.a {
 
     private void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f65957b && !this.f65956a) {
-            this.f65956a = true;
-            this.f65965j.sendEmptyMessage(1);
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f66137b && !this.f66136a) {
+            this.f66136a = true;
+            this.f66145j.sendEmptyMessage(1);
         }
     }
 
     private void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f65956a) {
-            this.f65965j.removeMessages(1);
-            this.f65965j.removeMessages(2);
-            this.f65956a = false;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f66136a) {
+            this.f66145j.removeMessages(1);
+            this.f66145j.removeMessages(2);
+            this.f66136a = false;
         }
     }
 
@@ -135,9 +135,9 @@ public class EmptyView extends View implements w.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
             boolean a2 = com.bytedance.sdk.openadsdk.q.q.a();
-            WeakReference<Activity> weakReference = this.f65960e;
+            WeakReference<Activity> weakReference = this.f66140e;
             boolean z = (weakReference == null || (activity = weakReference.get()) == null || activity.isFinishing()) ? false : true;
-            boolean a3 = y.a(this.f65959d, 20, this.f65964i);
+            boolean a3 = y.a(this.f66139d, 20, this.f66144i);
             if (!a2) {
                 a3 = true;
             }
@@ -152,8 +152,8 @@ public class EmptyView extends View implements w.a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a(this.f65961f, null);
-            a(this.f65962g, null);
+            a(this.f66141f, null);
+            a(this.f66142g, null);
         }
     }
 
@@ -163,7 +163,7 @@ public class EmptyView extends View implements w.a {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAttachedToWindow();
             d();
-            this.f65963h = false;
+            this.f66143h = false;
             b();
         }
     }
@@ -174,7 +174,7 @@ public class EmptyView extends View implements w.a {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
             e();
-            this.f65963h = true;
+            this.f66143h = true;
             c();
         }
     }
@@ -202,7 +202,7 @@ public class EmptyView extends View implements w.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             super.onWindowFocusChanged(z);
-            a aVar = this.f65958c;
+            a aVar = this.f66138c;
             if (aVar != null) {
                 aVar.a(z);
             }
@@ -212,24 +212,24 @@ public class EmptyView extends View implements w.a {
     public void setAdType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f65964i = i2;
+            this.f66144i = i2;
         }
     }
 
     public void setCallback(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f65958c = aVar;
+            this.f66138c = aVar;
         }
     }
 
     public void setNeedCheckingShow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f65957b = z;
-            if (!z && this.f65956a) {
+            this.f66137b = z;
+            if (!z && this.f66136a) {
                 e();
-            } else if (!z || this.f65956a) {
+            } else if (!z || this.f66136a) {
             } else {
                 d();
             }
@@ -239,14 +239,14 @@ public class EmptyView extends View implements w.a {
     public void setRefClickViews(List<View> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            this.f65961f = list;
+            this.f66141f = list;
         }
     }
 
     public void setRefCreativeViews(@Nullable List<View> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.f65962g = list;
+            this.f66142g = list;
         }
     }
 
@@ -270,23 +270,23 @@ public class EmptyView extends View implements w.a {
                     return;
                 }
                 if (f()) {
-                    this.f65965j.sendEmptyMessageDelayed(2, 1000L);
-                } else if (this.f65963h) {
+                    this.f66145j.sendEmptyMessageDelayed(2, 1000L);
+                } else if (this.f66143h) {
                 } else {
                     setNeedCheckingShow(true);
                 }
-            } else if (this.f65956a) {
-                if (y.a(this.f65959d, 20, this.f65964i)) {
+            } else if (this.f66136a) {
+                if (y.a(this.f66139d, 20, this.f66144i)) {
                     e();
-                    this.f65965j.sendEmptyMessageDelayed(2, 1000L);
-                    a aVar = this.f65958c;
+                    this.f66145j.sendEmptyMessageDelayed(2, 1000L);
+                    a aVar = this.f66138c;
                     if (aVar != null) {
-                        aVar.a(this.f65959d);
+                        aVar.a(this.f66139d);
                         return;
                     }
                     return;
                 }
-                this.f65965j.sendEmptyMessageDelayed(1, 1000L);
+                this.f66145j.sendEmptyMessageDelayed(1, 1000L);
             }
         }
     }

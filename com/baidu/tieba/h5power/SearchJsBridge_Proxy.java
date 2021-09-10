@@ -1,9 +1,9 @@
 package com.baidu.tieba.h5power;
 
 import c.a.e.e.p.k;
-import c.a.q0.i3.m0.d.a;
-import c.a.q0.i3.m0.d.c;
-import c.a.q0.i3.m0.d.e;
+import c.a.r0.j3.m0.d.a;
+import c.a.r0.j3.m0.d.c;
+import c.a.r0.j3.m0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ public class SearchJsBridge_Proxy extends a {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // c.a.q0.i3.m0.d.a
+    @Override // c.a.r0.j3.m0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -54,57 +54,62 @@ public class SearchJsBridge_Proxy extends a {
             String b2 = eVar.b();
             JSONObject e2 = eVar.e();
             if (b2.equals("hybrid/deleteSearchHistory")) {
-                cVar.o(true);
+                cVar.p(true);
                 c deleteSearchHistory = this.mJsBridge.deleteSearchHistory(e2.optString("query"));
                 if (deleteSearchHistory != null) {
-                    cVar.t(deleteSearchHistory.e());
-                    cVar.q(deleteSearchHistory.b());
-                    cVar.l(deleteSearchHistory.a());
+                    cVar.v(deleteSearchHistory.f());
+                    cVar.r(deleteSearchHistory.b());
+                    cVar.m(deleteSearchHistory.a());
+                    cVar.u(deleteSearchHistory.e());
                 }
-                cVar.u(0);
+                cVar.w(0);
             } else if (b2.equals("hybrid/deleteAllSearchHistory")) {
-                cVar.o(true);
+                cVar.p(true);
                 c deleteAllSearchHistory = this.mJsBridge.deleteAllSearchHistory();
                 if (deleteAllSearchHistory != null) {
-                    cVar.t(deleteAllSearchHistory.e());
-                    cVar.q(deleteAllSearchHistory.b());
-                    cVar.l(deleteAllSearchHistory.a());
+                    cVar.v(deleteAllSearchHistory.f());
+                    cVar.r(deleteAllSearchHistory.b());
+                    cVar.m(deleteAllSearchHistory.a());
+                    cVar.u(deleteAllSearchHistory.e());
                 }
-                cVar.u(0);
+                cVar.w(0);
             } else if (b2.equals("hybrid/openSearchPage")) {
-                cVar.o(true);
+                cVar.p(true);
                 c openSearchPage = this.mJsBridge.openSearchPage(e2.optString("query"), e2.optInt("subType"));
                 if (openSearchPage != null) {
-                    cVar.t(openSearchPage.e());
-                    cVar.q(openSearchPage.b());
-                    cVar.l(openSearchPage.a());
+                    cVar.v(openSearchPage.f());
+                    cVar.r(openSearchPage.b());
+                    cVar.m(openSearchPage.a());
+                    cVar.u(openSearchPage.e());
                 }
-                cVar.u(0);
+                cVar.w(0);
             } else if (b2.equals("hybrid/getSearchHistory")) {
-                cVar.o(true);
+                cVar.p(true);
                 c searchHistoryJson = this.mJsBridge.getSearchHistoryJson();
                 if (searchHistoryJson != null) {
-                    cVar.t(searchHistoryJson.e());
-                    cVar.q(searchHistoryJson.b());
-                    cVar.l(searchHistoryJson.a());
+                    cVar.v(searchHistoryJson.f());
+                    cVar.r(searchHistoryJson.b());
+                    cVar.m(searchHistoryJson.a());
+                    cVar.u(searchHistoryJson.e());
                 }
-                cVar.u(0);
+                cVar.w(0);
             } else if (b2.equals("hybrid/getSearchAdCookie")) {
-                cVar.o(true);
+                cVar.p(true);
                 c searchAdCookie = this.mJsBridge.getSearchAdCookie();
                 if (searchAdCookie != null) {
-                    cVar.t(searchAdCookie.e());
-                    cVar.q(searchAdCookie.b());
-                    cVar.l(searchAdCookie.a());
+                    cVar.v(searchAdCookie.f());
+                    cVar.r(searchAdCookie.b());
+                    cVar.m(searchAdCookie.a());
+                    cVar.u(searchAdCookie.e());
                 }
-                cVar.u(0);
+                cVar.w(0);
             }
             return cVar;
         }
         return (c) invokeLL.objValue;
     }
 
-    @Override // c.a.q0.i3.m0.d.a
+    @Override // c.a.r0.j3.m0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

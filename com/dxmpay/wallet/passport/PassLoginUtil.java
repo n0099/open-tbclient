@@ -39,22 +39,22 @@ public class PassLoginUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile OpenBdussResult f69685a;
+    public volatile OpenBdussResult f69865a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CountDownTimer f69686b;
+    public CountDownTimer f69866b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CountDownTimer f69687c;
+    public CountDownTimer f69867c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f69688d;
+    public boolean f69868d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f69689e;
+    public long f69869e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f69690f;
+    public boolean f69870f;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
@@ -62,13 +62,13 @@ public class PassLoginUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f69691e;
+        public final /* synthetic */ boolean f69871e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ILoginBackListener f69692f;
+        public final /* synthetic */ ILoginBackListener f69872f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PassLoginUtil f69693g;
+        public final /* synthetic */ PassLoginUtil f69873g;
 
         public a(PassLoginUtil passLoginUtil, boolean z, ILoginBackListener iLoginBackListener) {
             Interceptable interceptable = $ic;
@@ -85,16 +85,16 @@ public class PassLoginUtil {
                     return;
                 }
             }
-            this.f69693g = passLoginUtil;
-            this.f69691e = z;
-            this.f69692f = iLoginBackListener;
+            this.f69873g = passLoginUtil;
+            this.f69871e = z;
+            this.f69872f = iLoginBackListener;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f69693g.g(this.f69691e, this.f69692f);
+                this.f69873g.g(this.f69871e, this.f69872f);
             }
         }
     }
@@ -105,13 +105,13 @@ public class PassLoginUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ILoginBackListener f69694a;
+        public final /* synthetic */ ILoginBackListener f69874a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f69695b;
+        public final /* synthetic */ boolean f69875b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PassLoginUtil f69696c;
+        public final /* synthetic */ PassLoginUtil f69876c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PassLoginUtil passLoginUtil, long j2, long j3, ILoginBackListener iLoginBackListener, boolean z) {
@@ -132,27 +132,27 @@ public class PassLoginUtil {
                     return;
                 }
             }
-            this.f69696c = passLoginUtil;
-            this.f69694a = iLoginBackListener;
-            this.f69695b = z;
+            this.f69876c = passLoginUtil;
+            this.f69874a = iLoginBackListener;
+            this.f69875b = z;
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f69696c.o();
-                this.f69696c.setIntervalDuration(-1L);
-                ILoginBackListener iLoginBackListener = this.f69694a;
-                if ((iLoginBackListener instanceof LoginBackListenerProxy) && this.f69695b) {
+                this.f69876c.o();
+                this.f69876c.setIntervalDuration(-1L);
+                ILoginBackListener iLoginBackListener = this.f69874a;
+                if ((iLoginBackListener instanceof LoginBackListenerProxy) && this.f69875b) {
                     Context context = ((LoginBackListenerProxy) iLoginBackListener).getContext();
-                    ILoginBackListener loginBackListener = ((LoginBackListenerProxy) this.f69694a).getLoginBackListener();
+                    ILoginBackListener loginBackListener = ((LoginBackListenerProxy) this.f69874a).getLoginBackListener();
                     if (loginBackListener != null) {
-                        if (context != null && this.f69696c.f69690f) {
+                        if (context != null && this.f69876c.f69870f) {
                             GlobalUtils.toast(context, ResUtils.getString(context, "dxm_wallet_base_open_bduss_network_error"));
                         }
-                        this.f69696c.setErrorCodeSwitchFlag(true);
-                        this.f69696c.f69688d = true;
+                        this.f69876c.setErrorCodeSwitchFlag(true);
+                        this.f69876c.f69868d = true;
                         loginBackListener.onFail(601, context != null ? ResUtils.getString(context, "dxm_wallet_base_open_bduss_network_error") : "");
                     }
                 }
@@ -173,13 +173,13 @@ public class PassLoginUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f69697a;
+        public final /* synthetic */ boolean f69877a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ILoginBackListener f69698b;
+        public final /* synthetic */ ILoginBackListener f69878b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PassLoginUtil f69699c;
+        public final /* synthetic */ PassLoginUtil f69879c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PassLoginUtil passLoginUtil, long j2, long j3, boolean z, ILoginBackListener iLoginBackListener) {
@@ -200,20 +200,20 @@ public class PassLoginUtil {
                     return;
                 }
             }
-            this.f69699c = passLoginUtil;
-            this.f69697a = z;
-            this.f69698b = iLoginBackListener;
+            this.f69879c = passLoginUtil;
+            this.f69877a = z;
+            this.f69878b = iLoginBackListener;
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f69699c.setIntervalDuration(-1L);
-                if (this.f69699c.f69685a == null && this.f69697a) {
-                    ILoginBackListener iLoginBackListener = this.f69698b;
+                this.f69879c.setIntervalDuration(-1L);
+                if (this.f69879c.f69865a == null && this.f69877a) {
+                    ILoginBackListener iLoginBackListener = this.f69878b;
                     if (iLoginBackListener instanceof LoginBackListenerProxy) {
-                        this.f69699c.c(((LoginBackListenerProxy) iLoginBackListener).getContext());
+                        this.f69879c.c(((LoginBackListenerProxy) iLoginBackListener).getContext());
                     }
                 }
             }
@@ -233,13 +233,13 @@ public class PassLoginUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ILoginBackListener f69700e;
+        public final /* synthetic */ ILoginBackListener f69880e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f69701f;
+        public final /* synthetic */ boolean f69881f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PassLoginUtil f69702g;
+        public final /* synthetic */ PassLoginUtil f69882g;
 
         public d(PassLoginUtil passLoginUtil, ILoginBackListener iLoginBackListener, boolean z) {
             Interceptable interceptable = $ic;
@@ -256,9 +256,9 @@ public class PassLoginUtil {
                     return;
                 }
             }
-            this.f69702g = passLoginUtil;
-            this.f69700e = iLoginBackListener;
-            this.f69701f = z;
+            this.f69882g = passLoginUtil;
+            this.f69880e = iLoginBackListener;
+            this.f69881f = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -269,32 +269,32 @@ public class PassLoginUtil {
             Map<String, String> map2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, openBdussResult) == null) {
-                this.f69702g.i();
-                this.f69702g.o();
-                this.f69702g.setIntervalDuration(-1L);
+                this.f69882g.i();
+                this.f69882g.o();
+                this.f69882g.setIntervalDuration(-1L);
                 if (openBdussResult != null) {
                     StatisticManager.onEventEnd("DXMGetOpenbduss", openBdussResult.getResultCode());
-                    if (this.f69702g.f69688d) {
-                        this.f69702g.m();
+                    if (this.f69882g.f69868d) {
+                        this.f69882g.m();
                         return;
                     }
-                    this.f69702g.f69685a = openBdussResult;
-                    ILoginBackListener iLoginBackListener = this.f69700e;
+                    this.f69882g.f69865a = openBdussResult;
+                    ILoginBackListener iLoginBackListener = this.f69880e;
                     if (iLoginBackListener instanceof LoginBackListenerProxy) {
                         Context context = ((LoginBackListenerProxy) iLoginBackListener).getContext();
-                        ILoginBackListener loginBackListener = ((LoginBackListenerProxy) this.f69700e).getLoginBackListener();
+                        ILoginBackListener loginBackListener = ((LoginBackListenerProxy) this.f69880e).getLoginBackListener();
                         if (!TextUtils.isEmpty(openBdussResult.openBduss) && !TextUtils.isEmpty(openBdussResult.unionid) && (map2 = openBdussResult.tplStokenMap) != null && !TextUtils.isEmpty(map2.get(WalletLoginHelper.getInstance().getTpl()))) {
                             c.f.b.d.a.a().d(openBdussResult.openBduss);
                             if (loginBackListener != null) {
-                                this.f69702g.setErrorCodeSwitchFlag(true);
+                                this.f69882g.setErrorCodeSwitchFlag(true);
                                 loginBackListener.onSuccess(2, openBdussResult.openBduss);
                             }
                         } else if (context == null || loginBackListener == null) {
                         } else {
-                            if (this.f69701f && this.f69702g.f69690f) {
+                            if (this.f69881f && this.f69882g.f69870f) {
                                 GlobalUtils.toast(context, ResUtils.getString(context, "dxm_wallet_base_open_bduss_network_resolve_error"));
                             }
-                            this.f69702g.setErrorCodeSwitchFlag(true);
+                            this.f69882g.setErrorCodeSwitchFlag(true);
                             StatisticManager.onEvent("DXMGetOpenbdussSuccessNoUserInfo");
                             loginBackListener.onFail(602, openBdussResult.getResultMsg());
                         }
@@ -312,36 +312,36 @@ public class PassLoginUtil {
         public void onFailure(OpenBdussResult openBdussResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, openBdussResult) == null) {
-                this.f69702g.i();
-                this.f69702g.o();
-                this.f69702g.setIntervalDuration(-1L);
+                this.f69882g.i();
+                this.f69882g.o();
+                this.f69882g.setIntervalDuration(-1L);
                 if (openBdussResult != null) {
                     StatisticManager.onEventEnd("DXMGetOpenbduss", openBdussResult.getResultCode());
-                    if (this.f69702g.f69688d) {
-                        this.f69702g.m();
+                    if (this.f69882g.f69868d) {
+                        this.f69882g.m();
                         return;
                     }
-                    this.f69702g.logout(false);
-                    ILoginBackListener iLoginBackListener = this.f69700e;
+                    this.f69882g.logout(false);
+                    ILoginBackListener iLoginBackListener = this.f69880e;
                     if (iLoginBackListener instanceof LoginBackListenerProxy) {
                         Context context = ((LoginBackListenerProxy) iLoginBackListener).getContext();
-                        ILoginBackListener loginBackListener = ((LoginBackListenerProxy) this.f69700e).getLoginBackListener();
+                        ILoginBackListener loginBackListener = ((LoginBackListenerProxy) this.f69880e).getLoginBackListener();
                         if (loginBackListener != null) {
                             if (openBdussResult.getResultCode() != 2 && openBdussResult.getResultCode() != 6 && openBdussResult.getResultCode() != -901) {
                                 if (openBdussResult.getResultCode() == -203) {
-                                    if (context != null && this.f69701f && this.f69702g.f69690f) {
+                                    if (context != null && this.f69881f && this.f69882g.f69870f) {
                                         GlobalUtils.toast(context, ResUtils.getString(context, "dxm_wallet_base_open_bduss_network_ssl_error"));
                                     }
-                                    this.f69702g.setErrorCodeSwitchFlag(true);
+                                    this.f69882g.setErrorCodeSwitchFlag(true);
                                     loginBackListener.onFail(605, openBdussResult.getResultMsg());
                                     return;
                                 } else if (openBdussResult.getResultCode() != -201 && openBdussResult.getResultCode() != -202) {
                                     if (openBdussResult.getResultCode() != 3 && openBdussResult.getResultCode() != 4 && openBdussResult.getResultCode() != 7) {
                                         if (openBdussResult.getResultCode() == 1) {
-                                            if (context != null && this.f69701f && this.f69702g.f69690f) {
-                                                this.f69702g.setErrorCodeSwitchFlag(true);
+                                            if (context != null && this.f69881f && this.f69882g.f69870f) {
+                                                this.f69882g.setErrorCodeSwitchFlag(true);
                                                 try {
-                                                    PassLoginDialogUtil.getInstance().showLoginTipDialog(context, this.f69700e, 604, openBdussResult.getResultMsg());
+                                                    PassLoginDialogUtil.getInstance().showLoginTipDialog(context, this.f69880e, 604, openBdussResult.getResultMsg());
                                                     return;
                                                 } catch (Exception e2) {
                                                     LogUtil.e("PassLoginDialog", "dialog Exception", e2);
@@ -350,28 +350,28 @@ public class PassLoginUtil {
                                                     return;
                                                 }
                                             }
-                                            this.f69702g.setErrorCodeSwitchFlag(true);
+                                            this.f69882g.setErrorCodeSwitchFlag(true);
                                             loginBackListener.onFail(604, openBdussResult.getResultMsg());
                                             return;
                                         }
-                                        if (context != null && this.f69701f && this.f69702g.f69690f) {
+                                        if (context != null && this.f69881f && this.f69882g.f69870f) {
                                             GlobalUtils.toast(context, ResUtils.getString(context, "dxm_wallet_base_open_bduss_network_resolve_error"));
                                         }
-                                        this.f69702g.setErrorCodeSwitchFlag(true);
+                                        this.f69882g.setErrorCodeSwitchFlag(true);
                                         loginBackListener.onFail(602, openBdussResult.getResultMsg());
                                         return;
                                     }
-                                    if (context != null && this.f69701f && this.f69702g.f69690f) {
+                                    if (context != null && this.f69881f && this.f69882g.f69870f) {
                                         GlobalUtils.toast(context, ResUtils.getString(context, "dxm_wallet_base_open_bduss_network_resolve_error"));
                                     }
-                                    this.f69702g.setErrorCodeSwitchFlag(true);
+                                    this.f69882g.setErrorCodeSwitchFlag(true);
                                     loginBackListener.onFail(602, openBdussResult.getResultMsg());
                                     return;
                                 } else {
-                                    if (context != null && this.f69701f && this.f69702g.f69690f) {
+                                    if (context != null && this.f69881f && this.f69882g.f69870f) {
                                         GlobalUtils.toast(context, ResUtils.getString(context, "dxm_wallet_base_open_bduss_network_error"));
                                     }
-                                    this.f69702g.setErrorCodeSwitchFlag(true);
+                                    this.f69882g.setErrorCodeSwitchFlag(true);
                                     loginBackListener.onFail(601, openBdussResult.getResultMsg());
                                     return;
                                 }
@@ -403,7 +403,7 @@ public class PassLoginUtil {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final PassLoginUtil f69703a;
+        public static final PassLoginUtil f69883a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -419,7 +419,7 @@ public class PassLoginUtil {
                     return;
                 }
             }
-            f69703a = new PassLoginUtil(null);
+            f69883a = new PassLoginUtil(null);
         }
     }
 
@@ -430,13 +430,13 @@ public class PassLoginUtil {
     public static PassLoginUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? e.f69703a : (PassLoginUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? e.f69883a : (PassLoginUtil) invokeV.objValue;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f69685a = null;
+            this.f69865a = null;
         }
     }
 
@@ -473,23 +473,23 @@ public class PassLoginUtil {
             synchronized (this) {
                 hashMap = new HashMap();
                 if (isLogin()) {
-                    if (!TextUtils.isEmpty(this.f69685a.uid)) {
-                        hashMap.put("pass_uid", this.f69685a.uid);
+                    if (!TextUtils.isEmpty(this.f69865a.uid)) {
+                        hashMap.put("pass_uid", this.f69865a.uid);
                     }
-                    if (!TextUtils.isEmpty(this.f69685a.bduss)) {
-                        hashMap.put("pass_bduss", this.f69685a.bduss);
+                    if (!TextUtils.isEmpty(this.f69865a.bduss)) {
+                        hashMap.put("pass_bduss", this.f69865a.bduss);
                     }
-                    if (!TextUtils.isEmpty(this.f69685a.displayname)) {
-                        hashMap.put("pass_user_name", this.f69685a.displayname);
+                    if (!TextUtils.isEmpty(this.f69865a.displayname)) {
+                        hashMap.put("pass_user_name", this.f69865a.displayname);
                     }
-                    if (!TextUtils.isEmpty(this.f69685a.openBduss)) {
-                        hashMap.put("pass_open_bduss", this.f69685a.openBduss);
+                    if (!TextUtils.isEmpty(this.f69865a.openBduss)) {
+                        hashMap.put("pass_open_bduss", this.f69865a.openBduss);
                     }
-                    if (!TextUtils.isEmpty(this.f69685a.unionid)) {
-                        hashMap.put("pass_union_id", this.f69685a.unionid);
+                    if (!TextUtils.isEmpty(this.f69865a.unionid)) {
+                        hashMap.put("pass_union_id", this.f69865a.unionid);
                     }
-                    if (this.f69685a.tplStokenMap != null && !TextUtils.isEmpty(this.f69685a.tplStokenMap.get(str))) {
-                        hashMap.put("pass_stoken", this.f69685a.tplStokenMap.get(str));
+                    if (this.f69865a.tplStokenMap != null && !TextUtils.isEmpty(this.f69865a.tplStokenMap.get(str))) {
+                        hashMap.put("pass_stoken", this.f69865a.tplStokenMap.get(str));
                     }
                     hashMap.put(IWalletLoginListener.KEY_LOGIN_TYPE, "0");
                 }
@@ -505,7 +505,7 @@ public class PassLoginUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                str = isLogin() ? this.f69685a.openBduss : "";
+                str = isLogin() ? this.f69865a.openBduss : "";
             }
             return str;
         }
@@ -518,7 +518,7 @@ public class PassLoginUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             synchronized (this) {
-                str2 = isLogin() ? this.f69685a.tplStokenMap.get(str) : null;
+                str2 = isLogin() ? this.f69865a.tplStokenMap.get(str) : null;
             }
             return str2;
         }
@@ -532,8 +532,8 @@ public class PassLoginUtil {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
                 str = "";
-                if (isPassLogin() && this.f69685a != null && !TextUtils.isEmpty(this.f69685a.bduss)) {
-                    str = this.f69685a.bduss;
+                if (isPassLogin() && this.f69865a != null && !TextUtils.isEmpty(this.f69865a.bduss)) {
+                    str = this.f69865a.bduss;
                 }
             }
             return str;
@@ -557,15 +557,15 @@ public class PassLoginUtil {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            CountDownTimer countDownTimer = this.f69686b;
+            CountDownTimer countDownTimer = this.f69866b;
             if (countDownTimer != null) {
                 countDownTimer.cancel();
-                this.f69686b = null;
+                this.f69866b = null;
             }
-            CountDownTimer countDownTimer2 = this.f69687c;
+            CountDownTimer countDownTimer2 = this.f69867c;
             if (countDownTimer2 != null) {
                 countDownTimer2.cancel();
-                this.f69687c = null;
+                this.f69867c = null;
             }
         }
     }
@@ -583,8 +583,8 @@ public class PassLoginUtil {
             synchronized (this) {
                 boolean z = false;
                 if (SapiAccountManager.getInstance().isLogin()) {
-                    if (this.f69685a != null && !TextUtils.isEmpty(this.f69685a.openBduss) && !TextUtils.isEmpty(this.f69685a.unionid) && this.f69685a.tplStokenMap != null) {
-                        if (!TextUtils.isEmpty(this.f69685a.tplStokenMap.get(WalletLoginHelper.getInstance().getTpl()))) {
+                    if (this.f69865a != null && !TextUtils.isEmpty(this.f69865a.openBduss) && !TextUtils.isEmpty(this.f69865a.unionid) && this.f69865a.tplStokenMap != null) {
+                        if (!TextUtils.isEmpty(this.f69865a.tplStokenMap.get(WalletLoginHelper.getInstance().getTpl()))) {
                             z = true;
                         }
                     }
@@ -608,7 +608,7 @@ public class PassLoginUtil {
         if ((interceptable == null || interceptable.invokeZL(1048588, this, z, iLoginBackListener) == null) && z) {
             m();
             boolean z2 = iLoginBackListener instanceof LoginBackListenerProxy;
-            long j2 = com.baidu.wallet.passport.PassLoginUtil.f62072c;
+            long j2 = com.baidu.wallet.passport.PassLoginUtil.f62252c;
             if (z2 && (context = ((LoginBackListenerProxy) iLoginBackListener).getContext()) != null && !TextUtils.isEmpty(SdkInitResponse.getInstance().getLoadingDurationInterval(context))) {
                 try {
                     long parseLong = Long.parseLong(SdkInitResponse.getInstance().getLoadingDurationInterval(context));
@@ -621,7 +621,7 @@ public class PassLoginUtil {
             }
             long j3 = j2;
             b bVar = new b(this, j3, j3, iLoginBackListener, z);
-            this.f69687c = bVar;
+            this.f69867c = bVar;
             bVar.start();
         }
     }
@@ -640,7 +640,7 @@ public class PassLoginUtil {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f69688d = false;
+            this.f69868d = false;
         }
     }
 
@@ -648,7 +648,7 @@ public class PassLoginUtil {
         long j2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZL(1048592, this, z, iLoginBackListener) == null) && z) {
-            long j3 = this.f69689e;
+            long j3 = this.f69869e;
             long j4 = 300;
             if (j3 < 0) {
                 if (!TextUtils.isEmpty(SdkInitResponse.getInstance().needShowLoadingInterval)) {
@@ -666,7 +666,7 @@ public class PassLoginUtil {
                 j2 = j3;
             }
             c cVar = new c(this, j2, j2, z, iLoginBackListener);
-            this.f69686b = cVar;
+            this.f69866b = cVar;
             cVar.start();
         }
     }
@@ -695,7 +695,7 @@ public class PassLoginUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             synchronized (this) {
-                this.f69690f = z;
+                this.f69870f = z;
             }
         }
     }
@@ -704,7 +704,7 @@ public class PassLoginUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
             synchronized (this) {
-                this.f69689e = j2;
+                this.f69869e = j2;
             }
         }
     }
@@ -722,9 +722,9 @@ public class PassLoginUtil {
                 return;
             }
         }
-        this.f69688d = false;
-        this.f69689e = -1L;
-        this.f69690f = true;
+        this.f69868d = false;
+        this.f69869e = -1L;
+        this.f69870f = true;
     }
 
     public synchronized void logout(boolean z) {

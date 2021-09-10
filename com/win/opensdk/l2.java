@@ -11,7 +11,7 @@ public class l2 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ CircleProgressbar f76916a;
+    public final /* synthetic */ CircleProgressbar f77096a;
 
     public l2(CircleProgressbar circleProgressbar) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class l2 implements Runnable {
                 return;
             }
         }
-        this.f76916a = circleProgressbar;
+        this.f77096a = circleProgressbar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x0050  */
@@ -42,40 +42,40 @@ public class l2 implements Runnable {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f76916a.removeCallbacks(this);
-            int ordinal = this.f76916a.f77015i.ordinal();
+            this.f77096a.removeCallbacks(this);
+            int ordinal = this.f77096a.f77195i.ordinal();
             if (ordinal == 0) {
-                circleProgressbar = this.f76916a;
-                i2 = circleProgressbar.f77014h + 1;
+                circleProgressbar = this.f77096a;
+                i2 = circleProgressbar.f77194h + 1;
             } else {
                 if (ordinal == 1) {
-                    circleProgressbar = this.f76916a;
-                    i2 = circleProgressbar.f77014h - 1;
+                    circleProgressbar = this.f77096a;
+                    i2 = circleProgressbar.f77194h - 1;
                 }
-                CircleProgressbar circleProgressbar2 = this.f76916a;
-                i3 = circleProgressbar2.f77014h;
+                CircleProgressbar circleProgressbar2 = this.f77096a;
+                i3 = circleProgressbar2.f77194h;
                 if (i3 < 0 && i3 <= 100) {
                     z zVar = circleProgressbar2.l;
                     if (zVar != null) {
                         zVar.a(circleProgressbar2.m, i3);
                     }
-                    this.f76916a.invalidate();
-                    CircleProgressbar circleProgressbar3 = this.f76916a;
-                    circleProgressbar3.postDelayed(circleProgressbar3.n, circleProgressbar3.f77016j / 100);
+                    this.f77096a.invalidate();
+                    CircleProgressbar circleProgressbar3 = this.f77096a;
+                    circleProgressbar3.postDelayed(circleProgressbar3.n, circleProgressbar3.f77196j / 100);
                     return;
                 }
-                CircleProgressbar circleProgressbar4 = this.f76916a;
-                int i4 = circleProgressbar4.f77014h;
-                circleProgressbar4.f77014h = i4 <= 100 ? i4 < 0 ? 0 : i4 : 100;
+                CircleProgressbar circleProgressbar4 = this.f77096a;
+                int i4 = circleProgressbar4.f77194h;
+                circleProgressbar4.f77194h = i4 <= 100 ? i4 < 0 ? 0 : i4 : 100;
             }
-            circleProgressbar.f77014h = i2;
-            CircleProgressbar circleProgressbar22 = this.f76916a;
-            i3 = circleProgressbar22.f77014h;
+            circleProgressbar.f77194h = i2;
+            CircleProgressbar circleProgressbar22 = this.f77096a;
+            i3 = circleProgressbar22.f77194h;
             if (i3 < 0) {
             }
-            CircleProgressbar circleProgressbar42 = this.f76916a;
-            int i42 = circleProgressbar42.f77014h;
-            circleProgressbar42.f77014h = i42 <= 100 ? i42 < 0 ? 0 : i42 : 100;
+            CircleProgressbar circleProgressbar42 = this.f77096a;
+            int i42 = circleProgressbar42.f77194h;
+            circleProgressbar42.f77194h = i42 <= 100 ? i42 < 0 ? 0 : i42 : 100;
         }
     }
 }

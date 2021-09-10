@@ -35,22 +35,22 @@ public class GlShader {
         int compileShader2 = compileShader(35632, str2);
         int glCreateProgram = GLES20.glCreateProgram();
         this.program = glCreateProgram;
-        if (glCreateProgram == 0) {
-            throw new RuntimeException("glCreateProgram() failed. GLES20 error: " + GLES20.glGetError());
+        if (glCreateProgram != 0) {
+            GLES20.glAttachShader(glCreateProgram, compileShader);
+            GLES20.glAttachShader(this.program, compileShader2);
+            GLES20.glLinkProgram(this.program);
+            int[] iArr = {0};
+            GLES20.glGetProgramiv(this.program, 35714, iArr, 0);
+            if (iArr[0] == 1) {
+                GLES20.glDeleteShader(compileShader);
+                GLES20.glDeleteShader(compileShader2);
+                GlUtil.checkNoGLES2Error("Creating GlShader");
+                return;
+            }
+            Logging.e(TAG, "Could not link program: " + GLES20.glGetProgramInfoLog(this.program));
+            throw new RuntimeException(GLES20.glGetProgramInfoLog(this.program));
         }
-        GLES20.glAttachShader(glCreateProgram, compileShader);
-        GLES20.glAttachShader(this.program, compileShader2);
-        GLES20.glLinkProgram(this.program);
-        int[] iArr = {0};
-        GLES20.glGetProgramiv(this.program, 35714, iArr, 0);
-        if (iArr[0] == 1) {
-            GLES20.glDeleteShader(compileShader);
-            GLES20.glDeleteShader(compileShader2);
-            GlUtil.checkNoGLES2Error("Creating GlShader");
-            return;
-        }
-        Logging.e(TAG, "Could not link program: " + GLES20.glGetProgramInfoLog(this.program));
-        throw new RuntimeException(GLES20.glGetProgramInfoLog(this.program));
+        throw new RuntimeException("glCreateProgram() failed. GLES20 error: " + GLES20.glGetError());
     }
 
     public static int compileShader(int i2, String str) {
@@ -58,19 +58,19 @@ public class GlShader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, str)) == null) {
             int glCreateShader = GLES20.glCreateShader(i2);
-            if (glCreateShader == 0) {
-                throw new RuntimeException("glCreateShader() failed. GLES20 error: " + GLES20.glGetError());
+            if (glCreateShader != 0) {
+                GLES20.glShaderSource(glCreateShader, str);
+                GLES20.glCompileShader(glCreateShader);
+                int[] iArr = {0};
+                GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
+                if (iArr[0] == 1) {
+                    GlUtil.checkNoGLES2Error("compileShader");
+                    return glCreateShader;
+                }
+                Logging.e(TAG, "Compile error " + GLES20.glGetShaderInfoLog(glCreateShader) + " in shader:\n" + str);
+                throw new RuntimeException(GLES20.glGetShaderInfoLog(glCreateShader));
             }
-            GLES20.glShaderSource(glCreateShader, str);
-            GLES20.glCompileShader(glCreateShader);
-            int[] iArr = {0};
-            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
-            if (iArr[0] == 1) {
-                GlUtil.checkNoGLES2Error("compileShader");
-                return glCreateShader;
-            }
-            Logging.e(TAG, "Compile error " + GLES20.glGetShaderInfoLog(glCreateShader) + " in shader:\n" + str);
-            throw new RuntimeException(GLES20.glGetShaderInfoLog(glCreateShader));
+            throw new RuntimeException("glCreateShader() failed. GLES20 error: " + GLES20.glGetError());
         }
         return invokeIL.intValue;
     }
@@ -121,19 +121,6 @@ public class GlShader {
         }
     }
 
-    public void setVertexAttribArray(String str, int i2, int i3, FloatBuffer floatBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), floatBuffer}) == null) {
-            if (this.program == -1) {
-                throw new RuntimeException("The program has been released");
-            }
-            int attribLocation = getAttribLocation(str);
-            GLES20.glEnableVertexAttribArray(attribLocation);
-            GLES20.glVertexAttribPointer(attribLocation, i2, 5126, false, i3, (Buffer) floatBuffer);
-            GlUtil.checkNoGLES2Error("setVertexAttribArray");
-        }
-    }
-
     public void setVertexAttribArray(String str, int i2, FloatBuffer floatBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i2, floatBuffer) == null) {
@@ -145,11 +132,26 @@ public class GlShader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             int i2 = this.program;
-            if (i2 == -1) {
-                throw new RuntimeException("The program has been released");
+            if (i2 != -1) {
+                GLES20.glUseProgram(i2);
+                GlUtil.checkNoGLES2Error("glUseProgram");
+                return;
             }
-            GLES20.glUseProgram(i2);
-            GlUtil.checkNoGLES2Error("glUseProgram");
+            throw new RuntimeException("The program has been released");
+        }
+    }
+
+    public void setVertexAttribArray(String str, int i2, int i3, FloatBuffer floatBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), floatBuffer}) == null) {
+            if (this.program != -1) {
+                int attribLocation = getAttribLocation(str);
+                GLES20.glEnableVertexAttribArray(attribLocation);
+                GLES20.glVertexAttribPointer(attribLocation, i2, 5126, false, i3, (Buffer) floatBuffer);
+                GlUtil.checkNoGLES2Error("setVertexAttribArray");
+                return;
+            }
+            throw new RuntimeException("The program has been released");
         }
     }
 }

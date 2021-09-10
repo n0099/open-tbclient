@@ -26,7 +26,7 @@ public class AuthActivity extends Activity {
     public static final String ACTION_SHARE_PRIZE = "sharePrize";
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f76296a;
+    public static int f76476a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -162,10 +162,10 @@ public class AuthActivity extends Activity {
                         }
                     } else {
                         if (string.equals("shareToQzone") && i.a((Context) this, "com.tencent.mobileqq") != null && i.c(this, "5.2.0") < 0) {
-                            int i2 = f76296a + 1;
-                            f76296a = i2;
+                            int i2 = f76476a + 1;
+                            f76476a = i2;
                             if (i2 == 2) {
-                                f76296a = 0;
+                                f76476a = 0;
                                 finish();
                                 return;
                             }

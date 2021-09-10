@@ -1,6 +1,6 @@
 package c.a.f.m.e;
 
-import c.a.q0.o1.o.h.b;
+import c.a.r0.p1.o.h.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -12,27 +12,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a implements c.a.q0.o1.o.h.b {
+public class a implements c.a.r0.p1.o.h.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3318e;
+    public int f3309e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3319f;
+    public String f3310f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3320g;
+    public String f3311g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3321h;
+    public String f3312h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f3322i;
+    public String f3313i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f3323j;
+    public int f3314j;
     public String k;
     public String l;
     public String m;
@@ -60,7 +60,7 @@ public class a implements c.a.q0.o1.o.h.b {
                 return;
             }
         }
-        this.f3318e = 3;
+        this.f3309e = 3;
         this.u = new ArrayList<>();
         this.v = new ArrayList<>();
     }
@@ -68,7 +68,7 @@ public class a implements c.a.q0.o1.o.h.b {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3318e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3309e : invokeV.intValue;
     }
 
     public String b() {
@@ -86,7 +86,7 @@ public class a implements c.a.q0.o1.o.h.b {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3318e == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3309e == 2 : invokeV.booleanValue;
     }
 
     public boolean d() {
@@ -106,11 +106,11 @@ public class a implements c.a.q0.o1.o.h.b {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f3318e = i2;
+            this.f3309e = i2;
         }
     }
 
-    @Override // c.a.q0.o1.o.h.b
+    @Override // c.a.r0.p1.o.h.b
     public b.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -118,8 +118,8 @@ public class a implements c.a.q0.o1.o.h.b {
             if (this.w == null) {
                 b.a aVar = new b.a();
                 this.w = aVar;
-                aVar.f22954c = this.u;
-                aVar.f22955d = this.v;
+                aVar.f23544c = this.u;
+                aVar.f23545d = this.v;
             }
             return this.w;
         }

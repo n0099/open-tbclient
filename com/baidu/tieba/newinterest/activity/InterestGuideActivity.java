@@ -1,9 +1,9 @@
 package com.baidu.tieba.newinterest.activity;
 
 import android.os.Bundle;
-import c.a.p0.b.d;
-import c.a.p0.s.d0.b;
-import c.a.q0.e2.h.a;
+import c.a.q0.b.d;
+import c.a.q0.s.d0.b;
+import c.a.r0.f2.h.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -72,7 +72,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (d.L()) {
+            if (d.B()) {
                 UtilHelper.setNavigationBarBg(getActivity(), SkinManager.getColor(R.color.CAM_X0206));
             } else {
                 UtilHelper.setNavigationBarBg(getActivity(), SkinManager.getColor(R.color.CAM_X0201));

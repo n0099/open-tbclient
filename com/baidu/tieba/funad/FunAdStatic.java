@@ -1,15 +1,14 @@
 package com.baidu.tieba.funad;
 
-import c.a.q0.w0.a;
-import c.a.q0.w0.b;
-import c.a.q0.x0.c;
-import c.a.q0.x0.d;
+import c.a.r0.x0.a;
+import c.a.r0.x0.b;
+import c.a.r0.y0.c;
+import c.a.r0.y0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -65,8 +64,18 @@ public class FunAdStatic {
                 return;
             }
         }
-        b.f27626a.set(new d());
-        a();
+        b.f28313a.set(new d());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921525, new a());
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FUN_AD_RECORD, "http://c.tieba.baidu.com/c/s/adLog");
+        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        tbHttpMessageTask.setIsNeedLogin(false);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsNeedAddCommenParam(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public FunAdStatic() {
@@ -80,23 +89,6 @@ public class FunAdStatic {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921525, new a());
-            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(customMessageTask);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FUN_AD_RECORD, TbConfig.SERVER_ADDRESS + TbConfig.URL_FUN_AD_RECORD);
-            tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-            tbHttpMessageTask.setIsNeedLogin(false);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-            tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 }

@@ -15,7 +15,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<LiveBannerEntity> f30322a;
+    public List<LiveBannerEntity> f30404a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,15 +44,15 @@ public class a {
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return;
         }
-        this.f30322a = new ArrayList();
+        this.f30404a = new ArrayList();
         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 LiveBannerEntity liveBannerEntity = new LiveBannerEntity();
                 liveBannerEntity.parserJson(optJSONObject);
                 if (liveBannerEntity.isValid()) {
-                    liveBannerEntity.position = this.f30322a.size();
-                    this.f30322a.add(liveBannerEntity);
+                    liveBannerEntity.position = this.f30404a.size();
+                    this.f30404a.add(liveBannerEntity);
                 }
             }
         }

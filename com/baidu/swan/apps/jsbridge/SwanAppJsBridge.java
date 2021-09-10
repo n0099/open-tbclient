@@ -5,10 +5,10 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import c.a.o0.a.d1.a;
-import c.a.o0.a.h0.l.g.f;
-import c.a.o0.a.o0.d.d;
-import c.a.o0.a.r1.g;
+import c.a.p0.a.d1.a;
+import c.a.p0.a.h0.l.g.f;
+import c.a.p0.a.o0.d.d;
+import c.a.p0.a.r1.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -30,7 +30,7 @@ public class SwanAppJsBridge extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, c.a.o0.a.h0.f.a aVar) {
+    public SwanAppJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, c.a.p0.a.h0.f.a aVar) {
         super(context, unitedSchemeMainDispatcher, callbackHandler, aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,7 +42,7 @@ public class SwanAppJsBridge extends a {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (UnitedSchemeMainDispatcher) objArr2[1], (CallbackHandler) objArr2[2], (c.a.o0.a.h0.f.a) objArr2[3]);
+                super((Context) objArr2[0], (UnitedSchemeMainDispatcher) objArr2[1], (CallbackHandler) objArr2[2], (c.a.p0.a.h0.f.a) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -101,7 +101,7 @@ public class SwanAppJsBridge extends a {
             } else {
                 d dVar = new d(str, str2);
                 g.a("postMessage", "PostMsg setData start");
-                c.a.o0.a.g1.f.V().z(dVar, false);
+                c.a.p0.a.g1.f.V().z(dVar, false);
                 g.a("postMessage", "PostMsg setData end");
             }
             return UnitedSchemeUtility.wrapCallbackParams(i2).toString();

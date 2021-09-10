@@ -12,10 +12,10 @@ public class h0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f31237a;
+    public static boolean f31346a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f31238b;
+    public static boolean f31347b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class h0 {
     public static void a(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, th) == null) {
-            boolean z = f31238b;
+            boolean z = f31347b;
         }
     }
 

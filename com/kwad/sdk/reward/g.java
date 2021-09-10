@@ -31,7 +31,7 @@ public class g {
             if (a4) {
                 com.kwad.sdk.core.report.d.a(adTemplate, 1);
             } else {
-                com.kwad.sdk.core.report.d.a(adTemplate, 1, aVar.f71407a);
+                com.kwad.sdk.core.report.d.a(adTemplate, 1, aVar.f71587a);
             }
             return a4;
         }

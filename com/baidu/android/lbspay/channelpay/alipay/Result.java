@@ -39,14 +39,14 @@ public class Result {
         }
         try {
             for (String str2 : str.split(";")) {
-                if (str2.startsWith(i.f35985a)) {
-                    this.resultStatus = gatValue(str2, i.f35985a);
+                if (str2.startsWith(i.f36094a)) {
+                    this.resultStatus = gatValue(str2, i.f36094a);
                 }
                 if (str2.startsWith("result")) {
                     this.result = gatValue(str2, "result");
                 }
-                if (str2.startsWith(i.f35986b)) {
-                    this.memo = gatValue(str2, i.f35986b);
+                if (str2.startsWith(i.f36095b)) {
+                    this.memo = gatValue(str2, i.f36095b);
                 }
             }
         } catch (Exception e2) {

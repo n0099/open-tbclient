@@ -24,7 +24,7 @@ public final class bc extends WebViewClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackHotActivity f59561a;
+    public final /* synthetic */ FeedbackHotActivity f59741a;
 
     public bc(FeedbackHotActivity feedbackHotActivity) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public final class bc extends WebViewClient {
                 return;
             }
         }
-        this.f59561a = feedbackHotActivity;
+        this.f59741a = feedbackHotActivity;
     }
 
     public /* synthetic */ bc(FeedbackHotActivity feedbackHotActivity, byte b2) {
@@ -65,14 +65,14 @@ public final class bc extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
             super.onPageFinished(webView, str);
-            view = this.f59561a.l;
+            view = this.f59741a.l;
             view.setVisibility(8);
             webView.requestFocus();
-            timer = this.f59561a.q;
+            timer = this.f59741a.q;
             if (timer != null) {
-                timer2 = this.f59561a.q;
+                timer2 = this.f59741a.q;
                 timer2.cancel();
-                timer3 = this.f59561a.q;
+                timer3 = this.f59741a.q;
                 timer3.purge();
             }
         }
@@ -86,11 +86,11 @@ public final class bc extends WebViewClient {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
             super.onPageStarted(webView, str, bitmap);
             webView.clearView();
-            view = this.f59561a.l;
+            view = this.f59741a.l;
             view.setVisibility(0);
-            this.f59561a.q = new Timer();
+            this.f59741a.q = new Timer();
             bd bdVar = new bd(this);
-            timer = this.f59561a.q;
+            timer = this.f59741a.q;
             timer.schedule(bdVar, 20000L);
         }
     }
@@ -103,12 +103,12 @@ public final class bc extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048579, this, webView, i2, str, str2) == null) {
             super.onReceivedError(webView, i2, str, str2);
-            Context applicationContext = this.f59561a.getApplicationContext();
-            textView = this.f59561a.m;
+            Context applicationContext = this.f59741a.getApplicationContext();
+            textView = this.f59741a.m;
             com.baidu.ufosdk.f.i.a(applicationContext, textView);
-            linearLayout = this.f59561a.f59486h;
+            linearLayout = this.f59741a.f59666h;
             linearLayout.setVisibility(0);
-            webView2 = this.f59561a.f59488j;
+            webView2 = this.f59741a.f59668j;
             webView2.setVisibility(8);
         }
     }
@@ -122,23 +122,23 @@ public final class bc extends WebViewClient {
             com.baidu.ufosdk.f.c.a("webClick ==> click:url-->" + str);
             com.baidu.ufosdk.f.c.a("PluginInvoker.appid=" + UfoSDK.appid);
             if (str.startsWith("feedback://")) {
-                FeedbackHotActivity.a(this.f59561a, str);
+                FeedbackHotActivity.a(this.f59741a, str);
                 return true;
             }
             if (str.startsWith("solve://")) {
-                z = this.f59561a.s;
+                z = this.f59741a.s;
                 if (z) {
                     return true;
                 }
-                Toast.makeText(this.f59561a, com.baidu.ufosdk.f.s.a("26"), 0).show();
+                Toast.makeText(this.f59741a, com.baidu.ufosdk.f.s.a("26"), 0).show();
             } else if (str.startsWith("backtoufo://")) {
-                this.f59561a.finish();
+                this.f59741a.finish();
                 return true;
             } else if (!str.startsWith("unsolved://")) {
                 if (str.startsWith("https://") || str.startsWith("http://")) {
                     try {
                         com.baidu.ufosdk.f.c.a(">>跳转链接：" + str);
-                        this.f59561a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                        this.f59741a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                         return true;
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -150,18 +150,18 @@ public final class bc extends WebViewClient {
                         Intent intent = new Intent();
                         intent.setAction("android.intent.action.VIEW");
                         intent.setData(Uri.parse(str));
-                        this.f59561a.startActivity(intent);
+                        this.f59741a.startActivity(intent);
                         return true;
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        Toast.makeText(this.f59561a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
+                        Toast.makeText(this.f59741a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
                         return true;
                     }
                 } else {
                     return true;
                 }
             }
-            this.f59561a.s = true;
+            this.f59741a.s = true;
             return true;
         }
         return invokeLL.booleanValue;

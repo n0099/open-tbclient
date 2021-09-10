@@ -14,7 +14,7 @@ public class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static m f39041a;
+    public static m f39149a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,10 +52,10 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (m.class) {
-                if (f39041a == null) {
-                    f39041a = new m();
+                if (f39149a == null) {
+                    f39149a = new m();
                 }
-                mVar = f39041a;
+                mVar = f39149a;
             }
             return mVar;
         }
@@ -70,7 +70,7 @@ public class m {
             if (a2 == null) {
                 a2 = d.a(i2, httpDNS);
             }
-            if (a2 == null && CyberCfgManager.getInstance().getCfgBoolValue("enable_mediaplayer_sub_thread", false)) {
+            if (a2 == null && CyberCfgManager.getInstance().getCfgBoolValue("enable_mediaplayer_sub_thread", true)) {
                 a2 = j.a();
             }
             return a2 == null ? new k() : a2;

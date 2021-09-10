@@ -25,10 +25,10 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f67025a;
+    public a f67205a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a f67026b;
+    public b.a f67206b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SSRenderTextureView(Context context) {
@@ -55,7 +55,7 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f67025a = aVar;
+            this.f67205a = aVar;
             setSurfaceTextureListener(this);
         }
     }
@@ -109,7 +109,7 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048583, this, surfaceTexture, i2, i3) == null) || (aVar = this.f67025a) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048583, this, surfaceTexture, i2, i3) == null) || (aVar = this.f67205a) == null) {
             return;
         }
         aVar.a(surfaceTexture, i2, i3);
@@ -120,7 +120,7 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceTexture)) == null) {
-            a aVar = this.f67025a;
+            a aVar = this.f67205a;
             return aVar != null && aVar.a(surfaceTexture);
         }
         return invokeL.booleanValue;
@@ -130,7 +130,7 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048585, this, surfaceTexture, i2, i3) == null) || (aVar = this.f67025a) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048585, this, surfaceTexture, i2, i3) == null) || (aVar = this.f67205a) == null) {
             return;
         }
         aVar.b(surfaceTexture, i2, i3);
@@ -140,7 +140,7 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, surfaceTexture) == null) || (aVar = this.f67025a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, surfaceTexture) == null) || (aVar = this.f67205a) == null) {
             return;
         }
         aVar.b(surfaceTexture);
@@ -151,7 +151,7 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
-            b.a aVar = this.f67026b;
+            b.a aVar = this.f67206b;
             if (aVar != null) {
                 aVar.a(i2);
             }
@@ -161,7 +161,7 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
     public void setWindowVisibilityChangedListener(b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            this.f67026b = aVar;
+            this.f67206b = aVar;
         }
     }
 

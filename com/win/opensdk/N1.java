@@ -18,8 +18,8 @@ public class N1 implements LocationListener {
     public void onLocationChanged(Location location) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
-            O1.f76650c.f76651a = location.getLatitude();
-            O1.f76650c.f76652b = location.getLongitude();
+            O1.f76830c.f76831a = location.getLatitude();
+            O1.f76830c.f76832b = location.getLongitude();
         }
     }
 

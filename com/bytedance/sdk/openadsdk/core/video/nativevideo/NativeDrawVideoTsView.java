@@ -28,7 +28,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f66954a;
+    public boolean f67134a;
     public int p;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,7 +50,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
                 return;
             }
         }
-        this.f66954a = false;
+        this.f67134a = false;
         setOnClickListener(this);
         this.p = getResources().getConfiguration().orientation;
     }
@@ -58,9 +58,9 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            s.a((View) this.f66962f, 0);
-            s.a((View) this.f66963g, 0);
-            s.a((View) this.f66965i, 8);
+            s.a((View) this.f67142f, 0);
+            s.a((View) this.f67143g, 0);
+            s.a((View) this.f67145i, 8);
         }
     }
 
@@ -68,12 +68,12 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             h();
-            RelativeLayout relativeLayout = this.f66962f;
+            RelativeLayout relativeLayout = this.f67142f;
             if (relativeLayout != null) {
                 if (relativeLayout.getVisibility() == 0) {
                     return;
                 }
-                ImageLoaderWrapper.from(this.f66958b.V().h()).to(this.f66963g);
+                ImageLoaderWrapper.from(this.f67138b.V().h()).to(this.f67143g);
             }
             e();
         }
@@ -83,9 +83,9 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f66961e = false;
+            this.f67141e = false;
             this.k = "draw_ad";
-            o.h().r(String.valueOf(q.d(this.f66958b.ao())));
+            o.h().r(String.valueOf(q.d(this.f67138b.ao())));
             super.b();
         }
     }
@@ -93,7 +93,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f66954a) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f67134a) {
             super.c();
         }
     }
@@ -110,7 +110,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NativeDrawVideoTsView f66956a;
+                    public final /* synthetic */ NativeDrawVideoTsView f67136a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -127,18 +127,18 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
                                 return;
                             }
                         }
-                        this.f66956a = this;
+                        this.f67136a = this;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.q.s.a
                     public void a(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            NativeDrawVideoTsView nativeDrawVideoTsView = this.f66956a;
-                            if (nativeDrawVideoTsView.f66959c == null) {
+                            NativeDrawVideoTsView nativeDrawVideoTsView = this.f67136a;
+                            if (nativeDrawVideoTsView.f67139c == null) {
                                 return;
                             }
-                            this.f66956a.a(nativeDrawVideoTsView.getWidth(), this.f66956a.getHeight());
+                            this.f67136a.a(nativeDrawVideoTsView.getWidth(), this.f67136a.getHeight());
                             NativeDrawVideoTsView.super.d();
                         }
                     }
@@ -153,9 +153,9 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
-            ImageView imageView = this.f66964h;
+            ImageView imageView = this.f67144h;
             if (imageView != null && imageView.getVisibility() == 0) {
-                s.e(this.f66962f);
+                s.e(this.f67142f);
             }
             c();
         }
@@ -176,7 +176,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NativeDrawVideoTsView f66955a;
+                public final /* synthetic */ NativeDrawVideoTsView f67135a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -193,18 +193,18 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
                             return;
                         }
                     }
-                    this.f66955a = this;
+                    this.f67135a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.q.s.a
                 public void a(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        NativeDrawVideoTsView nativeDrawVideoTsView = this.f66955a;
-                        if (nativeDrawVideoTsView.f66959c == null) {
+                        NativeDrawVideoTsView nativeDrawVideoTsView = this.f67135a;
+                        if (nativeDrawVideoTsView.f67139c == null) {
                             return;
                         }
-                        this.f66955a.a(nativeDrawVideoTsView.getWidth(), this.f66955a.getHeight());
+                        this.f67135a.a(nativeDrawVideoTsView.getWidth(), this.f67135a.getHeight());
                     }
                 }
             });
@@ -215,7 +215,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            ImageView imageView = this.f66964h;
+            ImageView imageView = this.f67144h;
             if (imageView != null && imageView.getVisibility() == 0) {
                 f();
             } else {
@@ -228,7 +228,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     public void onWindowVisibilityChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            ImageView imageView = this.f66964h;
+            ImageView imageView = this.f67144h;
             if (imageView != null && imageView.getVisibility() == 0) {
                 f();
             } else {
@@ -240,7 +240,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     public void setCanInterruptVideoPlay(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f66954a = z;
+            this.f67134a = z;
         }
     }
 
@@ -278,7 +278,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
                 return;
             }
         }
-        this.f66954a = false;
+        this.f67134a = false;
         setOnClickListener(this);
         this.p = getResources().getConfiguration().orientation;
     }

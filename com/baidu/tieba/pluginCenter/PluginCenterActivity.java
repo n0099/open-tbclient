@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.p0.s.s.a;
+import c.a.q0.s.s.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
@@ -41,7 +41,7 @@ import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes7.dex */
-public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> implements AdapterView.OnItemClickListener, c.a.p0.i0.c.a {
+public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> implements AdapterView.OnItemClickListener, c.a.q0.k0.c.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ITEM_TYPE_DESC = 1;
     public static final int ITEM_TYPE_FUNCTION = 0;
@@ -52,12 +52,12 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     public BdListView mListView;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public c.a.p0.i0.f.b<Object, c.a.p0.i0.d.b, c.a.p0.i0.f.a<Object, c.a.p0.i0.d.b>> mPluginCenterAdapter;
+    public c.a.q0.k0.f.b<Object, c.a.q0.k0.d.b, c.a.q0.k0.f.a<Object, c.a.q0.k0.d.b>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
 
     /* loaded from: classes7.dex */
-    public class a extends c.a.p0.i0.f.b<Object, c.a.p0.i0.d.b, c.a.p0.i0.f.a<Object, c.a.p0.i0.d.b>> {
+    public class a extends c.a.q0.k0.f.b<Object, c.a.q0.k0.d.b, c.a.q0.k0.f.a<Object, c.a.q0.k0.d.b>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PluginCenterActivity t;
@@ -84,7 +84,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             this.t = pluginCenterActivity;
         }
 
-        @Override // c.a.p0.i0.f.b
+        @Override // c.a.q0.k0.f.b
         public int o(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -98,10 +98,10 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginConfigWrapper f55997e;
+        public final /* synthetic */ PluginConfigWrapper f56155e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PluginCenterActivity f55998f;
+        public final /* synthetic */ PluginCenterActivity f56156f;
 
         public b(PluginCenterActivity pluginCenterActivity, PluginConfigWrapper pluginConfigWrapper) {
             Interceptable interceptable = $ic;
@@ -118,21 +118,21 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                     return;
                 }
             }
-            this.f55998f = pluginCenterActivity;
-            this.f55997e = pluginConfigWrapper;
+            this.f56156f = pluginCenterActivity;
+            this.f56155e = pluginConfigWrapper;
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 if (l.D()) {
-                    PluginPackageManager.O().x0(this.f55997e, this.f55998f.mDownLoadAndInstallCallback);
-                    this.f55997e.setDownLoadPercent(0);
-                    this.f55997e.setDownLoadStatus(3);
-                    this.f55998f.mPluginCenterAdapter.n(this.f55997e);
+                    PluginPackageManager.O().x0(this.f56155e, this.f56156f.mDownLoadAndInstallCallback);
+                    this.f56155e.setDownLoadPercent(0);
+                    this.f56155e.setDownLoadStatus(3);
+                    this.f56156f.mPluginCenterAdapter.n(this.f56155e);
                 } else {
-                    this.f55998f.showToast(R.string.neterror);
+                    this.f56156f.showToast(R.string.neterror);
                 }
                 aVar.dismiss();
             }
@@ -145,7 +145,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginCenterActivity f55999e;
+        public final /* synthetic */ PluginCenterActivity f56157e;
 
         public c(PluginCenterActivity pluginCenterActivity) {
             Interceptable interceptable = $ic;
@@ -162,11 +162,11 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                     return;
                 }
             }
-            this.f55999e = pluginCenterActivity;
+            this.f56157e = pluginCenterActivity;
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -180,7 +180,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PluginCenterActivity f56000a;
+        public final /* synthetic */ PluginCenterActivity f56158a;
 
         public d(PluginCenterActivity pluginCenterActivity) {
             Interceptable interceptable = $ic;
@@ -197,7 +197,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                     return;
                 }
             }
-            this.f56000a = pluginCenterActivity;
+            this.f56158a = pluginCenterActivity;
         }
 
         @Override // c.a.e.h.j.d
@@ -211,41 +211,41 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         public void b(BdFileDownloadData bdFileDownloadData) {
             PluginConfigWrapper findData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdFileDownloadData) == null) || bdFileDownloadData == null || bdFileDownloadData.getId() == null || (findData = this.f56000a.findData(bdFileDownloadData.getId())) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdFileDownloadData) == null) || bdFileDownloadData == null || bdFileDownloadData.getId() == null || (findData = this.f56158a.findData(bdFileDownloadData.getId())) == null) {
                 return;
             }
-            this.f56000a.showToast(R.string.download_fail_tip);
+            this.f56158a.showToast(R.string.download_fail_tip);
             findData.setDownLoadStatus(0);
-            this.f56000a.mPluginCenterAdapter.n(findData);
+            this.f56158a.mPluginCenterAdapter.n(findData);
         }
 
         @Override // c.a.e.h.j.d
         public void c(BdFileDownloadData bdFileDownloadData, int i2, String str) {
             PluginConfigWrapper findData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, bdFileDownloadData, i2, str) == null) || bdFileDownloadData == null || bdFileDownloadData.getId() == null || (findData = this.f56000a.findData(bdFileDownloadData.getId())) == null) {
+            if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, bdFileDownloadData, i2, str) == null) || bdFileDownloadData == null || bdFileDownloadData.getId() == null || (findData = this.f56158a.findData(bdFileDownloadData.getId())) == null) {
                 return;
             }
             if (i2 == 0) {
-                this.f56000a.showToast(R.string.plugin_installation_finished);
-                this.f56000a.mEventCenter.dispatchMvcEvent(new c.a.p0.i0.c.b(1, findData, null, null));
+                this.f56158a.showToast(R.string.plugin_installation_finished);
+                this.f56158a.mEventCenter.dispatchMvcEvent(new c.a.q0.k0.c.b(1, findData, null, null));
                 return;
             }
-            PluginCenterActivity pluginCenterActivity = this.f56000a;
-            pluginCenterActivity.showToast(this.f56000a.getPageContext().getString(R.string.plugin_installation_failed) + str);
-            this.f56000a.resetPluginList();
+            PluginCenterActivity pluginCenterActivity = this.f56158a;
+            pluginCenterActivity.showToast(this.f56158a.getPageContext().getString(R.string.plugin_installation_failed) + str);
+            this.f56158a.resetPluginList();
         }
 
         @Override // c.a.e.h.j.d
         public void d(BdFileDownloadData bdFileDownloadData) {
             PluginConfigWrapper findData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, bdFileDownloadData) == null) || bdFileDownloadData == null || bdFileDownloadData.getId() == null || bdFileDownloadData.getStatus() == 2 || (findData = this.f56000a.findData(bdFileDownloadData.getId())) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, bdFileDownloadData) == null) || bdFileDownloadData == null || bdFileDownloadData.getId() == null || bdFileDownloadData.getStatus() == 2 || (findData = this.f56158a.findData(bdFileDownloadData.getId())) == null) {
                 return;
             }
             findData.setDownLoadPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
             findData.setDownLoadStatus(3);
-            this.f56000a.mPluginCenterAdapter.n(findData);
+            this.f56158a.mPluginCenterAdapter.n(findData);
         }
     }
 
@@ -357,7 +357,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(R.id.list_layout), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(getActivity(), R.dimen.ds220)), NoDataViewFactory.e.a(R.string.plugin_no_plugins), null);
             this.mNoDataView = a2;
             this.mListView.setEmptyView(a2);
-            a aVar = new a(this, getPageContext(), new Class[]{c.a.q0.p2.a.a.class, c.a.q0.p2.a.b.class}, new int[]{R.layout.plugin_center_list_function_item, R.layout.plugin_center_list_desc_item}, this.mEventCenter);
+            a aVar = new a(this, getPageContext(), new Class[]{c.a.r0.q2.a.a.class, c.a.r0.q2.a.b.class}, new int[]{R.layout.plugin_center_list_function_item, R.layout.plugin_center_list_desc_item}, this.mEventCenter);
             this.mPluginCenterAdapter = aVar;
             this.mListView.setAdapter((ListAdapter) aVar);
             this.mListView.setOnItemClickListener(this);
@@ -407,7 +407,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         } else {
             string = TbadkCoreApplication.getInst().getString(R.string.download);
         }
-        c.a.p0.s.s.a aVar = new c.a.p0.s.s.a(getActivity());
+        c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(getActivity());
         aVar.setMessage(format);
         aVar.setPositiveButton(string, new b(this, pluginConfigWrapper));
         aVar.setNegativeButton(TbadkCoreApplication.getInst().getString(R.string.cancel), new c(this));
@@ -415,7 +415,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         aVar.show();
     }
 
-    @Override // c.a.p0.i0.c.a
+    @Override // c.a.q0.k0.c.a
     public boolean isEventMustSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -463,13 +463,13 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         }
     }
 
-    @Override // c.a.p0.i0.c.a
-    public boolean onEventDispatch(c.a.p0.i0.c.b bVar) {
+    @Override // c.a.q0.k0.c.a
+    public boolean onEventDispatch(c.a.q0.k0.c.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
             int b2 = bVar.b();
-            c.a.p0.i0.b.a a2 = bVar.a();
+            c.a.q0.k0.b.a a2 = bVar.a();
             if (b2 == 1) {
                 if (a2 instanceof PluginConfigWrapper) {
                     PluginPackageManager.O().z0(((PluginConfigWrapper) a2).package_name);

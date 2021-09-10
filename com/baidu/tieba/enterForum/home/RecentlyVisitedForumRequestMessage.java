@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.home;
 
 import c.a.e.e.m.b;
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -55,14 +55,14 @@ public class RecentlyVisitedForumRequestMessage extends NetMessage {
                     while (it.hasNext()) {
                         VisitedForumData next = it.next();
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("forum_id", b.f(next.getForumId(), 0L));
+                        jSONObject.put("forum_id", b.g(next.getForumId(), 0L));
                         jSONObject.put("visit_time", next.E());
                         jSONArray.put(jSONObject);
                     }
                 }
                 builder.history = jSONArray.toString();
                 if (z) {
-                    w.a(builder, true);
+                    x.a(builder, true);
                 }
                 GetHistoryForumReqIdl.Builder builder2 = new GetHistoryForumReqIdl.Builder();
                 builder2.data = builder.build(false);

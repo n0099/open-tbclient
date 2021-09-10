@@ -17,7 +17,7 @@ public class b extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f67967a;
+    public final File f68147a;
 
     public void a() {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class b extends a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f67968a;
+                public final /* synthetic */ b f68148a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -47,14 +47,14 @@ public class b extends a {
                             return;
                         }
                     }
-                    this.f67968a = this;
+                    this.f68148a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f67968a.b();
+                        this.f68148a.b();
                     }
                 }
             });
@@ -69,7 +69,7 @@ public class b extends a {
             if (a2 != null) {
                 com.bytedance.sdk.openadsdk.n.b.c.a(a2).a(1);
             }
-            for (File file : this.f67967a.listFiles()) {
+            for (File file : this.f68147a.listFiles()) {
                 try {
                     file.delete();
                 } catch (Throwable unused) {
@@ -95,6 +95,6 @@ public class b extends a {
     public File e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? new File(this.f67967a, str) : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? new File(this.f68147a, str) : (File) invokeL.objValue;
     }
 }

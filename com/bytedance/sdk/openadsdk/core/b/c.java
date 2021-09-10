@@ -20,19 +20,19 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public static int C = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f66042a;
+    public static float f66222a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f66043b;
+    public static float f66223b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f66044c;
+    public static float f66224c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f66045d;
+    public static float f66225d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f66046e;
+    public static long f66226e;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public int B;
@@ -51,16 +51,16 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f66047a;
+        public int f66227a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f66048b;
+        public double f66228b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f66049c;
+        public double f66229c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f66050d;
+        public long f66230d;
 
         public a(int i2, double d2, double d3, long j2) {
             Interceptable interceptable = $ic;
@@ -77,11 +77,11 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
                     return;
                 }
             }
-            this.f66047a = -1;
-            this.f66047a = i2;
-            this.f66048b = d2;
-            this.f66049c = d3;
-            this.f66050d = j2;
+            this.f66227a = -1;
+            this.f66227a = i2;
+            this.f66228b = d2;
+            this.f66229c = d3;
+            this.f66230d = j2;
         }
     }
 
@@ -101,11 +101,11 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         if (ViewConfiguration.get(o.a()) != null) {
             C = ViewConfiguration.get(o.a()).getScaledTouchSlop();
         }
-        f66042a = 0.0f;
-        f66043b = 0.0f;
-        f66044c = 0.0f;
-        f66045d = 0.0f;
-        f66046e = 0L;
+        f66222a = 0.0f;
+        f66223b = 0.0f;
+        f66224c = 0.0f;
+        f66225d = 0.0f;
+        f66226e = 0L;
     }
 
     public c() {
@@ -148,7 +148,7 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
                 this.z = motionEvent.getToolType(0);
                 this.A = motionEvent.getDeviceId();
                 this.B = motionEvent.getSource();
-                f66046e = System.currentTimeMillis();
+                f66226e = System.currentTimeMillis();
                 i2 = 0;
             } else if (actionMasked == 1) {
                 this.v = (int) motionEvent.getRawX();
@@ -158,14 +158,14 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
             } else if (actionMasked != 2) {
                 i2 = actionMasked != 3 ? -1 : 4;
             } else {
-                f66044c += Math.abs(motionEvent.getX() - f66042a);
-                f66045d += Math.abs(motionEvent.getY() - f66043b);
-                f66042a = motionEvent.getX();
-                f66043b = motionEvent.getY();
-                if (System.currentTimeMillis() - f66046e > 200) {
-                    float f2 = f66044c;
+                f66224c += Math.abs(motionEvent.getX() - f66222a);
+                f66225d += Math.abs(motionEvent.getY() - f66223b);
+                f66222a = motionEvent.getX();
+                f66223b = motionEvent.getY();
+                if (System.currentTimeMillis() - f66226e > 200) {
+                    float f2 = f66224c;
                     int i3 = C;
-                    if (f2 > i3 || f66045d > i3) {
+                    if (f2 > i3 || f66225d > i3) {
                         i2 = 1;
                     }
                 }

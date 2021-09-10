@@ -21,10 +21,10 @@ public class h extends b<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f71332a;
+        public String f71512a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f71333b;
+        public String f71513b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class h extends b<a> {
                     return;
                 }
             }
-            this.f71332a = "";
-            this.f71333b = "";
+            this.f71512a = "";
+            this.f71513b = "";
         }
     }
 
@@ -117,7 +117,7 @@ public class h extends b<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             a a2 = a();
-            return (a2 == null || TextUtils.isEmpty(a2.f71332a)) ? "" : a2.f71332a;
+            return (a2 == null || TextUtils.isEmpty(a2.f71512a)) ? "" : a2.f71512a;
         }
         return (String) invokeV.objValue;
     }
@@ -127,7 +127,7 @@ public class h extends b<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             a a2 = a();
-            return (a2 == null || TextUtils.isEmpty(a2.f71333b)) ? "" : a2.f71333b;
+            return (a2 == null || TextUtils.isEmpty(a2.f71513b)) ? "" : a2.f71513b;
         }
         return (String) invokeV.objValue;
     }

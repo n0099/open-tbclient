@@ -33,20 +33,20 @@ public class WalletFingerprint implements NoProguard {
     public static int SUPPORT_API_LEVEL = 23;
 
     /* renamed from: a  reason: collision with root package name */
-    public static WalletFingerprint f62353a;
+    public static WalletFingerprint f62533a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public IFingerprintPay f62354b;
+    public IFingerprintPay f62534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.fingerprint.a.a f62355c;
+    public com.baidu.wallet.paysdk.fingerprint.a.a f62535c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f62356d;
+    public Context f62536d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PhoneSupportStatus f62357e;
+    public PhoneSupportStatus f62537e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
@@ -198,19 +198,19 @@ public class WalletFingerprint implements NoProguard {
                 return;
             }
         }
-        this.f62357e = PhoneSupportStatus.UNSUPPORT;
-        this.f62356d = context.getApplicationContext();
+        this.f62537e = PhoneSupportStatus.UNSUPPORT;
+        this.f62536d = context.getApplicationContext();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             if (SecurityUtils.isRoot()) {
-                this.f62357e = PhoneSupportStatus.UNSUPPORT;
+                this.f62537e = PhoneSupportStatus.UNSUPPORT;
             } else if (b()) {
-                this.f62357e = PhoneSupportStatus.SUPPORT_SYS;
+                this.f62537e = PhoneSupportStatus.SUPPORT_SYS;
             } else {
-                this.f62357e = PhoneSupportStatus.UNSUPPORT;
+                this.f62537e = PhoneSupportStatus.UNSUPPORT;
             }
         }
     }
@@ -220,10 +220,10 @@ public class WalletFingerprint implements NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            if (PermissionManager.checkCallingPermission(this.f62356d, "android.permission.USE_FINGERPRINT") && Build.VERSION.SDK_INT >= SUPPORT_API_LEVEL) {
-                FingerprintManager fingerprintManager = (FingerprintManager) this.f62356d.getSystemService(FingerprintManager.class);
+            if (PermissionManager.checkCallingPermission(this.f62536d, "android.permission.USE_FINGERPRINT") && Build.VERSION.SDK_INT >= SUPPORT_API_LEVEL) {
+                FingerprintManager fingerprintManager = (FingerprintManager) this.f62536d.getSystemService(FingerprintManager.class);
                 try {
-                    a a2 = a.a(this.f62356d);
+                    a a2 = a.a(this.f62536d);
                     return a2 != null && a2.a() && fingerprintManager != null && fingerprintManager.isHardwareDetected();
                 } catch (KeyStoreException e2) {
                     e2.printStackTrace();
@@ -238,14 +238,14 @@ public class WalletFingerprint implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            if (f62353a == null) {
+            if (f62533a == null) {
                 synchronized (WalletFingerprint.class) {
-                    if (f62353a == null) {
-                        f62353a = new WalletFingerprint(context);
+                    if (f62533a == null) {
+                        f62533a = new WalletFingerprint(context);
                     }
                 }
             }
-            return f62353a;
+            return f62533a;
         }
         return (WalletFingerprint) invokeL.objValue;
     }
@@ -255,7 +255,7 @@ public class WalletFingerprint implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
             String ppKey = PayPreferenceManager.getPpKey(context.getApplicationContext());
-            return a.f62358b + "_" + ppKey + "_" + BeanConstants.CHANNEL_ID;
+            return a.f62538b + "_" + ppKey + "_" + BeanConstants.CHANNEL_ID;
         }
         return (String) invokeL.objValue;
     }
@@ -265,7 +265,7 @@ public class WalletFingerprint implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             String newPpKey = PayPreferenceManager.getNewPpKey(context.getApplicationContext());
-            return a.f62358b + "_" + newPpKey + "_" + BeanConstants.CHANNEL_ID;
+            return a.f62538b + "_" + newPpKey + "_" + BeanConstants.CHANNEL_ID;
         }
         return (String) invokeL.objValue;
     }
@@ -274,19 +274,19 @@ public class WalletFingerprint implements NoProguard {
     public void cancleListening() {
         com.baidu.wallet.paysdk.fingerprint.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f62355c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f62535c) == null) {
             return;
         }
         aVar.a();
-        this.f62355c.d();
-        this.f62355c = null;
+        this.f62535c.d();
+        this.f62535c = null;
     }
 
     public void clearOTPToken() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SharedPreferencesUtils.setParam(this.f62356d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getPpKey(this.f62356d), "");
-            SharedPreferencesUtils.setParam(this.f62356d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f62356d), "");
+            SharedPreferencesUtils.setParam(this.f62536d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getPpKey(this.f62536d), "");
+            SharedPreferencesUtils.setParam(this.f62536d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f62536d), "");
         }
     }
 
@@ -294,7 +294,7 @@ public class WalletFingerprint implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, fpType, fingerprintCallback) == null) {
             IFingerprintPay fingerprintPay = getFingerprintPay(fpType);
-            this.f62354b = fingerprintPay;
+            this.f62534b = fingerprintPay;
             if (fingerprintPay == null) {
                 fingerprintCallback.onAuthorizeResult(IFingerprintPay.Action.CLOSE, 2, "");
             } else {
@@ -310,7 +310,7 @@ public class WalletFingerprint implements NoProguard {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            String safeSavedDataByUnionId = OtpTokenUtils.getSafeSavedDataByUnionId(str, this.f62356d);
+            String safeSavedDataByUnionId = OtpTokenUtils.getSafeSavedDataByUnionId(str, this.f62536d);
             String str2 = "generateDynamickey tokeninfo=" + safeSavedDataByUnionId;
             String[] split = safeSavedDataByUnionId.split("\\|");
             if (split.length == 9) {
@@ -322,7 +322,7 @@ public class WalletFingerprint implements NoProguard {
                 } catch (Exception unused) {
                 }
                 String str3 = "generateDynamicKey() key.length=" + i2 + "&& timeStep=" + i3;
-                return OtpTokenUtils.getEncryptTOtpCode(this.f62356d, i3, safeSavedDataByUnionId.split("\\|")[3], i2);
+                return OtpTokenUtils.getEncryptTOtpCode(this.f62536d, i3, safeSavedDataByUnionId.split("\\|")[3], i2);
             }
             return null;
         }
@@ -334,7 +334,7 @@ public class WalletFingerprint implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             a();
-            if (this.f62357e == PhoneSupportStatus.SUPPORT_SYS) {
+            if (this.f62537e == PhoneSupportStatus.SUPPORT_SYS) {
                 return new SysFingerprintPay();
             }
             return null;
@@ -346,7 +346,7 @@ public class WalletFingerprint implements NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String[] split = new String(Base64.decode((String) SharedPreferencesUtils.getParam(this.f62356d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f62356d), ""), 0)).split("\\|");
+            String[] split = new String(Base64.decode((String) SharedPreferencesUtils.getParam(this.f62536d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f62536d), ""), 0)).split("\\|");
             if (split.length == 3) {
                 return SecurePay.getInstance().localDecrypt1(split[2]);
             }
@@ -359,8 +359,8 @@ public class WalletFingerprint implements NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (PermissionManager.checkCallingPermission(this.f62356d, "android.permission.USE_FINGERPRINT") && isDevicesSupport()) {
-                return a(this.f62356d);
+            if (PermissionManager.checkCallingPermission(this.f62536d, "android.permission.USE_FINGERPRINT") && isDevicesSupport()) {
+                return a(this.f62536d);
             }
             return false;
         }
@@ -370,16 +370,16 @@ public class WalletFingerprint implements NoProguard {
     public boolean hasOTPToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? !TextUtils.isEmpty((String) SharedPreferencesUtils.getParam(this.f62356d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f62356d), "")) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? !TextUtils.isEmpty((String) SharedPreferencesUtils.getParam(this.f62536d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f62536d), "")) : invokeV.booleanValue;
     }
 
     public boolean isDevicesSupport() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (PermissionManager.checkCallingPermission(this.f62356d, "android.permission.USE_FINGERPRINT")) {
+            if (PermissionManager.checkCallingPermission(this.f62536d, "android.permission.USE_FINGERPRINT")) {
                 a();
-                return this.f62357e != PhoneSupportStatus.UNSUPPORT;
+                return this.f62537e != PhoneSupportStatus.UNSUPPORT;
             }
             return false;
         }
@@ -390,7 +390,7 @@ public class WalletFingerprint implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, activity, fpType, fingerprintCallback) == null) {
             IFingerprintPay fingerprintPay = getFingerprintPay(fpType);
-            this.f62354b = fingerprintPay;
+            this.f62534b = fingerprintPay;
             if (fingerprintPay == null) {
                 fingerprintCallback.onAuthorizeResult(IFingerprintPay.Action.OPEN, 2, "");
             } else {
@@ -403,16 +403,16 @@ public class WalletFingerprint implements NoProguard {
     public void startListening(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            this.f62354b = getFingerprintPay(FpType.SYSTEM_FINGERPRINT);
+            this.f62534b = getFingerprintPay(FpType.SYSTEM_FINGERPRINT);
             try {
-                this.f62355c = new com.baidu.wallet.paysdk.fingerprint.a.a(this.f62356d);
+                this.f62535c = new com.baidu.wallet.paysdk.fingerprint.a.a(this.f62536d);
             } catch (KeyStoreException e2) {
                 e2.printStackTrace();
             }
-            com.baidu.wallet.paysdk.fingerprint.a.a aVar = this.f62355c;
-            if (aVar != null && this.f62354b != null) {
+            com.baidu.wallet.paysdk.fingerprint.a.a aVar = this.f62535c;
+            if (aVar != null && this.f62534b != null) {
                 aVar.a(bVar);
-                this.f62355c.a(2);
+                this.f62535c.a(2);
                 return;
             }
             bVar.a(-1, "");
@@ -423,7 +423,7 @@ public class WalletFingerprint implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048588, this, activity, fpType, fingerprintCallback) == null) {
             IFingerprintPay fingerprintPay = getFingerprintPay(fpType);
-            this.f62354b = fingerprintPay;
+            this.f62534b = fingerprintPay;
             if (fingerprintPay == null) {
                 fingerprintCallback.onAuthorizeResult(IFingerprintPay.Action.VERIFY, 2, "");
             } else {
@@ -437,7 +437,7 @@ public class WalletFingerprint implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, fpType)) == null) {
             a();
-            PhoneSupportStatus phoneSupportStatus = this.f62357e;
+            PhoneSupportStatus phoneSupportStatus = this.f62537e;
             if (phoneSupportStatus != PhoneSupportStatus.UNSUPPORT && fpType == FpType.SYSTEM_FINGERPRINT && phoneSupportStatus == PhoneSupportStatus.SUPPORT_SYS) {
                 return new SysFingerprintPay();
             }

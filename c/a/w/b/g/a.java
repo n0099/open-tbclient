@@ -16,7 +16,7 @@ public interface a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ C1410a f30381a;
+        public static final /* synthetic */ C1410a f30463a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -32,7 +32,7 @@ public interface a {
                     return;
                 }
             }
-            f30381a = new C1410a();
+            f30463a = new C1410a();
         }
 
         public C1410a() {
@@ -51,6 +51,6 @@ public interface a {
     }
 
     static {
-        C1410a c1410a = C1410a.f30381a;
+        C1410a c1410a = C1410a.f30463a;
     }
 }

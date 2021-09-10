@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.card.setCard;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -46,7 +46,7 @@ public class SetPersonalCardRequest extends NetMessage {
             builder.props_id = Long.valueOf(this.cardId);
             builder.type = Integer.valueOf(this.type);
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             SetCardReqIdl.Builder builder2 = new SetCardReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -14,16 +14,16 @@ public final class k {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f32548a;
+    public final String f32657a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final m.a f32549b;
+    public final m.a f32658b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f32550c;
+    public final int f32659c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final byte[] f32551d;
+    public final byte[] f32660d;
 
     public k(boolean z, @Nullable String str, int i2, byte[] bArr, int i3, int i4, @Nullable byte[] bArr2) {
         Interceptable interceptable = $ic;
@@ -41,10 +41,10 @@ public final class k {
             }
         }
         c.i.b.a.i0.a.a((bArr2 == null) ^ (i2 == 0));
-        this.f32548a = str;
-        this.f32550c = i2;
-        this.f32551d = bArr2;
-        this.f32549b = new m.a(a(str), bArr, i3, i4);
+        this.f32657a = str;
+        this.f32659c = i2;
+        this.f32660d = bArr2;
+        this.f32658b = new m.a(a(str), bArr, i3, i4);
     }
 
     public static int a(@Nullable String str) {

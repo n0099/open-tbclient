@@ -14,13 +14,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.w.j.b f30285a;
+    public c.a.w.j.b f30367a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdAsyncTaskParallelType f30286b;
+    public BdAsyncTaskParallelType f30368b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30287c;
+    public int f30369c;
 
     public c(BdAsyncTaskParallelType bdAsyncTaskParallelType, c.a.w.j.b bVar) {
         Interceptable interceptable = $ic;
@@ -37,12 +37,12 @@ public class c {
                 return;
             }
         }
-        this.f30285a = null;
-        this.f30286b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.f30287c = 1;
+        this.f30367a = null;
+        this.f30368b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.f30369c = 1;
         if (bdAsyncTaskParallelType != null && bVar != null) {
-            this.f30286b = bdAsyncTaskParallelType;
-            this.f30285a = bVar;
+            this.f30368b = bdAsyncTaskParallelType;
+            this.f30367a = bVar;
             return;
         }
         throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
@@ -51,14 +51,14 @@ public class c {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30287c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30369c : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.w.j.b bVar = this.f30285a;
+            c.a.w.j.b bVar = this.f30367a;
             if (bVar == null) {
                 return 0;
             }
@@ -70,6 +70,6 @@ public class c {
     public BdAsyncTaskParallelType c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30286b : (BdAsyncTaskParallelType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30368b : (BdAsyncTaskParallelType) invokeV.objValue;
     }
 }

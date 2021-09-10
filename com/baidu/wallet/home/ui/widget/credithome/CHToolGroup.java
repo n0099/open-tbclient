@@ -24,16 +24,16 @@ public class CHToolGroup extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f61239a;
+    public final int f61419a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FlowLayout f61240b;
+    public FlowLayout f61420b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f61241c;
+    public NetImageView f61421c;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<BaseItemView> f61242e;
+    public List<BaseItemView> f61422e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHToolGroup(Context context) {
@@ -53,15 +53,15 @@ public class CHToolGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f61239a = 4;
-        this.f61242e = new ArrayList();
+        this.f61419a = 4;
+        this.f61422e = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61242e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61422e : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -69,8 +69,8 @@ public class CHToolGroup extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_tools_layout"), this);
-            this.f61240b = (FlowLayout) findViewById(ResUtils.id(getContext(), "ch_tools_layout"));
-            this.f61241c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tools_bg"));
+            this.f61420b = (FlowLayout) findViewById(ResUtils.id(getContext(), "ch_tools_layout"));
+            this.f61421c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tools_bg"));
         }
     }
 
@@ -92,18 +92,18 @@ public class CHToolGroup extends BaseItemLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
             int length = dataItemArr.length <= 4 ? dataItemArr.length : 4;
-            this.f61240b.setHorizontalChildNum(length);
-            this.f61240b.setHorizontalSpacing(0);
-            this.f61240b.setChildViewHeight(DisplayUtils.dip2px(getContext(), 80.0f));
+            this.f61420b.setHorizontalChildNum(length);
+            this.f61420b.setHorizontalSpacing(0);
+            this.f61420b.setChildViewHeight(DisplayUtils.dip2px(getContext(), 80.0f));
             for (int i2 = 0; i2 < length; i2++) {
                 if (dataItemArr[i2] != null) {
                     CHToolItem cHToolItem = new CHToolItem(getContext());
                     cHToolItem.setData(dataItemArr[i2], getWalletInterface());
-                    this.f61240b.addView(cHToolItem);
-                    this.f61242e.add(cHToolItem);
+                    this.f61420b.addView(cHToolItem);
+                    this.f61422e.add(cHToolItem);
                 }
             }
-            NetImageView netImageView = this.f61241c;
+            NetImageView netImageView = this.f61421c;
             netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.group_background);
         }
     }
@@ -127,7 +127,7 @@ public class CHToolGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f61239a = 4;
-        this.f61242e = new ArrayList();
+        this.f61419a = 4;
+        this.f61422e = new ArrayList();
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.m2.c;
+import c.a.r0.n2.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;

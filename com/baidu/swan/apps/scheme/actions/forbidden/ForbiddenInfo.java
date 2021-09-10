@@ -3,7 +3,7 @@ package com.baidu.swan.apps.scheme.actions.forbidden;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.a.f1.e.b;
+import c.a.p0.a.f1.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;

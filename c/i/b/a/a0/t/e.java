@@ -19,10 +19,10 @@ public final class e implements w.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f32667a;
+    public final int f32776a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<Format> f32668b;
+    public final List<Format> f32777b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e(int i2) {
@@ -52,18 +52,18 @@ public final class e implements w.c {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bVar)) == null) {
             if (i2 != 2) {
                 if (i2 == 3 || i2 == 4) {
-                    return new p(new n(bVar.f32837b));
+                    return new p(new n(bVar.f32946b));
                 }
                 if (i2 == 15) {
                     if (d(2)) {
                         return null;
                     }
-                    return new p(new d(false, bVar.f32837b));
+                    return new p(new d(false, bVar.f32946b));
                 } else if (i2 == 17) {
                     if (d(2)) {
                         return null;
                     }
-                    return new p(new m(bVar.f32837b));
+                    return new p(new m(bVar.f32946b));
                 } else if (i2 != 21) {
                     if (i2 == 27) {
                         if (d(4)) {
@@ -85,11 +85,11 @@ public final class e implements w.c {
                                         }
                                     }
                                 }
-                                return new p(new b(bVar.f32837b));
+                                return new p(new b(bVar.f32946b));
                             }
-                            return new p(new f(bVar.f32837b));
+                            return new p(new f(bVar.f32946b));
                         }
-                        return new p(new g(bVar.f32838c));
+                        return new p(new g(bVar.f32947c));
                     } else {
                         return new p(new k(c(bVar)));
                     }
@@ -116,10 +116,10 @@ public final class e implements w.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
             if (d(32)) {
-                return new t(this.f32668b);
+                return new t(this.f32777b);
             }
-            c.i.b.a.i0.l lVar = new c.i.b.a.i0.l(bVar.f32839d);
-            List<Format> list = this.f32668b;
+            c.i.b.a.i0.l lVar = new c.i.b.a.i0.l(bVar.f32948d);
+            List<Format> list = this.f32777b;
             while (lVar.a() > 0) {
                 int x = lVar.x();
                 int c2 = lVar.c() + lVar.x();
@@ -150,7 +150,7 @@ public final class e implements w.c {
     public final boolean d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? (i2 & this.f32667a) != 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? (i2 & this.f32776a) != 0 : invokeI.booleanValue;
     }
 
     public e(int i2, List<Format> list) {
@@ -168,10 +168,10 @@ public final class e implements w.c {
                 return;
             }
         }
-        this.f32667a = i2;
+        this.f32776a = i2;
         if (!d(32) && list.isEmpty()) {
             list = Collections.singletonList(Format.createTextSampleFormat(null, "application/cea-608", 0, null));
         }
-        this.f32668b = list;
+        this.f32777b = list;
     }
 }

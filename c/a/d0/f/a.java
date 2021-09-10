@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import c.a.d0.d;
-import c.a.o0.a.v1.c.c;
+import c.a.p0.a.v1.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -63,14 +63,14 @@ public class a implements c.a.d0.g.a {
     public boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? c.a.o0.a.c1.a.N().a(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? c.a.p0.a.c1.a.N().a(context) : invokeL.booleanValue;
     }
 
     @Override // c.a.d0.g.a
     public void b(Activity activity, String str, c.a.d0.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, aVar) == null) {
-            c.a.o0.a.c1.a.N().b(activity, str, aVar);
+            c.a.p0.a.c1.a.N().b(activity, str, aVar);
         }
     }
 
@@ -78,7 +78,7 @@ public class a implements c.a.d0.g.a {
     public void c(Context context, JSONObject jSONObject, c.a.d0.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject, aVar) == null) {
-            c.a.o0.a.c1.a.N().c(context, jSONObject, aVar);
+            c.a.p0.a.c1.a.N().c(context, jSONObject, aVar);
         }
     }
 
@@ -86,7 +86,7 @@ public class a implements c.a.d0.g.a {
     public void d(Activity activity, String str, c.a.d0.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, str, aVar) == null) {
-            c.a.o0.a.c1.a.N().d(activity, str, aVar);
+            c.a.p0.a.c1.a.N().d(activity, str, aVar);
         }
     }
 
@@ -94,7 +94,7 @@ public class a implements c.a.d0.g.a {
     public String e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? c.a.o0.a.c1.a.u0().a(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? c.a.p0.a.c1.a.u0().a(context) : (String) invokeL.objValue;
     }
 
     @Override // c.a.d0.g.a
@@ -119,12 +119,12 @@ public class a implements c.a.d0.g.a {
     public void g(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            String str = c.a.o0.a.q1.a.b().f8034a;
+            String str = c.a.p0.a.q1.a.b().f8062a;
             if (TextUtils.isEmpty(str)) {
                 d.a(bundle);
                 return;
             }
-            c.a.o0.a.v1.c.a e2 = c.a.o0.a.v1.c.a.e();
+            c.a.p0.a.v1.c.a e2 = c.a.p0.a.v1.c.a.e();
             c cVar = new c(119, bundle);
             cVar.c(str);
             cVar.p(true);
@@ -136,7 +136,7 @@ public class a implements c.a.d0.g.a {
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            c.a.o0.a.q1.a.b().f8034a = str;
+            c.a.p0.a.q1.a.b().f8062a = str;
         }
     }
 }

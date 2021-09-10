@@ -22,22 +22,22 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3447a;
+    public static final boolean f3438a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3448b;
+    public static final int f3439b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3449c;
+    public static final int f3440c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3450d;
+    public static final int f3441d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ThreadFactory f3451e;
+    public static final ThreadFactory f3442e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BlockingQueue<Runnable> f3452f;
+    public static final BlockingQueue<Runnable> f3443f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.f0.d.a.a$a  reason: collision with other inner class name */
@@ -74,10 +74,10 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Runnable f3453a;
+        public Runnable f3444a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f3454b;
+        public String f3445b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -126,15 +126,15 @@ public final class a {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVarArr)) == null) {
                 Process.setThreadPriority(10);
                 try {
-                    if (bVarArr[0] == null || bVarArr[0].f3453a == null) {
+                    if (bVarArr[0] == null || bVarArr[0].f3444a == null) {
                         return null;
                     }
-                    String str = !TextUtils.isEmpty(bVarArr[0].f3454b) ? bVarArr[0].f3454b : "noname";
+                    String str = !TextUtils.isEmpty(bVarArr[0].f3445b) ? bVarArr[0].f3445b : "noname";
                     Thread.currentThread().setName(str);
-                    if (a.f3447a) {
+                    if (a.f3438a) {
                         String str2 = "start to run task " + str;
                     }
-                    bVarArr[0].f3453a.run();
+                    bVarArr[0].f3444a.run();
                     return null;
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -162,27 +162,27 @@ public final class a {
                 return;
             }
         }
-        f3447a = c.a.f0.a.a.a.f3344a;
+        f3438a = c.a.f0.a.a.a.f3335a;
         new Handler(Looper.getMainLooper());
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f3448b = availableProcessors;
-        f3449c = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f3450d = Math.max(2, f3448b - 1);
-        f3451e = new ThreadFactoryC0073a();
-        f3452f = new LinkedBlockingQueue();
-        if (f3447a) {
-            String str = "core pool size: " + f3449c + " max size: " + f3450d;
+        f3439b = availableProcessors;
+        f3440c = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f3441d = Math.max(2, f3439b - 1);
+        f3442e = new ThreadFactoryC0073a();
+        f3443f = new LinkedBlockingQueue();
+        if (f3438a) {
+            String str = "core pool size: " + f3440c + " max size: " + f3441d;
         }
-        int i2 = f3450d;
-        new ThreadPoolExecutor(i2, i2, 30L, TimeUnit.SECONDS, f3452f, f3451e).allowCoreThreadTimeOut(true);
+        int i2 = f3441d;
+        new ThreadPoolExecutor(i2, i2, 30L, TimeUnit.SECONDS, f3443f, f3442e).allowCoreThreadTimeOut(true);
     }
 
     public static void b(Runnable runnable, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, runnable, str) == null) {
             b bVar = new b(null);
-            bVar.f3453a = runnable;
-            bVar.f3454b = str;
+            bVar.f3444a = runnable;
+            bVar.f3445b = str;
             new c(null).execute(bVar);
         }
     }

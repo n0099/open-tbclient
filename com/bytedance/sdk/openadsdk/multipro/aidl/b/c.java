@@ -17,10 +17,10 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f67885a;
+    public TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f68065a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f67886b;
+    public Handler f68066b;
 
     public c(TTFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener) {
         Interceptable interceptable = $ic;
@@ -37,18 +37,18 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
                 return;
             }
         }
-        this.f67886b = new Handler(Looper.getMainLooper());
-        this.f67885a = fullScreenVideoAdInteractionListener;
+        this.f68066b = new Handler(Looper.getMainLooper());
+        this.f68065a = fullScreenVideoAdInteractionListener;
     }
 
     private Handler b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            Handler handler = this.f67886b;
+            Handler handler = this.f68066b;
             if (handler == null) {
                 Handler handler2 = new Handler(Looper.getMainLooper());
-                this.f67886b = handler2;
+                this.f68066b = handler2;
                 return handler2;
             }
             return handler;
@@ -65,7 +65,7 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f67889a;
+                public final /* synthetic */ c f68069a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -82,14 +82,14 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
                             return;
                         }
                     }
-                    this.f67889a = this;
+                    this.f68069a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     TTFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdInteractionListener = this.f67889a.f67885a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdInteractionListener = this.f68069a.f68065a) == null) {
                         return;
                     }
                     fullScreenVideoAdInteractionListener.onAdClose();
@@ -107,7 +107,7 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f67887a;
+                public final /* synthetic */ c f68067a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -124,14 +124,14 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
                             return;
                         }
                     }
-                    this.f67887a = this;
+                    this.f68067a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     TTFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdInteractionListener = this.f67887a.f67885a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdInteractionListener = this.f68067a.f68065a) == null) {
                         return;
                     }
                     fullScreenVideoAdInteractionListener.onAdShow();
@@ -149,7 +149,7 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f67888a;
+                public final /* synthetic */ c f68068a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -166,14 +166,14 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
                             return;
                         }
                     }
-                    this.f67888a = this;
+                    this.f68068a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     TTFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdInteractionListener = this.f67888a.f67885a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdInteractionListener = this.f68068a.f68065a) == null) {
                         return;
                     }
                     fullScreenVideoAdInteractionListener.onAdVideoBarClick();
@@ -199,7 +199,7 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f67891a;
+                public final /* synthetic */ c f68071a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -216,14 +216,14 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
                             return;
                         }
                     }
-                    this.f67891a = this;
+                    this.f68071a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     TTFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdInteractionListener = this.f67891a.f67885a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdInteractionListener = this.f68071a.f68065a) == null) {
                         return;
                     }
                     fullScreenVideoAdInteractionListener.onSkippedVideo();
@@ -241,7 +241,7 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f67890a;
+                public final /* synthetic */ c f68070a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -258,14 +258,14 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
                             return;
                         }
                     }
-                    this.f67890a = this;
+                    this.f68070a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     TTFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdInteractionListener = this.f67890a.f67885a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdInteractionListener = this.f68070a.f68065a) == null) {
                         return;
                     }
                     fullScreenVideoAdInteractionListener.onVideoComplete();
@@ -277,8 +277,8 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f67885a = null;
-            this.f67886b = null;
+            this.f68065a = null;
+            this.f68066b = null;
         }
     }
 }

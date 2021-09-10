@@ -72,7 +72,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("12", "Arabic");
         language.put("13", "Finnish");
         language.put("14", "Greek");
-        language.put(Constants.VIA_REPORT_TYPE_WPA_STATE, "Icelandic");
+        language.put("15", "Icelandic");
         language.put(Constants.VIA_REPORT_TYPE_START_WAP, "Maltese");
         language.put(Constants.VIA_REPORT_TYPE_START_GROUP, "Turkish");
         language.put("18", "Croatian");

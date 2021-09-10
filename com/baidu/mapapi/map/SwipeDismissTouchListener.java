@@ -18,34 +18,34 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41470a;
+    public int f41581a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41471b;
+    public int f41582b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f41472c;
+    public int f41583c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f41473d;
+    public long f41584d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f41474e;
+    public View f41585e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DismissCallbacks f41475f;
+    public DismissCallbacks f41586f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41476g;
+    public int f41587g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f41477h;
+    public float f41588h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f41478i;
+    public float f41589i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f41479j;
+    public boolean f41590j;
     public int k;
     public Object l;
     public VelocityTracker m;
@@ -77,16 +77,16 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
                 return;
             }
         }
-        this.f41476g = 1;
+        this.f41587g = 1;
         ViewConfiguration viewConfiguration = ViewConfiguration.get(view.getContext());
-        this.f41470a = viewConfiguration.getScaledTouchSlop();
-        this.f41471b = viewConfiguration.getScaledMinimumFlingVelocity();
-        this.f41472c = viewConfiguration.getScaledMaximumFlingVelocity();
-        this.f41473d = view.getContext().getResources().getInteger(17694720);
-        this.f41474e = view;
+        this.f41581a = viewConfiguration.getScaledTouchSlop();
+        this.f41582b = viewConfiguration.getScaledMinimumFlingVelocity();
+        this.f41583c = viewConfiguration.getScaledMaximumFlingVelocity();
+        this.f41584d = view.getContext().getResources().getInteger(17694720);
+        this.f41585e = view;
         view.getContext();
         this.l = obj;
-        this.f41475f = dismissCallbacks;
+        this.f41586f = dismissCallbacks;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -94,9 +94,9 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            ViewGroup.LayoutParams layoutParams = this.f41474e.getLayoutParams();
-            int height = this.f41474e.getHeight();
-            ValueAnimator duration = ValueAnimator.ofInt(height, 1).setDuration(this.f41473d);
+            ViewGroup.LayoutParams layoutParams = this.f41585e.getLayoutParams();
+            int height = this.f41585e.getHeight();
+            ValueAnimator duration = ValueAnimator.ofInt(height, 1).setDuration(this.f41584d);
             duration.addListener(new q(this, layoutParams, height));
             duration.addUpdateListener(new r(this, layoutParams));
             duration.start();
@@ -107,10 +107,10 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
         if (r10.m == null) goto L16;
      */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
-        r10.f41474e.animate().translationX(0.0f).setDuration(r10.f41473d).setListener(null);
+        r10.f41585e.animate().translationX(0.0f).setDuration(r10.f41584d).setListener(null);
      */
     /* JADX WARN: Code restructure failed: missing block: B:88:0x018f, code lost:
-        if (r10.f41479j != false) goto L14;
+        if (r10.f41590j != false) goto L14;
      */
     @Override // android.view.View.OnTouchListener
     @TargetApi(12)
@@ -124,14 +124,14 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
             motionEvent.offsetLocation(this.n, 0.0f);
-            if (this.f41476g < 2) {
-                this.f41476g = this.f41474e.getWidth();
+            if (this.f41587g < 2) {
+                this.f41587g = this.f41585e.getWidth();
             }
             int actionMasked = motionEvent.getActionMasked();
             if (actionMasked == 0) {
-                this.f41477h = motionEvent.getRawX();
-                this.f41478i = motionEvent.getRawY();
-                if (this.f41475f.canDismiss(this.l)) {
+                this.f41588h = motionEvent.getRawX();
+                this.f41589i = motionEvent.getRawY();
+                if (this.f41586f.canDismiss(this.l)) {
                     this.o = false;
                     VelocityTracker obtain = VelocityTracker.obtain();
                     this.m = obtain;
@@ -141,15 +141,15 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
             }
             if (actionMasked == 1) {
                 if (this.m != null) {
-                    float rawX = motionEvent.getRawX() - this.f41477h;
+                    float rawX = motionEvent.getRawX() - this.f41588h;
                     this.m.addMovement(motionEvent);
                     this.m.computeCurrentVelocity(1000);
                     float xVelocity = this.m.getXVelocity();
                     float abs = Math.abs(xVelocity);
                     float abs2 = Math.abs(this.m.getYVelocity());
-                    if (Math.abs(rawX) > this.f41476g / 3 && this.f41479j) {
+                    if (Math.abs(rawX) > this.f41587g / 3 && this.f41590j) {
                         z = rawX > 0.0f;
-                    } else if (this.f41471b > abs || abs > this.f41472c || abs2 >= abs || i2 >= 0 || !this.f41479j) {
+                    } else if (this.f41582b > abs || abs > this.f41583c || abs2 >= abs || i2 >= 0 || !this.f41590j) {
                         z = false;
                         r3 = false;
                     } else {
@@ -157,7 +157,7 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
                         z = this.m.getXVelocity() > 0.0f;
                     }
                     if (r3) {
-                        this.f41474e.animate().translationX(z ? this.f41476g : -this.f41476g).setDuration(this.f41473d).setListener(new p(this));
+                        this.f41585e.animate().translationX(z ? this.f41587g : -this.f41587g).setDuration(this.f41584d).setListener(new p(this));
                     }
                 }
                 return false;
@@ -166,30 +166,30 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
                 VelocityTracker velocityTracker = this.m;
                 if (velocityTracker != null) {
                     velocityTracker.addMovement(motionEvent);
-                    float rawX2 = motionEvent.getRawX() - this.f41477h;
-                    float rawY = motionEvent.getRawY() - this.f41478i;
-                    if (Math.abs(rawX2) > this.f41470a && Math.abs(rawY) < Math.abs(rawX2) / 2.0f) {
-                        this.f41479j = true;
-                        this.k = rawX2 > 0.0f ? this.f41470a : -this.f41470a;
-                        this.f41474e.getParent().requestDisallowInterceptTouchEvent(true);
+                    float rawX2 = motionEvent.getRawX() - this.f41588h;
+                    float rawY = motionEvent.getRawY() - this.f41589i;
+                    if (Math.abs(rawX2) > this.f41581a && Math.abs(rawY) < Math.abs(rawX2) / 2.0f) {
+                        this.f41590j = true;
+                        this.k = rawX2 > 0.0f ? this.f41581a : -this.f41581a;
+                        this.f41585e.getParent().requestDisallowInterceptTouchEvent(true);
                         if (!this.o) {
                             this.o = true;
-                            this.f41475f.onNotify();
+                            this.f41586f.onNotify();
                         }
-                        if (Math.abs(rawX2) <= this.f41476g / 3) {
+                        if (Math.abs(rawX2) <= this.f41587g / 3) {
                             this.p = false;
                         } else if (!this.p) {
                             this.p = true;
-                            this.f41475f.onNotify();
+                            this.f41586f.onNotify();
                         }
                         MotionEvent obtain2 = MotionEvent.obtain(motionEvent);
                         obtain2.setAction((motionEvent.getActionIndex() << 8) | 3);
-                        this.f41474e.onTouchEvent(obtain2);
+                        this.f41585e.onTouchEvent(obtain2);
                         obtain2.recycle();
                     }
-                    if (this.f41479j) {
+                    if (this.f41590j) {
                         this.n = rawX2;
-                        this.f41474e.setTranslationX(rawX2 - this.k);
+                        this.f41585e.setTranslationX(rawX2 - this.k);
                         return true;
                     }
                 }
@@ -199,9 +199,9 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
             this.m.recycle();
             this.m = null;
             this.n = 0.0f;
-            this.f41477h = 0.0f;
-            this.f41478i = 0.0f;
-            this.f41479j = false;
+            this.f41588h = 0.0f;
+            this.f41589i = 0.0f;
+            this.f41590j = false;
             return false;
         }
         return invokeLL.booleanValue;

@@ -26,10 +26,10 @@ public class a extends com.kwad.sdk.core.network.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f71576b;
+    public f f71756b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f71577c;
+    public int f71757c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(f fVar) {
@@ -92,12 +92,12 @@ public class a extends com.kwad.sdk.core.network.d {
                 return;
             }
         }
-        this.f71576b = fVar;
+        this.f71756b = fVar;
         JSONArray jSONArray = new JSONArray();
         q.a(jSONArray, fVar.toJson());
         a("impInfo", jSONArray);
         a("universePhotoInfo", lVar);
-        int i4 = this.f71577c;
+        int i4 = this.f71757c;
         if (i4 > 0) {
             a("calledUnionType", i4);
         }
@@ -114,7 +114,7 @@ public class a extends com.kwad.sdk.core.network.d {
         if (a3 != null) {
             a("campaignType", ((Integer) a3.getValue()).intValue());
         }
-        String a4 = this.f71576b.a("thirdUserId");
+        String a4 = this.f71756b.a("thirdUserId");
         if (a4 != null) {
             m a5 = m.a();
             a5.a(a4);
@@ -130,7 +130,7 @@ public class a extends com.kwad.sdk.core.network.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, fVar)) == null) {
             try {
-                return fVar.f71602a.getScreenOrientation();
+                return fVar.f71782a.getScreenOrientation();
             } catch (Throwable unused) {
                 return 0;
             }
@@ -148,7 +148,7 @@ public class a extends com.kwad.sdk.core.network.d {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f71577c = i2;
+            this.f71757c = i2;
         }
     }
 
@@ -157,9 +157,9 @@ public class a extends com.kwad.sdk.core.network.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f fVar = this.f71576b;
+            f fVar = this.f71756b;
             if (fVar != null) {
-                return fVar.f71602a;
+                return fVar.f71782a;
             }
             return null;
         }

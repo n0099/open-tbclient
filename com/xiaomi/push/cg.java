@@ -27,7 +27,7 @@ public class cg {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile cg f77245a;
+    public static volatile cg f77425a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -51,7 +51,7 @@ public class cg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77246a;
+        public int f77426a;
 
         /* renamed from: a  reason: collision with other field name */
         public ce f182a;
@@ -69,7 +69,7 @@ public class cg {
         public Random f186a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f77247b;
+        public String f77427b;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class cg {
             }
             this.f182a = null;
             this.f186a = new Random();
-            this.f77246a = 0;
+            this.f77426a = 0;
             this.f184a = str;
         }
 
@@ -139,7 +139,7 @@ public class cg {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048582, this, ceVar, context) == null) {
                 this.f182a = ceVar;
-                this.f77247b = ceVar.a();
+                this.f77427b = ceVar.a();
                 this.f185a = new WeakReference<>(context);
             }
         }
@@ -155,7 +155,7 @@ public class cg {
         public boolean m220a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f182a == null || TextUtils.isEmpty(this.f77247b) || this.f185a == null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f182a == null || TextUtils.isEmpty(this.f77427b) || this.f185a == null : invokeV.booleanValue;
         }
 
         public void b(Context context) {
@@ -183,7 +183,7 @@ public class cg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77248a;
+        public int f77428a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f187a;
@@ -195,16 +195,16 @@ public class cg {
         public String[] f189a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<T> f77249b;
+        public List<T> f77429b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f77250c;
+        public String f77430c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f77251d;
+        public String f77431d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f77252e;
+        public String f77432e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i2) {
@@ -224,14 +224,14 @@ public class cg {
                     return;
                 }
             }
-            this.f77249b = new ArrayList();
+            this.f77429b = new ArrayList();
             this.f188a = list;
             this.f187a = str2;
             this.f189a = strArr;
-            this.f77250c = str3;
-            this.f77251d = str4;
-            this.f77252e = str5;
-            this.f77248a = i2;
+            this.f77430c = str3;
+            this.f77431d = str4;
+            this.f77432e = str5;
+            this.f77428a = i2;
         }
 
         @Override // com.xiaomi.push.cg.a
@@ -248,7 +248,7 @@ public class cg {
             String[] strArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, sQLiteDatabase) == null) {
-                this.f77249b.clear();
+                this.f77429b.clear();
                 List<String> list = this.f188a;
                 if (list == null || list.size() <= 0) {
                     strArr = null;
@@ -257,18 +257,18 @@ public class cg {
                     this.f188a.toArray(strArr2);
                     strArr = strArr2;
                 }
-                int i2 = this.f77248a;
-                Cursor query = sQLiteDatabase.query(super.f77247b, strArr, this.f187a, this.f189a, this.f77250c, this.f77251d, this.f77252e, i2 > 0 ? String.valueOf(i2) : null);
+                int i2 = this.f77428a;
+                Cursor query = sQLiteDatabase.query(super.f77427b, strArr, this.f187a, this.f189a, this.f77430c, this.f77431d, this.f77432e, i2 > 0 ? String.valueOf(i2) : null);
                 if (query != null && query.moveToFirst()) {
                     do {
                         T a2 = a(context, query);
                         if (a2 != null) {
-                            this.f77249b.add(a2);
+                            this.f77429b.add(a2);
                         }
                     } while (query.moveToNext());
                     query.close();
                 }
-                a(context, (List) this.f77249b);
+                a(context, (List) this.f77429b);
             }
         }
 
@@ -281,7 +281,7 @@ public class cg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<a> f77253a;
+        public ArrayList<a> f77433a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(String str, ArrayList<a> arrayList) {
@@ -302,7 +302,7 @@ public class cg {
                 }
             }
             ArrayList<a> arrayList2 = new ArrayList<>();
-            this.f77253a = arrayList2;
+            this.f77433a = arrayList2;
             arrayList2.addAll(arrayList);
         }
 
@@ -311,7 +311,7 @@ public class cg {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
                 super.a(context);
-                Iterator<a> it = this.f77253a.iterator();
+                Iterator<a> it = this.f77433a.iterator();
                 while (it.hasNext()) {
                     a next = it.next();
                     if (next != null) {
@@ -325,7 +325,7 @@ public class cg {
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sQLiteDatabase) == null) {
-                Iterator<a> it = this.f77253a.iterator();
+                Iterator<a> it = this.f77433a.iterator();
                 while (it.hasNext()) {
                     a next = it.next();
                     if (next != null) {
@@ -342,7 +342,7 @@ public class cg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f77254a;
+        public String f77434a;
 
         /* renamed from: a  reason: collision with other field name */
         public String[] f190a;
@@ -365,7 +365,7 @@ public class cg {
                     return;
                 }
             }
-            this.f77254a = str2;
+            this.f77434a = str2;
             this.f190a = strArr;
         }
 
@@ -373,7 +373,7 @@ public class cg {
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, sQLiteDatabase) == null) {
-                sQLiteDatabase.delete(this.f77247b, this.f77254a, this.f190a);
+                sQLiteDatabase.delete(this.f77427b, this.f77434a, this.f190a);
             }
         }
     }
@@ -384,7 +384,7 @@ public class cg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ContentValues f77255a;
+        public ContentValues f77435a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(String str, ContentValues contentValues) {
@@ -404,14 +404,14 @@ public class cg {
                     return;
                 }
             }
-            this.f77255a = contentValues;
+            this.f77435a = contentValues;
         }
 
         @Override // com.xiaomi.push.cg.a
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, sQLiteDatabase) == null) {
-                sQLiteDatabase.insert(this.f77247b, null, this.f77255a);
+                sQLiteDatabase.insert(this.f77427b, null, this.f77435a);
             }
         }
     }
@@ -459,14 +459,14 @@ public class cg {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f77245a == null) {
+            if (f77425a == null) {
                 synchronized (cg.class) {
-                    if (f77245a == null) {
-                        f77245a = new cg(context);
+                    if (f77425a == null) {
+                        f77425a = new cg(context);
                     }
                 }
             }
-            return f77245a;
+            return f77425a;
         }
         return (cg) invokeL.objValue;
     }

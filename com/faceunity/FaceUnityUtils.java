@@ -1,7 +1,7 @@
 package com.faceunity;
 
 import android.content.Context;
-import c.a.q0.w3.l.f;
+import c.a.r0.x3.l.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,7 +37,7 @@ public class FaceUnityUtils {
             try {
                 InputStream open = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/v3.mp3");
                 open.close();
-                faceunity.fuSetup(new byte[open.available()], null, f.a());
+                faceunity.fuSetup(new byte[open.available()], null, e.a());
                 InputStream open2 = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/face_beautification.mp3");
                 open2.close();
                 return faceunity.fuCreateItemFromPackage(new byte[open2.available()]);

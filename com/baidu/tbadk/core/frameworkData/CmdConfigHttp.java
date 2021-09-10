@@ -202,6 +202,7 @@ public class CmdConfigHttp {
     public static final int CMD_INCREASE_FORUM_ACCESS_COUNT = 1003150;
     public static final int CMD_INTERESTED_GET_CLASS_LIST = 1003509;
     public static final int CMD_ITEM_FETCH_URL = 1003508;
+    public static final int CMD_ITEM_MANAGE = 1003511;
     public static final int CMD_JUMP_YY_LIVE_IN_VIDEO_LIST = 1003504;
     public static final int CMD_LCS_STATISTICS = 1003422;
     public static final int CMD_LOW_FLOWS_PAGE = 1003486;
@@ -264,6 +265,7 @@ public class CmdConfigHttp {
     public static final int CMD_SKIN_DETAIL = 1003037;
     public static final int CMD_SMART_APP_BROWSE_HISTORY = 1003438;
     public static final int CMD_SMART_APP_DEL_BROWSE_HISTORY = 1003439;
+    public static final int CMD_SPLASH_CHANGE_SCHEME = 1003512;
     public static final int CMD_SQUARE_FORUM_LIST = 1003060;
     public static final int CMD_STATIC_SPLASH = 1003193;
     public static final int CMD_SUBMIT_PB_SHOW_TIP = 1003374;
@@ -311,6 +313,7 @@ public class CmdConfigHttp {
     public static final int CMD_VOTE_THREAD_PULISH = 1003440;
     public static final int CMD_VR_LOGO = 1003182;
     public static final int CMD_WEB_HTTP_PROXY = 1003364;
+    public static final int CMD_WORK_VIDEO_GUIDE_UPDATE = 1003510;
     public static final int COMMON_PRAISE_Y_OR_N = 1001600;
     public static final int DISTRIBUTE_ACTRUAL_CMD = 1003000;
     public static final int FORUM_RECOMMEND_HTTP_CMD = 1002400;

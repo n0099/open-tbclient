@@ -14,16 +14,16 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f76493a;
+    public static final int f76673a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f76494b;
+    public static final int f76674b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f76495c;
+    public static final int f76675c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ExecutorService f76496d;
+    public static ExecutorService f76676d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,15 +40,15 @@ public final class e {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f76493a = availableProcessors;
-        f76494b = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f76495c = (f76493a * 2) + 1;
-        f76496d = a("COMMON_THREAD");
+        f76673a = availableProcessors;
+        f76674b = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f76675c = (f76673a * 2) + 1;
+        f76676d = a("COMMON_THREAD");
     }
 
     public static ExecutorService a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new ThreadPoolExecutor(f76494b, f76495c, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(128), new f(str), new ThreadPoolExecutor.DiscardPolicy()) : (ExecutorService) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new ThreadPoolExecutor(f76674b, f76675c, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(128), new f(str), new ThreadPoolExecutor.DiscardPolicy()) : (ExecutorService) invokeL.objValue;
     }
 }

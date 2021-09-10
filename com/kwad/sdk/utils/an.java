@@ -14,25 +14,25 @@ public class an {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SimpleDateFormat f73710a;
+    public static final SimpleDateFormat f73890a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f73711b;
+    public static final SimpleDateFormat f73891b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SimpleDateFormat f73712c;
+    public static final SimpleDateFormat f73892c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final SimpleDateFormat f73713d;
+    public static final SimpleDateFormat f73893d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final SimpleDateFormat f73714e;
+    public static final SimpleDateFormat f73894e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final SimpleDateFormat f73715f;
+    public static final SimpleDateFormat f73895f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final SimpleDateFormat f73716g;
+    public static final SimpleDateFormat f73896g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,13 +48,13 @@ public class an {
                 return;
             }
         }
-        f73710a = new SimpleDateFormat("MM/dd", Locale.US);
-        f73711b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
-        f73712c = new SimpleDateFormat("MM月dd日", Locale.US);
-        f73713d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
-        f73714e = new SimpleDateFormat("HH:mm", Locale.US);
-        f73715f = new SimpleDateFormat("MM-dd", Locale.US);
-        f73716g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        f73890a = new SimpleDateFormat("MM/dd", Locale.US);
+        f73891b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+        f73892c = new SimpleDateFormat("MM月dd日", Locale.US);
+        f73893d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
+        f73894e = new SimpleDateFormat("HH:mm", Locale.US);
+        f73895f = new SimpleDateFormat("MM-dd", Locale.US);
+        f73896g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
     }
 
     @Deprecated

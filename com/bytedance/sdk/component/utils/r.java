@@ -17,7 +17,7 @@ public class r {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f65074a;
+    public static String f65254a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class r {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String str = f65074a;
+            String str = f65254a;
             if (TextUtils.isEmpty(str)) {
                 try {
                     int myPid = Process.myPid();
@@ -49,7 +49,7 @@ public class r {
                                 k.b("Process", "processName = " + runningAppProcessInfo.processName);
                             }
                             String str2 = runningAppProcessInfo.processName;
-                            f65074a = str2;
+                            f65254a = str2;
                             return str2;
                         }
                     }
@@ -57,7 +57,7 @@ public class r {
                     e2.printStackTrace();
                 }
                 String a2 = a();
-                f65074a = a2;
+                f65254a = a2;
                 return a2;
             }
             return str;

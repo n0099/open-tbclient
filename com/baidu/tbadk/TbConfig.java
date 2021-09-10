@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.p0.b0.c;
+import c.a.q0.c0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
@@ -287,6 +287,7 @@ public class TbConfig {
     public static final String IN_PV_ADDRESS = "c/s/inpv";
     public static boolean IS_CHECK_OFFICAL_APPLICATION = false;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
+    public static final String ITEM_MANAGE = "c/f/forum/itemManage";
     public static final String ITEM_PAGE = "c/f/forum/itemPage";
     public static final String JUMP_TO_NEW_USER_CHOOSE_BAR = "c/u/user/getuserlike";
     public static final boolean LBSSWITCH = true;
@@ -570,6 +571,7 @@ public class TbConfig {
     public static final String URL_GAME_VIDEO = "c/f/excellent/recomVertical";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
     public static final String URL_GET_CONSENTLIST = "c/u/feed/getConsentList";
+    public static final String URL_GET_DEEPLINK_SCHEME = "c/s/getDeeplinkScheme";
     public static final String URL_GET_FORBIDDEN_FORUM = "c/u/user/getDislikeList";
     public static final String URL_GET_FORUM_MANAGER_RIGHTS = "c/f/forum/getForumMangerRights";
     public static final String URL_GET_GRAFFITI_LIST = "c/f/pb/graffiti";
@@ -639,6 +641,7 @@ public class TbConfig {
     public static final String URL_VIDEO_MONITOR_REPORT = "c/c/video/vlog";
     public static final String URL_VIDEO_TAB = "c/f/excellent/recomVideo";
     public static final String URL_WORKS_INFO = "https://tieba.baidu.com/mo/q/wise-creative-core/guide";
+    public static final String URL_WORK_VIDEO_GUIDE = "c/c/video/upGradeVideoUp";
     public static final String URL_YOUNGSTER_VERIFY_AUTHID = "c/c/user/passAuthidVerify";
     public static final String USER_MUTE_ADD = "c/c/user/userMuteAdd";
     public static final String USER_MUTE_CHECK = "c/u/user/userMuteCheck";

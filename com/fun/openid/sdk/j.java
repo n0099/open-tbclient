@@ -12,7 +12,7 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ExecutorService f69854a;
+    public static final ExecutorService f70034a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,6 +28,6 @@ public class j {
                 return;
             }
         }
-        f69854a = Executors.newSingleThreadExecutor();
+        f70034a = Executors.newSingleThreadExecutor();
     }
 }

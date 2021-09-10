@@ -3,8 +3,8 @@ package com.baidu.tieba.write.bottomButton;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import c.a.p0.g0.b;
-import c.a.p0.g0.c;
+import c.a.q0.h0.b;
+import c.a.q0.h0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
@@ -33,23 +33,23 @@ public class WriteThreadDelegateStatic extends b {
         }
     }
 
-    @Override // c.a.p0.g0.b
+    @Override // c.a.q0.h0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            cVar.f13476a = new WriteThreadFragment();
-            cVar.f13480e = 9;
-            cVar.f13477b = R.string.send;
-            cVar.f13479d = R.drawable.icon_tabbar_add_n;
-            cVar.f13484i = c.f13475j;
+            cVar.f13467a = new WriteThreadFragment();
+            cVar.f13471e = 9;
+            cVar.f13468b = R.string.send;
+            cVar.f13470d = R.drawable.icon_tabbar_add_n;
+            cVar.f13475i = c.f13466j;
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // c.a.p0.g0.b
+    @Override // c.a.q0.h0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class WriteThreadDelegateStatic extends b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.p0.g0.b
+    @Override // c.a.q0.h0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

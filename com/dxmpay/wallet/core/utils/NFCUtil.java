@@ -32,7 +32,7 @@ public final class NFCUtil {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static NFCUtil f69654a;
+        public static NFCUtil f69834a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,7 +48,7 @@ public final class NFCUtil {
                     return;
                 }
             }
-            f69654a = new NFCUtil(null);
+            f69834a = new NFCUtil(null);
         }
     }
 
@@ -59,7 +59,7 @@ public final class NFCUtil {
     public static NFCUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f69654a : (NFCUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f69834a : (NFCUtil) invokeV.objValue;
     }
 
     public void disableForegroundDispatch(Activity activity, boolean z) {

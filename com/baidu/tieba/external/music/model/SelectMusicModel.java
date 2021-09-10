@@ -3,7 +3,7 @@ package com.baidu.tieba.external.music.model;
 import android.text.TextUtils;
 import c.a.e.a.f;
 import c.a.e.e.p.j;
-import c.a.q0.o0.c.b;
+import c.a.r0.p0.c.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -33,13 +33,13 @@ public class SelectMusicModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f50195e;
+    public b f50360e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f50196f;
+    public TbPageContext f50361f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f50197g;
+    public final HttpMessageListener f50362g;
 
     /* loaded from: classes7.dex */
     public static class VideoSugMusicResponseMessage extends JsonHttpResponsedMessage {
@@ -101,7 +101,7 @@ public class SelectMusicModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectMusicModel f50198a;
+        public final /* synthetic */ SelectMusicModel f50363a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SelectMusicModel selectMusicModel, int i2) {
@@ -121,7 +121,7 @@ public class SelectMusicModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f50198a = selectMusicModel;
+            this.f50363a = selectMusicModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -133,7 +133,7 @@ public class SelectMusicModel extends BdBaseModel {
                 if (videoSugMusicResponseMessage.musicDatas == null) {
                     return;
                 }
-                this.f50198a.f50195e.setMusicData(videoSugMusicResponseMessage.musicDatas);
+                this.f50363a.f50360e.setMusicData(videoSugMusicResponseMessage.musicDatas);
             }
         }
     }
@@ -156,13 +156,13 @@ public class SelectMusicModel extends BdBaseModel {
                 return;
             }
         }
-        this.f50197g = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
-        this.f50196f = tbPageContext;
-        this.f50195e = bVar;
+        this.f50362g = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
+        this.f50361f = tbPageContext;
+        this.f50360e = bVar;
         y();
-        this.f50197g.setTag(getUniqueId());
-        this.f50197g.setSelfListener(true);
-        registerListener(this.f50197g);
+        this.f50362g.setTag(getUniqueId());
+        this.f50362g.setSelfListener(true);
+        registerListener(this.f50362g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -190,7 +190,7 @@ public class SelectMusicModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (!j.z()) {
-                this.f50196f.showToast(R.string.no_network);
+                this.f50361f.showToast(R.string.no_network);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC));
             }

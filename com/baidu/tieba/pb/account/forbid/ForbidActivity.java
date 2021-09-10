@@ -14,9 +14,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.p0.s.s.a;
-import c.a.q0.i2.f.a.a;
-import c.a.q0.i2.f.a.b;
+import c.a.q0.s.s.a;
+import c.a.r0.j2.f.a.a;
+import c.a.r0.j2.f.a.b;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
@@ -40,7 +40,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public d mAdapter;
-    public c.a.p0.s.s.a mErrorDialog;
+    public c.a.q0.s.s.a mErrorDialog;
     public RadioGroup mForbidDays;
     public TextView mForbidIdView;
     public View.OnClickListener mForbidListener;
@@ -62,7 +62,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForbidActivity f54736e;
+        public final /* synthetic */ ForbidActivity f54884e;
 
         public a(ForbidActivity forbidActivity) {
             Interceptable interceptable = $ic;
@@ -79,26 +79,26 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                     return;
                 }
             }
-            this.f54736e = forbidActivity;
+            this.f54884e = forbidActivity;
         }
 
         @Override // android.widget.RadioGroup.OnCheckedChangeListener
         public void onCheckedChanged(RadioGroup radioGroup, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, radioGroup, i2) == null) {
-                ForbidActivity forbidActivity = this.f54736e;
+                ForbidActivity forbidActivity = this.f54884e;
                 forbidActivity.changeSelectedButton(forbidActivity.mForbidDays.getCheckedRadioButtonId());
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements b.InterfaceC0909b {
+    public class b implements b.InterfaceC0941b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForbidActivity f54737a;
+        public final /* synthetic */ ForbidActivity f54885a;
 
         public b(ForbidActivity forbidActivity) {
             Interceptable interceptable = $ic;
@@ -115,36 +115,36 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                     return;
                 }
             }
-            this.f54737a = forbidActivity;
+            this.f54885a = forbidActivity;
         }
 
-        @Override // c.a.q0.i2.f.a.b.InterfaceC0909b
+        @Override // c.a.r0.j2.f.a.b.InterfaceC0941b
         public void a(ForbidTplData forbidTplData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, forbidTplData) == null) {
                 if (StringUtils.isNull(forbidTplData.error.errMsg)) {
-                    this.f54737a.showToast(R.string.neterror);
+                    this.f54885a.showToast(R.string.neterror);
                 } else {
-                    this.f54737a.showToast(forbidTplData.error.errMsg);
+                    this.f54885a.showToast(forbidTplData.error.errMsg);
                 }
             }
         }
 
-        @Override // c.a.q0.i2.f.a.b.InterfaceC0909b
+        @Override // c.a.r0.j2.f.a.b.InterfaceC0941b
         public void b(ForbidTplData forbidTplData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidTplData) == null) {
-                this.f54737a.mForbidIdView.setText(this.f54737a.mUserNameShow);
+                this.f54885a.mForbidIdView.setText(this.f54885a.mUserNameShow);
                 int i2 = forbidTplData.type;
                 if (i2 == 1 || i2 == 2) {
-                    this.f54737a.findViewById(R.id.radio_forbid_3).setVisibility(0);
-                    this.f54737a.findViewById(R.id.radio_forbid_10).setVisibility(0);
+                    this.f54885a.findViewById(R.id.radio_forbid_3).setVisibility(0);
+                    this.f54885a.findViewById(R.id.radio_forbid_10).setVisibility(0);
                 }
-                this.f54737a.mAdapter = new d(forbidTplData.reason);
-                this.f54737a.mListView.setAdapter((ListAdapter) this.f54737a.mAdapter);
+                this.f54885a.mAdapter = new d(forbidTplData.reason);
+                this.f54885a.mListView.setAdapter((ListAdapter) this.f54885a.mAdapter);
                 String[] strArr = forbidTplData.reason;
                 if (strArr == null || strArr.length == 0) {
-                    this.f54737a.showToast(R.string.no_data_text);
+                    this.f54885a.showToast(R.string.no_data_text);
                 }
             }
         }
@@ -156,7 +156,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForbidActivity f54738e;
+        public final /* synthetic */ ForbidActivity f54886e;
 
         /* loaded from: classes7.dex */
         public class a implements a.b {
@@ -164,7 +164,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f54739a;
+            public final /* synthetic */ c f54887a;
 
             /* renamed from: com.baidu.tieba.pb.account.forbid.ForbidActivity$c$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
@@ -173,7 +173,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f54740e;
+                public final /* synthetic */ a f54888e;
 
                 public C1785a(a aVar) {
                     Interceptable interceptable = $ic;
@@ -190,17 +190,17 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                             return;
                         }
                     }
-                    this.f54740e = aVar;
+                    this.f54888e = aVar;
                 }
 
-                @Override // c.a.p0.s.s.a.e
-                public void onClick(c.a.p0.s.s.a aVar) {
+                @Override // c.a.q0.s.s.a.e
+                public void onClick(c.a.q0.s.s.a aVar) {
                     Interceptable interceptable = $ic;
                     if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
                         return;
                     }
                     aVar.dismiss();
-                    this.f54740e.f54739a.f54738e.getActivity().finish();
+                    this.f54888e.f54887a.f54886e.getActivity().finish();
                 }
             }
 
@@ -219,20 +219,20 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                         return;
                     }
                 }
-                this.f54739a = cVar;
+                this.f54887a = cVar;
             }
 
-            @Override // c.a.q0.i2.f.a.a.b
+            @Override // c.a.r0.j2.f.a.a.b
             public void a(ForbidResultData forbidResultData) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, forbidResultData) == null) {
-                    ForbidActivity forbidActivity = this.f54739a.f54738e;
+                    ForbidActivity forbidActivity = this.f54887a.f54886e;
                     forbidActivity.showToast(forbidActivity.getPageContext().getString(R.string.forbid_success));
-                    this.f54739a.f54738e.finish();
+                    this.f54887a.f54886e.finish();
                 }
             }
 
-            @Override // c.a.q0.i2.f.a.a.b
+            @Override // c.a.r0.j2.f.a.a.b
             public void b(ForbidResultData forbidResultData) {
                 Interceptable interceptable = $ic;
                 if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidResultData) == null) || forbidResultData == null) {
@@ -242,18 +242,18 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                 switch (forbidResultData.error_code) {
                     case NetWorkErr.ERROR_DELETE_MCN_USER_THREAD /* 1211067 */:
                     case NetWorkErr.ERROR_IS_REPEAT_FORBIDDEN /* 1211068 */:
-                        if (this.f54739a.f54738e.mErrorDialog == null) {
-                            ForbidActivity forbidActivity = this.f54739a.f54738e;
-                            forbidActivity.mErrorDialog = new c.a.p0.s.s.a(forbidActivity.getActivity());
+                        if (this.f54887a.f54886e.mErrorDialog == null) {
+                            ForbidActivity forbidActivity = this.f54887a.f54886e;
+                            forbidActivity.mErrorDialog = new c.a.q0.s.s.a(forbidActivity.getActivity());
                         }
-                        this.f54739a.f54738e.mErrorDialog.setMessage(str);
-                        this.f54739a.f54738e.mErrorDialog.setPositiveButton(R.string.know, new C1785a(this));
-                        this.f54739a.f54738e.mErrorDialog.setCanceledOnTouchOutside(false);
-                        this.f54739a.f54738e.mErrorDialog.create(this.f54739a.f54738e.getPageContext());
-                        this.f54739a.f54738e.mErrorDialog.show();
+                        this.f54887a.f54886e.mErrorDialog.setMessage(str);
+                        this.f54887a.f54886e.mErrorDialog.setPositiveButton(R.string.know, new C1785a(this));
+                        this.f54887a.f54886e.mErrorDialog.setCanceledOnTouchOutside(false);
+                        this.f54887a.f54886e.mErrorDialog.create(this.f54887a.f54886e.getPageContext());
+                        this.f54887a.f54886e.mErrorDialog.show();
                         return;
                     default:
-                        ForbidActivity forbidActivity2 = this.f54739a.f54738e;
+                        ForbidActivity forbidActivity2 = this.f54887a.f54886e;
                         forbidActivity2.showToast(forbidActivity2.getPageContext().getString(R.string.forbid_failure));
                         return;
                 }
@@ -275,7 +275,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                     return;
                 }
             }
-            this.f54738e = forbidActivity;
+            this.f54886e = forbidActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -283,10 +283,10 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             ForbidActivity forbidActivity;
             View findViewById;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f54738e.mForbidDays == null || this.f54738e.mAdapter == null || k.isEmpty(this.f54738e.mAdapter.b()) || (findViewById = (forbidActivity = this.f54738e).findViewById(forbidActivity.mForbidDays.getCheckedRadioButtonId())) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f54886e.mForbidDays == null || this.f54886e.mAdapter == null || k.isEmpty(this.f54886e.mAdapter.b()) || (findViewById = (forbidActivity = this.f54886e).findViewById(forbidActivity.mForbidDays.getCheckedRadioButtonId())) == null) {
                 return;
             }
-            c.a.q0.i2.f.a.a.b(this.f54738e.mForumId, this.f54738e.mForumName, this.f54738e.mThreadId, this.f54738e.mUserName, this.f54738e.mPostId, (String) findViewById.getTag(), this.f54738e.mAdapter.b(), this.f54738e.mUserNameShow, this.f54738e.mUserPortrait, new a(this));
+            c.a.r0.j2.f.a.a.b(this.f54886e.mForumId, this.f54886e.mForumName, this.f54886e.mThreadId, this.f54886e.mUserName, this.f54886e.mPostId, (String) findViewById.getTag(), this.f54886e.mAdapter.b(), this.f54886e.mUserNameShow, this.f54886e.mUserPortrait, new a(this));
         }
     }
 
@@ -296,13 +296,13 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String[] f54741e;
+        public String[] f54889e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f54742f;
+        public int f54890f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View.OnClickListener f54743g;
+        public View.OnClickListener f54891g;
 
         /* loaded from: classes7.dex */
         public class a implements View.OnClickListener {
@@ -310,7 +310,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f54744e;
+            public final /* synthetic */ d f54892e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -327,15 +327,15 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                         return;
                     }
                 }
-                this.f54744e = dVar;
+                this.f54892e = dVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f54744e.f54742f = ((e) view.getTag()).f54747c;
-                    this.f54744e.notifyDataSetChanged();
+                    this.f54892e.f54890f = ((e) view.getTag()).f54895c;
+                    this.f54892e.notifyDataSetChanged();
                 }
             }
         }
@@ -355,9 +355,9 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                     return;
                 }
             }
-            this.f54742f = 0;
-            this.f54743g = new a(this);
-            this.f54741e = strArr;
+            this.f54890f = 0;
+            this.f54891g = new a(this);
+            this.f54889e = strArr;
         }
 
         public String b() {
@@ -365,8 +365,8 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String[] strArr = this.f54741e;
-                if (strArr == null || (i2 = this.f54742f) >= strArr.length) {
+                String[] strArr = this.f54889e;
+                if (strArr == null || (i2 = this.f54890f) >= strArr.length) {
                     return null;
                 }
                 return strArr[i2];
@@ -379,7 +379,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                String[] strArr = this.f54741e;
+                String[] strArr = this.f54889e;
                 if (strArr == null) {
                     return 0;
                 }
@@ -418,22 +418,22 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                 if (view == null) {
                     view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.forbid_list_item, (ViewGroup) null);
                     eVar = new e(null);
-                    eVar.f54745a = (TextView) view.findViewById(R.id.reason_text);
-                    eVar.f54746b = (ImageView) view.findViewById(R.id.check_img);
+                    eVar.f54893a = (TextView) view.findViewById(R.id.reason_text);
+                    eVar.f54894b = (ImageView) view.findViewById(R.id.check_img);
                     view.setTag(eVar);
-                    view.setOnClickListener(this.f54743g);
+                    view.setOnClickListener(this.f54891g);
                 } else {
                     eVar = (e) view.getTag();
                 }
-                eVar.f54747c = i2;
-                eVar.f54745a.setText(this.f54741e[i2]);
-                if (eVar.f54747c == this.f54742f) {
-                    SkinManager.setImageResource(eVar.f54746b, R.drawable.icon_found_information_choose);
-                    eVar.f54746b.setVisibility(0);
-                    SkinManager.setViewTextColor(eVar.f54745a, R.color.common_color_10047, 1);
+                eVar.f54895c = i2;
+                eVar.f54893a.setText(this.f54889e[i2]);
+                if (eVar.f54895c == this.f54890f) {
+                    SkinManager.setImageResource(eVar.f54894b, R.drawable.icon_found_information_choose);
+                    eVar.f54894b.setVisibility(0);
+                    SkinManager.setViewTextColor(eVar.f54893a, R.color.common_color_10047, 1);
                 } else {
-                    eVar.f54746b.setVisibility(4);
-                    SkinManager.setViewTextColor(eVar.f54745a, R.color.common_color_10039, 1);
+                    eVar.f54894b.setVisibility(4);
+                    SkinManager.setViewTextColor(eVar.f54893a, R.color.common_color_10039, 1);
                 }
                 return view;
             }
@@ -447,13 +447,13 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f54745a;
+        public TextView f54893a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f54746b;
+        public ImageView f54894b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f54747c;
+        public int f54895c;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -519,7 +519,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             this.mPostId = intent.getStringExtra("post_id");
             this.mUserNameShow = intent.getStringExtra("name_show");
             this.mUserPortrait = intent.getStringExtra("portrait");
-            c.a.q0.i2.f.a.b.b(this.mForumId, this.mMgrUserID, new b(this));
+            c.a.r0.j2.f.a.b.b(this.mForumId, this.mMgrUserID, new b(this));
         }
     }
 

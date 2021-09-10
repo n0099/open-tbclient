@@ -7,9 +7,9 @@ public class p1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f79083a;
+    public static int f79321a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f79084b;
+    public static int f79322b;
     public transient /* synthetic */ FieldHolder $fh;
 }

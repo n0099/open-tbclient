@@ -35,13 +35,13 @@ public final class r<E> extends w<E> {
     public final long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f0.f78648a.d(this, t.l) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f0.f78886a.d(this, t.l) : invokeV.longValue;
     }
 
     public final long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f0.f78648a.d(this, x.k) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f0.f78886a.d(this, x.k) : invokeV.longValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
@@ -54,14 +54,14 @@ public final class r<E> extends w<E> {
     public final void j(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            f0.f78648a.i(this, t.l, j2);
+            f0.f78886a.i(this, t.l, j2);
         }
     }
 
     public final void k(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            f0.f78648a.i(this, x.k, j2);
+            f0.f78886a.i(this, x.k, j2);
         }
     }
 
@@ -71,7 +71,7 @@ public final class r<E> extends w<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e2)) == null) {
             if (e2 != null) {
-                E[] eArr = this.f78647f;
+                E[] eArr = this.f78885f;
                 long j2 = this.producerIndex;
                 long a2 = a(j2);
                 if (e(eArr, a2) != null) {
@@ -100,7 +100,7 @@ public final class r<E> extends w<E> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             long j2 = this.consumerIndex;
             long a2 = a(j2);
-            E[] eArr = this.f78647f;
+            E[] eArr = this.f78885f;
             E e2 = e(eArr, a2);
             if (e2 == null) {
                 return null;

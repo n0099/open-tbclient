@@ -17,7 +17,7 @@ public class ga extends gc {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f77491a;
+    public a f77671a;
 
     /* renamed from: a  reason: collision with other field name */
     public final Map<String, String> f427a;
@@ -27,19 +27,19 @@ public class ga extends gc {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f77492a;
+        public static final a f77672a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f77493b;
+        public static final a f77673b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f77494c;
+        public static final a f77674c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f77495d;
+        public static final a f77675d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f77496e;
+        public static final a f77676e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
@@ -58,11 +58,11 @@ public class ga extends gc {
                     return;
                 }
             }
-            f77492a = new a("get");
-            f77493b = new a("set");
-            f77494c = new a("result");
-            f77495d = new a("error");
-            f77496e = new a("command");
+            f77672a = new a("get");
+            f77673b = new a("set");
+            f77674c = new a("result");
+            f77675d = new a("error");
+            f77676e = new a("command");
         }
 
         public a(String str) {
@@ -91,20 +91,20 @@ public class ga extends gc {
                     return null;
                 }
                 String lowerCase = str.toLowerCase();
-                if (f77492a.toString().equals(lowerCase)) {
-                    return f77492a;
+                if (f77672a.toString().equals(lowerCase)) {
+                    return f77672a;
                 }
-                if (f77493b.toString().equals(lowerCase)) {
-                    return f77493b;
+                if (f77673b.toString().equals(lowerCase)) {
+                    return f77673b;
                 }
-                if (f77495d.toString().equals(lowerCase)) {
-                    return f77495d;
+                if (f77675d.toString().equals(lowerCase)) {
+                    return f77675d;
                 }
-                if (f77494c.toString().equals(lowerCase)) {
-                    return f77494c;
+                if (f77674c.toString().equals(lowerCase)) {
+                    return f77674c;
                 }
-                if (f77496e.toString().equals(lowerCase)) {
-                    return f77496e;
+                if (f77676e.toString().equals(lowerCase)) {
+                    return f77676e;
                 }
                 return null;
             }
@@ -131,7 +131,7 @@ public class ga extends gc {
                 return;
             }
         }
-        this.f77491a = a.f77492a;
+        this.f77671a = a.f77672a;
         this.f427a = new HashMap();
     }
 
@@ -153,10 +153,10 @@ public class ga extends gc {
                 return;
             }
         }
-        this.f77491a = a.f77492a;
+        this.f77671a = a.f77672a;
         this.f427a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
-            this.f77491a = a.a(bundle.getString("ext_iq_type"));
+            this.f77671a = a.a(bundle.getString("ext_iq_type"));
         }
     }
 
@@ -166,7 +166,7 @@ public class ga extends gc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle a2 = super.a();
-            a aVar = this.f77491a;
+            a aVar = this.f77671a;
             if (aVar != null) {
                 a2.putString("ext_iq_type", aVar.toString());
             }
@@ -179,7 +179,7 @@ public class ga extends gc {
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f77491a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f77671a : (a) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.gc
@@ -214,7 +214,7 @@ public class ga extends gc {
                 sb.append(gn.a(entry.getValue()));
                 sb.append("\" ");
             }
-            if (this.f77491a == null) {
+            if (this.f77671a == null) {
                 str = "type=\"get\">";
             } else {
                 sb.append("type=\"");
@@ -241,9 +241,9 @@ public class ga extends gc {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             if (aVar == null) {
-                aVar = a.f77492a;
+                aVar = a.f77672a;
             }
-            this.f77491a = aVar;
+            this.f77671a = aVar;
         }
     }
 

@@ -50,7 +50,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f35345a;
+        public Intent f35454a;
 
         public /* synthetic */ b(Context context, C1557a c1557a) {
             this(context);
@@ -59,25 +59,25 @@ public class a {
         public final int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35345a.getIntExtra("level", 0) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35454a.getIntExtra("level", 0) : invokeV.intValue;
         }
 
         public final int f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35345a.getIntExtra("scale", 0) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35454a.getIntExtra("scale", 0) : invokeV.intValue;
         }
 
         public final int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35345a.getIntExtra("temperature", 0) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35454a.getIntExtra("temperature", 0) : invokeV.intValue;
         }
 
         public final int h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35345a.getIntExtra("voltage", 0) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35454a.getIntExtra("voltage", 0) : invokeV.intValue;
         }
 
         public b(Context context) {
@@ -95,7 +95,7 @@ public class a {
                     return;
                 }
             }
-            this.f35345a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            this.f35454a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
     }
 

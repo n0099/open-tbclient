@@ -18,16 +18,16 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f30467a;
+    public static final String f30549a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f30468b;
+    public static boolean f30550b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f30469c;
+    public static String f30551c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ArrayList<String> f30470d;
+    public static ArrayList<String> f30552d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,10 +47,10 @@ public class a {
         if (appInfoService != null) {
             l(appInfoService.isDebug());
         }
-        f30467a = a.class.getName();
-        f30468b = false;
-        f30469c = null;
-        f30470d = new ArrayList<>();
+        f30549a = a.class.getName();
+        f30550b = false;
+        f30551c = null;
+        f30552d = new ArrayList<>();
     }
 
     public a() {
@@ -72,7 +72,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), str, str2, str3})) == null) {
             if (i()) {
-                String str4 = f30469c;
+                String str4 = f30551c;
                 if (str4 == null || str3.startsWith(str4)) {
                     if (!z || j(str)) {
                         StringBuffer stringBuffer = new StringBuffer(100);
@@ -147,7 +147,7 @@ public class a {
     public static boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f30468b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f30550b : invokeV.booleanValue;
     }
 
     public static boolean j(String str) {
@@ -155,10 +155,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
             boolean z = false;
-            if (f30470d.size() == 0) {
+            if (f30552d.size() == 0) {
                 return false;
             }
-            Iterator<String> it = f30470d.iterator();
+            Iterator<String> it = f30552d.iterator();
             while (it.hasNext()) {
                 if (str.startsWith(it.next())) {
                     z = true;
@@ -209,7 +209,7 @@ public class a {
     public static void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            f30468b = z;
+            f30550b = z;
         }
     }
 

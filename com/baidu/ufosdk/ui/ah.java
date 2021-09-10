@@ -23,7 +23,7 @@ public final class ah extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackFacePageActivity f59538a;
+    public final /* synthetic */ FeedbackFacePageActivity f59718a;
 
     public ah(FeedbackFacePageActivity feedbackFacePageActivity) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public final class ah extends Handler {
                 return;
             }
         }
-        this.f59538a = feedbackFacePageActivity;
+        this.f59718a = feedbackFacePageActivity;
     }
 
     @Override // android.os.Handler
@@ -81,74 +81,74 @@ public final class ah extends Handler {
             super.handleMessage(message);
             if (message.what == 0) {
                 if (Integer.parseInt((String) message.obj) > 0) {
-                    textView4 = this.f59538a.l;
+                    textView4 = this.f59718a.l;
                     textView4.setVisibility(0);
                 } else {
-                    textView3 = this.f59538a.l;
+                    textView3 = this.f59718a.l;
                     textView3.setVisibility(8);
                 }
             }
             if (message.what == 1) {
-                this.f59538a.b();
+                this.f59718a.b();
             }
             if (message.what == 2) {
-                String format = String.format("os=android&appid=%s&devid=%s&clientid=%s&appvn=%s&sdkvn=%s&baiducuid=%s&nettype=%s&model=%s&osvn=%s&channel_id=%s", UfoSDK.appid, UfoSDK.devid, UfoSDK.clientid, com.baidu.ufosdk.b.e.b(), "2.9.10", com.baidu.ufosdk.b.f59370c, com.baidu.ufosdk.b.d.a(this.f59538a.getApplicationContext()), Build.MODEL, Build.VERSION.RELEASE, String.valueOf(com.baidu.ufosdk.b.f59377j));
+                String format = String.format("os=android&appid=%s&devid=%s&clientid=%s&appvn=%s&sdkvn=%s&baiducuid=%s&nettype=%s&model=%s&osvn=%s&channel_id=%s", UfoSDK.appid, UfoSDK.devid, UfoSDK.clientid, com.baidu.ufosdk.b.e.b(), "2.9.10", com.baidu.ufosdk.b.f59550c, com.baidu.ufosdk.b.d.a(this.f59718a.getApplicationContext()), Build.MODEL, Build.VERSION.RELEASE, String.valueOf(com.baidu.ufosdk.b.f59557j));
                 StringBuilder sb = new StringBuilder("https://ufosdk.baidu.com/?m=Web&a=getnfaqlist&");
                 sb.append(format);
                 String sb2 = sb.toString();
                 com.baidu.ufosdk.f.c.c("webview postString is " + sb2);
-                webView5 = this.f59538a.o;
+                webView5 = this.f59718a.o;
                 webView5.loadUrl(sb2);
             }
             if (message.what == 3) {
-                webView2 = this.f59538a.o;
+                webView2 = this.f59718a.o;
                 if (webView2.getProgress() < 100) {
-                    webView3 = this.f59538a.o;
+                    webView3 = this.f59718a.o;
                     webView3.stopLoading();
-                    view2 = this.f59538a.n;
+                    view2 = this.f59718a.n;
                     view2.setVisibility(8);
-                    Context applicationContext = this.f59538a.getApplicationContext();
-                    textView2 = this.f59538a.q;
+                    Context applicationContext = this.f59718a.getApplicationContext();
+                    textView2 = this.f59718a.q;
                     com.baidu.ufosdk.f.i.a(applicationContext, textView2);
-                    linearLayout2 = this.f59538a.f59475g;
+                    linearLayout2 = this.f59718a.f59655g;
                     linearLayout2.setVisibility(0);
-                    webView4 = this.f59538a.o;
+                    webView4 = this.f59718a.o;
                     webView4.setVisibility(8);
                 }
             }
             int i2 = message.what;
             if (i2 == 4) {
-                view = this.f59538a.n;
+                view = this.f59718a.n;
                 view.setVisibility(8);
-                Context applicationContext2 = this.f59538a.getApplicationContext();
-                textView = this.f59538a.q;
+                Context applicationContext2 = this.f59718a.getApplicationContext();
+                textView = this.f59718a.q;
                 com.baidu.ufosdk.f.i.a(applicationContext2, textView);
-                linearLayout = this.f59538a.f59475g;
+                linearLayout = this.f59718a.f59655g;
                 linearLayout.setVisibility(0);
-                webView = this.f59538a.o;
+                webView = this.f59718a.o;
                 webView.setVisibility(8);
             } else if (i2 == 12) {
-                z2 = this.f59538a.u;
+                z2 = this.f59718a.u;
                 if (z2) {
-                    this.f59538a.u = false;
+                    this.f59718a.u = false;
                     return;
                 }
-                str6 = this.f59538a.t;
+                str6 = this.f59718a.t;
                 if (!TextUtils.isEmpty(str6)) {
-                    str9 = this.f59538a.f59473e;
+                    str9 = this.f59718a.f59653e;
                     if (TextUtils.isEmpty(str9)) {
-                        editor6 = this.f59538a.f59469a;
-                        str10 = this.f59538a.t;
+                        editor6 = this.f59718a.f59649a;
+                        str10 = this.f59718a.t;
                         editor6.putString(str10, "");
                     }
                 }
-                str7 = this.f59538a.f59473e;
+                str7 = this.f59718a.f59653e;
                 if (!TextUtils.isEmpty(str7)) {
-                    editor5 = this.f59538a.f59469a;
-                    str8 = this.f59538a.f59473e;
+                    editor5 = this.f59718a.f59649a;
+                    str8 = this.f59718a.f59653e;
                     editor5.putString(str8, "");
                 }
-                editor4 = this.f59538a.f59469a;
+                editor4 = this.f59718a.f59649a;
                 editor4.commit();
             } else if (i2 != 14) {
                 if (i2 == 15) {
@@ -156,38 +156,38 @@ public final class ah extends Handler {
                 } else if (i2 != 16) {
                     if (i2 == 17) {
                     }
-                } else if (this.f59538a.getCurrentFocus() == null || this.f59538a.getCurrentFocus().getWindowToken() == null) {
+                } else if (this.f59718a.getCurrentFocus() == null || this.f59718a.getCurrentFocus().getWindowToken() == null) {
                 } else {
-                    ((InputMethodManager) this.f59538a.getSystemService("input_method")).hideSoftInputFromWindow(this.f59538a.getCurrentFocus().getWindowToken(), 2);
+                    ((InputMethodManager) this.f59718a.getSystemService("input_method")).hideSoftInputFromWindow(this.f59718a.getCurrentFocus().getWindowToken(), 2);
                 }
             } else {
-                z = this.f59538a.u;
+                z = this.f59718a.u;
                 if (z) {
-                    this.f59538a.u = false;
+                    this.f59718a.u = false;
                     return;
                 }
-                str = this.f59538a.t;
+                str = this.f59718a.t;
                 if (!TextUtils.isEmpty(str)) {
-                    str4 = this.f59538a.f59473e;
+                    str4 = this.f59718a.f59653e;
                     if (TextUtils.isEmpty(str4)) {
-                        editor3 = this.f59538a.f59469a;
-                        str5 = this.f59538a.t;
+                        editor3 = this.f59718a.f59649a;
+                        str5 = this.f59718a.t;
                         editor3.putString(str5, "");
                     }
                 }
-                str2 = this.f59538a.f59473e;
+                str2 = this.f59718a.f59653e;
                 if (!TextUtils.isEmpty(str2)) {
-                    editor2 = this.f59538a.f59469a;
-                    str3 = this.f59538a.f59473e;
+                    editor2 = this.f59718a.f59649a;
+                    str3 = this.f59718a.f59653e;
                     editor2.putString(str3, "");
                 }
-                editor = this.f59538a.f59469a;
+                editor = this.f59718a.f59649a;
                 editor.commit();
                 Intent intent = new Intent();
-                intent.setClass(this.f59538a, FeedbackInputActivity.class);
+                intent.setClass(this.f59718a, FeedbackInputActivity.class);
                 intent.putExtra("msgid", (String) message.obj);
-                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59377j);
-                this.f59538a.startActivity(intent);
+                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59557j);
+                this.f59718a.startActivity(intent);
             }
         }
     }

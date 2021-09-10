@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MyProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f45053a;
+    public static boolean f45168a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,7 +55,7 @@ public class MyProvider extends ContentProvider {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f45053a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f45168a : invokeV.booleanValue;
     }
 
     @Override // android.content.ContentProvider
@@ -144,7 +144,7 @@ public class MyProvider extends ContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            f45053a = true;
+            f45168a = true;
             return false;
         }
         return invokeV.booleanValue;

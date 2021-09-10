@@ -19,24 +19,24 @@ public final class z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final s f32071a;
+    public final s f32180a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f32072b;
+    public final String f32181b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final r f32073c;
+    public final r f32182c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public final a0 f32074d;
+    public final a0 f32183d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<Class<?>, Object> f32075e;
+    public final Map<Class<?>, Object> f32184e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile d f32076f;
+    public volatile d f32185f;
 
     public z(a aVar) {
         Interceptable interceptable = $ic;
@@ -53,30 +53,30 @@ public final class z {
                 return;
             }
         }
-        this.f32071a = aVar.f32077a;
-        this.f32072b = aVar.f32078b;
-        this.f32073c = aVar.f32079c.d();
-        this.f32074d = aVar.f32080d;
-        this.f32075e = c.d.b.e0.e.u(aVar.f32081e);
+        this.f32180a = aVar.f32186a;
+        this.f32181b = aVar.f32187b;
+        this.f32182c = aVar.f32188c.d();
+        this.f32183d = aVar.f32189d;
+        this.f32184e = c.d.b.e0.e.u(aVar.f32190e);
     }
 
     @Nullable
     public a0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32074d : (a0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32183d : (a0) invokeV.objValue;
     }
 
     public d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            d dVar = this.f32076f;
+            d dVar = this.f32185f;
             if (dVar != null) {
                 return dVar;
             }
-            d k = d.k(this.f32073c);
-            this.f32076f = k;
+            d k = d.k(this.f32182c);
+            this.f32185f = k;
             return k;
         }
         return (d) invokeV.objValue;
@@ -86,25 +86,25 @@ public final class z {
     public String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f32073c.c(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f32182c.c(str) : (String) invokeL.objValue;
     }
 
     public r d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32073c : (r) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32182c : (r) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32071a.m() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32180a.m() : invokeV.booleanValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f32072b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f32181b : (String) invokeV.objValue;
     }
 
     public a g() {
@@ -116,14 +116,14 @@ public final class z {
     public s h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32071a : (s) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32180a : (s) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "Request{method=" + this.f32072b + ", url=" + this.f32071a + ", tags=" + this.f32075e + ExtendedMessageFormat.END_FE;
+            return "Request{method=" + this.f32181b + ", url=" + this.f32180a + ", tags=" + this.f32184e + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -135,20 +135,20 @@ public final class z {
         @Nullable
 
         /* renamed from: a  reason: collision with root package name */
-        public s f32077a;
+        public s f32186a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f32078b;
+        public String f32187b;
 
         /* renamed from: c  reason: collision with root package name */
-        public r.a f32079c;
+        public r.a f32188c;
         @Nullable
 
         /* renamed from: d  reason: collision with root package name */
-        public a0 f32080d;
+        public a0 f32189d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Map<Class<?>, Object> f32081e;
+        public Map<Class<?>, Object> f32190e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -163,16 +163,16 @@ public final class z {
                     return;
                 }
             }
-            this.f32081e = Collections.emptyMap();
-            this.f32078b = "GET";
-            this.f32079c = new r.a();
+            this.f32190e = Collections.emptyMap();
+            this.f32187b = "GET";
+            this.f32188c = new r.a();
         }
 
         public a a(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-                this.f32079c.a(str, str2);
+                this.f32188c.a(str, str2);
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -182,7 +182,7 @@ public final class z {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f32077a != null) {
+                if (this.f32186a != null) {
                     return new z(this);
                 }
                 throw new IllegalStateException("url == null");
@@ -194,7 +194,7 @@ public final class z {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-                this.f32079c.g(str, str2);
+                this.f32188c.g(str, str2);
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -204,7 +204,7 @@ public final class z {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rVar)) == null) {
-                this.f32079c = rVar.f();
+                this.f32188c = rVar.f();
                 return this;
             }
             return (a) invokeL.objValue;
@@ -221,8 +221,8 @@ public final class z {
                         } else if (a0Var == null && c.d.b.e0.i.f.e(str)) {
                             throw new IllegalArgumentException("method " + str + " must have a request body.");
                         } else {
-                            this.f32078b = str;
-                            this.f32080d = a0Var;
+                            this.f32187b = str;
+                            this.f32189d = a0Var;
                             return this;
                         }
                     }
@@ -237,7 +237,7 @@ public final class z {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f32079c.f(str);
+                this.f32188c.f(str);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -248,7 +248,7 @@ public final class z {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, sVar)) == null) {
                 if (sVar != null) {
-                    this.f32077a = sVar;
+                    this.f32186a = sVar;
                     return this;
                 }
                 throw new NullPointerException("url == null");
@@ -272,17 +272,17 @@ public final class z {
                     return;
                 }
             }
-            this.f32081e = Collections.emptyMap();
-            this.f32077a = zVar.f32071a;
-            this.f32078b = zVar.f32072b;
-            this.f32080d = zVar.f32074d;
-            if (zVar.f32075e.isEmpty()) {
+            this.f32190e = Collections.emptyMap();
+            this.f32186a = zVar.f32180a;
+            this.f32187b = zVar.f32181b;
+            this.f32189d = zVar.f32183d;
+            if (zVar.f32184e.isEmpty()) {
                 linkedHashMap = Collections.emptyMap();
             } else {
-                linkedHashMap = new LinkedHashMap<>(zVar.f32075e);
+                linkedHashMap = new LinkedHashMap<>(zVar.f32184e);
             }
-            this.f32081e = linkedHashMap;
-            this.f32079c = zVar.f32073c.f();
+            this.f32190e = linkedHashMap;
+            this.f32188c = zVar.f32182c.f();
         }
     }
 }

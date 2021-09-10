@@ -20,7 +20,7 @@ public class j extends BaseBean {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39427a;
+    public String f39538a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(Context context, String str) {
@@ -40,7 +40,7 @@ public class j extends BaseBean {
                 return;
             }
         }
-        this.f39427a = str;
+        this.f39538a = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
@@ -49,7 +49,7 @@ public class j extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            String encodeToString = Base64.encodeToString(this.f39427a.getBytes(), 2);
+            String encodeToString = Base64.encodeToString(this.f39538a.getBytes(), 2);
             arrayList.add(new RestNameValuePair("datetime", System.currentTimeMillis() + ""));
             arrayList.add(new RestNameValuePair(TbConfig.TMP_LOG_DIR_NAME, encodeToString));
             return arrayList;

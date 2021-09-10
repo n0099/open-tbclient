@@ -16,10 +16,10 @@ public class AlaSquareActiveAllAdapter extends a<Object, SquareActiveAllViewHold
     public class SquareActiveAllViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c.a.q0.v.d.i.a mView;
+        public c.a.r0.v.d.i.a mView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SquareActiveAllViewHolder(AlaSquareActiveAllAdapter alaSquareActiveAllAdapter, c.a.q0.v.d.i.a aVar) {
+        public SquareActiveAllViewHolder(AlaSquareActiveAllAdapter alaSquareActiveAllAdapter, c.a.r0.v.d.i.a aVar) {
             super(aVar.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {

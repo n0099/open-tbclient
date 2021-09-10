@@ -15,10 +15,10 @@ public class e implements com.kwad.sdk.core.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f72254a;
+    public final int f72434a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f72255b;
+    public final String f72435b;
 
     public e(int i2, String str) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class e implements com.kwad.sdk.core.b {
                 return;
             }
         }
-        this.f72254a = i2;
-        this.f72255b = str;
+        this.f72434a = i2;
+        this.f72435b = str;
     }
 
     @Override // com.kwad.sdk.core.b
@@ -52,8 +52,8 @@ public class e implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "result", this.f72254a);
-            q.a(jSONObject, "error_msg", this.f72255b);
+            q.a(jSONObject, "result", this.f72434a);
+            q.a(jSONObject, "error_msg", this.f72435b);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

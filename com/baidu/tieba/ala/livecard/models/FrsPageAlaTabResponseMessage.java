@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.livecard.models;
 
 import c.a.e.l.e.n;
-import c.a.p0.s.q.c2;
-import c.a.q0.v0.b1;
+import c.a.q0.s.q.d2;
+import c.a.r0.w0.b1;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,22 +58,22 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
             b1 b1Var = new b1();
             this.pageInfo = b1Var;
-            b1Var.f25870g = optJSONObject.optInt("has_more") == 1;
-            this.pageInfo.f27377c = optJSONObject.optInt("pn");
+            b1Var.f26461g = optJSONObject.optInt("has_more") == 1;
+            this.pageInfo.f28027c = optJSONObject.optInt("pn");
             if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                 FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
-                this.pageInfo.f27375a = frsPageAlaTabRequestMessage.getForumName();
-                this.pageInfo.f27376b = frsPageAlaTabRequestMessage.getForumId();
+                this.pageInfo.f28025a = frsPageAlaTabRequestMessage.getForumName();
+                this.pageInfo.f28026b = frsPageAlaTabRequestMessage.getForumId();
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray.length() > 0) {
                 this.mThreadList = new ArrayList<>();
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
-                    c2 c2Var = new c2();
-                    c2Var.E3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
-                    c2Var.R2(jSONObject2);
-                    this.mThreadList.add(c2Var);
+                    d2 d2Var = new d2();
+                    d2Var.L3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
+                    d2Var.X2(jSONObject2);
+                    this.mThreadList.add(d2Var);
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
@@ -81,10 +81,10 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 this.mAltList = new ArrayList<>();
                 for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
                     JSONObject jSONObject3 = optJSONArray2.getJSONObject(i4);
-                    c2 c2Var2 = new c2();
-                    c2Var2.E3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
-                    c2Var2.R2(jSONObject3);
-                    this.mAltList.add(c2Var2);
+                    d2 d2Var2 = new d2();
+                    d2Var2.L3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
+                    d2Var2.X2(jSONObject3);
+                    this.mAltList.add(d2Var2);
                 }
             }
         }

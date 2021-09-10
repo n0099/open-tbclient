@@ -92,12 +92,13 @@ public class StatsReport {
         int i2 = 0;
         while (true) {
             Value[] valueArr = this.values;
-            if (i2 >= valueArr.length) {
+            if (i2 < valueArr.length) {
+                sb.append(valueArr[i2].toString());
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                i2++;
+            } else {
                 return sb.toString();
             }
-            sb.append(valueArr[i2].toString());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            i2++;
         }
     }
 }

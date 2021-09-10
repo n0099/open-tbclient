@@ -21,10 +21,10 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f53078a;
+    public int[] f53224a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<PersonalGroupFragment> f53079b;
+    public ArrayList<PersonalGroupFragment> f53225b;
 
     static {
         InterceptResult invokeClinit;
@@ -59,26 +59,26 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f53079b = new ArrayList<>();
+        this.f53225b = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         PersonalGroupFragment personalGroupFragment = new PersonalGroupFragment();
         personalGroupFragment.setArguments(bundle);
-        this.f53079b.add(personalGroupFragment);
+        this.f53225b.add(personalGroupFragment);
         if (z) {
-            this.f53078a = new int[]{0};
+            this.f53224a = new int[]{0};
         } else {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
             PersonalGroupFragment personalGroupFragment2 = new PersonalGroupFragment();
             personalGroupFragment2.setArguments(bundle2);
-            this.f53079b.add(personalGroupFragment2);
-            this.f53078a = new int[]{0, 1};
+            this.f53225b.add(personalGroupFragment2);
+            this.f53224a = new int[]{0, 1};
         }
-        page_count = this.f53078a.length;
-        Iterator<PersonalGroupFragment> it = this.f53079b.iterator();
+        page_count = this.f53224a.length;
+        Iterator<PersonalGroupFragment> it = this.f53225b.iterator();
         while (it.hasNext()) {
-            it.next().getArguments().putInt("page_size", this.f53079b.size());
+            it.next().getArguments().putInt("page_size", this.f53225b.size());
         }
     }
 
@@ -97,7 +97,7 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
             if (i2 >= page_count || i2 < 0) {
                 return null;
             }
-            return this.f53079b.get(i2);
+            return this.f53225b.get(i2);
         }
         return (Fragment) invokeI.objValue;
     }
@@ -105,6 +105,6 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
     public int getItemPageType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f53078a[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f53224a[i2] : invokeI.intValue;
     }
 }

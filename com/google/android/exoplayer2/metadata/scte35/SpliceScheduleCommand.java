@@ -67,10 +67,10 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f69928a;
+        public final int f70108a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f69929b;
+        public final long f70109b;
 
         public /* synthetic */ b(int i2, long j2, a aVar) {
             this(i2, j2);
@@ -85,8 +85,8 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         public final void d(Parcel parcel) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
-                parcel.writeInt(this.f69928a);
-                parcel.writeLong(this.f69929b);
+                parcel.writeInt(this.f70108a);
+                parcel.writeLong(this.f70109b);
             }
         }
 
@@ -105,8 +105,8 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                     return;
                 }
             }
-            this.f69928a = i2;
-            this.f69929b = j2;
+            this.f70108a = i2;
+            this.f70109b = j2;
         }
     }
 
@@ -203,34 +203,34 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f69930a;
+        public final long f70110a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f69931b;
+        public final boolean f70111b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f69932c;
+        public final boolean f70112c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final boolean f69933d;
+        public final boolean f70113d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f69934e;
+        public final long f70114e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final List<b> f69935f;
+        public final List<b> f70115f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final boolean f69936g;
+        public final boolean f70116g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f69937h;
+        public final long f70117h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final int f69938i;
+        public final int f70118i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final int f69939j;
+        public final int f70119j;
         public final int k;
 
         public c(long j2, boolean z, boolean z2, boolean z3, List<b> list, long j3, boolean z4, long j4, int i2, int i3, int i4) {
@@ -248,16 +248,16 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                     return;
                 }
             }
-            this.f69930a = j2;
-            this.f69931b = z;
-            this.f69932c = z2;
-            this.f69933d = z3;
-            this.f69935f = Collections.unmodifiableList(list);
-            this.f69934e = j3;
-            this.f69936g = z4;
-            this.f69937h = j4;
-            this.f69938i = i2;
-            this.f69939j = i3;
+            this.f70110a = j2;
+            this.f70111b = z;
+            this.f70112c = z2;
+            this.f70113d = z3;
+            this.f70115f = Collections.unmodifiableList(list);
+            this.f70114e = j3;
+            this.f70116g = z4;
+            this.f70117h = j4;
+            this.f70118i = i2;
+            this.f70119j = i3;
             this.k = i4;
         }
 
@@ -340,20 +340,20 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         public final void f(Parcel parcel) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
-                parcel.writeLong(this.f69930a);
-                parcel.writeByte(this.f69931b ? (byte) 1 : (byte) 0);
-                parcel.writeByte(this.f69932c ? (byte) 1 : (byte) 0);
-                parcel.writeByte(this.f69933d ? (byte) 1 : (byte) 0);
-                int size = this.f69935f.size();
+                parcel.writeLong(this.f70110a);
+                parcel.writeByte(this.f70111b ? (byte) 1 : (byte) 0);
+                parcel.writeByte(this.f70112c ? (byte) 1 : (byte) 0);
+                parcel.writeByte(this.f70113d ? (byte) 1 : (byte) 0);
+                int size = this.f70115f.size();
                 parcel.writeInt(size);
                 for (int i2 = 0; i2 < size; i2++) {
-                    this.f69935f.get(i2).d(parcel);
+                    this.f70115f.get(i2).d(parcel);
                 }
-                parcel.writeLong(this.f69934e);
-                parcel.writeByte(this.f69936g ? (byte) 1 : (byte) 0);
-                parcel.writeLong(this.f69937h);
-                parcel.writeInt(this.f69938i);
-                parcel.writeInt(this.f69939j);
+                parcel.writeLong(this.f70114e);
+                parcel.writeByte(this.f70116g ? (byte) 1 : (byte) 0);
+                parcel.writeLong(this.f70117h);
+                parcel.writeInt(this.f70118i);
+                parcel.writeInt(this.f70119j);
                 parcel.writeInt(this.k);
             }
         }
@@ -373,21 +373,21 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                     return;
                 }
             }
-            this.f69930a = parcel.readLong();
-            this.f69931b = parcel.readByte() == 1;
-            this.f69932c = parcel.readByte() == 1;
-            this.f69933d = parcel.readByte() == 1;
+            this.f70110a = parcel.readLong();
+            this.f70111b = parcel.readByte() == 1;
+            this.f70112c = parcel.readByte() == 1;
+            this.f70113d = parcel.readByte() == 1;
             int readInt = parcel.readInt();
             ArrayList arrayList = new ArrayList(readInt);
             for (int i4 = 0; i4 < readInt; i4++) {
                 arrayList.add(b.c(parcel));
             }
-            this.f69935f = Collections.unmodifiableList(arrayList);
-            this.f69934e = parcel.readLong();
-            this.f69936g = parcel.readByte() == 1;
-            this.f69937h = parcel.readLong();
-            this.f69938i = parcel.readInt();
-            this.f69939j = parcel.readInt();
+            this.f70115f = Collections.unmodifiableList(arrayList);
+            this.f70114e = parcel.readLong();
+            this.f70116g = parcel.readByte() == 1;
+            this.f70117h = parcel.readLong();
+            this.f70118i = parcel.readInt();
+            this.f70119j = parcel.readInt();
             this.k = parcel.readInt();
         }
     }

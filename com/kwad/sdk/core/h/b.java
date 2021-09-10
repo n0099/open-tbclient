@@ -19,19 +19,19 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f71742a = true;
+    public static volatile boolean f71922a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f71743b = false;
+    public static volatile boolean f71923b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile Set<c> f71744c = null;
+    public static volatile Set<c> f71924c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f71745d = null;
+    public static volatile b f71925d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile int f71746e = 204800;
+    public static volatile int f71926e = 204800;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public class b {
                 return;
             }
         }
-        f71744c = Collections.synchronizedSet(Collections.newSetFromMap(new WeakHashMap()));
+        f71924c = Collections.synchronizedSet(Collections.newSetFromMap(new WeakHashMap()));
     }
 
     public b() {
@@ -68,14 +68,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f71745d == null) {
+            if (f71925d == null) {
                 synchronized (b.class) {
-                    if (f71745d == null) {
-                        f71745d = new b();
+                    if (f71925d == null) {
+                        f71925d = new b();
                     }
                 }
             }
-            return f71745d;
+            return f71925d;
         }
         return (b) invokeV.objValue;
     }
@@ -86,8 +86,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
             synchronized (b.class) {
-                cVar = new c(inputStream, f71746e / (f71744c.size() + 1));
-                f71744c.add(cVar);
+                cVar = new c(inputStream, f71926e / (f71924c.size() + 1));
+                f71924c.add(cVar);
             }
             return cVar;
         }
@@ -98,8 +98,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cVar) == null) {
             synchronized (b.class) {
-                if (f71744c.contains(cVar)) {
-                    f71744c.remove(cVar);
+                if (f71924c.contains(cVar)) {
+                    f71924c.remove(cVar);
                 }
             }
         }
@@ -109,9 +109,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             if (i2 > 0) {
-                f71746e = i2 * 1024;
+                f71926e = i2 * 1024;
             }
-            f71742a = z;
+            f71922a = z;
         }
     }
 
@@ -124,13 +124,13 @@ public class b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f71742a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f71922a : invokeV.booleanValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f71746e / 1024 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f71926e / 1024 : invokeV.intValue;
     }
 
     public synchronized int d() {
@@ -140,7 +140,7 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
                 i2 = 0;
-                for (c cVar : f71744c) {
+                for (c cVar : f71924c) {
                     i2 += (int) cVar.a();
                 }
             }

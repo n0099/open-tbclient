@@ -15,7 +15,7 @@ public class ji extends jl {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f77873a;
+    public InputStream f78053a;
 
     /* renamed from: a  reason: collision with other field name */
     public OutputStream f820a;
@@ -33,7 +33,7 @@ public class ji extends jl {
                 return;
             }
         }
-        this.f77873a = null;
+        this.f78053a = null;
         this.f820a = null;
     }
 
@@ -52,7 +52,7 @@ public class ji extends jl {
                 return;
             }
         }
-        this.f77873a = null;
+        this.f78053a = null;
         this.f820a = null;
         this.f820a = outputStream;
     }
@@ -62,7 +62,7 @@ public class ji extends jl {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-            InputStream inputStream = this.f77873a;
+            InputStream inputStream = this.f78053a;
             if (inputStream != null) {
                 try {
                     int read = inputStream.read(bArr, i2, i3);

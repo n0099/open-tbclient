@@ -82,7 +82,7 @@ public class FileVideoCapturer implements VideoCapturer {
                     return;
                 }
             }
-            RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f42169a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f42280a);
             this.mediaFile = randomAccessFile;
             this.mediaFileChannel = randomAccessFile.getChannel();
             StringBuilder sb = new StringBuilder();
@@ -109,13 +109,13 @@ public class FileVideoCapturer implements VideoCapturer {
                     if (!str2.equals("420") && !str2.equals("420mpeg2")) {
                         throw new IllegalArgumentException("Does not support any other color space than I420 or I420mpeg2");
                     }
-                    if (i4 % 2 == 1 || i5 % 2 == 1) {
-                        throw new IllegalArgumentException("Does not support odd width or height");
+                    if (i4 % 2 != 1 && i5 % 2 != 1) {
+                        this.frameWidth = i4;
+                        this.frameHeight = i5;
+                        Logging.d(TAG, "frame dim: (" + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + SmallTailInfo.EMOTION_SUFFIX);
+                        return;
                     }
-                    this.frameWidth = i4;
-                    this.frameHeight = i5;
-                    Logging.d(TAG, "frame dim: (" + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + SmallTailInfo.EMOTION_SUFFIX);
-                    return;
+                    throw new IllegalArgumentException("Does not support odd width or height");
                 } else {
                     sb.append((char) read);
                 }

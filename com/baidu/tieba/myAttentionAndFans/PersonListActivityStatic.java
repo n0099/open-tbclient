@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.e.e.p.l;
-import c.a.p0.e.c;
-import c.a.p0.e.d;
-import c.a.p0.e.e;
+import c.a.q0.e.c;
+import c.a.q0.e.d;
+import c.a.q0.e.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyForbiddenFansActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
@@ -45,7 +45,7 @@ public class PersonListActivityStatic {
             }
         }
 
-        @Override // c.a.p0.e.e
+        @Override // c.a.q0.e.e
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;

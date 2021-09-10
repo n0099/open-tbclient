@@ -23,9 +23,9 @@ public final class a {
         String str = "";
         try {
             com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-            if (!TextUtils.isEmpty(a2.f45226c.getString("rpiiem", ""))) {
-                a2.f45227d.putString("rpiiem", "");
-                a2.f45227d.commit();
+            if (!TextUtils.isEmpty(a2.f45341c.getString("rpiiem", ""))) {
+                a2.f45342d.putString("rpiiem", "");
+                a2.f45342d.commit();
             }
             String n = a2.n();
             try {
@@ -33,11 +33,11 @@ public final class a {
                     n = s.h(context);
                     if (!TextUtils.isEmpty(n)) {
                         if (TextUtils.isEmpty(n)) {
-                            a2.f45227d.putString("rpiiemn", "");
-                            a2.f45227d.commit();
+                            a2.f45342d.putString("rpiiemn", "");
+                            a2.f45342d.commit();
                         } else {
-                            a2.f45227d.putString("rpiiemn", new String(Base64.encode(g.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), n.getBytes("UTF-8"), true), 10), "UTF-8"));
-                            a2.f45227d.commit();
+                            a2.f45342d.putString("rpiiemn", new String(Base64.encode(g.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), n.getBytes("UTF-8"), true), 10), "UTF-8"));
+                            a2.f45342d.commit();
                         }
                     }
                 }
@@ -58,12 +58,12 @@ public final class a {
             String str = "";
             try {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                str = a2.f45226c.getString("rpandid", "");
+                str = a2.f45341c.getString("rpandid", "");
                 if (TextUtils.isEmpty(str)) {
                     str = s.i(context);
                     if (!TextUtils.isEmpty(str)) {
-                        a2.f45227d.putString("rpandid", str);
-                        a2.f45227d.commit();
+                        a2.f45342d.putString("rpandid", str);
+                        a2.f45342d.commit();
                     }
                 }
             } catch (Throwable unused) {

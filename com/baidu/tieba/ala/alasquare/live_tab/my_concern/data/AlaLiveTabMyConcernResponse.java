@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alasquare.live_tab.my_concern.data;
 
-import c.a.p0.s.q.c2;
-import c.a.q0.v.d.c.f.b.b;
+import c.a.q0.s.q.d2;
+import c.a.r0.v.d.c.f.b.b;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -19,11 +19,11 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public List<b> followCloseList;
     public int followCloseNum;
-    public List<c2> followList;
+    public List<d2> followList;
     public int followStatus;
     public boolean hasMore;
     public int pn;
-    public List<c2> recommendList;
+    public List<d2> recommendList;
     public int totalFollowCount;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,9 +67,9 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                     if (optJSONObject2 != null) {
-                        c2 c2Var = new c2();
-                        c2Var.R2(optJSONObject2);
-                        this.followList.add(c2Var);
+                        d2 d2Var = new d2();
+                        d2Var.X2(optJSONObject2);
+                        this.followList.add(d2Var);
                     }
                 }
             }
@@ -90,9 +90,9 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 for (int i5 = 0; i5 < optJSONArray3.length(); i5++) {
                     JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i5);
                     if (optJSONObject4 != null) {
-                        c2 c2Var2 = new c2();
-                        c2Var2.R2(optJSONObject4);
-                        this.recommendList.add(c2Var2);
+                        d2 d2Var2 = new d2();
+                        d2Var2.X2(optJSONObject4);
+                        this.recommendList.add(d2Var2);
                     }
                 }
             }

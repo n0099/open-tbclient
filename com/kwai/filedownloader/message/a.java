@@ -16,7 +16,7 @@ public interface a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final MessageSnapshot f74100b;
+        public final MessageSnapshot f74280b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public C2029a(MessageSnapshot messageSnapshot) {
@@ -39,7 +39,7 @@ public interface a {
             if (messageSnapshot.b() != -3) {
                 throw new IllegalArgumentException(com.kwai.filedownloader.f.f.a("can't create the block complete message for id[%d], status[%d]", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(messageSnapshot.b())));
             }
-            this.f74100b = messageSnapshot;
+            this.f74280b = messageSnapshot;
         }
 
         @Override // com.kwai.filedownloader.message.c
@@ -56,7 +56,7 @@ public interface a {
         public MessageSnapshot c_() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f74100b : (MessageSnapshot) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f74280b : (MessageSnapshot) invokeV.objValue;
         }
     }
 

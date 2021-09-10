@@ -14,11 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.a.c;
-import c.a.o0.a.d;
-import c.a.o0.a.e;
-import c.a.o0.a.f;
-import c.a.o0.a.g;
+import c.a.p0.a.c;
+import c.a.p0.a.d;
+import c.a.p0.a.e;
+import c.a.p0.a.f;
+import c.a.p0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,12 +37,12 @@ public class CommonEmptyView extends RelativeLayout {
     public TextView mTitle;
 
     /* loaded from: classes6.dex */
-    public class a implements c.a.o0.a.g2.a {
+    public class a implements c.a.p0.a.g2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonEmptyView f46144a;
+        public final /* synthetic */ CommonEmptyView f46259a;
 
         public a(CommonEmptyView commonEmptyView) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class CommonEmptyView extends RelativeLayout {
                     return;
                 }
             }
-            this.f46144a = commonEmptyView;
+            this.f46259a = commonEmptyView;
         }
     }
 
@@ -105,7 +105,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            c.a.o0.a.c1.a.H().f(this, new a(this));
+            c.a.p0.a.c1.a.H().f(this, new a(this));
         }
     }
 
@@ -134,7 +134,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            c.a.o0.a.c1.a.H().g(this);
+            c.a.p0.a.c1.a.H().g(this);
         }
     }
 

@@ -15,25 +15,25 @@ public abstract class a implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.e f66906a;
+    public c.e f67086a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b f66907b;
+    public c.b f67087b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a f66908c;
+    public c.a f67088c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.f f66909d;
+    public c.f f67089d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.g f66910e;
+    public c.g f67090e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.InterfaceC1909c f66911f;
+    public c.InterfaceC1909c f67091f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.d f66912g;
+    public c.d f67092g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public abstract class a implements c {
     public final void a(c.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, eVar) == null) {
-            this.f66906a = eVar;
+            this.f67086a = eVar;
         }
     }
 
@@ -61,8 +61,8 @@ public abstract class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             try {
-                if (this.f66906a != null) {
-                    this.f66906a.b(this);
+                if (this.f67086a != null) {
+                    this.f67086a.b(this);
                 }
             } catch (Throwable th) {
                 k.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnPrepared error: ", th);
@@ -74,8 +74,8 @@ public abstract class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             try {
-                if (this.f66907b != null) {
-                    this.f66907b.a(this);
+                if (this.f67087b != null) {
+                    this.f67087b.a(this);
                 }
             } catch (Throwable th) {
                 k.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnCompletion error: ", th);
@@ -87,8 +87,8 @@ public abstract class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             try {
-                if (this.f66909d != null) {
-                    this.f66909d.c(this);
+                if (this.f67089d != null) {
+                    this.f67089d.c(this);
                 }
             } catch (Throwable th) {
                 k.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnSeekComplete error: ", th);
@@ -100,7 +100,7 @@ public abstract class a implements c {
     public final void a(c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f66907b = bVar;
+            this.f67087b = bVar;
         }
     }
 
@@ -108,7 +108,7 @@ public abstract class a implements c {
     public final void a(c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f66908c = aVar;
+            this.f67088c = aVar;
         }
     }
 
@@ -116,7 +116,7 @@ public abstract class a implements c {
     public final void a(c.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
-            this.f66909d = fVar;
+            this.f67089d = fVar;
         }
     }
 
@@ -125,8 +125,8 @@ public abstract class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048588, this, i2, i3)) == null) {
             try {
-                if (this.f66912g != null) {
-                    return this.f66912g.b(this, i2, i3);
+                if (this.f67092g != null) {
+                    return this.f67092g.b(this, i2, i3);
                 }
                 return false;
             } catch (Throwable th) {
@@ -141,7 +141,7 @@ public abstract class a implements c {
     public final void a(c.InterfaceC1909c interfaceC1909c) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, interfaceC1909c) == null) {
-            this.f66911f = interfaceC1909c;
+            this.f67091f = interfaceC1909c;
         }
     }
 
@@ -149,7 +149,7 @@ public abstract class a implements c {
     public final void a(c.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
-            this.f66912g = dVar;
+            this.f67092g = dVar;
         }
     }
 
@@ -157,20 +157,20 @@ public abstract class a implements c {
     public final void a(c.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, gVar) == null) {
-            this.f66910e = gVar;
+            this.f67090e = gVar;
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f66906a = null;
-            this.f66908c = null;
-            this.f66907b = null;
-            this.f66909d = null;
-            this.f66910e = null;
-            this.f66911f = null;
-            this.f66912g = null;
+            this.f67086a = null;
+            this.f67088c = null;
+            this.f67087b = null;
+            this.f67089d = null;
+            this.f67090e = null;
+            this.f67091f = null;
+            this.f67092g = null;
         }
     }
 
@@ -178,8 +178,8 @@ public abstract class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             try {
-                if (this.f66908c != null) {
-                    this.f66908c.a(this, i2);
+                if (this.f67088c != null) {
+                    this.f67088c.a(this, i2);
                 }
             } catch (Throwable th) {
                 k.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnBufferingUpdate error: ", th);
@@ -191,8 +191,8 @@ public abstract class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             try {
-                if (this.f66910e != null) {
-                    this.f66910e.a(this, i2, i3, i4, i5);
+                if (this.f67090e != null) {
+                    this.f67090e.a(this, i2, i3, i4, i5);
                 }
             } catch (Throwable th) {
                 k.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnVideoSizeChanged error: ", th);
@@ -205,8 +205,8 @@ public abstract class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i2, i3)) == null) {
             try {
-                if (this.f66911f != null) {
-                    return this.f66911f.a(this, i2, i3);
+                if (this.f67091f != null) {
+                    return this.f67091f.a(this, i2, i3);
                 }
                 return false;
             } catch (Throwable th) {

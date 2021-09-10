@@ -87,7 +87,6 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     }
 
     public HardwareVideoEncoderFactory(EglBase.Context context, boolean z, boolean z2) {
-        EglBase14.Context context2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,42 +102,28 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
             }
         }
         if (context instanceof EglBase14.Context) {
-            context2 = (EglBase14.Context) context;
+            this.sharedContext = (EglBase14.Context) context;
         } else {
             Logging.w(TAG, "No shared EglBase.Context.  Encoders will not use texture mode.");
-            context2 = null;
+            this.sharedContext = null;
         }
-        this.sharedContext = context2;
         this.enableIntelVp8Encoder = z;
         this.enableH264HighProfile = z2;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @Deprecated
-    public HardwareVideoEncoderFactory(boolean z, boolean z2) {
-        this(null, z, z2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((EglBase.Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
     }
 
     private BitrateAdjuster createBitrateAdjuster(VideoCodecType videoCodecType, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, videoCodecType, str)) == null) ? str.startsWith("OMX.Exynos.") ? videoCodecType == VideoCodecType.VP8 ? new DynamicBitrateAdjuster() : new FramerateBitrateAdjuster() : new BaseBitrateAdjuster() : (BitrateAdjuster) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, videoCodecType, str)) == null) {
+            if (str.startsWith("OMX.Exynos.")) {
+                if (videoCodecType == VideoCodecType.VP8) {
+                    return new DynamicBitrateAdjuster();
+                }
+                return new FramerateBitrateAdjuster();
+            }
+            return new BaseBitrateAdjuster();
+        }
+        return (BitrateAdjuster) invokeLL.objValue;
     }
 
     @Nullable
@@ -327,5 +312,27 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
             return (VideoCodecInfo[]) arrayList.toArray(new VideoCodecInfo[arrayList.size()]);
         }
         return (VideoCodecInfo[]) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @Deprecated
+    public HardwareVideoEncoderFactory(boolean z, boolean z2) {
+        this(null, z, z2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((EglBase.Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 }

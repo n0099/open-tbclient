@@ -20,17 +20,17 @@ public class j extends ProxySelector {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<Proxy> f68141a;
+    public static final List<Proxy> f68321a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ProxySelector f68142b;
+    public final ProxySelector f68322b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f68143c;
+    public final String f68323c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f68144d;
+    public final int f68324d;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class j extends ProxySelector {
                 return;
             }
         }
-        f68141a = Collections.singletonList(Proxy.NO_PROXY);
+        f68321a = Collections.singletonList(Proxy.NO_PROXY);
     }
 
     public j(String str, int i2) {
@@ -63,9 +63,9 @@ public class j extends ProxySelector {
                 return;
             }
         }
-        this.f68142b = ProxySelector.getDefault();
-        this.f68143c = str;
-        this.f68144d = i2;
+        this.f68322b = ProxySelector.getDefault();
+        this.f68323c = str;
+        this.f68324d = i2;
     }
 
     public static void a(String str, int i2) {
@@ -79,7 +79,7 @@ public class j extends ProxySelector {
     public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, uri, socketAddress, iOException) == null) {
-            this.f68142b.connectFailed(uri, socketAddress, iOException);
+            this.f68322b.connectFailed(uri, socketAddress, iOException);
         }
     }
 
@@ -89,7 +89,7 @@ public class j extends ProxySelector {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
             if (uri != null) {
-                return (this.f68143c.equalsIgnoreCase(uri.getHost()) && this.f68144d == uri.getPort()) ? f68141a : this.f68142b.select(uri);
+                return (this.f68323c.equalsIgnoreCase(uri.getHost()) && this.f68324d == uri.getPort()) ? f68321a : this.f68322b.select(uri);
             }
             throw new IllegalArgumentException("URI can't be null");
         }

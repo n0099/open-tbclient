@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.event;
 
 import androidx.annotation.Keep;
-import c.a.o0.a.c1.a;
-import c.a.o0.a.k;
-import c.a.o0.a.m2.b;
+import c.a.p0.a.c1.a;
+import c.a.p0.a.k;
+import c.a.p0.a.m2.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -37,7 +37,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        DEBUG = k.f7049a;
+        DEBUG = k.f7077a;
     }
 
     public SwanJSVersionUpdateEvent() {

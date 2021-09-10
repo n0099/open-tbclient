@@ -5,10 +5,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
-import c.a.p0.b1.v;
-import c.a.q0.j2.c.a;
-import c.a.q0.j2.c.d;
-import c.a.q0.j2.c.e;
+import c.a.q0.d1.w;
+import c.a.r0.k2.c.a;
+import c.a.r0.k2.c.d;
+import c.a.r0.k2.c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -85,7 +85,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
                     finish();
                     return;
                 }
-                v.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.mZanListModel.k(), null, "praise_list"));
+                w.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.mZanListModel.k(), null, "praise_list"));
             } else if (view != this.mZanListView.d() || this.mZanListView.f()) {
             } else {
                 this.mZanListView.i(true);
@@ -140,10 +140,10 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (j3 = this.mZanListModel.j(i2)) == null) {
             return;
         }
-        v.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j3.c(), j3.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+        w.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j3.c(), j3.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
     }
 
-    @Override // c.a.q0.j2.c.d.b
+    @Override // c.a.r0.k2.c.d.b
     public void onLoadFailed(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
@@ -155,7 +155,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         }
     }
 
-    @Override // c.a.q0.j2.c.d.b
+    @Override // c.a.r0.k2.c.d.b
     public void onLoadSuccessed(int i2, List<a> list, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), list, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {

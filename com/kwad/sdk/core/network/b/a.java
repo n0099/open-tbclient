@@ -13,25 +13,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f71788a;
+    public long f71968a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f71789b;
+    public long f71969b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f71790c;
+    public long f71970c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f71791d;
+    public long f71971d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f71792e;
+    public long f71972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f71793f;
+    public String f71973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f71794g;
+    public String f71974g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "NetworkMonitorInfo{requestTotalTime=" + this.f71788a + ", mRequestCreateTime" + this.f71789b + ", requestResponseTime=" + this.f71790c + ", requestParseDataTime=" + this.f71791d + ", requestCallbackTime=" + this.f71792e + ", requestFailReason='" + this.f71793f + ExtendedMessageFormat.QUOTE + ", requestUrl='" + this.f71794g + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "NetworkMonitorInfo{requestTotalTime=" + this.f71968a + ", mRequestCreateTime" + this.f71969b + ", requestResponseTime=" + this.f71970c + ", requestParseDataTime=" + this.f71971d + ", requestCallbackTime=" + this.f71972e + ", requestFailReason='" + this.f71973f + ExtendedMessageFormat.QUOTE + ", requestUrl='" + this.f71974g + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

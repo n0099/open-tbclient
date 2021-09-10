@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,6 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonInfoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FANS_NUM = "fans_num";
+    public static final String IS_SHOW_PROGRESS = "is_show_progress";
     public static final int REQUSET_CHANGE = 101;
     public static final String TAG_DATA = "data";
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,10 +39,31 @@ public class PersonInfoActivityConfig extends IntentConfig {
         getIntent().putExtra("user_name", str2);
     }
 
+    public void setIsVideoThread(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            getIntent().putExtra(IntentConfig.IS_VIDEO_THREAD, z);
+        }
+    }
+
+    public void setShowProgress(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            getIntent().putExtra(IS_SHOW_PROGRESS, z);
+        }
+    }
+
     public void setSourceTid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             getIntent().putExtra("thread_id", str);
+        }
+    }
+
+    public void setVideoPersonFrom(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            getIntent().putExtra(IntentConfig.VIDEO_PERSON_FROM, str);
         }
     }
 

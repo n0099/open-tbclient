@@ -10,10 +10,10 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c.p.a.e.b.g.n f35222a;
+    public static volatile c.p.a.e.b.g.n f35331a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c.p.a.e.b.g.n f35223b;
+    public static volatile c.p.a.e.b.g.n f35332b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public l() {
@@ -35,23 +35,23 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
             if (z && c.p.a.e.b.g.e.s()) {
-                if (f35223b == null) {
+                if (f35332b == null) {
                     synchronized (l.class) {
-                        if (f35223b == null) {
-                            f35223b = c.p.a.e.b.g.e.t().b();
+                        if (f35332b == null) {
+                            f35332b = c.p.a.e.b.g.e.t().b();
                         }
                     }
                 }
-                return f35223b;
+                return f35332b;
             }
-            if (f35222a == null) {
+            if (f35331a == null) {
                 synchronized (l.class) {
-                    if (f35222a == null) {
-                        f35222a = new o();
+                    if (f35331a == null) {
+                        f35331a = new o();
                     }
                 }
             }
-            return f35222a;
+            return f35331a;
         }
         return (c.p.a.e.b.g.n) invokeZ.objValue;
     }

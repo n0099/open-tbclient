@@ -14,10 +14,10 @@ public final class s extends x {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InsideNotificationItem f76349a;
+    public InsideNotificationItem f76529a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f76350b;
+    public String f76530b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s() {
@@ -42,8 +42,8 @@ public final class s extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            String b2 = com.vivo.push.util.q.b(this.f76349a);
-            this.f76350b = b2;
+            String b2 = com.vivo.push.util.q.b(this.f76529a);
+            this.f76530b = b2;
             aVar.a("notification_v1", b2);
         }
     }
@@ -51,21 +51,21 @@ public final class s extends x {
     public final InsideNotificationItem d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76349a : (InsideNotificationItem) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76529a : (InsideNotificationItem) invokeV.objValue;
     }
 
     public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.f76350b)) {
-                InsideNotificationItem insideNotificationItem = this.f76349a;
+            if (TextUtils.isEmpty(this.f76530b)) {
+                InsideNotificationItem insideNotificationItem = this.f76529a;
                 if (insideNotificationItem == null) {
                     return null;
                 }
                 return com.vivo.push.util.q.b(insideNotificationItem);
             }
-            return this.f76350b;
+            return this.f76530b;
         }
         return (String) invokeV.objValue;
     }
@@ -83,12 +83,12 @@ public final class s extends x {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
             String a2 = aVar.a("notification_v1");
-            this.f76350b = a2;
+            this.f76530b = a2;
             if (TextUtils.isEmpty(a2)) {
                 return;
             }
-            InsideNotificationItem a3 = com.vivo.push.util.q.a(this.f76350b);
-            this.f76349a = a3;
+            InsideNotificationItem a3 = com.vivo.push.util.q.a(this.f76530b);
+            this.f76529a = a3;
             if (a3 != null) {
                 a3.setMsgId(f());
             }

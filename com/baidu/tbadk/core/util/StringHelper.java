@@ -664,11 +664,11 @@ public class StringHelper extends k {
             if (TextUtils.isEmpty(str)) {
                 return String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_less_one_year), 1);
             }
-            float c2 = b.c(str, 0.0f);
-            if (c2 > 1.0f) {
-                return String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_more_one_year), Integer.valueOf(Math.round(c2)));
+            float d2 = b.d(str, 0.0f);
+            if (d2 > 1.0f) {
+                return String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_more_one_year), Integer.valueOf(Math.round(d2)));
             }
-            int round = Math.round(c2 * 12.0f);
+            int round = Math.round(d2 * 12.0f);
             return round >= 12 ? String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_more_one_year), 1) : round < 1 ? String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_less_one_year), 1) : String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_less_one_year), Integer.valueOf(round));
         }
         return (String) invokeL.objValue;
@@ -2058,14 +2058,14 @@ public class StringHelper extends k {
                 if (format2.endsWith(".0")) {
                     format2 = format2.substring(0, format2.length() - 2);
                 }
-                float c2 = b.c(format2, 1.0f);
-                if (c2 >= 9999.0f) {
+                float d2 = b.d(format2, 1.0f);
+                if (d2 >= 9999.0f) {
                     return "9999KW+";
                 }
-                if (c2 % 1.0f == 0.0f) {
-                    return ((int) c2) + "KW";
+                if (d2 % 1.0f == 0.0f) {
+                    return ((int) d2) + "KW";
                 }
-                return c2 + "KW";
+                return d2 + "KW";
             }
         }
         return (String) invokeJ.objValue;

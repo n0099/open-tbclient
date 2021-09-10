@@ -25,16 +25,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f75153a;
+    public final File f75333a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f75154b;
+    public final File f75334b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f75155c;
+    public String f75335c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f75156d;
+    public int f75336d;
 
     public a(File file, File file2) {
         Interceptable interceptable = $ic;
@@ -51,8 +51,8 @@ public class a {
                 return;
             }
         }
-        this.f75153a = file;
-        this.f75154b = file2;
+        this.f75333a = file;
+        this.f75334b = file2;
     }
 
     public static boolean a(Context context, File file, File file2) {
@@ -117,18 +117,18 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (this.f75154b.exists() && this.f75153a.exists()) {
-                    String[] split = StringUtil.readAll(this.f75154b).split("#####");
+                if (this.f75334b.exists() && this.f75333a.exists()) {
+                    String[] split = StringUtil.readAll(this.f75334b).split("#####");
                     if (split.length == 2) {
                         String str = split[1];
                         int parseInteger = StringUtil.parseInteger(split[0], 0);
                         com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
-                        File file = this.f75153a;
+                        File file = this.f75333a;
                         if (file != null && file.exists()) {
                             z = a2.b(str, Md5Util.encode(file));
                             if (z) {
-                                this.f75155c = str;
-                                this.f75156d = parseInteger;
+                                this.f75335c = str;
+                                this.f75336d = parseInteger;
                                 return true;
                             }
                         }
@@ -153,7 +153,7 @@ public class a {
             if (file == null || file2 == null) {
                 return false;
             }
-            return (file.equals(this.f75153a) || FileUtil.renameTo(this.f75153a, file)) && (file2.equals(this.f75154b) || FileUtil.renameTo(this.f75154b, file2));
+            return (file.equals(this.f75333a) || FileUtil.renameTo(this.f75333a, file)) && (file2.equals(this.f75334b) || FileUtil.renameTo(this.f75334b, file2));
         }
         return invokeLL.booleanValue;
     }
@@ -161,12 +161,12 @@ public class a {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75156d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75336d : invokeV.intValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75155c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75335c : (String) invokeV.objValue;
     }
 }

@@ -19,10 +19,10 @@ public class c extends a.AbstractBinderC1642a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CyberExtractor f38962a;
+    public CyberExtractor f39068a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RemotePlayerService f38963b;
+    public RemotePlayerService f39069b;
 
     public c(RemotePlayerService remotePlayerService) {
         Interceptable interceptable = $ic;
@@ -39,21 +39,21 @@ public class c extends a.AbstractBinderC1642a {
                 return;
             }
         }
-        this.f38963b = remotePlayerService;
+        this.f39069b = remotePlayerService;
     }
 
     private CyberExtractor c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f38962a == null) {
+            if (this.f39068a == null) {
                 synchronized (this) {
-                    if (this.f38962a == null) {
-                        this.f38962a = new CyberExtractor(false);
+                    if (this.f39068a == null) {
+                        this.f39068a = new CyberExtractor(false);
                     }
                 }
             }
-            return this.f38962a;
+            return this.f39068a;
         }
         return (CyberExtractor) invokeV.objValue;
     }
@@ -87,12 +87,12 @@ public class c extends a.AbstractBinderC1642a {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             CyberLog.i("RemoteExtractor", "release");
             synchronized (this) {
-                if (this.f38962a != null) {
-                    this.f38962a.release();
-                    this.f38962a = null;
+                if (this.f39068a != null) {
+                    this.f39068a.release();
+                    this.f39068a = null;
                 }
             }
-            this.f38963b = null;
+            this.f39069b = null;
         }
     }
 }

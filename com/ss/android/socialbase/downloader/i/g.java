@@ -50,7 +50,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f75730a;
+    public static Handler f75910a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -59,7 +59,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ af f75775a;
+        public final /* synthetic */ af f75955a;
 
         public a(af afVar) {
             Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class g {
                     return;
                 }
             }
-            this.f75775a = afVar;
+            this.f75955a = afVar;
         }
 
         @Override // c.p.a.e.b.f.j
@@ -85,7 +85,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, downloadInfo)) == null) {
                 try {
-                    return this.f75775a.a(downloadInfo);
+                    return this.f75955a.a(downloadInfo);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return false;
@@ -100,7 +100,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo)) == null) {
                 try {
-                    return this.f75775a.b(downloadInfo);
+                    return this.f75955a.b(downloadInfo);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return false;
@@ -115,7 +115,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo)) == null) {
                 try {
-                    return this.f75775a.c(downloadInfo);
+                    return this.f75955a.c(downloadInfo);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return false;
@@ -131,7 +131,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.e f75776a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.e f75956a;
 
         public b(com.ss.android.socialbase.downloader.depend.e eVar) {
             Interceptable interceptable = $ic;
@@ -148,7 +148,7 @@ public class g {
                     return;
                 }
             }
-            this.f75776a = eVar;
+            this.f75956a = eVar;
         }
 
         @Override // c.p.a.e.b.g.j
@@ -157,7 +157,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
                 try {
-                    return this.f75776a.a(j2);
+                    return this.f75956a.a(j2);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return 0;
@@ -173,7 +173,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.f f75777a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.f f75957a;
 
         public c(com.ss.android.socialbase.downloader.depend.f fVar) {
             Interceptable interceptable = $ic;
@@ -190,7 +190,7 @@ public class g {
                     return;
                 }
             }
-            this.f75777a = fVar;
+            this.f75957a = fVar;
         }
 
         @Override // c.p.a.e.b.f.s
@@ -200,7 +200,7 @@ public class g {
                 return;
             }
             try {
-                this.f75777a.a(downloadInfo, baseException, i2);
+                this.f75957a.a(downloadInfo, baseException, i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -213,7 +213,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ v f75779a;
+        public final /* synthetic */ v f75959a;
 
         public e(v vVar) {
             Interceptable interceptable = $ic;
@@ -230,7 +230,7 @@ public class g {
                     return;
                 }
             }
-            this.f75779a = vVar;
+            this.f75959a = vVar;
         }
 
         @Override // c.p.a.e.b.f.y
@@ -239,7 +239,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xVar)) == null) {
                 try {
-                    return this.f75779a.a(g.x(xVar));
+                    return this.f75959a.a(g.x(xVar));
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return false;
@@ -255,7 +255,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ak f75780a;
+        public final /* synthetic */ ak f75960a;
 
         public f(ak akVar) {
             Interceptable interceptable = $ic;
@@ -272,7 +272,7 @@ public class g {
                     return;
                 }
             }
-            this.f75780a = akVar;
+            this.f75960a = akVar;
         }
 
         @Override // c.p.a.e.b.f.m
@@ -280,7 +280,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
                 try {
-                    this.f75780a.a(i2, i3);
+                    this.f75960a.a(i2, i3);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -295,7 +295,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ p f75781a;
+        public final /* synthetic */ p f75961a;
 
         public C2074g(p pVar) {
             Interceptable interceptable = $ic;
@@ -312,7 +312,7 @@ public class g {
                     return;
                 }
             }
-            this.f75781a = pVar;
+            this.f75961a = pVar;
         }
 
         @Override // c.p.a.e.b.f.u
@@ -321,7 +321,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), tVar})) == null) {
                 try {
-                    return this.f75781a.a(j2, j3, g.s(tVar));
+                    return this.f75961a.a(j2, j3, g.s(tVar));
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return false;
@@ -337,7 +337,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ai f75782a;
+        public final /* synthetic */ ai f75962a;
 
         public h(ai aiVar) {
             Interceptable interceptable = $ic;
@@ -354,7 +354,7 @@ public class g {
                     return;
                 }
             }
-            this.f75782a = aiVar;
+            this.f75962a = aiVar;
         }
 
         @Override // c.p.a.e.b.g.s
@@ -363,7 +363,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
                 try {
-                    return this.f75782a.a(i2, i3);
+                    return this.f75962a.a(i2, i3);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return 0L;
@@ -379,7 +379,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.h f75783a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.h f75963a;
 
         public i(com.ss.android.socialbase.downloader.depend.h hVar) {
             Interceptable interceptable = $ic;
@@ -396,7 +396,7 @@ public class g {
                     return;
                 }
             }
-            this.f75783a = hVar;
+            this.f75963a = hVar;
         }
 
         @Override // c.p.a.e.b.f.b
@@ -405,7 +405,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    return this.f75783a.a();
+                    return this.f75963a.a();
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return false;
@@ -421,7 +421,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.g f75784a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.g f75964a;
 
         public j(com.ss.android.socialbase.downloader.depend.g gVar) {
             Interceptable interceptable = $ic;
@@ -438,7 +438,7 @@ public class g {
                     return;
                 }
             }
-            this.f75784a = gVar;
+            this.f75964a = gVar;
         }
 
         @Override // c.p.a.e.b.f.w
@@ -447,7 +447,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
                 try {
-                    return this.f75784a.a(str, str2);
+                    return this.f75964a.a(str, str2);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return null;
@@ -463,7 +463,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.i f75785a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.i f75965a;
 
         public k(com.ss.android.socialbase.downloader.depend.i iVar) {
             Interceptable interceptable = $ic;
@@ -480,7 +480,7 @@ public class g {
                     return;
                 }
             }
-            this.f75785a = iVar;
+            this.f75965a = iVar;
         }
 
         @Override // c.p.a.e.b.f.v
@@ -488,7 +488,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
                 try {
-                    this.f75785a.i(downloadInfo);
+                    this.f75965a.i(downloadInfo);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -500,7 +500,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
                 try {
-                    this.f75785a.d(downloadInfo);
+                    this.f75965a.d(downloadInfo);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -512,7 +512,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) {
                 try {
-                    this.f75785a.b(downloadInfo);
+                    this.f75965a.b(downloadInfo);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -524,7 +524,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, downloadInfo) == null) {
                 try {
-                    this.f75785a.g(downloadInfo);
+                    this.f75965a.g(downloadInfo);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -536,7 +536,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, downloadInfo) == null) {
                 try {
-                    this.f75785a.f(downloadInfo);
+                    this.f75965a.f(downloadInfo);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -548,7 +548,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) {
                 try {
-                    this.f75785a.e(downloadInfo);
+                    this.f75965a.e(downloadInfo);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -560,7 +560,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, downloadInfo) == null) {
                 try {
-                    this.f75785a.c(downloadInfo);
+                    this.f75965a.c(downloadInfo);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -572,7 +572,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048583, this, downloadInfo, baseException) == null) {
                 try {
-                    this.f75785a.a(downloadInfo, baseException);
+                    this.f75965a.a(downloadInfo, baseException);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -584,7 +584,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadInfo, baseException) == null) {
                 try {
-                    this.f75785a.b(downloadInfo, baseException);
+                    this.f75965a.b(downloadInfo, baseException);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -596,7 +596,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048585, this, downloadInfo, baseException) == null) {
                 try {
-                    this.f75785a.c(downloadInfo, baseException);
+                    this.f75965a.c(downloadInfo, baseException);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -608,7 +608,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, downloadInfo) == null) {
                 try {
-                    this.f75785a.h(downloadInfo);
+                    this.f75965a.h(downloadInfo);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -620,7 +620,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, downloadInfo) == null) {
                 try {
-                    this.f75785a.a(downloadInfo);
+                    this.f75965a.a(downloadInfo);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -634,7 +634,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.o f75786a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.o f75966a;
 
         public l(com.ss.android.socialbase.downloader.depend.o oVar) {
             Interceptable interceptable = $ic;
@@ -651,7 +651,7 @@ public class g {
                     return;
                 }
             }
-            this.f75786a = oVar;
+            this.f75966a = oVar;
         }
 
         @Override // c.p.a.e.b.f.t
@@ -659,7 +659,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f75786a.a();
+                    this.f75966a.a();
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -673,7 +673,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.l f75789a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.l f75969a;
 
         public o(com.ss.android.socialbase.downloader.depend.l lVar) {
             Interceptable interceptable = $ic;
@@ -690,7 +690,7 @@ public class g {
                     return;
                 }
             }
-            this.f75789a = lVar;
+            this.f75969a = lVar;
         }
 
         @Override // c.p.a.e.b.f.r
@@ -698,7 +698,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
                 try {
-                    this.f75789a.a(downloadInfo);
+                    this.f75969a.a(downloadInfo);
                 } catch (RemoteException e2) {
                     throw new BaseException(1008, e2);
                 }
@@ -711,7 +711,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo)) == null) {
                 try {
-                    return this.f75789a.b(downloadInfo);
+                    return this.f75969a.b(downloadInfo);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return false;
@@ -734,7 +734,7 @@ public class g {
                 return;
             }
         }
-        f75730a = new Handler(Looper.getMainLooper());
+        f75910a = new Handler(Looper.getMainLooper());
     }
 
     public static y A(v vVar) {
@@ -773,7 +773,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.f.e f75764a;
+                public final /* synthetic */ c.p.a.e.b.f.e f75944a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -790,14 +790,14 @@ public class g {
                             return;
                         }
                     }
-                    this.f75764a = eVar;
+                    this.f75944a = eVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.z
                 public void a(int i2, DownloadInfo downloadInfo, String str, String str2) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), downloadInfo, str, str2}) == null) {
-                        this.f75764a.a(i2, downloadInfo, str, str2);
+                        this.f75944a.a(i2, downloadInfo, str, str2);
                     }
                 }
 
@@ -805,14 +805,14 @@ public class g {
                 public boolean a(boolean z) throws RemoteException {
                     InterceptResult invokeZ;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeZ = interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) ? this.f75764a.a(z) : invokeZ.booleanValue;
+                    return (interceptable2 == null || (invokeZ = interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) ? this.f75944a.a(z) : invokeZ.booleanValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.z
                 public String a() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f75764a.a() : (String) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f75944a.a() : (String) invokeV.objValue;
                 }
             };
         }
@@ -862,21 +862,21 @@ public class g {
                 aVar2.z(w(aVar.k()));
                 aVar2.s0(f(aVar.d()));
                 aVar2.C0(E(aVar.h()));
-                com.ss.android.socialbase.downloader.depend.i b2 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f75660a.ordinal());
+                com.ss.android.socialbase.downloader.depend.i b2 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f75840a.ordinal());
                 if (b2 != null) {
                     aVar2.c0(b2.hashCode(), c(b2));
                 }
-                com.ss.android.socialbase.downloader.depend.i b3 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f75661b.ordinal());
+                com.ss.android.socialbase.downloader.depend.i b3 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f75841b.ordinal());
                 if (b3 != null) {
                     aVar2.M0(b3.hashCode(), c(b3));
                 }
-                com.ss.android.socialbase.downloader.depend.i b4 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f75662c.ordinal());
+                com.ss.android.socialbase.downloader.depend.i b4 = aVar.b(com.ss.android.socialbase.downloader.constants.f.f75842c.ordinal());
                 if (b4 != null) {
                     aVar2.v0(b4.hashCode(), c(b4));
                 }
-                I(aVar2, aVar, com.ss.android.socialbase.downloader.constants.f.f75660a);
-                I(aVar2, aVar, com.ss.android.socialbase.downloader.constants.f.f75661b);
-                I(aVar2, aVar, com.ss.android.socialbase.downloader.constants.f.f75662c);
+                I(aVar2, aVar, com.ss.android.socialbase.downloader.constants.f.f75840a);
+                I(aVar2, aVar, com.ss.android.socialbase.downloader.constants.f.f75841b);
+                I(aVar2, aVar, com.ss.android.socialbase.downloader.constants.f.f75842c);
                 H(aVar2, aVar);
                 return aVar2;
             } catch (RemoteException e2) {
@@ -899,7 +899,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.n.a f75731a;
+                public final /* synthetic */ c.p.a.e.b.n.a f75911a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -916,98 +916,98 @@ public class g {
                             return;
                         }
                     }
-                    this.f75731a = aVar;
+                    this.f75911a = aVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public DownloadInfo a() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75731a.J() : (DownloadInfo) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75911a.J() : (DownloadInfo) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public com.ss.android.socialbase.downloader.depend.e b() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) ? g.j(this.f75731a.D()) : (com.ss.android.socialbase.downloader.depend.e) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) ? g.j(this.f75911a.D()) : (com.ss.android.socialbase.downloader.depend.e) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public com.ss.android.socialbase.downloader.depend.z c() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048582, this)) == null) ? g.C(this.f75731a.T()) : (com.ss.android.socialbase.downloader.depend.z) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048582, this)) == null) ? g.C(this.f75911a.T()) : (com.ss.android.socialbase.downloader.depend.z) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public af d() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048583, this)) == null) ? g.e(this.f75731a.S()) : (af) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048583, this)) == null) ? g.e(this.f75911a.S()) : (af) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public com.ss.android.socialbase.downloader.depend.h e() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? g.m(this.f75731a.Q()) : (com.ss.android.socialbase.downloader.depend.h) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? g.m(this.f75911a.Q()) : (com.ss.android.socialbase.downloader.depend.h) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public com.ss.android.socialbase.downloader.depend.f f() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048585, this)) == null) ? g.k(this.f75731a.E()) : (com.ss.android.socialbase.downloader.depend.f) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048585, this)) == null) ? g.k(this.f75911a.E()) : (com.ss.android.socialbase.downloader.depend.f) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public v g() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048586, this)) == null) ? g.y(this.f75731a.O()) : (v) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048586, this)) == null) ? g.y(this.f75911a.O()) : (v) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public ai h() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048587, this)) == null) ? g.g(this.f75731a.U()) : (ai) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048587, this)) == null) ? g.g(this.f75911a.U()) : (ai) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public p i() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048588, this)) == null) ? g.t(this.f75731a.F()) : (p) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048588, this)) == null) ? g.t(this.f75911a.F()) : (p) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public com.ss.android.socialbase.downloader.depend.j j() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048589, this)) == null) ? g.o(this.f75731a.R()) : (com.ss.android.socialbase.downloader.depend.j) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048589, this)) == null) ? g.o(this.f75911a.R()) : (com.ss.android.socialbase.downloader.depend.j) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public com.ss.android.socialbase.downloader.depend.g k() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048590, this)) == null) ? g.l(this.f75731a.N()) : (com.ss.android.socialbase.downloader.depend.g) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048590, this)) == null) ? g.l(this.f75911a.N()) : (com.ss.android.socialbase.downloader.depend.g) invokeV.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public int l() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048591, this)) == null) ? this.f75731a.H().size() : invokeV.intValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048591, this)) == null) ? this.f75911a.H().size() : invokeV.intValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
                 public int a(int i2) throws RemoteException {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) ? this.f75731a.L(c.p.a.e.b.l.f.H0(i2)) : invokeI.intValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) ? this.f75911a.L(c.p.a.e.b.l.f.H0(i2)) : invokeI.intValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
@@ -1015,7 +1015,7 @@ public class g {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) {
-                        return g.n(this.f75731a.V(c.p.a.e.b.l.f.H0(i2)), i2 != com.ss.android.socialbase.downloader.constants.f.f75661b.ordinal());
+                        return g.n(this.f75911a.V(c.p.a.e.b.l.f.H0(i2)), i2 != com.ss.android.socialbase.downloader.constants.f.f75841b.ordinal());
                     }
                     return (com.ss.android.socialbase.downloader.depend.i) invokeI.objValue;
                 }
@@ -1024,7 +1024,7 @@ public class g {
                 public com.ss.android.socialbase.downloader.depend.l c(int i2) throws RemoteException {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048581, this, i2)) == null) ? g.p(this.f75731a.G(i2)) : (com.ss.android.socialbase.downloader.depend.l) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048581, this, i2)) == null) ? g.p(this.f75911a.G(i2)) : (com.ss.android.socialbase.downloader.depend.l) invokeI.objValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.model.a
@@ -1032,7 +1032,7 @@ public class g {
                     InterceptResult invokeII;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-                        return g.n(this.f75731a.K(c.p.a.e.b.l.f.H0(i2), i3), i2 != com.ss.android.socialbase.downloader.constants.f.f75661b.ordinal());
+                        return g.n(this.f75911a.K(c.p.a.e.b.l.f.H0(i2), i3), i2 != com.ss.android.socialbase.downloader.constants.f.f75841b.ordinal());
                     }
                     return (com.ss.android.socialbase.downloader.depend.i) invokeII.objValue;
                 }
@@ -1115,7 +1115,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.f.j f75765a;
+                public final /* synthetic */ c.p.a.e.b.f.j f75945a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1132,28 +1132,28 @@ public class g {
                             return;
                         }
                     }
-                    this.f75765a = jVar;
+                    this.f75945a = jVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.af
                 public boolean a(DownloadInfo downloadInfo) throws RemoteException {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, downloadInfo)) == null) ? this.f75765a.a(downloadInfo) : invokeL2.booleanValue;
+                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, downloadInfo)) == null) ? this.f75945a.a(downloadInfo) : invokeL2.booleanValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.af
                 public boolean b(DownloadInfo downloadInfo) throws RemoteException {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo)) == null) ? this.f75765a.b(downloadInfo) : invokeL2.booleanValue;
+                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo)) == null) ? this.f75945a.b(downloadInfo) : invokeL2.booleanValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.af
                 public boolean c(DownloadInfo downloadInfo) throws RemoteException {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo)) == null) ? this.f75765a.c(downloadInfo) : invokeL2.booleanValue;
+                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo)) == null) ? this.f75945a.c(downloadInfo) : invokeL2.booleanValue;
                 }
             };
         }
@@ -1184,7 +1184,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.g.s f75766a;
+                public final /* synthetic */ c.p.a.e.b.g.s f75946a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1201,14 +1201,14 @@ public class g {
                             return;
                         }
                     }
-                    this.f75766a = sVar;
+                    this.f75946a = sVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.ai
                 public long a(int i2, int i3) throws RemoteException {
                     InterceptResult invokeII;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i2, i3)) == null) ? this.f75766a.a(i2, i3) : invokeII.longValue;
+                    return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i2, i3)) == null) ? this.f75946a.a(i2, i3) : invokeII.longValue;
                 }
             };
         }
@@ -1227,7 +1227,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.f.m f75762a;
+                public final /* synthetic */ c.p.a.e.b.f.m f75942a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1244,14 +1244,14 @@ public class g {
                             return;
                         }
                     }
-                    this.f75762a = mVar;
+                    this.f75942a = mVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.ak
                 public void a(int i2, int i3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeII(1048576, this, i2, i3) == null) {
-                        this.f75762a.a(i2, i3);
+                        this.f75942a.a(i2, i3);
                     }
                 }
             };
@@ -1283,7 +1283,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.g.j f75772a;
+                public final /* synthetic */ c.p.a.e.b.g.j f75952a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1300,14 +1300,14 @@ public class g {
                             return;
                         }
                     }
-                    this.f75772a = jVar;
+                    this.f75952a = jVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.e
                 public int a(long j2) throws RemoteException {
                     InterceptResult invokeJ;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeJ = interceptable2.invokeJ(1048576, this, j2)) == null) ? this.f75772a.a(j2) : invokeJ.intValue;
+                    return (interceptable2 == null || (invokeJ = interceptable2.invokeJ(1048576, this, j2)) == null) ? this.f75952a.a(j2) : invokeJ.intValue;
                 }
             };
         }
@@ -1326,7 +1326,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ s f75769a;
+                public final /* synthetic */ s f75949a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1343,14 +1343,14 @@ public class g {
                             return;
                         }
                     }
-                    this.f75769a = sVar;
+                    this.f75949a = sVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.f
                 public void a(DownloadInfo downloadInfo, BaseException baseException, int i2) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, downloadInfo, baseException, i2) == null) {
-                        this.f75769a.a(downloadInfo, baseException, i2);
+                        this.f75949a.a(downloadInfo, baseException, i2);
                     }
                 }
             };
@@ -1370,7 +1370,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ w f75768a;
+                public final /* synthetic */ w f75948a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1387,14 +1387,14 @@ public class g {
                             return;
                         }
                     }
-                    this.f75768a = wVar;
+                    this.f75948a = wVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.g
                 public Uri a(String str, String str2) throws RemoteException {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, str2)) == null) ? this.f75768a.a(str, str2) : (Uri) invokeLL.objValue;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, str2)) == null) ? this.f75948a.a(str, str2) : (Uri) invokeLL.objValue;
                 }
             };
         }
@@ -1413,7 +1413,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.f.b f75773a;
+                public final /* synthetic */ c.p.a.e.b.f.b f75953a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1430,14 +1430,14 @@ public class g {
                             return;
                         }
                     }
-                    this.f75773a = bVar;
+                    this.f75953a = bVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.h
                 public boolean a() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f75773a.a() : invokeV.booleanValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f75953a.a() : invokeV.booleanValue;
                 }
             };
         }
@@ -1456,10 +1456,10 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.f.c f75732a;
+                public final /* synthetic */ c.p.a.e.b.f.c f75912a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f75733b;
+                public final /* synthetic */ boolean f75913b;
 
                 /* renamed from: com.ss.android.socialbase.downloader.i.g$12$a */
                 /* loaded from: classes10.dex */
@@ -1468,10 +1468,10 @@ public class g {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f75734e;
+                    public final /* synthetic */ DownloadInfo f75914e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f75735f;
+                    public final /* synthetic */ AnonymousClass12 f75915f;
 
                     public a(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
                         Interceptable interceptable = $ic;
@@ -1488,15 +1488,15 @@ public class g {
                                 return;
                             }
                         }
-                        this.f75735f = anonymousClass12;
-                        this.f75734e = downloadInfo;
+                        this.f75915f = anonymousClass12;
+                        this.f75914e = downloadInfo;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f75735f.f75732a.e(this.f75734e);
+                            this.f75915f.f75912a.e(this.f75914e);
                         }
                     }
                 }
@@ -1508,10 +1508,10 @@ public class g {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f75736e;
+                    public final /* synthetic */ DownloadInfo f75916e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f75737f;
+                    public final /* synthetic */ AnonymousClass12 f75917f;
 
                     public b(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
                         Interceptable interceptable = $ic;
@@ -1528,15 +1528,15 @@ public class g {
                                 return;
                             }
                         }
-                        this.f75737f = anonymousClass12;
-                        this.f75736e = downloadInfo;
+                        this.f75917f = anonymousClass12;
+                        this.f75916e = downloadInfo;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f75737f.f75732a.d(this.f75736e);
+                            this.f75917f.f75912a.d(this.f75916e);
                         }
                     }
                 }
@@ -1548,10 +1548,10 @@ public class g {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f75738e;
+                    public final /* synthetic */ DownloadInfo f75918e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f75739f;
+                    public final /* synthetic */ AnonymousClass12 f75919f;
 
                     public c(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
                         Interceptable interceptable = $ic;
@@ -1568,15 +1568,15 @@ public class g {
                                 return;
                             }
                         }
-                        this.f75739f = anonymousClass12;
-                        this.f75738e = downloadInfo;
+                        this.f75919f = anonymousClass12;
+                        this.f75918e = downloadInfo;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f75739f.f75732a.k(this.f75738e);
+                            this.f75919f.f75912a.k(this.f75918e);
                         }
                     }
                 }
@@ -1588,10 +1588,10 @@ public class g {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f75740e;
+                    public final /* synthetic */ DownloadInfo f75920e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f75741f;
+                    public final /* synthetic */ AnonymousClass12 f75921f;
 
                     public d(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
                         Interceptable interceptable = $ic;
@@ -1608,15 +1608,15 @@ public class g {
                                 return;
                             }
                         }
-                        this.f75741f = anonymousClass12;
-                        this.f75740e = downloadInfo;
+                        this.f75921f = anonymousClass12;
+                        this.f75920e = downloadInfo;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f75741f.f75732a.l(this.f75740e);
+                            this.f75921f.f75912a.l(this.f75920e);
                         }
                     }
                 }
@@ -1628,13 +1628,13 @@ public class g {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f75742e;
+                    public final /* synthetic */ DownloadInfo f75922e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ BaseException f75743f;
+                    public final /* synthetic */ BaseException f75923f;
 
                     /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f75744g;
+                    public final /* synthetic */ AnonymousClass12 f75924g;
 
                     public e(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo, BaseException baseException) {
                         Interceptable interceptable = $ic;
@@ -1651,16 +1651,16 @@ public class g {
                                 return;
                             }
                         }
-                        this.f75744g = anonymousClass12;
-                        this.f75742e = downloadInfo;
-                        this.f75743f = baseException;
+                        this.f75924g = anonymousClass12;
+                        this.f75922e = downloadInfo;
+                        this.f75923f = baseException;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f75744g.f75732a.i(this.f75742e, this.f75743f);
+                            this.f75924g.f75912a.i(this.f75922e, this.f75923f);
                         }
                     }
                 }
@@ -1672,13 +1672,13 @@ public class g {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f75745e;
+                    public final /* synthetic */ DownloadInfo f75925e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ BaseException f75746f;
+                    public final /* synthetic */ BaseException f75926f;
 
                     /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f75747g;
+                    public final /* synthetic */ AnonymousClass12 f75927g;
 
                     public f(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo, BaseException baseException) {
                         Interceptable interceptable = $ic;
@@ -1695,16 +1695,16 @@ public class g {
                                 return;
                             }
                         }
-                        this.f75747g = anonymousClass12;
-                        this.f75745e = downloadInfo;
-                        this.f75746f = baseException;
+                        this.f75927g = anonymousClass12;
+                        this.f75925e = downloadInfo;
+                        this.f75926f = baseException;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f75747g.f75732a.j(this.f75745e, this.f75746f);
+                            this.f75927g.f75912a.j(this.f75925e, this.f75926f);
                         }
                     }
                 }
@@ -1716,10 +1716,10 @@ public class g {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f75748e;
+                    public final /* synthetic */ DownloadInfo f75928e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f75749f;
+                    public final /* synthetic */ AnonymousClass12 f75929f;
 
                     public RunnableC2073g(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
                         Interceptable interceptable = $ic;
@@ -1736,15 +1736,15 @@ public class g {
                                 return;
                             }
                         }
-                        this.f75749f = anonymousClass12;
-                        this.f75748e = downloadInfo;
+                        this.f75929f = anonymousClass12;
+                        this.f75928e = downloadInfo;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            ((c.p.a.e.b.f.v) this.f75749f.f75732a).a(this.f75748e);
+                            ((c.p.a.e.b.f.v) this.f75929f.f75912a).a(this.f75928e);
                         }
                     }
                 }
@@ -1756,10 +1756,10 @@ public class g {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f75750e;
+                    public final /* synthetic */ DownloadInfo f75930e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f75751f;
+                    public final /* synthetic */ AnonymousClass12 f75931f;
 
                     public h(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
                         Interceptable interceptable = $ic;
@@ -1776,15 +1776,15 @@ public class g {
                                 return;
                             }
                         }
-                        this.f75751f = anonymousClass12;
-                        this.f75750e = downloadInfo;
+                        this.f75931f = anonymousClass12;
+                        this.f75930e = downloadInfo;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f75751f.f75732a.c(this.f75750e);
+                            this.f75931f.f75912a.c(this.f75930e);
                         }
                     }
                 }
@@ -1796,10 +1796,10 @@ public class g {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f75752e;
+                    public final /* synthetic */ DownloadInfo f75932e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f75753f;
+                    public final /* synthetic */ AnonymousClass12 f75933f;
 
                     public i(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
                         Interceptable interceptable = $ic;
@@ -1816,15 +1816,15 @@ public class g {
                                 return;
                             }
                         }
-                        this.f75753f = anonymousClass12;
-                        this.f75752e = downloadInfo;
+                        this.f75933f = anonymousClass12;
+                        this.f75932e = downloadInfo;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f75753f.f75732a.g(this.f75752e);
+                            this.f75933f.f75912a.g(this.f75932e);
                         }
                     }
                 }
@@ -1836,10 +1836,10 @@ public class g {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f75754e;
+                    public final /* synthetic */ DownloadInfo f75934e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f75755f;
+                    public final /* synthetic */ AnonymousClass12 f75935f;
 
                     public j(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
                         Interceptable interceptable = $ic;
@@ -1856,15 +1856,15 @@ public class g {
                                 return;
                             }
                         }
-                        this.f75755f = anonymousClass12;
-                        this.f75754e = downloadInfo;
+                        this.f75935f = anonymousClass12;
+                        this.f75934e = downloadInfo;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f75755f.f75732a.b(this.f75754e);
+                            this.f75935f.f75912a.b(this.f75934e);
                         }
                     }
                 }
@@ -1876,10 +1876,10 @@ public class g {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f75756e;
+                    public final /* synthetic */ DownloadInfo f75936e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f75757f;
+                    public final /* synthetic */ AnonymousClass12 f75937f;
 
                     public k(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo) {
                         Interceptable interceptable = $ic;
@@ -1896,15 +1896,15 @@ public class g {
                                 return;
                             }
                         }
-                        this.f75757f = anonymousClass12;
-                        this.f75756e = downloadInfo;
+                        this.f75937f = anonymousClass12;
+                        this.f75936e = downloadInfo;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f75757f.f75732a.f(this.f75756e);
+                            this.f75937f.f75912a.f(this.f75936e);
                         }
                     }
                 }
@@ -1916,13 +1916,13 @@ public class g {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f75758e;
+                    public final /* synthetic */ DownloadInfo f75938e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ BaseException f75759f;
+                    public final /* synthetic */ BaseException f75939f;
 
                     /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass12 f75760g;
+                    public final /* synthetic */ AnonymousClass12 f75940g;
 
                     public l(AnonymousClass12 anonymousClass12, DownloadInfo downloadInfo, BaseException baseException) {
                         Interceptable interceptable = $ic;
@@ -1939,16 +1939,16 @@ public class g {
                                 return;
                             }
                         }
-                        this.f75760g = anonymousClass12;
-                        this.f75758e = downloadInfo;
-                        this.f75759f = baseException;
+                        this.f75940g = anonymousClass12;
+                        this.f75938e = downloadInfo;
+                        this.f75939f = baseException;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f75760g.f75732a.h(this.f75758e, this.f75759f);
+                            this.f75940g.f75912a.h(this.f75938e, this.f75939f);
                         }
                     }
                 }
@@ -1968,25 +1968,25 @@ public class g {
                             return;
                         }
                     }
-                    this.f75732a = cVar;
-                    this.f75733b = z;
+                    this.f75912a = cVar;
+                    this.f75913b = z;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.i
                 public int a() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f75732a.hashCode() : invokeV.intValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f75912a.hashCode() : invokeV.intValue;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.i
                 public void b(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, downloadInfo) == null) {
-                        if (this.f75733b) {
-                            g.f75730a.post(new h(this, downloadInfo));
+                        if (this.f75913b) {
+                            g.f75910a.post(new h(this, downloadInfo));
                         } else {
-                            this.f75732a.c(downloadInfo);
+                            this.f75912a.c(downloadInfo);
                         }
                     }
                 }
@@ -1995,10 +1995,10 @@ public class g {
                 public void c(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048581, this, downloadInfo) == null) {
-                        if (this.f75733b) {
-                            g.f75730a.post(new i(this, downloadInfo));
+                        if (this.f75913b) {
+                            g.f75910a.post(new i(this, downloadInfo));
                         } else {
-                            this.f75732a.g(downloadInfo);
+                            this.f75912a.g(downloadInfo);
                         }
                     }
                 }
@@ -2007,10 +2007,10 @@ public class g {
                 public void d(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048583, this, downloadInfo) == null) {
-                        if (this.f75733b) {
-                            g.f75730a.post(new j(this, downloadInfo));
+                        if (this.f75913b) {
+                            g.f75910a.post(new j(this, downloadInfo));
                         } else {
-                            this.f75732a.b(downloadInfo);
+                            this.f75912a.b(downloadInfo);
                         }
                     }
                 }
@@ -2019,10 +2019,10 @@ public class g {
                 public void e(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadInfo) == null) {
-                        if (this.f75733b) {
-                            g.f75730a.post(new k(this, downloadInfo));
+                        if (this.f75913b) {
+                            g.f75910a.post(new k(this, downloadInfo));
                         } else {
-                            this.f75732a.f(downloadInfo);
+                            this.f75912a.f(downloadInfo);
                         }
                     }
                 }
@@ -2031,10 +2031,10 @@ public class g {
                 public void f(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048585, this, downloadInfo) == null) {
-                        if (this.f75733b) {
-                            g.f75730a.post(new a(this, downloadInfo));
+                        if (this.f75913b) {
+                            g.f75910a.post(new a(this, downloadInfo));
                         } else {
-                            this.f75732a.e(downloadInfo);
+                            this.f75912a.e(downloadInfo);
                         }
                     }
                 }
@@ -2043,10 +2043,10 @@ public class g {
                 public void g(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048586, this, downloadInfo) == null) {
-                        if (this.f75733b) {
-                            g.f75730a.post(new b(this, downloadInfo));
+                        if (this.f75913b) {
+                            g.f75910a.post(new b(this, downloadInfo));
                         } else {
-                            this.f75732a.d(downloadInfo);
+                            this.f75912a.d(downloadInfo);
                         }
                     }
                 }
@@ -2055,10 +2055,10 @@ public class g {
                 public void h(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048587, this, downloadInfo) == null) {
-                        if (this.f75733b) {
-                            g.f75730a.post(new c(this, downloadInfo));
+                        if (this.f75913b) {
+                            g.f75910a.post(new c(this, downloadInfo));
                         } else {
-                            this.f75732a.k(downloadInfo);
+                            this.f75912a.k(downloadInfo);
                         }
                     }
                 }
@@ -2067,10 +2067,10 @@ public class g {
                 public void i(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048588, this, downloadInfo) == null) {
-                        c.p.a.e.b.f.c cVar2 = this.f75732a;
+                        c.p.a.e.b.f.c cVar2 = this.f75912a;
                         if (cVar2 instanceof c.p.a.e.b.f.v) {
-                            if (this.f75733b) {
-                                g.f75730a.post(new RunnableC2073g(this, downloadInfo));
+                            if (this.f75913b) {
+                                g.f75910a.post(new RunnableC2073g(this, downloadInfo));
                             } else {
                                 ((c.p.a.e.b.f.v) cVar2).a(downloadInfo);
                             }
@@ -2082,10 +2082,10 @@ public class g {
                 public void a(DownloadInfo downloadInfo) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
-                        if (this.f75733b) {
-                            g.f75730a.post(new d(this, downloadInfo));
+                        if (this.f75913b) {
+                            g.f75910a.post(new d(this, downloadInfo));
                         } else {
-                            this.f75732a.l(downloadInfo);
+                            this.f75912a.l(downloadInfo);
                         }
                     }
                 }
@@ -2094,10 +2094,10 @@ public class g {
                 public void b(DownloadInfo downloadInfo, BaseException baseException) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048580, this, downloadInfo, baseException) == null) {
-                        if (this.f75733b) {
-                            g.f75730a.post(new e(this, downloadInfo, baseException));
+                        if (this.f75913b) {
+                            g.f75910a.post(new e(this, downloadInfo, baseException));
                         } else {
-                            this.f75732a.i(downloadInfo, baseException);
+                            this.f75912a.i(downloadInfo, baseException);
                         }
                     }
                 }
@@ -2106,10 +2106,10 @@ public class g {
                 public void c(DownloadInfo downloadInfo, BaseException baseException) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048582, this, downloadInfo, baseException) == null) {
-                        if (this.f75733b) {
-                            g.f75730a.post(new f(this, downloadInfo, baseException));
+                        if (this.f75913b) {
+                            g.f75910a.post(new f(this, downloadInfo, baseException));
                         } else {
-                            this.f75732a.j(downloadInfo, baseException);
+                            this.f75912a.j(downloadInfo, baseException);
                         }
                     }
                 }
@@ -2118,10 +2118,10 @@ public class g {
                 public void a(DownloadInfo downloadInfo, BaseException baseException) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo, baseException) == null) {
-                        if (this.f75733b) {
-                            g.f75730a.post(new l(this, downloadInfo, baseException));
+                        if (this.f75913b) {
+                            g.f75910a.post(new l(this, downloadInfo, baseException));
                         } else {
-                            this.f75732a.h(downloadInfo, baseException);
+                            this.f75912a.h(downloadInfo, baseException);
                         }
                     }
                 }
@@ -2142,7 +2142,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.f.z f75771a;
+                public final /* synthetic */ c.p.a.e.b.f.z f75951a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2159,7 +2159,7 @@ public class g {
                             return;
                         }
                     }
-                    this.f75771a = zVar;
+                    this.f75951a = zVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.j
@@ -2169,7 +2169,7 @@ public class g {
                         return;
                     }
                     try {
-                        this.f75771a.a(new JSONObject(str));
+                        this.f75951a.a(new JSONObject(str));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
@@ -2180,7 +2180,7 @@ public class g {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                        c.p.a.e.b.f.z zVar2 = this.f75771a;
+                        c.p.a.e.b.f.z zVar2 = this.f75951a;
                         if (zVar2 instanceof c.p.a.e.b.f.o) {
                             return ((c.p.a.e.b.f.o) zVar2).a();
                         }
@@ -2193,7 +2193,7 @@ public class g {
                 public String a() throws RemoteException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f75771a.b() : (String) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f75951a.b() : (String) invokeV.objValue;
                 }
             };
         }
@@ -2212,7 +2212,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ r f75774a;
+                public final /* synthetic */ r f75954a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2229,7 +2229,7 @@ public class g {
                             return;
                         }
                     }
-                    this.f75774a = rVar;
+                    this.f75954a = rVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.l
@@ -2237,7 +2237,7 @@ public class g {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, downloadInfo) == null) {
                         try {
-                            this.f75774a.a(downloadInfo);
+                            this.f75954a.a(downloadInfo);
                         } catch (BaseException e2) {
                             throw new IllegalArgumentException(e2);
                         }
@@ -2248,7 +2248,7 @@ public class g {
                 public boolean b(DownloadInfo downloadInfo) throws RemoteException {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo)) == null) ? this.f75774a.b(downloadInfo) : invokeL2.booleanValue;
+                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo)) == null) ? this.f75954a.b(downloadInfo) : invokeL2.booleanValue;
                 }
             };
         }
@@ -2291,7 +2291,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ t f75763a;
+                public final /* synthetic */ t f75943a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2308,14 +2308,14 @@ public class g {
                             return;
                         }
                     }
-                    this.f75763a = tVar;
+                    this.f75943a = tVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.o
                 public void a() throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f75763a.a();
+                        this.f75943a.a();
                     }
                 }
             };
@@ -2335,7 +2335,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ u f75770a;
+                public final /* synthetic */ u f75950a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2352,14 +2352,14 @@ public class g {
                             return;
                         }
                     }
-                    this.f75770a = uVar;
+                    this.f75950a = uVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.p
                 public boolean a(long j2, long j3, com.ss.android.socialbase.downloader.depend.o oVar) throws RemoteException {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), oVar})) == null) ? this.f75770a.a(j2, j3, g.u(oVar)) : invokeCommon.booleanValue;
+                    return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), oVar})) == null) ? this.f75950a.a(j2, j3, g.u(oVar)) : invokeCommon.booleanValue;
                 }
             };
         }
@@ -2414,7 +2414,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ x f75761a;
+                public final /* synthetic */ x f75941a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2431,14 +2431,14 @@ public class g {
                             return;
                         }
                     }
-                    this.f75761a = xVar;
+                    this.f75941a = xVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.u
                 public void a(List<String> list) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, list) == null) {
-                        this.f75761a.a(list);
+                        this.f75941a.a(list);
                     }
                 }
 
@@ -2446,7 +2446,7 @@ public class g {
                 public boolean a() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75761a.a() : invokeV.booleanValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75941a.a() : invokeV.booleanValue;
                 }
             };
         }
@@ -2465,7 +2465,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ y f75767a;
+                public final /* synthetic */ y f75947a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2482,14 +2482,14 @@ public class g {
                             return;
                         }
                     }
-                    this.f75767a = yVar;
+                    this.f75947a = yVar;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.v
                 public boolean a(com.ss.android.socialbase.downloader.depend.u uVar) throws RemoteException {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, uVar)) == null) ? this.f75767a.a(g.z(uVar)) : invokeL2.booleanValue;
+                    return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, uVar)) == null) ? this.f75947a.a(g.z(uVar)) : invokeL2.booleanValue;
                 }
             };
         }
@@ -2514,7 +2514,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.j f75778a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.j f75958a;
 
         public d(com.ss.android.socialbase.downloader.depend.j jVar) {
             Interceptable interceptable = $ic;
@@ -2531,7 +2531,7 @@ public class g {
                     return;
                 }
             }
-            this.f75778a = jVar;
+            this.f75958a = jVar;
         }
 
         @Override // c.p.a.e.b.f.z
@@ -2541,7 +2541,7 @@ public class g {
                 return;
             }
             try {
-                this.f75778a.a(jSONObject.toString());
+                this.f75958a.a(jSONObject.toString());
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -2553,7 +2553,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 try {
-                    return this.f75778a.a();
+                    return this.f75958a.a();
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return "";
@@ -2568,7 +2568,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 try {
-                    return this.f75778a.b();
+                    return this.f75958a.b();
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return null;
@@ -2584,7 +2584,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.u f75787a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.u f75967a;
 
         public m(com.ss.android.socialbase.downloader.depend.u uVar) {
             Interceptable interceptable = $ic;
@@ -2601,7 +2601,7 @@ public class g {
                     return;
                 }
             }
-            this.f75787a = uVar;
+            this.f75967a = uVar;
         }
 
         @Override // c.p.a.e.b.f.x
@@ -2609,7 +2609,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 try {
-                    this.f75787a.a(list);
+                    this.f75967a.a(list);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -2622,7 +2622,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 try {
-                    return this.f75787a.a();
+                    return this.f75967a.a();
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return false;
@@ -2638,7 +2638,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.z f75788a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.z f75968a;
 
         public n(com.ss.android.socialbase.downloader.depend.z zVar) {
             Interceptable interceptable = $ic;
@@ -2655,7 +2655,7 @@ public class g {
                     return;
                 }
             }
-            this.f75788a = zVar;
+            this.f75968a = zVar;
         }
 
         @Override // c.p.a.e.b.f.e
@@ -2663,7 +2663,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), downloadInfo, str, str2}) == null) {
                 try {
-                    this.f75788a.a(i2, downloadInfo, str, str2);
+                    this.f75968a.a(i2, downloadInfo, str, str2);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -2676,7 +2676,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
                 try {
-                    return this.f75788a.a(z);
+                    return this.f75968a.a(z);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return false;
@@ -2691,7 +2691,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    return this.f75788a.a();
+                    return this.f75968a.a();
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return null;

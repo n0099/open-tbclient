@@ -17,13 +17,13 @@ public final class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Charset f73045a;
+    public static Charset f73225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Charset f73046b;
+    public static Charset f73226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ThreadLocal<Boolean> f73047c;
+    public static ThreadLocal<Boolean> f73227c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,9 +39,9 @@ public final class n {
                 return;
             }
         }
-        f73045a = Charset.forName("ISO-8859-1");
-        f73046b = Charset.forName("UTF-8");
-        f73047c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
+        f73225a = Charset.forName("ISO-8859-1");
+        f73226b = Charset.forName("UTF-8");
+        f73227c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

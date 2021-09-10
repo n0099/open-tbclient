@@ -44,25 +44,25 @@ public class h implements j.a.a.e.k.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public j.a.a.e.k.a f78911a;
+    public j.a.a.e.k.a f79149a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f78912b;
+    public f f79150b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayUIKitConfig f78913c;
+    public PayUIKitConfig f79151c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f78914d;
+    public d f79152d;
 
     /* renamed from: e  reason: collision with root package name */
-    public H5PayFlowModel f78915e;
+    public H5PayFlowModel f79153e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f78916f;
+    public int f79154f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f78917g;
+    public int f79155g;
 
     /* loaded from: classes2.dex */
     public class a implements IResult<ProductListResult> {
@@ -70,7 +70,7 @@ public class h implements j.a.a.e.k.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IResult f78918a;
+        public final /* synthetic */ IResult f79156a;
 
         public a(h hVar, IResult iResult) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class h implements j.a.a.e.k.c {
                     return;
                 }
             }
-            this.f78918a = iResult;
+            this.f79156a = iResult;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -96,7 +96,7 @@ public class h implements j.a.a.e.k.c {
         public void onSuccess(ProductListResult productListResult, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, productListResult, payCallBackBean) == null) || (iResult = this.f78918a) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, productListResult, payCallBackBean) == null) || (iResult = this.f79156a) == null) {
                 return;
             }
             iResult.onSuccess(productListResult, payCallBackBean);
@@ -106,7 +106,7 @@ public class h implements j.a.a.e.k.c {
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f78918a) == null) {
+            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f79156a) == null) {
                 return;
             }
             iResult.onFail(i2, str, payCallBackBean);
@@ -119,7 +119,7 @@ public class h implements j.a.a.e.k.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IResult f78919a;
+        public final /* synthetic */ IResult f79157a;
 
         public b(h hVar, IResult iResult) {
             Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class h implements j.a.a.e.k.c {
                     return;
                 }
             }
-            this.f78919a = iResult;
+            this.f79157a = iResult;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -145,7 +145,7 @@ public class h implements j.a.a.e.k.c {
         public void onSuccess(MyBalanceResult myBalanceResult, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, myBalanceResult, payCallBackBean) == null) || (iResult = this.f78919a) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, myBalanceResult, payCallBackBean) == null) || (iResult = this.f79157a) == null) {
                 return;
             }
             iResult.onSuccess(myBalanceResult, payCallBackBean);
@@ -155,7 +155,7 @@ public class h implements j.a.a.e.k.c {
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f78919a) == null) {
+            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f79157a) == null) {
                 return;
             }
             iResult.onFail(i2, str, payCallBackBean);
@@ -168,7 +168,7 @@ public class h implements j.a.a.e.k.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IResult f78920a;
+        public final /* synthetic */ IResult f79158a;
 
         public c(h hVar, IResult iResult) {
             Interceptable interceptable = $ic;
@@ -185,7 +185,7 @@ public class h implements j.a.a.e.k.c {
                     return;
                 }
             }
-            this.f78920a = iResult;
+            this.f79158a = iResult;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -194,7 +194,7 @@ public class h implements j.a.a.e.k.c {
         public void onSuccess(BannerConfigResult bannerConfigResult, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, bannerConfigResult, payCallBackBean) == null) || (iResult = this.f78920a) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, bannerConfigResult, payCallBackBean) == null) || (iResult = this.f79158a) == null) {
                 return;
             }
             iResult.onSuccess(bannerConfigResult, payCallBackBean);
@@ -204,7 +204,7 @@ public class h implements j.a.a.e.k.c {
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f78920a) == null) {
+            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f79158a) == null) {
                 return;
             }
             iResult.onFail(i2, str, payCallBackBean);
@@ -226,11 +226,11 @@ public class h implements j.a.a.e.k.c {
                 return;
             }
         }
-        this.f78916f = i2;
-        this.f78911a = aVar;
-        this.f78917g = i3;
-        this.f78914d = dVar;
-        this.f78913c = dVar != null ? dVar.getPayUIKitConfig() : null;
+        this.f79154f = i2;
+        this.f79149a = aVar;
+        this.f79155g = i3;
+        this.f79152d = dVar;
+        this.f79151c = dVar != null ? dVar.getPayUIKitConfig() : null;
         RLog.info("YYPayController", "new YYPayController mAppId:" + i2 + " mUserChannel:" + i3);
     }
 
@@ -238,7 +238,7 @@ public class h implements j.a.a.e.k.c {
     public void a(Activity activity, j.a.a.e.l.c cVar, j.a.a.e.l.a aVar, AppCustomExpand appCustomExpand, IPayCallback iPayCallback, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, cVar, aVar, appCustomExpand, iPayCallback, str}) == null) {
-            j.a.a.e.k.a aVar2 = this.f78911a;
+            j.a.a.e.k.a aVar2 = this.f79149a;
             if (aVar2 == null) {
                 RLog.error("YYPayController", "payRequest error modelProvider null", new Object[0]);
                 return;
@@ -246,15 +246,15 @@ public class h implements j.a.a.e.k.c {
             j.a.a.b.b.a.a d2 = aVar2.d();
             d2.r(iPayCallback);
             d2.p(activity);
-            d2.u(aVar.f78921a);
-            d2.v(cVar.f78928a);
+            d2.u(aVar.f79159a);
+            d2.v(cVar.f79166a);
             d2.q(appCustomExpand);
             d2.z(str);
-            PayType payType = cVar.f78928a;
+            PayType payType = cVar.f79166a;
             if (payType == PayType.DXM_PAY_KJ || payType == PayType.UNION_PAY) {
-                d2.w(j.a.a.e.l.b.b(this.f78913c));
+                d2.w(j.a.a.e.l.b.b(this.f79151c));
             }
-            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.f78916f, this.f78917g);
+            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.f79154f, this.f79155g);
             if (middleRevenue != null && middleRevenue.getMiddlePayService() != null) {
                 middleRevenue.getMiddlePayService().a(d2);
             } else {
@@ -267,14 +267,14 @@ public class h implements j.a.a.e.k.c {
     public IYYPayWayView b(Activity activity, IYYPayWayView.b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bVar)) == null) ? new YYPayWayView(activity, this.f78916f, this.f78917g, bVar, this.f78911a, this) : (IYYPayWayView) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bVar)) == null) ? new YYPayWayView(activity, this.f79154f, this.f79155g, bVar, this.f79149a, this) : (IYYPayWayView) invokeLL.objValue;
     }
 
     @Override // j.a.a.e.k.c
     public IYYPayResultView c(Activity activity, IYYPayResultView.c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, cVar)) == null) ? new YYPayResultView(activity, this, this.f78911a, this.f78916f, this.f78917g, cVar) : (IYYPayResultView) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, cVar)) == null) ? new YYPayResultView(activity, this, this.f79149a, this.f79154f, this.f79155g, cVar) : (IYYPayResultView) invokeLL.objValue;
     }
 
     @Override // j.a.a.e.k.c
@@ -282,8 +282,8 @@ public class h implements j.a.a.e.k.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             RLog.info("YYPayController", "clear()");
-            this.f78912b = null;
-            this.f78915e = null;
+            this.f79150b = null;
+            this.f79153e = null;
         }
     }
 
@@ -292,7 +292,7 @@ public class h implements j.a.a.e.k.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
             clear();
-            String c2 = j.a.a.e.l.b.c(this.f78913c);
+            String c2 = j.a.a.e.l.b.c(this.f79151c);
             RLog.info("YYPayController", "startWalletActivity walletUrl:" + c2);
             j(activity, c2, "我的钱包");
         }
@@ -302,18 +302,18 @@ public class h implements j.a.a.e.k.c {
     public void e(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, bVar, iPayCallback) == null) {
-            if (this.f78915e != null) {
+            if (this.f79153e != null) {
                 if (bVar == null) {
                     bVar = new IYYPayWayView.b();
                 }
-                H5PayFlowModel h5PayFlowModel = this.f78915e;
-                bVar.f79703c = h5PayFlowModel.appCustomExpand;
-                bVar.f79705e = h5PayFlowModel.viewEventListener;
-                bVar.f79706f = PaySource.WALLET;
+                H5PayFlowModel h5PayFlowModel = this.f79153e;
+                bVar.f79943c = h5PayFlowModel.appCustomExpand;
+                bVar.f79945e = h5PayFlowModel.viewEventListener;
+                bVar.f79946f = PaySource.WALLET;
                 RLog.info("YYPayController", "startPayChannelDialog use H5PayFlowModel");
             }
-            f fVar = new f(this.f78916f, this.f78917g, this.f78914d, this, PayFlowType.ACTIVITY_PAY_FLOW);
-            this.f78912b = fVar;
+            f fVar = new f(this.f79154f, this.f79155g, this.f79152d, this, PayFlowType.ACTIVITY_PAY_FLOW);
+            this.f79150b = fVar;
             fVar.A(activity, bVar, iPayCallback);
         }
     }
@@ -324,10 +324,10 @@ public class h implements j.a.a.e.k.c {
         if (interceptable == null || interceptable.invokeLLL(1048582, this, activity, viewParams, iPayCallback) == null) {
             clear();
             l(viewParams);
-            f fVar = new f(this.f78916f, this.f78917g, this.f78914d, this, PayFlowType.DIOALOG_PAY_FLOW);
-            this.f78912b = fVar;
+            f fVar = new f(this.f79154f, this.f79155g, this.f79152d, this, PayFlowType.DIOALOG_PAY_FLOW);
+            this.f79150b = fVar;
             fVar.w(activity, iPayCallback, viewParams);
-            j.a.a.e.m.a.b(this.f78916f, this.f78917g, UiEventType.purchaseshow);
+            j.a.a.e.m.a.b(this.f79154f, this.f79155g, UiEventType.purchaseshow);
             RLog.warn("YYPayController", UiEventType.purchaseshow);
         }
     }
@@ -338,7 +338,7 @@ public class h implements j.a.a.e.k.c {
         if (interceptable == null || interceptable.invokeLL(1048583, this, activity, viewParams) == null) {
             clear();
             l(viewParams);
-            String c2 = j.a.a.e.l.b.c(this.f78913c);
+            String c2 = j.a.a.e.l.b.c(this.f79151c);
             RLog.info("YYPayController", "startWalletActivity walletUrl:" + c2);
             j(activity, c2, "我的钱包");
         }
@@ -348,7 +348,7 @@ public class h implements j.a.a.e.k.c {
     public PayUIKitConfig getPayUIKitConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f78913c : (PayUIKitConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f79151c : (PayUIKitConfig) invokeV.objValue;
     }
 
     @Override // j.a.a.e.k.c
@@ -368,14 +368,14 @@ public class h implements j.a.a.e.k.c {
     public IYYPayAmountView i(Activity activity, IYYPayAmountView.ViewParams viewParams) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, activity, viewParams)) == null) ? new YYPayAmountView(activity, this.f78916f, this.f78917g, this, viewParams, this.f78911a) : (IYYPayAmountView) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, activity, viewParams)) == null) ? new YYPayAmountView(activity, this.f79154f, this.f79155g, this, viewParams, this.f79149a) : (IYYPayAmountView) invokeLL.objValue;
     }
 
     @Override // j.a.a.e.k.c
     public void j(Activity activity, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048587, this, activity, str, str2) == null) {
-            PayUIKitConfig payUIKitConfig = this.f78913c;
+            PayUIKitConfig payUIKitConfig = this.f79151c;
             if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
                 if (TextUtils.isEmpty(str)) {
                     RLog.error("YYPayController", "startActivity error url null", new Object[0]);
@@ -385,15 +385,15 @@ public class h implements j.a.a.e.k.c {
                 Intent intent = new Intent(activity, PayCommonWebActivity.class);
                 intent.putExtra(H5PayConstant.EXTRA_TITLE, str2);
                 intent.putExtra(H5PayConstant.EXTRA_URL, str);
-                intent.putExtra(H5PayConstant.EXTRA_APP_ID, this.f78916f);
-                intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, this.f78917g);
-                if (str.equals(j.a.a.e.l.b.c(this.f78913c))) {
+                intent.putExtra(H5PayConstant.EXTRA_APP_ID, this.f79154f);
+                intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, this.f79155g);
+                if (str.equals(j.a.a.e.l.b.c(this.f79151c))) {
                     RLog.debug("YYPayController", "startPayWebActivity is wallet");
                     intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 1);
                 }
                 activity.startActivity(intent);
             }
-            j.a.a.e.m.a.b(this.f78916f, this.f78917g, UiEventType.walletshow);
+            j.a.a.e.m.a.b(this.f79154f, this.f79155g, UiEventType.walletshow);
             RLog.info("YYPayController", UiEventType.walletshow);
         }
     }
@@ -402,7 +402,7 @@ public class h implements j.a.a.e.k.c {
     public H5PayFlowModel k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f78915e : (H5PayFlowModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f79153e : (H5PayFlowModel) invokeV.objValue;
     }
 
     public final void l(IYYPayAmountView.ViewParams viewParams) {
@@ -411,7 +411,7 @@ public class h implements j.a.a.e.k.c {
             return;
         }
         H5PayFlowModel h5PayFlowModel = new H5PayFlowModel();
-        this.f78915e = h5PayFlowModel;
+        this.f79153e = h5PayFlowModel;
         h5PayFlowModel.appCustomExpand = viewParams.appCustomExpand;
         h5PayFlowModel.viewEventListener = viewParams.viewEventListener;
         RLog.info("YYPayController", "createH5PayFlowModel  H5PayFlowModel");

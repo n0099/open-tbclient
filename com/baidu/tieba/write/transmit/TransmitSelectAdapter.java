@@ -10,8 +10,8 @@ import c.a.e.e.p.j;
 import c.a.e.e.p.l;
 import c.a.e.l.e.n;
 import c.a.e.l.e.w;
-import c.a.q0.b4.q.c;
-import c.a.q0.q1.a;
+import c.a.r0.c4.q.c;
+import c.a.r0.r1.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -38,7 +38,7 @@ import tbclient.RecommendForumListForBottle.ForumInfo;
 public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.q0.q1.a m;
+    public c.a.r0.r1.a m;
     public ArrayList<HotTopicBussinessData> n;
     public List<TransmitForumData> o;
     public w p;
@@ -80,7 +80,7 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitSelectAdapter f58635e;
+        public final /* synthetic */ TransmitSelectAdapter f58816e;
 
         public a(TransmitSelectAdapter transmitSelectAdapter) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
                     return;
                 }
             }
-            this.f58635e = transmitSelectAdapter;
+            this.f58816e = transmitSelectAdapter;
         }
 
         @Override // c.a.e.l.e.w
@@ -105,17 +105,17 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 if (!j.z()) {
-                    l.L(this.f58635e.f2966e, R.string.neterror);
+                    l.L(this.f58816e.f2957e, R.string.neterror);
                 }
                 TiebaStatic.log(new StatisticItem("c12053"));
-                if (!ListUtils.isEmpty(this.f58635e.n)) {
-                    this.f58635e.t0();
+                if (!ListUtils.isEmpty(this.f58816e.n)) {
+                    this.f58816e.t0();
                     return;
                 }
-                TransmitSelectAdapter transmitSelectAdapter = this.f58635e;
-                transmitSelectAdapter.m = new c.a.q0.q1.a(transmitSelectAdapter.f2970i);
-                this.f58635e.m.g(this.f58635e.q);
-                this.f58635e.m.f();
+                TransmitSelectAdapter transmitSelectAdapter = this.f58816e;
+                transmitSelectAdapter.m = new c.a.r0.r1.a(transmitSelectAdapter.f2961i);
+                this.f58816e.m.g(this.f58816e.q);
+                this.f58816e.m.f();
             }
         }
     }
@@ -126,7 +126,7 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitSelectAdapter f58636a;
+        public final /* synthetic */ TransmitSelectAdapter f58817a;
 
         public b(TransmitSelectAdapter transmitSelectAdapter) {
             Interceptable interceptable = $ic;
@@ -143,10 +143,10 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
                     return;
                 }
             }
-            this.f58636a = transmitSelectAdapter;
+            this.f58817a = transmitSelectAdapter;
         }
 
-        @Override // c.a.q0.q1.a.b
+        @Override // c.a.r0.r1.a.b
         public void a(boolean z, int i2, String str, List<ForumInfo> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, list}) == null) {
@@ -155,13 +155,13 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
                     int size = list.size();
                     for (int i3 = 0; i3 < size; i3++) {
                         ForumInfo forumInfo = list.get(i3);
-                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !this.f58636a.s0(forumInfo.forum_id.longValue())) {
+                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !this.f58817a.s0(forumInfo.forum_id.longValue())) {
                             arrayList.add(new HotTopicBussinessData(forumInfo.forum_id.longValue(), forumInfo.forum_name, forumInfo.avatar, null, forumInfo.thread_count.longValue(), 0L, 0L, false, null, 0));
                         }
                     }
-                    if (this.f58636a.n == null) {
-                        this.f58636a.n = arrayList;
-                        this.f58636a.t0();
+                    if (this.f58817a.n == null) {
+                        this.f58817a.n = arrayList;
+                        this.f58817a.t0();
                     }
                 }
             }
@@ -201,7 +201,7 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
     }
 
     public void q0() {
-        c.a.q0.q1.a aVar;
+        c.a.r0.r1.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.m) == null) {
             return;
@@ -242,7 +242,7 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
     public final void t0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.f2966e, 25005, this.n);
+            HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.f2957e, 25005, this.n);
             hotTopicChangeActivityConfig.setUseOriginList(true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicChangeActivityConfig));
         }
@@ -254,7 +254,7 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
     public TransmitSelectViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) ? new TransmitSelectViewHolder(LayoutInflater.from(this.f2966e).inflate(R.layout.transmit_select_layout, (ViewGroup) null)) : (TransmitSelectViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) ? new TransmitSelectViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.transmit_select_layout, (ViewGroup) null)) : (TransmitSelectViewHolder) invokeL.objValue;
     }
 
     public View v0(int i2, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {

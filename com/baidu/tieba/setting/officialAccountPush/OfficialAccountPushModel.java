@@ -23,10 +23,10 @@ public class OfficialAccountPushModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f56601e;
+    public b f56761e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.e.c.g.a f56602f;
+    public c.a.e.c.g.a f56762f;
     public ArrayList<OfficialAccountPushInfo> list;
     public List<OfficialList> official_list;
 
@@ -36,7 +36,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialAccountPushModel f56603a;
+        public final /* synthetic */ OfficialAccountPushModel f56763a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(OfficialAccountPushModel officialAccountPushModel, int i2, int i3) {
@@ -57,7 +57,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f56603a = officialAccountPushModel;
+            this.f56763a = officialAccountPushModel;
         }
 
         @Override // c.a.e.c.g.a
@@ -70,12 +70,12 @@ public class OfficialAccountPushModel extends BdBaseModel {
                     if (officialAccountPushSocketResponseMessage == null || officialAccountPushSocketResponseMessage.getList() == null) {
                         return;
                     }
-                    this.f56603a.f56601e.a(officialAccountPushSocketResponseMessage.getList(), officialAccountPushSocketResponseMessage.getError(), officialAccountPushSocketResponseMessage.getErrorString());
+                    this.f56763a.f56761e.a(officialAccountPushSocketResponseMessage.getList(), officialAccountPushSocketResponseMessage.getError(), officialAccountPushSocketResponseMessage.getErrorString());
                 }
                 if (!(responsedMessage instanceof OfficialAccountPushHttpResponseMessage) || (officialAccountPushHttpResponseMessage = (OfficialAccountPushHttpResponseMessage) responsedMessage) == null) {
                     return;
                 }
-                this.f56603a.f56601e.a(officialAccountPushHttpResponseMessage.getList(), officialAccountPushHttpResponseMessage.getError(), officialAccountPushHttpResponseMessage.getErrorString());
+                this.f56763a.f56761e.a(officialAccountPushHttpResponseMessage.getList(), officialAccountPushHttpResponseMessage.getError(), officialAccountPushHttpResponseMessage.getErrorString());
             }
         }
     }
@@ -117,11 +117,11 @@ public class OfficialAccountPushModel extends BdBaseModel {
         }
         this.list = new ArrayList<>();
         a aVar = new a(this, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, 309620);
-        this.f56602f = aVar;
-        this.f56601e = bVar;
+        this.f56762f = aVar;
+        this.f56761e = bVar;
         registerListener(aVar);
-        c.a.q0.i3.d0.a.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
-        c.a.q0.i3.d0.a.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
+        c.a.r0.j3.d0.a.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
+        c.a.r0.j3.d0.a.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -148,7 +148,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f56602f);
+            MessageManager.getInstance().unRegisterListener(this.f56762f);
         }
     }
 

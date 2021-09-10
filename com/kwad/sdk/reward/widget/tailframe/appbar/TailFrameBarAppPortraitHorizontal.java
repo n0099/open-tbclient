@@ -33,25 +33,25 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f73531a;
+    public ImageView f73711a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f73532b;
+    public TextView f73712b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AppScoreView f73533c;
+    public AppScoreView f73713c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f73534d;
+    public TextView f73714d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f73535e;
+    public TextView f73715e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextProgressBar f73536f;
+    public TextProgressBar f73716f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ValueAnimator f73537g;
+    public ValueAnimator f73717g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TailFrameBarAppPortraitHorizontal(Context context) {
@@ -121,34 +121,34 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.ksad_video_tf_bar_app_portrait_horizontal, this);
-            this.f73531a = (ImageView) findViewById(R.id.ksad_app_icon);
-            this.f73532b = (TextView) findViewById(R.id.ksad_app_name);
-            this.f73533c = (AppScoreView) findViewById(R.id.ksad_app_score);
-            this.f73534d = (TextView) findViewById(R.id.ksad_app_download_count);
-            this.f73535e = (TextView) findViewById(R.id.ksad_app_introduce);
+            this.f73711a = (ImageView) findViewById(R.id.ksad_app_icon);
+            this.f73712b = (TextView) findViewById(R.id.ksad_app_name);
+            this.f73713c = (AppScoreView) findViewById(R.id.ksad_app_score);
+            this.f73714d = (TextView) findViewById(R.id.ksad_app_download_count);
+            this.f73715e = (TextView) findViewById(R.id.ksad_app_introduce);
             TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.ksad_download_bar);
-            this.f73536f = textProgressBar;
+            this.f73716f = textProgressBar;
             textProgressBar.setTextDimen(av.a(getContext(), 16.0f));
-            this.f73536f.setTextColor(-1);
+            this.f73716f.setTextColor(-1);
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            ValueAnimator valueAnimator = this.f73537g;
+            ValueAnimator valueAnimator = this.f73717g;
             if (valueAnimator == null || !valueAnimator.isRunning()) {
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
-                this.f73537g = ofFloat;
+                this.f73717g = ofFloat;
                 ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
-                this.f73537g.setRepeatCount(-1);
-                this.f73537g.setRepeatMode(1);
-                this.f73537g.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitHorizontal.1
+                this.f73717g.setRepeatCount(-1);
+                this.f73717g.setRepeatMode(1);
+                this.f73717g.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitHorizontal.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ TailFrameBarAppPortraitHorizontal f73538a;
+                    public final /* synthetic */ TailFrameBarAppPortraitHorizontal f73718a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -165,7 +165,7 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
                                 return;
                             }
                         }
-                        this.f73538a = this;
+                        this.f73718a = this;
                     }
 
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -173,12 +173,12 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator2) == null) {
                             float floatValue = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
-                            this.f73538a.f73536f.setScaleY(floatValue);
-                            this.f73538a.f73536f.setScaleX(floatValue);
+                            this.f73718a.f73716f.setScaleY(floatValue);
+                            this.f73718a.f73716f.setScaleX(floatValue);
                         }
                     }
                 });
-                this.f73537g.start();
+                this.f73717g.start();
             }
         }
     }
@@ -186,9 +186,9 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
     public void a() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (valueAnimator = this.f73537g) != null && valueAnimator.isRunning()) {
-            this.f73537g.cancel();
-            this.f73537g.end();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (valueAnimator = this.f73717g) != null && valueAnimator.isRunning()) {
+            this.f73717g.cancel();
+            this.f73717g.end();
         }
     }
 
@@ -208,24 +208,24 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adTemplate) == null) {
             AdInfo i2 = c.i(adTemplate);
-            KSImageLoader.loadAppIcon(this.f73531a, a.n(i2), adTemplate, 20);
-            this.f73532b.setText(a.o(i2));
+            KSImageLoader.loadAppIcon(this.f73711a, a.n(i2), adTemplate, 20);
+            this.f73712b.setText(a.o(i2));
             float s = a.s(i2);
             if (s >= 3.0f) {
-                this.f73533c.setScore(s);
-                this.f73533c.setVisibility(0);
+                this.f73713c.setScore(s);
+                this.f73713c.setVisibility(0);
             } else {
-                this.f73533c.setVisibility(8);
+                this.f73713c.setVisibility(8);
             }
             String r = a.r(i2);
             if (TextUtils.isEmpty(r)) {
-                this.f73534d.setVisibility(8);
+                this.f73714d.setVisibility(8);
             } else {
-                this.f73534d.setText(r);
-                this.f73534d.setVisibility(0);
+                this.f73714d.setText(r);
+                this.f73714d.setVisibility(0);
             }
-            this.f73535e.setText(a.m(i2));
-            this.f73536f.a(a.u(i2), 0);
+            this.f73715e.setText(a.m(i2));
+            this.f73716f.a(a.u(i2), 0);
             a(i2);
         }
     }
@@ -233,6 +233,6 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
     public TextProgressBar getTextProgressBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73536f : (TextProgressBar) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73716f : (TextProgressBar) invokeV.objValue;
     }
 }

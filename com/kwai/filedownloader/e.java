@@ -13,7 +13,7 @@ public abstract class e extends com.kwai.filedownloader.event.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DownloadServiceConnectChangedEvent.ConnectStatus f74046a;
+    public DownloadServiceConnectChangedEvent.ConnectStatus f74226a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public abstract class e extends com.kwai.filedownloader.event.c {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
             if (bVar instanceof DownloadServiceConnectChangedEvent) {
                 DownloadServiceConnectChangedEvent.ConnectStatus a2 = ((DownloadServiceConnectChangedEvent) bVar).a();
-                this.f74046a = a2;
+                this.f74226a = a2;
                 if (a2 == DownloadServiceConnectChangedEvent.ConnectStatus.connected) {
                     a();
                     return false;
@@ -56,6 +56,6 @@ public abstract class e extends com.kwai.filedownloader.event.c {
     public DownloadServiceConnectChangedEvent.ConnectStatus c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f74046a : (DownloadServiceConnectChangedEvent.ConnectStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f74226a : (DownloadServiceConnectChangedEvent.ConnectStatus) invokeV.objValue;
     }
 }

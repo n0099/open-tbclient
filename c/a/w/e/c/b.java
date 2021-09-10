@@ -13,16 +13,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f30421a;
+    public volatile int f30503a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f30422b;
+    public Class<?> f30504b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<a> f30423c;
+    public WeakReference<a> f30505c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f30424d;
+    public c f30506d;
 
     public b(int i2, Class<?> cls, a aVar, c cVar) {
         Interceptable interceptable = $ic;
@@ -39,28 +39,28 @@ public class b {
                 return;
             }
         }
-        this.f30421a = i2;
-        this.f30422b = cls;
-        this.f30423c = new WeakReference<>(aVar);
-        this.f30424d = cVar;
+        this.f30503a = i2;
+        this.f30504b = cls;
+        this.f30505c = new WeakReference<>(aVar);
+        this.f30506d = cVar;
     }
 
     public void a(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || this.f30423c.get() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || this.f30505c.get() == null) {
             return;
         }
-        this.f30424d.a(this.f30421a, obj, this.f30423c.get());
+        this.f30506d.a(this.f30503a, obj, this.f30505c.get());
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f30421a = 1;
-            WeakReference<a> weakReference = this.f30423c;
+            this.f30503a = 1;
+            WeakReference<a> weakReference = this.f30505c;
             if (weakReference != null) {
                 weakReference.clear();
-                this.f30423c = null;
+                this.f30505c = null;
             }
         }
     }
@@ -68,6 +68,6 @@ public class b {
     public boolean c(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? obj.getClass() == this.f30422b : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? obj.getClass() == this.f30504b : invokeL.booleanValue;
     }
 }

@@ -30,36 +30,36 @@ public final class g implements Closeable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ExecutorService f64482a;
+    public static final ExecutorService f64662a;
     public static final /* synthetic */ boolean s;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f64483b;
+    public final boolean f64663b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f64484c;
+    public final b f64664c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<Integer, i> f64485d;
+    public final Map<Integer, i> f64665d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f64486e;
+    public final String f64666e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64487f;
+    public int f64667f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f64488g;
+    public int f64668g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f64489h;
+    public boolean f64669h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final m f64490i;
+    public final m f64670i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f64491j;
+    public long f64671j;
     public long k;
     public n l;
     public final n m;
@@ -77,7 +77,7 @@ public final class g implements Closeable {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final b f64525f;
+        public static final b f64705f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -93,7 +93,7 @@ public final class g implements Closeable {
                     return;
                 }
             }
-            f64525f = new b() { // from class: com.bytedance.sdk.component.b.b.a.e.g.b.1
+            f64705f = new b() { // from class: com.bytedance.sdk.component.b.b.a.e.g.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -115,7 +115,7 @@ public final class g implements Closeable {
                 public void a(i iVar) throws IOException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, iVar) == null) {
-                        iVar.a(com.bytedance.sdk.component.b.b.a.e.b.f64432e);
+                        iVar.a(com.bytedance.sdk.component.b.b.a.e.b.f64612e);
                     }
                 }
             };
@@ -158,7 +158,7 @@ public final class g implements Closeable {
             }
         }
         s = !g.class.desiredAssertionStatus();
-        f64482a = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), com.bytedance.sdk.component.b.b.a.c.a("OkHttp Http2Connection", true));
+        f64662a = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), com.bytedance.sdk.component.b.b.a.c.a("OkHttp Http2Connection", true));
     }
 
     public g(a aVar) {
@@ -176,33 +176,33 @@ public final class g implements Closeable {
                 return;
             }
         }
-        this.f64485d = new LinkedHashMap();
-        this.f64491j = 0L;
+        this.f64665d = new LinkedHashMap();
+        this.f64671j = 0L;
         this.l = new n();
         this.m = new n();
         this.n = false;
         this.r = new LinkedHashSet();
-        this.f64490i = aVar.f64523f;
-        boolean z = aVar.f64524g;
-        this.f64483b = z;
-        this.f64484c = aVar.f64522e;
+        this.f64670i = aVar.f64703f;
+        boolean z = aVar.f64704g;
+        this.f64663b = z;
+        this.f64664c = aVar.f64702e;
         int i4 = z ? 1 : 2;
-        this.f64488g = i4;
-        if (aVar.f64524g) {
-            this.f64488g = i4 + 2;
+        this.f64668g = i4;
+        if (aVar.f64704g) {
+            this.f64668g = i4 + 2;
         }
-        this.v = aVar.f64524g ? 1 : 2;
-        if (aVar.f64524g) {
+        this.v = aVar.f64704g ? 1 : 2;
+        if (aVar.f64704g) {
             this.l.a(7, 16777216);
         }
-        this.f64486e = aVar.f64519b;
-        this.t = new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), com.bytedance.sdk.component.b.b.a.c.a(com.bytedance.sdk.component.b.b.a.c.a("OkHttp %s Push Observer", this.f64486e), true));
+        this.f64666e = aVar.f64699b;
+        this.t = new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), com.bytedance.sdk.component.b.b.a.c.a(com.bytedance.sdk.component.b.b.a.c.a("OkHttp %s Push Observer", this.f64666e), true));
         this.m.a(7, 65535);
         this.m.a(5, 16384);
         this.k = this.m.d();
-        this.o = aVar.f64518a;
-        this.p = new j(aVar.f64521d, this.f64483b);
-        this.q = new c(this, new h(aVar.f64520c, this.f64483b));
+        this.o = aVar.f64698a;
+        this.p = new j(aVar.f64701d, this.f64663b);
+        this.q = new c(this, new h(aVar.f64700c, this.f64663b));
     }
 
     public synchronized i a(int i2) {
@@ -211,7 +211,7 @@ public final class g implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             synchronized (this) {
-                iVar = this.f64485d.get(Integer.valueOf(i2));
+                iVar = this.f64665d.get(Integer.valueOf(i2));
             }
             return iVar;
         }
@@ -224,7 +224,7 @@ public final class g implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
             synchronized (this) {
-                remove = this.f64485d.remove(Integer.valueOf(i2));
+                remove = this.f64665d.remove(Integer.valueOf(i2));
                 notifyAll();
             }
             return remove;
@@ -249,7 +249,7 @@ public final class g implements Closeable {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            a(com.bytedance.sdk.component.b.b.a.e.b.f64428a, com.bytedance.sdk.component.b.b.a.e.b.f64433f);
+            a(com.bytedance.sdk.component.b.b.a.e.b.f64608a, com.bytedance.sdk.component.b.b.a.e.b.f64613f);
         }
     }
 
@@ -259,7 +259,7 @@ public final class g implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             synchronized (this) {
-                z = this.f64489h;
+                z = this.f64669h;
             }
             return z;
         }
@@ -301,18 +301,18 @@ public final class g implements Closeable {
     public void c(int i2, com.bytedance.sdk.component.b.b.a.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048596, this, i2, bVar) == null) {
-            this.t.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s Push Reset[%s]", new Object[]{this.f64486e, Integer.valueOf(i2)}, i2, bVar) { // from class: com.bytedance.sdk.component.b.b.a.e.g.7
+            this.t.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s Push Reset[%s]", new Object[]{this.f64666e, Integer.valueOf(i2)}, i2, bVar) { // from class: com.bytedance.sdk.component.b.b.a.e.g.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f64515a;
+                public final /* synthetic */ int f64695a;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.component.b.b.a.e.b f64516c;
+                public final /* synthetic */ com.bytedance.sdk.component.b.b.a.e.b f64696c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ g f64517d;
+                public final /* synthetic */ g f64697d;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -333,18 +333,18 @@ public final class g implements Closeable {
                             return;
                         }
                     }
-                    this.f64517d = this;
-                    this.f64515a = i2;
-                    this.f64516c = bVar;
+                    this.f64697d = this;
+                    this.f64695a = i2;
+                    this.f64696c = bVar;
                 }
 
                 @Override // com.bytedance.sdk.component.b.b.a.b
                 public void c() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f64517d.f64490i.a(this.f64515a, this.f64516c);
-                        synchronized (this.f64517d) {
-                            this.f64517d.r.remove(Integer.valueOf(this.f64515a));
+                        this.f64697d.f64670i.a(this.f64695a, this.f64696c);
+                        synchronized (this.f64697d) {
+                            this.f64697d.r.remove(Integer.valueOf(this.f64695a));
                         }
                     }
                 }
@@ -358,25 +358,25 @@ public final class g implements Closeable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Socket f64518a;
+        public Socket f64698a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f64519b;
+        public String f64699b;
 
         /* renamed from: c  reason: collision with root package name */
-        public com.bytedance.sdk.component.b.a.e f64520c;
+        public com.bytedance.sdk.component.b.a.e f64700c;
 
         /* renamed from: d  reason: collision with root package name */
-        public com.bytedance.sdk.component.b.a.d f64521d;
+        public com.bytedance.sdk.component.b.a.d f64701d;
 
         /* renamed from: e  reason: collision with root package name */
-        public b f64522e;
+        public b f64702e;
 
         /* renamed from: f  reason: collision with root package name */
-        public m f64523f;
+        public m f64703f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f64524g;
+        public boolean f64704g;
 
         public a(boolean z) {
             Interceptable interceptable = $ic;
@@ -393,19 +393,19 @@ public final class g implements Closeable {
                     return;
                 }
             }
-            this.f64522e = b.f64525f;
-            this.f64523f = m.f64584a;
-            this.f64524g = z;
+            this.f64702e = b.f64705f;
+            this.f64703f = m.f64764a;
+            this.f64704g = z;
         }
 
         public a a(Socket socket, String str, com.bytedance.sdk.component.b.a.e eVar, com.bytedance.sdk.component.b.a.d dVar) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socket, str, eVar, dVar)) == null) {
-                this.f64518a = socket;
-                this.f64519b = str;
-                this.f64520c = eVar;
-                this.f64521d = dVar;
+                this.f64698a = socket;
+                this.f64699b = str;
+                this.f64700c = eVar;
+                this.f64701d = dVar;
                 return this;
             }
             return (a) invokeLLLL.objValue;
@@ -415,7 +415,7 @@ public final class g implements Closeable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                this.f64522e = bVar;
+                this.f64702e = bVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -442,14 +442,14 @@ public final class g implements Closeable {
             boolean z3 = !z;
             synchronized (this.p) {
                 synchronized (this) {
-                    if (!this.f64489h) {
-                        i3 = this.f64488g;
-                        this.f64488g += 2;
+                    if (!this.f64669h) {
+                        i3 = this.f64668g;
+                        this.f64668g += 2;
                         iVar = new i(i3, this, z3, false, list);
-                        if (z && this.k != 0 && iVar.f64546b != 0) {
+                        if (z && this.k != 0 && iVar.f64726b != 0) {
                             z2 = false;
                             if (iVar.b()) {
-                                this.f64485d.put(Integer.valueOf(i3), iVar);
+                                this.f64665d.put(Integer.valueOf(i3), iVar);
                             }
                         }
                         z2 = true;
@@ -461,7 +461,7 @@ public final class g implements Closeable {
                 }
                 if (i2 == 0) {
                     this.p.a(z3, i3, i2, list);
-                } else if (!this.f64483b) {
+                } else if (!this.f64663b) {
                     this.p.a(i2, i3, list);
                 } else {
                     throw new IllegalArgumentException("client streams shouldn't have associated stream IDs");
@@ -488,7 +488,7 @@ public final class g implements Closeable {
                 synchronized (this) {
                     while (this.k <= 0) {
                         try {
-                            if (this.f64485d.containsKey(Integer.valueOf(i2))) {
+                            if (this.f64665d.containsKey(Integer.valueOf(i2))) {
                                 wait();
                             } else {
                                 throw new IOException("stream closed");
@@ -513,14 +513,14 @@ public final class g implements Closeable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final h f64526a;
+        public final h f64706a;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ g f64527c;
+        public final /* synthetic */ g f64707c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(g gVar, h hVar) {
-            super("OkHttp %s", gVar.f64486e);
+            super("OkHttp %s", gVar.f64666e);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -537,8 +537,8 @@ public final class g implements Closeable {
                     return;
                 }
             }
-            this.f64527c = gVar;
-            this.f64526a = hVar;
+            this.f64707c = gVar;
+            this.f64706a = hVar;
         }
 
         @Override // com.bytedance.sdk.component.b.b.a.e.h.b
@@ -559,13 +559,13 @@ public final class g implements Closeable {
         public void a(boolean z, int i2, com.bytedance.sdk.component.b.a.e eVar, int i3) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), eVar, Integer.valueOf(i3)}) == null) {
-                if (this.f64527c.d(i2)) {
-                    this.f64527c.a(i2, eVar, i3, z);
+                if (this.f64707c.d(i2)) {
+                    this.f64707c.a(i2, eVar, i3, z);
                     return;
                 }
-                i a2 = this.f64527c.a(i2);
+                i a2 = this.f64707c.a(i2);
                 if (a2 == null) {
-                    this.f64527c.a(i2, com.bytedance.sdk.component.b.b.a.e.b.f64429b);
+                    this.f64707c.a(i2, com.bytedance.sdk.component.b.b.a.e.b.f64609b);
                     eVar.h(i3);
                     return;
                 }
@@ -583,31 +583,31 @@ public final class g implements Closeable {
             g gVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-                com.bytedance.sdk.component.b.b.a.e.b bVar3 = com.bytedance.sdk.component.b.b.a.e.b.f64430c;
+                com.bytedance.sdk.component.b.b.a.e.b bVar3 = com.bytedance.sdk.component.b.b.a.e.b.f64610c;
                 try {
                     try {
-                        this.f64526a.a(this);
-                        while (this.f64526a.a(false, (h.b) this)) {
+                        this.f64706a.a(this);
+                        while (this.f64706a.a(false, (h.b) this)) {
                         }
-                        bVar = com.bytedance.sdk.component.b.b.a.e.b.f64428a;
+                        bVar = com.bytedance.sdk.component.b.b.a.e.b.f64608a;
                         try {
                             try {
-                                bVar2 = com.bytedance.sdk.component.b.b.a.e.b.f64433f;
-                                gVar = this.f64527c;
+                                bVar2 = com.bytedance.sdk.component.b.b.a.e.b.f64613f;
+                                gVar = this.f64707c;
                             } catch (IOException unused) {
-                                bVar = com.bytedance.sdk.component.b.b.a.e.b.f64429b;
-                                bVar2 = com.bytedance.sdk.component.b.b.a.e.b.f64429b;
-                                gVar = this.f64527c;
+                                bVar = com.bytedance.sdk.component.b.b.a.e.b.f64609b;
+                                bVar2 = com.bytedance.sdk.component.b.b.a.e.b.f64609b;
+                                gVar = this.f64707c;
                                 gVar.a(bVar, bVar2);
-                                com.bytedance.sdk.component.b.b.a.c.a(this.f64526a);
+                                com.bytedance.sdk.component.b.b.a.c.a(this.f64706a);
                             }
                         } catch (Throwable th) {
                             th = th;
                             try {
-                                this.f64527c.a(bVar, bVar3);
+                                this.f64707c.a(bVar, bVar3);
                             } catch (IOException unused2) {
                             }
-                            com.bytedance.sdk.component.b.b.a.c.a(this.f64526a);
+                            com.bytedance.sdk.component.b.b.a.c.a(this.f64706a);
                             throw th;
                         }
                     } catch (IOException unused3) {
@@ -616,12 +616,12 @@ public final class g implements Closeable {
                 } catch (Throwable th2) {
                     th = th2;
                     bVar = bVar3;
-                    this.f64527c.a(bVar, bVar3);
-                    com.bytedance.sdk.component.b.b.a.c.a(this.f64526a);
+                    this.f64707c.a(bVar, bVar3);
+                    com.bytedance.sdk.component.b.b.a.c.a(this.f64706a);
                     throw th;
                 }
                 gVar.a(bVar, bVar2);
-                com.bytedance.sdk.component.b.b.a.c.a(this.f64526a);
+                com.bytedance.sdk.component.b.b.a.c.a(this.f64706a);
             }
         }
 
@@ -629,34 +629,34 @@ public final class g implements Closeable {
         public void a(boolean z, int i2, int i3, List<com.bytedance.sdk.component.b.b.a.e.c> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), list}) == null) {
-                if (this.f64527c.d(i2)) {
-                    this.f64527c.a(i2, list, z);
+                if (this.f64707c.d(i2)) {
+                    this.f64707c.a(i2, list, z);
                     return;
                 }
-                synchronized (this.f64527c) {
-                    i a2 = this.f64527c.a(i2);
+                synchronized (this.f64707c) {
+                    i a2 = this.f64707c.a(i2);
                     if (a2 == null) {
-                        if (this.f64527c.f64489h) {
+                        if (this.f64707c.f64669h) {
                             return;
                         }
-                        if (i2 <= this.f64527c.f64487f) {
+                        if (i2 <= this.f64707c.f64667f) {
                             return;
                         }
-                        if (i2 % 2 == this.f64527c.f64488g % 2) {
+                        if (i2 % 2 == this.f64707c.f64668g % 2) {
                             return;
                         }
-                        i iVar = new i(i2, this.f64527c, false, z, list);
-                        this.f64527c.f64487f = i2;
-                        this.f64527c.f64485d.put(Integer.valueOf(i2), iVar);
-                        g.f64482a.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s stream %d", new Object[]{this.f64527c.f64486e, Integer.valueOf(i2)}, iVar) { // from class: com.bytedance.sdk.component.b.b.a.e.g.c.1
+                        i iVar = new i(i2, this.f64707c, false, z, list);
+                        this.f64707c.f64667f = i2;
+                        this.f64707c.f64665d.put(Integer.valueOf(i2), iVar);
+                        g.f64662a.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s stream %d", new Object[]{this.f64707c.f64666e, Integer.valueOf(i2)}, iVar) { // from class: com.bytedance.sdk.component.b.b.a.e.g.c.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ i f64528a;
+                            public final /* synthetic */ i f64708a;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ c f64529c;
+                            public final /* synthetic */ c f64709c;
 
                             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                             {
@@ -677,8 +677,8 @@ public final class g implements Closeable {
                                         return;
                                     }
                                 }
-                                this.f64529c = this;
-                                this.f64528a = iVar;
+                                this.f64709c = this;
+                                this.f64708a = iVar;
                             }
 
                             @Override // com.bytedance.sdk.component.b.b.a.b
@@ -686,12 +686,12 @@ public final class g implements Closeable {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     try {
-                                        this.f64529c.f64527c.f64484c.a(this.f64528a);
+                                        this.f64709c.f64707c.f64664c.a(this.f64708a);
                                     } catch (IOException e2) {
                                         com.bytedance.sdk.component.b.b.a.g.e b2 = com.bytedance.sdk.component.b.b.a.g.e.b();
-                                        b2.a(4, "Http2Connection.Listener failure for " + this.f64529c.f64527c.f64486e, e2);
+                                        b2.a(4, "Http2Connection.Listener failure for " + this.f64709c.f64707c.f64666e, e2);
                                         try {
-                                            this.f64528a.a(com.bytedance.sdk.component.b.b.a.e.b.f64429b);
+                                            this.f64708a.a(com.bytedance.sdk.component.b.b.a.e.b.f64609b);
                                         } catch (IOException unused) {
                                         }
                                     }
@@ -712,11 +712,11 @@ public final class g implements Closeable {
         public void a(int i2, com.bytedance.sdk.component.b.b.a.e.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048580, this, i2, bVar) == null) {
-                if (this.f64527c.d(i2)) {
-                    this.f64527c.c(i2, bVar);
+                if (this.f64707c.d(i2)) {
+                    this.f64707c.c(i2, bVar);
                     return;
                 }
-                i b2 = this.f64527c.b(i2);
+                i b2 = this.f64707c.b(i2);
                 if (b2 != null) {
                     b2.c(bVar);
                 }
@@ -730,33 +730,33 @@ public final class g implements Closeable {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048585, this, z, nVar) == null) {
-                synchronized (this.f64527c) {
-                    int d2 = this.f64527c.m.d();
+                synchronized (this.f64707c) {
+                    int d2 = this.f64707c.m.d();
                     if (z) {
-                        this.f64527c.m.a();
+                        this.f64707c.m.a();
                     }
-                    this.f64527c.m.a(nVar);
+                    this.f64707c.m.a(nVar);
                     a(nVar);
-                    int d3 = this.f64527c.m.d();
+                    int d3 = this.f64707c.m.d();
                     iVarArr = null;
                     if (d3 == -1 || d3 == d2) {
                         j2 = 0;
                     } else {
                         j2 = d3 - d2;
-                        if (!this.f64527c.n) {
-                            this.f64527c.a(j2);
-                            this.f64527c.n = true;
+                        if (!this.f64707c.n) {
+                            this.f64707c.a(j2);
+                            this.f64707c.n = true;
                         }
-                        if (!this.f64527c.f64485d.isEmpty()) {
-                            iVarArr = (i[]) this.f64527c.f64485d.values().toArray(new i[this.f64527c.f64485d.size()]);
+                        if (!this.f64707c.f64665d.isEmpty()) {
+                            iVarArr = (i[]) this.f64707c.f64665d.values().toArray(new i[this.f64707c.f64665d.size()]);
                         }
                     }
-                    g.f64482a.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s settings", this.f64527c.f64486e) { // from class: com.bytedance.sdk.component.b.b.a.e.g.c.2
+                    g.f64662a.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s settings", this.f64707c.f64666e) { // from class: com.bytedance.sdk.component.b.b.a.e.g.c.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ c f64530a;
+                        public final /* synthetic */ c f64710a;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -777,15 +777,15 @@ public final class g implements Closeable {
                                     return;
                                 }
                             }
-                            this.f64530a = this;
+                            this.f64710a = this;
                         }
 
                         @Override // com.bytedance.sdk.component.b.b.a.b
                         public void c() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                g gVar = this.f64530a.f64527c;
-                                gVar.f64484c.a(gVar);
+                                g gVar = this.f64710a.f64707c;
+                                gVar.f64664c.a(gVar);
                             }
                         }
                     });
@@ -804,15 +804,15 @@ public final class g implements Closeable {
         private void a(n nVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65537, this, nVar) == null) {
-                g.f64482a.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s ACK Settings", new Object[]{this.f64527c.f64486e}, nVar) { // from class: com.bytedance.sdk.component.b.b.a.e.g.c.3
+                g.f64662a.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s ACK Settings", new Object[]{this.f64707c.f64666e}, nVar) { // from class: com.bytedance.sdk.component.b.b.a.e.g.c.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ n f64531a;
+                    public final /* synthetic */ n f64711a;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ c f64532c;
+                    public final /* synthetic */ c f64712c;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -833,8 +833,8 @@ public final class g implements Closeable {
                                 return;
                             }
                         }
-                        this.f64532c = this;
-                        this.f64531a = nVar;
+                        this.f64712c = this;
+                        this.f64711a = nVar;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.a.b
@@ -842,7 +842,7 @@ public final class g implements Closeable {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                this.f64532c.f64527c.p.a(this.f64531a);
+                                this.f64712c.f64707c.p.a(this.f64711a);
                             } catch (IOException unused) {
                             }
                         }
@@ -856,14 +856,14 @@ public final class g implements Closeable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
                 if (z) {
-                    l c2 = this.f64527c.c(i2);
+                    l c2 = this.f64707c.c(i2);
                     if (c2 != null) {
                         c2.b();
                         return;
                     }
                     return;
                 }
-                this.f64527c.a(true, i2, i3, (l) null);
+                this.f64707c.a(true, i2, i3, (l) null);
             }
         }
 
@@ -873,14 +873,14 @@ public final class g implements Closeable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048581, this, i2, bVar, fVar) == null) {
                 fVar.g();
-                synchronized (this.f64527c) {
-                    iVarArr = (i[]) this.f64527c.f64485d.values().toArray(new i[this.f64527c.f64485d.size()]);
-                    this.f64527c.f64489h = true;
+                synchronized (this.f64707c) {
+                    iVarArr = (i[]) this.f64707c.f64665d.values().toArray(new i[this.f64707c.f64665d.size()]);
+                    this.f64707c.f64669h = true;
                 }
                 for (i iVar : iVarArr) {
                     if (iVar.a() > i2 && iVar.c()) {
-                        iVar.c(com.bytedance.sdk.component.b.b.a.e.b.f64432e);
-                        this.f64527c.b(iVar.a());
+                        iVar.c(com.bytedance.sdk.component.b.b.a.e.b.f64612e);
+                        this.f64707c.b(iVar.a());
                     }
                 }
             }
@@ -891,13 +891,13 @@ public final class g implements Closeable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 if (i2 == 0) {
-                    synchronized (this.f64527c) {
-                        this.f64527c.k += j2;
-                        this.f64527c.notifyAll();
+                    synchronized (this.f64707c) {
+                        this.f64707c.k += j2;
+                        this.f64707c.notifyAll();
                     }
                     return;
                 }
-                i a2 = this.f64527c.a(i2);
+                i a2 = this.f64707c.a(i2);
                 if (a2 != null) {
                     synchronized (a2) {
                         a2.a(j2);
@@ -910,7 +910,7 @@ public final class g implements Closeable {
         public void a(int i2, int i3, List<com.bytedance.sdk.component.b.b.a.e.c> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, list) == null) {
-                this.f64527c.a(i3, list);
+                this.f64707c.a(i3, list);
             }
         }
     }
@@ -928,18 +928,18 @@ public final class g implements Closeable {
     public void a(int i2, com.bytedance.sdk.component.b.b.a.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i2, bVar) == null) {
-            f64482a.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s stream %d", new Object[]{this.f64486e, Integer.valueOf(i2)}, i2, bVar) { // from class: com.bytedance.sdk.component.b.b.a.e.g.1
+            f64662a.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s stream %d", new Object[]{this.f64666e, Integer.valueOf(i2)}, i2, bVar) { // from class: com.bytedance.sdk.component.b.b.a.e.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f64492a;
+                public final /* synthetic */ int f64672a;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.component.b.b.a.e.b f64493c;
+                public final /* synthetic */ com.bytedance.sdk.component.b.b.a.e.b f64673c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ g f64494d;
+                public final /* synthetic */ g f64674d;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -960,9 +960,9 @@ public final class g implements Closeable {
                             return;
                         }
                     }
-                    this.f64494d = this;
-                    this.f64492a = i2;
-                    this.f64493c = bVar;
+                    this.f64674d = this;
+                    this.f64672a = i2;
+                    this.f64673c = bVar;
                 }
 
                 @Override // com.bytedance.sdk.component.b.b.a.b
@@ -970,7 +970,7 @@ public final class g implements Closeable {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f64494d.b(this.f64492a, this.f64493c);
+                            this.f64674d.b(this.f64672a, this.f64673c);
                         } catch (IOException unused) {
                         }
                     }
@@ -982,18 +982,18 @@ public final class g implements Closeable {
     public void a(int i2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            f64482a.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp Window Update %s stream %d", new Object[]{this.f64486e, Integer.valueOf(i2)}, i2, j2) { // from class: com.bytedance.sdk.component.b.b.a.e.g.2
+            f64662a.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp Window Update %s stream %d", new Object[]{this.f64666e, Integer.valueOf(i2)}, i2, j2) { // from class: com.bytedance.sdk.component.b.b.a.e.g.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f64495a;
+                public final /* synthetic */ int f64675a;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ long f64496c;
+                public final /* synthetic */ long f64676c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ g f64497d;
+                public final /* synthetic */ g f64677d;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1014,9 +1014,9 @@ public final class g implements Closeable {
                             return;
                         }
                     }
-                    this.f64497d = this;
-                    this.f64495a = i2;
-                    this.f64496c = j2;
+                    this.f64677d = this;
+                    this.f64675a = i2;
+                    this.f64676c = j2;
                 }
 
                 @Override // com.bytedance.sdk.component.b.b.a.b
@@ -1024,7 +1024,7 @@ public final class g implements Closeable {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f64497d.p.a(this.f64495a, this.f64496c);
+                            this.f64677d.p.a(this.f64675a, this.f64676c);
                         } catch (IOException unused) {
                         }
                     }
@@ -1036,24 +1036,24 @@ public final class g implements Closeable {
     public void a(boolean z, int i2, int i3, l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), lVar}) == null) {
-            f64482a.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s ping %08x%08x", new Object[]{this.f64486e, Integer.valueOf(i2), Integer.valueOf(i3)}, z, i2, i3, lVar) { // from class: com.bytedance.sdk.component.b.b.a.e.g.3
+            f64662a.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s ping %08x%08x", new Object[]{this.f64666e, Integer.valueOf(i2), Integer.valueOf(i3)}, z, i2, i3, lVar) { // from class: com.bytedance.sdk.component.b.b.a.e.g.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean f64498a;
+                public final /* synthetic */ boolean f64678a;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f64499c;
+                public final /* synthetic */ int f64679c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ int f64500d;
+                public final /* synthetic */ int f64680d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ l f64501e;
+                public final /* synthetic */ l f64681e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ g f64502f;
+                public final /* synthetic */ g f64682f;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1074,11 +1074,11 @@ public final class g implements Closeable {
                             return;
                         }
                     }
-                    this.f64502f = this;
-                    this.f64498a = z;
-                    this.f64499c = i2;
-                    this.f64500d = i3;
-                    this.f64501e = lVar;
+                    this.f64682f = this;
+                    this.f64678a = z;
+                    this.f64679c = i2;
+                    this.f64680d = i3;
+                    this.f64681e = lVar;
                 }
 
                 @Override // com.bytedance.sdk.component.b.b.a.b
@@ -1086,7 +1086,7 @@ public final class g implements Closeable {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f64502f.b(this.f64498a, this.f64499c, this.f64500d, this.f64501e);
+                            this.f64682f.b(this.f64678a, this.f64679c, this.f64680d, this.f64681e);
                         } catch (IOException unused) {
                         }
                     }
@@ -1107,11 +1107,11 @@ public final class g implements Closeable {
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
             synchronized (this.p) {
                 synchronized (this) {
-                    if (this.f64489h) {
+                    if (this.f64669h) {
                         return;
                     }
-                    this.f64489h = true;
-                    this.p.a(this.f64487f, bVar, com.bytedance.sdk.component.b.b.a.c.f64363a);
+                    this.f64669h = true;
+                    this.p.a(this.f64667f, bVar, com.bytedance.sdk.component.b.b.a.c.f64543a);
                 }
             }
         }
@@ -1151,11 +1151,11 @@ public final class g implements Closeable {
                 e = e2;
             }
             synchronized (this) {
-                if (this.f64485d.isEmpty()) {
+                if (this.f64665d.isEmpty()) {
                     iVarArr = null;
                 } else {
-                    iVarArr = (i[]) this.f64485d.values().toArray(new i[this.f64485d.size()]);
-                    this.f64485d.clear();
+                    iVarArr = (i[]) this.f64665d.values().toArray(new i[this.f64665d.size()]);
+                    this.f64665d.clear();
                 }
                 if (this.u != null) {
                     this.u = null;
@@ -1218,22 +1218,22 @@ public final class g implements Closeable {
         if (interceptable == null || interceptable.invokeIL(1048582, this, i2, list) == null) {
             synchronized (this) {
                 if (this.r.contains(Integer.valueOf(i2))) {
-                    a(i2, com.bytedance.sdk.component.b.b.a.e.b.f64429b);
+                    a(i2, com.bytedance.sdk.component.b.b.a.e.b.f64609b);
                     return;
                 }
                 this.r.add(Integer.valueOf(i2));
-                this.t.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s Push Request[%s]", new Object[]{this.f64486e, Integer.valueOf(i2)}, i2, list) { // from class: com.bytedance.sdk.component.b.b.a.e.g.4
+                this.t.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s Push Request[%s]", new Object[]{this.f64666e, Integer.valueOf(i2)}, i2, list) { // from class: com.bytedance.sdk.component.b.b.a.e.g.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ int f64503a;
+                    public final /* synthetic */ int f64683a;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ List f64504c;
+                    public final /* synthetic */ List f64684c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ g f64505d;
+                    public final /* synthetic */ g f64685d;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -1254,19 +1254,19 @@ public final class g implements Closeable {
                                 return;
                             }
                         }
-                        this.f64505d = this;
-                        this.f64503a = i2;
-                        this.f64504c = list;
+                        this.f64685d = this;
+                        this.f64683a = i2;
+                        this.f64684c = list;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.a.b
                     public void c() {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f64505d.f64490i.a(this.f64503a, this.f64504c)) {
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f64685d.f64670i.a(this.f64683a, this.f64684c)) {
                             try {
-                                this.f64505d.p.a(this.f64503a, com.bytedance.sdk.component.b.b.a.e.b.f64433f);
-                                synchronized (this.f64505d) {
-                                    this.f64505d.r.remove(Integer.valueOf(this.f64503a));
+                                this.f64685d.p.a(this.f64683a, com.bytedance.sdk.component.b.b.a.e.b.f64613f);
+                                synchronized (this.f64685d) {
+                                    this.f64685d.r.remove(Integer.valueOf(this.f64683a));
                                 }
                             } catch (IOException unused) {
                             }
@@ -1280,21 +1280,21 @@ public final class g implements Closeable {
     public void a(int i2, List<com.bytedance.sdk.component.b.b.a.e.c> list, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), list, Boolean.valueOf(z)}) == null) {
-            this.t.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s Push Headers[%s]", new Object[]{this.f64486e, Integer.valueOf(i2)}, i2, list, z) { // from class: com.bytedance.sdk.component.b.b.a.e.g.5
+            this.t.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s Push Headers[%s]", new Object[]{this.f64666e, Integer.valueOf(i2)}, i2, list, z) { // from class: com.bytedance.sdk.component.b.b.a.e.g.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f64506a;
+                public final /* synthetic */ int f64686a;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ List f64507c;
+                public final /* synthetic */ List f64687c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ boolean f64508d;
+                public final /* synthetic */ boolean f64688d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ g f64509e;
+                public final /* synthetic */ g f64689e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1315,27 +1315,27 @@ public final class g implements Closeable {
                             return;
                         }
                     }
-                    this.f64509e = this;
-                    this.f64506a = i2;
-                    this.f64507c = list;
-                    this.f64508d = z;
+                    this.f64689e = this;
+                    this.f64686a = i2;
+                    this.f64687c = list;
+                    this.f64688d = z;
                 }
 
                 @Override // com.bytedance.sdk.component.b.b.a.b
                 public void c() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        boolean a2 = this.f64509e.f64490i.a(this.f64506a, this.f64507c, this.f64508d);
+                        boolean a2 = this.f64689e.f64670i.a(this.f64686a, this.f64687c, this.f64688d);
                         if (a2) {
                             try {
-                                this.f64509e.p.a(this.f64506a, com.bytedance.sdk.component.b.b.a.e.b.f64433f);
+                                this.f64689e.p.a(this.f64686a, com.bytedance.sdk.component.b.b.a.e.b.f64613f);
                             } catch (IOException unused) {
                                 return;
                             }
                         }
-                        if (a2 || this.f64508d) {
-                            synchronized (this.f64509e) {
-                                this.f64509e.r.remove(Integer.valueOf(this.f64506a));
+                        if (a2 || this.f64688d) {
+                            synchronized (this.f64689e) {
+                                this.f64689e.r.remove(Integer.valueOf(this.f64686a));
                             }
                         }
                     }
@@ -1352,24 +1352,24 @@ public final class g implements Closeable {
             eVar.a(j2);
             eVar.a(cVar, j2);
             if (cVar.b() == j2) {
-                this.t.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s Push Data[%s]", new Object[]{this.f64486e, Integer.valueOf(i2)}, i2, cVar, i3, z) { // from class: com.bytedance.sdk.component.b.b.a.e.g.6
+                this.t.execute(new com.bytedance.sdk.component.b.b.a.b(this, "OkHttp %s Push Data[%s]", new Object[]{this.f64666e, Integer.valueOf(i2)}, i2, cVar, i3, z) { // from class: com.bytedance.sdk.component.b.b.a.e.g.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ int f64510a;
+                    public final /* synthetic */ int f64690a;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.component.b.a.c f64511c;
+                    public final /* synthetic */ com.bytedance.sdk.component.b.a.c f64691c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ int f64512d;
+                    public final /* synthetic */ int f64692d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ boolean f64513e;
+                    public final /* synthetic */ boolean f64693e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ g f64514f;
+                    public final /* synthetic */ g f64694f;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -1390,11 +1390,11 @@ public final class g implements Closeable {
                                 return;
                             }
                         }
-                        this.f64514f = this;
-                        this.f64510a = i2;
-                        this.f64511c = cVar;
-                        this.f64512d = i3;
-                        this.f64513e = z;
+                        this.f64694f = this;
+                        this.f64690a = i2;
+                        this.f64691c = cVar;
+                        this.f64692d = i3;
+                        this.f64693e = z;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.a.b
@@ -1402,13 +1402,13 @@ public final class g implements Closeable {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                boolean a2 = this.f64514f.f64490i.a(this.f64510a, this.f64511c, this.f64512d, this.f64513e);
+                                boolean a2 = this.f64694f.f64670i.a(this.f64690a, this.f64691c, this.f64692d, this.f64693e);
                                 if (a2) {
-                                    this.f64514f.p.a(this.f64510a, com.bytedance.sdk.component.b.b.a.e.b.f64433f);
+                                    this.f64694f.p.a(this.f64690a, com.bytedance.sdk.component.b.b.a.e.b.f64613f);
                                 }
-                                if (a2 || this.f64513e) {
-                                    synchronized (this.f64514f) {
-                                        this.f64514f.r.remove(Integer.valueOf(this.f64510a));
+                                if (a2 || this.f64693e) {
+                                    synchronized (this.f64694f) {
+                                        this.f64694f.r.remove(Integer.valueOf(this.f64690a));
                                     }
                                 }
                             } catch (IOException unused) {

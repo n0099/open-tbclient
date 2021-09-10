@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
 import c.a.e.a.j;
-import c.a.p0.s.s.a;
+import c.a.q0.s.s.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -39,19 +39,19 @@ public class XiaoyingUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f48337e;
+        public final /* synthetic */ Context f48470e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48338f;
+        public final /* synthetic */ String f48471f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f48339g;
+        public final /* synthetic */ int f48472g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f48340h;
+        public final /* synthetic */ int f48473h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f48341i;
+        public final /* synthetic */ String f48474i;
 
         public a(Context context, String str, int i2, int i3, String str2) {
             Interceptable interceptable = $ic;
@@ -68,18 +68,18 @@ public class XiaoyingUtil {
                     return;
                 }
             }
-            this.f48337e = context;
-            this.f48338f = str;
-            this.f48339g = i2;
-            this.f48340h = i3;
-            this.f48341i = str2;
+            this.f48470e = context;
+            this.f48471f = str;
+            this.f48472g = i2;
+            this.f48473h = i3;
+            this.f48474i = str2;
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(this.f48337e, this.f48338f, this.f48339g, this.f48340h, this.f48341i)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(this.f48470e, this.f48471f, this.f48472g, this.f48473h, this.f48474i)));
                 aVar.dismiss();
             }
         }
@@ -104,8 +104,8 @@ public class XiaoyingUtil {
             }
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -119,10 +119,10 @@ public class XiaoyingUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f48342e;
+        public final /* synthetic */ Activity f48475e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f48343f;
+        public final /* synthetic */ TbPageContext f48476f;
 
         public c(Activity activity, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -139,15 +139,15 @@ public class XiaoyingUtil {
                     return;
                 }
             }
-            this.f48342e = activity;
-            this.f48343f = tbPageContext;
+            this.f48475e = activity;
+            this.f48476f = tbPageContext;
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f48343f.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(this.f48342e, XiaoyingUtil.PKG_NAME_VIDEO)));
+                this.f48476f.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(this.f48475e, XiaoyingUtil.PKG_NAME_VIDEO)));
                 aVar.dismiss();
             }
         }
@@ -172,8 +172,8 @@ public class XiaoyingUtil {
             }
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -226,7 +226,7 @@ public class XiaoyingUtil {
         if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, tbPageContext, str, str2) == null) || tbPageContext == null || (pageActivity = tbPageContext.getPageActivity()) == null) {
             return;
         }
-        c.a.p0.s.s.a aVar = new c.a.p0.s.s.a(pageActivity);
+        c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(pageActivity);
         aVar.setMessage(str);
         aVar.setPositiveButton(str2, new c(pageActivity, tbPageContext));
         aVar.setNegativeButton(R.string.cancel, new d());
@@ -239,7 +239,7 @@ public class XiaoyingUtil {
         if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, str, Integer.valueOf(i2), Integer.valueOf(i3), str2}) == null) || (a2 = j.a(context)) == null) {
             return;
         }
-        c.a.p0.s.s.a aVar = new c.a.p0.s.s.a(a2.getPageActivity());
+        c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(a2.getPageActivity());
         aVar.setMessage(TbadkCoreApplication.getInst().getString(R.string.play_video_mobile_tip));
         aVar.setPositiveButton(R.string.confirm, new a(context, str, i2, i3, str2));
         aVar.setNegativeButton(R.string.cancel, new b());
@@ -293,7 +293,7 @@ public class XiaoyingUtil {
         if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, Boolean.valueOf(z), str, str2, str3}) == null) || context == null) {
             return;
         }
-        c.a.p0.s.d0.b.j().t(MotuVideoConfig.IS_SINGLE_GOD_USER, z);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MotuVideoConfig(context, z || c.a.p0.s.d0.b.j().g("localvideo_open", false), str, str2, str3)));
+        c.a.q0.s.d0.b.j().t(MotuVideoConfig.IS_SINGLE_GOD_USER, z);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MotuVideoConfig(context, z || c.a.q0.s.d0.b.j().g("localvideo_open", false), str, str2, str3)));
     }
 }

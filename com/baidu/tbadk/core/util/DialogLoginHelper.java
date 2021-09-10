@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.b.d;
-import c.a.p0.s.q.t0;
+import c.a.q0.b.d;
+import c.a.q0.s.q.t0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -72,7 +72,7 @@ public class DialogLoginHelper {
     public static String getOneKeyLoginActivityLocate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.w() ? "new_start_1" : d.x() ? "new_start_2" : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.n() ? "new_start_1" : d.o() ? "new_start_2" : "" : (String) invokeV.objValue;
     }
 
     public static void skipToLoginDialogActivity(t0 t0Var) {

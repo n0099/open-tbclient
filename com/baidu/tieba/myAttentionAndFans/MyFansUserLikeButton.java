@@ -6,7 +6,7 @@ import android.view.View;
 import c.a.e.a.f;
 import c.a.e.e.m.g;
 import c.a.e.e.p.l;
-import c.a.p0.s.s.i;
+import c.a.q0.s.s.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.PopupDialog;
@@ -28,13 +28,13 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f54282h;
+    public f f54428h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PopupDialog f54283i;
+    public PopupDialog f54429i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f54284j;
+    public String f54430j;
     public int k;
 
     /* loaded from: classes7.dex */
@@ -43,10 +43,10 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f54285e;
+        public final /* synthetic */ View.OnClickListener f54431e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MyFansUserLikeButton f54286f;
+        public final /* synthetic */ MyFansUserLikeButton f54432f;
 
         /* renamed from: com.baidu.tieba.myAttentionAndFans.MyFansUserLikeButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
@@ -55,10 +55,10 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f54287a;
+            public final /* synthetic */ View f54433a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f54288b;
+            public final /* synthetic */ a f54434b;
 
             public C1773a(a aVar, View view) {
                 Interceptable interceptable = $ic;
@@ -75,26 +75,26 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                         return;
                     }
                 }
-                this.f54288b = aVar;
-                this.f54287a = view;
+                this.f54434b = aVar;
+                this.f54433a = view;
             }
 
-            @Override // c.a.p0.s.s.i.d
+            @Override // c.a.q0.s.s.i.d
             public void onClick() {
                 View.OnClickListener onClickListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (onClickListener = this.f54288b.f54285e) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (onClickListener = this.f54434b.f54431e) == null) {
                     return;
                 }
-                onClickListener.onClick(this.f54287a);
-                if (this.f54288b.f54286f.k != 1) {
-                    if (this.f54288b.f54286f.k == 2) {
-                        TiebaStatic.log(new StatisticItem("C12603").param("obj_param1", this.f54288b.f54286f.f54284j));
+                onClickListener.onClick(this.f54433a);
+                if (this.f54434b.f54432f.k != 1) {
+                    if (this.f54434b.f54432f.k == 2) {
+                        TiebaStatic.log(new StatisticItem("C12603").param("obj_param1", this.f54434b.f54432f.f54430j));
                     }
                 } else {
-                    TiebaStatic.log(new StatisticItem("c12773").param("obj_param1", this.f54288b.f54286f.f54284j));
+                    TiebaStatic.log(new StatisticItem("c12773").param("obj_param1", this.f54434b.f54432f.f54430j));
                 }
-                g.b(this.f54288b.f54286f.f54283i, this.f54288b.f54286f.f54282h);
+                g.b(this.f54434b.f54432f.f54429i, this.f54434b.f54432f.f54428h);
             }
         }
 
@@ -104,7 +104,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f54289a;
+            public final /* synthetic */ a f54435a;
 
             public b(a aVar) {
                 Interceptable interceptable = $ic;
@@ -121,16 +121,16 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                         return;
                     }
                 }
-                this.f54289a = aVar;
+                this.f54435a = aVar;
             }
 
-            @Override // c.a.p0.s.s.i.c
+            @Override // c.a.q0.s.s.i.c
             public void onClick() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54289a.f54286f.f54283i == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54435a.f54432f.f54429i == null) {
                     return;
                 }
-                g.b(this.f54289a.f54286f.f54283i, this.f54289a.f54286f.f54282h);
+                g.b(this.f54435a.f54432f.f54429i, this.f54435a.f54432f.f54428h);
             }
         }
 
@@ -149,41 +149,41 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                     return;
                 }
             }
-            this.f54286f = myFansUserLikeButton;
-            this.f54285e = onClickListener;
+            this.f54432f = myFansUserLikeButton;
+            this.f54431e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f54286f.k != 1) {
-                    if (this.f54286f.k == 2) {
-                        TiebaStatic.log(new StatisticItem("c12605").param("obj_locate", this.f54286f.mCurrentIsLike ? 3 : 2).param("obj_param1", this.f54286f.f54284j));
+                if (this.f54432f.k != 1) {
+                    if (this.f54432f.k == 2) {
+                        TiebaStatic.log(new StatisticItem("c12605").param("obj_locate", this.f54432f.mCurrentIsLike ? 3 : 2).param("obj_param1", this.f54432f.f54430j));
                     }
                 } else {
-                    TiebaStatic.log(new StatisticItem("c12772").param("obj_locate", this.f54286f.mCurrentIsLike ? "3" : "2").param("obj_param1", this.f54286f.f54284j));
+                    TiebaStatic.log(new StatisticItem("c12772").param("obj_locate", this.f54432f.mCurrentIsLike ? "3" : "2").param("obj_param1", this.f54432f.f54430j));
                 }
-                if (this.f54286f.mCurrentIsLike) {
-                    if (this.f54286f.f54282h != null) {
-                        if (this.f54286f.f54283i == null) {
-                            i iVar = new i(this.f54286f.f54282h.getContext());
-                            iVar.q(this.f54286f.f54282h.getString(R.string.confirm_unlike));
+                if (this.f54432f.mCurrentIsLike) {
+                    if (this.f54432f.f54428h != null) {
+                        if (this.f54432f.f54429i == null) {
+                            i iVar = new i(this.f54432f.f54428h.getContext());
+                            iVar.q(this.f54432f.f54428h.getString(R.string.confirm_unlike));
                             ArrayList arrayList = new ArrayList();
-                            c.a.p0.s.s.f fVar = new c.a.p0.s.s.f(this.f54286f.f54282h.getString(R.string.confirm), iVar);
+                            c.a.q0.s.s.f fVar = new c.a.q0.s.s.f(this.f54432f.f54428h.getString(R.string.confirm), iVar);
                             fVar.l(new C1773a(this, view));
                             arrayList.add(fVar);
                             iVar.m(new b(this));
                             iVar.k(arrayList);
-                            this.f54286f.f54283i = new PopupDialog(this.f54286f.f54282h, iVar);
-                            this.f54286f.f54283i.setWindowDimAmount(0.7f);
+                            this.f54432f.f54429i = new PopupDialog(this.f54432f.f54428h, iVar);
+                            this.f54432f.f54429i.setWindowDimAmount(0.7f);
                         }
-                        g.j(this.f54286f.f54283i, this.f54286f.f54282h);
+                        g.j(this.f54432f.f54429i, this.f54432f.f54428h);
                         return;
                     }
                     return;
                 }
-                this.f54285e.onClick(view);
+                this.f54431e.onClick(view);
             }
         }
     }
@@ -209,7 +209,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
         this.k = 1;
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.p0.s.f0.t.b
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.q0.s.f0.t.b
     public void bindOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
@@ -234,7 +234,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
     public void setContext(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
-            this.f54282h = fVar;
+            this.f54428h = fVar;
         }
     }
 
@@ -242,7 +242,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
             this.k = i2;
-            this.f54284j = str;
+            this.f54430j = str;
         }
     }
 
@@ -253,7 +253,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.p0.s.f0.t.b
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.q0.s.f0.t.b
     public void updateLikeStatus(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {

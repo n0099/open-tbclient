@@ -29,7 +29,7 @@ public class e implements k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f67426a;
+    public final WeakReference<Context> f67606a;
 
     /* loaded from: classes9.dex */
     public static class a implements DialogInterface {
@@ -80,7 +80,7 @@ public class e implements k {
                 return;
             }
         }
-        this.f67426a = new WeakReference<>(context);
+        this.f67606a = new WeakReference<>(context);
     }
 
     private void c(c.p.a.a.a.f.c cVar) {
@@ -91,10 +91,10 @@ public class e implements k {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.a.a.f.c f67437a;
+                public final /* synthetic */ c.p.a.a.a.f.c f67617a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f67438b;
+                public final /* synthetic */ e f67618b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -111,15 +111,15 @@ public class e implements k {
                             return;
                         }
                     }
-                    this.f67438b = this;
-                    this.f67437a = cVar;
+                    this.f67618b = this;
+                    this.f67617a = cVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.q.c.a
                 public void a() {
                     c.InterfaceC1519c interfaceC1519c;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (interfaceC1519c = this.f67437a.f34345h) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (interfaceC1519c = this.f67617a.f34454h) == null) {
                         return;
                     }
                     interfaceC1519c.a(new a());
@@ -129,7 +129,7 @@ public class e implements k {
                 public void b() {
                     c.InterfaceC1519c interfaceC1519c;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (interfaceC1519c = this.f67437a.f34345h) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (interfaceC1519c = this.f67617a.f34454h) == null) {
                         return;
                     }
                     interfaceC1519c.b(new a());
@@ -139,16 +139,16 @@ public class e implements k {
                 public void c() {
                     c.InterfaceC1519c interfaceC1519c;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (interfaceC1519c = this.f67437a.f34345h) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (interfaceC1519c = this.f67617a.f34454h) == null) {
                         return;
                     }
                     interfaceC1519c.c(new a());
                 }
             };
-            if (cVar.f34347j == 1) {
-                com.bytedance.sdk.openadsdk.q.c.a(this.f67426a.get(), String.valueOf(cVar.hashCode()), cVar.f34339b, cVar.f34340c, cVar.f34341d, cVar.f34342e, aVar);
+            if (cVar.f34456j == 1) {
+                com.bytedance.sdk.openadsdk.q.c.a(this.f67606a.get(), String.valueOf(cVar.hashCode()), cVar.f34448b, cVar.f34449c, cVar.f34450d, cVar.f34451e, aVar);
             } else {
-                com.bytedance.sdk.openadsdk.q.c.a(this.f67426a.get(), String.valueOf(cVar.hashCode()), cVar.f34339b, cVar.f34340c, aVar);
+                com.bytedance.sdk.openadsdk.q.c.a(this.f67606a.get(), String.valueOf(cVar.hashCode()), cVar.f34448b, cVar.f34449c, aVar);
             }
         }
     }
@@ -171,15 +171,15 @@ public class e implements k {
     private AlertDialog b(Activity activity, c.p.a.a.a.f.c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, activity, cVar)) == null) ? new com.bytedance.sdk.openadsdk.core.widget.f(activity).a(cVar.f34339b).b(cVar.f34340c).c(cVar.f34341d).d(cVar.f34342e).a(cVar.f34344g).a(new f.a(this, cVar) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.5
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, activity, cVar)) == null) ? new com.bytedance.sdk.openadsdk.core.widget.f(activity).a(cVar.f34448b).b(cVar.f34449c).c(cVar.f34450d).d(cVar.f34451e).a(cVar.f34453g).a(new f.a(this, cVar) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c.p.a.a.a.f.c f67435a;
+            public final /* synthetic */ c.p.a.a.a.f.c f67615a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ e f67436b;
+            public final /* synthetic */ e f67616b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -196,15 +196,15 @@ public class e implements k {
                         return;
                     }
                 }
-                this.f67436b = this;
-                this.f67435a = cVar;
+                this.f67616b = this;
+                this.f67615a = cVar;
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.widget.f.a
             public void a(Dialog dialog) {
                 c.InterfaceC1519c interfaceC1519c;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialog) == null) || (interfaceC1519c = this.f67435a.f34345h) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialog) == null) || (interfaceC1519c = this.f67615a.f34454h) == null) {
                     return;
                 }
                 interfaceC1519c.a(dialog);
@@ -214,7 +214,7 @@ public class e implements k {
             public void b(Dialog dialog) {
                 c.InterfaceC1519c interfaceC1519c;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialog) == null) || (interfaceC1519c = this.f67435a.f34345h) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialog) == null) || (interfaceC1519c = this.f67615a.f34454h) == null) {
                     return;
                 }
                 interfaceC1519c.b(dialog);
@@ -224,10 +224,10 @@ public class e implements k {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c.p.a.a.a.f.c f67433a;
+            public final /* synthetic */ c.p.a.a.a.f.c f67613a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ e f67434b;
+            public final /* synthetic */ e f67614b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -244,15 +244,15 @@ public class e implements k {
                         return;
                     }
                 }
-                this.f67434b = this;
-                this.f67433a = cVar;
+                this.f67614b = this;
+                this.f67613a = cVar;
             }
 
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 c.InterfaceC1519c interfaceC1519c;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || (interfaceC1519c = this.f67433a.f34345h) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || (interfaceC1519c = this.f67613a.f34454h) == null) {
                     return;
                 }
                 interfaceC1519c.c(dialogInterface);
@@ -270,7 +270,7 @@ public class e implements k {
             if (cVar == null || com.bytedance.sdk.openadsdk.m.a.a(cVar)) {
                 return null;
             }
-            Context context = cVar.f34338a;
+            Context context = cVar.f34447a;
             if (context != null && (context instanceof Activity)) {
                 return a((Activity) context, cVar);
             }
@@ -284,20 +284,20 @@ public class e implements k {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, activity, cVar)) == null) {
-            if (cVar.f34347j == 1) {
+            if (cVar.f34456j == 1) {
                 AlertDialog b2 = b(activity, cVar);
                 b2.show();
                 return b2;
             }
-            AlertDialog.Builder onCancelListener = new AlertDialog.Builder(activity, t.g(activity, Build.VERSION.SDK_INT >= 21 ? "Theme.Dialog.TTDownload" : "Theme.Dialog.TTDownloadOld")).setTitle(cVar.f34339b).setMessage(cVar.f34340c).setPositiveButton(cVar.f34341d, new DialogInterface.OnClickListener(this, cVar) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.3
+            AlertDialog.Builder onCancelListener = new AlertDialog.Builder(activity, t.g(activity, Build.VERSION.SDK_INT >= 21 ? "Theme.Dialog.TTDownload" : "Theme.Dialog.TTDownloadOld")).setTitle(cVar.f34448b).setMessage(cVar.f34449c).setPositiveButton(cVar.f34450d, new DialogInterface.OnClickListener(this, cVar) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.a.a.f.c f67431a;
+                public final /* synthetic */ c.p.a.a.a.f.c f67611a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f67432b;
+                public final /* synthetic */ e f67612b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -314,28 +314,28 @@ public class e implements k {
                             return;
                         }
                     }
-                    this.f67432b = this;
-                    this.f67431a = cVar;
+                    this.f67612b = this;
+                    this.f67611a = cVar;
                 }
 
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i2) {
                     c.InterfaceC1519c interfaceC1519c;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC1519c = this.f67431a.f34345h) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC1519c = this.f67611a.f34454h) == null) {
                         return;
                     }
                     interfaceC1519c.a(dialogInterface);
                 }
-            }).setNegativeButton(cVar.f34342e, new DialogInterface.OnClickListener(this, cVar) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.2
+            }).setNegativeButton(cVar.f34451e, new DialogInterface.OnClickListener(this, cVar) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.a.a.f.c f67429a;
+                public final /* synthetic */ c.p.a.a.a.f.c f67609a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f67430b;
+                public final /* synthetic */ e f67610b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -352,15 +352,15 @@ public class e implements k {
                             return;
                         }
                     }
-                    this.f67430b = this;
-                    this.f67429a = cVar;
+                    this.f67610b = this;
+                    this.f67609a = cVar;
                 }
 
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i2) {
                     c.InterfaceC1519c interfaceC1519c;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC1519c = this.f67429a.f34345h) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC1519c = this.f67609a.f34454h) == null) {
                         return;
                     }
                     interfaceC1519c.b(dialogInterface);
@@ -370,10 +370,10 @@ public class e implements k {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.a.a.f.c f67427a;
+                public final /* synthetic */ c.p.a.a.a.f.c f67607a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f67428b;
+                public final /* synthetic */ e f67608b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -390,21 +390,21 @@ public class e implements k {
                             return;
                         }
                     }
-                    this.f67428b = this;
-                    this.f67427a = cVar;
+                    this.f67608b = this;
+                    this.f67607a = cVar;
                 }
 
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
                     c.InterfaceC1519c interfaceC1519c;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || (interfaceC1519c = this.f67427a.f34345h) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || (interfaceC1519c = this.f67607a.f34454h) == null) {
                         return;
                     }
                     interfaceC1519c.c(dialogInterface);
                 }
             });
-            Drawable drawable = cVar.f34344g;
+            Drawable drawable = cVar.f34453g;
             if (drawable != null) {
                 onCancelListener.setIcon(drawable);
             }

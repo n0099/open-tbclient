@@ -18,7 +18,7 @@ public interface t extends IInterface {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int f69875a = 0;
+        public static final /* synthetic */ int f70055a = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.fun.openid.sdk.t$a$a  reason: collision with other inner class name */
@@ -28,7 +28,7 @@ public interface t extends IInterface {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f69876a;
+            public IBinder f70056a;
 
             public C1949a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public interface t extends IInterface {
                         return;
                     }
                 }
-                this.f69876a = iBinder;
+                this.f70056a = iBinder;
             }
 
             @Override // com.fun.openid.sdk.t
@@ -57,7 +57,7 @@ public interface t extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-                        this.f69876a.transact(3, obtain, obtain2, 0);
+                        this.f70056a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -72,7 +72,7 @@ public interface t extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69876a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70056a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.fun.openid.sdk.t
@@ -84,7 +84,7 @@ public interface t extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-                        this.f69876a.transact(1, obtain, obtain2, 0);
+                        this.f70056a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {

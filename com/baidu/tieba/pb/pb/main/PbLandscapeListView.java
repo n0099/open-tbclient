@@ -33,7 +33,7 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean W;
     public boolean a0;
     @NonNull
-    public c.a.p0.d1.q.a b0;
+    public c.a.q0.f1.q.a b0;
     public boolean c0;
 
     /* loaded from: classes7.dex */
@@ -42,7 +42,7 @@ public class PbLandscapeListView extends BdTypeListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbLandscapeListView f54990e;
+        public final /* synthetic */ PbLandscapeListView f55139e;
 
         public a(PbLandscapeListView pbLandscapeListView) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class PbLandscapeListView extends BdTypeListView {
                     return;
                 }
             }
-            this.f54990e = pbLandscapeListView;
+            this.f55139e = pbLandscapeListView;
         }
 
         @Override // android.os.Handler.Callback
@@ -73,8 +73,8 @@ public class PbLandscapeListView extends BdTypeListView {
                     if (message.what != 0) {
                         return false;
                     }
-                    if (this.f54990e.S != null) {
-                        this.f54990e.S.a(dVar.f54991a, dVar.f54992b, dVar.f54993c, dVar.f54995e, dVar.f54994d, dVar.f54996f);
+                    if (this.f55139e.S != null) {
+                        this.f55139e.S.a(dVar.f55140a, dVar.f55141b, dVar.f55142c, dVar.f55144e, dVar.f55143d, dVar.f55145f);
                         return true;
                     }
                     return true;
@@ -101,22 +101,22 @@ public class PbLandscapeListView extends BdTypeListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f54991a;
+        public int f55140a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f54992b;
+        public int f55141b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f54993c;
+        public float f55142c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f54994d;
+        public float f55143d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f54995e;
+        public float f55144e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f54996f;
+        public float f55145f;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.V = false;
         this.W = false;
         this.a0 = false;
-        this.b0 = new c.a.p0.d1.q.a(this);
+        this.b0 = new c.a.q0.f1.q.a(this);
         x();
     }
 
@@ -308,12 +308,12 @@ public class PbLandscapeListView extends BdTypeListView {
             Message message = new Message();
             message.what = 0;
             d dVar = new d();
-            dVar.f54991a = i2;
-            dVar.f54992b = i3;
-            dVar.f54993c = f2;
-            dVar.f54994d = f3;
-            dVar.f54995e = f4;
-            dVar.f54996f = f5;
+            dVar.f55140a = i2;
+            dVar.f55141b = i3;
+            dVar.f55142c = f2;
+            dVar.f55143d = f3;
+            dVar.f55144e = f4;
+            dVar.f55145f = f5;
             message.obj = dVar;
             this.U.sendMessageDelayed(message, 60L);
         }
@@ -345,7 +345,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.V = false;
         this.W = false;
         this.a0 = false;
-        this.b0 = new c.a.p0.d1.q.a(this);
+        this.b0 = new c.a.q0.f1.q.a(this);
         x();
     }
 
@@ -375,7 +375,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.V = false;
         this.W = false;
         this.a0 = false;
-        this.b0 = new c.a.p0.d1.q.a(this);
+        this.b0 = new c.a.q0.f1.q.a(this);
         x();
     }
 }

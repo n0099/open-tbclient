@@ -22,13 +22,13 @@ public abstract class e extends h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SparseArray<Map<t, b>> f33555a;
+    public final SparseArray<Map<t, b>> f33664a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseBooleanArray f33556b;
+    public final SparseBooleanArray f33665b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33557c;
+    public int f33666c;
 
     /* loaded from: classes4.dex */
     public static final class a {
@@ -60,18 +60,18 @@ public abstract class e extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final f.a f33558a;
+        public final f.a f33667a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f33559b;
+        public final int f33668b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int[] f33560c;
+        public final int[] f33669c;
 
         public f a(t tVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tVar)) == null) ? this.f33558a.a(tVar.a(this.f33559b), this.f33560c) : (f) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tVar)) == null) ? this.f33667a.a(tVar.a(this.f33668b), this.f33669c) : (f) invokeL.objValue;
         }
     }
 
@@ -88,9 +88,9 @@ public abstract class e extends h {
                 return;
             }
         }
-        this.f33555a = new SparseArray<>();
-        this.f33556b = new SparseBooleanArray();
-        this.f33557c = 0;
+        this.f33664a = new SparseArray<>();
+        this.f33665b = new SparseBooleanArray();
+        this.f33666c = 0;
     }
 
     public static int e(s[] sVarArr, c.i.b.a.d0.s sVar) throws ExoPlaybackException {
@@ -101,7 +101,7 @@ public abstract class e extends h {
             int i2 = 0;
             for (int i3 = 0; i3 < sVarArr.length; i3++) {
                 s sVar2 = sVarArr[i3];
-                for (int i4 = 0; i4 < sVar.f33024a; i4++) {
+                for (int i4 = 0; i4 < sVar.f33133a; i4++) {
                     int a2 = sVar2.a(sVar.a(i4)) & 7;
                     if (a2 > i2) {
                         if (a2 == 4) {
@@ -121,8 +121,8 @@ public abstract class e extends h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, sVar, sVar2)) == null) {
-            int[] iArr = new int[sVar2.f33024a];
-            for (int i2 = 0; i2 < sVar2.f33024a; i2++) {
+            int[] iArr = new int[sVar2.f33133a];
+            for (int i2 = 0; i2 < sVar2.f33133a; i2++) {
                 iArr[i2] = sVar.a(sVar2.a(i2));
             }
             return iArr;
@@ -218,15 +218,15 @@ public abstract class e extends h {
             c.i.b.a.d0.s[][] sVarArr2 = new c.i.b.a.d0.s[length];
             int[][][] iArr2 = new int[sVarArr.length + 1][];
             for (int i2 = 0; i2 < length; i2++) {
-                int i3 = tVar.f33028a;
+                int i3 = tVar.f33137a;
                 sVarArr2[i2] = new c.i.b.a.d0.s[i3];
                 iArr2[i2] = new int[i3];
             }
             int[] g2 = g(sVarArr);
-            for (int i4 = 0; i4 < tVar.f33028a; i4++) {
+            for (int i4 = 0; i4 < tVar.f33137a; i4++) {
                 c.i.b.a.d0.s a2 = tVar.a(i4);
                 int e2 = e(sVarArr, a2);
-                int[] f2 = e2 == sVarArr.length ? new int[a2.f33024a] : f(sVarArr[e2], a2);
+                int[] f2 = e2 == sVarArr.length ? new int[a2.f33133a] : f(sVarArr[e2], a2);
                 int i5 = iArr[e2];
                 sVarArr2[e2][i5] = a2;
                 iArr2[e2][i5] = f2;
@@ -247,12 +247,12 @@ public abstract class e extends h {
                 if (i8 >= sVarArr.length) {
                     break;
                 }
-                if (this.f33556b.get(i8)) {
+                if (this.f33665b.get(i8)) {
                     k[i8] = null;
                 } else {
                     t tVar3 = tVarArr[i8];
                     if (h(i8, tVar3)) {
-                        b bVar = this.f33555a.get(i8).get(tVar3);
+                        b bVar = this.f33664a.get(i8).get(tVar3);
                         k[i8] = bVar != null ? bVar.a(tVar3) : null;
                     }
                 }
@@ -262,9 +262,9 @@ public abstract class e extends h {
             a aVar = new a(iArr3, tVarArr, g2, iArr2, tVar2);
             c.i.b.a.t[] tVarArr2 = new c.i.b.a.t[sVarArr.length];
             for (int i9 = 0; i9 < sVarArr.length; i9++) {
-                tVarArr2[i9] = d2[i9] ? c.i.b.a.t.f33837b : null;
+                tVarArr2[i9] = d2[i9] ? c.i.b.a.t.f33946b : null;
             }
-            i(sVarArr, tVarArr, iArr2, tVarArr2, k, this.f33557c);
+            i(sVarArr, tVarArr, iArr2, tVarArr2, k, this.f33666c);
             return new i(tVar, d2, new g(k), aVar, tVarArr2);
         }
         return (i) invokeLL.objValue;
@@ -277,7 +277,7 @@ public abstract class e extends h {
             int length = fVarArr.length;
             boolean[] zArr = new boolean[length];
             for (int i2 = 0; i2 < length; i2++) {
-                zArr[i2] = !this.f33556b.get(i2) && (sVarArr[i2].e() == 5 || fVarArr[i2] != null);
+                zArr[i2] = !this.f33665b.get(i2) && (sVarArr[i2].e() == 5 || fVarArr[i2] != null);
             }
             return zArr;
         }
@@ -288,7 +288,7 @@ public abstract class e extends h {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, tVar)) == null) {
-            Map<t, b> map = this.f33555a.get(i2);
+            Map<t, b> map = this.f33664a.get(i2);
             return map != null && map.containsKey(tVar);
         }
         return invokeIL.booleanValue;

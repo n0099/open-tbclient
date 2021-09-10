@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import h.c.i0;
 import java.io.File;
 import java.io.IOException;
-import org.webrtc.EglBase_CC;
 import org.webrtc.VideoTrack;
 /* loaded from: classes5.dex */
 public class RTCMediaRecorderImpl implements IMediaRecord {
@@ -56,7 +56,7 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void startRecording(String str, MediaEncodeParams mediaEncodeParams, RecorderCallback recorderCallback) {
+    public synchronized void startRecording(String str, MediaEncodeParams mediaEncodeParams, RecorderCallback recorderCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, mediaEncodeParams, recorderCallback) == null) {
             synchronized (this) {
@@ -83,7 +83,7 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
                                 return;
                             }
                         }
-                        RTCVideoFileRenderer rTCVideoFileRenderer = new RTCVideoFileRenderer(file.getAbsolutePath(), mediaEncodeParams, EglBase_CC.create().getEglBaseContext(), this.audioInterceptor != null, recorderCallback);
+                        RTCVideoFileRenderer rTCVideoFileRenderer = new RTCVideoFileRenderer(file.getAbsolutePath(), mediaEncodeParams, i0.a().getEglBaseContext(), this.audioInterceptor != null, recorderCallback);
                         this.videoFileRenderer = rTCVideoFileRenderer;
                         this.videoTrack.addSink(rTCVideoFileRenderer);
                         if (this.audioInterceptor != null) {
@@ -105,7 +105,7 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
     }
 
     @Override // com.baidu.rtc.record.IMediaRecord
-    public void stopRecording() {
+    public synchronized void stopRecording() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {

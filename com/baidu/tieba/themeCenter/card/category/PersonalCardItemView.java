@@ -27,26 +27,26 @@ public class PersonalCardItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f57327e;
+    public Context f57486e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f57328f;
+    public View f57487f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f57329g;
+    public TbImageView f57488g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f57330h;
+    public TextView f57489h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f57331i;
+    public TbImageView f57490i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbImageView f57332j;
+    public TbImageView f57491j;
     public ImageView k;
     public TextView l;
     public View m;
-    public c.a.q0.o3.a n;
+    public c.a.r0.p3.a n;
     public b o;
     public int p;
     public int q;
@@ -57,7 +57,7 @@ public class PersonalCardItemView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonalCardItemView f57333e;
+        public final /* synthetic */ PersonalCardItemView f57492e;
 
         public a(PersonalCardItemView personalCardItemView) {
             Interceptable interceptable = $ic;
@@ -74,22 +74,22 @@ public class PersonalCardItemView extends LinearLayout {
                     return;
                 }
             }
-            this.f57333e = personalCardItemView;
+            this.f57492e = personalCardItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f57333e.o == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f57492e.o == null) {
                 return;
             }
-            this.f57333e.o.a(this.f57333e.n);
+            this.f57492e.o.a(this.f57492e.n);
         }
     }
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(c.a.q0.o3.a aVar);
+        void a(c.a.r0.p3.a aVar);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -110,7 +110,7 @@ public class PersonalCardItemView extends LinearLayout {
                 return;
             }
         }
-        this.f57327e = context;
+        this.f57486e = context;
         c();
     }
 
@@ -118,54 +118,54 @@ public class PersonalCardItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
-            int k = (l.k(this.f57327e) - l.g(this.f57327e, R.dimen.ds88)) / 3;
+            int k = (l.k(this.f57486e) - l.g(this.f57486e, R.dimen.ds88)) / 3;
             this.p = k;
             this.q = (int) (k * 0.57d);
-            View inflate = LayoutInflater.from(this.f57327e).inflate(R.layout.personal_card_item_layout, this);
-            this.f57328f = inflate;
-            this.f57329g = (TbImageView) inflate.findViewById(R.id.image_bg);
-            TbImageView tbImageView = (TbImageView) this.f57328f.findViewById(R.id.permission_icon);
-            this.f57331i = tbImageView;
+            View inflate = LayoutInflater.from(this.f57486e).inflate(R.layout.personal_card_item_layout, this);
+            this.f57487f = inflate;
+            this.f57488g = (TbImageView) inflate.findViewById(R.id.image_bg);
+            TbImageView tbImageView = (TbImageView) this.f57487f.findViewById(R.id.permission_icon);
+            this.f57490i = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f57331i.setDefaultBgResource(R.drawable.transparent_bg);
-            TbImageView tbImageView2 = (TbImageView) this.f57328f.findViewById(R.id.state_icon);
-            this.f57332j = tbImageView2;
+            this.f57490i.setDefaultBgResource(R.drawable.transparent_bg);
+            TbImageView tbImageView2 = (TbImageView) this.f57487f.findViewById(R.id.state_icon);
+            this.f57491j = tbImageView2;
             tbImageView2.setDefaultResource(R.drawable.transparent_bg);
-            this.f57332j.setDefaultBgResource(R.drawable.transparent_bg);
-            this.k = (ImageView) this.f57328f.findViewById(R.id.choosed_icon);
-            this.f57330h = (TextView) this.f57328f.findViewById(R.id.txt_default);
-            this.l = (TextView) this.f57328f.findViewById(R.id.view_card_name);
-            this.m = this.f57328f.findViewById(R.id.black_stroke);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f57329g.getLayoutParams();
+            this.f57491j.setDefaultBgResource(R.drawable.transparent_bg);
+            this.k = (ImageView) this.f57487f.findViewById(R.id.choosed_icon);
+            this.f57489h = (TextView) this.f57487f.findViewById(R.id.txt_default);
+            this.l = (TextView) this.f57487f.findViewById(R.id.view_card_name);
+            this.m = this.f57487f.findViewById(R.id.black_stroke);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f57488g.getLayoutParams();
             layoutParams.height = this.q;
             layoutParams.width = this.p;
-            this.f57329g.setLayoutParams(layoutParams);
+            this.f57488g.setLayoutParams(layoutParams);
             this.m.setLayoutParams(layoutParams);
-            this.f57329g.setOnClickListener(new a(this));
+            this.f57488g.setOnClickListener(new a(this));
         }
     }
 
-    public void fillData(c.a.q0.o3.a aVar) {
+    public void fillData(c.a.r0.p3.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
             return;
         }
         this.n = aVar;
-        if (aVar.a() == c.a.q0.o3.a.k) {
-            this.f57329g.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            SkinManager.setBackgroundColor(this.f57329g, R.color.CAM_X0204);
-            SkinManager.setImageResource(this.f57329g, R.drawable.icon_bubble_choose_no);
-            this.f57330h.setVisibility(0);
-            this.f57332j.setVisibility(8);
-            this.f57331i.setVisibility(8);
+        if (aVar.a() == c.a.r0.p3.a.k) {
+            this.f57488g.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            SkinManager.setBackgroundColor(this.f57488g, R.color.CAM_X0204);
+            SkinManager.setImageResource(this.f57488g, R.drawable.icon_bubble_choose_no);
+            this.f57489h.setVisibility(0);
+            this.f57491j.setVisibility(8);
+            this.f57490i.setVisibility(8);
         } else {
-            this.f57330h.setVisibility(8);
-            this.f57332j.setVisibility(0);
-            this.f57331i.setVisibility(0);
-            this.f57329g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f57329g.setImageBitmap(null);
-            this.f57329g.setDefaultResource(R.drawable.img_default_100);
-            this.f57329g.startLoad(aVar.e(), 10, false);
+            this.f57489h.setVisibility(8);
+            this.f57491j.setVisibility(0);
+            this.f57490i.setVisibility(0);
+            this.f57488g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f57488g.setImageBitmap(null);
+            this.f57488g.setDefaultResource(R.drawable.img_default_100);
+            this.f57488g.startLoad(aVar.e(), 10, false);
         }
         if (aVar.g() == 1) {
             this.k.setVisibility(0);
@@ -173,8 +173,8 @@ public class PersonalCardItemView extends LinearLayout {
         } else {
             this.k.setVisibility(8);
         }
-        this.f57331i.startLoad(aVar.i(), 10, false);
-        this.f57332j.startLoad(aVar.b(), 10, false);
+        this.f57490i.startLoad(aVar.i(), 10, false);
+        this.f57491j.startLoad(aVar.b(), 10, false);
         this.l.setText(aVar.j());
         setVisibility(0);
     }
@@ -188,11 +188,11 @@ public class PersonalCardItemView extends LinearLayout {
     public void onChangeSkinType() {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tbPageContext = (TbPageContext) j.a(this.f57327e)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tbPageContext = (TbPageContext) j.a(this.f57486e)) == null) {
             return;
         }
         tbPageContext.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        tbPageContext.getLayoutMode().j(this.f57328f);
+        tbPageContext.getLayoutMode().j(this.f57487f);
     }
 
     public void setCardViewController(b bVar) {
@@ -221,7 +221,7 @@ public class PersonalCardItemView extends LinearLayout {
                 return;
             }
         }
-        this.f57327e = context;
+        this.f57486e = context;
         c();
     }
 
@@ -244,7 +244,7 @@ public class PersonalCardItemView extends LinearLayout {
                 return;
             }
         }
-        this.f57327e = context;
+        this.f57486e = context;
         c();
     }
 }

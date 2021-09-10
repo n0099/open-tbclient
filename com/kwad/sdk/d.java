@@ -15,10 +15,10 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f72543a;
+    public static final int f72723a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f72544b;
+    public static String f72724b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public class d {
                 return;
             }
         }
-        f72543a = b.f70986a.booleanValue() ? 1 : 2;
-        f72544b = "kwrules.csv";
+        f72723a = b.f71166a.booleanValue() ? 1 : 2;
+        f72724b = "kwrules.csv";
     }
 
     public static String a() {

@@ -15,7 +15,7 @@ public class w1 extends s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f31332e;
+    public final Context f31441e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w1(Context context) {
@@ -36,7 +36,7 @@ public class w1 extends s1 {
                 return;
             }
         }
-        this.f31332e = context;
+        this.f31441e = context;
     }
 
     @Override // c.b.a.s1
@@ -44,7 +44,7 @@ public class w1 extends s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            SharedPreferences sharedPreferences = this.f31332e.getSharedPreferences("snssdk_openudid", 0);
+            SharedPreferences sharedPreferences = this.f31441e.getSharedPreferences("snssdk_openudid", 0);
             String string = sharedPreferences.getString("clientudid", null);
             if (!z1.q(string)) {
                 try {

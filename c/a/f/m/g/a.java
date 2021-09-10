@@ -10,34 +10,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f3334a;
+    public int f3325a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3335b;
+    public String f3326b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3336c;
+    public int f3327c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3337d;
+    public String f3328d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3338e;
+    public int f3329e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3339f;
+    public int f3330f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3340g;
+    public int f3331g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f3341h;
+    public int f3332h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f3342i;
+    public int f3333i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f3343j;
+    public String f3334j;
     public int k;
     public int l;
 
@@ -54,6 +54,6 @@ public class a {
                 return;
             }
         }
-        this.f3342i = 3;
+        this.f3333i = 3;
     }
 }

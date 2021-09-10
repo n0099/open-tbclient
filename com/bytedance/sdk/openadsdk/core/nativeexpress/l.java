@@ -15,22 +15,22 @@ public class l implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.b<Bac
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BackupView f66718a;
+    public BackupView f66898a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f66719b;
+    public View f66899b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThemeStatusBroadcastReceiver f66720c;
+    public ThemeStatusBroadcastReceiver f66900c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f66721d;
+    public c f66901d;
 
     /* renamed from: e  reason: collision with root package name */
-    public m f66722e;
+    public m f66902e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.nativeexpress.a.g f66723f;
+    public com.bytedance.sdk.openadsdk.core.nativeexpress.a.g f66903f;
 
     public l(View view, ThemeStatusBroadcastReceiver themeStatusBroadcastReceiver, com.bytedance.sdk.openadsdk.core.nativeexpress.a.g gVar) {
         Interceptable interceptable = $ic;
@@ -47,41 +47,41 @@ public class l implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.b<Bac
                 return;
             }
         }
-        this.f66719b = view;
-        this.f66720c = themeStatusBroadcastReceiver;
-        this.f66723f = gVar;
+        this.f66899b = view;
+        this.f66900c = themeStatusBroadcastReceiver;
+        this.f66903f = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            c cVar = this.f66721d;
+            c cVar = this.f66901d;
             boolean z = false;
-            if (cVar != null && cVar.a((NativeExpressView) this.f66719b, 0)) {
+            if (cVar != null && cVar.a((NativeExpressView) this.f66899b, 0)) {
                 z = true;
             }
             if (!z) {
-                this.f66722e.a(107);
+                this.f66902e.a(107);
                 return;
             }
-            this.f66723f.d().h();
-            BackupView backupView = (BackupView) this.f66719b.findViewWithTag("tt_express_backup_fl_tag_26");
-            this.f66718a = backupView;
+            this.f66903f.d().h();
+            BackupView backupView = (BackupView) this.f66899b.findViewWithTag("tt_express_backup_fl_tag_26");
+            this.f66898a = backupView;
             if (backupView != null) {
-                backupView.setThemeChangeReceiver(this.f66720c);
+                backupView.setThemeChangeReceiver(this.f66900c);
                 com.bytedance.sdk.openadsdk.core.e.p pVar = new com.bytedance.sdk.openadsdk.core.e.p();
-                BackupView backupView2 = this.f66718a;
+                BackupView backupView2 = this.f66898a;
                 float realWidth = backupView2 == null ? 0.0f : backupView2.getRealWidth();
-                BackupView backupView3 = this.f66718a;
+                BackupView backupView3 = this.f66898a;
                 float realHeight = backupView3 != null ? backupView3.getRealHeight() : 0.0f;
                 pVar.a(true);
                 pVar.a(realWidth);
                 pVar.b(realHeight);
-                this.f66722e.a(this.f66718a, pVar);
+                this.f66902e.a(this.f66898a, pVar);
                 return;
             }
-            this.f66722e.a(107);
+            this.f66902e.a(107);
         }
     }
 
@@ -98,7 +98,7 @@ public class l implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.b<Bac
     public void a(m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) {
-            this.f66722e = mVar;
+            this.f66902e = mVar;
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 c();
             } else {
@@ -107,7 +107,7 @@ public class l implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.b<Bac
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ l f66724a;
+                    public final /* synthetic */ l f66904a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -124,14 +124,14 @@ public class l implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.b<Bac
                                 return;
                             }
                         }
-                        this.f66724a = this;
+                        this.f66904a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f66724a.c();
+                            this.f66904a.c();
                         }
                     }
                 });
@@ -145,13 +145,13 @@ public class l implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.b<Bac
     public BackupView d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f66718a : (BackupView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f66898a : (BackupView) invokeV.objValue;
     }
 
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f66721d = cVar;
+            this.f66901d = cVar;
         }
     }
 }

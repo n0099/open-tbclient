@@ -9,10 +9,10 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f63655a;
+    public static boolean f63835a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f63656b;
+    public static boolean f63836b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(String str, String str2) {

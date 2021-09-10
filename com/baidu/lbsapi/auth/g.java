@@ -34,16 +34,16 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40513a;
+    public Context f40624a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40514b;
+    public String f40625b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, String> f40515c;
+    public HashMap<String, String> f40626c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40516d;
+    public String f40627d;
 
     public g(Context context) {
         Interceptable interceptable = $ic;
@@ -60,10 +60,10 @@ public class g {
                 return;
             }
         }
-        this.f40514b = null;
-        this.f40515c = null;
-        this.f40516d = null;
-        this.f40513a = context;
+        this.f40625b = null;
+        this.f40626c = null;
+        this.f40627d = null;
+        this.f40624a = context;
     }
 
     private String a(Context context) {
@@ -79,7 +79,7 @@ public class g {
                 }
                 return null;
             } catch (Exception e2) {
-                if (a.f40503a) {
+                if (a.f40614a) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -92,13 +92,13 @@ public class g {
         r14.printStackTrace();
      */
     /* JADX WARN: Code restructure failed: missing block: B:112:0x0196, code lost:
-        if (com.baidu.lbsapi.auth.a.f40503a == false) goto L25;
+        if (com.baidu.lbsapi.auth.a.f40614a == false) goto L25;
      */
     /* JADX WARN: Code restructure failed: missing block: B:125:0x01c6, code lost:
-        if (com.baidu.lbsapi.auth.a.f40503a == false) goto L25;
+        if (com.baidu.lbsapi.auth.a.f40614a == false) goto L25;
      */
     /* JADX WARN: Code restructure failed: missing block: B:99:0x0165, code lost:
-        if (com.baidu.lbsapi.auth.a.f40503a == false) goto L25;
+        if (com.baidu.lbsapi.auth.a.f40614a == false) goto L25;
      */
     /* JADX WARN: Removed duplicated region for block: B:105:0x0171 A[Catch: all -> 0x0135, TryCatch #19 {all -> 0x0135, blocks: (B:9:0x0033, B:90:0x013a, B:92:0x013e, B:93:0x0141, B:103:0x016d, B:105:0x0171, B:106:0x0174, B:116:0x019b, B:118:0x019f, B:119:0x01a2), top: B:155:0x0033 }] */
     /* JADX WARN: Removed duplicated region for block: B:118:0x019f A[Catch: all -> 0x0135, TryCatch #19 {all -> 0x0135, blocks: (B:9:0x0033, B:90:0x013a, B:92:0x013e, B:93:0x0141, B:103:0x016d, B:105:0x0171, B:106:0x0174, B:116:0x019b, B:118:0x019f, B:119:0x01a2), top: B:155:0x0033 }] */
@@ -123,9 +123,9 @@ public class g {
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, httpsURLConnection) == null) {
-            a.a("https Post start,url:" + this.f40514b);
-            if (this.f40515c == null) {
-                this.f40516d = ErrorMessage.a("httpsPost request paramters is null.");
+            a.a("https Post start,url:" + this.f40625b);
+            if (this.f40626c == null) {
+                this.f40627d = ErrorMessage.a("httpsPost request paramters is null.");
                 return;
             }
             boolean z = true;
@@ -154,8 +154,8 @@ public class g {
                 try {
                     try {
                         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                        bufferedWriter.write(b(this.f40515c));
-                        a.a(b(this.f40515c));
+                        bufferedWriter.write(b(this.f40626c));
+                        a.a(b(this.f40626c));
                         bufferedWriter.flush();
                         bufferedWriter.close();
                         httpsURLConnection.connect();
@@ -175,15 +175,15 @@ public class g {
                                                 }
                                                 stringBuffer.append((char) read);
                                             }
-                                            this.f40516d = stringBuffer.toString();
+                                            this.f40627d = stringBuffer.toString();
                                             bufferedReader2 = bufferedReader;
                                         } catch (IOException e5) {
                                             e = e5;
                                             inputStream = inputStream2;
                                             try {
-                                                if (a.f40503a) {
+                                                if (a.f40614a) {
                                                 }
-                                                this.f40516d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
+                                                this.f40627d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
                                                 if (inputStream != null) {
                                                     bufferedReader.close();
                                                     inputStream.close();
@@ -196,7 +196,7 @@ public class g {
                                                 z2 = z;
                                                 if (z2) {
                                                 }
-                                                if (this.f40516d == null) {
+                                                if (this.f40627d == null) {
                                                 }
                                             } catch (Throwable th2) {
                                                 th = th2;
@@ -238,11 +238,11 @@ public class g {
                                 bufferedReader = null;
                                 inputStream = inputStream2;
                                 i2 = -1;
-                                if (a.f40503a) {
+                                if (a.f40614a) {
                                     e.printStackTrace();
                                     a.a("httpsPost parse failed;" + e.getMessage());
                                 }
-                                this.f40516d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
+                                this.f40627d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
                                 if (inputStream != null && bufferedReader != null) {
                                     bufferedReader.close();
                                     inputStream.close();
@@ -256,7 +256,7 @@ public class g {
                                 z2 = z;
                                 if (z2) {
                                 }
-                                if (this.f40516d == null) {
+                                if (this.f40627d == null) {
                                 }
                             } catch (Throwable th5) {
                                 th = th5;
@@ -281,7 +281,7 @@ public class g {
                             try {
                                 outputStream.close();
                             } catch (IOException e9) {
-                                if (a.f40503a) {
+                                if (a.f40614a) {
                                     e9.printStackTrace();
                                 }
                             }
@@ -294,7 +294,7 @@ public class g {
                             try {
                                 outputStream3.close();
                             } catch (IOException e10) {
-                                if (a.f40503a) {
+                                if (a.f40614a) {
                                     e10.printStackTrace();
                                 }
                             }
@@ -304,10 +304,10 @@ public class g {
                 } catch (MalformedURLException e11) {
                     e = e11;
                     outputStream4 = outputStream;
-                    if (a.f40503a) {
+                    if (a.f40614a) {
                         e.printStackTrace();
                     }
-                    this.f40516d = ErrorMessage.a(-11, "httpsPost failed,MalformedURLException:" + e.getMessage());
+                    this.f40627d = ErrorMessage.a(-11, "httpsPost failed,MalformedURLException:" + e.getMessage());
                     if (outputStream4 != null) {
                         try {
                             outputStream4.close();
@@ -317,15 +317,15 @@ public class g {
                     }
                     if (z2) {
                     }
-                    if (this.f40516d == null) {
+                    if (this.f40627d == null) {
                     }
                 } catch (IOException e13) {
                     e = e13;
                     outputStream5 = outputStream;
-                    if (a.f40503a) {
+                    if (a.f40614a) {
                         e.printStackTrace();
                     }
-                    this.f40516d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
+                    this.f40627d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
                     if (outputStream5 != null) {
                         try {
                             outputStream5.close();
@@ -335,15 +335,15 @@ public class g {
                     }
                     if (z2) {
                     }
-                    if (this.f40516d == null) {
+                    if (this.f40627d == null) {
                     }
                 } catch (Exception e15) {
                     e = e15;
                     outputStream2 = outputStream;
-                    if (a.f40503a) {
+                    if (a.f40614a) {
                         e.printStackTrace();
                     }
-                    this.f40516d = ErrorMessage.a(-11, "httpsPost failed,Exception:" + e.getMessage());
+                    this.f40627d = ErrorMessage.a(-11, "httpsPost failed,Exception:" + e.getMessage());
                     if (outputStream2 != null) {
                         try {
                             outputStream2.close();
@@ -353,60 +353,60 @@ public class g {
                     }
                     if (z2) {
                     }
-                    if (this.f40516d == null) {
+                    if (this.f40627d == null) {
                     }
                 }
             } catch (MalformedURLException e17) {
                 e = e17;
                 outputStream4 = outputStream;
                 i2 = -1;
-                if (a.f40503a) {
+                if (a.f40614a) {
                 }
-                this.f40516d = ErrorMessage.a(-11, "httpsPost failed,MalformedURLException:" + e.getMessage());
+                this.f40627d = ErrorMessage.a(-11, "httpsPost failed,MalformedURLException:" + e.getMessage());
                 if (outputStream4 != null) {
                 }
                 if (z2) {
                 }
-                if (this.f40516d == null) {
+                if (this.f40627d == null) {
                 }
             } catch (IOException e18) {
                 e = e18;
                 outputStream5 = outputStream;
                 i2 = -1;
-                if (a.f40503a) {
+                if (a.f40614a) {
                 }
-                this.f40516d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
+                this.f40627d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
                 if (outputStream5 != null) {
                 }
                 if (z2) {
                 }
-                if (this.f40516d == null) {
+                if (this.f40627d == null) {
                 }
             } catch (Exception e19) {
                 e = e19;
                 outputStream2 = outputStream;
                 i2 = -1;
-                if (a.f40503a) {
+                if (a.f40614a) {
                 }
-                this.f40516d = ErrorMessage.a(-11, "httpsPost failed,Exception:" + e.getMessage());
+                this.f40627d = ErrorMessage.a(-11, "httpsPost failed,Exception:" + e.getMessage());
                 if (outputStream2 != null) {
                 }
                 if (z2) {
                 }
-                if (this.f40516d == null) {
+                if (this.f40627d == null) {
                 }
             }
             if (z2 || 200 == i2) {
-                if (this.f40516d == null) {
+                if (this.f40627d == null) {
                     a.a("httpsPost failed,mResult is null");
-                    this.f40516d = ErrorMessage.a(-1, "httpsPost failed,internal error");
+                    this.f40627d = ErrorMessage.a(-1, "httpsPost failed,internal error");
                     return;
                 }
-                a.a("httpsPost success end,parse result = " + this.f40516d);
+                a.a("httpsPost success end,parse result = " + this.f40627d);
                 return;
             }
             a.a("httpsPost failed,statusCode:" + i2);
-            this.f40516d = ErrorMessage.a(-11, "httpsPost failed,statusCode:" + i2);
+            this.f40627d = ErrorMessage.a(-11, "httpsPost failed,statusCode:" + i2);
         }
     }
 
@@ -437,9 +437,9 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             try {
-                URL url = new URL(this.f40514b);
-                a.a("https URL: " + this.f40514b);
-                String a2 = a(this.f40513a);
+                URL url = new URL(this.f40625b);
+                a.a("https URL: " + this.f40625b);
+                String a2 = a(this.f40624a);
                 if (a2 != null && !a2.equals("")) {
                     a.a("checkNetwork = " + a2);
                     HttpsURLConnection httpsURLConnection = (HttpsURLConnection) (a2.equals(ConectivityUtils.APN_CMWAP) ? url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80))) : a2.equals(ConectivityUtils.APN_CTWAP) ? url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : url.openConnection());
@@ -452,23 +452,23 @@ public class g {
                     return httpsURLConnection;
                 }
                 a.c("Current network is not available.");
-                this.f40516d = ErrorMessage.a(-10, "Current network is not available.");
+                this.f40627d = ErrorMessage.a(-10, "Current network is not available.");
                 return null;
             } catch (MalformedURLException e2) {
-                if (a.f40503a) {
+                if (a.f40614a) {
                     e2.printStackTrace();
                     a.a(e2.getMessage());
                 }
                 str = "Auth server could not be parsed as a URL.";
-                this.f40516d = ErrorMessage.a(-11, str);
+                this.f40627d = ErrorMessage.a(-11, str);
                 return null;
             } catch (Exception e3) {
-                if (a.f40503a) {
+                if (a.f40614a) {
                     e3.printStackTrace();
                     a.a(e3.getMessage());
                 }
                 str = "Init httpsurlconnection failed.";
-                this.f40516d = ErrorMessage.a(-11, str);
+                this.f40627d = ErrorMessage.a(-11, str);
                 return null;
             }
         }
@@ -494,15 +494,15 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hashMap)) == null) {
             HashMap<String, String> c2 = c(hashMap);
-            this.f40515c = c2;
-            this.f40514b = c2.get("url");
+            this.f40626c = c2;
+            this.f40625b = c2.get("url");
             HttpsURLConnection b2 = b();
             if (b2 == null) {
                 a.c("syncConnect failed,httpsURLConnection is null");
             } else {
                 a(b2);
             }
-            return this.f40516d;
+            return this.f40627d;
         }
         return (String) invokeL.objValue;
     }
@@ -514,7 +514,7 @@ public class g {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             a.a("checkNetwork start");
             try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) this.f40513a.getSystemService("connectivity");
+                ConnectivityManager connectivityManager = (ConnectivityManager) this.f40624a.getSystemService("connectivity");
                 if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
                     return false;
                 }
@@ -524,7 +524,7 @@ public class g {
                 }
                 return false;
             } catch (Exception e2) {
-                if (a.f40503a) {
+                if (a.f40614a) {
                     e2.printStackTrace();
                 }
                 return false;

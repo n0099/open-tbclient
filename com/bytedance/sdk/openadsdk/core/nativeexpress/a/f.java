@@ -18,17 +18,17 @@ public class f implements e.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public p f66652a;
+    public p f66832a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public List<e> f66653b;
+    public List<e> f66833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f66654c;
+    public d f66834c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f66655d;
+    public AtomicBoolean f66835d;
 
     public f(List<e> list, d dVar) {
         Interceptable interceptable = $ic;
@@ -45,17 +45,17 @@ public class f implements e.a {
                 return;
             }
         }
-        this.f66655d = new AtomicBoolean(false);
-        this.f66653b = list;
-        this.f66654c = dVar;
+        this.f66835d = new AtomicBoolean(false);
+        this.f66833b = list;
+        this.f66834c = dVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.a.e.a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f66654c.a();
-            Iterator<e> it = this.f66653b.iterator();
+            this.f66834c.a();
+            Iterator<e> it = this.f66833b.iterator();
             while (it.hasNext() && !it.next().a(this)) {
             }
         }
@@ -66,8 +66,8 @@ public class f implements e.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, eVar)) == null) {
-            int indexOf = this.f66653b.indexOf(eVar);
-            return indexOf < this.f66653b.size() - 1 && indexOf >= 0;
+            int indexOf = this.f66833b.indexOf(eVar);
+            return indexOf < this.f66833b.size() - 1 && indexOf >= 0;
         }
         return invokeL.booleanValue;
     }
@@ -76,36 +76,36 @@ public class f implements e.a {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f66655d.get() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f66835d.get() : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.a.e.a
     public p b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f66652a : (p) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f66832a : (p) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.a.e.a
     public void a(e eVar) {
         int indexOf;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) || (indexOf = this.f66653b.indexOf(eVar)) < 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) || (indexOf = this.f66833b.indexOf(eVar)) < 0) {
             return;
         }
         do {
             indexOf++;
-            if (indexOf >= this.f66653b.size()) {
+            if (indexOf >= this.f66833b.size()) {
                 return;
             }
-        } while (!this.f66653b.get(indexOf).a(this));
+        } while (!this.f66833b.get(indexOf).a(this));
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.a.e.a
     public void a(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pVar) == null) {
-            this.f66652a = pVar;
+            this.f66832a = pVar;
         }
     }
 
@@ -113,7 +113,7 @@ public class f implements e.a {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f66655d.getAndSet(z);
+            this.f66835d.getAndSet(z);
         }
     }
 }

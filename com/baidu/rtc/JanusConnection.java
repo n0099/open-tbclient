@@ -17,6 +17,7 @@ public class JanusConnection {
     public AudioTrack audioTrack;
     public PeerConnectionClient.PeerConnectionParameters connectionParam;
     public BigInteger handleId;
+    public PeerConnectionClient.PCObserver pcObserver;
     public PeerConnection peerConnection;
     public PeerConnectionClient.SDPObserver sdpObserver;
     public boolean type;

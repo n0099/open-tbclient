@@ -29,22 +29,22 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f49831e;
+    public RelativeLayout f49966e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f49832f;
+    public TbImageView f49967f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49833g;
+    public TextView f49968g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49834h;
+    public TextView f49969h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f49835i;
+    public TextView f49970i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f49836j;
+    public View f49971j;
     public View k;
     public String l;
     public int mSkinType;
@@ -55,7 +55,7 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardFrsGameSpecialTopicItemView f49837e;
+        public final /* synthetic */ CardFrsGameSpecialTopicItemView f49972e;
 
         public a(CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView) {
             Interceptable interceptable = $ic;
@@ -72,15 +72,15 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
                     return;
                 }
             }
-            this.f49837e = cardFrsGameSpecialTopicItemView;
+            this.f49972e = cardFrsGameSpecialTopicItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view.getTag() instanceof String)) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 5).param("fid", this.f49837e.l));
-                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f49837e.getContext()), new String[]{(String) view.getTag()}, true);
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 5).param("fid", this.f49972e.l));
+                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f49972e.getContext()), new String[]{(String) view.getTag()}, true);
             }
         }
     }
@@ -111,18 +111,18 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.card_frs_game_special_topic_view_item, (ViewGroup) this, true);
-            this.f49831e = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
-            this.f49832f = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
-            this.f49833g = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
-            this.f49834h = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
-            this.f49835i = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
-            this.f49836j = findViewById(R.id.divider_line_1);
+            this.f49966e = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
+            this.f49967f = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
+            this.f49968g = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
+            this.f49969h = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
+            this.f49970i = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
+            this.f49971j = findViewById(R.id.divider_line_1);
             this.k = findViewById(R.id.divider_line_2);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f49831e.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f49966e.getLayoutParams();
             layoutParams.width = (dimensionPixelSize * 21) / 9;
             layoutParams.height = dimensionPixelSize;
-            this.f49831e.setLayoutParams(layoutParams);
+            this.f49966e.setLayoutParams(layoutParams);
             setOrientation(1);
             setFocusable(true);
             setClickable(true);
@@ -134,25 +134,25 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     public TextView getSpecialTopicDscView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49834h : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49969h : (TextView) invokeV.objValue;
     }
 
     public TextView getSpecialTopicNameView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49833g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49968g : (TextView) invokeV.objValue;
     }
 
     public TbImageView getSpecialTopicPicView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49832f : (TbImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49967f : (TbImageView) invokeV.objValue;
     }
 
     public TextView getSpecialTopicUpdateTimeView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f49835i : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f49970i : (TextView) invokeV.objValue;
     }
 
     public void onChangeSkinType(int i2) {
@@ -161,11 +161,11 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
             return;
         }
         this.mSkinType = i2;
-        SkinManager.setBackgroundResource(this.f49836j, R.color.CAM_X0205);
+        SkinManager.setBackgroundResource(this.f49971j, R.color.CAM_X0205);
         SkinManager.setBackgroundResource(this.k, R.color.CAM_X0205);
-        SkinManager.setViewTextColor(this.f49833g, R.color.CAM_X0101, 1);
-        SkinManager.setViewTextColor(this.f49834h, R.color.CAM_X0101, 1);
-        SkinManager.setViewTextColor(this.f49835i, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f49968g, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f49969h, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f49970i, R.color.CAM_X0101, 1);
     }
 
     public void setForumId(String str) {

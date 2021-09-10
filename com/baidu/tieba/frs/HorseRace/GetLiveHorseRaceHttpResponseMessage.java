@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.HorseRace;
 
-import c.a.q0.v0.k0.a;
+import c.a.r0.w0.k0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;

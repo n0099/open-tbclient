@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.adModel;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -48,7 +48,7 @@ public class ADRequestMessage extends NetMessage {
             builder.fid = Long.valueOf(this.fid);
             builder.rn = Integer.valueOf(this.rn);
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             GetADListReqIdl.Builder builder2 = new GetADListReqIdl.Builder();
             builder2.data = builder.build(false);

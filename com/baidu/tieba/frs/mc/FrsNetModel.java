@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.mc;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.i0.b.g;
-import c.a.q0.i3.m;
+import c.a.q0.k0.b.g;
+import c.a.r0.j3.m;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -120,7 +120,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     public FrsRequestData c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (FrsRequestData) this.f48299g : (FrsRequestData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (FrsRequestData) this.f48432g : (FrsRequestData) invokeV.objValue;
     }
 
     public boolean d0() {
@@ -132,7 +132,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     public void e0(FrsRequestData frsRequestData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, frsRequestData) == null) {
-            this.f48299g = frsRequestData;
+            this.f48432g = frsRequestData;
         }
     }
 

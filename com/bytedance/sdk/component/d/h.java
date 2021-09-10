@@ -14,16 +14,16 @@ public class h implements ThreadFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ThreadGroup f64886a;
+    public final ThreadGroup f65066a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f64887b;
+    public final AtomicInteger f65067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f64888c;
+    public final String f65068c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f64889d;
+    public final int f65069d;
 
     public h(int i2, @NonNull String str) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class h implements ThreadFactory {
                 return;
             }
         }
-        this.f64887b = new AtomicInteger(1);
-        this.f64889d = i2;
-        this.f64886a = new ThreadGroup("tt_pangle_group_" + str);
-        this.f64888c = "tt_pangle_thread_" + str;
+        this.f65067b = new AtomicInteger(1);
+        this.f65069d = i2;
+        this.f65066a = new ThreadGroup("tt_pangle_group_" + str);
+        this.f65068c = "tt_pangle_thread_" + str;
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -51,12 +51,12 @@ public class h implements ThreadFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            ThreadGroup threadGroup = this.f64886a;
-            Thread thread = new Thread(threadGroup, runnable, this.f64888c + "_" + this.f64887b.getAndIncrement());
+            ThreadGroup threadGroup = this.f65066a;
+            Thread thread = new Thread(threadGroup, runnable, this.f65068c + "_" + this.f65067b.getAndIncrement());
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }
-            if (this.f64889d == 1) {
+            if (this.f65069d == 1) {
                 thread.setPriority(1);
             } else if (thread.getPriority() != 5) {
                 thread.setPriority(3);

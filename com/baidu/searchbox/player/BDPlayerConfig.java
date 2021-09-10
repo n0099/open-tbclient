@@ -168,7 +168,7 @@ public class BDPlayerConfig {
         Context appContext = getAppContext();
         HashMap hashMap = new HashMap();
         hashMap.put(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE, "2");
-        CyberPlayerManager.install(appContext, DeviceId.getCUID(appContext), null, DEFAULT_INSTALL_TYPE, z ? BDRemotePlayerService.class : null, hashMap, null);
+        CyberPlayerManager.install(appContext, DeviceId.getCUID(appContext), (String) null, DEFAULT_INSTALL_TYPE, z ? BDRemotePlayerService.class : null, hashMap, (CyberPlayerManager.InstallListener) null);
     }
 
     @PublicMethod
@@ -178,6 +178,6 @@ public class BDPlayerConfig {
             return;
         }
         Context appContext = getAppContext();
-        CyberPlayerManager.install(appContext, DeviceId.getCUID(appContext), null, i2, z ? BDRemotePlayerService.class : null, map, installListener);
+        CyberPlayerManager.install(appContext, DeviceId.getCUID(appContext), (String) null, i2, z ? BDRemotePlayerService.class : null, map, installListener);
     }
 }

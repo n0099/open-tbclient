@@ -16,7 +16,7 @@ public class BaseConfig implements e {
     public static String apk = "com.cucc.sdk.api_key";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f75428c = 36;
+    public static int f75608c = 36;
     public static String cm = "CUCC";
     public static String n = "SDKFactory";
     public static String v = "安卓3.9.1.3开放版K200113";

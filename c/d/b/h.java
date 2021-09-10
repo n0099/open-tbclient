@@ -23,31 +23,31 @@ public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Comparator<String> f31959b;
+    public static final Comparator<String> f32068b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, h> f31960c;
+    public static final Map<String, h> f32069c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f31961d;
+    public static final h f32070d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h f31962e;
+    public static final h f32071e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h f31963f;
+    public static final h f32072f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final h f31964g;
+    public static final h f32073g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final h f31965h;
+    public static final h f32074h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final h f31966i;
+    public static final h f32075i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final h f31967j;
+    public static final h f32076j;
     public static final h k;
     public static final h l;
     public static final h m;
@@ -62,7 +62,7 @@ public final class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31968a;
+    public final String f32077a;
 
     /* loaded from: classes4.dex */
     public class a implements Comparator<String> {
@@ -122,8 +122,8 @@ public final class h {
                 return;
             }
         }
-        f31959b = new a();
-        f31960c = new LinkedHashMap();
+        f32068b = new a();
+        f32069c = new LinkedHashMap();
         c("SSL_RSA_WITH_NULL_MD5", 1);
         c("SSL_RSA_WITH_NULL_SHA", 2);
         c("SSL_RSA_EXPORT_WITH_RC4_40_MD5", 3);
@@ -131,7 +131,7 @@ public final class h {
         c("SSL_RSA_WITH_RC4_128_SHA", 5);
         c("SSL_RSA_EXPORT_WITH_DES40_CBC_SHA", 8);
         c("SSL_RSA_WITH_DES_CBC_SHA", 9);
-        f31961d = c("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
+        f32070d = c("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
         c("SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA", 17);
         c("SSL_DHE_DSS_WITH_DES_CBC_SHA", 18);
         c("SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA", 19);
@@ -153,11 +153,11 @@ public final class h {
         c("TLS_KRB5_EXPORT_WITH_RC4_40_SHA", 40);
         c("TLS_KRB5_EXPORT_WITH_DES_CBC_40_MD5", 41);
         c("TLS_KRB5_EXPORT_WITH_RC4_40_MD5", 43);
-        f31962e = c("TLS_RSA_WITH_AES_128_CBC_SHA", 47);
+        f32071e = c("TLS_RSA_WITH_AES_128_CBC_SHA", 47);
         c("TLS_DHE_DSS_WITH_AES_128_CBC_SHA", 50);
         c("TLS_DHE_RSA_WITH_AES_128_CBC_SHA", 51);
         c("TLS_DH_anon_WITH_AES_128_CBC_SHA", 52);
-        f31963f = c("TLS_RSA_WITH_AES_256_CBC_SHA", 53);
+        f32072f = c("TLS_RSA_WITH_AES_256_CBC_SHA", 53);
         c("TLS_DHE_DSS_WITH_AES_256_CBC_SHA", 56);
         c("TLS_DHE_RSA_WITH_AES_256_CBC_SHA", 57);
         c("TLS_DH_anon_WITH_AES_256_CBC_SHA", 58);
@@ -181,8 +181,8 @@ public final class h {
         c("TLS_PSK_WITH_AES_128_CBC_SHA", 140);
         c("TLS_PSK_WITH_AES_256_CBC_SHA", 141);
         c("TLS_RSA_WITH_SEED_CBC_SHA", 150);
-        f31964g = c("TLS_RSA_WITH_AES_128_GCM_SHA256", 156);
-        f31965h = c("TLS_RSA_WITH_AES_256_GCM_SHA384", 157);
+        f32073g = c("TLS_RSA_WITH_AES_128_GCM_SHA256", 156);
+        f32074h = c("TLS_RSA_WITH_AES_256_GCM_SHA384", 157);
         c("TLS_DHE_RSA_WITH_AES_128_GCM_SHA256", 158);
         c("TLS_DHE_RSA_WITH_AES_256_GCM_SHA384", Opcodes.IF_ICMPEQ);
         c("TLS_DHE_DSS_WITH_AES_128_GCM_SHA256", 162);
@@ -209,8 +209,8 @@ public final class h {
         c("TLS_ECDHE_RSA_WITH_NULL_SHA", 49168);
         c("TLS_ECDHE_RSA_WITH_RC4_128_SHA", 49169);
         c("TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA", 49170);
-        f31966i = c("TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA", 49171);
-        f31967j = c("TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA", 49172);
+        f32075i = c("TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA", 49171);
+        f32076j = c("TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA", 49172);
         c("TLS_ECDH_anon_WITH_NULL_SHA", 49173);
         c("TLS_ECDH_anon_WITH_RC4_128_SHA", 49174);
         c("TLS_ECDH_anon_WITH_3DES_EDE_CBC_SHA", 49175);
@@ -261,7 +261,7 @@ public final class h {
             }
         }
         if (str != null) {
-            this.f31968a = str;
+            this.f32077a = str;
             return;
         }
         throw null;
@@ -273,13 +273,13 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (h.class) {
-                hVar = f31960c.get(str);
+                hVar = f32069c.get(str);
                 if (hVar == null) {
-                    hVar = f31960c.get(e(str));
+                    hVar = f32069c.get(e(str));
                     if (hVar == null) {
                         hVar = new h(str);
                     }
-                    f31960c.put(str, hVar);
+                    f32069c.put(str, hVar);
                 }
             }
             return hVar;
@@ -305,7 +305,7 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) {
             h hVar = new h(str);
-            f31960c.put(str, hVar);
+            f32069c.put(str, hVar);
             return hVar;
         }
         return (h) invokeLI.objValue;
@@ -329,12 +329,12 @@ public final class h {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31968a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32077a : (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31968a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32077a : (String) invokeV.objValue;
     }
 }

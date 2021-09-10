@@ -114,39 +114,6 @@ public class CameraEnumerationAndroid {
             this.framerate = new FramerateRange(i4, i5);
         }
 
-        public CaptureFormat(int i2, int i3, FramerateRange framerateRange) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), framerateRange};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.imageFormat = 17;
-            this.width = i2;
-            this.height = i3;
-            this.framerate = framerateRange;
-        }
-
-        public static int frameSize(int i2, int i3, int i4) {
-            InterceptResult invokeIII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i2, i3, i4)) == null) {
-                if (i4 == 17) {
-                    return ((i2 * i3) * ImageFormat.getBitsPerPixel(i4)) / 8;
-                }
-                throw new UnsupportedOperationException("Don't know how to calculate the frame size of non-NV21 image formats.");
-            }
-            return invokeIII.intValue;
-        }
-
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -179,6 +146,39 @@ public class CameraEnumerationAndroid {
                 return this.width + "x" + this.height + TNCManager.TNC_PROBE_HEADER_SECEPTOR + this.framerate;
             }
             return (String) invokeV.objValue;
+        }
+
+        public static int frameSize(int i2, int i3, int i4) {
+            InterceptResult invokeIII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i2, i3, i4)) == null) {
+                if (i4 == 17) {
+                    return ((i2 * i3) * ImageFormat.getBitsPerPixel(i4)) / 8;
+                }
+                throw new UnsupportedOperationException("Don't know how to calculate the frame size of non-NV21 image formats.");
+            }
+            return invokeIII.intValue;
+        }
+
+        public CaptureFormat(int i2, int i3, FramerateRange framerateRange) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), framerateRange};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.imageFormat = 17;
+            this.width = i2;
+            this.height = i3;
+            this.framerate = framerateRange;
         }
     }
 

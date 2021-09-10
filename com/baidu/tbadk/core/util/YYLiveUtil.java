@@ -51,6 +51,8 @@ public class YYLiveUtil {
     public static final String SOURCE_PB_VIDEO_RECOMMEND_LIVE_CARD = "pb_video_recommend_live_card";
     public static final String SOURCE_PB_WORD_RECOMMEND_LIVE_CARD = "pb_tuwen_recommend_live_card";
     public static final String SOURCE_PERSON_AUTHOR_HEAD = "my_author_head";
+    public static final String SOURCE_PERSON_LIST_OTHER = "follow_other_head";
+    public static final String SOURCE_PERSON_LIST_OWNER = "follow_owner_head";
     public transient /* synthetic */ FieldHolder $fh;
 
     public YYLiveUtil() {

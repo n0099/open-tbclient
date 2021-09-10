@@ -3,7 +3,7 @@ package com.baidu.tieba.flutter.plugin.progressHUD;
 import androidx.annotation.NonNull;
 import c.a.e.a.h;
 import c.a.e.e.p.l;
-import c.a.q0.r0.a.h.f;
+import c.a.r0.s0.a.h.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;

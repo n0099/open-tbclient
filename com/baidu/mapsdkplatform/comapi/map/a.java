@@ -23,8 +23,8 @@ public class a extends d {
                 return;
             }
         }
-        this.f42109c = 10;
-        this.f42108b = "heatmap";
-        this.f42110d = TiebaStatic.MAX_COST_VALUE;
+        this.f42220c = 10;
+        this.f42219b = "heatmap";
+        this.f42221d = TiebaStatic.MAX_COST_VALUE;
     }
 }

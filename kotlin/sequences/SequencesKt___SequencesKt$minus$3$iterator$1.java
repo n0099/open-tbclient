@@ -23,7 +23,7 @@ public final class SequencesKt___SequencesKt$minus$3$iterator$1 extends Lambda i
     }
 
     /* JADX DEBUG: Return type fixed from 'boolean' to match base method */
-    /* JADX WARN: Type inference failed for: r2v1, types: [boolean, java.lang.Boolean] */
+    /* JADX WARN: Type inference failed for: r2v1, types: [java.lang.Boolean, boolean] */
     @Override // kotlin.jvm.functions.Function1
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final Boolean invoke2(T t) {

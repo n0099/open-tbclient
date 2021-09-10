@@ -20,10 +20,10 @@ public class a extends BaseBean<QRCodeShortUrlResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63478a;
+    public String f63658a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63479b;
+    public String f63659b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -48,14 +48,14 @@ public class a extends BaseBean<QRCodeShortUrlResponse> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f63478a = str;
+            this.f63658a = str;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f63479b = str;
+            this.f63659b = str;
         }
     }
 
@@ -74,8 +74,8 @@ public class a extends BaseBean<QRCodeShortUrlResponse> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new RestNameValuePair("output", "json"));
-            if (!TextUtils.isEmpty(this.f63478a)) {
-                arrayList.add(new RestNameValuePair("qrcode", this.f63478a));
+            if (!TextUtils.isEmpty(this.f63658a)) {
+                arrayList.add(new RestNameValuePair("qrcode", this.f63658a));
             }
             return arrayList;
         }
@@ -104,8 +104,8 @@ public class a extends BaseBean<QRCodeShortUrlResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!TextUtils.isEmpty(this.f63479b)) {
-                return this.f63479b;
+            if (!TextUtils.isEmpty(this.f63659b)) {
+                return this.f63659b;
             }
             return DomainConfig.getInstance().getAppPayHost() + "/facilepaycenter/tinyurl/scancode";
         }

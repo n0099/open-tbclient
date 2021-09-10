@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.o0.f.f;
+import c.a.p0.f.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,13 +21,13 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LayoutInflater f46980e;
+    public LayoutInflater f47095e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f46981f;
+    public a f47096f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.o0.h.o0.g.e.a f46982g;
+    public c.a.p0.h.o0.g.e.a f47097g;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -49,7 +49,7 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
                 return;
             }
         }
-        this.f46980e = LayoutInflater.from(context);
+        this.f47095e = LayoutInflater.from(context);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -58,8 +58,8 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         List<RecommendItemModel> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.o0.h.o0.g.e.a aVar = this.f46982g;
-            if (aVar == null || (list = aVar.f11450b) == null) {
+            c.a.p0.h.o0.g.e.a aVar = this.f47097g;
+            if (aVar == null || (list = aVar.f11478b) == null) {
                 return 0;
             }
             return list.size();
@@ -70,23 +70,23 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.f46981f == null || view == null || !(view.getTag() instanceof Integer)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.f47096f == null || view == null || !(view.getTag() instanceof Integer)) {
             return;
         }
-        this.f46981f.a(((Integer) view.getTag()).intValue());
+        this.f47096f.a(((Integer) view.getTag()).intValue());
     }
 
     public void setItemClickListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f46981f = aVar;
+            this.f47096f = aVar;
         }
     }
 
-    public void updateModel(c.a.o0.h.o0.g.e.a aVar) {
+    public void updateModel(c.a.p0.h.o0.g.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f46982g = aVar;
+            this.f47097g = aVar;
             notifyDataSetChanged();
         }
     }
@@ -96,7 +96,7 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     public void onBindViewHolder(ListRecommendViewHolder listRecommendViewHolder, int i2) {
         RecommendItemModel recommendItemModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, listRecommendViewHolder, i2) == null) || (recommendItemModel = this.f46982g.f11450b.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, listRecommendViewHolder, i2) == null) || (recommendItemModel = this.f47097g.f11478b.get(i2)) == null) {
             return;
         }
         listRecommendViewHolder.icon.setImageURI(recommendItemModel.iconUrl);
@@ -114,6 +114,6 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     public ListRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) ? new ListRecommendViewHolder(this.f46980e.inflate(f.swangame_recommend_dialog_item, viewGroup, false)) : (ListRecommendViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) ? new ListRecommendViewHolder(this.f47095e.inflate(f.swangame_recommend_dialog_item, viewGroup, false)) : (ListRecommendViewHolder) invokeLI.objValue;
     }
 }

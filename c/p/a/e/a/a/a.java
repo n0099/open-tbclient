@@ -12,13 +12,13 @@ public abstract class a implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f34799a;
+    public final Context f34908a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.p.a.e.b.j.a f34800b;
+    public final c.p.a.e.b.j.a f34909b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f34801c;
+    public final String f34910c;
 
     public a(Context context, c.p.a.e.b.j.a aVar, String str) {
         Interceptable interceptable = $ic;
@@ -35,23 +35,23 @@ public abstract class a implements e {
                 return;
             }
         }
-        this.f34799a = context;
-        this.f34800b = aVar;
-        this.f34801c = str;
+        this.f34908a = context;
+        this.f34909b = aVar;
+        this.f34910c = str;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f34799a == null) {
+            if (this.f34908a == null) {
                 return false;
             }
             try {
             } catch (Throwable unused) {
                 c.p.a.e.b.c.a.e();
             }
-            return b().resolveActivity(this.f34799a.getPackageManager()) != null;
+            return b().resolveActivity(this.f34908a.getPackageManager()) != null;
         }
         return invokeV.booleanValue;
     }

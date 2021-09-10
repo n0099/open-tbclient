@@ -21,10 +21,10 @@ public class ShadowImageView extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f67076a;
+    public Paint f67256a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RectF f67077b;
+    public RectF f67257b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShadowImageView(Context context) {
@@ -51,12 +51,12 @@ public class ShadowImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             Paint paint = new Paint();
-            this.f67076a = paint;
+            this.f67256a = paint;
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            this.f67076a.setColor(Color.parseColor("#99333333"));
-            this.f67076a.setAntiAlias(true);
-            this.f67076a.setStrokeWidth(0.0f);
-            this.f67077b = new RectF();
+            this.f67256a.setColor(Color.parseColor("#99333333"));
+            this.f67256a.setAntiAlias(true);
+            this.f67256a.setStrokeWidth(0.0f);
+            this.f67257b = new RectF();
         }
     }
 
@@ -64,8 +64,8 @@ public class ShadowImageView extends ImageView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            RectF rectF = this.f67077b;
-            canvas.drawRoundRect(rectF, rectF.right / 2.0f, rectF.bottom / 2.0f, this.f67076a);
+            RectF rectF = this.f67257b;
+            canvas.drawRoundRect(rectF, rectF.right / 2.0f, rectF.bottom / 2.0f, this.f67256a);
             super.onDraw(canvas);
         }
     }
@@ -75,10 +75,10 @@ public class ShadowImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (this.f67077b.right == getMeasuredWidth() && this.f67077b.bottom == getMeasuredHeight()) {
+            if (this.f67257b.right == getMeasuredWidth() && this.f67257b.bottom == getMeasuredHeight()) {
                 return;
             }
-            this.f67077b.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            this.f67257b.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
         }
     }
 

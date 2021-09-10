@@ -20,7 +20,7 @@ public class gg {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f77532a;
+    public int f77712a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f439a;
@@ -29,47 +29,47 @@ public class gg {
     public List<fz> f440a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f77533b;
+    public String f77713b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f77534c;
+    public String f77714c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f77535d;
+    public String f77715d;
 
     /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f77536a;
+        public static final a f77716a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f77537b;
+        public static final a f77717b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f77538c;
+        public static final a f77718c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f77539d;
+        public static final a f77719d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f77540e;
+        public static final a f77720e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f77541f;
+        public static final a f77721f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f77542g;
+        public static final a f77722g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final a f77543h;
+        public static final a f77723h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final a f77544i;
+        public static final a f77724i;
 
         /* renamed from: j  reason: collision with root package name */
-        public static final a f77545j;
+        public static final a f77725j;
         public static final a k;
         public static final a l;
         public static final a m;
@@ -102,16 +102,16 @@ public class gg {
                     return;
                 }
             }
-            f77536a = new a("internal-server-error");
-            f77537b = new a("forbidden");
-            f77538c = new a("bad-request");
-            f77539d = new a("conflict");
-            f77540e = new a("feature-not-implemented");
-            f77541f = new a("gone");
-            f77542g = new a("item-not-found");
-            f77543h = new a("jid-malformed");
-            f77544i = new a("not-acceptable");
-            f77545j = new a("not-allowed");
+            f77716a = new a("internal-server-error");
+            f77717b = new a("forbidden");
+            f77718c = new a("bad-request");
+            f77719d = new a("conflict");
+            f77720e = new a("feature-not-implemented");
+            f77721f = new a("gone");
+            f77722g = new a("item-not-found");
+            f77723h = new a("jid-malformed");
+            f77724i = new a("not-acceptable");
+            f77725j = new a("not-allowed");
             k = new a("not-authorized");
             l = new a("payment-required");
             m = new a("recipient-unavailable");
@@ -169,11 +169,11 @@ public class gg {
             }
         }
         this.f440a = null;
-        this.f77532a = i2;
+        this.f77712a = i2;
         this.f439a = str;
-        this.f77534c = str2;
-        this.f77533b = str3;
-        this.f77535d = str4;
+        this.f77714c = str2;
+        this.f77713b = str3;
+        this.f77715d = str4;
         this.f440a = list;
     }
 
@@ -193,13 +193,13 @@ public class gg {
             }
         }
         this.f440a = null;
-        this.f77532a = bundle.getInt("ext_err_code");
+        this.f77712a = bundle.getInt("ext_err_code");
         if (bundle.containsKey("ext_err_type")) {
             this.f439a = bundle.getString("ext_err_type");
         }
-        this.f77533b = bundle.getString("ext_err_cond");
-        this.f77534c = bundle.getString("ext_err_reason");
-        this.f77535d = bundle.getString("ext_err_msg");
+        this.f77713b = bundle.getString("ext_err_cond");
+        this.f77714c = bundle.getString("ext_err_reason");
+        this.f77715d = bundle.getString("ext_err_msg");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
             this.f440a = new ArrayList(parcelableArray.length);
@@ -229,13 +229,13 @@ public class gg {
         }
         this.f440a = null;
         a(aVar);
-        this.f77535d = null;
+        this.f77715d = null;
     }
 
     private void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, aVar) == null) {
-            this.f77533b = aVar.f441a;
+            this.f77713b = aVar.f441a;
         }
     }
 
@@ -248,16 +248,16 @@ public class gg {
             if (str != null) {
                 bundle.putString("ext_err_type", str);
             }
-            bundle.putInt("ext_err_code", this.f77532a);
-            String str2 = this.f77534c;
+            bundle.putInt("ext_err_code", this.f77712a);
+            String str2 = this.f77714c;
             if (str2 != null) {
                 bundle.putString("ext_err_reason", str2);
             }
-            String str3 = this.f77533b;
+            String str3 = this.f77713b;
             if (str3 != null) {
                 bundle.putString("ext_err_cond", str3);
             }
-            String str4 = this.f77535d;
+            String str4 = this.f77715d;
             if (str4 != null) {
                 bundle.putString("ext_err_msg", str4);
             }
@@ -286,27 +286,27 @@ public class gg {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("<error code=\"");
-            sb.append(this.f77532a);
+            sb.append(this.f77712a);
             sb.append("\"");
             if (this.f439a != null) {
                 sb.append(" type=\"");
                 sb.append(this.f439a);
                 sb.append("\"");
             }
-            if (this.f77534c != null) {
+            if (this.f77714c != null) {
                 sb.append(" reason=\"");
-                sb.append(this.f77534c);
+                sb.append(this.f77714c);
                 sb.append("\"");
             }
             sb.append(">");
-            if (this.f77533b != null) {
+            if (this.f77713b != null) {
                 sb.append("<");
-                sb.append(this.f77533b);
+                sb.append(this.f77713b);
                 sb.append(" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\"/>");
             }
-            if (this.f77535d != null) {
+            if (this.f77715d != null) {
                 sb.append("<text xml:lang=\"en\" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\">");
-                sb.append(this.f77535d);
+                sb.append(this.f77715d);
                 sb.append("</text>");
             }
             for (fz fzVar : m351a()) {
@@ -335,16 +335,16 @@ public class gg {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            String str = this.f77533b;
+            String str = this.f77713b;
             if (str != null) {
                 sb.append(str);
             }
             sb.append("(");
-            sb.append(this.f77532a);
+            sb.append(this.f77712a);
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            if (this.f77535d != null) {
+            if (this.f77715d != null) {
                 sb.append(" ");
-                sb.append(this.f77535d);
+                sb.append(this.f77715d);
             }
             return sb.toString();
         }

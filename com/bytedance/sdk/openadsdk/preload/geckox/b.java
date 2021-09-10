@@ -24,34 +24,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f68497a;
+    public final Context f68677a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Executor f68498b;
+    public final Executor f68678b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Executor f68499c;
+    public final Executor f68679c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.geckox.k.a f68500d;
+    public final com.bytedance.sdk.openadsdk.preload.geckox.k.a f68680d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.geckox.statistic.a f68501e;
+    public final com.bytedance.sdk.openadsdk.preload.geckox.statistic.a f68681e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.geckox.i.b f68502f;
+    public final com.bytedance.sdk.openadsdk.preload.geckox.i.b f68682f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<String> f68503g;
+    public final List<String> f68683g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<String> f68504h;
+    public final List<String> f68684h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.geckox.a.a.a f68505i;
+    public final com.bytedance.sdk.openadsdk.preload.geckox.a.a.a f68685i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Long f68506j;
+    public final Long f68686j;
     public final String k;
     public final String l;
     public final String m;
@@ -66,34 +66,34 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.geckox.i.b f68509a;
+        public com.bytedance.sdk.openadsdk.preload.geckox.i.b f68689a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<String> f68510b;
+        public List<String> f68690b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<String> f68511c;
+        public List<String> f68691c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Context f68512d;
+        public Context f68692d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Executor f68513e;
+        public Executor f68693e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Executor f68514f;
+        public Executor f68694f;
 
         /* renamed from: g  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.geckox.k.a f68515g;
+        public com.bytedance.sdk.openadsdk.preload.geckox.k.a f68695g;
 
         /* renamed from: h  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.geckox.statistic.a f68516h;
+        public com.bytedance.sdk.openadsdk.preload.geckox.statistic.a f68696h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f68517i;
+        public boolean f68697i;
 
         /* renamed from: j  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.geckox.a.a.a f68518j;
+        public com.bytedance.sdk.openadsdk.preload.geckox.a.a.a f68698j;
         public Long k;
         public String l;
         public String m;
@@ -117,8 +117,8 @@ public class b {
                     return;
                 }
             }
-            this.f68517i = true;
-            this.f68512d = context.getApplicationContext();
+            this.f68697i = true;
+            this.f68692d = context.getApplicationContext();
         }
 
         public a a(String... strArr) {
@@ -126,7 +126,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, strArr)) == null) {
                 if (strArr != null && strArr.length >= 1) {
-                    this.f68511c = Arrays.asList(strArr);
+                    this.f68691c = Arrays.asList(strArr);
                 }
                 return this;
             }
@@ -138,7 +138,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, strArr)) == null) {
                 if (strArr != null && strArr.length >= 1) {
-                    this.f68510b = Arrays.asList(strArr);
+                    this.f68690b = Arrays.asList(strArr);
                 }
                 return this;
             }
@@ -159,7 +159,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-                this.f68516h = aVar;
+                this.f68696h = aVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -169,7 +169,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, executor)) == null) {
-                this.f68514f = executor;
+                this.f68694f = executor;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -179,7 +179,7 @@ public class b {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.f68517i = z;
+                this.f68697i = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -199,7 +199,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, executor)) == null) {
-                this.f68513e = executor;
+                this.f68693e = executor;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -209,7 +209,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-                this.f68518j = aVar;
+                this.f68698j = aVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -273,13 +273,13 @@ public class b {
     public Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68497a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68677a : (Context) invokeV.objValue;
     }
 
     public com.bytedance.sdk.openadsdk.preload.geckox.a.a.a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68505i : (com.bytedance.sdk.openadsdk.preload.geckox.a.a.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68685i : (com.bytedance.sdk.openadsdk.preload.geckox.a.a.a) invokeV.objValue;
     }
 
     public boolean c() {
@@ -291,31 +291,31 @@ public class b {
     public List<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68504h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68684h : (List) invokeV.objValue;
     }
 
     public List<String> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68503g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68683g : (List) invokeV.objValue;
     }
 
     public Executor f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f68498b : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f68678b : (Executor) invokeV.objValue;
     }
 
     public Executor g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68499c : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68679c : (Executor) invokeV.objValue;
     }
 
     public com.bytedance.sdk.openadsdk.preload.geckox.i.b h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f68502f : (com.bytedance.sdk.openadsdk.preload.geckox.i.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f68682f : (com.bytedance.sdk.openadsdk.preload.geckox.i.b) invokeV.objValue;
     }
 
     public String i() {
@@ -327,7 +327,7 @@ public class b {
     public long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f68506j.longValue() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f68686j.longValue() : invokeV.longValue;
     }
 
     public String k() {
@@ -357,13 +357,13 @@ public class b {
     public com.bytedance.sdk.openadsdk.preload.geckox.k.a o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f68500d : (com.bytedance.sdk.openadsdk.preload.geckox.k.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f68680d : (com.bytedance.sdk.openadsdk.preload.geckox.k.a) invokeV.objValue;
     }
 
     public com.bytedance.sdk.openadsdk.preload.geckox.statistic.a p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f68501e : (com.bytedance.sdk.openadsdk.preload.geckox.statistic.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f68681e : (com.bytedance.sdk.openadsdk.preload.geckox.statistic.a) invokeV.objValue;
     }
 
     public String q() {
@@ -387,18 +387,18 @@ public class b {
                 return;
             }
         }
-        Context context = aVar.f68512d;
-        this.f68497a = context;
+        Context context = aVar.f68692d;
+        this.f68677a = context;
         if (context != null) {
-            this.f68503g = aVar.f68510b;
-            this.f68504h = aVar.f68511c;
-            this.f68500d = aVar.f68515g;
-            this.f68505i = aVar.f68518j;
-            this.f68506j = aVar.k;
+            this.f68683g = aVar.f68690b;
+            this.f68684h = aVar.f68691c;
+            this.f68680d = aVar.f68695g;
+            this.f68685i = aVar.f68698j;
+            this.f68686j = aVar.k;
             if (!TextUtils.isEmpty(aVar.l)) {
                 this.k = aVar.l;
             } else {
-                this.k = com.bytedance.sdk.openadsdk.preload.geckox.utils.a.a(this.f68497a);
+                this.k = com.bytedance.sdk.openadsdk.preload.geckox.utils.a.a(this.f68677a);
             }
             this.l = aVar.m;
             this.n = aVar.p;
@@ -406,24 +406,24 @@ public class b {
             if (aVar.o != null) {
                 this.p = aVar.o;
             } else {
-                this.p = new File(this.f68497a.getFilesDir(), "gecko_offline_res_x");
+                this.p = new File(this.f68677a.getFilesDir(), "gecko_offline_res_x");
             }
             String str = aVar.n;
             this.m = str;
             if (!TextUtils.isEmpty(str)) {
-                List<String> list = this.f68503g;
+                List<String> list = this.f68683g;
                 if (list != null && !list.isEmpty()) {
-                    if (this.f68506j != null) {
+                    if (this.f68686j != null) {
                         if (!TextUtils.isEmpty(this.l)) {
-                            if (aVar.f68513e != null) {
-                                this.f68498b = aVar.f68513e;
+                            if (aVar.f68693e != null) {
+                                this.f68678b = aVar.f68693e;
                             } else {
                                 ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory(this) { // from class: com.bytedance.sdk.openadsdk.preload.geckox.b.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ b f68507a;
+                                    public final /* synthetic */ b f68687a;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -440,7 +440,7 @@ public class b {
                                                 return;
                                             }
                                         }
-                                        this.f68507a = this;
+                                        this.f68687a = this;
                                     }
 
                                     @Override // java.util.concurrent.ThreadFactory
@@ -457,17 +457,17 @@ public class b {
                                     }
                                 });
                                 threadPoolExecutor.allowCoreThreadTimeOut(true);
-                                this.f68498b = threadPoolExecutor;
+                                this.f68678b = threadPoolExecutor;
                             }
-                            if (aVar.f68514f != null) {
-                                this.f68499c = aVar.f68514f;
+                            if (aVar.f68694f != null) {
+                                this.f68679c = aVar.f68694f;
                             } else {
                                 ThreadPoolExecutor threadPoolExecutor2 = new ThreadPoolExecutor(1, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory(this) { // from class: com.bytedance.sdk.openadsdk.preload.geckox.b.2
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ b f68508a;
+                                    public final /* synthetic */ b f68688a;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -484,7 +484,7 @@ public class b {
                                                 return;
                                             }
                                         }
-                                        this.f68508a = this;
+                                        this.f68688a = this;
                                     }
 
                                     @Override // java.util.concurrent.ThreadFactory
@@ -501,15 +501,15 @@ public class b {
                                     }
                                 });
                                 threadPoolExecutor2.allowCoreThreadTimeOut(true);
-                                this.f68499c = threadPoolExecutor2;
+                                this.f68679c = threadPoolExecutor2;
                             }
-                            if (aVar.f68509a != null) {
-                                this.f68502f = aVar.f68509a;
+                            if (aVar.f68689a != null) {
+                                this.f68682f = aVar.f68689a;
                             } else {
-                                this.f68502f = new com.bytedance.sdk.openadsdk.preload.geckox.i.a();
+                                this.f68682f = new com.bytedance.sdk.openadsdk.preload.geckox.i.a();
                             }
-                            this.f68501e = aVar.f68516h;
-                            this.q = aVar.f68517i;
+                            this.f68681e = aVar.f68696h;
+                            this.q = aVar.f68697i;
                             return;
                         }
                         throw new IllegalArgumentException("deviceId key empty");

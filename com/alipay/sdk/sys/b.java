@@ -15,11 +15,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f35934a;
+    public static b f36043a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f35935b;
+    public Context f36044b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f35934a == null) {
-                f35934a = new b();
+            if (f36043a == null) {
+                f36043a = new b();
             }
-            return f35934a;
+            return f36043a;
         }
         return (b) invokeV.objValue;
     }
@@ -65,7 +65,7 @@ public class b {
     public Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35935b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36044b : (Context) invokeV.objValue;
     }
 
     public com.alipay.sdk.data.b c() {
@@ -79,7 +79,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return UTDevice.getUtdid(this.f35935b);
+                return UTDevice.getUtdid(this.f36044b);
             } catch (Throwable th) {
                 c.a(th);
                 return "getUtdidEx";
@@ -92,7 +92,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             com.alipay.sdk.data.b.b();
-            this.f35935b = context.getApplicationContext();
+            this.f36044b = context.getApplicationContext();
         }
     }
 }

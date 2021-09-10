@@ -17,22 +17,22 @@ public class g implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f3147e;
+    public Context f3138e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f3148f;
+    public Handler f3139f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3149g;
+    public String f3140g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f3150h;
+    public ImageView f3141h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f3151i;
+    public int f3142i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f3152j;
+    public int f3143j;
 
     public g(Context context, Handler handler, String str, ImageView imageView, int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -49,12 +49,12 @@ public class g implements Runnable {
                 return;
             }
         }
-        this.f3147e = context.getApplicationContext();
-        this.f3148f = handler;
-        this.f3149g = str;
-        this.f3150h = imageView;
-        this.f3151i = i2;
-        this.f3152j = i3;
+        this.f3138e = context.getApplicationContext();
+        this.f3139f = handler;
+        this.f3140g = str;
+        this.f3141h = imageView;
+        this.f3142i = i2;
+        this.f3143j = i3;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0036  */
@@ -69,7 +69,7 @@ public class g implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i2, i3)) == null) {
             try {
-                bitmap = a.c(this.f3147e).a(str, i2, i3);
+                bitmap = a.c(this.f3138e).a(str, i2, i3);
             } catch (IOException e2) {
                 e = e2;
                 bitmap = null;
@@ -86,8 +86,8 @@ public class g implements Runnable {
                 a.b().a(str, bitmap);
                 return bitmap;
             }
-            a.c(this.f3147e).c(str);
-            bitmap2 = a.c(this.f3147e).a(str, i2, i3);
+            a.c(this.f3138e).c(str);
+            bitmap2 = a.c(this.f3138e).a(str, i2, i3);
             return bitmap2 != null ? d.b(str) : bitmap2;
         }
         return (Bitmap) invokeLII.objValue;
@@ -97,9 +97,9 @@ public class g implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Bitmap a2 = a(this.f3149g, this.f3151i, this.f3152j);
-            if (this.f3148f != null) {
-                this.f3148f.obtainMessage(1, new f(this.f3150h, this.f3149g, a2)).sendToTarget();
+            Bitmap a2 = a(this.f3140g, this.f3142i, this.f3143j);
+            if (this.f3139f != null) {
+                this.f3139f.obtainMessage(1, new f(this.f3141h, this.f3140g, a2)).sendToTarget();
             }
         }
     }

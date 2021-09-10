@@ -1,225 +1,98 @@
 package c.a.q0.f1.j;
 
-import c.a.e.l.e.n;
-import c.a.p0.s.q.b2;
-import c.a.p0.s.q.c2;
-import c.a.q0.a0.d0.j;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class a {
+public class a extends f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ArrayList<n> a(ArrayList<n> arrayList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, arrayList)) == null) {
-            ArrayList<n> arrayList2 = new ArrayList<>();
-            Iterator<n> it = arrayList.iterator();
-            int i2 = 0;
-            while (it.hasNext()) {
-                n next = it.next();
-                if (next instanceof c2) {
-                    c2 c2Var = (c2) next;
-                    c2Var.a2 = true;
-                    int[] g0 = c2Var.g0();
-                    if (c2Var.getType() == c2.W2) {
-                        if (c2Var != null && c2Var.Y() != null && !StringUtils.isNull(c2Var.Y().f14399b)) {
-                            b2 b2Var = new b2();
-                            b2Var.w = c2Var;
-                            b2Var.position = i2;
-                            b2Var.v = true;
-                            b2Var.setSupportType(BaseCardInfo.SupportType.TOP);
-                            arrayList2.add(b2Var);
-                        } else {
-                            b2 b2Var2 = new b2();
-                            b2Var2.w = c2Var;
-                            b2Var2.position = i2;
-                            b2Var2.f14149e = true;
-                            b2Var2.setSupportType(BaseCardInfo.SupportType.TOP);
-                            arrayList2.add(b2Var2);
-                        }
-                        b2 b2Var3 = new b2();
-                        b2Var3.w = c2Var;
-                        b2Var3.position = i2;
-                        if (c2Var.K1()) {
-                            b2Var3.f14154j = true;
-                        } else if (c2Var.X2() == 1) {
-                            b2Var3.f14152h = true;
-                            b2Var3.x = g0[0];
-                            b2Var3.y = g0[1];
-                        } else if (c2Var.X2() >= 2) {
-                            b2Var3.f14153i = true;
-                        } else {
-                            b2Var3.f14150f = true;
-                        }
-                        b2Var3.w.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        b2Var3.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(b2Var3);
-                        if (c2Var.q0() != null) {
-                            b2 b2Var4 = new b2();
-                            b2Var4.r = true;
-                            b2Var4.w = c2Var;
-                            b2Var4.position = i2;
-                            b2Var4.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(b2Var4);
-                        }
-                        if (!ListUtils.isEmpty(c2Var.y0()) || !ListUtils.isEmpty(c2Var.c0())) {
-                            b2 b2Var5 = new b2();
-                            b2Var5.w = c2Var;
-                            b2Var5.position = i2;
-                            if (ListUtils.getCount(c2Var.y0()) + ListUtils.getCount(c2Var.c0()) == 1) {
-                                b2Var5.t = true;
-                            } else if (ListUtils.getCount(c2Var.y0()) + ListUtils.getCount(c2Var.c0()) > 1) {
-                                b2Var5.u = true;
-                            }
-                            b2Var5.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(b2Var5);
-                        }
-                        b2 b2Var6 = new b2();
-                        b2Var6.q = true;
-                        b2Var6.w = c2Var;
-                        b2Var6.position = i2;
-                        arrayList2.add(b2Var6);
-                        b2 b2Var7 = new b2();
-                        b2Var7.k = true;
-                        b2Var7.w = c2Var;
-                        b2Var7.position = i2;
-                        b2Var7.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                        arrayList2.add(b2Var7);
-                    } else if (c2Var.getType() == c2.t3) {
-                        if (c2Var != null && c2Var.Y() != null && !StringUtils.isNull(c2Var.Y().f14399b)) {
-                            b2 b2Var8 = new b2();
-                            b2Var8.w = c2Var;
-                            b2Var8.position = i2;
-                            b2Var8.v = true;
-                            b2Var8.setSupportType(BaseCardInfo.SupportType.TOP);
-                            arrayList2.add(b2Var8);
-                        } else {
-                            b2 b2Var9 = new b2();
-                            b2Var9.w = c2Var;
-                            b2Var9.position = i2;
-                            b2Var9.setSupportType(BaseCardInfo.SupportType.TOP);
-                            b2Var9.f14149e = true;
-                            arrayList2.add(b2Var9);
-                        }
-                        b2 b2Var10 = new b2();
-                        b2Var10.w = c2Var;
-                        b2Var10.position = i2;
-                        b2Var10.m = true;
-                        c2Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        b2Var10.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(b2Var10);
-                        if (c2Var.q0() != null) {
-                            b2 b2Var11 = new b2();
-                            b2Var11.r = true;
-                            b2Var11.w = c2Var;
-                            b2Var11.position = i2;
-                            b2Var11.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                            arrayList2.add(b2Var11);
-                        }
-                        b2 b2Var12 = new b2();
-                        b2Var12.q = true;
-                        b2Var12.w = c2Var;
-                        b2Var12.position = i2;
-                        arrayList2.add(b2Var12);
-                        b2 b2Var13 = new b2();
-                        b2Var13.k = true;
-                        b2Var13.w = c2Var;
-                        b2Var13.position = i2;
-                        b2Var13.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                        arrayList2.add(b2Var13);
-                    } else if (c2Var.getType() == c2.l3 && c2Var.J1()) {
-                        c2Var.position = i2;
-                        c2Var.setSupportType(BaseCardInfo.SupportType.FULL);
-                        arrayList2.add(c2Var);
-                    } else if (j.Y(c2Var)) {
-                        j jVar = new j(c2Var);
-                        jVar.l = c2Var.q1();
-                        jVar.feedBackReasonMap = c2Var.h1;
-                        jVar.setSupportType(BaseCardInfo.SupportType.FULL);
-                        arrayList2.add(jVar);
-                    } else {
-                        b2 b2Var14 = new b2();
-                        b2Var14.w = c2Var;
-                        b2Var14.position = i2;
-                        b2Var14.setSupportType(BaseCardInfo.SupportType.FULL);
-                        arrayList2.add(b2Var14);
-                    }
-                } else if (next instanceof BaseCardInfo) {
-                    ((BaseCardInfo) next).position = i2;
-                    arrayList2.add(next);
-                } else {
-                    arrayList2.add(next);
+    /* renamed from: e  reason: collision with root package name */
+    public ConstrainImageLayout.c f13210e;
+
+    /* renamed from: c.a.q0.f1.j.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public class C0659a implements ConstrainImageLayout.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public C0659a(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                i2++;
             }
-            c.a.p0.b.f.a.d(arrayList2);
-            return arrayList2;
         }
-        return (ArrayList) invokeL.objValue;
+
+        @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.c
+        public void a(TbImageView tbImageView, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, tbImageView, i2, i3) == null) {
+                tbImageView.setRadiusById(R.string.J_X05);
+                tbImageView.clearCornerFlag();
+                tbImageView.setDrawCorner(true);
+                tbImageView.setConrers(0);
+                if (i3 == 1) {
+                    tbImageView.setConrers(15);
+                } else if (i3 > 1) {
+                    if (i2 == 0) {
+                        tbImageView.setConrers(5);
+                    } else if (i2 == i3 - 1) {
+                        tbImageView.setConrers(10);
+                    }
+                }
+            }
+        }
     }
 
-    public static List<Integer> b(String str, BdTypeRecyclerView bdTypeRecyclerView) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(int i2) {
+        super(i2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bdTypeRecyclerView)) == null) {
-            ArrayList arrayList = new ArrayList(2);
-            boolean z = false;
-            int i2 = -1;
-            int i3 = -1;
-            for (int i4 = 0; i4 < bdTypeRecyclerView.getCount(); i4++) {
-                n item = bdTypeRecyclerView.getItem(i4);
-                c2 c2Var = null;
-                if (item instanceof b2) {
-                    c2Var = ((b2) item).getThreadData();
-                } else if (item instanceof c2) {
-                    c2Var = (c2) item;
-                } else if (item instanceof j) {
-                    c2Var = ((j) item).f15245e;
-                }
-                if (c2Var != null && c2Var.q1().equals(str)) {
-                    if (!z) {
-                        i2 = i4;
-                    }
-                    z = true;
-                    i3 = i4;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            arrayList.add(Integer.valueOf(i2));
-            arrayList.add(Integer.valueOf(i3));
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
+        this.f13210e = new C0659a(this);
     }
 
-    public static void c(boolean z, ArrayList<n> arrayList, c.a.p0.s.q.a aVar) {
-        int i2;
+    @Override // c.a.q0.f1.j.f, c.a.q0.f1.j.c
+    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i2, int i3) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), arrayList, aVar}) == null) || aVar == null || arrayList == null || (i2 = aVar.floorPosition) < 0) {
-            return;
-        }
-        if (i2 != 0 || z) {
-            int size = arrayList.size();
-            int i3 = 0;
-            for (int i4 = 0; i4 < size; i4++) {
-                if (arrayList.get(i4) instanceof c2) {
-                    if (i2 == i3) {
-                        ListUtils.add(arrayList, i4, aVar);
-                        return;
-                    }
-                    i3++;
-                }
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i2, i3)) == null) {
+            if (list.size() < this.f13212b) {
+                list.size();
             }
+            constrainImageLayout.setTbImageViewConfiguration(this.f13210e);
+            return super.a(constrainImageLayout, list, i2, i3);
         }
+        return invokeLLII.intValue;
     }
 }

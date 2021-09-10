@@ -17,7 +17,7 @@ public final class t {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f76524a = "RSA";
+    public static String f76704a = "RSA";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public final class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             try {
-                return KeyFactory.getInstance(f76524a).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
+                return KeyFactory.getInstance(f76704a).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
             } catch (NullPointerException unused) {
                 throw new Exception("公钥数据为空");
             } catch (NoSuchAlgorithmException unused2) {

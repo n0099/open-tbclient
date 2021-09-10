@@ -14,7 +14,7 @@ public final class a implements m1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public m1.a f31363a;
+    public m1.a f31472a;
 
     public a(m1.a aVar) {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public final class a implements m1.a {
                 return;
             }
         }
-        this.f31363a = aVar;
+        this.f31472a = aVar;
     }
 
     @Override // ms.bd.c.m1.a
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f31363a.a(str);
+            this.f31472a.a(str);
         }
     }
 
@@ -46,21 +46,21 @@ public final class a implements m1.a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31363a.b() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31472a.b() : (String) invokeV.objValue;
     }
 
     @Override // ms.bd.c.m1.a
     public Map<String, String> c(String str, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr)) == null) ? this.f31363a.c(str, bArr) : (Map) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr)) == null) ? this.f31472a.c(str, bArr) : (Map) invokeLL.objValue;
     }
 
     @Override // ms.bd.c.m1.a
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f31363a.d(str);
+            this.f31472a.d(str);
         }
     }
 }

@@ -27,20 +27,20 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, Integer> f31150c;
+    public static Map<String, Integer> f31257c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static MediaCodecInfo[] f31151d;
+    public static MediaCodecInfo[] f31258d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Map<String, MediaCodecInfo> f31152e;
+    public static Map<String, MediaCodecInfo> f31259e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaCodecInfo f31153a;
+    public MediaCodecInfo f31260a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f31154b;
+    public int f31261b;
 
     static {
         InterceptResult invokeClinit;
@@ -55,52 +55,53 @@ public class d {
                 return;
             }
         }
-        f31150c = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-        f31152e = new HashMap();
-        f31150c.put("OMX.Nvidia.h264.decode", 800);
-        f31150c.put("OMX.Nvidia.h264.decode.secure", 300);
-        f31150c.put("OMX.Intel.hw_vd.h264", 801);
-        f31150c.put("OMX.Intel.VideoDecoder.AVC", 800);
-        f31150c.put("OMX.qcom.video.decoder.avc", 800);
-        f31150c.put("OMX.ittiam.video.decoder.avc", 0);
-        f31150c.put("OMX.SEC.avc.dec", 800);
-        f31150c.put("OMX.SEC.AVC.Decoder", 799);
-        f31150c.put("OMX.SEC.avcdec", 798);
-        f31150c.put("OMX.SEC.avc.sw.dec", 200);
-        f31150c.put("OMX.Exynos.avc.dec", 800);
-        f31150c.put("OMX.Exynos.AVC.Decoder", 799);
-        f31150c.put("OMX.k3.video.decoder.avc", 800);
-        f31150c.put("OMX.IMG.MSVDX.Decoder.AVC", 800);
-        f31150c.put("OMX.TI.DUCATI1.VIDEO.DECODER", 800);
-        f31150c.put("OMX.rk.video_decoder.avc", 800);
-        f31150c.put("OMX.amlogic.avc.decoder.awesome", 800);
-        f31150c.put("OMX.MARVELL.VIDEO.HW.CODA7542DECODER", 800);
-        f31150c.put("OMX.MARVELL.VIDEO.H264DECODER", 200);
-        f31150c.put("OMX.allwinner.video.decoder.avc", 0);
-        f31150c.remove("OMX.Action.Video.Decoder");
-        f31150c.remove("OMX.BRCM.vc4.decoder.avc");
-        f31150c.remove("OMX.brcm.video.h264.hw.decoder");
-        f31150c.remove("OMX.brcm.video.h264.decoder");
-        f31150c.remove("OMX.cosmo.video.decoder.avc");
-        f31150c.remove("OMX.duos.h264.decoder");
-        f31150c.remove("OMX.hantro.81x0.video.decoder");
-        f31150c.remove("OMX.hantro.G1.video.decoder");
-        f31150c.remove("OMX.hisi.video.decoder");
-        f31150c.remove("OMX.LG.decoder.video.avc");
-        f31150c.remove("OMX.MS.AVC.Decoder");
-        f31150c.remove("OMX.RENESAS.VIDEO.DECODER.H264");
-        f31150c.remove("OMX.RTK.video.decoder");
-        f31150c.remove("OMX.sprd.h264.decoder");
-        f31150c.remove("OMX.ST.VFM.H264Dec");
-        f31150c.remove("OMX.vpu.video_decoder.avc");
-        f31150c.remove("OMX.WMT.decoder.avc");
-        f31150c.remove("OMX.bluestacks.hw.decoder");
-        f31150c.put("OMX.google.h264.decoder", 200);
-        f31150c.put("OMX.google.h264.lc.decoder", 200);
-        f31150c.put("OMX.k3.ffmpeg.decoder", 200);
-        f31150c.put("OMX.ffmpeg.video.decoder", 200);
-        f31150c.put("OMX.sprd.soft.h264.decoder", 200);
-        f31150c.put("OMX.google.hevc.decoder", 200);
+        f31257c = new TreeMap(String.CASE_INSENSITIVE_ORDER);
+        f31259e = new HashMap();
+        f31257c.put("OMX.Nvidia.h264.decode", 800);
+        f31257c.put("OMX.Nvidia.h264.decode.secure", 300);
+        f31257c.put("OMX.Intel.hw_vd.h264", 801);
+        f31257c.put("OMX.Intel.VideoDecoder.AVC", 800);
+        f31257c.put("OMX.qcom.video.decoder.avc", 800);
+        f31257c.put("OMX.ittiam.video.decoder.avc", 0);
+        f31257c.put("OMX.SEC.avc.dec", 800);
+        f31257c.put("OMX.SEC.AVC.Decoder", 799);
+        f31257c.put("OMX.SEC.avcdec", 798);
+        f31257c.put("OMX.SEC.avc.sw.dec", 200);
+        f31257c.put("OMX.Exynos.avc.dec", 800);
+        f31257c.put("OMX.Exynos.AVC.Decoder", 799);
+        f31257c.put("OMX.k3.video.decoder.avc", 800);
+        f31257c.put("OMX.IMG.MSVDX.Decoder.AVC", 800);
+        f31257c.put("OMX.TI.DUCATI1.VIDEO.DECODER", 800);
+        f31257c.put("OMX.rk.video_decoder.avc", 800);
+        f31257c.put("OMX.amlogic.avc.decoder.awesome", 800);
+        f31257c.put("OMX.MARVELL.VIDEO.HW.CODA7542DECODER", 800);
+        f31257c.put("OMX.MARVELL.VIDEO.H264DECODER", 200);
+        f31257c.put("OMX.allwinner.video.decoder.avc", 0);
+        f31257c.put("OMX.qcom.video.decoder.hevcswvdec", 0);
+        f31257c.remove("OMX.Action.Video.Decoder");
+        f31257c.remove("OMX.BRCM.vc4.decoder.avc");
+        f31257c.remove("OMX.brcm.video.h264.hw.decoder");
+        f31257c.remove("OMX.brcm.video.h264.decoder");
+        f31257c.remove("OMX.cosmo.video.decoder.avc");
+        f31257c.remove("OMX.duos.h264.decoder");
+        f31257c.remove("OMX.hantro.81x0.video.decoder");
+        f31257c.remove("OMX.hantro.G1.video.decoder");
+        f31257c.remove("OMX.hisi.video.decoder");
+        f31257c.remove("OMX.LG.decoder.video.avc");
+        f31257c.remove("OMX.MS.AVC.Decoder");
+        f31257c.remove("OMX.RENESAS.VIDEO.DECODER.H264");
+        f31257c.remove("OMX.RTK.video.decoder");
+        f31257c.remove("OMX.sprd.h264.decoder");
+        f31257c.remove("OMX.ST.VFM.H264Dec");
+        f31257c.remove("OMX.vpu.video_decoder.avc");
+        f31257c.remove("OMX.WMT.decoder.avc");
+        f31257c.remove("OMX.bluestacks.hw.decoder");
+        f31257c.put("OMX.google.h264.decoder", 200);
+        f31257c.put("OMX.google.h264.lc.decoder", 200);
+        f31257c.put("OMX.k3.ffmpeg.decoder", 200);
+        f31257c.put("OMX.ffmpeg.video.decoder", 200);
+        f31257c.put("OMX.sprd.soft.h264.decoder", 200);
+        f31257c.put("OMX.google.hevc.decoder", 200);
     }
 
     public d() {
@@ -116,7 +117,7 @@ public class d {
                 return;
             }
         }
-        this.f31154b = 0;
+        this.f31261b = 0;
     }
 
     @TargetApi(16)
@@ -140,7 +141,7 @@ public class d {
             } else {
                 if (!lowerCase.startsWith("omx.ittiam.")) {
                     if (!lowerCase.startsWith("omx.mtk.")) {
-                        Integer num = f31150c.get(lowerCase);
+                        Integer num = f31257c.get(lowerCase);
                         if (num != null) {
                             i2 = num.intValue();
                         } else {
@@ -158,8 +159,8 @@ public class d {
                 i2 = 0;
             }
             d dVar = new d();
-            dVar.f31153a = mediaCodecInfo;
-            dVar.f31154b = i2;
+            dVar.f31260a = mediaCodecInfo;
+            dVar.f31261b = i2;
             return dVar;
         }
         return (d) invokeLL.objValue;
@@ -207,7 +208,12 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
             synchronized (d.class) {
-                if (f31151d != null) {
+                try {
+                } catch (Error e2) {
+                    e2.printStackTrace();
+                } catch (Exception unused) {
+                }
+                if (f31258d != null) {
                     return;
                 }
                 if (Build.VERSION.SDK_INT < 16) {
@@ -219,9 +225,9 @@ public class d {
                     for (int i2 = 0; i2 < codecCount; i2++) {
                         arrayList.add(MediaCodecList.getCodecInfoAt(i2));
                     }
-                    f31151d = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
+                    f31258d = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
                 } else {
-                    f31151d = new MediaCodecList(0).getCodecInfos();
+                    f31258d = new MediaCodecList(0).getCodecInfos();
                 }
                 e("video/avc");
                 e("video/hevc");
@@ -235,14 +241,14 @@ public class d {
         d a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            MediaCodecInfo mediaCodecInfo = f31152e.get(str);
+            MediaCodecInfo mediaCodecInfo = f31259e.get(str);
             if (mediaCodecInfo != null) {
                 return mediaCodecInfo;
             }
             ArrayList arrayList = new ArrayList();
             int i2 = 0;
             while (true) {
-                MediaCodecInfo[] mediaCodecInfoArr = f31151d;
+                MediaCodecInfo[] mediaCodecInfoArr = f31258d;
                 if (i2 >= mediaCodecInfoArr.length) {
                     break;
                 }
@@ -263,15 +269,15 @@ public class d {
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
                 d dVar2 = (d) it.next();
-                if (dVar2.f31154b > dVar.f31154b) {
+                if (dVar2.f31261b > dVar.f31261b) {
                     dVar = dVar2;
                 }
             }
-            if (dVar.f31154b < 600) {
+            if (dVar.f31261b < 600) {
                 return null;
             }
-            f31152e.put(str, dVar.f31153a);
-            return dVar.f31153a;
+            f31259e.put(str, dVar.f31260a);
+            return dVar.f31260a;
         }
         return (MediaCodecInfo) invokeL.objValue;
     }

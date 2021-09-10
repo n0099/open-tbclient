@@ -24,10 +24,10 @@ public class BdCircleImageView extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Animation.AnimationListener f36493e;
+    public Animation.AnimationListener f36612e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36494f;
+    public int f36613f;
 
     /* loaded from: classes4.dex */
     public class a extends OvalShape {
@@ -35,13 +35,13 @@ public class BdCircleImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public RadialGradient f36495e;
+        public RadialGradient f36614e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Paint f36496f;
+        public Paint f36615f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BdCircleImageView f36497g;
+        public final /* synthetic */ BdCircleImageView f36616g;
 
         public a(BdCircleImageView bdCircleImageView, int i2) {
             Interceptable interceptable = $ic;
@@ -58,9 +58,9 @@ public class BdCircleImageView extends ImageView {
                     return;
                 }
             }
-            this.f36497g = bdCircleImageView;
-            this.f36496f = new Paint();
-            bdCircleImageView.f36494f = i2;
+            this.f36616g = bdCircleImageView;
+            this.f36615f = new Paint();
+            bdCircleImageView.f36613f = i2;
             a((int) rect().width());
         }
 
@@ -68,9 +68,9 @@ public class BdCircleImageView extends ImageView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 float f2 = i2 / 2;
-                RadialGradient radialGradient = new RadialGradient(f2, f2, this.f36497g.f36494f, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
-                this.f36495e = radialGradient;
-                this.f36496f.setShader(radialGradient);
+                RadialGradient radialGradient = new RadialGradient(f2, f2, this.f36616g.f36613f, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
+                this.f36614e = radialGradient;
+                this.f36615f.setShader(radialGradient);
             }
         }
 
@@ -79,10 +79,10 @@ public class BdCircleImageView extends ImageView {
             int width;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, paint) == null) {
-                float width2 = this.f36497g.getWidth() / 2;
-                float height = this.f36497g.getHeight() / 2;
-                canvas.drawCircle(width2, height, width2, this.f36496f);
-                canvas.drawCircle(width2, height, width - this.f36497g.f36494f, paint);
+                float width2 = this.f36616g.getWidth() / 2;
+                float height = this.f36616g.getHeight() / 2;
+                canvas.drawCircle(width2, height, width2, this.f36615f);
+                canvas.drawCircle(width2, height, width - this.f36616g.f36613f, paint);
             }
         }
 
@@ -118,15 +118,15 @@ public class BdCircleImageView extends ImageView {
         float f2 = getContext().getResources().getDisplayMetrics().density;
         int i5 = (int) (1.75f * f2);
         int i6 = (int) (0.0f * f2);
-        this.f36494f = (int) (3.5f * f2);
+        this.f36613f = (int) (3.5f * f2);
         if (a()) {
             shapeDrawable = new ShapeDrawable(new OvalShape());
             ViewCompat.setElevation(this, f2 * 4.0f);
         } else {
-            ShapeDrawable shapeDrawable2 = new ShapeDrawable(new a(this, this.f36494f));
+            ShapeDrawable shapeDrawable2 = new ShapeDrawable(new a(this, this.f36613f));
             ViewCompat.setLayerType(this, 1, shapeDrawable2.getPaint());
-            shapeDrawable2.getPaint().setShadowLayer(this.f36494f, i6, i5, CircleImageView.KEY_SHADOW_COLOR);
-            int i7 = this.f36494f;
+            shapeDrawable2.getPaint().setShadowLayer(this.f36613f, i6, i5, CircleImageView.KEY_SHADOW_COLOR);
+            int i7 = this.f36613f;
             setPadding(i7, i7, i7, i7);
             shapeDrawable = shapeDrawable2;
         }
@@ -145,7 +145,7 @@ public class BdCircleImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAnimationEnd();
-            Animation.AnimationListener animationListener = this.f36493e;
+            Animation.AnimationListener animationListener = this.f36612e;
             if (animationListener != null) {
                 animationListener.onAnimationEnd(getAnimation());
             }
@@ -157,7 +157,7 @@ public class BdCircleImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onAnimationStart();
-            Animation.AnimationListener animationListener = this.f36493e;
+            Animation.AnimationListener animationListener = this.f36612e;
             if (animationListener != null) {
                 animationListener.onAnimationStart(getAnimation());
             }
@@ -172,14 +172,14 @@ public class BdCircleImageView extends ImageView {
             if (a()) {
                 return;
             }
-            setMeasuredDimension(getMeasuredWidth() + (this.f36494f * 2), getMeasuredHeight() + (this.f36494f * 2));
+            setMeasuredDimension(getMeasuredWidth() + (this.f36613f * 2), getMeasuredHeight() + (this.f36613f * 2));
         }
     }
 
     public void setAnimationListener(Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, animationListener) == null) {
-            this.f36493e = animationListener;
+            this.f36612e = animationListener;
         }
     }
 

@@ -23,13 +23,13 @@ public class i {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39418a = "LogSender";
+    public static final String f39529a = "LogSender";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39419b = 10000;
+    public static final int f39530b = 10000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f39420c = 10001;
+    public static final int f39531c = 10001;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -37,7 +37,7 @@ public class i {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static i f39426a;
+        public static i f39537a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,7 +53,7 @@ public class i {
                     return;
                 }
             }
-            f39426a = new i();
+            f39537a = new i();
         }
 
         public a() {
@@ -88,7 +88,7 @@ public class i {
     public static i a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f39426a : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f39537a : (i) invokeV.objValue;
     }
 
     private JSONArray a(f[] fVarArr) {
@@ -97,7 +97,7 @@ public class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, fVarArr)) == null) {
             JSONArray jSONArray = new JSONArray();
             for (f fVar : fVarArr) {
-                LogUtil.d(f39418a, fVar.a().toString());
+                LogUtil.d(f39529a, fVar.a().toString());
                 jSONArray.put(fVar.a());
             }
             return jSONArray;
@@ -159,7 +159,7 @@ public class i {
             StringBuilder sb = new StringBuilder();
             sb.append("=====sendLogData=====");
             sb.append(str);
-            LogUtil.d(f39418a, sb.toString() == "normal_log" ? "normal" : "crash");
+            LogUtil.d(f39529a, sb.toString() == "normal_log" ? "normal" : "crash");
             if ((str.equals(b.o) && e.a().c()) || (appContext = RimStatisticsUtil.getAppContext()) == null || !com.baidu.fsg.base.statistics.a.a(appContext)) {
                 return;
             }
@@ -174,10 +174,10 @@ public class i {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f39421a;
+                    public final /* synthetic */ String f39532a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ i f39422b;
+                    public final /* synthetic */ i f39533b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -194,8 +194,8 @@ public class i {
                                 return;
                             }
                         }
-                        this.f39422b = this;
-                        this.f39421a = str;
+                        this.f39533b = this;
+                        this.f39532a = str;
                     }
 
                     @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
@@ -209,7 +209,7 @@ public class i {
                     public void onBeanExecSuccess(int i2, Object obj, String str2, String str3) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), obj, str2, str3}) == null) {
-                            e.a().a(this.f39421a);
+                            e.a().a(this.f39532a);
                         }
                     }
                 });
@@ -224,13 +224,13 @@ public class i {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f39423a;
+                public final /* synthetic */ String f39534a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ f[] f39424b;
+                public final /* synthetic */ f[] f39535b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ i f39425c;
+                public final /* synthetic */ i f39536c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -247,20 +247,20 @@ public class i {
                             return;
                         }
                     }
-                    this.f39425c = this;
-                    this.f39423a = str;
-                    this.f39424b = b2;
+                    this.f39536c = this;
+                    this.f39534a = str;
+                    this.f39535b = b2;
                 }
 
                 @Override // com.baidu.fsg.base.statistics.k.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        LogUtil.d(i.f39418a, "====send-success==");
-                        if (b.o.equals(this.f39423a)) {
-                            e.a().a(this.f39423a);
+                        LogUtil.d(i.f39529a, "====send-success==");
+                        if (b.o.equals(this.f39534a)) {
+                            e.a().a(this.f39534a);
                         } else {
-                            g.a(RimStatisticsUtil.getAppContext()).a(this.f39424b);
+                            g.a(RimStatisticsUtil.getAppContext()).a(this.f39535b);
                         }
                     }
                 }
@@ -269,7 +269,7 @@ public class i {
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        LogUtil.d(i.f39418a, "====send-fail=====");
+                        LogUtil.d(i.f39529a, "====send-fail=====");
                     }
                 }
             });

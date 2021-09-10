@@ -11,10 +11,10 @@ public final class bn implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f59573a;
+    public final /* synthetic */ String f59753a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ bm f59574b;
+    public final /* synthetic */ bm f59754b;
 
     public bn(bm bmVar, String str) {
         Interceptable interceptable = $ic;
@@ -31,19 +31,19 @@ public final class bn implements Runnable {
                 return;
             }
         }
-        this.f59574b = bmVar;
-        this.f59573a = str;
+        this.f59754b = bmVar;
+        this.f59753a = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SharedPreferences.Editor edit = this.f59574b.f59572b.getSharedPreferences("UfoSharePreference", 0).edit();
-            edit.putString("cryptContactData", com.baidu.ufosdk.f.k.a(this.f59573a));
+            SharedPreferences.Editor edit = this.f59754b.f59752b.getSharedPreferences("UfoSharePreference", 0).edit();
+            edit.putString("cryptContactData", com.baidu.ufosdk.f.k.a(this.f59753a));
             edit.commit();
-            this.f59574b.f59572b.aA = this.f59573a;
-            FeedbackInputActivity.j(this.f59574b.f59572b);
+            this.f59754b.f59752b.aA = this.f59753a;
+            FeedbackInputActivity.j(this.f59754b.f59752b);
         }
     }
 }

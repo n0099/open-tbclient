@@ -36,19 +36,19 @@ public class ImageProblemAssistant {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f53507a;
+    public final Context f53653a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbCdnIpListData f53508b;
+    public TbCdnIpListData f53654b;
 
     /* renamed from: c  reason: collision with root package name */
-    public StringBuilder f53509c;
+    public StringBuilder f53655c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<TestTask> f53510d;
+    public ArrayList<TestTask> f53656d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f53511e;
+    public boolean f53657e;
 
     /* loaded from: classes7.dex */
     public class TestTask {
@@ -56,13 +56,13 @@ public class ImageProblemAssistant {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53512a;
+        public String f53658a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53513b;
+        public int f53659b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f53514c;
+        public String f53660c;
 
         public TestTask(ImageProblemAssistant imageProblemAssistant) {
             Interceptable interceptable = $ic;
@@ -96,15 +96,15 @@ public class ImageProblemAssistant {
                 return;
             }
         }
-        this.f53510d = new ArrayList<>();
-        this.f53511e = false;
-        this.f53507a = context;
+        this.f53656d = new ArrayList<>();
+        this.f53657e = false;
+        this.f53653a = context;
         String[] strArr = {context.getString(R.string.img_assistant_title_1), context.getString(R.string.img_assistant_title_2), context.getString(R.string.img_assistant_title_3), context.getString(R.string.img_assistant_title_4), context.getString(R.string.img_assistant_title_5), context.getString(R.string.img_assistant_title_6)};
         for (int i4 = 0; i4 < 6; i4++) {
             String str = strArr[i4];
             TestTask testTask = new TestTask(this);
-            testTask.f53512a = str;
-            this.f53510d.add(testTask);
+            testTask.f53658a = str;
+            this.f53656d.add(testTask);
         }
     }
 
@@ -149,7 +149,7 @@ public class ImageProblemAssistant {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             try {
-                testTask = this.f53510d.get(1);
+                testTask = this.f53656d.get(1);
             } catch (Exception e3) {
                 testTask = null;
                 e2 = e3;
@@ -157,20 +157,20 @@ public class ImageProblemAssistant {
             try {
                 DhcpInfo dhcpInfo = ((WifiManager) BdBaseApplication.getInst().getApplicationContext().getSystemService("wifi")).getDhcpInfo();
                 String[] strArr = {"8.8.8.8", "4.4.4.4", "8.8.4.4"};
-                if (this.f53509c != null) {
-                    this.f53509c.append("_2:" + b(dhcpInfo.dns1) + "," + b(dhcpInfo.dns2));
+                if (this.f53655c != null) {
+                    this.f53655c.append("_2:" + b(dhcpInfo.dns1) + "," + b(dhcpInfo.dns2));
                 }
                 while (i2 < 3) {
                     String str = strArr[i2];
                     i2 = (b(dhcpInfo.dns1).equals(str) || b(dhcpInfo.dns2).equals(str)) ? 0 : i2 + 1;
-                    testTask.f53513b = 1;
-                    testTask.f53514c = this.f53507a.getString(R.string.img_assistant_helptext_2_1) + b(dhcpInfo.dns1) + "," + b(dhcpInfo.dns2) + this.f53507a.getString(R.string.img_assistant_helptext_2_2);
+                    testTask.f53659b = 1;
+                    testTask.f53660c = this.f53653a.getString(R.string.img_assistant_helptext_2_1) + b(dhcpInfo.dns1) + "," + b(dhcpInfo.dns2) + this.f53653a.getString(R.string.img_assistant_helptext_2_2);
                     return;
                 }
             } catch (Exception e4) {
                 e2 = e4;
                 if (testTask != null) {
-                    testTask.f53513b = 0;
+                    testTask.f53659b = 0;
                 }
                 BdLog.e(e2);
             }
@@ -183,7 +183,7 @@ public class ImageProblemAssistant {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                testTask = this.f53510d.get(5);
+                testTask = this.f53656d.get(5);
             } catch (Exception e3) {
                 testTask = null;
                 e2 = e3;
@@ -193,50 +193,50 @@ public class ImageProblemAssistant {
                 if (!TextUtils.isEmpty(postNetData)) {
                     JSONObject jSONObject = new JSONObject(postNetData);
                     TbCdnIpListData tbCdnIpListData = new TbCdnIpListData();
-                    this.f53508b = tbCdnIpListData;
+                    this.f53654b = tbCdnIpListData;
                     tbCdnIpListData.parseJson(jSONObject);
-                    boolean a2 = a(this.f53508b.f53468c, null);
+                    boolean a2 = a(this.f53654b.f53614c, null);
                     boolean a3 = a("http://imgsrc.baidu.com/forum/crop%3D0%2C63%2C900%2C630%3Bwh%3D150%2C105%3B/sign=8ec7a12a932397ddc236c24464b29e81/f2c8a786c9177f3e8cf664c072cf3bc79e3d5639.jpg", null);
-                    boolean a4 = a(TbConfig.URL_IMAGE_PREFIX + this.f53508b.f53468c, null);
+                    boolean a4 = a(TbConfig.URL_IMAGE_PREFIX + this.f53654b.f53614c, null);
                     if (!a3 && !a4) {
-                        testTask.f53513b = 2;
-                        testTask.f53514c = this.f53507a.getString(R.string.img_assistant_helptext_6_1);
-                        if (this.f53509c != null) {
-                            this.f53509c.append("_6:failed1");
+                        testTask.f53659b = 2;
+                        testTask.f53660c = this.f53653a.getString(R.string.img_assistant_helptext_6_1);
+                        if (this.f53655c != null) {
+                            this.f53655c.append("_6:failed1");
                             return;
                         }
                         return;
                     } else if (a2 && a3 && a4) {
-                        testTask.f53513b = 0;
-                        this.f53511e = true;
+                        testTask.f53659b = 0;
+                        this.f53657e = true;
                         return;
                     } else if (a4) {
-                        testTask.f53513b = 1;
-                        testTask.f53514c = this.f53507a.getString(R.string.img_assistant_helptext_6_2);
-                        if (this.f53509c != null) {
-                            this.f53509c.append("_6:warning");
+                        testTask.f53659b = 1;
+                        testTask.f53660c = this.f53653a.getString(R.string.img_assistant_helptext_6_2);
+                        if (this.f53655c != null) {
+                            this.f53655c.append("_6:warning");
                         }
-                        this.f53511e = true;
+                        this.f53657e = true;
                         return;
                     } else {
-                        testTask.f53513b = 2;
-                        testTask.f53514c = this.f53507a.getString(R.string.img_assistant_helptext_6_1);
-                        if (this.f53509c != null) {
-                            this.f53509c.append("_6:failed2");
+                        testTask.f53659b = 2;
+                        testTask.f53660c = this.f53653a.getString(R.string.img_assistant_helptext_6_1);
+                        if (this.f53655c != null) {
+                            this.f53655c.append("_6:failed2");
                             return;
                         }
                         return;
                     }
                 }
-                testTask.f53513b = 2;
-                testTask.f53514c = this.f53507a.getString(R.string.img_assistant_helptext_6_1);
-                if (this.f53509c != null) {
-                    this.f53509c.append("_6:failed:iplist");
+                testTask.f53659b = 2;
+                testTask.f53660c = this.f53653a.getString(R.string.img_assistant_helptext_6_1);
+                if (this.f53655c != null) {
+                    this.f53655c.append("_6:failed:iplist");
                 }
             } catch (Exception e4) {
                 e2 = e4;
                 if (testTask != null) {
-                    testTask.f53513b = 0;
+                    testTask.f53659b = 0;
                 }
                 BdLog.e(e2);
             }
@@ -249,7 +249,7 @@ public class ImageProblemAssistant {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                testTask = this.f53510d.get(2);
+                testTask = this.f53656d.get(2);
             } catch (Exception e3) {
                 testTask = null;
                 e2 = e3;
@@ -259,31 +259,31 @@ public class ImageProblemAssistant {
                 String property2 = System.getProperty("http.proxyPort");
                 try {
                     if (TextUtils.isEmpty(property)) {
-                        property = Proxy.getHost(this.f53507a);
+                        property = Proxy.getHost(this.f53653a);
                     }
                     if (TextUtils.isEmpty(property2)) {
-                        property2 = String.valueOf(Proxy.getPort(this.f53507a));
+                        property2 = String.valueOf(Proxy.getPort(this.f53653a));
                     }
                 } catch (Exception unused) {
                 }
                 if (property != null && property2 != null && property.length() > 0) {
-                    testTask.f53513b = 1;
+                    testTask.f53659b = 1;
                     if (j.H()) {
-                        testTask.f53514c = this.f53507a.getString(R.string.img_assistant_helptext_3);
+                        testTask.f53660c = this.f53653a.getString(R.string.img_assistant_helptext_3);
                     } else {
-                        testTask.f53514c = this.f53507a.getString(R.string.img_assistant_helptext_3_mobile);
+                        testTask.f53660c = this.f53653a.getString(R.string.img_assistant_helptext_3_mobile);
                     }
-                    if (this.f53509c != null) {
-                        this.f53509c.append("_3:" + property + ":" + property2);
+                    if (this.f53655c != null) {
+                        this.f53655c.append("_3:" + property + ":" + property2);
                         return;
                     }
                     return;
                 }
-                testTask.f53513b = 0;
+                testTask.f53659b = 0;
             } catch (Exception e4) {
                 e2 = e4;
                 if (testTask != null) {
-                    testTask.f53513b = 0;
+                    testTask.f53659b = 0;
                 }
                 BdLog.e(e2);
             }
@@ -296,17 +296,17 @@ public class ImageProblemAssistant {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                testTask = this.f53510d.get(4);
+                testTask = this.f53656d.get(4);
             } catch (Exception e3) {
                 testTask = null;
                 e2 = e3;
             }
             try {
-                testTask.f53513b = 0;
+                testTask.f53659b = 0;
             } catch (Exception e4) {
                 e2 = e4;
                 if (testTask != null) {
-                    testTask.f53513b = 0;
+                    testTask.f53659b = 0;
                 }
                 BdLog.e(e2);
             }
@@ -316,8 +316,8 @@ public class ImageProblemAssistant {
     public void fix() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ImageLogger.assistant(this.f53509c.toString());
-            if (this.f53511e) {
+            ImageLogger.assistant(this.f53655c.toString());
+            if (this.f53657e) {
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.CDN_LOG_ADDRESS);
                     netWork.addPostData("ab_img_m", "1");
@@ -346,31 +346,31 @@ public class ImageProblemAssistant {
         Exception e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f53509c = new StringBuilder();
-            Iterator<TestTask> it = this.f53510d.iterator();
+            this.f53655c = new StringBuilder();
+            Iterator<TestTask> it = this.f53656d.iterator();
             while (it.hasNext()) {
-                it.next().f53514c = "";
+                it.next().f53660c = "";
             }
             try {
-                testTask = this.f53510d.get(0);
+                testTask = this.f53656d.get(0);
             } catch (Exception e3) {
                 testTask = null;
                 e2 = e3;
             }
             try {
                 if (l.D()) {
-                    testTask.f53513b = 0;
+                    testTask.f53659b = 0;
                 } else {
-                    testTask.f53513b = 2;
-                    testTask.f53514c = this.f53507a.getString(R.string.img_assistant_helptext_1);
-                    if (this.f53509c != null) {
-                        this.f53509c.append("1:failed");
+                    testTask.f53659b = 2;
+                    testTask.f53660c = this.f53653a.getString(R.string.img_assistant_helptext_1);
+                    if (this.f53655c != null) {
+                        this.f53655c.append("1:failed");
                     }
                 }
             } catch (Exception e4) {
                 e2 = e4;
                 if (testTask != null) {
-                    testTask.f53513b = 0;
+                    testTask.f53659b = 0;
                 }
                 BdLog.e(e2);
             }
@@ -385,22 +385,22 @@ public class ImageProblemAssistant {
             return;
         }
         try {
-            testTask = this.f53510d.get(3);
+            testTask = this.f53656d.get(3);
             try {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (a(TbDomainConfig.DOMAIN_HTTPS_BAIDU, null)) {
-                    testTask.f53513b = 0;
+                    testTask.f53659b = 0;
                 } else {
-                    testTask.f53513b = 2;
-                    testTask.f53514c = this.f53507a.getString(R.string.img_assistant_helptext_4);
-                    if (this.f53509c != null) {
-                        this.f53509c.append("_4:failed:" + String.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                    testTask.f53659b = 2;
+                    testTask.f53660c = this.f53653a.getString(R.string.img_assistant_helptext_4);
+                    if (this.f53655c != null) {
+                        this.f53655c.append("_4:failed:" + String.valueOf(System.currentTimeMillis() - currentTimeMillis));
                     }
                 }
             } catch (Exception e3) {
                 e2 = e3;
                 if (testTask != null) {
-                    testTask.f53513b = 0;
+                    testTask.f53659b = 0;
                 }
                 BdLog.e(e2);
             }

@@ -14,7 +14,7 @@ public abstract class a implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<C2005a> f72497a;
+    public ArrayList<C2005a> f72677a;
 
     /* renamed from: com.kwad.sdk.crash.report.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
@@ -23,10 +23,10 @@ public abstract class a implements c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ExceptionMessage f72498a;
+        public ExceptionMessage f72678a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f72499b;
+        public int f72679b;
 
         public C2005a(ExceptionMessage exceptionMessage, int i2) {
             Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public abstract class a implements c {
                     return;
                 }
             }
-            this.f72498a = exceptionMessage;
-            this.f72499b = i2;
+            this.f72678a = exceptionMessage;
+            this.f72679b = i2;
         }
     }
 
@@ -61,19 +61,19 @@ public abstract class a implements c {
                 return;
             }
         }
-        this.f72497a = new ArrayList<>();
+        this.f72677a = new ArrayList<>();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.f72497a.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.f72677a.isEmpty()) {
             return;
         }
         try {
-            Iterator<C2005a> it = this.f72497a.iterator();
+            Iterator<C2005a> it = this.f72677a.iterator();
             while (it.hasNext()) {
                 C2005a next = it.next();
-                b(next.f72498a, next.f72499b);
+                b(next.f72678a, next.f72679b);
                 it.remove();
             }
         } catch (Throwable th) {
@@ -99,7 +99,7 @@ public abstract class a implements c {
                 b(exceptionMessage, i2);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
-                this.f72497a.add(new C2005a(exceptionMessage, i2));
+                this.f72677a.add(new C2005a(exceptionMessage, i2));
             }
         }
     }

@@ -36,7 +36,7 @@ public final class e {
         if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || (context = KsAdSDKImpl.get().getContext()) == null) {
             return;
         }
-        if (com.kwad.sdk.d.f72543a == 1) {
+        if (com.kwad.sdk.d.f72723a == 1) {
             com.kwad.sdk.plugin.a aVar = (com.kwad.sdk.plugin.a) com.kwad.sdk.plugin.f.a(com.kwad.sdk.plugin.a.class);
             if (aVar != null) {
                 aVar.a(context, str);

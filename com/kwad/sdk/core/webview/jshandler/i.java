@@ -21,21 +21,21 @@ public class i implements com.kwad.sdk.core.webview.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f72352a;
+    public Handler f72532a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final WebView f72353b;
+    public final WebView f72533b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a.c f72354c;
+    public com.kwad.sdk.core.webview.a.c f72534c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public b f72355d;
+    public b f72535d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f72356e;
+    public boolean f72536e;
 
     /* loaded from: classes10.dex */
     public static final class a implements com.kwad.sdk.core.b {
@@ -43,16 +43,16 @@ public class i implements com.kwad.sdk.core.webview.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f72360a;
+        public int f72540a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f72361b;
+        public int f72541b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f72362c;
+        public int f72542c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f72363d;
+        public int f72543d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -74,10 +74,10 @@ public class i implements com.kwad.sdk.core.webview.a.a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f72360a = jSONObject.optInt("height");
-            this.f72361b = jSONObject.optInt("leftMargin");
-            this.f72362c = jSONObject.optInt("rightMargin");
-            this.f72363d = jSONObject.optInt("bottomMargin");
+            this.f72540a = jSONObject.optInt("height");
+            this.f72541b = jSONObject.optInt("leftMargin");
+            this.f72542c = jSONObject.optInt("rightMargin");
+            this.f72543d = jSONObject.optInt("bottomMargin");
         }
 
         @Override // com.kwad.sdk.core.b
@@ -86,10 +86,10 @@ public class i implements com.kwad.sdk.core.webview.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                com.kwad.sdk.utils.q.a(jSONObject, "height", this.f72360a);
-                com.kwad.sdk.utils.q.a(jSONObject, "leftMargin", this.f72361b);
-                com.kwad.sdk.utils.q.a(jSONObject, "rightMargin", this.f72362c);
-                com.kwad.sdk.utils.q.a(jSONObject, "bottomMargin", this.f72363d);
+                com.kwad.sdk.utils.q.a(jSONObject, "height", this.f72540a);
+                com.kwad.sdk.utils.q.a(jSONObject, "leftMargin", this.f72541b);
+                com.kwad.sdk.utils.q.a(jSONObject, "rightMargin", this.f72542c);
+                com.kwad.sdk.utils.q.a(jSONObject, "bottomMargin", this.f72543d);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -138,11 +138,11 @@ public class i implements com.kwad.sdk.core.webview.a.a {
                 return;
             }
         }
-        this.f72356e = true;
-        this.f72352a = new Handler(Looper.getMainLooper());
-        this.f72353b = aVar.f72247f;
-        this.f72355d = bVar;
-        this.f72356e = z;
+        this.f72536e = true;
+        this.f72532a = new Handler(Looper.getMainLooper());
+        this.f72533b = aVar.f72427f;
+        this.f72535d = bVar;
+        this.f72536e = z;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -157,20 +157,20 @@ public class i implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            this.f72354c = cVar;
+            this.f72534c = cVar;
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 a aVar = new a();
                 aVar.parseJson(jSONObject);
-                this.f72352a.post(new Runnable(this, aVar) { // from class: com.kwad.sdk.core.webview.jshandler.i.1
+                this.f72532a.post(new Runnable(this, aVar) { // from class: com.kwad.sdk.core.webview.jshandler.i.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f72357a;
+                    public final /* synthetic */ a f72537a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ i f72358b;
+                    public final /* synthetic */ i f72538b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -187,36 +187,36 @@ public class i implements com.kwad.sdk.core.webview.a.a {
                                 return;
                             }
                         }
-                        this.f72358b = this;
-                        this.f72357a = aVar;
+                        this.f72538b = this;
+                        this.f72537a = aVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (this.f72358b.f72353b != null && this.f72358b.f72356e) {
-                                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f72358b.f72353b.getLayoutParams();
+                            if (this.f72538b.f72533b != null && this.f72538b.f72536e) {
+                                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f72538b.f72533b.getLayoutParams();
                                 marginLayoutParams.width = -1;
-                                a aVar2 = this.f72357a;
-                                marginLayoutParams.height = aVar2.f72360a;
-                                marginLayoutParams.leftMargin = aVar2.f72361b;
-                                marginLayoutParams.rightMargin = aVar2.f72362c;
-                                marginLayoutParams.bottomMargin = aVar2.f72363d;
-                                this.f72358b.f72353b.setLayoutParams(marginLayoutParams);
+                                a aVar2 = this.f72537a;
+                                marginLayoutParams.height = aVar2.f72540a;
+                                marginLayoutParams.leftMargin = aVar2.f72541b;
+                                marginLayoutParams.rightMargin = aVar2.f72542c;
+                                marginLayoutParams.bottomMargin = aVar2.f72543d;
+                                this.f72538b.f72533b.setLayoutParams(marginLayoutParams);
                             }
-                            if (this.f72358b.f72355d != null) {
-                                this.f72358b.f72355d.a(this.f72357a);
+                            if (this.f72538b.f72535d != null) {
+                                this.f72538b.f72535d.a(this.f72537a);
                             }
                         }
                     }
                 });
-                this.f72352a.post(new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.i.2
+                this.f72532a.post(new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.i.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ i f72359a;
+                    public final /* synthetic */ i f72539a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -233,16 +233,16 @@ public class i implements com.kwad.sdk.core.webview.a.a {
                                 return;
                             }
                         }
-                        this.f72359a = this;
+                        this.f72539a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f72359a.f72354c == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f72539a.f72534c == null) {
                             return;
                         }
-                        this.f72359a.f72354c.a(null);
+                        this.f72539a.f72534c.a(null);
                     }
                 });
             } catch (JSONException e2) {
@@ -256,9 +256,9 @@ public class i implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f72354c = null;
-            this.f72355d = null;
-            this.f72352a.removeCallbacksAndMessages(null);
+            this.f72534c = null;
+            this.f72535d = null;
+            this.f72532a.removeCallbacksAndMessages(null);
         }
     }
 }

@@ -15,10 +15,10 @@ public class a extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Surface f30957c;
+    public Surface f30584c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f30958d;
+    public boolean f30585d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(c.a.x.b.d.a aVar, Surface surface, boolean z) {
@@ -39,16 +39,16 @@ public class a extends b {
             }
         }
         a(surface);
-        this.f30957c = surface;
-        this.f30958d = z;
+        this.f30584c = surface;
+        this.f30585d = z;
     }
 
     public void f(c.a.x.b.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            Surface surface = this.f30957c;
+            Surface surface = this.f30584c;
             if (surface != null) {
-                this.f30962a = aVar;
+                this.f30589a = aVar;
                 a(surface);
                 return;
             }
@@ -60,12 +60,12 @@ public class a extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             c();
-            Surface surface = this.f30957c;
+            Surface surface = this.f30584c;
             if (surface != null) {
-                if (this.f30958d) {
+                if (this.f30585d) {
                     surface.release();
                 }
-                this.f30957c = null;
+                this.f30584c = null;
             }
         }
     }

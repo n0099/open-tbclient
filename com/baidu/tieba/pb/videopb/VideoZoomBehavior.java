@@ -24,10 +24,10 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public VideoContainerLayout f55426a;
+    public VideoContainerLayout f55576a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPbViewModel f55427b;
+    public VideoPbViewModel f55577b;
 
     public VideoZoomBehavior() {
         Interceptable interceptable = $ic;
@@ -93,26 +93,26 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
             boolean topAndBottomOffset = super.setTopAndBottomOffset(i2);
-            if (topAndBottomOffset && (videoContainerLayout = this.f55426a) != null && (layoutParams = videoContainerLayout.getLayoutParams()) != null) {
-                int maxHeight = this.f55426a.getMaxHeight() + i2;
+            if (topAndBottomOffset && (videoContainerLayout = this.f55576a) != null && (layoutParams = videoContainerLayout.getLayoutParams()) != null) {
+                int maxHeight = this.f55576a.getMaxHeight() + i2;
                 if (layoutParams.height != maxHeight) {
                     layoutParams.height = maxHeight;
-                    this.f55426a.setLayoutParams(layoutParams);
+                    this.f55576a.setLayoutParams(layoutParams);
                 }
-                if (this.f55427b == null && (this.f55426a.getContext() instanceof AbsPbActivity)) {
-                    this.f55427b = (VideoPbViewModel) ViewModelProviders.of((AbsPbActivity) this.f55426a.getContext()).get(VideoPbViewModel.class);
+                if (this.f55577b == null && (this.f55576a.getContext() instanceof AbsPbActivity)) {
+                    this.f55577b = (VideoPbViewModel) ViewModelProviders.of((AbsPbActivity) this.f55576a.getContext()).get(VideoPbViewModel.class);
                 }
-                VideoPbViewModel videoPbViewModel = this.f55427b;
+                VideoPbViewModel videoPbViewModel = this.f55577b;
                 if (videoPbViewModel != null) {
                     if (i2 > -5) {
                         MutableLiveData<Boolean> isDetailTabTop = videoPbViewModel.getIsDetailTabTop();
                         if (isDetailTabTop == null || isDetailTabTop.getValue() == null || !isDetailTabTop.getValue().booleanValue()) {
-                            this.f55427b.setIsDetailTabTop(true);
+                            this.f55577b.setIsDetailTabTop(true);
                         }
                     } else {
                         MutableLiveData<Boolean> isDetailTabTop2 = videoPbViewModel.getIsDetailTabTop();
                         if (isDetailTabTop2 == null || isDetailTabTop2.getValue() == null || isDetailTabTop2.getValue().booleanValue()) {
-                            this.f55427b.setIsDetailTabTop(false);
+                            this.f55577b.setIsDetailTabTop(false);
                         }
                     }
                 }
@@ -149,7 +149,7 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, coordinatorLayout, appBarLayout, i2)) == null) {
-            this.f55426a = a(appBarLayout);
+            this.f55576a = a(appBarLayout);
             return super.onLayoutChild(coordinatorLayout, appBarLayout, i2);
         }
         return invokeLLI.booleanValue;
@@ -182,7 +182,7 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{coordinatorLayout, appBarLayout, view, view2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             VideoContainerLayout a2 = a(appBarLayout);
-            this.f55426a = a2;
+            this.f55576a = a2;
             return (a2 == null || (i2 & 2) == 0) ? false : true;
         }
         return invokeCommon.booleanValue;

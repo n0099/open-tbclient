@@ -4,8 +4,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.BaseTaskPool;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.task.item.CheckRepackagingTask;
+import com.baidu.searchbox.task.item.InitAccountAndPersonalizePageDataTask;
 import com.baidu.searchbox.task.item.InitAccountChangeTask;
-import com.baidu.searchbox.task.item.InitAccountTask;
+import com.baidu.searchbox.task.item.InitAdTask;
 import com.baidu.searchbox.task.item.InitAllTask;
 import com.baidu.searchbox.task.item.InitArTask;
 import com.baidu.searchbox.task.item.InitDimenAdaptTask;
@@ -40,18 +41,32 @@ public class ApplicationTaskPool extends BaseTaskPool {
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
-    public List<LaunchTask> onAppCreate(boolean z) {
+    public List<LaunchTask> beforeAppCreate(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             ArrayList arrayList = new ArrayList();
+            if (z) {
+                arrayList.add(new InitAdTask());
+            }
+            return arrayList;
+        }
+        return (List) invokeZ.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
+    public List<LaunchTask> onAppCreate(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            ArrayList arrayList = new ArrayList();
             if (z && LaunchUpSpeedSwitch.getIsOn()) {
+                arrayList.add(new InitAccountAndPersonalizePageDataTask());
                 arrayList.add(new InitMessageTask());
                 arrayList.add(new InitAccountChangeTask());
                 arrayList.add(new PermissionUtilTask());
                 arrayList.add(new InitDimenAdaptTask());
                 arrayList.add(new InitAllTask());
-                arrayList.add(new InitAccountTask());
                 arrayList.add(new InitSapiTask());
                 arrayList.add(new InitArTask());
             }
@@ -64,7 +79,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
     public List<LaunchTask> onUiReady(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
             ArrayList arrayList = new ArrayList();
             if (z) {
                 arrayList.add(new CheckRepackagingTask());

@@ -14,12 +14,12 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f42017a;
+    public static boolean f42128a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context, boolean z, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Boolean.valueOf(z), str, str2, str3}) == null) || f42017a) {
+        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Boolean.valueOf(z), str, str2, str3}) == null) || f42128a) {
             return;
         }
         if (context == null) {
@@ -39,7 +39,7 @@ public class c {
         }
         EnvironmentUtilities.initAppDirectory(context);
         com.baidu.mapsdkplatform.comapi.b.a.c.a().a(context);
-        f42017a = true;
+        f42128a = true;
     }
 
     public static boolean a(String str) {

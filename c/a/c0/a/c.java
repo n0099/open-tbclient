@@ -138,13 +138,13 @@ public final class c {
     public static final int sapi_sdk_title_text_size = 2131166818;
     public static final int sapi_sdk_webview_radius = 2131166819;
     public static final int sapi_sdk_youth_style_webview_radius = 2131166820;
-    public static final int tooltip_corner_radius = 2131167620;
-    public static final int tooltip_horizontal_padding = 2131167621;
-    public static final int tooltip_margin = 2131167622;
-    public static final int tooltip_precise_anchor_extra_offset = 2131167623;
-    public static final int tooltip_precise_anchor_threshold = 2131167624;
-    public static final int tooltip_vertical_padding = 2131167625;
-    public static final int tooltip_y_offset_non_touch = 2131167626;
-    public static final int tooltip_y_offset_touch = 2131167627;
+    public static final int tooltip_corner_radius = 2131167621;
+    public static final int tooltip_horizontal_padding = 2131167622;
+    public static final int tooltip_margin = 2131167623;
+    public static final int tooltip_precise_anchor_extra_offset = 2131167624;
+    public static final int tooltip_precise_anchor_threshold = 2131167625;
+    public static final int tooltip_vertical_padding = 2131167626;
+    public static final int tooltip_y_offset_non_touch = 2131167627;
+    public static final int tooltip_y_offset_touch = 2131167628;
     public transient /* synthetic */ FieldHolder $fh;
 }

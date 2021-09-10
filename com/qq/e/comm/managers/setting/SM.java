@@ -22,34 +22,34 @@ public class SM {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f75176a;
+    public a f75356a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f75177b;
+    public String f75357b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f75178c;
+    public a f75358c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f75179d;
+    public a f75359d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f75180e;
+    public String f75360e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f75181f;
+    public d f75361f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f75182g;
+    public d f75362g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f75183h;
+    public String f75363h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f75184i;
+    public c f75364i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final c f75185j;
+    public final c f75365j;
     public String k;
     public String l;
     public Context m;
@@ -72,11 +72,11 @@ public class SM {
         }
         this.l = "";
         this.m = context;
-        this.f75176a = new a();
-        this.f75179d = new a();
-        this.f75182g = new b();
-        this.f75184i = new c();
-        this.f75185j = new c();
+        this.f75356a = new a();
+        this.f75359d = new a();
+        this.f75362g = new b();
+        this.f75364i = new c();
+        this.f75365j = new c();
         this.n = SystemUtil.buildNewPathByProcessName("e_qq_com_setting");
         try {
             this.k = StringUtil.readAll(new File(this.m.getDir(this.n, 0), "gdt_suid"));
@@ -97,8 +97,8 @@ public class SM {
                 GDTLogger.d("Load Local SDK Cloud setting fail");
                 return;
             }
-            this.f75180e = b2.a();
-            this.f75181f = b2.b();
+            this.f75360e = b2.a();
+            this.f75361f = b2.b();
         }
     }
 
@@ -110,8 +110,8 @@ public class SM {
                 GDTLogger.d("Load Local DEV Cloud setting fail");
                 return;
             }
-            this.f75178c = a2.b();
-            this.f75177b = a2.a();
+            this.f75358c = a2.b();
+            this.f75357b = a2.a();
         }
     }
 
@@ -123,8 +123,8 @@ public class SM {
                 GDTLogger.d("Load Local DEV Cloud setting fail");
                 return;
             }
-            this.f75184i = c2.b();
-            this.f75183h = c2.a();
+            this.f75364i = c2.b();
+            this.f75363h = c2.a();
         }
     }
 
@@ -140,12 +140,12 @@ public class SM {
                 return null;
             }
             try {
-                if (this.f75176a == null || (a5 = this.f75176a.a(str)) == null) {
-                    if (this.f75178c == null || (a4 = this.f75178c.a(str)) == null) {
-                        if (this.f75179d == null || (a3 = this.f75179d.a(str)) == null) {
-                            if (this.f75181f == null || (a2 = this.f75181f.a(str)) == null) {
-                                if (this.f75182g != null) {
-                                    return this.f75182g.a(str);
+                if (this.f75356a == null || (a5 = this.f75356a.a(str)) == null) {
+                    if (this.f75358c == null || (a4 = this.f75358c.a(str)) == null) {
+                        if (this.f75359d == null || (a3 = this.f75359d.a(str)) == null) {
+                            if (this.f75361f == null || (a2 = this.f75361f.a(str)) == null) {
+                                if (this.f75362g != null) {
+                                    return this.f75362g.a(str);
                                 }
                                 return null;
                             }
@@ -167,13 +167,13 @@ public class SM {
     public String getDevCloudSettingSig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75177b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75357b : (String) invokeV.objValue;
     }
 
     public Object getDisplaySetting(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f75185j.a(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f75365j.a(str) : invokeL.objValue;
     }
 
     public Object getForPlacement(String str, String str2) {
@@ -191,8 +191,8 @@ public class SM {
                 return get(str);
             }
             try {
-                Object a6 = this.f75185j.a(str, str2);
-                return a6 != null ? a6 : (this.f75184i == null || (a5 = this.f75184i.a(str, str2)) == null) ? (this.f75176a == null || (a4 = this.f75176a.a(str, str2)) == null) ? (this.f75178c == null || (a3 = this.f75178c.a(str, str2)) == null) ? (this.f75179d == null || (a2 = this.f75179d.a(str, str2)) == null) ? get(str) : a2 : a3 : a4 : a5;
+                Object a6 = this.f75365j.a(str, str2);
+                return a6 != null ? a6 : (this.f75364i == null || (a5 = this.f75364i.a(str, str2)) == null) ? (this.f75356a == null || (a4 = this.f75356a.a(str, str2)) == null) ? (this.f75358c == null || (a3 = this.f75358c.a(str, str2)) == null) ? (this.f75359d == null || (a2 = this.f75359d.a(str, str2)) == null) ? get(str) : a2 : a3 : a4 : a5;
             } catch (Throwable unused) {
                 GDTLogger.d("Exception in settingManager.getForPlacement");
                 return null;
@@ -225,13 +225,13 @@ public class SM {
     public String getPlacementCloudSettingSig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f75183h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f75363h : (String) invokeV.objValue;
     }
 
     public String getSdkCloudSettingSig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f75180e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f75360e : (String) invokeV.objValue;
     }
 
     public String getSettingDir() {
@@ -296,14 +296,14 @@ public class SM {
     public void setDEVCodeSetting(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, str, obj) == null) {
-            this.f75179d.a(str, obj);
+            this.f75359d.a(str, obj);
         }
     }
 
     public void setDEVCodeSetting(String str, Object obj, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048592, this, str, obj, str2) == null) {
-            this.f75179d.a(str, obj, str2);
+            this.f75359d.a(str, obj, str2);
         }
     }
 
@@ -315,7 +315,7 @@ public class SM {
                 if (!TextUtils.isEmpty(str)) {
                     aVar = new a(new String(Base64.decode(str, 0), "UTF-8"));
                 }
-                this.f75176a = aVar;
+                this.f75356a = aVar;
             } catch (Throwable unused) {
                 GDTLogger.d("Exception while update Context Setting");
             }
@@ -332,7 +332,7 @@ public class SM {
     public void updateDisplaySetting(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, str, obj) == null) {
-            this.f75185j.a(str, obj);
+            this.f75365j.a(str, obj);
         }
     }
 
@@ -341,8 +341,8 @@ public class SM {
         if (interceptable == null || interceptable.invokeLL(1048596, this, str, str2) == null) {
             if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
                 e.d(this.m);
-                this.f75184i = new c();
-                this.f75183h = null;
+                this.f75364i = new c();
+                this.f75363h = null;
             } else if (e.c(this.m, str, str2)) {
                 c();
             }

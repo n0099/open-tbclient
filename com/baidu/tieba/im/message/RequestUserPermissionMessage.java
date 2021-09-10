@@ -41,7 +41,7 @@ public class RequestUserPermissionMessage extends TbSocketMessage {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.forumId = Integer.valueOf(b.d(String.valueOf(getForumId()), 0));
+                builder.forumId = Integer.valueOf(b.e(String.valueOf(getForumId()), 0));
                 QueryUserPermissionReqIdl.Builder builder2 = new QueryUserPermissionReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

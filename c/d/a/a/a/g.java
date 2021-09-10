@@ -11,7 +11,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static AtomicLong f31592a;
+    public static AtomicLong f31701a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,17 +27,17 @@ public class g {
                 return;
             }
         }
-        f31592a = new AtomicLong(999L);
+        f31701a = new AtomicLong(999L);
     }
 
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (0 == f31592a.incrementAndGet()) {
-                f31592a.set(999L);
+            if (0 == f31701a.incrementAndGet()) {
+                f31701a.set(999L);
             }
-            return f31592a.get();
+            return f31701a.get();
         }
         return invokeV.longValue;
     }
@@ -48,7 +48,7 @@ public class g {
             if (0 == j2) {
                 j2 = 999;
             }
-            f31592a.set(j2);
+            f31701a.set(j2);
         }
     }
 }

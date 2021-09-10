@@ -28,7 +28,7 @@ public final class b extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f63581a;
+    public final String[] f63761a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public final class b extends g {
                 return;
             }
         }
-        this.f63581a = new String[]{"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
+        this.f63761a = new String[]{"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
     }
 
     private boolean a(String str) {
@@ -57,7 +57,7 @@ public final class b extends g {
         }
         int i2 = 0;
         while (true) {
-            String[] strArr = this.f63581a;
+            String[] strArr = this.f63761a;
             if (i2 >= strArr.length) {
                 return false;
             }
@@ -99,7 +99,7 @@ public final class b extends g {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f63583a;
+                            public final /* synthetic */ b f63763a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -116,7 +116,7 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f63583a = this;
+                                this.f63763a = this;
                             }
 
                             @Override // android.content.DialogInterface.OnClickListener
@@ -130,7 +130,7 @@ public final class b extends g {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f63582a;
+                            public final /* synthetic */ b f63762a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -147,7 +147,7 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f63582a = this;
+                                this.f63762a = this;
                             }
 
                             @Override // android.content.DialogInterface.OnCancelListener
@@ -163,10 +163,10 @@ public final class b extends g {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AlertDialog f63584a;
+                            public final /* synthetic */ AlertDialog f63764a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ b f63585b;
+                            public final /* synthetic */ b f63765b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -183,8 +183,8 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f63585b = this;
-                                this.f63584a = show;
+                                this.f63765b = this;
+                                this.f63764a = show;
                             }
 
                             @Override // java.lang.Runnable
@@ -192,7 +192,7 @@ public final class b extends g {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     try {
-                                        this.f63584a.dismiss();
+                                        this.f63764a.dismiss();
                                     } catch (Exception e2) {
                                         e2.printStackTrace();
                                     }

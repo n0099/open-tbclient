@@ -59,7 +59,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
                 }
             }
             IN_PROGRESS = new DataSourceStatus("IN_PROGRESS", 0);
-            SUCCESS = new DataSourceStatus(c.f36090g, 1);
+            SUCCESS = new DataSourceStatus(c.f36199g, 1);
             DataSourceStatus dataSourceStatus = new DataSourceStatus("FAILURE", 2);
             FAILURE = dataSourceStatus;
             $VALUES = new DataSourceStatus[]{IN_PROGRESS, SUCCESS, dataSourceStatus};

@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.adModel;
 
-import c.a.q0.v0.g1.c;
+import c.a.r0.w0.g1.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

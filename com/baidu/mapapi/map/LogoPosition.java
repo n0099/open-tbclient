@@ -13,7 +13,7 @@ public final class LogoPosition {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ LogoPosition[] f41350a;
+    public static final /* synthetic */ LogoPosition[] f41461a;
     public static final LogoPosition logoPostionCenterBottom;
     public static final LogoPosition logoPostionCenterTop;
     public static final LogoPosition logoPostionRightBottom;
@@ -42,7 +42,7 @@ public final class LogoPosition {
         logoPostionRightBottom = new LogoPosition("logoPostionRightBottom", 4);
         LogoPosition logoPosition = new LogoPosition("logoPostionRightTop", 5);
         logoPostionRightTop = logoPosition;
-        f41350a = new LogoPosition[]{logoPostionleftBottom, logoPostionleftTop, logoPostionCenterBottom, logoPostionCenterTop, logoPostionRightBottom, logoPosition};
+        f41461a = new LogoPosition[]{logoPostionleftBottom, logoPostionleftTop, logoPostionCenterBottom, logoPostionCenterTop, logoPostionRightBottom, logoPosition};
     }
 
     public LogoPosition(String str, int i2) {
@@ -73,6 +73,6 @@ public final class LogoPosition {
     public static LogoPosition[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LogoPosition[]) f41350a.clone() : (LogoPosition[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LogoPosition[]) f41461a.clone() : (LogoPosition[]) invokeV.objValue;
     }
 }

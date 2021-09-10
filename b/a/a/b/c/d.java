@@ -55,10 +55,9 @@ public class d extends i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar)) == null) {
             HashMap hashMap = new HashMap();
-            long j2 = eVar.f1539b;
-            long j3 = eVar.f1541d;
-            long j4 = eVar.f1540c;
-            hashMap.put("Range", "bytes=" + (j2 + j3) + "-" + j4);
+            long j2 = eVar.f1539b + eVar.f1541d;
+            long j3 = eVar.f1540c;
+            hashMap.put("Range", "bytes=" + j2 + "-" + j3);
             return hashMap;
         }
         return (Map) invokeL.objValue;

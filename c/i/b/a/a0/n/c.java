@@ -21,7 +21,7 @@ public final class c extends TagPayloadReader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f32379b;
+    public long f32488b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(m mVar) {
@@ -41,7 +41,7 @@ public final class c extends TagPayloadReader {
                 return;
             }
         }
-        this.f32379b = -9223372036854775807L;
+        this.f32488b = -9223372036854775807L;
     }
 
     public static Boolean e(l lVar) {
@@ -152,7 +152,7 @@ public final class c extends TagPayloadReader {
             int D = lVar.D();
             int c2 = lVar.c();
             lVar.K(D);
-            return new String(lVar.f33703a, c2, D);
+            return new String(lVar.f33812a, c2, D);
         }
         return (String) invokeL.objValue;
     }
@@ -183,7 +183,7 @@ public final class c extends TagPayloadReader {
                     if (i2.containsKey("duration")) {
                         double doubleValue = ((Double) i2.get("duration")).doubleValue();
                         if (doubleValue > 0.0d) {
-                            this.f32379b = (long) (doubleValue * 1000000.0d);
+                            this.f32488b = (long) (doubleValue * 1000000.0d);
                             return;
                         }
                         return;
@@ -199,6 +199,6 @@ public final class c extends TagPayloadReader {
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32379b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32488b : invokeV.longValue;
     }
 }

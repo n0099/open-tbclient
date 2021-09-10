@@ -17,11 +17,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Long, b> f68607a;
+    public static final Map<Long, b> f68787a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a> f68608b;
+    public final Map<String, com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a> f68788b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public class b {
                 return;
             }
         }
-        f68607a = new HashMap();
+        f68787a = new HashMap();
     }
 
     public b() {
@@ -52,7 +52,7 @@ public class b {
                 return;
             }
         }
-        this.f68608b = new HashMap();
+        this.f68788b = new HashMap();
     }
 
     public static b a(long j2) {
@@ -60,11 +60,11 @@ public class b {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
-            synchronized (f68607a) {
-                bVar = f68607a.get(Long.valueOf(j2));
+            synchronized (f68787a) {
+                bVar = f68787a.get(Long.valueOf(j2));
                 if (bVar == null) {
                     bVar = new b();
-                    f68607a.put(Long.valueOf(j2), bVar);
+                    f68787a.put(Long.valueOf(j2), bVar);
                 }
             }
             return bVar;
@@ -77,11 +77,11 @@ public class b {
         com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this.f68608b) {
-                aVar = this.f68608b.get(str);
+            synchronized (this.f68788b) {
+                aVar = this.f68788b.get(str);
                 if (aVar == null) {
                     aVar = new com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a();
-                    this.f68608b.put(str, aVar);
+                    this.f68788b.put(str, aVar);
                 }
             }
             return aVar;
@@ -94,8 +94,8 @@ public class b {
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this.f68608b) {
-                arrayList = new ArrayList(this.f68608b.values());
+            synchronized (this.f68788b) {
+                arrayList = new ArrayList(this.f68788b.values());
             }
             return arrayList;
         }

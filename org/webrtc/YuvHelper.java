@@ -33,22 +33,16 @@ public class YuvHelper {
             int i8 = i5 * i6;
             int i9 = ((i6 + 1) / 2) * i7;
             int i10 = (i9 * 2) + i8;
-            if (byteBuffer4.capacity() < i10) {
-                throw new IllegalArgumentException("Expected destination buffer capacity to be at least " + i10 + " was " + byteBuffer4.capacity());
+            if (byteBuffer4.capacity() >= i10) {
+                byteBuffer4.position(0);
+                ByteBuffer slice = byteBuffer4.slice();
+                byteBuffer4.position(i8);
+                ByteBuffer slice2 = byteBuffer4.slice();
+                byteBuffer4.position(i9 + i8);
+                nativeI420Copy(byteBuffer, i2, byteBuffer2, i3, byteBuffer3, i4, slice, i5, slice2, i7, byteBuffer4.slice(), i7, i5, i6);
+                return;
             }
-            byteBuffer4.position(0);
-            ByteBuffer slice = byteBuffer4.slice();
-            byteBuffer4.position(i8);
-            ByteBuffer slice2 = byteBuffer4.slice();
-            byteBuffer4.position(i9 + i8);
-            nativeI420Copy(byteBuffer, i2, byteBuffer2, i3, byteBuffer3, i4, slice, i5, slice2, i7, byteBuffer4.slice(), i7, i5, i6);
-        }
-    }
-
-    public static void I420Copy(ByteBuffer byteBuffer, int i2, ByteBuffer byteBuffer2, int i3, ByteBuffer byteBuffer3, int i4, ByteBuffer byteBuffer4, int i5, ByteBuffer byteBuffer5, int i6, ByteBuffer byteBuffer6, int i7, int i8, int i9) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{byteBuffer, Integer.valueOf(i2), byteBuffer2, Integer.valueOf(i3), byteBuffer3, Integer.valueOf(i4), byteBuffer4, Integer.valueOf(i5), byteBuffer5, Integer.valueOf(i6), byteBuffer6, Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
-            nativeI420Copy(byteBuffer, i2, byteBuffer2, i3, byteBuffer3, i4, byteBuffer4, i5, byteBuffer5, i6, byteBuffer6, i7, i8, i9);
+            throw new IllegalArgumentException("Expected destination buffer capacity to be at least " + i10 + " was " + byteBuffer4.capacity());
         }
     }
 
@@ -62,22 +56,16 @@ public class YuvHelper {
             int i12 = i10 * i9;
             int i13 = ((i10 + 1) / 2) * i11;
             int i14 = (i13 * 2) + i12;
-            if (byteBuffer4.capacity() < i14) {
-                throw new IllegalArgumentException("Expected destination buffer capacity to be at least " + i14 + " was " + byteBuffer4.capacity());
+            if (byteBuffer4.capacity() >= i14) {
+                byteBuffer4.position(0);
+                ByteBuffer slice = byteBuffer4.slice();
+                byteBuffer4.position(i12);
+                ByteBuffer slice2 = byteBuffer4.slice();
+                byteBuffer4.position(i13 + i12);
+                nativeI420Rotate(byteBuffer, i2, byteBuffer2, i3, byteBuffer3, i4, slice, i9, slice2, i11, byteBuffer4.slice(), i11, i5, i6, i7);
+                return;
             }
-            byteBuffer4.position(0);
-            ByteBuffer slice = byteBuffer4.slice();
-            byteBuffer4.position(i12);
-            ByteBuffer slice2 = byteBuffer4.slice();
-            byteBuffer4.position(i13 + i12);
-            nativeI420Rotate(byteBuffer, i2, byteBuffer2, i3, byteBuffer3, i4, slice, i9, slice2, i11, byteBuffer4.slice(), i11, i5, i6, i7);
-        }
-    }
-
-    public static void I420Rotate(ByteBuffer byteBuffer, int i2, ByteBuffer byteBuffer2, int i3, ByteBuffer byteBuffer3, int i4, ByteBuffer byteBuffer4, int i5, ByteBuffer byteBuffer5, int i6, ByteBuffer byteBuffer6, int i7, int i8, int i9, int i10) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{byteBuffer, Integer.valueOf(i2), byteBuffer2, Integer.valueOf(i3), byteBuffer3, Integer.valueOf(i4), byteBuffer4, Integer.valueOf(i5), byteBuffer5, Integer.valueOf(i6), byteBuffer6, Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10)}) == null) {
-            nativeI420Rotate(byteBuffer, i2, byteBuffer2, i3, byteBuffer3, i4, byteBuffer4, i5, byteBuffer5, i6, byteBuffer6, i7, i8, i9, i10);
+            throw new IllegalArgumentException("Expected destination buffer capacity to be at least " + i14 + " was " + byteBuffer4.capacity());
         }
     }
 
@@ -98,13 +86,6 @@ public class YuvHelper {
         }
     }
 
-    public static void I420ToNV12(ByteBuffer byteBuffer, int i2, ByteBuffer byteBuffer2, int i3, ByteBuffer byteBuffer3, int i4, ByteBuffer byteBuffer4, int i5, ByteBuffer byteBuffer5, int i6, int i7, int i8) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{byteBuffer, Integer.valueOf(i2), byteBuffer2, Integer.valueOf(i3), byteBuffer3, Integer.valueOf(i4), byteBuffer4, Integer.valueOf(i5), byteBuffer5, Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
-            nativeI420ToNV12(byteBuffer, i2, byteBuffer2, i3, byteBuffer3, i4, byteBuffer4, i5, byteBuffer5, i6, i7, i8);
-        }
-    }
-
     public static void copyPlane(ByteBuffer byteBuffer, int i2, ByteBuffer byteBuffer2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{byteBuffer, Integer.valueOf(i2), byteBuffer2, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
@@ -119,4 +100,25 @@ public class YuvHelper {
     public static native void nativeI420Rotate(ByteBuffer byteBuffer, int i2, ByteBuffer byteBuffer2, int i3, ByteBuffer byteBuffer3, int i4, ByteBuffer byteBuffer4, int i5, ByteBuffer byteBuffer5, int i6, ByteBuffer byteBuffer6, int i7, int i8, int i9, int i10);
 
     public static native void nativeI420ToNV12(ByteBuffer byteBuffer, int i2, ByteBuffer byteBuffer2, int i3, ByteBuffer byteBuffer3, int i4, ByteBuffer byteBuffer4, int i5, ByteBuffer byteBuffer5, int i6, int i7, int i8);
+
+    public static void I420ToNV12(ByteBuffer byteBuffer, int i2, ByteBuffer byteBuffer2, int i3, ByteBuffer byteBuffer3, int i4, ByteBuffer byteBuffer4, int i5, ByteBuffer byteBuffer5, int i6, int i7, int i8) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{byteBuffer, Integer.valueOf(i2), byteBuffer2, Integer.valueOf(i3), byteBuffer3, Integer.valueOf(i4), byteBuffer4, Integer.valueOf(i5), byteBuffer5, Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
+            nativeI420ToNV12(byteBuffer, i2, byteBuffer2, i3, byteBuffer3, i4, byteBuffer4, i5, byteBuffer5, i6, i7, i8);
+        }
+    }
+
+    public static void I420Copy(ByteBuffer byteBuffer, int i2, ByteBuffer byteBuffer2, int i3, ByteBuffer byteBuffer3, int i4, ByteBuffer byteBuffer4, int i5, ByteBuffer byteBuffer5, int i6, ByteBuffer byteBuffer6, int i7, int i8, int i9) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{byteBuffer, Integer.valueOf(i2), byteBuffer2, Integer.valueOf(i3), byteBuffer3, Integer.valueOf(i4), byteBuffer4, Integer.valueOf(i5), byteBuffer5, Integer.valueOf(i6), byteBuffer6, Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
+            nativeI420Copy(byteBuffer, i2, byteBuffer2, i3, byteBuffer3, i4, byteBuffer4, i5, byteBuffer5, i6, byteBuffer6, i7, i8, i9);
+        }
+    }
+
+    public static void I420Rotate(ByteBuffer byteBuffer, int i2, ByteBuffer byteBuffer2, int i3, ByteBuffer byteBuffer3, int i4, ByteBuffer byteBuffer4, int i5, ByteBuffer byteBuffer5, int i6, ByteBuffer byteBuffer6, int i7, int i8, int i9, int i10) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{byteBuffer, Integer.valueOf(i2), byteBuffer2, Integer.valueOf(i3), byteBuffer3, Integer.valueOf(i4), byteBuffer4, Integer.valueOf(i5), byteBuffer5, Integer.valueOf(i6), byteBuffer6, Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10)}) == null) {
+            nativeI420Rotate(byteBuffer, i2, byteBuffer2, i3, byteBuffer3, i4, byteBuffer4, i5, byteBuffer5, i6, byteBuffer6, i7, i8, i9, i10);
+        }
+    }
 }

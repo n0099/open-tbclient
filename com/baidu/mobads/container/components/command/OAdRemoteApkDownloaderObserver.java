@@ -229,8 +229,8 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Removed duplicated region for block: B:35:0x015e  */
     /* JADX WARN: Removed duplicated region for block: B:36:0x0162  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x01a5  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0234  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x01a4  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0233  */
     @TargetApi(16)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -639,7 +639,7 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
                     XAdRemoteSDKCountly.getInstance().onAPKDownloadComplete(this.mContext, this.mExtraInfo);
                     if (localApkFileInfo != null && !TextUtils.isEmpty(localApkFileInfo.packageName) && XAdSDKRemoteExp.LiteInc.mPkgName.equals(localApkFileInfo.packageName)) {
                         FileUtils.copyFile(str3, this.mExtraInfo.outputFolder + EncryptUtils.getMD5(XAdSDKRemoteExp.LiteInc.mPkgName) + ".apk");
-                        SendLogUtil.Builder.create(this.mContext).appendType(1026).appendAppSid(this.mExtraInfo.getAppsid()).append(XAdRemoteAPKDownloadExtraInfo.QK, this.mExtraInfo.queryKey).append(XAdRemoteAPKDownloadExtraInfo.ADID, this.mExtraInfo.mAdid).append("act", "0").append(XAdRemoteAPKDownloadExtraInfo.BUYER, this.mExtraInfo.mBuyer).append("lastPath", !TextUtils.isEmpty(this.mExtraInfo.mUrl) ? Uri.parse(this.mExtraInfo.mUrl).getLastPathSegment() : "").append("evt", b.f35806c).send();
+                        SendLogUtil.Builder.create(this.mContext).appendType(1026).appendAppSid(this.mExtraInfo.getAppsid()).append(XAdRemoteAPKDownloadExtraInfo.QK, this.mExtraInfo.queryKey).append(XAdRemoteAPKDownloadExtraInfo.ADID, this.mExtraInfo.mAdid).append("act", "0").append(XAdRemoteAPKDownloadExtraInfo.BUYER, this.mExtraInfo.mBuyer).append("lastPath", !TextUtils.isEmpty(this.mExtraInfo.mUrl) ? Uri.parse(this.mExtraInfo.mUrl).getLastPathSegment() : "").append("evt", b.f35915c).send();
                     }
                 } else if (downloadStatus == IDownloader.DownloadStatus.ERROR) {
                     xAdRemoteAPKDownloadExtraInfo3.targetUrl = iDownloader.getTargetURL();

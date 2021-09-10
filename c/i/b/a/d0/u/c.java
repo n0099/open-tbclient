@@ -14,28 +14,28 @@ public abstract class c implements Loader.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c.i.b.a.h0.g f33034a;
+    public final c.i.b.a.h0.g f33143a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f33035b;
+    public final int f33144b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Format f33036c;
+    public final Format f33145c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f33037d;
+    public final int f33146d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f33038e;
+    public final Object f33147e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f33039f;
+    public final long f33148f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f33040g;
+    public final long f33149g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.i.b.a.h0.e f33041h;
+    public final c.i.b.a.h0.e f33150h;
 
     public c(c.i.b.a.h0.e eVar, c.i.b.a.h0.g gVar, int i2, Format format, int i3, Object obj, long j2, long j3) {
         Interceptable interceptable = $ic;
@@ -53,15 +53,15 @@ public abstract class c implements Loader.c {
             }
         }
         c.i.b.a.i0.a.e(eVar);
-        this.f33041h = eVar;
+        this.f33150h = eVar;
         c.i.b.a.i0.a.e(gVar);
-        this.f33034a = gVar;
-        this.f33035b = i2;
-        this.f33036c = format;
-        this.f33037d = i3;
-        this.f33038e = obj;
-        this.f33039f = j2;
-        this.f33040g = j3;
+        this.f33143a = gVar;
+        this.f33144b = i2;
+        this.f33145c = format;
+        this.f33146d = i3;
+        this.f33147e = obj;
+        this.f33148f = j2;
+        this.f33149g = j3;
     }
 
     public abstract long c();
@@ -69,6 +69,6 @@ public abstract class c implements Loader.c {
     public final long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33040g - this.f33039f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33149g - this.f33148f : invokeV.longValue;
     }
 }

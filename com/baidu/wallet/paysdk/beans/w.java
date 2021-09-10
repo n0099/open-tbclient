@@ -24,7 +24,7 @@ public class w extends BaseBean<QueryBankBinResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62262a;
+    public String f62442a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> w(Context context) {
@@ -44,13 +44,13 @@ public class w extends BaseBean<QueryBankBinResponse> {
                 return;
             }
         }
-        this.f62262a = "";
+        this.f62442a = "";
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f62262a = str;
+            this.f62442a = str;
         }
     }
 
@@ -68,8 +68,8 @@ public class w extends BaseBean<QueryBankBinResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!TextUtils.isEmpty(this.f62262a)) {
-                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62262a)));
+            if (!TextUtils.isEmpty(this.f62442a)) {
+                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62442a)));
             }
             BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
             arrayList.add(new RestNameValuePair("source_flag", "3"));

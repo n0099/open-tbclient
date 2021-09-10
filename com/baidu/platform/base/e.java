@@ -23,13 +23,13 @@ public abstract class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.platform.util.a f44190a;
+    public com.baidu.platform.util.a f44305a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f44191b;
+    public boolean f44306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f44192c;
+    public boolean f44307c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public abstract class e {
                 return;
             }
         }
-        this.f44191b = true;
-        this.f44192c = true;
-        this.f44190a = new com.baidu.platform.util.a();
+        this.f44306b = true;
+        this.f44307c = true;
+        this.f44305a = new com.baidu.platform.util.a();
     }
 
     private String a(SearchType searchType, String str) {
@@ -56,7 +56,7 @@ public abstract class e {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return SearchType.f44173h == searchType ? a(str) : str;
+            return SearchType.f44288h == searchType ? a(str) : str;
         }
         return (String) invokeLL.objValue;
     }
@@ -82,7 +82,7 @@ public abstract class e {
     private boolean b(SearchType searchType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, searchType)) == null) ? SearchType.f44173h == searchType : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, searchType)) == null) ? SearchType.f44288h == searchType : invokeL.booleanValue;
     }
 
     public final String a(PlanNode planNode) {
@@ -132,15 +132,15 @@ public abstract class e {
                 }
                 authToken = HttpClient.getAuthToken();
             }
-            if (this.f44191b) {
-                this.f44190a.a("token", authToken);
+            if (this.f44306b) {
+                this.f44305a.a("token", authToken);
             }
-            String a3 = this.f44190a.a();
+            String a3 = this.f44305a.a();
             if (b(searchType)) {
                 a3 = a(searchType, a3);
             }
             String str2 = a3 + HttpClient.getPhoneInfo();
-            if (this.f44192c) {
+            if (this.f44307c) {
                 str2 = str2 + "&sign=" + AppMD5.getSignMD5String(str2);
             }
             return a2 + "?" + str2;
@@ -153,14 +153,14 @@ public abstract class e {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f44192c = z;
+            this.f44307c = z;
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f44191b = z;
+            this.f44306b = z;
         }
     }
 }

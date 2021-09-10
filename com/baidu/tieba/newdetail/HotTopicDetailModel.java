@@ -4,10 +4,10 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
 import c.a.e.e.p.j;
 import c.a.e.e.p.l;
-import c.a.p0.s.q.b1;
-import c.a.q0.h1.c.d;
-import c.a.q0.h1.c.e;
-import c.a.q0.h1.c.i;
+import c.a.q0.s.q.b1;
+import c.a.r0.i1.c.d;
+import c.a.r0.i1.c.e;
+import c.a.r0.i1.c.i;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -35,22 +35,22 @@ public class HotTopicDetailModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.c2.a f54350e;
+    public c.a.r0.d2.a f54498e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f54351f;
+    public boolean f54499f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f54352g;
+    public boolean f54500g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f54353h;
+    public long f54501h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f54354i;
+    public String f54502i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f54355j;
+    public String f54503j;
     public double k;
     public int l;
     public int m;
@@ -61,7 +61,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailModel f54356a;
+        public final /* synthetic */ HotTopicDetailModel f54504a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HotTopicDetailModel hotTopicDetailModel, int i2, int i3) {
@@ -82,7 +82,7 @@ public class HotTopicDetailModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f54356a = hotTopicDetailModel;
+            this.f54504a = hotTopicDetailModel;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:23:0x0043  */
@@ -101,13 +101,13 @@ public class HotTopicDetailModel extends BdBaseModel {
             if (interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) {
                 return;
             }
-            boolean z = this.f54356a.f54351f;
-            this.f54356a.f54351f = false;
+            boolean z = this.f54504a.f54499f;
+            this.f54504a.f54499f = false;
             if (responsedMessage == null) {
                 return;
             }
             boolean z2 = responsedMessage instanceof ResponseHttpHotTopicMessage;
-            if ((!z2 && !(responsedMessage instanceof ResponseSocketHotTopicMessage)) || responsedMessage.getOrginalMessage().getTag() != this.f54356a.getUniqueId()) {
+            if ((!z2 && !(responsedMessage instanceof ResponseSocketHotTopicMessage)) || responsedMessage.getOrginalMessage().getTag() != this.f54504a.getUniqueId()) {
                 return;
             }
             if (z2) {
@@ -125,17 +125,17 @@ public class HotTopicDetailModel extends BdBaseModel {
                         eVar.s = intValue;
                         dVar = eVar.k;
                         if (dVar != null) {
-                            dVar.W3 = intValue;
+                            dVar.Z3 = intValue;
                         }
                         if (eVar.s == -1) {
-                            this.f54356a.f54351f = z;
+                            this.f54504a.f54499f = z;
                         }
                     }
                     if (eVar == null) {
-                        this.f54356a.f54350e.netCallback(responsedMessage.getError(), eVar);
+                        this.f54504a.f54498e.netCallback(responsedMessage.getError(), eVar);
                         return;
                     } else {
-                        this.f54356a.f54350e.netCallback(-1, null);
+                        this.f54504a.f54498e.netCallback(-1, null);
                         return;
                     }
                 }
@@ -163,7 +163,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailModel f54357a;
+        public final /* synthetic */ HotTopicDetailModel f54505a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(HotTopicDetailModel hotTopicDetailModel, int i2, int i3) {
@@ -184,7 +184,7 @@ public class HotTopicDetailModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f54357a = hotTopicDetailModel;
+            this.f54505a = hotTopicDetailModel;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:23:0x003d  */
@@ -200,12 +200,12 @@ public class HotTopicDetailModel extends BdBaseModel {
             if (interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) {
                 return;
             }
-            this.f54357a.f54351f = false;
+            this.f54505a.f54499f = false;
             if (responsedMessage == null) {
                 return;
             }
             boolean z = responsedMessage instanceof ResponseHttpGetTopicRelateThreadMessage;
-            if ((!z && !(responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage)) || responsedMessage.getOrginalMessage().getTag() != this.f54357a.getUniqueId()) {
+            if ((!z && !(responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage)) || responsedMessage.getOrginalMessage().getTag() != this.f54505a.getUniqueId()) {
                 return;
             }
             if (z) {
@@ -219,13 +219,13 @@ public class HotTopicDetailModel extends BdBaseModel {
                         }
                     }
                     if (dVar != null && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
-                        dVar.W3 = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
+                        dVar.Z3 = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
                     }
                     if (dVar == null) {
-                        this.f54357a.f54350e.netLoadMoreCallback(responsedMessage.getError(), dVar);
+                        this.f54505a.f54498e.netLoadMoreCallback(responsedMessage.getError(), dVar);
                         return;
                     } else {
-                        this.f54357a.f54350e.netLoadMoreCallback(-1, null);
+                        this.f54505a.f54498e.netLoadMoreCallback(-1, null);
                         return;
                     }
                 }
@@ -234,7 +234,7 @@ public class HotTopicDetailModel extends BdBaseModel {
             if (responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage) {
             }
             if (dVar != null) {
-                dVar.W3 = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
+                dVar.Z3 = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
             }
             if (dVar == null) {
             }
@@ -247,7 +247,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailModel f54358a;
+        public final /* synthetic */ HotTopicDetailModel f54506a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(HotTopicDetailModel hotTopicDetailModel, int i2, int i3) {
@@ -268,7 +268,7 @@ public class HotTopicDetailModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f54358a = hotTopicDetailModel;
+            this.f54506a = hotTopicDetailModel;
         }
 
         @Override // c.a.e.c.g.a
@@ -281,7 +281,7 @@ public class HotTopicDetailModel extends BdBaseModel {
                 return;
             }
             boolean z = responsedMessage instanceof BlessHttpResponseMessage;
-            if ((z || (responsedMessage instanceof BlessSocketResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f54358a.getUniqueId()) {
+            if ((z || (responsedMessage instanceof BlessSocketResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f54506a.getUniqueId()) {
                 if (z) {
                     BlessHttpResponseMessage blessHttpResponseMessage = (BlessHttpResponseMessage) responsedMessage;
                     j2 = blessHttpResponseMessage.userPkId;
@@ -302,21 +302,21 @@ public class HotTopicDetailModel extends BdBaseModel {
                 } else {
                     int intValue = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
                     if (intValue == 1 || intValue == 2) {
-                        this.f54358a.f54352g = false;
+                        this.f54506a.f54500g = false;
                     }
                     i2 = intValue;
                 }
                 if (j5 != 0) {
-                    this.f54358a.f54350e.netPkCallback(responsedMessage.getError(), j5, j4, i2);
+                    this.f54506a.f54498e.netPkCallback(responsedMessage.getError(), j5, j4, i2);
                 } else {
-                    this.f54358a.f54350e.netPkCallback(-1, j5, j4, i2);
+                    this.f54506a.f54498e.netPkCallback(-1, j5, j4, i2);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailModel(TbPageContext<?> tbPageContext, c.a.q0.c2.a aVar) {
+    public HotTopicDetailModel(TbPageContext<?> tbPageContext, c.a.r0.d2.a aVar) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -337,7 +337,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         this.l = l.k(TbadkCoreApplication.getInst().getApp());
         this.m = l.i(TbadkCoreApplication.getInst().getApp());
         D();
-        this.f54350e = aVar;
+        this.f54498e = aVar;
     }
 
     public final void D() {
@@ -353,9 +353,9 @@ public class HotTopicDetailModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && j.A()) {
             RequestHotTopicMessage requestHotTopicMessage = new RequestHotTopicMessage();
-            requestHotTopicMessage.setTopicId(Long.valueOf(this.f54353h));
-            requestHotTopicMessage.setTopicName(this.f54354i);
-            requestHotTopicMessage.setCall_from(I(this.f54355j));
+            requestHotTopicMessage.setTopicId(Long.valueOf(this.f54501h));
+            requestHotTopicMessage.setTopicName(this.f54502i);
+            requestHotTopicMessage.setCall_from(I(this.f54503j));
             requestHotTopicMessage.setSort_type(1);
             requestHotTopicMessage.setScrH(Integer.valueOf(this.m));
             requestHotTopicMessage.setScrW(Integer.valueOf(this.l));
@@ -373,7 +373,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         }
     }
 
-    public boolean F(c.a.q0.h1.c.a aVar) {
+    public boolean F(c.a.r0.i1.c.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
@@ -381,12 +381,12 @@ public class HotTopicDetailModel extends BdBaseModel {
                 return false;
             }
             RequestBlessMessage requestBlessMessage = new RequestBlessMessage();
-            requestBlessMessage.setPkId(Long.valueOf(aVar.f18598g));
-            requestBlessMessage.setTopicId(Long.valueOf(this.f54353h));
+            requestBlessMessage.setPkId(Long.valueOf(aVar.f19254g));
+            requestBlessMessage.setTopicId(Long.valueOf(this.f54501h));
             requestBlessMessage.setPkIndex(1);
-            requestBlessMessage.setClickType(aVar.f18599h != 0 ? 1 : 0);
+            requestBlessMessage.setClickType(aVar.f19255h != 0 ? 1 : 0);
             requestBlessMessage.setPkType(1);
-            requestBlessMessage.setUserPkId(aVar.f18599h);
+            requestBlessMessage.setUserPkId(aVar.f19255h);
             requestBlessMessage.setTag(this.unique_id);
             if (requestBlessMessage.getHttpMessage() != null) {
                 requestBlessMessage.getHttpMessage().setExtra(0);
@@ -405,12 +405,12 @@ public class HotTopicDetailModel extends BdBaseModel {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, iVar, i2)) == null) {
-            if (iVar == null || !j.A() || this.f54352g) {
+            if (iVar == null || !j.A() || this.f54500g) {
                 return false;
             }
             RequestBlessMessage requestBlessMessage = new RequestBlessMessage();
             requestBlessMessage.setPkId(Long.valueOf(iVar.l));
-            requestBlessMessage.setTopicId(Long.valueOf(this.f54353h));
+            requestBlessMessage.setTopicId(Long.valueOf(this.f54501h));
             requestBlessMessage.setPkIndex(i2);
             requestBlessMessage.setClickType(iVar.m == 0 ? 0 : 1);
             requestBlessMessage.setPkType(0);
@@ -425,7 +425,7 @@ public class HotTopicDetailModel extends BdBaseModel {
                 requestBlessMessage.getSocketMessage().setTag(getUniqueId());
             }
             boolean sendMessage = MessageManager.getInstance().sendMessage(requestBlessMessage);
-            this.f54352g = sendMessage;
+            this.f54500g = sendMessage;
             return sendMessage;
         }
         return invokeLI.booleanValue;
@@ -434,8 +434,8 @@ public class HotTopicDetailModel extends BdBaseModel {
     public void H(long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048580, this, j2, str) == null) {
-            this.f54353h = j2;
-            this.f54354i = str;
+            this.f54501h = j2;
+            this.f54502i = str;
         }
     }
 
@@ -481,7 +481,7 @@ public class HotTopicDetailModel extends BdBaseModel {
     public void setFrom(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f54355j = str;
+            this.f54503j = str;
         }
     }
 
@@ -489,14 +489,14 @@ public class HotTopicDetailModel extends BdBaseModel {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            if (!j.A() || this.f54351f) {
+            if (!j.A() || this.f54499f) {
                 return false;
             }
             cancelLoadData();
             RequestHotTopicMessage requestHotTopicMessage = new RequestHotTopicMessage();
-            requestHotTopicMessage.setTopicId(Long.valueOf(this.f54353h));
-            requestHotTopicMessage.setTopicName(this.f54354i);
-            requestHotTopicMessage.setCall_from(I(this.f54355j));
+            requestHotTopicMessage.setTopicId(Long.valueOf(this.f54501h));
+            requestHotTopicMessage.setTopicName(this.f54502i);
+            requestHotTopicMessage.setCall_from(I(this.f54503j));
             requestHotTopicMessage.setSort_type(Integer.valueOf(i2));
             requestHotTopicMessage.setScrH(Integer.valueOf(this.m));
             requestHotTopicMessage.setScrW(Integer.valueOf(this.l));
@@ -511,7 +511,7 @@ public class HotTopicDetailModel extends BdBaseModel {
             }
             requestHotTopicMessage.setTag(this.unique_id);
             boolean sendMessage = MessageManager.getInstance().sendMessage(requestHotTopicMessage);
-            this.f54351f = sendMessage;
+            this.f54499f = sendMessage;
             return sendMessage;
         }
         return invokeI.booleanValue;
@@ -521,13 +521,13 @@ public class HotTopicDetailModel extends BdBaseModel {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            if (!j.A() || this.f54351f) {
+            if (!j.A() || this.f54499f) {
                 return false;
             }
             cancelLoadData();
             RequestGetTopicRelateThreadMessage requestGetTopicRelateThreadMessage = new RequestGetTopicRelateThreadMessage();
-            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(this.f54353h));
-            requestGetTopicRelateThreadMessage.setTopicName(this.f54354i);
+            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(this.f54501h));
+            requestGetTopicRelateThreadMessage.setTopicName(this.f54502i);
             requestGetTopicRelateThreadMessage.setRn(10);
             requestGetTopicRelateThreadMessage.setPageNo(1);
             requestGetTopicRelateThreadMessage.setLastId(0L);
@@ -545,7 +545,7 @@ public class HotTopicDetailModel extends BdBaseModel {
             }
             requestGetTopicRelateThreadMessage.setTag(this.unique_id);
             boolean sendMessage = MessageManager.getInstance().sendMessage(requestGetTopicRelateThreadMessage);
-            this.f54351f = sendMessage;
+            this.f54499f = sendMessage;
             return sendMessage;
         }
         return invokeI.booleanValue;
@@ -555,13 +555,13 @@ public class HotTopicDetailModel extends BdBaseModel {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), b1Var, Long.valueOf(j2)})) == null) {
-            if (!j.A() || this.f54351f) {
+            if (!j.A() || this.f54499f) {
                 return false;
             }
             cancelLoadData();
             RequestGetTopicRelateThreadMessage requestGetTopicRelateThreadMessage = new RequestGetTopicRelateThreadMessage();
-            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(this.f54353h));
-            requestGetTopicRelateThreadMessage.setTopicName(this.f54354i);
+            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(this.f54501h));
+            requestGetTopicRelateThreadMessage.setTopicName(this.f54502i);
             requestGetTopicRelateThreadMessage.setRn(10);
             requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(b1Var.a() + 1));
             requestGetTopicRelateThreadMessage.setLastId(Long.valueOf(j2));
@@ -579,7 +579,7 @@ public class HotTopicDetailModel extends BdBaseModel {
             }
             requestGetTopicRelateThreadMessage.setTag(this.unique_id);
             boolean sendMessage = MessageManager.getInstance().sendMessage(requestGetTopicRelateThreadMessage);
-            this.f54351f = sendMessage;
+            this.f54499f = sendMessage;
             return sendMessage;
         }
         return invokeCommon.booleanValue;

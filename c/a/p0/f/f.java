@@ -1,497 +1,208 @@
 package c.a.p0.f;
 
-import android.content.ContentResolver;
-import android.content.ContentUris;
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import android.provider.MediaStore;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-/* loaded from: classes3.dex */
-public class f {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes.dex */
+public final class f {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int abc_action_bar_title_item = 2131492864;
+    public static final int abc_action_bar_up_container = 2131492865;
+    public static final int abc_action_menu_item_layout = 2131492866;
+    public static final int abc_action_menu_layout = 2131492867;
+    public static final int abc_action_mode_bar = 2131492868;
+    public static final int abc_action_mode_close_item_material = 2131492869;
+    public static final int abc_activity_chooser_view = 2131492870;
+    public static final int abc_activity_chooser_view_list_item = 2131492871;
+    public static final int abc_alert_dialog_button_bar_material = 2131492872;
+    public static final int abc_alert_dialog_material = 2131492873;
+    public static final int abc_alert_dialog_title_material = 2131492874;
+    public static final int abc_cascading_menu_item_layout = 2131492875;
+    public static final int abc_dialog_title_material = 2131492876;
+    public static final int abc_expanded_menu_layout = 2131492877;
+    public static final int abc_list_menu_item_checkbox = 2131492878;
+    public static final int abc_list_menu_item_icon = 2131492879;
+    public static final int abc_list_menu_item_layout = 2131492880;
+    public static final int abc_list_menu_item_radio = 2131492881;
+    public static final int abc_popup_menu_header_item_layout = 2131492882;
+    public static final int abc_popup_menu_item_layout = 2131492883;
+    public static final int abc_screen_content_include = 2131492884;
+    public static final int abc_screen_simple = 2131492885;
+    public static final int abc_screen_simple_overlay_action_mode = 2131492886;
+    public static final int abc_screen_toolbar = 2131492887;
+    public static final int abc_search_dropdown_item_icons_2line = 2131492888;
+    public static final int abc_search_view = 2131492889;
+    public static final int abc_select_dialog_material = 2131492890;
+    public static final int abc_tooltip = 2131492891;
+    public static final int activity_pay_web = 2131492932;
+    public static final int activity_poly = 2131492935;
+    public static final int activity_trace_info = 2131492948;
+    public static final int ai_games_fps_textview = 2131492997;
+    public static final int ai_games_fragment = 2131492998;
+    public static final int ai_games_loading_fragment = 2131492999;
+    public static final int aiapp_menu_base_view_layout = 2131493000;
+    public static final int aiapp_menu_item_view_layout = 2131493001;
+    public static final int aiapp_menu_layout = 2131493002;
+    public static final int aiapps_about_fragment = 2131493003;
+    public static final int aiapps_action_bar = 2131493004;
+    public static final int aiapps_action_bar_right_menu = 2131493005;
+    public static final int aiapps_actionbar = 2131493006;
+    public static final int aiapps_activity = 2131493007;
+    public static final int aiapps_ai_games_input_view = 2131493008;
+    public static final int aiapps_alert_dialog = 2131493009;
+    public static final int aiapps_bear_layout = 2131493010;
+    public static final int aiapps_bottom_tab_icon = 2131493011;
+    public static final int aiapps_browser_http_authentication = 2131493012;
+    public static final int aiapps_clickable_toast_view = 2131493013;
+    public static final int aiapps_common_empty_view = 2131493015;
+    public static final int aiapps_common_pull_to_refresh_header = 2131493016;
+    public static final int aiapps_console_button = 2131493017;
+    public static final int aiapps_datepicker_layout = 2131493018;
+    public static final int aiapps_double_icon_double_text_clickable_toast_view = 2131493019;
+    public static final int aiapps_error_activity = 2131493020;
+    public static final int aiapps_error_fragment = 2131493021;
+    public static final int aiapps_favorite_guide_normal = 2131493022;
+    public static final int aiapps_favorite_guide_tips = 2131493023;
+    public static final int aiapps_fragment = 2131493024;
+    public static final int aiapps_fullscreen_floatview = 2131493025;
+    public static final int aiapps_fullscreen_floatview_button = 2131493026;
+    public static final int aiapps_games_loading_tips_view = 2131493032;
+    public static final int aiapps_half_web_pop_window = 2131493033;
+    public static final int aiapps_icon_title_message_button_toast_view = 2131493034;
+    public static final int aiapps_install_guide_layout = 2131493035;
+    public static final int aiapps_item_hv_dialog = 2131493036;
+    public static final int aiapps_js_prompt = 2131493037;
+    public static final int aiapps_keyboard_img_item = 2131493038;
+    public static final int aiapps_keyboard_layout = 2131493039;
+    public static final int aiapps_keyboard_text_item = 2131493040;
+    public static final int aiapps_left_icon_clickable_toast_view = 2131493041;
+    public static final int aiapps_loading_fragment = 2131493042;
+    public static final int aiapps_loading_fragment_circle = 2131493043;
+    public static final int aiapps_loading_fragment_shimmer = 2131493044;
+    public static final int aiapps_loading_layout = 2131493045;
+    public static final int aiapps_menu_scroll_view = 2131493048;
+    public static final int aiapps_multipicker_layout = 2131493049;
+    public static final int aiapps_neutral_pull_to_refresh_header = 2131493050;
+    public static final int aiapps_normal_toast_view = 2131493051;
+    public static final int aiapps_pandapark_close_dialog = 2131493053;
+    public static final int aiapps_property_button = 2131493054;
+    public static final int aiapps_property_window = 2131493055;
+    public static final int aiapps_pull_to_load_footer = 2131493056;
+    public static final int aiapps_pull_to_refresh_header = 2131493057;
+    public static final int aiapps_pull_to_refresh_header2 = 2131493058;
+    public static final int aiapps_pull_to_refresh_header_big_bg = 2131493059;
+    public static final int aiapps_pulldown_item = 2131493060;
+    public static final int aiapps_pulldown_item_checkbox = 2131493061;
+    public static final int aiapps_right_button_toast_view = 2131493062;
+    public static final int aiapps_running_info_fragment = 2131493063;
+    public static final int aiapps_safe_dialog = 2131493064;
+    public static final int aiapps_scheme_utils_show_action_sheet = 2131493065;
+    public static final int aiapps_scheme_utils_show_action_sheet_item = 2131493066;
+    public static final int aiapps_server_request_error_view = 2131493067;
+    public static final int aiapps_setting_fragment = 2131493068;
+    public static final int aiapps_setting_item = 2131493069;
+    public static final int aiapps_show_ext_info_button = 2131493070;
+    public static final int aiapps_ssl_certificate = 2131493071;
+    public static final int aiapps_ssl_content_header = 2131493072;
+    public static final int aiapps_textarea_confirm_bar = 2131493073;
+    public static final int aiapps_timepicker_layout = 2131493074;
+    public static final int aiapps_toast_template_a_d20 = 2131493075;
+    public static final int aiapps_toast_template_b_d20 = 2131493076;
+    public static final int aiapps_toast_template_square_d20 = 2131493077;
+    public static final int aiapps_view_hv_dialog = 2131493079;
+    public static final int aiapps_view_ssl_certificate_dialog = 2131493080;
+    public static final int aiapps_webview_fragment = 2131493081;
+    public static final int aiapps_wx_pay_loading_layout = 2131493082;
+    public static final int button_progress = 2131493220;
+    public static final int core_permission_go_setting = 2131493367;
+    public static final int coupon_entrance = 2131493368;
+    public static final int coupon_list = 2131493369;
+    public static final int coupon_list_item = 2131493370;
+    public static final int custom_dialog = 2131493388;
+    public static final int default_pop_window = 2131493395;
+    public static final int hostmarket_item = 2131493785;
+    public static final int ng_game_alert_dialog = 2131494287;
+    public static final int ng_game_banner_ad = 2131494288;
+    public static final int ng_game_close_ad = 2131494289;
+    public static final int ng_game_land_play = 2131494290;
+    public static final int ng_game_portrait_por_play = 2131494291;
+    public static final int ng_game_reward_banner = 2131494292;
+    public static final int ng_game_reward_close_banner = 2131494293;
+    public static final int notification_action = 2131494302;
+    public static final int notification_action_tombstone = 2131494303;
+    public static final int notification_media_action = 2131494304;
+    public static final int notification_media_cancel_action = 2131494305;
+    public static final int notification_template_big_media = 2131494306;
+    public static final int notification_template_big_media_custom = 2131494307;
+    public static final int notification_template_big_media_narrow = 2131494308;
+    public static final int notification_template_big_media_narrow_custom = 2131494309;
+    public static final int notification_template_custom_big = 2131494310;
+    public static final int notification_template_icon_group = 2131494311;
+    public static final int notification_template_lines_media = 2131494312;
+    public static final int notification_template_media = 2131494313;
+    public static final int notification_template_media_custom = 2131494314;
+    public static final int notification_template_part_chronometer = 2131494315;
+    public static final int notification_template_part_time = 2131494316;
+    public static final int pay_confirm = 2131494354;
+    public static final int pay_success = 2131494356;
+    public static final int sailor_noapp_support_warnings = 2131494576;
+    public static final int sailor_ssl_certificate = 2131494577;
+    public static final int sailor_ssl_page_info = 2131494578;
+    public static final int sailor_ssl_warning = 2131494579;
+    public static final int sailor_ssl_warnings = 2131494580;
+    public static final int select_dialog_item_material = 2131494600;
+    public static final int select_dialog_multichoice_material = 2131494601;
+    public static final int select_dialog_singlechoice_material = 2131494602;
+    public static final int support_simple_spinner_dropdown_item = 2131494687;
+    public static final int swan_app_auth_dialog_content_common = 2131494688;
+    public static final int swan_app_auth_hover_dialog = 2131494689;
+    public static final int swan_app_auth_level1_mobile_custom = 2131494690;
+    public static final int swan_app_auth_level1_userinfo_custom = 2131494691;
+    public static final int swan_app_auth_level2_custom = 2131494692;
+    public static final int swan_app_auth_scope_detail = 2131494693;
+    public static final int swan_app_float_button = 2131494694;
+    public static final int swan_app_img_menu = 2131494695;
+    public static final int swan_app_img_menu_swan_item_layout = 2131494696;
+    public static final int swan_app_menu_header_view = 2131494698;
+    public static final int swan_app_menu_item_layout = 2131494699;
+    public static final int swan_app_menu_item_view = 2131494700;
+    public static final int swan_app_path_forbidden_fragment = 2131494701;
+    public static final int swan_app_plugin_fun_page_fragment = 2131494704;
+    public static final int swan_app_related_swan_head_item = 2131494706;
+    public static final int swan_app_related_swan_item = 2131494707;
+    public static final int swan_app_settings_layout = 2131494708;
+    public static final int swan_app_startup_window = 2131494709;
+    public static final int swan_app_subscribe_msg_dialog = 2131494710;
+    public static final int swanapp_ad_footer_view = 2131494711;
+    public static final int swanapp_ad_landing_portrait_video = 2131494712;
+    public static final int swanapp_ad_video_tail_view = 2131494713;
+    public static final int swanapp_album_camera_item = 2131494714;
+    public static final int swanapp_album_layout = 2131494715;
+    public static final int swanapp_album_loadding_layout = 2131494716;
+    public static final int swanapp_album_name_item = 2131494717;
+    public static final int swanapp_album_preview_item = 2131494718;
+    public static final int swanapp_album_preview_layout = 2131494719;
+    public static final int swanapp_album_select_item = 2131494720;
+    public static final int swanapp_emoji_panel = 2131494721;
+    public static final int swanapp_emotion_grid_item = 2131494722;
+    public static final int swanapp_local_debug_running_view = 2131494723;
+    public static final int swanapp_picker_dialog = 2131494724;
+    public static final int swanapp_progress_dialog = 2131494725;
+    public static final int swanapp_publisher_layout = 2131494726;
+    public static final int swanapp_publisher_photo_choose_layout = 2131494727;
+    public static final int swanapp_reply_editor_layout = 2131494728;
+    public static final int swanapp_scope_detail_activity = 2131494729;
+    public static final int swanapp_thumbnail_drag_item = 2131494730;
+    public static final int swanapp_webview_select_view = 2131494731;
+    public static final int swangame_game_close_guide_item_view = 2131494732;
+    public static final int swangame_game_close_guide_view = 2131494733;
+    public static final int swangame_recommend_button = 2131494734;
+    public static final int swangame_recommend_dialog = 2131494735;
+    public static final int swangame_recommend_dialog_item = 2131494736;
+    public static final int view_channel_list = 2131494974;
+    public static final int view_channel_list_item = 2131494975;
+    public static final int view_confirm_finish = 2131494976;
+    public static final int view_radio_window = 2131494983;
+    public static final int view_tip = 2131494990;
+    public static final int view_toast_loading = 2131494991;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f13422a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public c f13423b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final Context f13424c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f13425d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String[] f13426e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String[] f13427f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, c.a.p0.f.a> f13428g;
-
-    /* loaded from: classes3.dex */
-    public class a implements Comparator<MediaFileInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(MediaFileInfo mediaFileInfo, MediaFileInfo mediaFileInfo2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaFileInfo, mediaFileInfo2)) == null) {
-                int i2 = ((mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime()) > 0L ? 1 : ((mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime()) == 0L ? 0 : -1));
-                if (i2 == 0) {
-                    return 0;
-                }
-                return i2 > 0 ? 1 : -1;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements Comparator<c.a.p0.f.a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f13429e;
-
-        public b(f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f13429e = fVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(c.a.p0.f.a aVar, c.a.p0.f.a aVar2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, aVar2)) == null) {
-                if (this.f13429e.f13422a.equals(aVar.g())) {
-                    return -1;
-                }
-                if (this.f13429e.f13422a.equals(aVar2.g())) {
-                    return 1;
-                }
-                int i2 = ((aVar2.e().getSortTime() - aVar.e().getSortTime()) > 0L ? 1 : ((aVar2.e().getSortTime() - aVar.e().getSortTime()) == 0L ? 0 : -1));
-                if (i2 == 0) {
-                    return 0;
-                }
-                return i2 > 0 ? 1 : -1;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c extends BdAsyncTask<Object, Integer, g> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final e f13430a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f13431b;
-
-        public c(f fVar, e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fVar, eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f13431b = fVar;
-            this.f13430a = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public g doInBackground(Object... objArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) ? this.f13431b.d() : (g) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(g gVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) {
-                super.onPostExecute(gVar);
-                e eVar = this.f13430a;
-                if (eVar != null) {
-                    eVar.a(gVar);
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.onPreExecute();
-                e eVar = this.f13430a;
-                if (eVar != null) {
-                    eVar.onPreLoad();
-                }
-            }
-        }
-    }
-
-    public f(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f13422a = TbConfig.getTempDirName();
-        this.f13425d = 0;
-        this.f13426e = new String[]{"_id", "bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
-        this.f13427f = new String[]{"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
-        this.f13428g = new HashMap<>();
-        this.f13424c = context;
-    }
-
-    public void c() {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f13423b) == null) {
-            return;
-        }
-        cVar.cancel();
-        this.f13423b = null;
-    }
-
-    public final g d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.f13428g.clear();
-            g gVar = new g();
-            List<VideoFileInfo> list = null;
-            List<ImageFileInfo> e2 = this.f13425d != 1 ? e() : null;
-            int i2 = this.f13425d;
-            if (i2 != 2 && i2 != 3) {
-                list = g();
-            }
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(e2)) {
-                arrayList.addAll(e2);
-            }
-            if (!ListUtils.isEmpty(list)) {
-                arrayList.addAll(list);
-            }
-            if (!ListUtils.isEmpty(arrayList)) {
-                Collections.sort(arrayList, new a(this));
-            }
-            ArrayList arrayList2 = new ArrayList(this.f13428g.values());
-            if (!ListUtils.isEmpty(arrayList2)) {
-                Collections.sort(arrayList2, new b(this));
-            }
-            gVar.f13432a = arrayList2;
-            gVar.f13434c = list;
-            gVar.f13433b = arrayList;
-            return gVar;
-        }
-        return (g) invokeV.objValue;
-    }
-
-    public List<ImageFileInfo> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            List<ImageFileInfo> f2 = f(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            if (f2 != null) {
-                arrayList.addAll(f2);
-            }
-            List<ImageFileInfo> f3 = f(MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-            if (f3 != null) {
-                arrayList.addAll(f3);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0104 A[LOOP:0: B:12:0x002c->B:38:0x0104, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0115 A[EDGE_INSN: B:70:0x0115->B:47:0x0115 ?: BREAK  , SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final List<ImageFileInfo> f(Uri uri) {
-        InterceptResult invokeL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) {
-            f fVar = this;
-            String str = null;
-            if (fVar.f13424c == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            try {
-                Cursor query = fVar.f13424c.getContentResolver().query(uri, fVar.f13426e, "mime_type like 'image/%'", null, "date_added DESC");
-                if (query != null) {
-                    try {
-                        if (query.moveToFirst()) {
-                            while (true) {
-                                Uri withAppendedId = ContentUris.withAppendedId(uri, query.getLong(query.getColumnIndex("_id")));
-                                String uri2 = withAppendedId != null ? withAppendedId.toString() : str;
-                                String string = query.getString(query.getColumnIndex("bucket_id"));
-                                String string2 = query.getString(query.getColumnIndex("bucket_display_name"));
-                                String string3 = query.getString(query.getColumnIndex("_data"));
-                                String string4 = query.getString(query.getColumnIndex("mime_type"));
-                                long j2 = query.getLong(query.getColumnIndex("date_added"));
-                                int i2 = query.getInt(query.getColumnIndex("_size"));
-                                long j3 = query.getLong(query.getColumnIndex("date_modified"));
-                                boolean endsWith = string4.endsWith("gif");
-                                if (endsWith) {
-                                    try {
-                                        if (fVar.f13425d == 3 || i2 > 3145728) {
-                                            fVar = this;
-                                            if (query.moveToNext()) {
-                                                break;
-                                            }
-                                            str = null;
-                                        }
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                        cursor = query;
-                                        try {
-                                            BdLog.detailException(e);
-                                            c.a.e.e.m.a.a(cursor);
-                                            return arrayList;
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            c.a.e.e.m.a.a(cursor);
-                                            throw th;
-                                        }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        cursor = query;
-                                        c.a.e.e.m.a.a(cursor);
-                                        throw th;
-                                    }
-                                }
-                                ImageFileInfo imageFileInfo = new ImageFileInfo();
-                                imageFileInfo.setAlbumnId(string);
-                                imageFileInfo.setContentUriStr(uri2);
-                                imageFileInfo.setFilePath(string3);
-                                imageFileInfo.setIsGif(endsWith);
-                                imageFileInfo.setModifyTime(StringHelper.getChineseFormatTimeString(j3));
-                                imageFileInfo.setSortTime(j2);
-                                arrayList.add(imageFileInfo);
-                                fVar = this;
-                                c.a.p0.f.a aVar = fVar.f13428g.get(string);
-                                if (aVar == null) {
-                                    aVar = new c.a.p0.f.a();
-                                    fVar.f13428g.put(string, aVar);
-                                }
-                                aVar.h(string);
-                                aVar.l(string2);
-                                aVar.a();
-                                if (aVar.e() == null) {
-                                    aVar.k(imageFileInfo);
-                                }
-                                List<MediaFileInfo> d2 = aVar.d();
-                                if (aVar.d() == null) {
-                                    d2 = new ArrayList<>();
-                                    aVar.j(d2);
-                                }
-                                d2.add(imageFileInfo);
-                                if (query.moveToNext()) {
-                                }
-                            }
-                        }
-                    } catch (Exception e3) {
-                        e = e3;
-                    } catch (Throwable th3) {
-                        th = th3;
-                    }
-                }
-                c.a.e.e.m.a.a(query);
-            } catch (Exception e4) {
-                e = e4;
-                cursor = null;
-            } catch (Throwable th4) {
-                th = th4;
-                cursor = null;
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final List<VideoFileInfo> g() {
-        InterceptResult invokeV;
-        Cursor cursor;
-        Cursor cursor2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Context context = this.f13424c;
-            if (context == null) {
-                return arrayList;
-            }
-            ContentResolver contentResolver = context.getContentResolver();
-            HashSet hashSet = new HashSet();
-            try {
-                Uri uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-                Cursor query = contentResolver.query(uri, this.f13427f, null, null, "date_added DESC");
-                if (query != null) {
-                    try {
-                        if (query.moveToFirst()) {
-                            while (true) {
-                                int i2 = query.getInt(query.getColumnIndex("_id"));
-                                Uri withAppendedId = ContentUris.withAppendedId(uri, i2);
-                                String uri2 = withAppendedId != null ? withAppendedId.toString() : null;
-                                String string = query.getString(query.getColumnIndexOrThrow("_data"));
-                                String string2 = query.getString(query.getColumnIndexOrThrow("title"));
-                                String string3 = query.getString(query.getColumnIndexOrThrow("_display_name"));
-                                String string4 = query.getString(query.getColumnIndexOrThrow("mime_type"));
-                                int i3 = query.getInt(query.getColumnIndexOrThrow("duration"));
-                                long j2 = query.getLong(query.getColumnIndexOrThrow("date_modified"));
-                                Uri uri3 = uri;
-                                long j3 = query.getLong(query.getColumnIndexOrThrow("date_added"));
-                                if (!hashSet.contains(string)) {
-                                    hashSet.add(string);
-                                    File file = new File(string);
-                                    if (file.exists() && file.isFile() && c.a.e.e.p.f.w(file) > 0) {
-                                        VideoFileInfo videoFileInfo = new VideoFileInfo();
-                                        videoFileInfo.videoId = i2;
-                                        videoFileInfo.contentUriStr = uri2;
-                                        videoFileInfo.videoPath = string;
-                                        videoFileInfo.displayName = string3;
-                                        videoFileInfo.title = string2;
-                                        videoFileInfo.mimeType = string4;
-                                        videoFileInfo.videoDuration = i3;
-                                        videoFileInfo.lastModified = j2;
-                                        videoFileInfo.setSortTime(j3);
-                                        arrayList.add(videoFileInfo);
-                                    }
-                                }
-                                if (!query.moveToNext()) {
-                                    break;
-                                }
-                                uri = uri3;
-                            }
-                        }
-                    } catch (Exception unused) {
-                        cursor2 = query;
-                        c.a.e.e.m.a.a(cursor2);
-                        return arrayList;
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor = query;
-                        c.a.e.e.m.a.a(cursor);
-                        throw th;
-                    }
-                }
-                c.a.e.e.m.a.a(query);
-            } catch (Exception unused2) {
-                cursor2 = null;
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = null;
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean h(int i2, e eVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, eVar)) == null) {
-            if (eVar == null) {
-                return false;
-            }
-            c();
-            this.f13425d = i2;
-            c cVar = new c(this, eVar);
-            this.f13423b = cVar;
-            cVar.setPriority(3);
-            this.f13423b.execute(new Object[0]);
-            return true;
-        }
-        return invokeIL.booleanValue;
-    }
 }

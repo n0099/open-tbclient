@@ -7,6 +7,7 @@ import com.baidu.searchbox.launch.SmartLaunchScheduler;
 import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.TTIStats;
 import com.baidu.searchbox.performance.speed.SpeedStats;
+import com.baidu.searchbox.task.item.InitMainTabTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -88,6 +89,7 @@ public class IdleLaunchTaskManager {
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     new SmartLaunchStats().stats();
                     new TTIStats().stats();
+                    new InitMainTabTask().execute();
                 }
             }
         });

@@ -28,17 +28,17 @@ public class AdAsyncRequestModel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<PlaceId, String> f48994d;
+    public static final Map<PlaceId, String> f49129d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final PlaceId f48995a;
+    public final PlaceId f49130a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f48996b;
+    public final b f49131b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f48997c;
+    public final HttpMessageListener f49132c;
 
     /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
@@ -46,7 +46,7 @@ public class AdAsyncRequestModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdAsyncRequestModel f48998a;
+        public final /* synthetic */ AdAsyncRequestModel f49133a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AdAsyncRequestModel adAsyncRequestModel, int i2) {
@@ -66,7 +66,7 @@ public class AdAsyncRequestModel {
                     return;
                 }
             }
-            this.f48998a = adAsyncRequestModel;
+            this.f49133a = adAsyncRequestModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,12 +77,12 @@ public class AdAsyncRequestModel {
                 AdAsyncResponseData adAsyncResponseData = (AdAsyncResponseData) httpResponsedMessage;
                 Message<?> orginalMessage = adAsyncResponseData.getOrginalMessage();
                 if (orginalMessage instanceof AdAsyncRequestData) {
-                    if (!TextUtils.equals(this.f48998a.f48995a.value, (String) ((AdAsyncRequestData) orginalMessage).getParams().get("pid"))) {
+                    if (!TextUtils.equals(this.f49133a.f49130a.value, (String) ((AdAsyncRequestData) orginalMessage).getParams().get("pid"))) {
                         return;
                     }
                 }
-                if (this.f48998a.f48996b != null) {
-                    this.f48998a.f48996b.a(adAsyncResponseData.isSuccess(), adAsyncResponseData.getAds());
+                if (this.f49133a.f49131b != null) {
+                    this.f49133a.f49131b.a(adAsyncResponseData.isSuccess(), adAsyncResponseData.getAds());
                 }
             }
         }
@@ -106,7 +106,7 @@ public class AdAsyncRequestModel {
                 return;
             }
         }
-        f48994d = new HashMap<PlaceId, String>() { // from class: com.baidu.tieba.ad.asyncpv.AdAsyncRequestModel.1
+        f49129d = new HashMap<PlaceId, String>() { // from class: com.baidu.tieba.ad.asyncpv.AdAsyncRequestModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -145,10 +145,10 @@ public class AdAsyncRequestModel {
                 return;
             }
         }
-        this.f48997c = new a(this, CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST);
-        this.f48995a = placeId;
-        this.f48996b = bVar;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST, TbConfig.SERVER_ADDRESS + "tiebaads/commonbatch?adcmd=" + f48994d.get(placeId));
+        this.f49132c = new a(this, CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST);
+        this.f49130a = placeId;
+        this.f49131b = bVar;
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST, TbConfig.SERVER_ADDRESS + "tiebaads/commonbatch?adcmd=" + f49129d.get(placeId));
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setIsNeedAddStatisticsParam(false);
@@ -156,20 +156,20 @@ public class AdAsyncRequestModel {
         tbHttpMessageTask.setmIsNBaiduServer(false);
         tbHttpMessageTask.setResponsedClass(AdAsyncResponseData.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.f48997c);
+        MessageManager.getInstance().registerListener(this.f49132c);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f48997c);
+            MessageManager.getInstance().unRegisterListener(this.f49132c);
         }
     }
 
     public void d(Map<String, String> map, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, i2) == null) {
-            MessageManager.getInstance().sendMessage(new AdAsyncRequestData(this.f48995a, map, i2));
+            MessageManager.getInstance().sendMessage(new AdAsyncRequestData(this.f49130a, map, i2));
         }
     }
 }

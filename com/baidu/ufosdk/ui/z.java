@@ -13,10 +13,10 @@ public final class z implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f59794a;
+    public final /* synthetic */ FeedbackEditActivity f59974a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f59795b;
+    public long f59975b;
 
     public z(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class z implements View.OnClickListener {
                 return;
             }
         }
-        this.f59794a = feedbackEditActivity;
-        this.f59795b = 0L;
+        this.f59974a = feedbackEditActivity;
+        this.f59975b = 0L;
     }
 
     @Override // android.view.View.OnClickListener
@@ -45,25 +45,25 @@ public final class z implements View.OnClickListener {
         SharedPreferences.Editor editor2;
         SharedPreferences.Editor editor3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || System.currentTimeMillis() - this.f59795b < 3000) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || System.currentTimeMillis() - this.f59975b < 3000) {
             return;
         }
-        z = this.f59794a.v;
+        z = this.f59974a.v;
         if (z) {
             return;
         }
-        this.f59795b = System.currentTimeMillis();
-        editText = this.f59794a.n;
+        this.f59975b = System.currentTimeMillis();
+        editText = this.f59974a.n;
         String obj = editText.getText().toString();
         if (obj == null || obj.trim().length() <= 0) {
-            editor = this.f59794a.f59460b;
+            editor = this.f59974a.f59640b;
             editor.putString("cryptContactData", "");
         } else {
-            editor3 = this.f59794a.f59460b;
+            editor3 = this.f59974a.f59640b;
             editor3.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
         }
-        editor2 = this.f59794a.f59460b;
+        editor2 = this.f59974a.f59640b;
         editor2.commit();
-        FeedbackEditActivity.h(this.f59794a);
+        FeedbackEditActivity.h(this.f59974a);
     }
 }

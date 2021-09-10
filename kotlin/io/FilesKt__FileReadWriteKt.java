@@ -339,7 +339,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.io.FileInputStream */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.Object, byte[]] */
+    /* JADX WARN: Type inference failed for: r2v2, types: [byte[], java.lang.Object] */
     public static final void forEachBlock(File forEachBlock, int i2, Function2<? super byte[], ? super Integer, Unit> action) {
         Intrinsics.checkNotNullParameter(forEachBlock, "$this$forEachBlock");
         Intrinsics.checkNotNullParameter(action, "action");

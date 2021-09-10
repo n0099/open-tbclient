@@ -11,7 +11,7 @@ public class y implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f77041a;
+    public final /* synthetic */ PBSplash f77221a;
 
     public y(PBSplash pBSplash) {
         Interceptable interceptable = $ic;
@@ -28,17 +28,17 @@ public class y implements View.OnClickListener {
                 return;
             }
         }
-        this.f77041a = pBSplash;
+        this.f77221a = pBSplash;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            PBSplash pBSplash = this.f77041a;
-            if (pBSplash.f76677e != null) {
-                pBSplash.f76678f = true;
-                this.f77041a.f76677e.onSkip();
+            PBSplash pBSplash = this.f77221a;
+            if (pBSplash.f76857e != null) {
+                pBSplash.f76858f = true;
+                this.f77221a.f76857e.onSkip();
             }
         }
     }

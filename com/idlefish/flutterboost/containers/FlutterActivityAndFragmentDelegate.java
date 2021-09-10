@@ -14,9 +14,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
-import c.a.q0.n3.a;
+import c.a.r0.o3.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -189,6 +190,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IFlutterViewContainer
+    @RequiresApi(api = 5)
     public void finishContainer(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {

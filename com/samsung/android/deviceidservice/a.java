@@ -26,7 +26,7 @@ public interface a extends IInterface {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f75246a;
+            public IBinder f75426a;
 
             public C2047a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f75246a = iBinder;
+                this.f75426a = iBinder;
             }
 
             @Override // com.samsung.android.deviceidservice.a
@@ -55,7 +55,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
-                        this.f75246a.transact(1, obtain, obtain2, 0);
+                        this.f75426a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -76,7 +76,7 @@ public interface a extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                         obtain.writeString(str);
-                        this.f75246a.transact(2, obtain, obtain2, 0);
+                        this.f75426a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -91,7 +91,7 @@ public interface a extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75246a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75426a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.samsung.android.deviceidservice.a
@@ -104,7 +104,7 @@ public interface a extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                         obtain.writeString(str);
-                        this.f75246a.transact(3, obtain, obtain2, 0);
+                        this.f75426a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {

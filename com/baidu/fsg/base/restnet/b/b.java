@@ -42,29 +42,29 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39263a = "appcache";
+    public static final String f39374a = "appcache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39264b = 2;
+    public static final int f39375b = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f39265c;
+    public Context f39376c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39266d;
+    public String f39377d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f39267e;
+    public d f39378e;
 
     /* renamed from: f  reason: collision with root package name */
-    public URLConnection f39268f;
+    public URLConnection f39379f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f39269g;
+    public boolean f39380g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f39270h;
+    public boolean f39381h;
 
     public b(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -81,10 +81,10 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
                 return;
             }
         }
-        this.f39270h = false;
-        this.f39265c = context.getApplicationContext();
-        this.f39266d = str;
-        this.f39270h = z;
+        this.f39381h = false;
+        this.f39376c = context.getApplicationContext();
+        this.f39377d = str;
+        this.f39381h = z;
     }
 
     private com.baidu.fsg.base.restnet.rest.e a(URL url) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
@@ -92,10 +92,10 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, url)) == null) {
             URLConnection openConnection = url.openConnection();
-            this.f39268f = openConnection;
+            this.f39379f = openConnection;
             a(openConnection);
-            b(this.f39268f);
-            return a(url, this.f39268f, "POST");
+            b(this.f39379f);
+            return a(url, this.f39379f, "POST");
         }
         return (com.baidu.fsg.base.restnet.rest.e) invokeL.objValue;
     }
@@ -114,7 +114,7 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
-            d dVar = this.f39267e;
+            d dVar = this.f39378e;
             if (dVar != null) {
                 String l = dVar.l();
                 if (TextUtils.isEmpty(l)) {
@@ -131,13 +131,13 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x0024, code lost:
-        if (r4.f39267e.h() > 0) goto L34;
+        if (r4.f39378e.h() > 0) goto L34;
      */
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0041, code lost:
-        if (r4.f39267e.h() > 0) goto L34;
+        if (r4.f39378e.h() > 0) goto L34;
      */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0043, code lost:
-        r1 = r4.f39267e.h();
+        r1 = r4.f39378e.h();
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -146,10 +146,10 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, uRLConnection) == null) {
             int i2 = 30000;
-            if (this.f39269g) {
-                uRLConnection.setConnectTimeout(this.f39267e.h() > 0 ? this.f39267e.h() : 30000);
+            if (this.f39380g) {
+                uRLConnection.setConnectTimeout(this.f39378e.h() > 0 ? this.f39378e.h() : 30000);
             } else {
-                uRLConnection.setConnectTimeout(this.f39267e.h() > 0 ? this.f39267e.h() : 30000);
+                uRLConnection.setConnectTimeout(this.f39378e.h() > 0 ? this.f39378e.h() : 30000);
             }
             uRLConnection.setReadTimeout(i2);
             if (Integer.parseInt(Build.VERSION.SDK) < 8) {
@@ -163,15 +163,15 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
                 uRLConnection.setRequestProperty("User-Agent", "");
                 uRLConnection.setRequestProperty("Accept-Encoding", "");
             } else {
-                uRLConnection.setRequestProperty("User-Agent", this.f39266d);
-                for (Map.Entry<String, List<String>> entry : this.f39267e.b().entrySet()) {
+                uRLConnection.setRequestProperty("User-Agent", this.f39377d);
+                for (Map.Entry<String, List<String>> entry : this.f39378e.b().entrySet()) {
                     uRLConnection.setRequestProperty(entry.getKey(), (String) Collections.unmodifiableList(entry.getValue()).get(0));
                 }
-                if (this.f39270h) {
+                if (this.f39381h) {
                     d();
                 }
             }
-            if (!(this.f39268f instanceof HttpsURLConnection) || com.baidu.fsg.base.b.a().a()) {
+            if (!(this.f39379f instanceof HttpsURLConnection) || com.baidu.fsg.base.b.a().a()) {
                 return;
             }
             b();
@@ -184,9 +184,9 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, url)) == null) {
             URL url2 = new URL(a(url.toString()));
             URLConnection openConnection = url2.openConnection();
-            this.f39268f = openConnection;
+            this.f39379f = openConnection;
             a(openConnection);
-            return a(url2, this.f39268f, "GET");
+            return a(url2, this.f39379f, "GET");
         }
         return (com.baidu.fsg.base.restnet.rest.e) invokeL.objValue;
     }
@@ -194,12 +194,12 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            ((HttpsURLConnection) this.f39268f).setHostnameVerifier(new HostnameVerifier(this) { // from class: com.baidu.fsg.base.restnet.b.b.1
+            ((HttpsURLConnection) this.f39379f).setHostnameVerifier(new HostnameVerifier(this) { // from class: com.baidu.fsg.base.restnet.b.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f39271a;
+                public final /* synthetic */ b f39382a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -216,7 +216,7 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
                             return;
                         }
                     }
-                    this.f39271a = this;
+                    this.f39382a = this;
                 }
 
                 @Override // javax.net.ssl.HostnameVerifier
@@ -226,7 +226,7 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, sSLSession)) == null) {
                         try {
                             Certificate[] peerCertificates = sSLSession.getPeerCertificates();
-                            String v = this.f39271a.f39267e.b().v();
+                            String v = this.f39382a.f39378e.b().v();
                             if (!TextUtils.isEmpty(v) && peerCertificates != null && peerCertificates.length > 0) {
                                 X509Certificate x509Certificate = (X509Certificate) peerCertificates[0];
                                 Collection<List<?>> subjectAlternativeNames = x509Certificate.getSubjectAlternativeNames();
@@ -270,11 +270,11 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
         d dVar;
         DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, this, uRLConnection) == null) || (dVar = this.f39267e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65544, this, uRLConnection) == null) || (dVar = this.f39378e) == null) {
             return;
         }
         String l = dVar.l();
-        RestMultipartEntity a2 = this.f39267e.a();
+        RestMultipartEntity a2 = this.f39378e.a();
         uRLConnection.setDoOutput(true);
         uRLConnection.setDoInput(true);
         if (a2 != null) {
@@ -327,9 +327,9 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            if (this.f39267e != null) {
+            if (this.f39378e != null) {
                 RestRequestCallbacker.IRestRequestCallback requestCallback = RestRequestCallbacker.getRequestCallback();
-                String k = this.f39267e.k();
+                String k = this.f39378e.k();
                 return (TextUtils.isEmpty(k) || requestCallback == null || !requestCallback.isSpecialUrl(k)) ? false : true;
             }
             return false;
@@ -341,7 +341,7 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             try {
-                Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.f39265c.getDir("appcache", 0), "com/baidu/fsg/base/restnet/http"), 10485760L);
+                Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.f39376c.getDir("appcache", 0), "com/baidu/fsg/base/restnet/http"), 10485760L);
             } catch (Exception unused) {
             }
         }
@@ -362,13 +362,13 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
-            this.f39267e = (d) dVar;
+            this.f39378e = (d) dVar;
             URL url = new URL(dVar.d());
             LogUtil.v("apollon_rest", "con url: " + url + ", host: " + dVar.b().c("Host"));
-            if (this.f39267e.i()) {
+            if (this.f39378e.i()) {
                 return a(url);
             }
-            if (this.f39267e.j()) {
+            if (this.f39378e.j()) {
                 return b(url);
             }
             return null;
@@ -380,16 +380,16 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            URLConnection uRLConnection = this.f39268f;
+            URLConnection uRLConnection = this.f39379f;
             if (uRLConnection != null) {
                 if (uRLConnection instanceof HttpsURLConnection) {
                     ((HttpsURLConnection) uRLConnection).disconnect();
                 } else if (uRLConnection instanceof HttpURLConnection) {
                     ((HttpURLConnection) uRLConnection).disconnect();
                 }
-                this.f39268f = null;
+                this.f39379f = null;
             }
-            if (this.f39270h) {
+            if (this.f39381h) {
                 e();
             }
         }

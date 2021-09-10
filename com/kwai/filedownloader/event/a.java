@@ -16,10 +16,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f74052a;
+    public final Executor f74232a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, LinkedList<c>> f74053b;
+    public final HashMap<String, LinkedList<c>> f74233b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class a {
                 return;
             }
         }
-        this.f74052a = com.kwai.filedownloader.f.b.a(10, "EventPool");
-        this.f74053b = new HashMap<>();
+        this.f74232a = com.kwai.filedownloader.f.b.a(10, "EventPool");
+        this.f74233b = new HashMap<>();
     }
 
     private void a(LinkedList<c> linkedList, b bVar) {
@@ -47,7 +47,7 @@ public class a {
                     break;
                 }
             }
-            Runnable runnable = bVar.f74056a;
+            Runnable runnable = bVar.f74236a;
             if (runnable != null) {
                 runnable.run();
             }
@@ -58,17 +58,17 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-            if (d.f74064a) {
+            if (d.f74244a) {
                 d.e(this, "publish %s", bVar.b());
             }
             if (bVar != null) {
                 String b2 = bVar.b();
-                LinkedList<c> linkedList = this.f74053b.get(b2);
+                LinkedList<c> linkedList = this.f74233b.get(b2);
                 if (linkedList == null) {
                     synchronized (b2.intern()) {
-                        linkedList = this.f74053b.get(b2);
+                        linkedList = this.f74233b.get(b2);
                         if (linkedList == null) {
-                            if (d.f74064a) {
+                            if (d.f74244a) {
                                 d.c(this, "No listener for this event %s", b2);
                             }
                             return false;
@@ -88,16 +88,16 @@ public class a {
         boolean add;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar)) == null) {
-            if (d.f74064a) {
+            if (d.f74244a) {
                 d.e(this, "setListener %s", str);
             }
             if (cVar != null) {
-                LinkedList<c> linkedList = this.f74053b.get(str);
+                LinkedList<c> linkedList = this.f74233b.get(str);
                 if (linkedList == null) {
                     synchronized (str.intern()) {
-                        linkedList = this.f74053b.get(str);
+                        linkedList = this.f74233b.get(str);
                         if (linkedList == null) {
-                            HashMap<String, LinkedList<c>> hashMap = this.f74053b;
+                            HashMap<String, LinkedList<c>> hashMap = this.f74233b;
                             LinkedList<c> linkedList2 = new LinkedList<>();
                             hashMap.put(str, linkedList2);
                             linkedList = linkedList2;
@@ -117,21 +117,21 @@ public class a {
     public void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            if (d.f74064a) {
+            if (d.f74244a) {
                 d.e(this, "asyncPublishInNewThread %s", bVar.b());
             }
             if (bVar == null) {
                 throw new IllegalArgumentException("event must not be null!");
             }
-            this.f74052a.execute(new Runnable(this, bVar) { // from class: com.kwai.filedownloader.event.a.1
+            this.f74232a.execute(new Runnable(this, bVar) { // from class: com.kwai.filedownloader.event.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f74054a;
+                public final /* synthetic */ b f74234a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f74055b;
+                public final /* synthetic */ a f74235b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -148,8 +148,8 @@ public class a {
                             return;
                         }
                     }
-                    this.f74055b = this;
-                    this.f74054a = bVar;
+                    this.f74235b = this;
+                    this.f74234a = bVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -157,7 +157,7 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f74055b.a(this.f74054a);
+                            this.f74235b.a(this.f74234a);
                         } catch (Exception unused) {
                         }
                     }

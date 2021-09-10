@@ -18,13 +18,13 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f33668a;
+    public static final byte[] f33777a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f33669b;
+    public static final int[] f33778b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f33670c;
+    public static final int[] f33779c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,9 +40,9 @@ public final class c {
                 return;
             }
         }
-        f33668a = new byte[]{0, 0, 0, 1};
-        f33669b = new int[]{96000, 88200, 64000, MediaEncodeParams.AUDIO_SAMPLE_RATE, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
-        f33670c = new int[]{0, 1, 2, 3, 4, 5, 6, 8, -1, -1, -1, 7, 8, -1, 8, -1};
+        f33777a = new byte[]{0, 0, 0, 1};
+        f33778b = new int[]{96000, 88200, 64000, MediaEncodeParams.AUDIO_SAMPLE_RATE, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
+        f33779c = new int[]{0, 1, 2, 3, 4, 5, 6, 8, -1, -1, -1, 7, 8, -1, 8, -1};
     }
 
     public static byte[] a(int i2, int i3, int i4) {
@@ -59,7 +59,7 @@ public final class c {
             int i5 = 0;
             int i6 = -1;
             while (true) {
-                int[] iArr = f33669b;
+                int[] iArr = f33778b;
                 if (i5 >= iArr.length) {
                     break;
                 }
@@ -70,7 +70,7 @@ public final class c {
             }
             int i7 = -1;
             while (true) {
-                int[] iArr2 = f33670c;
+                int[] iArr2 = f33779c;
                 if (i4 >= iArr2.length) {
                     break;
                 }
@@ -91,10 +91,10 @@ public final class c {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i2, i3)) == null) {
-            byte[] bArr2 = f33668a;
+            byte[] bArr2 = f33777a;
             byte[] bArr3 = new byte[bArr2.length + i3];
             System.arraycopy(bArr2, 0, bArr3, 0, bArr2.length);
-            System.arraycopy(bArr, i2, bArr3, f33668a.length, i3);
+            System.arraycopy(bArr, i2, bArr3, f33777a.length, i3);
             return bArr3;
         }
         return (byte[]) invokeLII.objValue;
@@ -104,7 +104,7 @@ public final class c {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2)) == null) {
-            int length = bArr.length - f33668a.length;
+            int length = bArr.length - f33777a.length;
             while (i2 <= length) {
                 if (g(bArr, i2)) {
                     return i2;
@@ -135,7 +135,7 @@ public final class c {
                 return kVar.g(24);
             }
             a.a(g2 < 13);
-            return f33669b[g2];
+            return f33778b[g2];
         }
         return invokeL.intValue;
     }
@@ -146,12 +146,12 @@ public final class c {
         if (interceptable != null && (invokeLI = interceptable.invokeLI(65543, null, bArr, i2)) != null) {
             return invokeLI.booleanValue;
         }
-        if (bArr.length - i2 <= f33668a.length) {
+        if (bArr.length - i2 <= f33777a.length) {
             return false;
         }
         int i3 = 0;
         while (true) {
-            byte[] bArr2 = f33668a;
+            byte[] bArr2 = f33777a;
             if (i3 >= bArr2.length) {
                 return true;
             }
@@ -203,7 +203,7 @@ public final class c {
                         }
                 }
             }
-            int i2 = f33670c[g2];
+            int i2 = f33779c[g2];
             a.a(i2 != -1);
             return Pair.create(Integer.valueOf(f2), Integer.valueOf(i2));
         }
@@ -251,7 +251,7 @@ public final class c {
                 int i2 = 0;
                 do {
                     arrayList.add(Integer.valueOf(i2));
-                    i2 = d(bArr, i2 + f33668a.length);
+                    i2 = d(bArr, i2 + f33777a.length);
                 } while (i2 != -1);
                 byte[][] bArr2 = new byte[arrayList.size()];
                 int i3 = 0;

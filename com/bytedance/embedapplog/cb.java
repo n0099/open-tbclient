@@ -26,7 +26,7 @@ public interface cb extends IInterface {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f63882a;
+            public IBinder f64062a;
 
             public C1875a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public interface cb extends IInterface {
                         return;
                     }
                 }
-                this.f63882a = iBinder;
+                this.f64062a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.cb
@@ -55,7 +55,7 @@ public interface cb extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                        this.f63882a.transact(1, obtain, obtain2, 0);
+                        this.f64062a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -70,7 +70,7 @@ public interface cb extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63882a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64062a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.embedapplog.cb
@@ -82,7 +82,7 @@ public interface cb extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                        this.f63882a.transact(2, obtain, obtain2, 0);
+                        this.f64062a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {

@@ -23,14 +23,14 @@ public class d extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f67282a;
+    public static final String f67462a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final w f67283b;
+    public final w f67463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f67284c;
+    public j f67464c;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class d extends WebChromeClient {
                 return;
             }
         }
-        f67282a = WebChromeClient.class.getSimpleName();
+        f67462a = WebChromeClient.class.getSimpleName();
     }
 
     public d(w wVar, j jVar) {
@@ -63,8 +63,8 @@ public class d extends WebChromeClient {
                 return;
             }
         }
-        this.f67283b = wVar;
-        this.f67284c = jVar;
+        this.f67463b = wVar;
+        this.f67464c = jVar;
     }
 
     private boolean a(@NonNull String str) {
@@ -75,7 +75,7 @@ public class d extends WebChromeClient {
                 String str2 = "message:" + str;
                 Uri parse = Uri.parse(str);
                 if ("bytedance".equals(parse.getScheme().toLowerCase())) {
-                    i.a(parse, this.f67283b);
+                    i.a(parse, this.f67463b);
                     return true;
                 }
                 return false;
@@ -102,7 +102,7 @@ public class d extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, webView, i2) == null) {
             super.onProgressChanged(webView, i2);
-            j jVar = this.f67284c;
+            j jVar = this.f67464c;
             if (jVar != null) {
                 jVar.a(webView, i2);
             }

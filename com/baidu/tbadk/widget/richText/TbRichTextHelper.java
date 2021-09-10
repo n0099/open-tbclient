@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.text.style.ClickableSpan;
 import android.util.SparseArray;
 import android.view.View;
 import androidx.annotation.ColorRes;
@@ -18,21 +17,20 @@ import androidx.core.util.Pair;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
-import c.a.e.e.p.l;
-import c.a.p0.b0.a;
-import c.a.p0.s.q.c2;
+import c.a.q0.c0.a;
+import c.a.q0.s.q.d2;
+import c.a.q0.u.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.ItemStarData;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tbadk.core.util.ItemClickJumpUtil;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -42,8 +40,8 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
 import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tbadk.switchs.WorkIntroSwitch;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
@@ -64,14 +62,14 @@ public class TbRichTextHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f48713a;
+    public static String f48848a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final i f48714b;
+    public static final i f48849b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a extends RichTextMaker<c.a.p0.d1.o.a> {
+    public static class a extends RichTextMaker<c.a.q0.f1.o.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -99,7 +97,7 @@ public class TbRichTextHelper {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.widget.richText.TbRichTextHelper.RichTextMaker
         /* renamed from: c */
-        public void b(int i2, @NonNull c.a.p0.d1.o.a aVar) {
+        public void b(int i2, @NonNull c.a.q0.f1.o.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, aVar) == null) {
                 aVar.n(TiePlusStat.StatType.CLICK);
@@ -109,7 +107,7 @@ public class TbRichTextHelper {
     }
 
     /* loaded from: classes6.dex */
-    public static class b extends RichTextMaker<c.a.p0.d1.o.a> {
+    public static class b extends RichTextMaker<c.a.q0.f1.o.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -137,7 +135,7 @@ public class TbRichTextHelper {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.widget.richText.TbRichTextHelper.RichTextMaker
         /* renamed from: c */
-        public void b(int i2, @NonNull c.a.p0.d1.o.a aVar) {
+        public void b(int i2, @NonNull c.a.q0.f1.o.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, aVar) == null) {
                 aVar.n(TiePlusStat.StatType.CLICK);
@@ -147,7 +145,7 @@ public class TbRichTextHelper {
     }
 
     /* loaded from: classes6.dex */
-    public static class c extends c.a.p0.d1.m.e {
+    public static class c extends c.a.q0.f1.m.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String l;
@@ -174,30 +172,28 @@ public class TbRichTextHelper {
             this.l = str2;
         }
 
-        @Override // c.a.p0.d1.m.e, android.text.style.ClickableSpan
+        @Override // c.a.q0.f1.m.e, android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TbRichTextHelper.z(this.l, null);
+                TbRichTextHelper.A(this.l, null);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class d extends c.a.p0.d1.m.e {
+    public static class d extends c.a.q0.f1.m.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c2 l;
-        public final /* synthetic */ String m;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(int i2, String str, c2 c2Var, String str2) {
+        public d(int i2, String str) {
             super(i2, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), str, c2Var, str2};
+                Object[] objArr = {Integer.valueOf(i2), str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -209,35 +205,72 @@ public class TbRichTextHelper {
                     return;
                 }
             }
-            this.l = c2Var;
-            this.m = str2;
         }
 
-        @Override // c.a.p0.d1.m.e, android.text.style.ClickableSpan
+        @Override // c.a.q0.f1.m.e, android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TbRichTextHelper.w(this.l, this.m);
+                BdToast.i(SelectorHelper.getContext(), SelectorHelper.getContext().getString(R.string.video_check_click_msg), R.drawable.icon_pure_toast_mistake40_svg, true).q();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class e extends c.a.p0.d1.m.e {
+    public static class e extends c.a.q0.f1.m.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String l;
-        public final /* synthetic */ c2 m;
-        public final /* synthetic */ String n;
+        public final /* synthetic */ d2 l;
+        public final /* synthetic */ String m;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(int i2, String str, String str2, c2 c2Var, String str3) {
+        public e(int i2, String str, d2 d2Var, String str2) {
             super(i2, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), str, str2, c2Var, str3};
+                Object[] objArr = {Integer.valueOf(i2), str, d2Var, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.l = d2Var;
+            this.m = str2;
+        }
+
+        @Override // c.a.q0.f1.m.e, android.text.style.ClickableSpan
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                TbRichTextHelper.x(this.l, this.m);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class f extends c.a.q0.f1.m.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String l;
+        public final /* synthetic */ d2 m;
+        public final /* synthetic */ String n;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f(int i2, String str, String str2, d2 d2Var, String str3) {
+            super(i2, str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), str, str2, d2Var, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -250,27 +283,27 @@ public class TbRichTextHelper {
                 }
             }
             this.l = str2;
-            this.m = c2Var;
+            this.m = d2Var;
             this.n = str3;
         }
 
-        @Override // c.a.p0.d1.m.e, android.text.style.ClickableSpan
+        @Override // c.a.q0.f1.m.e, android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TbRichTextHelper.x(this.l, this.m, this.n);
+                TbRichTextHelper.y(this.l, this.m, this.n);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class f extends c.a.p0.d1.m.e {
+    public static class g extends c.a.q0.f1.m.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String l;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(int i2, String str, String str2) {
+        public g(int i2, String str, String str2) {
             super(i2, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -291,42 +324,11 @@ public class TbRichTextHelper {
             this.l = str2;
         }
 
-        @Override // c.a.p0.d1.m.e, android.text.style.ClickableSpan
+        @Override // c.a.q0.f1.m.e, android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TbRichTextHelper.y(this.l);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class g extends ClickableSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(@NonNull View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                if (currentActivity instanceof TbPageContextSupport) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext<?>) ((TbPageContextSupport) currentActivity).getPageContext(), new String[]{TbConfig.URL_WORKS_INFO}, true);
-                }
+                TbRichTextHelper.z(this.l);
             }
         }
     }
@@ -336,7 +338,7 @@ public class TbRichTextHelper {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f48726a;
+        public static final /* synthetic */ int[] f48861a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -353,17 +355,17 @@ public class TbRichTextHelper {
                 }
             }
             int[] iArr = new int[RichTextMaker.IconPos.values().length];
-            f48726a = iArr;
+            f48861a = iArr;
             try {
                 iArr[RichTextMaker.IconPos.START.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f48726a[RichTextMaker.IconPos.END.ordinal()] = 2;
+                f48861a[RichTextMaker.IconPos.END.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f48726a[RichTextMaker.IconPos.NONE.ordinal()] = 3;
+                f48861a[RichTextMaker.IconPos.NONE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -375,7 +377,7 @@ public class TbRichTextHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SparseArray<RichTextMaker<?>> f48727a;
+        public SparseArray<RichTextMaker<?>> f48862a;
 
         public i() {
             Interceptable interceptable = $ic;
@@ -390,19 +392,19 @@ public class TbRichTextHelper {
                     return;
                 }
             }
-            this.f48727a = new SparseArray<>();
+            this.f48862a = new SparseArray<>();
         }
 
         public <T> RichTextMaker<T> a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (RichTextMaker<T>) this.f48727a.get(i2) : (RichTextMaker) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (RichTextMaker<T>) this.f48862a.get(i2) : (RichTextMaker) invokeI.objValue;
         }
 
         public void b(int i2, RichTextMaker<?> richTextMaker) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, richTextMaker) == null) {
-                this.f48727a.put(i2, richTextMaker);
+                this.f48862a.put(i2, richTextMaker);
             }
         }
     }
@@ -420,23 +422,42 @@ public class TbRichTextHelper {
                 return;
             }
         }
-        f48714b = new i();
+        f48849b = new i();
+        v();
         u();
-        t();
     }
 
-    public static SpannableStringBuilder A(c2 c2Var, List<PbContent> list, String str) {
+    public static void A(String str, d2 d2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, d2Var) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (TextUtils.isEmpty(str) || !(currentActivity instanceof TbPageContextSupport)) {
+                return;
+            }
+            TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) currentActivity;
+            l lVar = new l();
+            lVar.f15042a = str;
+            if (d2Var != null) {
+                lVar.f15043b = d2Var.V0();
+                lVar.f15044c = d2Var.H0();
+            }
+            c.a.q0.t0.b.i(lVar);
+            UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{lVar.f15042a, lVar.f15044c});
+        }
+    }
+
+    public static SpannableStringBuilder B(d2 d2Var, List<PbContent> list, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, c2Var, list, str)) == null) ? B(c2Var, list, str, null) : (SpannableStringBuilder) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, d2Var, list, str)) == null) ? C(d2Var, list, str, null) : (SpannableStringBuilder) invokeLLL.objValue;
     }
 
-    public static SpannableStringBuilder B(c2 c2Var, List<PbContent> list, String str, @Nullable List<c.a.p0.d1.o.a> list2) {
+    public static SpannableStringBuilder C(d2 d2Var, List<PbContent> list, String str, @Nullable List<c.a.q0.f1.o.a> list2) {
         InterceptResult invokeLLLL;
         int size;
-        Pair<CharSequence, c.a.p0.d1.o.a> p;
+        Pair<CharSequence, c.a.q0.f1.o.a> q;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, c2Var, list, str, list2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, d2Var, list, str, list2)) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (ListUtils.isEmpty(list)) {
                 if (str == null) {
@@ -449,13 +470,13 @@ public class TbRichTextHelper {
                     if (pbContent != null && (!TextUtils.isEmpty(pbContent.text) || !TextUtils.isEmpty(i(pbContent)))) {
                         int f2 = f(pbContent.type.intValue());
                         CharSequence charSequence = null;
-                        if ((f2 == 30 || f2 == 31) && (p = p(f2, c2Var, pbContent.tiebaplus_info)) != null) {
-                            charSequence = p.first;
+                        if ((f2 == 30 || f2 == 31) && (q = q(f2, d2Var, pbContent.tiebaplus_info)) != null) {
+                            charSequence = q.first;
                             Preconditions.checkNotNull(list2);
-                            list2.add(p.second);
+                            list2.add(q.second);
                         }
                         if (charSequence == null) {
-                            charSequence = o(c2Var, pbContent);
+                            charSequence = p(d2Var, pbContent);
                         }
                         if (charSequence != null) {
                             spannableStringBuilder.append(charSequence);
@@ -468,26 +489,26 @@ public class TbRichTextHelper {
         return (SpannableStringBuilder) invokeLLLL.objValue;
     }
 
-    public static SpannableStringBuilder C(List<PbContent> list) {
+    public static SpannableStringBuilder D(List<PbContent> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) ? D(list, "") : (SpannableStringBuilder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) ? E(list, "") : (SpannableStringBuilder) invokeL.objValue;
     }
 
-    public static SpannableStringBuilder D(List<PbContent> list, String str) {
+    public static SpannableStringBuilder E(List<PbContent> list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, str)) == null) ? A(null, list, str) : (SpannableStringBuilder) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, list, str)) == null) ? B(null, list, str) : (SpannableStringBuilder) invokeLL.objValue;
     }
 
-    public static SpannableStringBuilder E(List<PbContent> list, List<HeadItem> list2, boolean z, @Nullable c2 c2Var, @Nullable List<c.a.p0.d1.o.a> list3) {
+    public static SpannableStringBuilder F(List<PbContent> list, List<HeadItem> list2, boolean z, @Nullable d2 d2Var, @Nullable List<c.a.q0.f1.o.a> list3) {
         InterceptResult invokeCommon;
         int size;
-        Pair<CharSequence, c.a.p0.d1.o.a> p;
+        Pair<CharSequence, c.a.q0.f1.o.a> q;
         CharSequence charSequence;
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{list, list2, Boolean.valueOf(z), c2Var, list3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{list, list2, Boolean.valueOf(z), d2Var, list3})) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (ListUtils.isEmpty(list)) {
                 spannableStringBuilder.append((CharSequence) "");
@@ -497,15 +518,15 @@ public class TbRichTextHelper {
                     if (pbContent != null && (!TextUtils.isEmpty(pbContent.text) || !TextUtils.isEmpty(i(pbContent)))) {
                         int f2 = f(pbContent.type.intValue());
                         SpannableStringBuilder spannableStringBuilder2 = null;
-                        if ((f2 == 30 || f2 == 31) && (p = p(f2, c2Var, pbContent.tiebaplus_info)) != null) {
-                            charSequence = p.first;
+                        if ((f2 == 30 || f2 == 31) && (q = q(f2, d2Var, pbContent.tiebaplus_info)) != null) {
+                            charSequence = q.first;
                             Preconditions.checkNotNull(list3);
-                            list3.add(p.second);
+                            list3.add(q.second);
                         } else {
                             charSequence = null;
                         }
                         if (charSequence == null) {
-                            charSequence = o(null, pbContent);
+                            charSequence = p(null, pbContent);
                         }
                         if (i2 != 0 || list2 == null) {
                             c2 = 65535;
@@ -550,7 +571,7 @@ public class TbRichTextHelper {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, itemStarData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, itemStarData)) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (itemStarData == null || (list = itemStarData.list) == null || (count = ListUtils.getCount(list)) == 0) {
                 return spannableStringBuilder;
@@ -561,7 +582,7 @@ public class TbRichTextHelper {
                 } catch (NumberFormatException unused) {
                     i3 = 0;
                 }
-                spannableStringBuilder.append((CharSequence) q(i3, false));
+                spannableStringBuilder.append((CharSequence) r(i3, false));
             } else {
                 for (ItemStarData.SingleItemStar singleItemStar : itemStarData.list) {
                     StringBuilder sb = new StringBuilder();
@@ -575,7 +596,7 @@ public class TbRichTextHelper {
                         } catch (NumberFormatException unused2) {
                             i2 = 0;
                         }
-                        spannableStringBuilder.append((CharSequence) q(i2, false));
+                        spannableStringBuilder.append((CharSequence) r(i2, false));
                     }
                     if (!spannableStringBuilder.toString().endsWith(StringUtils.LF)) {
                         spannableStringBuilder.append((CharSequence) StringUtils.LF);
@@ -590,7 +611,7 @@ public class TbRichTextHelper {
     public static SpannableStringBuilder e(List<HeadItem> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, list)) == null) {
             ItemStarData itemStarData = new ItemStarData();
             itemStarData.parseProto(list);
             return d(itemStarData);
@@ -601,45 +622,48 @@ public class TbRichTextHelper {
     public static int f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i2)) == null) {
             if (i2 != 13) {
                 if (i2 != 14) {
                     if (i2 != 18) {
                         if (i2 != 20) {
                             if (i2 != 27) {
                                 if (i2 != 32) {
-                                    switch (i2) {
-                                        case 0:
-                                            return 1;
-                                        case 1:
-                                            return 2;
-                                        case 2:
-                                            return 4;
-                                        case 3:
-                                            return 8;
-                                        case 4:
-                                            return 16;
-                                        case 5:
-                                            return 32;
-                                        case 6:
-                                            return 64;
-                                        default:
-                                            switch (i2) {
-                                                case 8:
-                                                    return 128;
-                                                case 9:
-                                                    return 256;
-                                                case 10:
-                                                    return 512;
-                                                case 11:
-                                                    return 17;
-                                                default:
-                                                    if (c.a.p0.d1.m.h.b(i2)) {
-                                                        return i2;
-                                                    }
-                                                    return 0;
-                                            }
+                                    if (i2 != 1282) {
+                                        switch (i2) {
+                                            case 0:
+                                                return 1;
+                                            case 1:
+                                                return 2;
+                                            case 2:
+                                                return 4;
+                                            case 3:
+                                                return 8;
+                                            case 4:
+                                                return 16;
+                                            case 5:
+                                                return 32;
+                                            case 6:
+                                                return 64;
+                                            default:
+                                                switch (i2) {
+                                                    case 8:
+                                                        return 128;
+                                                    case 9:
+                                                        return 256;
+                                                    case 10:
+                                                        return 512;
+                                                    case 11:
+                                                        return 17;
+                                                    default:
+                                                        if (c.a.q0.f1.m.h.b(i2)) {
+                                                            return i2;
+                                                        }
+                                                        return 0;
+                                                }
+                                        }
                                     }
+                                    return 1282;
                                 }
                                 return 50;
                             }
@@ -656,40 +680,40 @@ public class TbRichTextHelper {
         return invokeI.intValue;
     }
 
-    public static void g(StatisticItem statisticItem, c2 c2Var) {
+    public static void g(StatisticItem statisticItem, d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, statisticItem, c2Var) == null) {
-            if (c2Var.A2()) {
+        if (interceptable == null || interceptable.invokeLL(65549, null, statisticItem, d2Var) == null) {
+            if (d2Var.E2()) {
                 statisticItem.param("obj_type", 2);
-            } else if (c2Var.b2()) {
+            } else if (d2Var.e2()) {
                 statisticItem.param("obj_type", 4);
-            } else if (c2Var.w1) {
+            } else if (d2Var.y1) {
                 statisticItem.param("obj_type", 5);
-            } else if (c2Var.J1()) {
+            } else if (d2Var.M1()) {
                 statisticItem.param("obj_type", 6);
-            } else if (c2Var.K1()) {
+            } else if (d2Var.N1()) {
                 statisticItem.param("obj_type", 7);
-            } else if (c2Var.M1()) {
+            } else if (d2Var.P1()) {
                 statisticItem.param("obj_type", 8);
-            } else if (c2Var.L1()) {
+            } else if (d2Var.O1()) {
                 statisticItem.param("obj_type", 9);
-            } else if (c2Var.getType() == c2.W2) {
+            } else if (d2Var.getType() == d2.Z2) {
                 statisticItem.param("obj_type", 1);
             }
         }
     }
 
-    public static SpannableString h(c2 c2Var, String str, String str2) {
+    public static SpannableString h(d2 d2Var, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, c2Var, str, str2)) == null) ? n(c2Var, 16, str, str2) : (SpannableString) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, d2Var, str, str2)) == null) ? o(d2Var, 16, str, str2) : (SpannableString) invokeLLL.objValue;
     }
 
     @NonNull
     public static final String i(@NonNull PbContent pbContent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, pbContent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, pbContent)) == null) {
             TiebaPlusInfo tiebaPlusInfo = pbContent.tiebaplus_info;
             return tiebaPlusInfo != null ? tiebaPlusInfo.desc : "";
         }
@@ -704,7 +728,7 @@ public class TbRichTextHelper {
         double d2;
         int a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             if (str == null || (b2 = TbFaceManager.e().b(str)) == 0) {
                 return null;
             }
@@ -717,7 +741,7 @@ public class TbRichTextHelper {
                 c2 = TbFaceManager.e().c(str);
             }
             SpannableString spannableString = new SpannableString(str2 + " ");
-            c.a.p0.d1.m.d dVar = new c.a.p0.d1.m.d(TbadkCoreApplication.getInst().getContext(), b2);
+            c.a.q0.f1.m.d dVar = new c.a.q0.f1.m.d(TbadkCoreApplication.getInst().getContext(), b2);
             if (c2 != null) {
                 if (str != null && str.startsWith("bearchildren_")) {
                     d2 = 0.25d;
@@ -731,86 +755,100 @@ public class TbRichTextHelper {
             } else {
                 dVar.setBounds(new Rect(0, 0, 0, 0));
             }
-            spannableString.setSpan(new c.a.p0.d1.b(dVar, 2), 0, str2.length(), 33);
+            spannableString.setSpan(new c.a.q0.f1.b(dVar, 2), 0, str2.length(), 33);
             return spannableString;
         }
         return (SpannableString) invokeL.objValue;
     }
 
-    public static SpannableString k(c2 c2Var, String str, String str2) {
+    public static SpannableString k(d2 d2Var, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65552, null, c2Var, str, str2)) == null) {
-            SpannableString n = n(c2Var, 18, str, str2);
-            SpecHotTopicHelper.addSpecTopic(c2Var, n, n.toString(), 0);
-            return n;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, null, d2Var, str, str2)) == null) {
+            SpannableString o = o(d2Var, 1282, str, str2);
+            SpecHotTopicHelper.addSpecTopic(d2Var, o, o.toString(), 0);
+            return o;
         }
         return (SpannableString) invokeLLL.objValue;
     }
 
-    public static SpannableString l(c2 c2Var, int i2, String str, String str2, String str3) {
+    public static SpannableString l(d2 d2Var, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65554, null, d2Var, str, str2)) == null) {
+            SpannableString o = o(d2Var, 18, str, str2);
+            SpecHotTopicHelper.addSpecTopic(d2Var, o, o.toString(), 0);
+            return o;
+        }
+        return (SpannableString) invokeLLL.objValue;
+    }
+
+    public static SpannableString m(d2 d2Var, int i2, String str, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{c2Var, Integer.valueOf(i2), str, str2, str3})) == null) ? r(c2Var, i2, str, str2, 0, str3) : (SpannableString) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{d2Var, Integer.valueOf(i2), str, str2, str3})) == null) ? s(d2Var, i2, str, str2, 0, str3) : (SpannableString) invokeCommon.objValue;
     }
 
-    public static SpannableString m(c2 c2Var, String str, String str2, String str3) {
+    public static SpannableString n(d2 d2Var, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65554, null, c2Var, str, str2, str3)) == null) ? l(c2Var, 39, str, str2, str3) : (SpannableString) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65556, null, d2Var, str, str2, str3)) == null) ? m(d2Var, 39, str, str2, str3) : (SpannableString) invokeLLLL.objValue;
     }
 
-    public static SpannableString n(c2 c2Var, int i2, String str, String str2) {
+    public static SpannableString o(d2 d2Var, int i2, String str, String str2) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(65555, null, c2Var, i2, str, str2)) == null) ? r(c2Var, i2, str, str2, 0, null) : (SpannableString) invokeLILL.objValue;
+        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(65557, null, d2Var, i2, str, str2)) == null) ? s(d2Var, i2, str, str2, 0, null) : (SpannableString) invokeLILL.objValue;
     }
 
-    public static CharSequence o(c2 c2Var, PbContent pbContent) {
+    public static CharSequence p(d2 d2Var, PbContent pbContent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, c2Var, pbContent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, d2Var, pbContent)) == null) {
             int f2 = f(pbContent.type.intValue());
             if (f2 != 2) {
                 if (f2 != 4) {
                     if (f2 != 16) {
                         if (f2 != 18) {
                             if (f2 != 39) {
-                                String str = pbContent.text;
-                                return new SpannableString(str != null ? str : "");
+                                if (f2 != 1282) {
+                                    String str = pbContent.text;
+                                    return new SpannableString(str != null ? str : "");
+                                }
+                                return k(d2Var, pbContent.text, pbContent.link);
                             }
                             String str2 = pbContent.text;
-                            return m(c2Var, str2, pbContent.item_id + "", pbContent.item_forum_name);
+                            return n(d2Var, str2, pbContent.item_id + "", pbContent.item_forum_name);
                         }
-                        return k(c2Var, pbContent.text, pbContent.link);
+                        return l(d2Var, pbContent.text, pbContent.link);
                     }
-                    return h(c2Var, pbContent.text, String.valueOf(pbContent.uid));
+                    return h(d2Var, pbContent.text, String.valueOf(pbContent.uid));
                 }
                 return j(pbContent.text);
             }
-            return n(c2Var, 2, pbContent.text, pbContent.link);
+            return o(d2Var, 2, pbContent.text, pbContent.link);
         }
         return (CharSequence) invokeLL.objValue;
     }
 
     @Nullable
-    public static Pair<CharSequence, c.a.p0.d1.o.a> p(int i2, @Nullable c2 c2Var, @Nullable TiebaPlusInfo tiebaPlusInfo) {
+    public static Pair<CharSequence, c.a.q0.f1.o.a> q(int i2, @Nullable d2 d2Var, @Nullable TiebaPlusInfo tiebaPlusInfo) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65557, null, i2, c2Var, tiebaPlusInfo)) == null) {
-            if (c2Var == null || tiebaPlusInfo == null || TextUtils.isEmpty(tiebaPlusInfo.desc)) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65559, null, i2, d2Var, tiebaPlusInfo)) == null) {
+            if (d2Var == null || tiebaPlusInfo == null || TextUtils.isEmpty(tiebaPlusInfo.desc)) {
                 return null;
             }
-            c.a.p0.d1.o.a c2 = c.a.p0.d1.o.a.c(i2, tiebaPlusInfo, c2Var);
-            return Pair.create(f48714b.a(i2).a(i2, tiebaPlusInfo.desc, c2), c2);
+            c.a.q0.f1.o.a c2 = c.a.q0.f1.o.a.c(i2, tiebaPlusInfo, d2Var);
+            return Pair.create(f48849b.a(i2).a(i2, tiebaPlusInfo.desc, c2), c2);
         }
         return (Pair) invokeILL.objValue;
     }
 
-    public static SpannableString q(int i2, boolean z) {
+    public static SpannableString r(int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (i2 < 0) {
                 return null;
             }
@@ -819,21 +857,21 @@ public class TbRichTextHelper {
             int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds36);
             int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.tbds13);
             SpannableString spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.item_stars));
-            spannableString.setSpan(new c.a.p0.s.f0.r.c(i3, dimenPixelSize, dimenPixelSize2, dimenPixelSize3, 0, z), 0, spannableString.length(), 33);
+            spannableString.setSpan(new c.a.q0.s.f0.r.c(i3, dimenPixelSize, dimenPixelSize2, dimenPixelSize3, 0, z), 0, spannableString.length(), 33);
             return spannableString;
         }
         return (SpannableString) invokeCommon.objValue;
     }
 
-    public static SpannableString r(c2 c2Var, int i2, String str, String str2, int i3, String str3) {
+    public static SpannableString s(d2 d2Var, int i2, String str, String str2, int i3, String str3) {
         InterceptResult invokeCommon;
         SpannableString spannableString;
-        c.a.p0.d1.m.e fVar;
+        c.a.q0.f1.m.e gVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{c2Var, Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, null, new Object[]{d2Var, Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3})) == null) {
             String str4 = str;
             if (str4 != null) {
-                boolean z = i2 == 2 && v(str, str2);
+                boolean z = i2 == 2 && w(str, str2);
                 boolean z2 = i2 == 39;
                 if (!str4.endsWith(" ")) {
                     str4 = str4 + " ";
@@ -848,42 +886,44 @@ public class TbRichTextHelper {
                 }
                 SpannableString spannableString2 = spannableString;
                 if (i2 == 18) {
-                    fVar = new c(i2, str2, str2);
+                    gVar = new c(i2, str2, str2);
+                } else if (i2 == 1282) {
+                    gVar = new d(i2, str2);
                 } else if (i2 == 16) {
-                    fVar = new d(i2, str2, c2Var, str2);
+                    gVar = new e(i2, str2, d2Var, str2);
                 } else if (i2 == 39) {
-                    fVar = new e(i2, str2, str2, c2Var, str3);
+                    gVar = new f(i2, str2, str2, d2Var, str3);
                 } else {
-                    fVar = new f(i2, str2, str2);
+                    gVar = new g(i2, str2, str2);
                 }
-                fVar.k(i3);
+                gVar.k(i3);
                 if (i3 == 1) {
-                    fVar.j(R.color.CAM_X0109);
+                    gVar.j(R.color.CAM_X0109);
                 } else {
-                    fVar.j(-1);
+                    gVar.j(-1);
                 }
                 if (z) {
                     EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_post_link16, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                     eMRichTextAnyIconSpan.b(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                     spannableString2.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
-                    spannableString2.setSpan(fVar, 1, (str5.length() + 1) - 1, 33);
+                    spannableString2.setSpan(gVar, 1, (str5.length() + 1) - 1, 33);
                     return spannableString2;
                 } else if (z2) {
                     EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.icon_use_item_n, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                     eMRichTextAnyIconSpan2.e(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
                     spannableString2.setSpan(eMRichTextAnyIconSpan2, str5.length() - 1, str5.length() + 1, 33);
-                    spannableString2.setSpan(fVar, 0, str5.length() - 1, 33);
-                    if (f48713a != c2Var.q1()) {
-                        f48713a = c2Var.q1();
+                    spannableString2.setSpan(gVar, 0, str5.length() - 1, 33);
+                    if (f48848a != d2Var.s1()) {
+                        f48848a = d2Var.s1();
                         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ITEM_THROUGH_EXPOSURE);
-                        statisticItem.param("tid", f48713a);
-                        statisticItem.param("obj_locate", c2Var.X1 ? 1 : 2);
+                        statisticItem.param("tid", f48848a);
+                        statisticItem.param("obj_locate", d2Var.Z1 ? 1 : 2);
                         TiebaStatic.log(statisticItem);
                         return spannableString2;
                     }
                     return spannableString2;
                 } else {
-                    spannableString2.setSpan(fVar, 0, str5.length() - 1, 33);
+                    spannableString2.setSpan(gVar, 0, str5.length() - 1, 33);
                     return spannableString2;
                 }
             }
@@ -892,51 +932,31 @@ public class TbRichTextHelper {
         return (SpannableString) invokeCommon.objValue;
     }
 
-    public static SpannableString s() {
+    @Deprecated
+    public static SpannableString t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
-            SpannableString spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.works));
-            int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-            int g3 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-            int i2 = R.color.CAM_X0319;
-            int i3 = R.color.CAM_X0101;
-            int g4 = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-            int g5 = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-            int g6 = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-            c.a.p0.s.f0.b bVar = new c.a.p0.s.f0.b(g2, -1, i2, g4, i3, g5, l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-            bVar.b(g3);
-            bVar.i(g6);
-            bVar.f(true);
-            bVar.g(true);
-            bVar.d(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds7));
-            if (WorkIntroSwitch.isOn()) {
-                spannableString.setSpan(new g(), 0, spannableString.length(), 33);
-            }
-            spannableString.setSpan(bVar, 0, spannableString.length(), 33);
-            return spannableString;
-        }
-        return (SpannableString) invokeV.objValue;
-    }
-
-    public static void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65561, null) == null) {
-            f48714b.b(31, new a(RichTextMaker.IconPos.START, R.drawable.icon_pure_post_download16, R.color.CAM_X0304, R.dimen.M_W_X002));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? new SpannableString("") : (SpannableString) invokeV.objValue;
     }
 
     public static void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65562, null) == null) {
-            f48714b.b(30, new b(RichTextMaker.IconPos.START, R.drawable.icon_pure_post_link16, R.color.CAM_X0304, R.dimen.M_W_X002));
+        if (interceptable == null || interceptable.invokeV(65563, null) == null) {
+            f48849b.b(31, new a(RichTextMaker.IconPos.START, R.drawable.icon_pure_post_download16, R.color.CAM_X0304, R.dimen.M_W_X002));
         }
     }
 
-    public static boolean v(@NonNull String str, @NonNull String str2) {
+    public static void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65564, null) == null) {
+            f48849b.b(30, new b(RichTextMaker.IconPos.START, R.drawable.icon_pure_post_link16, R.color.CAM_X0304, R.dimen.M_W_X002));
+        }
+    }
+
+    public static boolean w(@NonNull String str, @NonNull String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, str, str2)) == null) {
             if (k.isEmpty(str) || k.isEmpty(str2)) {
                 return false;
             }
@@ -962,29 +982,29 @@ public class TbRichTextHelper {
         return invokeLL.booleanValue;
     }
 
-    public static void w(c2 c2Var, String str) {
+    public static void x(d2 d2Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65564, null, c2Var, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65566, null, d2Var, str) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (TextUtils.isEmpty(str) || currentActivity == null) {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(currentActivity, str, null)));
-            if (c2Var != null) {
+            if (d2Var != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
-                if (c2Var.U1()) {
+                if (d2Var.X1()) {
                     statisticItem = new StatisticItem(TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK);
                     statisticItem.param("obj_source", 1);
-                    g(statisticItem, c2Var);
-                } else if (c2Var.X1) {
+                    g(statisticItem, d2Var);
+                } else if (d2Var.Z1) {
                     statisticItem.param("obj_source", 2);
-                    if (c2Var.L() != null) {
-                        statisticItem.param("obj_type", c2Var.L().oriUgcType);
+                    if (d2Var.L() != null) {
+                        statisticItem.param("obj_type", d2Var.L().oriUgcType);
                     }
                 } else {
                     statisticItem.param("obj_source", 3);
-                    if (c2Var.L() != null) {
-                        statisticItem.param("obj_type", c2Var.L().oriUgcType);
+                    if (d2Var.L() != null) {
+                        statisticItem.param("obj_type", d2Var.L().oriUgcType);
                     }
                 }
                 statisticItem.param("obj_locate", 5);
@@ -993,45 +1013,26 @@ public class TbRichTextHelper {
         }
     }
 
-    public static void x(String str, c2 c2Var, String str2) {
+    public static void y(String str, d2 d2Var, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65565, null, str, c2Var, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65567, null, str, d2Var, str2) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ITEM_THROUGH_CLICK);
-            statisticItem.param("tid", c2Var.q1());
-            statisticItem.param("obj_locate", c2Var.X1 ? 1 : 2);
+            statisticItem.param("tid", d2Var.s1());
+            statisticItem.param("obj_locate", d2Var.Z1 ? 1 : 2);
             statisticItem.param("obj_type", str);
             TiebaStatic.log(statisticItem);
             ItemClickJumpUtil.itemClickJump(str2, str, 8, 8);
         }
     }
 
-    public static void y(String str) {
+    public static void z(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65566, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65568, null, str) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (TextUtils.isEmpty(str) || !(currentActivity instanceof TbPageContextSupport)) {
                 return;
             }
             UrlManager.getInstance().dealOneLink(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{str});
-        }
-    }
-
-    public static void z(String str, c2 c2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65567, null, str, c2Var) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (TextUtils.isEmpty(str) || !(currentActivity instanceof TbPageContextSupport)) {
-                return;
-            }
-            TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) currentActivity;
-            c.a.p0.u.l lVar = new c.a.p0.u.l();
-            lVar.f15037a = str;
-            if (c2Var != null) {
-                lVar.f15038b = c2Var.T0();
-                lVar.f15039c = c2Var.F0();
-            }
-            c.a.p0.r0.b.i(lVar);
-            UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{lVar.f15037a, lVar.f15039c});
         }
     }
 
@@ -1041,16 +1042,16 @@ public class TbRichTextHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IconPos f48715a;
+        public IconPos f48850a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f48716b;
+        public int f48851b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f48717c;
+        public int f48852c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f48718d;
+        public int f48853d;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes6.dex */
@@ -1115,7 +1116,7 @@ public class TbRichTextHelper {
         }
 
         /* loaded from: classes6.dex */
-        public class a extends c.a.p0.d1.m.e {
+        public class a extends c.a.q0.f1.m.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int l;
@@ -1148,7 +1149,7 @@ public class TbRichTextHelper {
 
             /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: com.baidu.tbadk.widget.richText.TbRichTextHelper$RichTextMaker */
             /* JADX WARN: Multi-variable type inference failed */
-            @Override // c.a.p0.d1.m.e, android.text.style.ClickableSpan
+            @Override // c.a.q0.f1.m.e, android.text.style.ClickableSpan
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
@@ -1162,26 +1163,26 @@ public class TbRichTextHelper {
             public static /* synthetic */ Interceptable $ic = null;
 
             /* renamed from: g  reason: collision with root package name */
-            public static final int f48719g = 1;
+            public static final int f48854g = 1;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public SpannableString f48720a;
+            public SpannableString f48855a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f48721b;
+            public int f48856b;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f48722c;
+            public int f48857c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f48723d;
+            public int f48858d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f48724e;
+            public int f48859e;
 
             /* renamed from: f  reason: collision with root package name */
-            public int f48725f;
+            public int f48860f;
 
             static {
                 InterceptResult invokeClinit;
@@ -1213,12 +1214,12 @@ public class TbRichTextHelper {
                         return;
                     }
                 }
-                this.f48720a = spannableString;
-                this.f48721b = i2;
-                this.f48722c = i3;
-                this.f48723d = i4;
-                this.f48724e = i5;
-                this.f48725f = i6;
+                this.f48855a = spannableString;
+                this.f48856b = i2;
+                this.f48857c = i3;
+                this.f48858d = i4;
+                this.f48859e = i5;
+                this.f48860f = i6;
             }
 
             @NonNull
@@ -1232,13 +1233,13 @@ public class TbRichTextHelper {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, iconPos)) == null) {
                     int length = str.length();
-                    int i6 = h.f48726a[iconPos.ordinal()];
+                    int i6 = h.f48861a[iconPos.ordinal()];
                     if (i6 != 1) {
                         if (i6 == 2) {
                             i5 = length - 1;
                             i4 = i5;
                             spannableString = new SpannableString(str + "m");
-                            i2 = f48719g + length;
+                            i2 = f48854g + length;
                         } else if (i6 == 3) {
                             spannableString = new SpannableString(str);
                             i4 = length - 1;
@@ -1250,7 +1251,7 @@ public class TbRichTextHelper {
                         i3 = 0;
                     } else {
                         SpannableString spannableString2 = new SpannableString("m" + str);
-                        int i7 = f48719g;
+                        int i7 = f48854g;
                         i2 = i7;
                         i3 = i2;
                         spannableString = spannableString2;
@@ -1276,7 +1277,7 @@ public class TbRichTextHelper {
                     return;
                 }
             }
-            this.f48715a = IconPos.NONE;
+            this.f48850a = IconPos.NONE;
         }
 
         @NonNull
@@ -1287,14 +1288,14 @@ public class TbRichTextHelper {
                 if (!str.endsWith(" ")) {
                     str = str + " ";
                 }
-                b g2 = b.g(str, this.f48715a);
-                if (this.f48715a != IconPos.NONE) {
-                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(this.f48716b, this.f48717c, EMRichTextAnyIconSpan.IconType.WEBP);
-                    eMRichTextAnyIconSpan.b(this.f48718d);
-                    g2.f48720a.setSpan(eMRichTextAnyIconSpan, g2.f48721b, g2.f48722c, g2.f48725f);
+                b g2 = b.g(str, this.f48850a);
+                if (this.f48850a != IconPos.NONE) {
+                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(this.f48851b, this.f48852c, EMRichTextAnyIconSpan.IconType.WEBP);
+                    eMRichTextAnyIconSpan.b(this.f48853d);
+                    g2.f48855a.setSpan(eMRichTextAnyIconSpan, g2.f48856b, g2.f48857c, g2.f48860f);
                 }
-                g2.f48720a.setSpan(new a(this, i2, t instanceof String ? (String) t : "", i2, t), g2.f48723d, g2.f48724e, g2.f48725f);
-                return g2.f48720a;
+                g2.f48855a.setSpan(new a(this, i2, t instanceof String ? (String) t : "", i2, t), g2.f48858d, g2.f48859e, g2.f48860f);
+                return g2.f48855a;
             }
             return (SpannableString) invokeILL.objValue;
         }
@@ -1316,10 +1317,10 @@ public class TbRichTextHelper {
                     return;
                 }
             }
-            this.f48715a = iconPos;
-            this.f48716b = i2;
-            this.f48717c = i3;
-            this.f48718d = UtilHelper.getDimenPixelSize(i4);
+            this.f48850a = iconPos;
+            this.f48851b = i2;
+            this.f48852c = i3;
+            this.f48853d = UtilHelper.getDimenPixelSize(i4);
         }
     }
 }

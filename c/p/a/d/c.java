@@ -37,14 +37,14 @@ public class c implements c.p.a.b.a.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f34625b = "c";
+    public static String f34734b = "c";
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f34626c;
+    public static volatile c f34735c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.p.a.d.h f34627a;
+    public c.p.a.d.h f34736a;
 
     /* loaded from: classes4.dex */
     public class a implements f.d.b<Dialog> {
@@ -52,34 +52,34 @@ public class c implements c.p.a.b.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f34628a;
+        public final /* synthetic */ Context f34737a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f34629b;
+        public final /* synthetic */ String f34738b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f34630c;
+        public final /* synthetic */ boolean f34739c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.a.a.d.d f34631d;
+        public final /* synthetic */ c.p.a.a.a.d.d f34740d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.a.a.d.c f34632e;
+        public final /* synthetic */ c.p.a.a.a.d.c f34741e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.a.a.d.b f34633f;
+        public final /* synthetic */ c.p.a.a.a.d.b f34742f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.a.a.d.e f34634g;
+        public final /* synthetic */ c.p.a.a.a.d.e f34743g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f34635h;
+        public final /* synthetic */ int f34744h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ boolean f34636i;
+        public final /* synthetic */ boolean f34745i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c f34637j;
+        public final /* synthetic */ c f34746j;
 
         public a(c cVar, Context context, String str, boolean z, c.p.a.a.a.d.d dVar, c.p.a.a.a.d.c cVar2, c.p.a.a.a.d.b bVar, c.p.a.a.a.d.e eVar, int i2, boolean z2) {
             Interceptable interceptable = $ic;
@@ -96,16 +96,16 @@ public class c implements c.p.a.b.a.d {
                     return;
                 }
             }
-            this.f34637j = cVar;
-            this.f34628a = context;
-            this.f34629b = str;
-            this.f34630c = z;
-            this.f34631d = dVar;
-            this.f34632e = cVar2;
-            this.f34633f = bVar;
-            this.f34634g = eVar;
-            this.f34635h = i2;
-            this.f34636i = z2;
+            this.f34746j = cVar;
+            this.f34737a = context;
+            this.f34738b = str;
+            this.f34739c = z;
+            this.f34740d = dVar;
+            this.f34741e = cVar2;
+            this.f34742f = bVar;
+            this.f34743g = eVar;
+            this.f34744h = i2;
+            this.f34745i = z2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -114,7 +114,7 @@ public class c implements c.p.a.b.a.d {
         public Dialog b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34637j.k(this.f34628a, this.f34629b, this.f34630c, this.f34631d, this.f34632e, this.f34633f, this.f34634g, this.f34635h, this.f34636i) : (Dialog) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34746j.k(this.f34737a, this.f34738b, this.f34739c, this.f34740d, this.f34741e, this.f34742f, this.f34743g, this.f34744h, this.f34745i) : (Dialog) invokeV.objValue;
         }
     }
 
@@ -124,16 +124,16 @@ public class c implements c.p.a.b.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.a.a.d.d f34638a;
+        public final /* synthetic */ c.p.a.a.a.d.d f34747a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.a.a.d.c f34639b;
+        public final /* synthetic */ c.p.a.a.a.d.c f34748b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.a.a.d.b f34640c;
+        public final /* synthetic */ c.p.a.a.a.d.b f34749c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c f34641d;
+        public final /* synthetic */ c f34750d;
 
         public b(c cVar, c.p.a.a.a.d.d dVar, c.p.a.a.a.d.c cVar2, c.p.a.a.a.d.b bVar) {
             Interceptable interceptable = $ic;
@@ -150,18 +150,18 @@ public class c implements c.p.a.b.a.d {
                     return;
                 }
             }
-            this.f34641d = cVar;
-            this.f34638a = dVar;
-            this.f34639b = cVar2;
-            this.f34640c = bVar;
+            this.f34750d = cVar;
+            this.f34747a = dVar;
+            this.f34748b = cVar2;
+            this.f34749c = bVar;
         }
 
         @Override // c.p.a.a.a.f.c.InterfaceC1519c
         public void a(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f34641d.f34627a.h(this.f34638a.a(), this.f34638a.d(), 2, this.f34639b, this.f34640c);
-                e.c.a().l("landing_download_dialog_confirm", this.f34638a, this.f34639b, this.f34640c);
+                this.f34750d.f34736a.h(this.f34747a.a(), this.f34747a.d(), 2, this.f34748b, this.f34749c);
+                e.c.a().l("landing_download_dialog_confirm", this.f34747a, this.f34748b, this.f34749c);
                 dialogInterface.dismiss();
             }
         }
@@ -170,7 +170,7 @@ public class c implements c.p.a.b.a.d {
         public void b(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) {
-                e.c.a().l("landing_download_dialog_cancel", this.f34638a, this.f34639b, this.f34640c);
+                e.c.a().l("landing_download_dialog_cancel", this.f34747a, this.f34748b, this.f34749c);
                 dialogInterface.dismiss();
             }
         }
@@ -179,7 +179,7 @@ public class c implements c.p.a.b.a.d {
         public void c(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {
-                e.c.a().l("landing_download_dialog_cancel", this.f34638a, this.f34639b, this.f34640c);
+                e.c.a().l("landing_download_dialog_cancel", this.f34747a, this.f34748b, this.f34749c);
             }
         }
     }
@@ -191,22 +191,22 @@ public class c implements c.p.a.b.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f34642a;
+        public final /* synthetic */ Context f34751a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Uri f34643b;
+        public final /* synthetic */ Uri f34752b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.a.a.d.d f34644c;
+        public final /* synthetic */ c.p.a.a.a.d.d f34753c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.a.a.d.c f34645d;
+        public final /* synthetic */ c.p.a.a.a.d.c f34754d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.a.a.d.b f34646e;
+        public final /* synthetic */ c.p.a.a.a.d.b f34755e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f34647f;
+        public final /* synthetic */ c f34756f;
 
         public C1531c(c cVar, Context context, Uri uri, c.p.a.a.a.d.d dVar, c.p.a.a.a.d.c cVar2, c.p.a.a.a.d.b bVar) {
             Interceptable interceptable = $ic;
@@ -223,12 +223,12 @@ public class c implements c.p.a.b.a.d {
                     return;
                 }
             }
-            this.f34647f = cVar;
-            this.f34642a = context;
-            this.f34643b = uri;
-            this.f34644c = dVar;
-            this.f34645d = cVar2;
-            this.f34646e = bVar;
+            this.f34756f = cVar;
+            this.f34751a = context;
+            this.f34752b = uri;
+            this.f34753c = dVar;
+            this.f34754d = cVar2;
+            this.f34755e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -237,7 +237,7 @@ public class c implements c.p.a.b.a.d {
         public Boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(this.f34647f.n(this.f34642a, this.f34643b, this.f34644c, this.f34645d, this.f34646e)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(this.f34756f.n(this.f34751a, this.f34752b, this.f34753c, this.f34754d, this.f34755e)) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -252,10 +252,10 @@ public class c implements c.p.a.b.a.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f34648a;
+            public final /* synthetic */ JSONObject f34757a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ c.p.a.b.a.c.a f34649b;
+            public final /* synthetic */ c.p.a.b.a.c.a f34758b;
 
             public a(JSONObject jSONObject, c.p.a.b.a.c.a aVar) {
                 Interceptable interceptable = $ic;
@@ -272,17 +272,17 @@ public class c implements c.p.a.b.a.d {
                         return;
                     }
                 }
-                this.f34648a = jSONObject;
-                this.f34649b = aVar;
+                this.f34757a = jSONObject;
+                this.f34758b = aVar;
             }
 
             @Override // c.p.a.d.c.g
             public void a(boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                    e.c.a().w(z ? "deeplink_success" : "deeplink_failed", this.f34648a, this.f34649b);
+                    e.c.a().w(z ? "deeplink_success" : "deeplink_failed", this.f34757a, this.f34758b);
                     if (z) {
-                        c.p.a.d.b.l.G().a(c.p.a.d.b.l.a(), this.f34649b.u(), this.f34649b.w(), this.f34649b.v(), this.f34649b.e(), 0);
+                        c.p.a.d.b.l.G().a(c.p.a.d.b.l.a(), this.f34758b.u(), this.f34758b.w(), this.f34758b.v(), this.f34758b.e(), 0);
                     }
                 }
             }
@@ -294,10 +294,10 @@ public class c implements c.p.a.b.a.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f34650a;
+            public final /* synthetic */ JSONObject f34759a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ c.p.a.b.a.c.a f34651b;
+            public final /* synthetic */ c.p.a.b.a.c.a f34760b;
 
             public b(JSONObject jSONObject, c.p.a.b.a.c.a aVar) {
                 Interceptable interceptable = $ic;
@@ -314,17 +314,17 @@ public class c implements c.p.a.b.a.d {
                         return;
                     }
                 }
-                this.f34650a = jSONObject;
-                this.f34651b = aVar;
+                this.f34759a = jSONObject;
+                this.f34760b = aVar;
             }
 
             @Override // c.p.a.d.c.g
             public void a(boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                    e.c.a().w(z ? "deeplink_success" : "deeplink_failed", this.f34650a, this.f34651b);
+                    e.c.a().w(z ? "deeplink_success" : "deeplink_failed", this.f34759a, this.f34760b);
                     if (z) {
-                        c.p.a.d.b.l.G().a(c.p.a.d.b.l.a(), this.f34651b.u(), this.f34651b.w(), this.f34651b.v(), this.f34651b.e(), 0);
+                        c.p.a.d.b.l.G().a(c.p.a.d.b.l.a(), this.f34760b.u(), this.f34760b.w(), this.f34760b.v(), this.f34760b.e(), 0);
                     }
                 }
             }
@@ -337,13 +337,13 @@ public class c implements c.p.a.b.a.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f34652a;
+            public final /* synthetic */ String f34761a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ c.f f34653b;
+            public final /* synthetic */ c.f f34762b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f34654c;
+            public final /* synthetic */ JSONObject f34763c;
 
             public C1532c(String str, c.f fVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
@@ -360,26 +360,26 @@ public class c implements c.p.a.b.a.d {
                         return;
                     }
                 }
-                this.f34652a = str;
-                this.f34653b = fVar;
-                this.f34654c = jSONObject;
+                this.f34761a = str;
+                this.f34762b = fVar;
+                this.f34763c = jSONObject;
             }
 
             @Override // c.p.a.d.c.g
             public void a(boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                    if (!z && !"open_market".equals(this.f34652a)) {
+                    if (!z && !"open_market".equals(this.f34761a)) {
                         Context a2 = c.p.a.d.b.l.a();
-                        d.b(h.o.a(a2, Uri.parse("market://details?id=" + this.f34653b.e())), this.f34653b, false);
+                        d.b(h.o.a(a2, Uri.parse("market://details?id=" + this.f34762b.e())), this.f34762b, false);
                     }
-                    e.c.a().r(z ? "market_delay_success" : "market_delay_failed", this.f34654c, this.f34653b);
+                    e.c.a().r(z ? "market_delay_success" : "market_delay_failed", this.f34763c, this.f34762b);
                     if (z) {
                         s G = c.p.a.d.b.l.G();
                         Context a3 = c.p.a.d.b.l.a();
-                        c.f fVar = this.f34653b;
-                        c.p.a.a.a.d.d dVar = fVar.f34513b;
-                        G.a(a3, dVar, fVar.f34515d, fVar.f34514c, dVar.v(), 2);
+                        c.f fVar = this.f34762b;
+                        c.p.a.a.a.d.d dVar = fVar.f34622b;
+                        G.a(a3, dVar, fVar.f34624d, fVar.f34623c, dVar.v(), 2);
                     }
                 }
             }
@@ -512,9 +512,9 @@ public class c implements c.p.a.b.a.d {
                 if ((c.p.a.d.b.l.v().optInt("check_applink_mode") & 4) != 0) {
                     h.d().g(new C1532c(str, fVar, jSONObject));
                 } else {
-                    c.p.a.d.b.l.o().b(c.p.a.d.b.l.a(), fVar.f34513b, fVar.f34515d, fVar.f34514c, fVar.f34513b.v(), str);
+                    c.p.a.d.b.l.o().b(c.p.a.d.b.l.a(), fVar.f34622b, fVar.f34624d, fVar.f34623c, fVar.f34622b.v(), str);
                 }
-                c.p.a.b.a.c.b bVar = new c.p.a.b.a.c.b(fVar.f34513b, fVar.f34514c, fVar.f34515d);
+                c.p.a.b.a.c.b bVar = new c.p.a.b.a.c.b(fVar.f34622b, fVar.f34623c, fVar.f34624d);
                 bVar.x0(2);
                 bVar.C0(System.currentTimeMillis());
                 bVar.J0(4);
@@ -534,7 +534,7 @@ public class c implements c.p.a.b.a.d {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, fVar)) == null) {
-                c.p.a.a.a.f.b x = fVar.f34513b.x();
+                c.p.a.a.a.f.b x = fVar.f34622b.x();
                 String d2 = x == null ? null : x.d();
                 JSONObject jSONObject = new JSONObject();
                 h.l.a(jSONObject, fVar);
@@ -545,15 +545,15 @@ public class c implements c.p.a.b.a.d {
                     if (!TextUtils.isEmpty(d2)) {
                         k("by_url", f2, jSONObject, fVar);
                     }
-                    f2 = h.o.d(c.p.a.d.b.l.a(), fVar.f34513b.v(), fVar);
+                    f2 = h.o.d(c.p.a.d.b.l.a(), fVar.f34622b.v(), fVar);
                 }
                 boolean z2 = false;
-                if (f(fVar.f34512a) && c.p.a.d.b.l.v().optInt("link_ad_click_event") == 1) {
-                    c.p.a.a.a.d.d dVar = fVar.f34513b;
+                if (f(fVar.f34621a) && c.p.a.d.b.l.v().optInt("link_ad_click_event") == 1) {
+                    c.p.a.a.a.d.d dVar = fVar.f34622b;
                     if (dVar instanceof c.p.a.b.a.a.c) {
                         ((c.p.a.b.a.a.c) dVar).b(4);
                     }
-                    e.c.a().c(fVar.f34512a, 0);
+                    e.c.a().c(fVar.f34621a, 0);
                     z = true;
                 } else {
                     z = false;
@@ -569,14 +569,14 @@ public class c implements c.p.a.b.a.d {
                     } else {
                         c("by_package", f2, jSONObject, fVar);
                     }
-                    if (z2 && !z && ((e.C1538e.a().c() && !e.C1538e.a().d(fVar.f34512a, fVar.f34513b.u())) || e.C1538e.a().f())) {
-                        e.c.a().c(fVar.f34512a, 2);
+                    if (z2 && !z && ((e.C1538e.a().c() && !e.C1538e.a().d(fVar.f34621a, fVar.f34622b.u())) || e.C1538e.a().f())) {
+                        e.c.a().c(fVar.f34621a, 2);
                     }
                     return z2;
                 }
                 z2 = true;
                 if (z2) {
-                    e.c.a().c(fVar.f34512a, 2);
+                    e.c.a().c(fVar.f34621a, 2);
                 }
                 return z2;
             }
@@ -590,7 +590,7 @@ public class c implements c.p.a.b.a.d {
                 JSONObject jSONObject = new JSONObject();
                 h.r.q(jSONObject, "download_scene", Integer.valueOf(fVar.t()));
                 e.c.a().w("market_click_open", jSONObject, fVar);
-                c.h b2 = h.o.b(c.p.a.d.b.l.a(), fVar, fVar.f34513b.v());
+                c.h b2 = h.o.b(c.p.a.d.b.l.a(), fVar, fVar.f34622b.v());
                 String m = h.r.m(b2.c(), "open_market");
                 int a2 = b2.a();
                 if (a2 == 5) {
@@ -603,7 +603,7 @@ public class c implements c.p.a.b.a.d {
                 } else if (a2 != 7) {
                     return false;
                 }
-                e.c.a().c(fVar.f34512a, i2);
+                e.c.a().c(fVar.f34621a, i2);
                 return true;
             }
             return invokeLI.booleanValue;
@@ -748,10 +748,10 @@ public class c implements c.p.a.b.a.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.p.a.b.a.c.b f34655e;
+            public final /* synthetic */ c.p.a.b.a.c.b f34764e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ j f34656f;
+            public final /* synthetic */ j f34765f;
 
             /* renamed from: c.p.a.d.c$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
@@ -760,7 +760,7 @@ public class c implements c.p.a.b.a.d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f34657a;
+                public final /* synthetic */ a f34766a;
 
                 public C1533a(a aVar) {
                     Interceptable interceptable = $ic;
@@ -777,14 +777,14 @@ public class c implements c.p.a.b.a.d {
                             return;
                         }
                     }
-                    this.f34657a = aVar;
+                    this.f34766a = aVar;
                 }
 
                 @Override // c.p.a.d.c.k
                 public void a(boolean z) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                        this.f34657a.f34656f.a(z);
+                        this.f34766a.f34765f.a(z);
                     }
                 }
             }
@@ -804,20 +804,20 @@ public class c implements c.p.a.b.a.d {
                         return;
                     }
                 }
-                this.f34655e = bVar;
-                this.f34656f = jVar;
+                this.f34764e = bVar;
+                this.f34765f = jVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (l.a(this.f34655e)) {
-                        this.f34656f.a(false);
-                    } else if (!i.c(this.f34655e)) {
-                        this.f34656f.a(false);
+                    if (l.a(this.f34764e)) {
+                        this.f34765f.a(false);
+                    } else if (!i.c(this.f34764e)) {
+                        this.f34765f.a(false);
                     } else {
-                        i.b(this.f34655e, new C1533a(this));
+                        i.b(this.f34764e, new C1533a(this));
                     }
                 }
             }
@@ -856,10 +856,10 @@ public class c implements c.p.a.b.a.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.p.a.b.a.c.b f34658e;
+            public final /* synthetic */ c.p.a.b.a.c.b f34767e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c.p.a.d.i.a.a f34659f;
+            public final /* synthetic */ c.p.a.d.i.a.a f34768f;
 
             public a(c.p.a.b.a.c.b bVar, c.p.a.d.i.a.a aVar) {
                 Interceptable interceptable = $ic;
@@ -876,8 +876,8 @@ public class c implements c.p.a.b.a.d {
                         return;
                     }
                 }
-                this.f34658e = bVar;
-                this.f34659f = aVar;
+                this.f34767e = bVar;
+                this.f34768f = aVar;
             }
 
             @Override // c.p.a.e.b.a.a.b
@@ -886,12 +886,12 @@ public class c implements c.p.a.b.a.d {
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     c.p.a.e.b.c.a.g("AppInstallOptimiseHelper", "AppInstallOptimiseHelper-->onAppForeground");
                     c.p.a.e.b.a.a.c().i(this);
-                    if (h.r.C(this.f34658e)) {
+                    if (h.r.C(this.f34767e)) {
                         return;
                     }
-                    this.f34658e.b1(true);
-                    e.c.a().m("install_delay_invoke", this.f34658e);
-                    this.f34659f.a();
+                    this.f34767e.b1(true);
+                    e.c.a().m("install_delay_invoke", this.f34767e);
+                    this.f34768f.a();
                 }
             }
 
@@ -935,7 +935,7 @@ public class c implements c.p.a.b.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f34660e;
+        public long f34769e;
 
         /* loaded from: classes4.dex */
         public class a implements Runnable {
@@ -943,13 +943,13 @@ public class c implements c.p.a.b.a.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ long f34661e;
+            public final /* synthetic */ long f34770e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ g f34662f;
+            public final /* synthetic */ g f34771f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ h f34663g;
+            public final /* synthetic */ h f34772g;
 
             public a(h hVar, long j2, g gVar) {
                 Interceptable interceptable = $ic;
@@ -966,19 +966,19 @@ public class c implements c.p.a.b.a.d {
                         return;
                     }
                 }
-                this.f34663g = hVar;
-                this.f34661e = j2;
-                this.f34662f = gVar;
+                this.f34772g = hVar;
+                this.f34770e = j2;
+                this.f34771f = gVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (c.p.a.e.b.a.a.c().m() && System.currentTimeMillis() - this.f34663g.f34660e > this.f34661e) {
-                        this.f34662f.a(false);
+                    if (c.p.a.e.b.a.a.c().m() && System.currentTimeMillis() - this.f34772g.f34769e > this.f34770e) {
+                        this.f34771f.a(false);
                     } else {
-                        this.f34662f.a(true);
+                        this.f34771f.a(true);
                     }
                 }
             }
@@ -989,7 +989,7 @@ public class c implements c.p.a.b.a.d {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static h f34664a;
+            public static h f34773a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -1005,7 +1005,7 @@ public class c implements c.p.a.b.a.d {
                         return;
                     }
                 }
-                f34664a = new h(null);
+                f34773a = new h(null);
             }
         }
 
@@ -1016,14 +1016,14 @@ public class c implements c.p.a.b.a.d {
         public static h d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f34664a : (h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f34773a : (h) invokeV.objValue;
         }
 
         @Override // c.p.a.e.b.a.a.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f34660e = System.currentTimeMillis();
+                this.f34769e = System.currentTimeMillis();
             }
         }
 
@@ -1071,7 +1071,7 @@ public class c implements c.p.a.b.a.d {
                     return;
                 }
             }
-            this.f34660e = 0L;
+            this.f34769e = 0L;
             c.p.a.e.b.a.a.c().f(this);
         }
     }
@@ -1087,13 +1087,13 @@ public class c implements c.p.a.b.a.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.p.a.b.a.c.b f34665e;
+            public final /* synthetic */ c.p.a.b.a.c.b f34774e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ long f34666f;
+            public final /* synthetic */ long f34775f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ k f34667g;
+            public final /* synthetic */ k f34776g;
 
             /* renamed from: c.p.a.d.c$i$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
@@ -1102,7 +1102,7 @@ public class c implements c.p.a.b.a.d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f34668e;
+                public final /* synthetic */ a f34777e;
 
                 public RunnableC1534a(a aVar) {
                     Interceptable interceptable = $ic;
@@ -1119,27 +1119,27 @@ public class c implements c.p.a.b.a.d {
                             return;
                         }
                     }
-                    this.f34668e = aVar;
+                    this.f34777e = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        boolean F = h.r.F(this.f34668e.f34665e.e());
-                        long h2 = i.h(this.f34668e.f34665e);
-                        if (!F || h2 >= System.currentTimeMillis() - this.f34668e.f34666f) {
-                            long k = i.k(this.f34668e.f34665e);
+                        boolean F = h.r.F(this.f34777e.f34774e.e());
+                        long h2 = i.h(this.f34777e.f34774e);
+                        if (!F || h2 >= System.currentTimeMillis() - this.f34777e.f34775f) {
+                            long k = i.k(this.f34777e.f34774e);
                             long currentTimeMillis = System.currentTimeMillis();
-                            a aVar = this.f34668e;
-                            if (currentTimeMillis - aVar.f34666f > k) {
-                                e.c.a().m("deeplink_delay_timeout", this.f34668e.f34665e);
+                            a aVar = this.f34777e;
+                            if (currentTimeMillis - aVar.f34775f > k) {
+                                e.c.a().m("deeplink_delay_timeout", this.f34777e.f34774e);
                                 return;
                             }
-                            aVar.f34665e.Z0(true);
-                            e.c.a().m("deeplink_delay_invoke", this.f34668e.f34665e);
-                            this.f34668e.f34667g.a(true);
-                            c.p.a.b.a.c.b bVar = this.f34668e.f34665e;
+                            aVar.f34774e.Z0(true);
+                            e.c.a().m("deeplink_delay_invoke", this.f34777e.f34774e);
+                            this.f34777e.f34776g.a(true);
+                            c.p.a.b.a.c.b bVar = this.f34777e.f34774e;
                             i.d(bVar, i.m(bVar));
                         }
                     }
@@ -1161,9 +1161,9 @@ public class c implements c.p.a.b.a.d {
                         return;
                     }
                 }
-                this.f34665e = bVar;
-                this.f34666f = j2;
-                this.f34667g = kVar;
+                this.f34774e = bVar;
+                this.f34775f = j2;
+                this.f34776g = kVar;
             }
 
             @Override // c.p.a.e.b.a.a.b
@@ -1189,10 +1189,10 @@ public class c implements c.p.a.b.a.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.p.a.b.a.c.b f34669e;
+            public final /* synthetic */ c.p.a.b.a.c.b f34778e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f34670f;
+            public final /* synthetic */ int f34779f;
 
             public b(c.p.a.b.a.c.b bVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -1209,8 +1209,8 @@ public class c implements c.p.a.b.a.d {
                         return;
                     }
                 }
-                this.f34669e = bVar;
-                this.f34670f = i2;
+                this.f34778e = bVar;
+                this.f34779f = i2;
             }
 
             @Override // java.lang.Runnable
@@ -1218,20 +1218,20 @@ public class c implements c.p.a.b.a.d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     int i2 = 1;
-                    if (h.r.F(this.f34669e.e())) {
+                    if (h.r.F(this.f34778e.e())) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            if (!this.f34669e.c0()) {
+                            if (!this.f34778e.c0()) {
                                 i2 = 2;
                             }
                             jSONObject.putOpt("deeplink_source", Integer.valueOf(i2));
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
-                        e.c.a().r("deeplink_success_2", jSONObject, this.f34669e);
+                        e.c.a().r("deeplink_success_2", jSONObject, this.f34778e);
                         return;
                     }
-                    i.d(this.f34669e, this.f34670f - 1);
+                    i.d(this.f34778e, this.f34779f - 1);
                 }
             }
         }
@@ -1389,7 +1389,7 @@ public class c implements c.p.a.b.a.d {
                 return;
             }
         }
-        this.f34627a = c.p.a.d.h.b(c.p.a.d.b.l.a());
+        this.f34736a = c.p.a.d.h.b(c.p.a.d.b.l.a());
     }
 
     public static c.p.a.a.a.d.b e(boolean z) {
@@ -1415,14 +1415,14 @@ public class c implements c.p.a.b.a.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f34626c == null) {
+            if (f34735c == null) {
                 synchronized (c.class) {
-                    if (f34626c == null) {
-                        f34626c = new c();
+                    if (f34735c == null) {
+                        f34735c = new c();
                     }
                 }
             }
-            return f34626c;
+            return f34735c;
         }
         return (c) invokeV.objValue;
     }
@@ -1469,12 +1469,12 @@ public class c implements c.p.a.b.a.d {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j2), str, eVar, Integer.valueOf(i2)})) == null) {
             c.p.a.b.a.c.b u = c.g.e().u(j2);
             if (u != null) {
-                this.f34627a.e(context, i2, eVar, u.h0());
+                this.f34736a.e(context, i2, eVar, u.h0());
                 return true;
             }
             c.p.a.a.a.d.d a2 = c.g.e().a(j2);
             if (a2 != null) {
-                this.f34627a.e(context, i2, eVar, a2);
+                this.f34736a.e(context, i2, eVar, a2);
                 return true;
             }
             return false;
@@ -1541,7 +1541,7 @@ public class c implements c.p.a.b.a.d {
             }
             c.p.a.a.a.d.c cVar = n;
             cVar.a(1);
-            this.f34627a.h(a2.a(), j2, 2, cVar, s);
+            this.f34736a.h(a2.a(), j2, 2, cVar, s);
         }
     }
 
@@ -1558,7 +1558,7 @@ public class c implements c.p.a.b.a.d {
             }
             if (cVar != null && bVar != null && !(cVar instanceof c.p.a.a.a.d.h) && !(bVar instanceof c.p.a.a.a.d.g)) {
                 cVar.a(1);
-                this.f34627a.h(a2.a(), j2, 2, cVar, bVar);
+                this.f34736a.h(a2.a(), j2, 2, cVar, bVar);
                 return;
             }
             h(j2);
@@ -1579,7 +1579,7 @@ public class c implements c.p.a.b.a.d {
             } else if (context == null || TextUtils.isEmpty(dVar.a())) {
                 return null;
             } else {
-                this.f34627a.e(context, i2, eVar, dVar);
+                this.f34736a.e(context, i2, eVar, dVar);
                 boolean z3 = true;
                 c.p.a.a.a.d.c cVar2 = (c.p.a.a.a.d.c) h.r.k(cVar, o());
                 c.p.a.a.a.d.b bVar2 = (c.p.a.a.a.d.b) h.r.k(bVar, l());
@@ -1589,10 +1589,10 @@ public class c implements c.p.a.b.a.d {
                     z3 = z4;
                 }
                 if (z3) {
-                    this.f34627a.h(dVar.a(), dVar.d(), 2, cVar2, bVar2);
+                    this.f34736a.h(dVar.a(), dVar.d(), 2, cVar2, bVar2);
                     return null;
                 }
-                String str2 = f34625b;
+                String str2 = f34734b;
                 h.q.b(str2, "tryStartDownload show dialog appName:" + dVar.a(), null);
                 c.p.a.a.a.c.k p = c.p.a.d.b.l.p();
                 c.b bVar3 = new c.b(context);
@@ -1641,9 +1641,9 @@ public class c implements c.p.a.b.a.d {
                     bVar2 = l();
                 }
                 c.f fVar = new c.f(dVar.d(), dVar, (c.p.a.a.a.d.c) h.r.k(cVar, o()), bVar2);
-                c.g.e().i(fVar.f34513b);
-                c.g.e().h(fVar.f34512a, fVar.f34514c);
-                c.g.e().g(fVar.f34512a, fVar.f34515d);
+                c.g.e().i(fVar.f34622b);
+                c.g.e().h(fVar.f34621a, fVar.f34623c);
+                c.g.e().g(fVar.f34621a, fVar.f34624d);
                 if (h.r.v(dVar) && c.p.a.e.b.j.a.r().m("app_link_opt") == 1 && d.g(fVar)) {
                     return true;
                 }

@@ -4,9 +4,9 @@ import android.content.Context;
 import android.view.View;
 import c.a.e.e.p.j;
 import c.a.e.e.p.l;
-import c.a.p0.i0.c.b;
-import c.a.p0.s.s.i;
-import c.a.q0.m0.d.f;
+import c.a.q0.k0.c.b;
+import c.a.q0.s.s.i;
+import c.a.r0.n0.d.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.PopupDialog;
@@ -28,7 +28,7 @@ public class ForumManagerDialog extends PopupDialog {
     public ViewEventCenter p;
     public final i q;
     public f r;
-    public final List<c.a.p0.s.s.f> s;
+    public final List<c.a.q0.s.s.f> s;
     public final i.e t;
 
     /* loaded from: classes7.dex */
@@ -37,7 +37,7 @@ public class ForumManagerDialog extends PopupDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumManagerDialog f50194e;
+        public final /* synthetic */ ForumManagerDialog f50359e;
 
         public a(ForumManagerDialog forumManagerDialog) {
             Interceptable interceptable = $ic;
@@ -54,20 +54,20 @@ public class ForumManagerDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f50194e = forumManagerDialog;
+            this.f50359e = forumManagerDialog;
         }
 
-        @Override // c.a.p0.s.s.i.e
+        @Override // c.a.q0.s.s.i.e
         public void onItemClick(i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                this.f50194e.dismiss();
+                this.f50359e.dismiss();
                 if (!j.z()) {
-                    l.L(this.f50194e.o, R.string.network_not_available);
+                    l.L(this.f50359e.o, R.string.network_not_available);
                 } else if (i2 == 2) {
-                    this.f50194e.p.dispatchMvcEvent(new b(4, this.f50194e.r, null, null));
+                    this.f50359e.p.dispatchMvcEvent(new b(4, this.f50359e.r, null, null));
                 } else if (i2 == 1) {
-                    this.f50194e.p.dispatchMvcEvent(new b(13, this.f50194e.r, null, null));
+                    this.f50359e.p.dispatchMvcEvent(new b(13, this.f50359e.r, null, null));
                 }
             }
         }
@@ -103,14 +103,14 @@ public class ForumManagerDialog extends PopupDialog {
     }
 
     public final void i() {
-        List<c.a.p0.s.s.f> list;
+        List<c.a.q0.s.s.f> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.r == null || (list = this.s) == null || this.q == null) {
             return;
         }
         list.clear();
-        this.s.add(new c.a.p0.s.s.f(1, j(this.r.q() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.q));
-        this.s.add(new c.a.p0.s.s.f(2, j(R.string.delete, new Object[0]), this.q));
+        this.s.add(new c.a.q0.s.s.f(1, j(this.r.q() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.q));
+        this.s.add(new c.a.q0.s.s.f(2, j(R.string.delete, new Object[0]), this.q));
         this.q.k(this.s);
     }
 

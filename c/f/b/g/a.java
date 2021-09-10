@@ -15,7 +15,7 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Object> f32257a;
+    public ConcurrentHashMap<String, Object> f32366a;
 
     /* renamed from: c.f.b.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -29,7 +29,7 @@ public final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f32258a;
+        public static a f32367a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -45,7 +45,7 @@ public final class a {
                     return;
                 }
             }
-            f32258a = new a(null);
+            f32367a = new a(null);
         }
     }
 
@@ -56,7 +56,7 @@ public final class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f32258a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f32367a : (a) invokeV.objValue;
     }
 
     public static Object b(String str) {
@@ -66,7 +66,7 @@ public final class a {
             if (str == null) {
                 return null;
             }
-            return a().f32257a.get(str);
+            return a().f32366a.get(str);
         }
         return invokeL.objValue;
     }
@@ -78,9 +78,9 @@ public final class a {
         }
         a a2 = a();
         if (obj == null) {
-            a2.f32257a.remove(str);
+            a2.f32366a.remove(str);
         } else {
-            a2.f32257a.put(str, obj);
+            a2.f32366a.put(str, obj);
         }
     }
 
@@ -97,6 +97,6 @@ public final class a {
                 return;
             }
         }
-        this.f32257a = new ConcurrentHashMap<>();
+        this.f32366a = new ConcurrentHashMap<>();
     }
 }

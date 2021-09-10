@@ -1,6 +1,6 @@
 package com.baidu.tbadk.mvc.message;
 
-import c.a.p0.i0.b.d;
+import c.a.q0.k0.b.d;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

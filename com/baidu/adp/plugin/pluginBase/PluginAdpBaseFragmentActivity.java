@@ -10,10 +10,10 @@ import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.b;
-import c.a.e.a.h;
 import c.a.e.a.i;
 import c.a.e.e.l.d;
 import c.a.e.e.p.l;
+import c.a.e.f.a.h;
 import c.a.e.l.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
@@ -43,7 +43,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginAdpBaseFragmentActivity f36243e;
+        public final /* synthetic */ PluginAdpBaseFragmentActivity f36362e;
 
         public a(PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
                     return;
                 }
             }
-            this.f36243e = pluginAdpBaseFragmentActivity;
+            this.f36362e = pluginAdpBaseFragmentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity = this.f36243e;
+                PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity = this.f36362e;
                 pluginAdpBaseFragmentActivity.onPreLoad(pluginAdpBaseFragmentActivity.onGetPreLoadListView());
             }
         }
@@ -97,8 +97,8 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         if (!(interceptable == null || interceptable.invokeL(65537, this, view) == null) || view == null) {
             return;
         }
-        if (view instanceof c.a.e.f.a.i) {
-            ((c.a.e.f.a.i) view).refresh();
+        if (view instanceof h) {
+            ((h) view).refresh();
         }
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
@@ -114,7 +114,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Resources b2 = h.a().b();
+            Resources b2 = c.a.e.a.h.a().b();
             return (b2 == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : b2;
         }
         return (Resources) invokeV.objValue;
@@ -154,7 +154,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             this.mId = BdUniqueId.gen();
-            b.f().n(getPageContext().getPageActivity());
+            b.f().o(getPageContext().getPageActivity());
         }
     }
 
@@ -167,7 +167,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
             MessageManager.getInstance().removeMessage(this.mId);
             d.h().b(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
-            b.f().l(getPageContext().getPageActivity());
+            b.f().m(getPageContext().getPageActivity());
         }
     }
 

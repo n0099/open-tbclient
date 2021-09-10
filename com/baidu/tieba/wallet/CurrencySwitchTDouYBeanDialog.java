@@ -2,7 +2,7 @@ package com.baidu.tieba.wallet;
 
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.p0.s.s.a;
+import c.a.q0.s.s.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
@@ -167,7 +167,7 @@ public class CurrencySwitchTDouYBeanDialog {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.p0.s.s.a.e
+                @Override // c.a.q0.s.s.a.e
                 public void onClick(a aVar3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) {

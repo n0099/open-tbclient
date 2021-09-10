@@ -35,10 +35,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public InterfaceC1910b f66947a;
+        public InterfaceC1910b f67127a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f66948b;
+        public long f67128b;
 
         public a(InterfaceC1910b interfaceC1910b, long j2) {
             Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public class b {
                     return;
                 }
             }
-            this.f66948b = 0L;
-            this.f66947a = interfaceC1910b;
-            this.f66948b = j2;
+            this.f67128b = 0L;
+            this.f67127a = interfaceC1910b;
+            this.f67128b = j2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class b {
                     } else {
                         mediaMetadataRetriever.setDataSource(str);
                     }
-                    bitmap = mediaMetadataRetriever.getFrameAtTime(this.f66948b * 1000, 3);
+                    bitmap = mediaMetadataRetriever.getFrameAtTime(this.f67128b * 1000, 3);
                     mediaMetadataRetriever.release();
                     return bitmap;
                 } catch (Throwable th) {
@@ -94,7 +94,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
                 super.onPostExecute(bitmap);
-                InterfaceC1910b interfaceC1910b = this.f66947a;
+                InterfaceC1910b interfaceC1910b = this.f67127a;
                 if (interfaceC1910b != null) {
                     interfaceC1910b.a(bitmap);
                 }

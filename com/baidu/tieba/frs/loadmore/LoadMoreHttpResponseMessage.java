@@ -2,9 +2,9 @@ package com.baidu.tieba.frs.loadmore;
 
 import android.text.TextUtils;
 import c.a.e.l.e.n;
-import c.a.p0.s.q.c2;
-import c.a.p0.s.q.p0;
-import c.a.q0.x2.l0.b;
+import c.a.q0.s.q.d2;
+import c.a.q0.s.q.p0;
+import c.a.r0.y2.l0.b;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
@@ -115,18 +115,18 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                         ArrayList arrayList = new ArrayList();
                         for (int i4 = 0; i4 < list2.size(); i4++) {
                             ThreadInfo threadInfo = list2.get(i4);
-                            c2 c2Var = new c2();
-                            SpecHotTopicHelper.setSpecTopicIcon(j2, c2Var);
-                            c2Var.u4(this.userMap);
-                            c2Var.S2(threadInfo);
-                            c2Var.W2();
-                            c2Var.H1 = z;
-                            if (!TextUtils.isEmpty(c2Var.w0())) {
+                            d2 d2Var = new d2();
+                            SpecHotTopicHelper.setSpecTopicIcon(j2, d2Var);
+                            d2Var.E4(this.userMap);
+                            d2Var.Y2(threadInfo);
+                            d2Var.c3();
+                            d2Var.J1 = z;
+                            if (!TextUtils.isEmpty(d2Var.y0())) {
                                 p0 p0Var = new p0();
-                                p0Var.k(c2Var.w0());
+                                p0Var.k(d2Var.y0());
                                 this.threadList.add(p0Var);
                             } else {
-                                this.threadList.add(c2Var);
+                                this.threadList.add(d2Var);
                                 JSONObject b2 = b.b(threadInfo);
                                 if (b2 != null) {
                                     arrayList.add(b2);

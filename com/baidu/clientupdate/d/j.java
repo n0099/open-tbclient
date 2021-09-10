@@ -32,10 +32,10 @@ public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f38791a;
+    public static final char[] f38897a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f38792b;
+    public static String f38898b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,8 +51,8 @@ public final class j {
                 return;
             }
         }
-        f38791a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f38792b = "";
+        f38897a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f38898b = "";
     }
 
     public static Object a(Object obj, String str, Class[] clsArr, Object[] objArr) {
@@ -108,8 +108,8 @@ public final class j {
             try {
                 if (Build.VERSION.SDK_INT >= 24) {
                     intent.setFlags(RouterCallback.CODE_ERROR);
-                    String str = f38792b;
-                    if (TextUtils.isEmpty(f38792b)) {
+                    String str = f38898b;
+                    if (TextUtils.isEmpty(f38898b)) {
                         str = context.getPackageName() + ".fileprovider";
                     }
                     intent.setDataAndType(FileProvider.getUriForFile(context, str, file), "application/vnd.android.package-archive");
@@ -131,7 +131,7 @@ public final class j {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            f38792b = str;
+            f38898b = str;
         }
     }
 

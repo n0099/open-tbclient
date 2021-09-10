@@ -30,7 +30,7 @@ public final class ObservableReduceMaybe<T> extends Maybe<T> {
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f78762d;
+        public Disposable f79000d;
         public boolean done;
         public final BiFunction<T, T, T> reducer;
         public T value;
@@ -58,7 +58,7 @@ public final class ObservableReduceMaybe<T> extends Maybe<T> {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f78762d.dispose();
+                this.f79000d.dispose();
             }
         }
 
@@ -66,7 +66,7 @@ public final class ObservableReduceMaybe<T> extends Maybe<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f78762d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f79000d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -114,7 +114,7 @@ public final class ObservableReduceMaybe<T> extends Maybe<T> {
                 this.value = (T) ObjectHelper.requireNonNull(this.reducer.apply(t2, t), "The reducer returned a null value");
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
-                this.f78762d.dispose();
+                this.f79000d.dispose();
                 onError(th);
             }
         }
@@ -122,8 +122,8 @@ public final class ObservableReduceMaybe<T> extends Maybe<T> {
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f78762d, disposable)) {
-                this.f78762d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f79000d, disposable)) {
+                this.f79000d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

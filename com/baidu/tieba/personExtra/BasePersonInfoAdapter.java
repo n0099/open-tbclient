@@ -18,10 +18,10 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f55679a;
+    public int[] f55837a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<BaseFragment> f55680b;
+    public ArrayList<BaseFragment> f55838b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
@@ -41,22 +41,22 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f55680b = new ArrayList<>();
+        this.f55838b = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         BaseFragment createPersonalFramget = createPersonalFramget();
         createPersonalFramget.setArguments(bundle);
-        this.f55680b.add(createPersonalFramget);
+        this.f55838b.add(createPersonalFramget);
         if (z) {
-            this.f55679a = new int[]{0};
+            this.f55837a = new int[]{0};
             return;
         }
         Bundle bundle2 = new Bundle();
         bundle2.putInt("page_type", 1);
         BaseFragment createPersonalFramget2 = createPersonalFramget();
         createPersonalFramget2.setArguments(bundle2);
-        this.f55680b.add(createPersonalFramget2);
-        this.f55679a = new int[]{0, 1};
+        this.f55838b.add(createPersonalFramget2);
+        this.f55837a = new int[]{0, 1};
     }
 
     public abstract BaseFragment createPersonalFramget();
@@ -65,7 +65,7 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55679a.length : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55837a.length : invokeV.intValue;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
@@ -73,10 +73,10 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (i2 >= this.f55679a.length || i2 < 0) {
+            if (i2 >= this.f55837a.length || i2 < 0) {
                 return null;
             }
-            return this.f55680b.get(i2);
+            return this.f55838b.get(i2);
         }
         return (Fragment) invokeI.objValue;
     }
@@ -84,6 +84,6 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
     public int getItemPageType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f55679a[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f55837a[i2] : invokeI.intValue;
     }
 }

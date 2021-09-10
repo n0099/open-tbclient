@@ -11,7 +11,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f4036a;
+    public long f4039a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b() {
@@ -46,16 +46,16 @@ public class b {
                 return;
             }
         }
-        this.f4036a = j2;
+        this.f4039a = j2;
     }
 
     public boolean a(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            long j4 = this.f4036a;
+            long j4 = this.f4039a;
             long j5 = (j2 & j3) | ((~j3) & j4);
-            this.f4036a = j5;
+            this.f4039a = j5;
             return (j5 ^ j4) != 0;
         }
         return invokeCommon.booleanValue;

@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import h.c.i0;
 import org.webrtc.EglBase;
-import org.webrtc.EglBase_CC;
 import org.webrtc.GlRectDrawer;
 import org.webrtc.Logging;
 import org.webrtc.RendererCommon;
@@ -66,35 +66,6 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
         this.roomDelegate = baiduRtcRoomDelegate;
         this.userId = j2;
         this.eglRenderer = new SurfaceEglRenderer(String.valueOf(j2));
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RTCVideoExternalRenderImp(EglBase.Context context, RendererCommon.RendererEvents rendererEvents, long j2) {
-        super(null, j2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, rendererEvents, Long.valueOf(j2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((BaiduRtcRoom.BaiduRtcRoomVideoObserver) objArr2[0], ((Long) objArr2[1]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.videoWidth = 0;
-        this.videoHeight = 0;
-        this.videoRotation = 0;
-        this.isGetDimension = false;
-        this.hasSurface = Boolean.FALSE;
-        this.userId = j2;
-        this.eglRenderer = new SurfaceEglRenderer(String.valueOf(j2));
-        init(context, rendererEvents);
     }
 
     @Override // com.baidu.rtc.RTCVideoExternalRender
@@ -157,25 +128,7 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             Logging.d(TAG, this.userId + " : External renderer init");
-            init(EglBase_CC.create().getEglBaseContext(), null);
-        }
-    }
-
-    public void init(EglBase.Context context, RendererCommon.RendererEvents rendererEvents) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, context, rendererEvents) == null) {
-            init(context, rendererEvents, EglBase.CONFIG_PLAIN, new GlRectDrawer());
-        }
-    }
-
-    public void init(EglBase.Context context, RendererCommon.RendererEvents rendererEvents, int[] iArr, RendererCommon.GlDrawer glDrawer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048586, this, context, rendererEvents, iArr, glDrawer) == null) {
-            ThreadUtils.checkIsOnMainThread();
-            this.rendererEvents = rendererEvents;
-            this.rotatedFrameWidth = 0;
-            this.rotatedFrameHeight = 0;
-            this.eglRenderer.init(context, this, iArr, glDrawer);
+            init(i0.a().getEglBaseContext(), null);
         }
     }
 
@@ -279,12 +232,9 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
 
     @Override // com.baidu.rtc.RTCVideoExternalRender
     public void setSurface(Surface surface) {
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, surface) == null) {
-            if (surface == null || this.surface == surface) {
-                str = this.userId + " : Set remote surface fail! cause surface: " + surface;
-            } else {
+            if (surface != null && this.surface != surface) {
                 if (this.hasSurface.booleanValue() && this.surface != null) {
                     releaseSurface();
                 }
@@ -418,9 +368,57 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
                 this.holder = surfaceHolder;
                 this.eglRenderer.surfaceCreated(surfaceHolder);
                 this.hasSurface = Boolean.TRUE;
-                str = this.userId + " : External renderer set surface =" + this.surface;
+                Logging.d(TAG, this.userId + " : External renderer set surface =" + this.surface);
+                return;
             }
-            Logging.d(TAG, str);
+            Logging.d(TAG, this.userId + " : Set remote surface fail! cause surface: " + surface);
         }
+    }
+
+    public void init(EglBase.Context context, RendererCommon.RendererEvents rendererEvents) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, context, rendererEvents) == null) {
+            init(context, rendererEvents, EglBase.CONFIG_PLAIN, new GlRectDrawer());
+        }
+    }
+
+    public void init(EglBase.Context context, RendererCommon.RendererEvents rendererEvents, int[] iArr, RendererCommon.GlDrawer glDrawer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048586, this, context, rendererEvents, iArr, glDrawer) == null) {
+            ThreadUtils.checkIsOnMainThread();
+            this.rendererEvents = rendererEvents;
+            this.rotatedFrameWidth = 0;
+            this.rotatedFrameHeight = 0;
+            this.eglRenderer.init(context, this, iArr, glDrawer);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RTCVideoExternalRenderImp(EglBase.Context context, RendererCommon.RendererEvents rendererEvents, long j2) {
+        super(null, j2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, rendererEvents, Long.valueOf(j2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((BaiduRtcRoom.BaiduRtcRoomVideoObserver) objArr2[0], ((Long) objArr2[1]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.videoWidth = 0;
+        this.videoHeight = 0;
+        this.videoRotation = 0;
+        this.isGetDimension = false;
+        this.hasSurface = Boolean.FALSE;
+        this.userId = j2;
+        this.eglRenderer = new SurfaceEglRenderer(String.valueOf(j2));
+        init(context, rendererEvents);
     }
 }

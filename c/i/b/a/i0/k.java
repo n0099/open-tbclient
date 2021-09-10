@@ -13,16 +13,16 @@ public final class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f33699a;
+    public byte[] f33808a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f33700b;
+    public int f33809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33701c;
+    public int f33810c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f33702d;
+    public int f33811d;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -42,24 +42,24 @@ public final class k {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i3 = this.f33700b;
-            a.f(i3 >= 0 && (i3 < (i2 = this.f33702d) || (i3 == i2 && this.f33701c == 0)));
+            int i3 = this.f33809b;
+            a.f(i3 >= 0 && (i3 < (i2 = this.f33811d) || (i3 == i2 && this.f33810c == 0)));
         }
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.f33702d - this.f33700b) * 8) - this.f33701c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.f33811d - this.f33809b) * 8) - this.f33810c : invokeV.intValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f33701c == 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f33810c == 0) {
             return;
         }
-        this.f33701c = 0;
-        this.f33700b++;
+        this.f33810c = 0;
+        this.f33809b++;
         a();
     }
 
@@ -67,8 +67,8 @@ public final class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            a.f(this.f33701c == 0);
-            return this.f33700b;
+            a.f(this.f33810c == 0);
+            return this.f33809b;
         }
         return invokeV.intValue;
     }
@@ -76,14 +76,14 @@ public final class k {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.f33700b * 8) + this.f33701c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.f33809b * 8) + this.f33810c : invokeV.intValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            boolean z = (this.f33699a[this.f33700b] & (128 >> this.f33701c)) != 0;
+            boolean z = (this.f33808a[this.f33809b] & (128 >> this.f33810c)) != 0;
             m();
             return z;
         }
@@ -98,26 +98,26 @@ public final class k {
             if (i2 == 0) {
                 return 0;
             }
-            this.f33701c += i2;
+            this.f33810c += i2;
             int i4 = 0;
             while (true) {
-                i3 = this.f33701c;
+                i3 = this.f33810c;
                 if (i3 <= 8) {
                     break;
                 }
                 int i5 = i3 - 8;
-                this.f33701c = i5;
-                byte[] bArr = this.f33699a;
-                int i6 = this.f33700b;
-                this.f33700b = i6 + 1;
+                this.f33810c = i5;
+                byte[] bArr = this.f33808a;
+                int i6 = this.f33809b;
+                this.f33809b = i6 + 1;
                 i4 |= (bArr[i6] & 255) << i5;
             }
-            byte[] bArr2 = this.f33699a;
-            int i7 = this.f33700b;
+            byte[] bArr2 = this.f33808a;
+            int i7 = this.f33809b;
             int i8 = ((-1) >>> (32 - i2)) & (i4 | ((bArr2[i7] & 255) >> (8 - i3)));
             if (i3 == 8) {
-                this.f33701c = 0;
-                this.f33700b = i7 + 1;
+                this.f33810c = 0;
+                this.f33809b = i7 + 1;
             }
             a();
             return i8;
@@ -130,12 +130,12 @@ public final class k {
         if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i2, i3) == null) {
             int i4 = (i3 >> 3) + i2;
             while (i2 < i4) {
-                byte[] bArr2 = this.f33699a;
-                int i5 = this.f33700b;
+                byte[] bArr2 = this.f33808a;
+                int i5 = this.f33809b;
                 int i6 = i5 + 1;
-                this.f33700b = i6;
+                this.f33809b = i6;
                 byte b2 = bArr2[i5];
-                int i7 = this.f33701c;
+                int i7 = this.f33810c;
                 bArr[i2] = (byte) (b2 << i7);
                 bArr[i2] = (byte) (((255 & bArr2[i6]) >> (8 - i7)) | bArr[i2]);
                 i2++;
@@ -145,23 +145,23 @@ public final class k {
                 return;
             }
             bArr[i4] = (byte) (bArr[i4] & (255 >> i8));
-            int i9 = this.f33701c;
+            int i9 = this.f33810c;
             if (i9 + i8 > 8) {
                 byte b3 = bArr[i4];
-                byte[] bArr3 = this.f33699a;
-                int i10 = this.f33700b;
-                this.f33700b = i10 + 1;
+                byte[] bArr3 = this.f33808a;
+                int i10 = this.f33809b;
+                this.f33809b = i10 + 1;
                 bArr[i4] = (byte) (b3 | ((byte) ((bArr3[i10] & 255) << i9)));
-                this.f33701c = i9 - 8;
+                this.f33810c = i9 - 8;
             }
-            int i11 = this.f33701c + i8;
-            this.f33701c = i11;
-            byte[] bArr4 = this.f33699a;
-            int i12 = this.f33700b;
+            int i11 = this.f33810c + i8;
+            this.f33810c = i11;
+            byte[] bArr4 = this.f33808a;
+            int i12 = this.f33809b;
             bArr[i4] = (byte) (((byte) (((255 & bArr4[i12]) >> (8 - i11)) << (8 - i8))) | bArr[i4]);
             if (i11 == 8) {
-                this.f33701c = 0;
-                this.f33700b = i12 + 1;
+                this.f33810c = 0;
+                this.f33809b = i12 + 1;
             }
             a();
         }
@@ -170,9 +170,9 @@ public final class k {
     public void i(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3) == null) {
-            a.f(this.f33701c == 0);
-            System.arraycopy(this.f33699a, this.f33700b, bArr, i2, i3);
-            this.f33700b += i3;
+            a.f(this.f33810c == 0);
+            System.arraycopy(this.f33808a, this.f33809b, bArr, i2, i3);
+            this.f33809b += i3;
             a();
         }
     }
@@ -187,10 +187,10 @@ public final class k {
     public void k(byte[] bArr, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048586, this, bArr, i2) == null) {
-            this.f33699a = bArr;
-            this.f33700b = 0;
-            this.f33701c = 0;
-            this.f33702d = i2;
+            this.f33808a = bArr;
+            this.f33809b = 0;
+            this.f33810c = 0;
+            this.f33811d = i2;
         }
     }
 
@@ -198,8 +198,8 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             int i3 = i2 / 8;
-            this.f33700b = i3;
-            this.f33701c = i2 - (i3 * 8);
+            this.f33809b = i3;
+            this.f33810c = i2 - (i3 * 8);
             a();
         }
     }
@@ -207,11 +207,11 @@ public final class k {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            int i2 = this.f33701c + 1;
-            this.f33701c = i2;
+            int i2 = this.f33810c + 1;
+            this.f33810c = i2;
             if (i2 == 8) {
-                this.f33701c = 0;
-                this.f33700b++;
+                this.f33810c = 0;
+                this.f33809b++;
             }
             a();
         }
@@ -221,13 +221,13 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             int i3 = i2 / 8;
-            int i4 = this.f33700b + i3;
-            this.f33700b = i4;
-            int i5 = this.f33701c + (i2 - (i3 * 8));
-            this.f33701c = i5;
+            int i4 = this.f33809b + i3;
+            this.f33809b = i4;
+            int i5 = this.f33810c + (i2 - (i3 * 8));
+            this.f33810c = i5;
             if (i5 > 7) {
-                this.f33700b = i4 + 1;
-                this.f33701c = i5 - 8;
+                this.f33809b = i4 + 1;
+                this.f33810c = i5 - 8;
             }
             a();
         }
@@ -236,8 +236,8 @@ public final class k {
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            a.f(this.f33701c == 0);
-            this.f33700b += i2;
+            a.f(this.f33810c == 0);
+            this.f33809b += i2;
             a();
         }
     }
@@ -278,7 +278,7 @@ public final class k {
                 return;
             }
         }
-        this.f33699a = bArr;
-        this.f33702d = i2;
+        this.f33808a = bArr;
+        this.f33811d = i2;
     }
 }

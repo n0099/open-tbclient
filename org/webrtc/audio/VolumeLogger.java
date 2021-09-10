@@ -53,29 +53,14 @@ public class VolumeLogger {
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            StringBuilder sb;
-            int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 int mode = this.this$0.audioManager.getMode();
                 if (mode == 1) {
-                    sb = new StringBuilder();
-                    sb.append("STREAM_RING stream volume: ");
-                    sb.append(this.this$0.audioManager.getStreamVolume(2));
-                    sb.append(" (max=");
-                    i2 = this.maxRingVolume;
-                } else if (mode != 3) {
-                    return;
-                } else {
-                    sb = new StringBuilder();
-                    sb.append("VOICE_CALL stream volume: ");
-                    sb.append(this.this$0.audioManager.getStreamVolume(0));
-                    sb.append(" (max=");
-                    i2 = this.maxVoiceCallVolume;
+                    Logging.d(VolumeLogger.TAG, "STREAM_RING stream volume: " + this.this$0.audioManager.getStreamVolume(2) + " (max=" + this.maxRingVolume + SmallTailInfo.EMOTION_SUFFIX);
+                } else if (mode == 3) {
+                    Logging.d(VolumeLogger.TAG, "VOICE_CALL stream volume: " + this.this$0.audioManager.getStreamVolume(0) + " (max=" + this.maxVoiceCallVolume + SmallTailInfo.EMOTION_SUFFIX);
                 }
-                sb.append(i2);
-                sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                Logging.d(VolumeLogger.TAG, sb.toString());
             }
         }
     }

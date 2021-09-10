@@ -70,22 +70,22 @@ public final class PhoneUtils {
     public static final String CPU_API_ARM_V8A = "arm64-v8a";
 
     /* renamed from: a  reason: collision with root package name */
-    public static CPUInfo f69266a;
+    public static CPUInfo f69446a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ArrayList<String> f69267b;
+    public static ArrayList<String> f69447b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f69268c;
+    public static final Pattern f69448c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f69269d;
+    public static final Pattern f69449d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f69270e;
+    public static final Pattern f69450e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f69271f;
+    public static final Pattern f69451f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -166,16 +166,16 @@ public final class PhoneUtils {
                 return;
             }
         }
-        f69267b = new ArrayList<>();
-        f69268c = Pattern.compile("((\\d|[A-F]){32}).*");
-        f69269d = Pattern.compile("((\\d|[a-f]){32}).*");
-        f69270e = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
-        f69271f = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
-        f69267b.add("card_no");
-        f69267b.add("valid_date");
-        f69267b.add("cvv2");
-        f69267b.add("identity_code");
-        f69267b.add("phone_number");
+        f69447b = new ArrayList<>();
+        f69448c = Pattern.compile("((\\d|[A-F]){32}).*");
+        f69449d = Pattern.compile("((\\d|[a-f]){32}).*");
+        f69450e = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+        f69451f = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+        f69447b.add("card_no");
+        f69447b.add("valid_date");
+        f69447b.add("cvv2");
+        f69447b.add("identity_code");
+        f69447b.add("phone_number");
     }
 
     public PhoneUtils() {
@@ -210,10 +210,10 @@ public final class PhoneUtils {
             if (deviceID == null) {
                 return null;
             }
-            Matcher matcher = f69268c.matcher(deviceID);
+            Matcher matcher = f69448c.matcher(deviceID);
             String group = matcher.matches() ? matcher.group(1) : null;
             if (group == null) {
-                Matcher matcher2 = f69269d.matcher(deviceID);
+                Matcher matcher2 = f69449d.matcher(deviceID);
                 return matcher2.matches() ? matcher2.group(1) : "";
             }
             return group;
@@ -234,7 +234,7 @@ public final class PhoneUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
-            if (f69267b.contains(str)) {
+            if (f69447b.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }
@@ -343,11 +343,11 @@ public final class PhoneUtils {
             if (cuid == null) {
                 return null;
             }
-            if (f69270e.matcher(cuid).matches()) {
+            if (f69450e.matcher(cuid).matches()) {
                 str2 = matcher.group(1) + matcher.group(3);
             }
             if (str2 == null) {
-                if (f69271f.matcher(cuid).matches()) {
+                if (f69451f.matcher(cuid).matches()) {
                     str = matcher2.group(1) + matcher2.group(3);
                 } else {
                     str = "";
@@ -628,7 +628,7 @@ public final class PhoneUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            CPUInfo cPUInfo = f69266a;
+            CPUInfo cPUInfo = f69446a;
             if (cPUInfo != null) {
                 return cPUInfo;
             }
@@ -657,7 +657,7 @@ public final class PhoneUtils {
             } catch (IOException e3) {
                 e3.printStackTrace();
             }
-            f69266a = cPUInfo2;
+            f69446a = cPUInfo2;
             return cPUInfo2;
         }
         return (CPUInfo) invokeV.objValue;

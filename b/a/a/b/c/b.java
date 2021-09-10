@@ -78,11 +78,11 @@ public class b implements b.a.a.b.a.a {
                     int responseCode = httpURLConnection.getResponseCode();
                     if (responseCode == 200) {
                         c(httpURLConnection, false);
-                    } else if (responseCode != 206) {
+                    } else if (responseCode == 206) {
+                        c(httpURLConnection, true);
+                    } else {
                         r0 = "UnSupported response code:" + responseCode;
                         throw new DownloadException(108, "UnSupported response code:" + responseCode);
-                    } else {
-                        c(httpURLConnection, true);
                     }
                     httpURLConnection.disconnect();
                 } catch (ProtocolException e4) {
@@ -136,65 +136,74 @@ public class b implements b.a.a.b.a.a {
     }
 
     public final void c(HttpURLConnection httpURLConnection, boolean z) {
+        long contentLength;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, httpURLConnection, z) == null) {
             String headerField = httpURLConnection.getHeaderField("Content-Length");
-            long contentLength = (TextUtils.isEmpty(headerField) || headerField.equals("0") || headerField.equals("-1")) ? httpURLConnection.getContentLength() : Long.parseLong(headerField);
+            if (!TextUtils.isEmpty(headerField) && !headerField.equals("0") && !headerField.equals("-1")) {
+                contentLength = Long.parseLong(headerField);
+            } else {
+                contentLength = httpURLConnection.getContentLength();
+            }
             if (contentLength <= 0) {
                 String headerField2 = httpURLConnection.getHeaderField("Ohc-File-Size");
-                contentLength = (TextUtils.isEmpty(headerField2) || headerField2.equals("0") || headerField2.equals("-1")) ? httpURLConnection.getContentLength() : Long.parseLong(headerField2);
+                if (!TextUtils.isEmpty(headerField2) && !headerField2.equals("0") && !headerField2.equals("-1")) {
+                    contentLength = Long.parseLong(headerField2);
+                } else {
+                    contentLength = httpURLConnection.getContentLength();
+                }
                 if (contentLength <= 0) {
                     throw new DownloadException(108, "length <= 0");
                 }
             }
-            if (d()) {
-                throw new DownloadException(107, "Connection Canceled!");
-            }
-            if (e()) {
+            if (!d()) {
+                if (!e()) {
+                    this.f1532g = 103;
+                    long currentTimeMillis = System.currentTimeMillis() - this.f1533h;
+                    g gVar = (g) this.f1531f;
+                    if (((b) gVar.f1550i).d()) {
+                        gVar.e();
+                        return;
+                    }
+                    gVar.f1548g = 103;
+                    a aVar = gVar.f1543b;
+                    aVar.f1529b.s(currentTimeMillis);
+                    aVar.f1529b.j(z);
+                    aVar.f1529b.r(103);
+                    aVar.f1528a.a(aVar.f1529b);
+                    gVar.f1549h.b(z);
+                    gVar.f1549h.f1536c = contentLength;
+                    gVar.f1548g = 104;
+                    gVar.f1551j.clear();
+                    if (z) {
+                        ArrayList<e> arrayList = new ArrayList();
+                        int a2 = gVar.f1546e.a();
+                        int i2 = 0;
+                        while (i2 < a2) {
+                            long j2 = contentLength / a2;
+                            long j3 = j2 * i2;
+                            arrayList.add(new e(i2, gVar.f1545d, gVar.f1542a.c(), j3, i2 == a2 + (-1) ? contentLength : (j2 + j3) - 1, 0L));
+                            i2++;
+                        }
+                        int i3 = 0;
+                        for (e eVar : arrayList) {
+                            i3 = (int) (i3 + eVar.f1541d);
+                        }
+                        gVar.f1549h.a(i3);
+                        for (e eVar2 : arrayList) {
+                            gVar.f1551j.add(new d(gVar.f1549h, eVar2, gVar));
+                        }
+                    } else {
+                        gVar.f1551j.add(new f(gVar.f1549h, new e(0, gVar.f1545d, gVar.f1542a.c(), 0L, 0L, 0L), gVar));
+                    }
+                    for (b.a.a.b.a.b bVar : gVar.f1551j) {
+                        gVar.f1544c.execute(bVar);
+                    }
+                    return;
+                }
                 throw new DownloadException(106, "Connection Paused!");
             }
-            this.f1532g = 103;
-            long currentTimeMillis = System.currentTimeMillis();
-            long j2 = this.f1533h;
-            g gVar = (g) this.f1531f;
-            if (((b) gVar.f1550i).d()) {
-                gVar.e();
-                return;
-            }
-            gVar.f1548g = 103;
-            a aVar = gVar.f1543b;
-            aVar.f1529b.s(currentTimeMillis - j2);
-            aVar.f1529b.j(z);
-            aVar.f1529b.r(103);
-            aVar.f1528a.a(aVar.f1529b);
-            gVar.f1549h.b(z);
-            gVar.f1549h.f1536c = contentLength;
-            gVar.f1548g = 104;
-            gVar.f1551j.clear();
-            if (z) {
-                ArrayList<e> arrayList = new ArrayList();
-                int a2 = gVar.f1546e.a();
-                int i2 = 0;
-                int i3 = 0;
-                while (i3 < a2) {
-                    long j3 = contentLength / a2;
-                    long j4 = j3 * i3;
-                    arrayList.add(new e(i3, gVar.f1545d, gVar.f1542a.c(), j4, i3 == a2 + (-1) ? contentLength : (j3 + j4) - 1, 0L));
-                    i3++;
-                }
-                for (e eVar : arrayList) {
-                    i2 = (int) (i2 + eVar.f1541d);
-                }
-                gVar.f1549h.a(i2);
-                for (e eVar2 : arrayList) {
-                    gVar.f1551j.add(new d(gVar.f1549h, eVar2, gVar));
-                }
-            } else {
-                gVar.f1551j.add(new f(gVar.f1549h, new e(0, gVar.f1545d, gVar.f1542a.c(), 0L, 0L, 0L), gVar));
-            }
-            for (b.a.a.b.a.b bVar : gVar.f1551j) {
-                gVar.f1544c.execute(bVar);
-            }
+            throw new DownloadException(107, "Connection Canceled!");
         }
     }
 

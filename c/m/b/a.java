@@ -18,13 +18,13 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static Object f34223a;
+        public static Object f34332a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static Class<?> f34224b;
+        public static Class<?> f34333b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static Method f34225c;
+        public static Method f34334c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,12 +42,12 @@ public class a {
             }
             try {
                 Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                f34224b = cls;
-                f34223a = cls.newInstance();
-                f34224b.getMethod("getUDID", Context.class);
-                f34225c = f34224b.getMethod("getOAID", Context.class);
-                f34224b.getMethod("getVAID", Context.class);
-                f34224b.getMethod("getAAID", Context.class);
+                f34333b = cls;
+                f34332a = cls.newInstance();
+                f34333b.getMethod("getUDID", Context.class);
+                f34334c = f34333b.getMethod("getOAID", Context.class);
+                f34333b.getMethod("getVAID", Context.class);
+                f34333b.getMethod("getAAID", Context.class);
             } catch (Throwable unused) {
             }
         }
@@ -55,14 +55,14 @@ public class a {
         public static String a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? b(context, f34225c) : (String) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? b(context, f34334c) : (String) invokeL.objValue;
         }
 
         public static String b(Context context, Method method) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
-                Object obj = f34223a;
+                Object obj = f34332a;
                 if (obj == null || method == null) {
                     return null;
                 }
@@ -82,7 +82,7 @@ public class a {
         public static boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f34224b == null || f34223a == null) ? false : true : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f34333b == null || f34332a == null) ? false : true : invokeV.booleanValue;
         }
     }
 

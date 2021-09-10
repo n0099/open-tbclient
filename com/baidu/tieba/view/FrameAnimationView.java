@@ -23,15 +23,15 @@ import java.util.List;
 public class FrameAnimationView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int O;
-    public Bitmap P;
-    public Rect Q;
+    public int P;
+    public Bitmap Q;
     public Rect R;
-    public List<String> S;
-    public int T;
-    public boolean U;
-    public BdUniqueId V;
-    public Runnable W;
+    public Rect S;
+    public List<String> T;
+    public int U;
+    public boolean V;
+    public BdUniqueId W;
+    public Runnable a0;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -39,7 +39,7 @@ public class FrameAnimationView extends TbImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrameAnimationView f58019e;
+        public final /* synthetic */ FrameAnimationView f58200e;
 
         public a(FrameAnimationView frameAnimationView) {
             Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class FrameAnimationView extends TbImageView {
                     return;
                 }
             }
-            this.f58019e = frameAnimationView;
+            this.f58200e = frameAnimationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.a().removeCallbacks(this.f58019e.W);
-                if (this.f58019e.S != null) {
-                    this.f58019e.v();
+                e.a().removeCallbacks(this.f58200e.a0);
+                if (this.f58200e.T != null) {
+                    this.f58200e.v();
                 }
             }
         }
@@ -89,31 +89,31 @@ public class FrameAnimationView extends TbImageView {
                 return;
             }
         }
-        this.O = 0;
-        this.Q = new Rect();
+        this.P = 0;
         this.R = new Rect();
-        this.W = new a(this);
+        this.S = new Rect();
+        this.a0 = new a(this);
     }
 
     private Bitmap getFrameBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            List<String> list = this.S;
+            List<String> list = this.T;
             if (list == null) {
                 return null;
             }
-            if (this.O >= list.size()) {
-                this.O = 0;
+            if (this.P >= list.size()) {
+                this.P = 0;
             }
             String frameUrl = getFrameUrl();
-            this.O++;
+            this.P++;
             if (!k.isEmpty(frameUrl)) {
                 c.a.e.l.d.a aVar = (c.a.e.l.d.a) d.h().n(frameUrl, 10, new Object[0]);
                 if (aVar != null) {
                     return aVar.p();
                 }
-                d.h().m(frameUrl, 10, null, this.V);
+                d.h().m(frameUrl, 10, null, this.W);
             }
             return null;
         }
@@ -124,11 +124,11 @@ public class FrameAnimationView extends TbImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            List<String> list = this.S;
+            List<String> list = this.T;
             if (list == null) {
                 return null;
             }
-            return list.get(this.O);
+            return list.get(this.P);
         }
         return (String) invokeV.objValue;
     }
@@ -138,7 +138,7 @@ public class FrameAnimationView extends TbImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onAttachedToWindow();
-            if (this.U) {
+            if (this.V) {
                 return;
             }
             playAnimation();
@@ -160,17 +160,17 @@ public class FrameAnimationView extends TbImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.U || (bitmap = this.P) == null || bitmap.isRecycled()) {
+            if (this.V || (bitmap = this.Q) == null || bitmap.isRecycled()) {
                 return;
             }
-            this.R.set(0, 0, getMeasuredWidth(), getMeasuredHeight());
-            canvas.drawBitmap(this.P, this.Q, this.R, (Paint) null);
+            this.S.set(0, 0, getMeasuredWidth(), getMeasuredHeight());
+            canvas.drawBitmap(this.Q, this.R, this.S, (Paint) null);
         }
     }
 
     public void playAnimation() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.S == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.T == null) {
             return;
         }
         v();
@@ -188,55 +188,55 @@ public class FrameAnimationView extends TbImageView {
         if (!(interceptable == null || interceptable.invokeLI(1048582, this, list, i2) == null) || list == null) {
             return;
         }
-        this.U = false;
-        this.T = i2;
+        this.V = false;
+        this.U = i2;
         if (w(list)) {
             return;
         }
-        e.a().removeCallbacks(this.W);
-        this.S = list;
-        this.O = 0;
+        e.a().removeCallbacks(this.a0);
+        this.T = list;
+        this.P = 0;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
     public void setPageId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            this.V = bdUniqueId;
+            this.W = bdUniqueId;
         }
     }
 
     public void stopAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            e.a().removeCallbacks(this.W);
+            e.a().removeCallbacks(this.a0);
         }
     }
 
     public final void v() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.S == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.T == null) {
             return;
         }
         Bitmap frameBitmap = getFrameBitmap();
         if (frameBitmap != null && !frameBitmap.isRecycled()) {
-            this.P = frameBitmap;
-            this.Q.set(0, 0, frameBitmap.getWidth(), this.P.getHeight());
+            this.Q = frameBitmap;
+            this.R.set(0, 0, frameBitmap.getWidth(), this.Q.getHeight());
         }
         invalidate();
-        e.a().postDelayed(this.W, this.T);
+        e.a().postDelayed(this.a0, this.U);
     }
 
     public final boolean w(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, list)) == null) {
-            List<String> list2 = this.S;
+            List<String> list2 = this.T;
             if (list2 == null || list == null || list2.size() != list.size()) {
                 return false;
             }
-            for (int i2 = 0; i2 < this.S.size(); i2++) {
-                if (!this.S.get(i2).equals(list.get(i2))) {
+            for (int i2 = 0; i2 < this.T.size(); i2++) {
+                if (!this.T.get(i2).equals(list.get(i2))) {
                     return false;
                 }
             }
@@ -264,10 +264,10 @@ public class FrameAnimationView extends TbImageView {
                 return;
             }
         }
-        this.O = 0;
-        this.Q = new Rect();
+        this.P = 0;
         this.R = new Rect();
-        this.W = new a(this);
+        this.S = new Rect();
+        this.a0 = new a(this);
     }
 
     public void setData(String str) {
@@ -275,7 +275,7 @@ public class FrameAnimationView extends TbImageView {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || k.isEmpty(str)) {
             return;
         }
-        this.U = true;
+        this.V = true;
         startLoad(str, 10, false);
     }
 
@@ -298,9 +298,9 @@ public class FrameAnimationView extends TbImageView {
                 return;
             }
         }
-        this.O = 0;
-        this.Q = new Rect();
+        this.P = 0;
         this.R = new Rect();
-        this.W = new a(this);
+        this.S = new Rect();
+        this.a0 = new a(this);
     }
 }

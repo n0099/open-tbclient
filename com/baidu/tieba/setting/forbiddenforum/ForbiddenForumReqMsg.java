@@ -1,6 +1,6 @@
 package com.baidu.tieba.setting.forbiddenforum;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -44,7 +44,7 @@ public class ForbiddenForumReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             builder.user_id = Long.valueOf(TbadkCoreApplication.getCurrentAccountId());
             builder.rn = Integer.valueOf(this.pageSize);

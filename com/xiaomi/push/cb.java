@@ -17,7 +17,7 @@ public class cb extends cg.b<Long> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f77242a;
+    public long f77422a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f176a;
@@ -41,7 +41,7 @@ public class cb extends cg.b<Long> {
                 return;
             }
         }
-        this.f77242a = 0L;
+        this.f77422a = 0L;
         this.f176a = str6;
     }
 
@@ -69,7 +69,7 @@ public class cb extends cg.b<Long> {
     public Object a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Long.valueOf(this.f77242a) : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Long.valueOf(this.f77422a) : invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.cg.b
@@ -78,6 +78,6 @@ public class cb extends cg.b<Long> {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, list) == null) || context == null || list == null || list.size() <= 0) {
             return;
         }
-        this.f77242a = list.get(0).longValue();
+        this.f77422a = list.get(0).longValue();
     }
 }

@@ -190,9 +190,9 @@ public class l {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             String str = Build.DISPLAY;
             if (str != null && str.contains("Flyme") && (o = o(str)) != null && o.length() >= 3) {
-                int d2 = c.a.e.e.m.b.d(o(o.substring(0, 1)), 0);
-                int d3 = c.a.e.e.m.b.d(o(o.substring(1, 2)), 0);
-                if (d2 > 3 || (d2 == 3 && d3 >= 5)) {
+                int e2 = c.a.e.e.m.b.e(o(o.substring(0, 1)), 0);
+                int e3 = c.a.e.e.m.b.e(o(o.substring(1, 2)), 0);
+                if (e2 > 3 || (e2 == 3 && e3 >= 5)) {
                     return true;
                 }
             }
@@ -818,7 +818,7 @@ public class l {
             }
             try {
                 String str = new String(bArr, 0, 16, "UTF-8");
-                if (str.indexOf(com.baidu.wallet.base.audio.b.f60055e) == 0) {
+                if (str.indexOf(com.baidu.wallet.base.audio.b.f60235e) == 0) {
                     return 8 == str.indexOf("WEBPVP8 ");
                 }
                 return false;

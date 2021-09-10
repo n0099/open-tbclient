@@ -1,6 +1,6 @@
 package com.baidu.tbadk.mainTab.videoRedIcon;
 
-import c.a.p0.g0.f.a;
+import c.a.q0.h0.f.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,14 +38,14 @@ public class VideoRedIconSocketResponse extends SocketResponsedMessage implement
         }
     }
 
-    @Override // c.a.p0.g0.f.a
+    @Override // c.a.q0.h0.f.a
     public List<RedIcon> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.redIcons : (List) invokeV.objValue;
     }
 
-    @Override // c.a.p0.g0.f.a
+    @Override // c.a.q0.h0.f.a
     public VideoRedIconResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

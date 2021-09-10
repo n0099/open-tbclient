@@ -10,9 +10,9 @@ import android.os.Process;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.a.k;
-import c.a.o0.e.n.a.a;
-import c.a.o0.e.n.b.c;
+import c.a.p0.a.k;
+import c.a.p0.e.n.a.a;
+import c.a.p0.e.n.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -51,7 +51,7 @@ public class SwanContentProvider extends ContentProvider {
                 return;
             }
         }
-        DEBUG = k.f7049a;
+        DEBUG = k.f7077a;
         AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".provider";
         sUriMatcher = new UriMatcher(-1);
         sAccreditedSet = new HashSet<>();
@@ -89,7 +89,7 @@ public class SwanContentProvider extends ContentProvider {
                 return true;
             }
             String a2 = c.a(callingPackage);
-            Set<String> a3 = c.a.o0.d.g.c.e().a();
+            Set<String> a3 = c.a.p0.d.g.c.e().a();
             z = (a3 == null || !a3.contains(a2)) ? false : false;
             if (z) {
                 sAccreditedSet.add(callingPackage);

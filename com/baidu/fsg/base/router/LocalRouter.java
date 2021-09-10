@@ -17,17 +17,17 @@ public class LocalRouter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39337a = "LocalRouter";
+    public static final String f39448a = "LocalRouter";
 
     /* renamed from: b  reason: collision with root package name */
-    public static LocalRouter f39338b;
+    public static LocalRouter f39449b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, RouterProvider> f39339c;
+    public HashMap<String, RouterProvider> f39450c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f39340d;
+    public Context f39451d;
 
     static {
         InterceptResult invokeClinit;
@@ -59,19 +59,19 @@ public class LocalRouter {
                 return;
             }
         }
-        this.f39339c = null;
-        this.f39340d = context;
-        this.f39339c = new HashMap<>();
+        this.f39450c = null;
+        this.f39451d = context;
+        this.f39450c = new HashMap<>();
     }
 
     private RouterAction a(RouterRequest routerRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, routerRequest)) == null) {
-            RouterProvider routerProvider = this.f39339c.get(routerRequest.getProvider());
+            RouterProvider routerProvider = this.f39450c.get(routerRequest.getProvider());
             ErrorAction errorAction = new ErrorAction();
             if (routerProvider == null) {
-                for (RouterProvider routerProvider2 : this.f39339c.values()) {
+                for (RouterProvider routerProvider2 : this.f39450c.values()) {
                     RouterAction findAction = routerProvider2.findAction(routerRequest.getAction());
                     if (findAction != null) {
                         return findAction;
@@ -90,10 +90,10 @@ public class LocalRouter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (LocalRouter.class) {
-                if (f39338b == null) {
+                if (f39449b == null) {
                     throw new RuntimeException("Local Router must be init first");
                 }
-                localRouter = f39338b;
+                localRouter = f39449b;
             }
             return localRouter;
         }
@@ -106,10 +106,10 @@ public class LocalRouter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             synchronized (LocalRouter.class) {
-                if (f39338b == null) {
-                    f39338b = new LocalRouter(context);
+                if (f39449b == null) {
+                    f39449b = new LocalRouter(context);
                 }
-                localRouter = f39338b;
+                localRouter = f39449b;
             }
             return localRouter;
         }
@@ -138,7 +138,7 @@ public class LocalRouter {
     public void a(String str, RouterProvider routerProvider) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, routerProvider) == null) {
-            this.f39339c.put(str, routerProvider);
+            this.f39450c.put(str, routerProvider);
         }
     }
 }

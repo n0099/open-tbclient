@@ -19,19 +19,19 @@ public class O0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f76645a;
+    public View f76825a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f76646b;
+    public boolean f76826b;
 
     /* renamed from: c  reason: collision with root package name */
-    public N0 f76647c;
+    public N0 f76827c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Info f76648d;
+    public Info f76828d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f76649e;
+    public Handler f76829e;
 
     public O0() {
         Interceptable interceptable = $ic;
@@ -46,21 +46,21 @@ public class O0 {
                 return;
             }
         }
-        this.f76649e = new F0(this, Looper.getMainLooper());
+        this.f76829e = new F0(this, Looper.getMainLooper());
     }
 
     public void a(View view, Info info, N0 n0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, view, info, n0) == null) {
-            this.f76645a = view;
-            this.f76647c = n0;
-            this.f76648d = info;
+            this.f76825a = view;
+            this.f76827c = n0;
+            this.f76828d = info;
             try {
-                String str = "b111:" + this.f76646b;
-                if (!this.f76646b) {
-                    this.f76649e.sendEmptyMessage(1101);
+                String str = "b111:" + this.f76826b;
+                if (!this.f76826b) {
+                    this.f76829e.sendEmptyMessage(1101);
                 }
-                ViewTreeObserver viewTreeObserver = this.f76645a.getViewTreeObserver();
+                ViewTreeObserver viewTreeObserver = this.f76825a.getViewTreeObserver();
                 viewTreeObserver.addOnScrollChangedListener(new G0(this, n0));
                 viewTreeObserver.addOnGlobalFocusChangeListener(new H0(this, n0));
                 if (Build.VERSION.SDK_INT >= 18) {
@@ -96,9 +96,9 @@ public class O0 {
             return false;
         }
         Rect rect = new Rect();
-        if (view.getGlobalVisibleRect(rect) && this.f76648d != null) {
-            if (rect.width() >= this.f76648d.getSper() * view.getMeasuredWidth()) {
-                if (rect.height() >= this.f76648d.getSper() * view.getMeasuredHeight()) {
+        if (view.getGlobalVisibleRect(rect) && this.f76828d != null) {
+            if (rect.width() >= this.f76828d.getSper() * view.getMeasuredWidth()) {
+                if (rect.height() >= this.f76828d.getSper() * view.getMeasuredHeight()) {
                     z = false;
                     return z;
                 }

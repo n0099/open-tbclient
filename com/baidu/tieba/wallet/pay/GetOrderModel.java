@@ -42,7 +42,7 @@ public class GetOrderModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, payConfig)) == null) {
             GetOrderNetMessage getOrderNetMessage = new GetOrderNetMessage();
-            getOrderNetMessage.setParams(payConfig.getPayType(), b.d(payConfig.getIsLeft(), 0), payConfig.getPropsId(), b.d(payConfig.getMoney(), 0), b.d(payConfig.getPropsMon(), 0), payConfig.isAutoPay(), payConfig.paymentPosKey, this.mWalletSdkUa);
+            getOrderNetMessage.setParams(payConfig.getPayType(), b.e(payConfig.getIsLeft(), 0), payConfig.getPropsId(), b.e(payConfig.getMoney(), 0), b.e(payConfig.getPropsMon(), 0), payConfig.isAutoPay(), payConfig.paymentPosKey, this.mWalletSdkUa);
             getOrderNetMessage.mReferPage = payConfig.mReferPage;
             getOrderNetMessage.mClickZone = payConfig.mClickZone;
             return getOrderNetMessage;

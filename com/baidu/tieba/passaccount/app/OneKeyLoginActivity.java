@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import c.a.q0.g2.b.a;
-import c.a.q0.g2.b.b;
-import c.a.q0.g2.b.c;
-import c.a.q0.g2.b.d;
-import c.a.q0.g2.b.e;
-import c.a.q0.g2.b.f;
-import c.a.q0.g2.b.g;
+import c.a.r0.h2.b.a;
+import c.a.r0.h2.b.b;
+import c.a.r0.h2.b.c;
+import c.a.r0.h2.b.d;
+import c.a.r0.h2.b.e;
+import c.a.r0.h2.b.f;
+import c.a.r0.h2.b.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.LoginDialogActivityConfig;
@@ -48,10 +48,10 @@ public class OneKeyLoginActivity extends BaseActivity {
             this.shareModelJSONStr = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
             c cVar = new c();
             this.oneKeyLoginData = cVar;
-            cVar.f18384a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
-            this.oneKeyLoginData.f18385b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
-            this.oneKeyLoginData.f18386c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
-            this.oneKeyLoginData.f18387d = this.shareModelJSONStr;
+            cVar.f18973a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+            this.oneKeyLoginData.f18974b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
+            this.oneKeyLoginData.f18975c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
+            this.oneKeyLoginData.f18976d = this.shareModelJSONStr;
         }
     }
 
@@ -93,7 +93,7 @@ public class OneKeyLoginActivity extends BaseActivity {
             this.view.c(this.oneKeyLoginData);
             this.controller.j(this.oneKeyLoginData);
             this.controller.i(false);
-            this.controller.k(c.a.p0.b.d.x());
+            this.controller.k(c.a.q0.b.d.o());
         }
     }
 }

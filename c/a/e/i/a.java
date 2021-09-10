@@ -29,20 +29,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f2894e;
+    public static boolean f2885e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IPackageGetCallback f2895a;
+    public IPackageGetCallback f2886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile ResultData f2896b;
+    public volatile ResultData f2887b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile ErrorInfo f2897c;
+    public volatile ErrorInfo f2888c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RequestParams.Channel f2898d;
+    public RequestParams.Channel f2889d;
 
     /* renamed from: c.a.e.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -51,10 +51,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IPackageGetCallback f2899a;
+        public final /* synthetic */ IPackageGetCallback f2890a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f2900b;
+        public final /* synthetic */ a f2891b;
 
         public C0046a(a aVar, IPackageGetCallback iPackageGetCallback) {
             Interceptable interceptable = $ic;
@@ -71,8 +71,8 @@ public class a {
                     return;
                 }
             }
-            this.f2900b = aVar;
-            this.f2899a = iPackageGetCallback;
+            this.f2891b = aVar;
+            this.f2890a = iPackageGetCallback;
         }
 
         @Override // com.baidu.searchbox.pms.callback.PackageCallback
@@ -86,7 +86,7 @@ public class a {
         public void onFetchError(ErrorInfo errorInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) {
-                this.f2900b.n(errorInfo, this.f2899a);
+                this.f2891b.n(errorInfo, this.f2890a);
             }
         }
 
@@ -94,7 +94,7 @@ public class a {
         public void onResultData(ResultData resultData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) {
-                this.f2900b.o(resultData, this.f2899a);
+                this.f2891b.o(resultData, this.f2890a);
             }
         }
     }
@@ -105,7 +105,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f2901a;
+        public final /* synthetic */ a f2892a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -122,7 +122,7 @@ public class a {
                     return;
                 }
             }
-            this.f2901a = aVar;
+            this.f2892a = aVar;
         }
 
         @Override // com.baidu.searchbox.pms.callback.PackageCallback
@@ -136,9 +136,9 @@ public class a {
         public void onFetchError(ErrorInfo errorInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) {
-                synchronized (this.f2901a) {
-                    this.f2901a.f2897c = errorInfo;
-                    this.f2901a.p();
+                synchronized (this.f2892a) {
+                    this.f2892a.f2888c = errorInfo;
+                    this.f2892a.p();
                 }
             }
         }
@@ -147,10 +147,10 @@ public class a {
         public void onResultData(ResultData resultData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) {
-                synchronized (this.f2901a) {
-                    boolean unused = a.f2894e = true;
-                    this.f2901a.f2896b = resultData;
-                    this.f2901a.p();
+                synchronized (this.f2892a) {
+                    boolean unused = a.f2885e = true;
+                    this.f2892a.f2887b = resultData;
+                    this.f2892a.p();
                 }
             }
         }
@@ -188,7 +188,7 @@ public class a {
     public static boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f2894e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f2885e : invokeV.booleanValue;
     }
 
     public final List<IBundleInfo> g(List<PackageInfo> list) {
@@ -265,7 +265,7 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(1048580, this, list, iPackageGetCallback) == null) {
             if (list == null || list.isEmpty()) {
                 synchronized (this) {
-                    this.f2895a = iPackageGetCallback;
+                    this.f2886a = iPackageGetCallback;
                     p();
                 }
                 return;
@@ -278,16 +278,16 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequestParams.Channel channel = this.f2898d;
+            RequestParams.Channel channel = this.f2889d;
             if (channel != null) {
                 return channel;
             }
             RequestParams.Channel channel2 = new RequestParams.Channel();
-            this.f2898d = channel2;
+            this.f2889d = channel2;
             channel2.setFetchAllPackages(true);
-            this.f2898d.setChannelId(ApsConstants.TYPE_ANDROID_PLUGIN);
-            this.f2898d.setCallback(new b(this));
-            return this.f2898d;
+            this.f2889d.setChannelId(ApsConstants.TYPE_ANDROID_PLUGIN);
+            this.f2889d.setCallback(new b(this));
+            return this.f2889d;
         }
         return (RequestParams.Channel) invokeV.objValue;
     }
@@ -311,17 +311,17 @@ public class a {
 
     public final void p() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f2895a == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f2886a == null) {
             return;
         }
-        if (this.f2897c != null) {
-            n(this.f2897c, this.f2895a);
-            this.f2895a = null;
-            this.f2897c = null;
-        } else if (this.f2896b != null) {
-            o(this.f2896b, this.f2895a);
-            this.f2895a = null;
-            this.f2896b = null;
+        if (this.f2888c != null) {
+            n(this.f2888c, this.f2886a);
+            this.f2886a = null;
+            this.f2888c = null;
+        } else if (this.f2887b != null) {
+            o(this.f2887b, this.f2886a);
+            this.f2886a = null;
+            this.f2887b = null;
         }
     }
 }

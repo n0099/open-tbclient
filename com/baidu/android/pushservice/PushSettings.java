@@ -16,22 +16,22 @@ public class PushSettings {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f36739a = -1;
+    public static int f36858a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f36740b = -1;
+    public static int f36859b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f36741c = -1;
+    public static int f36860c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f36742d = -1;
+    public static int f36861d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f36743e = -1;
+    public static int f36862e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f36744f = -1;
+    public static int f36863f = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -142,13 +142,13 @@ public class PushSettings {
     public static boolean e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? context != null && f36739a == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? context != null && f36858a == 1 : invokeL.booleanValue;
     }
 
     public static void enableDebugMode(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            f36739a = z ? 1 : 0;
+            f36858a = z ? 1 : 0;
         }
     }
 
@@ -172,10 +172,10 @@ public class PushSettings {
             if (context == null) {
                 return false;
             }
-            if (f36740b == -1) {
-                f36740b = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
+            if (f36859b == -1) {
+                f36859b = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
             }
-            return f36740b == 1;
+            return f36859b == 1;
         }
         return invokeL.booleanValue;
     }
@@ -187,10 +187,10 @@ public class PushSettings {
             if (context == null) {
                 return false;
             }
-            if (f36742d == -1) {
-                f36742d = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", -1);
+            if (f36861d == -1) {
+                f36861d = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", -1);
             }
-            return f36742d == 1;
+            return f36861d == 1;
         }
         return invokeL.booleanValue;
     }
@@ -202,10 +202,10 @@ public class PushSettings {
             if (context == null) {
                 return false;
             }
-            if (f36743e == -1) {
-                f36743e = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", -1);
+            if (f36862e == -1) {
+                f36862e = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", -1);
             }
-            return f36743e == 1;
+            return f36862e == 1;
         }
         return invokeL.booleanValue;
     }
@@ -217,10 +217,10 @@ public class PushSettings {
             if (context == null) {
                 return false;
             }
-            if (f36744f == -1) {
-                f36744f = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", -1);
+            if (f36863f == -1) {
+                f36863f = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", -1);
             }
-            return f36744f == 1;
+            return f36863f == 1;
         }
         return invokeL.booleanValue;
     }
@@ -232,10 +232,10 @@ public class PushSettings {
             if (context == null) {
                 return false;
             }
-            if (f36741c == -1) {
-                f36741c = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", -1);
+            if (f36860c == -1) {
+                f36860c = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", -1);
             }
-            return f36741c == 1;
+            return f36860c == 1;
         }
         return invokeL.booleanValue;
     }

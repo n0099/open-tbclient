@@ -13,7 +13,7 @@ public final class o implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f59779a;
+    public final /* synthetic */ FeedbackEditActivity f59959a;
 
     public o(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class o implements View.OnClickListener {
                 return;
             }
         }
-        this.f59779a = feedbackEditActivity;
+        this.f59959a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -41,23 +41,23 @@ public final class o implements View.OnClickListener {
         List list2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            z = this.f59779a.v;
+            z = this.f59959a.v;
             if (z) {
                 return;
             }
-            list = this.f59779a.q;
+            list = this.f59959a.q;
             if (list.size() <= 0) {
-                FeedbackEditActivity.s(this.f59779a);
+                FeedbackEditActivity.s(this.f59959a);
                 return;
             }
             com.baidu.ufosdk.f.c.a("picShotLayout1--> to browse picture!");
-            hashMap = this.f59779a.r;
+            hashMap = this.f59959a.r;
             String str = (String) hashMap.get("0");
             if (str != null && str.length() != 0) {
-                FeedbackEditActivity.a(this.f59779a, str, 0);
+                FeedbackEditActivity.a(this.f59959a, str, 0);
                 return;
             }
-            FeedbackEditActivity feedbackEditActivity = this.f59779a;
+            FeedbackEditActivity feedbackEditActivity = this.f59959a;
             list2 = feedbackEditActivity.q;
             feedbackEditActivity.a((byte[]) list2.get(0), false, 0);
         }

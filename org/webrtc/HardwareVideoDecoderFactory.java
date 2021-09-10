@@ -30,6 +30,17 @@ public class HardwareVideoDecoderFactory extends MediaCodecVideoDecoderFactory {
         }
     }
 
+    @Override // org.webrtc.MediaCodecVideoDecoderFactory, org.webrtc.VideoDecoderFactory
+    @Nullable
+    public /* bridge */ /* synthetic */ VideoDecoder createDecoder(VideoCodecInfo videoCodecInfo) {
+        return super.createDecoder(videoCodecInfo);
+    }
+
+    @Override // org.webrtc.MediaCodecVideoDecoderFactory, org.webrtc.VideoDecoderFactory
+    public /* bridge */ /* synthetic */ VideoCodecInfo[] getSupportedCodecs() {
+        return super.getSupportedCodecs();
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HardwareVideoDecoderFactory(@Nullable EglBase.Context context) {
         super(context, new String[]{""}, MediaCodecUtils.SOFTWARE_IMPLEMENTATION_PREFIXES);
@@ -49,16 +60,5 @@ public class HardwareVideoDecoderFactory extends MediaCodecVideoDecoderFactory {
                 return;
             }
         }
-    }
-
-    @Override // org.webrtc.MediaCodecVideoDecoderFactory, org.webrtc.VideoDecoderFactory
-    @Nullable
-    public /* bridge */ /* synthetic */ VideoDecoder createDecoder(VideoCodecInfo videoCodecInfo) {
-        return super.createDecoder(videoCodecInfo);
-    }
-
-    @Override // org.webrtc.MediaCodecVideoDecoderFactory, org.webrtc.VideoDecoderFactory
-    public /* bridge */ /* synthetic */ VideoCodecInfo[] getSupportedCodecs() {
-        return super.getSupportedCodecs();
     }
 }

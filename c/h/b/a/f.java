@@ -21,13 +21,13 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f32285a;
+    public static final Object f32394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f32286b;
+    public static final SimpleDateFormat f32395b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SimpleDateFormat f32287c;
+    public static final SimpleDateFormat f32396c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -58,7 +58,7 @@ public class f {
                 if (g2 == null || g2.length <= 0) {
                     return;
                 }
-                synchronized (f.f32285a) {
+                synchronized (f.f32394a) {
                     for (File file : g2) {
                         if (currentTimeMillis - file.lastModified() > StrictModeTask.CLEAN_FILE_INTERVAL) {
                             file.delete();
@@ -82,9 +82,9 @@ public class f {
                 return;
             }
         }
-        f32285a = new Object();
-        f32286b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
-        f32287c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+        f32394a = new Object();
+        f32395b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
+        f32396c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
     }
 
     public static void b() {
@@ -99,7 +99,7 @@ public class f {
         String d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (f32285a) {
+            synchronized (f32394a) {
                 d2 = d("looper", str);
             }
             return d2;
@@ -116,13 +116,13 @@ public class f {
             try {
                 File c2 = c.c();
                 long currentTimeMillis = System.currentTimeMillis();
-                str3 = c2.getAbsolutePath() + "/" + str + "-" + f32286b.format(Long.valueOf(currentTimeMillis)) + ".log";
+                str3 = c2.getAbsolutePath() + "/" + str + "-" + f32395b.format(Long.valueOf(currentTimeMillis)) + ".log";
                 BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
                 try {
                     bufferedWriter2.write(Part.CRLF);
                     bufferedWriter2.write("**********************");
                     bufferedWriter2.write(Part.CRLF);
-                    bufferedWriter2.write(f32287c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
+                    bufferedWriter2.write(f32396c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
                     bufferedWriter2.write(Part.CRLF);
                     bufferedWriter2.write(Part.CRLF);
                     bufferedWriter2.write(str2);

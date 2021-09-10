@@ -1,8 +1,8 @@
 package com.baidu.ala.downloader;
 
 import c.a.e.e.p.j;
-import c.a.p0.w.e;
-import c.a.p0.w.f;
+import c.a.q0.w.e;
+import c.a.q0.w.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -201,7 +201,7 @@ public class ResourceDownloader {
                         this.val$fileMd5ListKey = r8;
                     }
 
-                    @Override // c.a.p0.w.e
+                    @Override // c.a.q0.w.e
                     public void onFileDownloadFailed(DownloadData downloadData2, int i2, String str7) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, downloadData2, i2, str7) == null) {
@@ -211,7 +211,7 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // c.a.p0.w.e
+                    @Override // c.a.q0.w.e
                     public void onFileDownloadSucceed(DownloadData downloadData2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData2) == null) {
@@ -292,7 +292,7 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // c.a.p0.w.e
+                    @Override // c.a.q0.w.e
                     public boolean onFileDownloaded(DownloadData downloadData2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
@@ -303,7 +303,7 @@ public class ResourceDownloader {
                         return invokeL.booleanValue;
                     }
 
-                    @Override // c.a.p0.w.e
+                    @Override // c.a.q0.w.e
                     public void onFileUpdateProgress(DownloadData downloadData2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048579, this, downloadData2) == null) {
@@ -311,7 +311,7 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // c.a.p0.w.e
+                    @Override // c.a.q0.w.e
                     public boolean onPreDownload(DownloadData downloadData2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;

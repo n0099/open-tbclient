@@ -65,7 +65,7 @@ public final class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f32621a;
+        public final boolean f32730a;
 
         public c(boolean z, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public final class k {
                     return;
                 }
             }
-            this.f32621a = z;
+            this.f32730a = z;
         }
     }
 
@@ -92,22 +92,22 @@ public final class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f32622a;
+        public final int f32731a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f32623b;
+        public final long f32732b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f32624c;
+        public final int f32733c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f32625d;
+        public final int f32734d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f32626e;
+        public final int f32735e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final byte[] f32627f;
+        public final byte[] f32736f;
 
         public d(long j2, int i2, long j3, int i3, int i4, int i5, int i6, int i7, boolean z, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -124,12 +124,12 @@ public final class k {
                     return;
                 }
             }
-            this.f32622a = i2;
-            this.f32623b = j3;
-            this.f32624c = i4;
-            this.f32625d = i6;
-            this.f32626e = i7;
-            this.f32627f = bArr;
+            this.f32731a = i2;
+            this.f32732b = j3;
+            this.f32733c = i4;
+            this.f32734d = i6;
+            this.f32735e = i7;
+            this.f32736f = bArr;
         }
     }
 
@@ -380,7 +380,7 @@ public final class k {
             int l2 = lVar.l();
             int l3 = lVar.l();
             int x2 = lVar.x();
-            return new d(n, x, n2, l, l2, l3, (int) Math.pow(2.0d, x2 & 15), (int) Math.pow(2.0d, (x2 & 240) >> 4), (lVar.x() & 1) > 0, Arrays.copyOf(lVar.f33703a, lVar.d()));
+            return new d(n, x, n2, l, l2, l3, (int) Math.pow(2.0d, x2 & 15), (int) Math.pow(2.0d, (x2 & 240) >> 4), (lVar.x() & 1) > 0, Arrays.copyOf(lVar.f33812a, lVar.d()));
         }
         return (d) invokeL.objValue;
     }
@@ -391,7 +391,7 @@ public final class k {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, lVar, i2)) == null) {
             k(5, lVar, false);
             int x = lVar.x() + 1;
-            i iVar = new i(lVar.f33703a);
+            i iVar = new i(lVar.f33812a);
             iVar.e(lVar.c() * 8);
             for (int i3 = 0; i3 < x; i3++) {
                 c(iVar);

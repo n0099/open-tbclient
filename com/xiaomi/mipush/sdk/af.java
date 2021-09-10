@@ -13,25 +13,25 @@ public final class af {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final af f77090a;
+    public static final af f77270a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ af[] f65a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final af f77091b;
+    public static final af f77271b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final af f77092c;
+    public static final af f77272c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final af f77093d;
+    public static final af f77273d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final af f77094e;
+    public static final af f77274e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final af f77095f;
+    public static final af f77275f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,14 +47,14 @@ public final class af {
                 return;
             }
         }
-        f77090a = new af("HUAWEI", 0);
-        f77091b = new af("MEIZU", 1);
-        f77092c = new af("FCM", 2);
-        f77093d = new af("OPPO", 3);
-        f77094e = new af("VIVO", 4);
+        f77270a = new af("HUAWEI", 0);
+        f77271b = new af("MEIZU", 1);
+        f77272c = new af("FCM", 2);
+        f77273d = new af("OPPO", 3);
+        f77274e = new af("VIVO", 4);
         af afVar = new af("OTHER", 5);
-        f77095f = afVar;
-        f65a = new af[]{f77090a, f77091b, f77092c, f77093d, f77094e, afVar};
+        f77275f = afVar;
+        f65a = new af[]{f77270a, f77271b, f77272c, f77273d, f77274e, afVar};
     }
 
     public af(String str, int i2) {

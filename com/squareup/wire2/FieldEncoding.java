@@ -27,7 +27,7 @@ public final class FieldEncoding {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f75460a;
+        public static final /* synthetic */ int[] f75640a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,21 +44,21 @@ public final class FieldEncoding {
                 }
             }
             int[] iArr = new int[FieldEncoding.values().length];
-            f75460a = iArr;
+            f75640a = iArr;
             try {
                 iArr[FieldEncoding.VARINT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f75460a[FieldEncoding.FIXED32.ordinal()] = 2;
+                f75640a[FieldEncoding.FIXED32.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f75460a[FieldEncoding.FIXED64.ordinal()] = 3;
+                f75640a[FieldEncoding.FIXED64.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f75460a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
+                f75640a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -143,7 +143,7 @@ public final class FieldEncoding {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = a.f75460a[ordinal()];
+            int i2 = a.f75640a[ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

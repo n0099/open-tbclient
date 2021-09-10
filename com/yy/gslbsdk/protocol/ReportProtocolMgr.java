@@ -52,7 +52,7 @@ public class ReportProtocolMgr {
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 if (reportInfo.getStats0() != null) {
                     jSONObject.put("fc", reportInfo.getFc());
-                    jSONObject.put(h.f39413g, reportInfo.getLc());
+                    jSONObject.put(h.f39524g, reportInfo.getLc());
                     JSONArray jSONArray = new JSONArray();
                     StatsInfo stats0 = reportInfo.getStats0();
                     JSONObject jSONObject2 = new JSONObject();

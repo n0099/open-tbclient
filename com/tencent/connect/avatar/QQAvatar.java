@@ -30,7 +30,7 @@ public class QQAvatar extends BaseApi {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IUiListener f76003a;
+    public IUiListener f76183a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QQAvatar(QQToken qQToken) {
@@ -66,36 +66,36 @@ public class QQAvatar extends BaseApi {
     public void setAvatar(Activity activity, Uri uri, IUiListener iUiListener, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048576, this, activity, uri, iUiListener, i2) == null) {
-            IUiListener iUiListener2 = this.f76003a;
+            IUiListener iUiListener2 = this.f76183a;
             if (iUiListener2 != null) {
                 iUiListener2.onCancel();
             }
-            this.f76003a = iUiListener;
+            this.f76183a = iUiListener;
             Bundle bundle = new Bundle();
             bundle.putString("picture", uri.toString());
             bundle.putInt("exitAnim", i2);
-            bundle.putString("appid", this.f76028c.getAppId());
-            bundle.putString("access_token", this.f76028c.getAccessToken());
-            bundle.putLong("expires_in", this.f76028c.getExpireTimeInSecond());
-            bundle.putString("openid", this.f76028c.getOpenId());
+            bundle.putString("appid", this.f76208c.getAppId());
+            bundle.putString("access_token", this.f76208c.getAccessToken());
+            bundle.putLong("expires_in", this.f76208c.getExpireTimeInSecond());
+            bundle.putString("openid", this.f76208c.getOpenId());
             Intent a2 = a(activity);
             if (a(a2)) {
                 a(activity, bundle, a2);
-                d.a().a(this.f76028c.getOpenId(), this.f76028c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "0");
+                d.a().a(this.f76208c.getOpenId(), this.f76208c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "0");
                 return;
             }
-            d.a().a(this.f76028c.getOpenId(), this.f76028c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "1");
+            d.a().a(this.f76208c.getOpenId(), this.f76208c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "1");
         }
     }
 
     public void setAvatarByQQ(Activity activity, Uri uri, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, uri, iUiListener) == null) {
-            IUiListener iUiListener2 = this.f76003a;
+            IUiListener iUiListener2 = this.f76183a;
             if (iUiListener2 != null) {
                 iUiListener2.onCancel();
             }
-            this.f76003a = iUiListener;
+            this.f76183a = iUiListener;
             if (!i.b(activity)) {
                 Toast.makeText(activity.getApplicationContext(), "当前手机未安装QQ，请安装最新版QQ后再试。", 1).show();
             } else if (i.c(activity, "8.0.0") < 0) {
@@ -109,8 +109,8 @@ public class QQAvatar extends BaseApi {
                     }
                     stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a2), 2));
                 }
-                String appId = this.f76028c.getAppId();
-                String openId = this.f76028c.getOpenId();
+                String appId = this.f76208c.getAppId();
+                String openId = this.f76208c.getOpenId();
                 if (!TextUtils.isEmpty(appId)) {
                     stringBuffer.append("&share_id=" + appId);
                 }
@@ -146,11 +146,11 @@ public class QQAvatar extends BaseApi {
     public void setDynamicAvatar(Activity activity, Uri uri, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, activity, uri, iUiListener) == null) {
-            IUiListener iUiListener2 = this.f76003a;
+            IUiListener iUiListener2 = this.f76183a;
             if (iUiListener2 != null) {
                 iUiListener2.onCancel();
             }
-            this.f76003a = iUiListener;
+            this.f76183a = iUiListener;
             if (!i.b(activity)) {
                 Toast.makeText(activity.getApplicationContext(), "当前手机未安装QQ，请安装最新版QQ后再试。", 1).show();
             } else if (i.c(activity, "8.0.5") < 0) {
@@ -164,8 +164,8 @@ public class QQAvatar extends BaseApi {
                     }
                     stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a2), 2));
                 }
-                String appId = this.f76028c.getAppId();
-                String openId = this.f76028c.getOpenId();
+                String appId = this.f76208c.getAppId();
+                String openId = this.f76208c.getOpenId();
                 if (!TextUtils.isEmpty(appId)) {
                     stringBuffer.append("&share_id=" + appId);
                 }
@@ -205,7 +205,7 @@ public class QQAvatar extends BaseApi {
             a(bundle);
             intent.putExtra(Constants.KEY_ACTION, "action_avatar");
             intent.putExtra(Constants.KEY_PARAMS, bundle);
-            UIListenerManager.getInstance().setListenerWithRequestcode(Constants.REQUEST_AVATER, this.f76003a);
+            UIListenerManager.getInstance().setListenerWithRequestcode(Constants.REQUEST_AVATER, this.f76183a);
             a(activity, intent, Constants.REQUEST_AVATER);
         }
     }
@@ -213,14 +213,14 @@ public class QQAvatar extends BaseApi {
     private void a(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, bundle) == null) {
-            QQToken qQToken = this.f76028c;
+            QQToken qQToken = this.f76208c;
             if (qQToken != null) {
                 bundle.putString("appid", qQToken.getAppId());
-                if (this.f76028c.isSessionValid()) {
-                    bundle.putString(Constants.PARAM_KEY_STR, this.f76028c.getAccessToken());
+                if (this.f76208c.isSessionValid()) {
+                    bundle.putString(Constants.PARAM_KEY_STR, this.f76208c.getAccessToken());
                     bundle.putString(Constants.PARAM_KEY_TYPE, "0x80");
                 }
-                String openId = this.f76028c.getOpenId();
+                String openId = this.f76208c.getOpenId();
                 if (openId != null) {
                     bundle.putString("hopenid", openId);
                 }

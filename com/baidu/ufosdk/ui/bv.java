@@ -15,13 +15,13 @@ public final class bv implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f59582a;
+    public final /* synthetic */ View f59762a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PopupWindow f59583b;
+    public final /* synthetic */ PopupWindow f59763b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59584c;
+    public final /* synthetic */ FeedbackInputActivity f59764c;
 
     public bv(FeedbackInputActivity feedbackInputActivity, View view, PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
@@ -38,17 +38,17 @@ public final class bv implements View.OnClickListener {
                 return;
             }
         }
-        this.f59584c = feedbackInputActivity;
-        this.f59582a = view;
-        this.f59583b = popupWindow;
+        this.f59764c = feedbackInputActivity;
+        this.f59762a = view;
+        this.f59763b = popupWindow;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            ((ClipboardManager) this.f59584c.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(((TextView) this.f59582a).getText().toString());
-            this.f59583b.dismiss();
+            ((ClipboardManager) this.f59764c.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(((TextView) this.f59762a).getText().toString());
+            this.f59763b.dismiss();
         }
     }
 }

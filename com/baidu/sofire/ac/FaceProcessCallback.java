@@ -8,7 +8,7 @@ import com.baidu.pass.face.platform.LivenessTypeEnum;
 import com.baidu.pass.face.platform.model.FaceExtInfo;
 import com.baidu.pass.face.platform.model.ImageInfo;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface FaceProcessCallback {
     void animStop();
 

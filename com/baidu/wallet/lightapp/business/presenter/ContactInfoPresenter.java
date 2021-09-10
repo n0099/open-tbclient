@@ -25,16 +25,16 @@ public class ContactInfoPresenter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f61841a;
+    public Activity f62021a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f61842b;
+    public b f62022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61843c;
+    public int f62023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61844d;
+    public String f62024d;
 
     public ContactInfoPresenter(Activity activity, b bVar) {
         Interceptable interceptable = $ic;
@@ -51,35 +51,35 @@ public class ContactInfoPresenter {
                 return;
             }
         }
-        this.f61844d = "";
-        this.f61841a = activity;
-        this.f61842b = bVar;
-        this.f61843c = a();
+        this.f62024d = "";
+        this.f62021a = activity;
+        this.f62022b = bVar;
+        this.f62023c = a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f61841a = null;
-            this.f61842b = null;
+            this.f62021a = null;
+            this.f62022b = null;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ResUtils.getString(this.f61841a, "wallet_base_select_phone_fail") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ResUtils.getString(this.f62021a, "wallet_base_select_phone_fail") : (String) invokeV.objValue;
     }
 
     public void onModuleEvent(EventBus.Event event) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, event) == null) && event != null && "read_contact".equals(event.mEventKey)) {
             String str = (String) event.mEventObj;
-            b bVar = this.f61842b;
+            b bVar = this.f62022b;
             if (bVar != null) {
-                String[] strArr = {StringUtils.trimAll(this.f61844d), StringUtils.trimAll(str)};
-                bVar.onContactsSelected("", 0, strArr, "", this.f61843c + "");
+                String[] strArr = {StringUtils.trimAll(this.f62024d), StringUtils.trimAll(str)};
+                bVar.onContactsSelected("", 0, strArr, "", this.f62023c + "");
                 c();
             }
         }
@@ -89,10 +89,10 @@ public class ContactInfoPresenter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f61841a == null) {
+            if (this.f62021a == null) {
                 return 0;
             }
-            return ContactManager.getIContactsImpl().countOfContacts(this.f61841a);
+            return ContactManager.getIContactsImpl().countOfContacts(this.f62021a);
         }
         return invokeV.intValue;
     }
@@ -102,7 +102,7 @@ public class ContactInfoPresenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) == null) {
             ArrayList arrayList = new ArrayList();
-            Activity activity = this.f61841a;
+            Activity activity = this.f62021a;
             if (activity == null) {
                 c();
                 return;
@@ -114,22 +114,22 @@ public class ContactInfoPresenter {
                     cursor = contentResolver.query(uri, new String[]{"data1", "display_name", "data2"}, null, null, null);
                     if (cursor != null && cursor.moveToFirst()) {
                         String string = cursor.getString(cursor.getColumnIndex("data1"));
-                        this.f61844d = cursor.getString(cursor.getColumnIndex("display_name"));
+                        this.f62024d = cursor.getString(cursor.getColumnIndex("display_name"));
                         int i2 = cursor.getInt(cursor.getColumnIndex("data2"));
                         ContactInfo.Phone phone = new ContactInfo.Phone();
                         phone.number = string;
                         phone.type = i2;
                         arrayList.add(phone);
                     }
-                    a(this.f61844d, arrayList);
+                    a(this.f62024d, arrayList);
                     if (cursor == null) {
                         return;
                     }
                 } catch (Exception unused) {
-                    if (this.f61842b != null) {
-                        b bVar = this.f61842b;
+                    if (this.f62022b != null) {
+                        b bVar = this.f62022b;
                         String b2 = b();
-                        bVar.onContactsSelected("", 1, null, b2, this.f61843c + "");
+                        bVar.onContactsSelected("", 1, null, b2, this.f62023c + "");
                     }
                     c();
                     if (cursor == null) {
@@ -149,13 +149,13 @@ public class ContactInfoPresenter {
     private void a(String str, List<ContactInfo.Phone> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, str, list) == null) {
-            PhoneNumberSelectDialog phoneNumberSelectDialog = new PhoneNumberSelectDialog(this.f61841a);
+            PhoneNumberSelectDialog phoneNumberSelectDialog = new PhoneNumberSelectDialog(this.f62021a);
             if (list != null && list.size() != 0) {
                 if (list.size() == 1) {
-                    b bVar = this.f61842b;
+                    b bVar = this.f62022b;
                     if (bVar != null) {
                         String[] strArr = {StringUtils.trimAll(str), StringUtils.trimAll(list.get(0).number)};
-                        bVar.onContactsSelected("", 0, strArr, "", this.f61843c + "");
+                        bVar.onContactsSelected("", 0, strArr, "", this.f62023c + "");
                     }
                     c();
                     return;
@@ -167,10 +167,10 @@ public class ContactInfoPresenter {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PhoneNumberSelectDialog f61845a;
+                    public final /* synthetic */ PhoneNumberSelectDialog f62025a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ContactInfoPresenter f61846b;
+                    public final /* synthetic */ ContactInfoPresenter f62026b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -187,16 +187,16 @@ public class ContactInfoPresenter {
                                 return;
                             }
                         }
-                        this.f61846b = this;
-                        this.f61845a = phoneNumberSelectDialog;
+                        this.f62026b = this;
+                        this.f62025a = phoneNumberSelectDialog;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f61845a.dismiss();
-                            this.f61846b.c();
+                            this.f62025a.dismiss();
+                            this.f62026b.c();
                         }
                     }
                 });
@@ -204,10 +204,10 @@ public class ContactInfoPresenter {
                 phoneNumberSelectDialog.show();
                 return;
             }
-            b bVar2 = this.f61842b;
+            b bVar2 = this.f62022b;
             if (bVar2 != null) {
                 String b2 = b();
-                bVar2.onContactsSelected("", 1, null, b2, this.f61843c + "");
+                bVar2.onContactsSelected("", 1, null, b2, this.f62023c + "");
             }
             c();
         }

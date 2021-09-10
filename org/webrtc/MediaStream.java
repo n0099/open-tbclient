@@ -120,20 +120,6 @@ public class MediaStream {
         return invokeL.booleanValue;
     }
 
-    public boolean addTrack(VideoTrack videoTrack) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, videoTrack)) == null) {
-            checkMediaStreamExists();
-            if (nativeAddVideoTrackToNativeStream(this.nativeStream, videoTrack.getNativeVideoTrack())) {
-                this.videoTracks.add(videoTrack);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     @CalledByNative
     public void dispose() {
         Interceptable interceptable = $ic;
@@ -196,18 +182,6 @@ public class MediaStream {
         return invokeL.booleanValue;
     }
 
-    public boolean removeTrack(VideoTrack videoTrack) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, videoTrack)) == null) {
-            checkMediaStreamExists();
-            this.videoTracks.remove(videoTrack);
-            this.preservedVideoTracks.remove(videoTrack);
-            return nativeRemoveVideoTrack(this.nativeStream, videoTrack.getNativeVideoTrack());
-        }
-        return invokeL.booleanValue;
-    }
-
     @CalledByNative
     public void removeVideoTrack(long j2) {
         Interceptable interceptable = $ic;
@@ -223,5 +197,31 @@ public class MediaStream {
             return PreferencesUtil.LEFT_MOUNT + getId() + ":A=" + this.audioTracks.size() + ":V=" + this.videoTracks.size() + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
+    }
+
+    public boolean addTrack(VideoTrack videoTrack) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, videoTrack)) == null) {
+            checkMediaStreamExists();
+            if (nativeAddVideoTrackToNativeStream(this.nativeStream, videoTrack.getNativeVideoTrack())) {
+                this.videoTracks.add(videoTrack);
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean removeTrack(VideoTrack videoTrack) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, videoTrack)) == null) {
+            checkMediaStreamExists();
+            this.videoTracks.remove(videoTrack);
+            this.preservedVideoTracks.remove(videoTrack);
+            return nativeRemoveVideoTrack(this.nativeStream, videoTrack.getNativeVideoTrack());
+        }
+        return invokeL.booleanValue;
     }
 }

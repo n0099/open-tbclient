@@ -10,7 +10,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile byte[] f3988a;
+    public static volatile byte[] f3991a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public g() {
@@ -31,18 +31,18 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f3988a == null) {
+            if (f3991a == null) {
                 synchronized (g.class) {
-                    if (f3988a == null) {
+                    if (f3991a == null) {
                         byte[] bArr = new byte[16];
                         System.arraycopy(c.a.m.d.c.b.b(), 0, bArr, 0, 16);
                         c cVar = new c();
                         cVar.a(2, bArr, bArr);
-                        f3988a = cVar.b(new byte[]{-71, -100, -115, 26, 39, -124, 14, 14, -31, -46, -56, 1, 25, -127, -99, -107, -54, 51, 46, 14, 68, -68, -19, 28, 66, 19, -113, 5, 25, -11, -123, 50});
+                        f3991a = cVar.b(new byte[]{-71, -100, -115, 26, 39, -124, 14, 14, -31, -46, -56, 1, 25, -127, -99, -107, -54, 51, 46, 14, 68, -68, -19, 28, 66, 19, -113, 5, 25, -11, -123, 50});
                     }
                 }
             }
-            return f3988a;
+            return f3991a;
         }
         return (byte[]) invokeV.objValue;
     }

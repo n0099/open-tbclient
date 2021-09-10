@@ -14,16 +14,16 @@ public class au {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f73743a;
+    public Rect f73923a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f73744b;
+    public Rect f73924b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f73745c;
+    public Point f73925c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f73746d;
+    public View f73926d;
 
     public au(View view) {
         Interceptable interceptable = $ic;
@@ -40,22 +40,22 @@ public class au {
                 return;
             }
         }
-        this.f73745c = new Point();
-        this.f73743a = new Rect();
-        this.f73744b = new Rect();
-        this.f73746d = view;
+        this.f73925c = new Point();
+        this.f73923a = new Rect();
+        this.f73924b = new Rect();
+        this.f73926d = view;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            boolean globalVisibleRect = this.f73746d.getGlobalVisibleRect(this.f73743a, this.f73745c);
-            Point point = this.f73745c;
-            if (point.x == 0 && point.y == 0 && this.f73743a.height() == this.f73746d.getHeight() && this.f73744b.height() != 0 && Math.abs(this.f73743a.top - this.f73744b.top) > this.f73746d.getHeight() / 2) {
-                this.f73743a.set(this.f73744b);
+            boolean globalVisibleRect = this.f73926d.getGlobalVisibleRect(this.f73923a, this.f73925c);
+            Point point = this.f73925c;
+            if (point.x == 0 && point.y == 0 && this.f73923a.height() == this.f73926d.getHeight() && this.f73924b.height() != 0 && Math.abs(this.f73923a.top - this.f73924b.top) > this.f73926d.getHeight() / 2) {
+                this.f73923a.set(this.f73924b);
             }
-            this.f73744b.set(this.f73743a);
+            this.f73924b.set(this.f73923a);
             return globalVisibleRect;
         }
         return invokeV.booleanValue;

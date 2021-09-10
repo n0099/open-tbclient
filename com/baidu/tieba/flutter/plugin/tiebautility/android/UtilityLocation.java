@@ -2,7 +2,7 @@ package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import c.a.e.e.m.b;
 import c.a.e.e.p.l;
-import c.a.q0.x2.j0.a;
+import c.a.r0.y2.j0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -56,7 +56,7 @@ public class UtilityLocation implements TiebaUtilityLocationAuto.HostUtilityLoca
                 String str = c2.latitude;
                 String str2 = c2.longitude;
                 if ((UtilHelper.isDecimal(str) && UtilHelper.isDecimal(str2)) ? false : false) {
-                    distanceResult.setResult(Double.valueOf(l.a(b.b(str, 0.0d), b.b(str2, 0.0d), doubleValue, doubleValue2)));
+                    distanceResult.setResult(Double.valueOf(l.a(b.c(str, 0.0d), b.c(str2, 0.0d), doubleValue, doubleValue2)));
                     result.success(distanceResult);
                 }
             }

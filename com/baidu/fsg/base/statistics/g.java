@@ -18,32 +18,32 @@ public class g extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39398a = "logsender";
+    public static final String f39509a = "logsender";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39399d = "rim_stat_event";
+    public static final String f39510d = "rim_stat_event";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39400e = "rim_stat_event.db";
+    public static final String f39511e = "rim_stat_event.db";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f39401f = 1;
+    public static final int f39512f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39402g = "CREATE TABLE IF NOT EXISTS rim_stat_event(en VARCHAR(64) not null ,extra1 VARCHAR(64)  ,extra2 VARCHAR(64)  ,extra3 VARCHAR(64),extra4 VARCHAR(64)  ,extra5 VARCHAR(64) ,et BIGINT,ev TEXT,extra6 TEXT,extra7 TEXT,extra8 TEXT,extra9 TEXT,eg VARCHAR(20) default(null),lk VARCHAR(10) default(null),nu INTEGER PRIMARY KEY autoincrement)";
+    public static final String f39513g = "CREATE TABLE IF NOT EXISTS rim_stat_event(en VARCHAR(64) not null ,extra1 VARCHAR(64)  ,extra2 VARCHAR(64)  ,extra3 VARCHAR(64),extra4 VARCHAR(64)  ,extra5 VARCHAR(64) ,et BIGINT,ev TEXT,extra6 TEXT,extra7 TEXT,extra8 TEXT,extra9 TEXT,eg VARCHAR(20) default(null),lk VARCHAR(10) default(null),nu INTEGER PRIMARY KEY autoincrement)";
 
     /* renamed from: i  reason: collision with root package name */
-    public static g f39403i;
+    public static g f39514i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public SQLiteDatabase f39404b;
+    public SQLiteDatabase f39515b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f39405c;
+    public final byte[] f39516c;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39406h;
+    public int f39517h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
@@ -64,9 +64,9 @@ public class g extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f39405c = new byte[0];
-        this.f39406h = 200;
-        this.f39404b = getWritableDatabase();
+        this.f39516c = new byte[0];
+        this.f39517h = 200;
+        this.f39515b = getWritableDatabase();
     }
 
     public static synchronized g a(Context context) {
@@ -75,10 +75,10 @@ public class g extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (g.class) {
-                if (f39403i == null) {
-                    f39403i = new g(context, f39400e, null, 1);
+                if (f39514i == null) {
+                    f39514i = new g(context, f39511e, null, 1);
                 }
-                gVar = f39403i;
+                gVar = f39514i;
             }
             return gVar;
         }
@@ -97,8 +97,8 @@ public class g extends SQLiteOpenHelper {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
             return invokeV.intValue;
         }
-        synchronized (this.f39405c) {
-            Cursor rawQuery = this.f39404b.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
+        synchronized (this.f39516c) {
+            Cursor rawQuery = this.f39515b.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
             if (rawQuery == null) {
                 return 0;
             }
@@ -122,17 +122,17 @@ public class g extends SQLiteOpenHelper {
     public void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-            synchronized (this.f39405c) {
+            synchronized (this.f39516c) {
                 if (fVar != null) {
                     if (!TextUtils.isEmpty(fVar.p)) {
                         ContentValues contentValues = new ContentValues();
-                        contentValues.put(f.f39388a, fVar.p);
+                        contentValues.put(f.f39499a, fVar.p);
                         contentValues.put("et", Long.valueOf(fVar.q));
                         contentValues.put("ev", fVar.r);
-                        contentValues.put(f.f39391d, fVar.s);
-                        contentValues.put(f.f39392e, fVar.t);
+                        contentValues.put(f.f39502d, fVar.s);
+                        contentValues.put(f.f39503e, fVar.t);
                         try {
-                            this.f39404b.insert(f39399d, null, contentValues);
+                            this.f39515b.insert(f39510d, null, contentValues);
                         } catch (Exception unused) {
                         }
                         LogUtil.d("logsender", "插入一条数据" + fVar.p);
@@ -145,13 +145,13 @@ public class g extends SQLiteOpenHelper {
     public void a(f[] fVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVarArr) == null) {
-            synchronized (this.f39405c) {
+            synchronized (this.f39516c) {
                 if (fVarArr != null) {
                     if (fVarArr.length != 0) {
                         LogUtil.d("logsender", "=====removeEvents-begin=====size=" + fVarArr.length);
                         for (f fVar : fVarArr) {
                             if (fVar != null) {
-                                this.f39404b.delete(f39399d, "nu=" + fVar.u, null);
+                                this.f39515b.delete(f39510d, "nu=" + fVar.u, null);
                             }
                         }
                         LogUtil.d("logsender", "=====removeEvents-end=====");
@@ -174,11 +174,11 @@ public class g extends SQLiteOpenHelper {
         Cursor rawQuery;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.f39405c) {
+            synchronized (this.f39516c) {
                 Cursor cursor = null;
                 try {
                     try {
-                        rawQuery = this.f39404b.rawQuery("select * from rim_stat_event", null);
+                        rawQuery = this.f39515b.rawQuery("select * from rim_stat_event", null);
                         try {
                         } catch (Exception unused) {
                             fVarArr = null;
@@ -216,12 +216,12 @@ public class g extends SQLiteOpenHelper {
                 int i2 = 0;
                 while (rawQuery.moveToNext()) {
                     f fVar = new f();
-                    fVar.p = rawQuery.getString(rawQuery.getColumnIndex(f.f39388a));
+                    fVar.p = rawQuery.getString(rawQuery.getColumnIndex(f.f39499a));
                     fVar.q = rawQuery.getLong(rawQuery.getColumnIndex("et"));
                     fVar.r = rawQuery.getString(rawQuery.getColumnIndex("ev"));
-                    fVar.s = rawQuery.getString(rawQuery.getColumnIndex(f.f39391d));
-                    fVar.t = rawQuery.getString(rawQuery.getColumnIndex(f.f39392e));
-                    fVar.u = rawQuery.getInt(rawQuery.getColumnIndex(f.f39393f));
+                    fVar.s = rawQuery.getString(rawQuery.getColumnIndex(f.f39502d));
+                    fVar.t = rawQuery.getString(rawQuery.getColumnIndex(f.f39503e));
+                    fVar.u = rawQuery.getInt(rawQuery.getColumnIndex(f.f39504f));
                     int i3 = i2 + 1;
                     fVarArr2[i2] = fVar;
                     i2 = i3;
@@ -241,11 +241,11 @@ public class g extends SQLiteOpenHelper {
     public void finalize() throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SQLiteDatabase sQLiteDatabase = this.f39404b;
+            SQLiteDatabase sQLiteDatabase = this.f39515b;
             if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
-                this.f39404b.close();
+                this.f39515b.close();
             }
-            this.f39404b = null;
+            this.f39515b = null;
             super.finalize();
         }
     }
@@ -254,7 +254,7 @@ public class g extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(f39402g);
+            sQLiteDatabase.execSQL(f39513g);
         }
     }
 

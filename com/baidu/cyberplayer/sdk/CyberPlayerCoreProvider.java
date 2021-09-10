@@ -10,6 +10,8 @@ import com.baidu.cyberplayer.sdk.remote.PrefetchOptions;
 import com.baidu.cyberplayer.sdk.rtc.CaptureManagerProvider;
 import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
 import com.baidu.cyberplayer.sdk.rtc.RTCVideoViewProvider;
+import com.baidu.cyberplayer.sdk.videodownload.CyberVideoDownloader;
+import com.baidu.cyberplayer.sdk.videodownload.VideoSourceBean;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +37,7 @@ public abstract class CyberPlayerCoreProvider {
         public static final LibsVersionType SUCCESS_LOADED_VERSION;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ LibsVersionType[] f38829a;
+        public static final /* synthetic */ LibsVersionType[] f38935a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,7 +56,7 @@ public abstract class CyberPlayerCoreProvider {
             ALL_VERSION = new LibsVersionType("ALL_VERSION", 0);
             LibsVersionType libsVersionType = new LibsVersionType("SUCCESS_LOADED_VERSION", 1);
             SUCCESS_LOADED_VERSION = libsVersionType;
-            f38829a = new LibsVersionType[]{ALL_VERSION, libsVersionType};
+            f38935a = new LibsVersionType[]{ALL_VERSION, libsVersionType};
         }
 
         public LibsVersionType(String str, int i2) {
@@ -85,7 +87,7 @@ public abstract class CyberPlayerCoreProvider {
         public static LibsVersionType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LibsVersionType[]) f38829a.clone() : (LibsVersionType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LibsVersionType[]) f38935a.clone() : (LibsVersionType[]) invokeV.objValue;
         }
     }
 
@@ -105,6 +107,8 @@ public abstract class CyberPlayerCoreProvider {
 
     public abstract long caculateFolderSize();
 
+    public abstract void cancelDownload(String str);
+
     public abstract void cleanFilecacheWithTimeExpired(long j2);
 
     public abstract CaptureManagerProvider createCaptureManager(Context context, int i2, int i3, int i4, int i5, int i6);
@@ -122,6 +126,8 @@ public abstract class CyberPlayerCoreProvider {
     public abstract RTCRoomProvider createRTCRoom();
 
     public abstract RTCVideoViewProvider createRTCVideoView(Context context, AttributeSet attributeSet);
+
+    public abstract void deleteDownload(String str);
 
     public abstract boolean downgrade();
 
@@ -149,9 +155,21 @@ public abstract class CyberPlayerCoreProvider {
 
     public abstract int nativeKernelNetInit(long j2);
 
+    public abstract void pauseDownload(String str);
+
     public abstract void prefetch(String str, String str2, String str3, int i2, int i3, int i4, CyberPlayerManager.HttpDNS httpDNS, String str4, int i5, int i6, int i7, int i8, PrefetchOptions prefetchOptions);
 
+    public abstract void resumeDownload(String str);
+
+    public abstract void setDownloadListener(CyberVideoDownloader.DownloadListener downloadListener);
+
+    public abstract void setInstallListener(CyberPlayerManager.InstallListener2 installListener2);
+
     public abstract void setRTCVerbose(boolean z);
+
+    public abstract void setWorkDir(String str);
+
+    public abstract String startDownload(String str, VideoSourceBean videoSourceBean);
 
     public abstract void stopPrefetch(String str);
 

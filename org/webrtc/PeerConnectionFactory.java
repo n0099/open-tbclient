@@ -63,24 +63,6 @@ public class PeerConnectionFactory {
         @Nullable
         public VideoEncoderFactory videoEncoderFactory;
 
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.audioDeviceModule = new LegacyAudioDeviceModule();
-            this.audioEncoderFactoryFactory = new BuiltinAudioEncoderFactoryFactory();
-            this.audioDecoderFactoryFactory = new BuiltinAudioDecoderFactoryFactory();
-        }
-
         public /* synthetic */ Builder(AnonymousClass1 anonymousClass1) {
             this();
         }
@@ -188,6 +170,24 @@ public class PeerConnectionFactory {
                 return this;
             }
             return (Builder) invokeL.objValue;
+        }
+
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.audioDeviceModule = new LegacyAudioDeviceModule();
+            this.audioEncoderFactoryFactory = new BuiltinAudioEncoderFactoryFactory();
+            this.audioDecoderFactoryFactory = new BuiltinAudioDecoderFactoryFactory();
         }
     }
 
@@ -298,6 +298,16 @@ public class PeerConnectionFactory {
             }
         }
 
+        public /* synthetic */ InitializationOptions(Context context, String str, boolean z, NativeLibraryLoader nativeLibraryLoader, String str2, Loggable loggable, Logging.Severity severity, AnonymousClass1 anonymousClass1) {
+            this(context, str, z, nativeLibraryLoader, str2, loggable, severity);
+        }
+
+        public static Builder builder(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? new Builder(context) : (Builder) invokeL.objValue;
+        }
+
         public InitializationOptions(Context context, String str, boolean z, NativeLibraryLoader nativeLibraryLoader, String str2, @Nullable Loggable loggable, @Nullable Logging.Severity severity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -320,16 +330,6 @@ public class PeerConnectionFactory {
             this.nativeLibraryName = str2;
             this.loggable = loggable;
             this.loggableSeverity = severity;
-        }
-
-        public /* synthetic */ InitializationOptions(Context context, String str, boolean z, NativeLibraryLoader nativeLibraryLoader, String str2, Loggable loggable, Logging.Severity severity, AnonymousClass1 anonymousClass1) {
-            this(context, str, z, nativeLibraryLoader, str2, loggable, severity);
-        }
-
-        public static Builder builder(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? new Builder(context) : (Builder) invokeL.objValue;
         }
     }
 
@@ -381,52 +381,6 @@ public class PeerConnectionFactory {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.networkIgnoreMask : invokeV.intValue;
-        }
-    }
-
-    @CalledByNative
-    public PeerConnectionFactory(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        checkInitializeHasBeenCalled();
-        if (j2 == 0) {
-            throw new RuntimeException("Failed to initialize PeerConnectionFactory!");
-        }
-        this.nativeFactory = j2;
-    }
-
-    public PeerConnectionFactory(Options options, @Nullable AudioDeviceModule audioDeviceModule, AudioEncoderFactoryFactory audioEncoderFactoryFactory, AudioDecoderFactoryFactory audioDecoderFactoryFactory, @Nullable VideoEncoderFactory videoEncoderFactory, @Nullable VideoDecoderFactory videoDecoderFactory, @Nullable AudioProcessingFactory audioProcessingFactory, @Nullable FecControllerFactoryFactoryInterface fecControllerFactoryFactoryInterface, @Nullable MediaTransportFactoryFactory mediaTransportFactoryFactory) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {options, audioDeviceModule, audioEncoderFactoryFactory, audioDecoderFactoryFactory, videoEncoderFactory, videoDecoderFactory, audioProcessingFactory, fecControllerFactoryFactoryInterface, mediaTransportFactoryFactory};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        checkInitializeHasBeenCalled();
-        long nativeCreatePeerConnectionFactory = nativeCreatePeerConnectionFactory(ContextUtils.getApplicationContext(), options, audioDeviceModule == null ? 0L : audioDeviceModule.getNativeAudioDeviceModulePointer(), audioEncoderFactoryFactory.createNativeAudioEncoderFactory(), audioDecoderFactoryFactory.createNativeAudioDecoderFactory(), videoEncoderFactory, videoDecoderFactory, audioProcessingFactory == null ? 0L : audioProcessingFactory.createNative(), fecControllerFactoryFactoryInterface == null ? 0L : fecControllerFactoryFactoryInterface.createNative(), mediaTransportFactoryFactory == null ? 0L : mediaTransportFactoryFactory.createNativeMediaTransportFactory());
-        this.nativeFactory = nativeCreatePeerConnectionFactory;
-        if (nativeCreatePeerConnectionFactory == 0) {
-            throw new RuntimeException("Failed to initialize PeerConnectionFactory!");
         }
     }
 
@@ -645,39 +599,10 @@ public class PeerConnectionFactory {
 
     @Nullable
     @Deprecated
-    public PeerConnection createPeerConnection(List<PeerConnection.IceServer> list, MediaConstraints mediaConstraints, PeerConnection.Observer observer) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, list, mediaConstraints, observer)) == null) ? createPeerConnection(new PeerConnection.RTCConfiguration(list), mediaConstraints, observer) : (PeerConnection) invokeLLL.objValue;
-    }
-
-    @Nullable
-    public PeerConnection createPeerConnection(List<PeerConnection.IceServer> list, PeerConnection.Observer observer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, list, observer)) == null) ? createPeerConnection(new PeerConnection.RTCConfiguration(list), observer) : (PeerConnection) invokeLL.objValue;
-    }
-
-    @Nullable
-    @Deprecated
     public PeerConnection createPeerConnection(PeerConnection.RTCConfiguration rTCConfiguration, MediaConstraints mediaConstraints, PeerConnection.Observer observer) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, rTCConfiguration, mediaConstraints, observer)) == null) ? createPeerConnectionInternal(rTCConfiguration, mediaConstraints, observer, null) : (PeerConnection) invokeLLL.objValue;
-    }
-
-    @Nullable
-    public PeerConnection createPeerConnection(PeerConnection.RTCConfiguration rTCConfiguration, PeerConnection.Observer observer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, rTCConfiguration, observer)) == null) ? createPeerConnection(rTCConfiguration, (MediaConstraints) null, observer) : (PeerConnection) invokeLL.objValue;
-    }
-
-    @Nullable
-    public PeerConnection createPeerConnection(PeerConnection.RTCConfiguration rTCConfiguration, PeerConnectionDependencies peerConnectionDependencies) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, rTCConfiguration, peerConnectionDependencies)) == null) ? createPeerConnectionInternal(rTCConfiguration, null, peerConnectionDependencies.getObserver(), peerConnectionDependencies.getSSLCertificateVerifier()) : (PeerConnection) invokeLL.objValue;
     }
 
     @Nullable
@@ -697,12 +622,6 @@ public class PeerConnectionFactory {
             return new PeerConnection(nativeCreatePeerConnection);
         }
         return (PeerConnection) invokeLLLL.objValue;
-    }
-
-    public VideoSource createVideoSource(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) ? createVideoSource(z, true) : (VideoSource) invokeZ.objValue;
     }
 
     public VideoSource createVideoSource(boolean z, boolean z2) {
@@ -783,5 +702,87 @@ public class PeerConnectionFactory {
             checkPeerConnectionFactoryExists();
             nativeInvokeThreadsCallbacks(this.nativeFactory);
         }
+    }
+
+    public PeerConnectionFactory(Options options, @Nullable AudioDeviceModule audioDeviceModule, AudioEncoderFactoryFactory audioEncoderFactoryFactory, AudioDecoderFactoryFactory audioDecoderFactoryFactory, @Nullable VideoEncoderFactory videoEncoderFactory, @Nullable VideoDecoderFactory videoDecoderFactory, @Nullable AudioProcessingFactory audioProcessingFactory, @Nullable FecControllerFactoryFactoryInterface fecControllerFactoryFactoryInterface, @Nullable MediaTransportFactoryFactory mediaTransportFactoryFactory) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {options, audioDeviceModule, audioEncoderFactoryFactory, audioDecoderFactoryFactory, videoEncoderFactory, videoDecoderFactory, audioProcessingFactory, fecControllerFactoryFactoryInterface, mediaTransportFactoryFactory};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        checkInitializeHasBeenCalled();
+        long nativeCreatePeerConnectionFactory = nativeCreatePeerConnectionFactory(ContextUtils.getApplicationContext(), options, audioDeviceModule == null ? 0L : audioDeviceModule.getNativeAudioDeviceModulePointer(), audioEncoderFactoryFactory.createNativeAudioEncoderFactory(), audioDecoderFactoryFactory.createNativeAudioDecoderFactory(), videoEncoderFactory, videoDecoderFactory, audioProcessingFactory == null ? 0L : audioProcessingFactory.createNative(), fecControllerFactoryFactoryInterface == null ? 0L : fecControllerFactoryFactoryInterface.createNative(), mediaTransportFactoryFactory == null ? 0L : mediaTransportFactoryFactory.createNativeMediaTransportFactory());
+        this.nativeFactory = nativeCreatePeerConnectionFactory;
+        if (nativeCreatePeerConnectionFactory == 0) {
+            throw new RuntimeException("Failed to initialize PeerConnectionFactory!");
+        }
+    }
+
+    @Nullable
+    @Deprecated
+    public PeerConnection createPeerConnection(List<PeerConnection.IceServer> list, MediaConstraints mediaConstraints, PeerConnection.Observer observer) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, list, mediaConstraints, observer)) == null) ? createPeerConnection(new PeerConnection.RTCConfiguration(list), mediaConstraints, observer) : (PeerConnection) invokeLLL.objValue;
+    }
+
+    public VideoSource createVideoSource(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) ? createVideoSource(z, true) : (VideoSource) invokeZ.objValue;
+    }
+
+    @Nullable
+    public PeerConnection createPeerConnection(List<PeerConnection.IceServer> list, PeerConnection.Observer observer) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, list, observer)) == null) ? createPeerConnection(new PeerConnection.RTCConfiguration(list), observer) : (PeerConnection) invokeLL.objValue;
+    }
+
+    @Nullable
+    public PeerConnection createPeerConnection(PeerConnection.RTCConfiguration rTCConfiguration, PeerConnection.Observer observer) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, rTCConfiguration, observer)) == null) ? createPeerConnection(rTCConfiguration, (MediaConstraints) null, observer) : (PeerConnection) invokeLL.objValue;
+    }
+
+    @Nullable
+    public PeerConnection createPeerConnection(PeerConnection.RTCConfiguration rTCConfiguration, PeerConnectionDependencies peerConnectionDependencies) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, rTCConfiguration, peerConnectionDependencies)) == null) ? createPeerConnectionInternal(rTCConfiguration, null, peerConnectionDependencies.getObserver(), peerConnectionDependencies.getSSLCertificateVerifier()) : (PeerConnection) invokeLL.objValue;
+    }
+
+    @CalledByNative
+    public PeerConnectionFactory(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        checkInitializeHasBeenCalled();
+        if (j2 != 0) {
+            this.nativeFactory = j2;
+            return;
+        }
+        throw new RuntimeException("Failed to initialize PeerConnectionFactory!");
     }
 }

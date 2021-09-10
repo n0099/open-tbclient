@@ -22,7 +22,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FabTransformationScrimBehavior extends ExpandableTransformationBehavior {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long COLLAPSE_DELAY = 0;

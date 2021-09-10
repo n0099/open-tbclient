@@ -2,8 +2,8 @@ package com.baidu.tieba.frs.forumRule.adapter;
 
 import android.content.Context;
 import android.view.View;
-import c.a.p0.d1.m.a;
-import c.a.p0.s.u.c;
+import c.a.q0.f1.m.a;
+import c.a.q0.s.u.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
@@ -22,10 +22,10 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f50960a;
+    public Context f51125a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f50961b;
+    public View f51126b;
     public TbRichTextView mContent;
     public boolean mCurrentStatus;
     public EMTextView mTitle;
@@ -48,8 +48,8 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f50960a = context;
-        this.f50961b = view;
+        this.f51125a = context;
+        this.f51126b = view;
         initView(view);
     }
 
@@ -78,14 +78,14 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.mCurrentStatus) {
                 c d2 = c.d(this.mTitle);
-                d2.z(R.string.F_X02);
-                d2.u(R.color.CAM_X0301);
+                d2.B(R.string.F_X02);
+                d2.w(R.color.CAM_X0301);
                 this.mContent.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
                 return;
             }
             c d3 = c.d(this.mTitle);
-            d3.z(R.string.F_X02);
-            d3.u(R.color.CAM_X0105);
+            d3.B(R.string.F_X02);
+            d3.w(R.color.CAM_X0105);
             this.mContent.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }

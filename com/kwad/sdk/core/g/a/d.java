@@ -22,34 +22,34 @@ public class d implements com.kwad.sdk.core.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f71589a;
+    public String f71769a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f71590b;
+    public String f71770b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f71591c;
+    public String f71771c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f71592d;
+    public String f71772d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f71593e;
+    public String f71773e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f71594f;
+    public String f71774f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f71595g;
+    public int f71775g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f71596h;
+    public int f71776h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f71597i;
+    public String f71777i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f71598j;
+    public int f71778j;
     public int k;
     public String l;
     public String m;
@@ -96,20 +96,20 @@ public class d implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
             d dVar = new d();
-            dVar.f71590b = ap.d(KsAdSDKImpl.get().getContext());
+            dVar.f71770b = ap.d(KsAdSDKImpl.get().getContext());
             String[] g2 = ap.g(KsAdSDKImpl.get().getContext());
-            dVar.f71591c = g2[0];
-            dVar.f71592d = g2[1];
-            dVar.f71593e = ap.f(KsAdSDKImpl.get().getContext());
-            dVar.f71594f = com.kwad.sdk.core.f.b.a();
+            dVar.f71771c = g2[0];
+            dVar.f71772d = g2[1];
+            dVar.f71773e = ap.f(KsAdSDKImpl.get().getContext());
+            dVar.f71774f = com.kwad.sdk.core.f.b.a();
             dVar.p = ap.e();
             dVar.q = ap.f();
-            dVar.f71595g = 1;
-            dVar.f71596h = ap.k();
-            dVar.f71597i = ap.j();
-            dVar.f71589a = ap.l();
+            dVar.f71775g = 1;
+            dVar.f71776h = ap.k();
+            dVar.f71777i = ap.j();
+            dVar.f71769a = ap.l();
             dVar.k = ap.l(KsAdSDKImpl.get().getContext());
-            dVar.f71598j = ap.k(KsAdSDKImpl.get().getContext());
+            dVar.f71778j = ap.k(KsAdSDKImpl.get().getContext());
             dVar.l = ap.m(KsAdSDKImpl.get().getContext());
             if (z) {
                 dVar.t = InstalledAppInfoManager.a(KsAdSDKImpl.get().getContext());
@@ -136,9 +136,9 @@ public class d implements com.kwad.sdk.core.b {
             String str = dVar.m;
             sb.append(str != null ? Integer.valueOf(str.hashCode()) : "");
             sb.append(",o:");
-            sb.append(dVar.f71594f);
+            sb.append(dVar.f71774f);
             sb.append(",i:");
-            sb.append(dVar.f71590b);
+            sb.append(dVar.f71770b);
             com.kwad.sdk.core.d.a.a(sb.toString());
             try {
                 dVar.u = ap.i();
@@ -164,22 +164,22 @@ public class d implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "imei", this.f71590b);
-            q.a(jSONObject, "imei1", this.f71591c);
-            q.a(jSONObject, IAdRequestParam.IMEI2, this.f71592d);
-            q.a(jSONObject, "meid", this.f71593e);
-            q.a(jSONObject, "oaid", this.f71594f);
+            q.a(jSONObject, "imei", this.f71770b);
+            q.a(jSONObject, "imei1", this.f71771c);
+            q.a(jSONObject, IAdRequestParam.IMEI2, this.f71772d);
+            q.a(jSONObject, "meid", this.f71773e);
+            q.a(jSONObject, "oaid", this.f71774f);
             q.a(jSONObject, "deviceModel", this.p);
             q.a(jSONObject, "deviceBrand", this.q);
-            q.a(jSONObject, HttpConstants.HTTP_OS_TYPE_OLD, this.f71595g);
-            q.a(jSONObject, "osVersion", this.f71597i);
-            q.a(jSONObject, "osApi", this.f71596h);
-            q.a(jSONObject, "language", this.f71589a);
+            q.a(jSONObject, HttpConstants.HTTP_OS_TYPE_OLD, this.f71775g);
+            q.a(jSONObject, "osVersion", this.f71777i);
+            q.a(jSONObject, "osApi", this.f71776h);
+            q.a(jSONObject, "language", this.f71769a);
             q.a(jSONObject, "androidId", this.l);
             q.a(jSONObject, "deviceId", this.m);
             q.a(jSONObject, "deviceVendor", this.n);
             q.a(jSONObject, com.tencent.connect.common.Constants.PARAM_PLATFORM, this.o);
-            q.a(jSONObject, "screenWidth", this.f71598j);
+            q.a(jSONObject, "screenWidth", this.f71778j);
             q.a(jSONObject, "screenHeight", this.k);
             q.a(jSONObject, "appPackageName", this.t);
             if (!TextUtils.isEmpty(this.s)) {

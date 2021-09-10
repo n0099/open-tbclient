@@ -12,7 +12,7 @@ public class a implements com.kwad.sdk.pngencrypt.g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f72943a;
+    public boolean f73123a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a() {
@@ -47,7 +47,7 @@ public class a implements com.kwad.sdk.pngencrypt.g {
                 return;
             }
         }
-        this.f72943a = z;
+        this.f73123a = z;
     }
 
     @Override // com.kwad.sdk.pngencrypt.g
@@ -55,15 +55,15 @@ public class a implements com.kwad.sdk.pngencrypt.g {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dVar, kVar)) == null) {
-            PngChunk a2 = a(dVar.f72962c, kVar);
+            PngChunk a2 = a(dVar.f73142c, kVar);
             if (a2 == null) {
-                a2 = c(dVar.f72962c, kVar);
+                a2 = c(dVar.f73142c, kVar);
             }
             if (a2 == null) {
-                a2 = b(dVar.f72962c, kVar);
+                a2 = b(dVar.f73142c, kVar);
             }
             a2.b(dVar);
-            if (this.f72943a && dVar.f72963d != null) {
+            if (this.f73123a && dVar.f73143d != null) {
                 a2.a(dVar);
             }
             return a2;

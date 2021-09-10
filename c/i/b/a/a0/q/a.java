@@ -115,39 +115,39 @@ public abstract class a {
     public static final int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f32443b;
+    public static final int f32552b;
     public static final int b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f32444c;
+    public static final int f32553c;
     public static final int c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f32445d;
+    public static final int f32554d;
     public static final int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f32446e;
+    public static final int f32555e;
     public static final int e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f32447f;
+    public static final int f32556f;
     public static final int f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f32448g;
+    public static final int f32557g;
     public static final int g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f32449h;
+    public static final int f32558h;
     public static final int h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f32450i;
+    public static final int f32559i;
     public static final int i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f32451j;
+    public static final int f32560j;
     public static final int j0;
     public static final int k;
     public static final int k0;
@@ -184,7 +184,7 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f32452a;
+    public final int f32561a;
 
     /* renamed from: c.i.b.a.a0.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -239,7 +239,7 @@ public abstract class a {
                 int size = this.R0.size();
                 for (int i3 = 0; i3 < size; i3++) {
                     C1479a c1479a = this.R0.get(i3);
-                    if (c1479a.f32452a == i2) {
+                    if (c1479a.f32561a == i2) {
                         return c1479a;
                     }
                 }
@@ -255,7 +255,7 @@ public abstract class a {
                 int size = this.Q0.size();
                 for (int i3 = 0; i3 < size; i3++) {
                     b bVar = this.Q0.get(i3);
-                    if (bVar.f32452a == i2) {
+                    if (bVar.f32561a == i2) {
                         return bVar;
                     }
                 }
@@ -269,7 +269,7 @@ public abstract class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return a.a(this.f32452a) + " leaves: " + Arrays.toString(this.Q0.toArray()) + " containers: " + Arrays.toString(this.R0.toArray());
+                return a.a(this.f32561a) + " leaves: " + Arrays.toString(this.Q0.toArray()) + " containers: " + Arrays.toString(this.R0.toArray());
             }
             return (String) invokeV.objValue;
         }
@@ -316,15 +316,15 @@ public abstract class a {
                 return;
             }
         }
-        f32443b = v.q("ftyp");
-        f32444c = v.q(VisualSampleEntry.TYPE3);
-        f32445d = v.q(VisualSampleEntry.TYPE4);
-        f32446e = v.q("hvc1");
-        f32447f = v.q("hev1");
-        f32448g = v.q(VisualSampleEntry.TYPE2);
-        f32449h = v.q("d263");
-        f32450i = v.q(MediaDataBox.TYPE);
-        f32451j = v.q(AudioSampleEntry.TYPE3);
+        f32552b = v.q("ftyp");
+        f32553c = v.q(VisualSampleEntry.TYPE3);
+        f32554d = v.q(VisualSampleEntry.TYPE4);
+        f32555e = v.q("hvc1");
+        f32556f = v.q("hev1");
+        f32557g = v.q(VisualSampleEntry.TYPE2);
+        f32558h = v.q("d263");
+        f32559i = v.q(MediaDataBox.TYPE);
+        f32560j = v.q(AudioSampleEntry.TYPE3);
         k = v.q(EmotionResourceProvider.EMOTION_SOUND_SUFFIX);
         l = v.q(AppleWaveBox.TYPE);
         m = v.q("lpcm");
@@ -426,7 +426,7 @@ public abstract class a {
                 return;
             }
         }
-        this.f32452a = i2;
+        this.f32561a = i2;
     }
 
     public static String a(int i2) {
@@ -453,6 +453,6 @@ public abstract class a {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f32452a) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f32561a) : (String) invokeV.objValue;
     }
 }

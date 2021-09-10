@@ -9,7 +9,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.e;
 import c.a.e.e.n.a;
 import c.a.e.h.j.g.d;
-import c.a.p0.a.g;
+import c.a.q0.a.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -99,7 +99,7 @@ public class OpenFlutter {
                 statsItem.b("staticversion", BdStatisticsManager.getInstance().getAppVersion());
                 statsItem.b("version", TbConfig.getVersion());
                 statsItem.b("sub_version", TbConfig.getSubVersion());
-                statsItem.b(com.alipay.sdk.sys.a.f35930j, PluginPackageManager.O().M());
+                statsItem.b(com.alipay.sdk.sys.a.f36039j, PluginPackageManager.O().M());
                 statsItem.b(SpeedStatsMainTable.PLUGIN_TASK, PluginPackageManager.O().M());
                 BdStatisticsManager.getInstance().debug("pluginproxy", statsItem);
                 return false;
@@ -280,13 +280,18 @@ public class OpenFlutter {
                 hashMap.put("currentTab", String.valueOf(intentConfig.getIntent().getIntExtra("key_current_tab", 0)));
                 hashMap.put("isChooseBarMode", String.valueOf(intentConfig.getIntent().getBooleanExtra(PersonBarActivityConfig.IS_CHOOSE_BAR_MODE, false)));
                 hashMap.put("requestCode", String.valueOf(intentConfig.getIntent().getIntExtra("tb_request_code", 0)));
-                hashMap.put("barId", intentConfig.getIntent().getStringExtra(PersonBarActivityConfig.BAR_ID));
+                hashMap.put("barId", intentConfig.getIntent().getStringExtra("bar_id"));
             } else if (ACTIVITY_PERSON_CENTER.equals(str)) {
                 String stringExtra = intentConfig.getIntent().getStringExtra("user_id");
                 if (!TextUtils.isEmpty(stringExtra)) {
                     hashMap.put("uid", stringExtra);
                 } else {
                     hashMap.put("uid", String.valueOf(intentConfig.getIntent().getLongExtra("user_id", 0L)));
+                }
+                hashMap.put("isVideoThread", Boolean.valueOf(intentConfig.getIntent().getBooleanExtra(IntentConfig.IS_VIDEO_THREAD, false)).booleanValue() ? "1" : "0");
+                hashMap.put("videoPersonFrom", intentConfig.getIntent().getStringExtra(IntentConfig.VIDEO_PERSON_FROM));
+                if (intentConfig.getIntent().getBooleanExtra(PersonInfoActivityConfig.IS_SHOW_PROGRESS, false)) {
+                    hashMap.put(PersonInfoActivityConfig.IS_SHOW_PROGRESS, "1");
                 }
             }
             if (intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null) {
@@ -328,7 +333,7 @@ public class OpenFlutter {
                         this.val$params = hashMap;
                     }
 
-                    @Override // c.a.p0.a.g.b
+                    @Override // c.a.q0.a.g.b
                     public void onCallBack(HashMap<String, Object> hashMap2) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) && hashMap2 != null && (hashMap2.get(g.u) instanceof String)) {

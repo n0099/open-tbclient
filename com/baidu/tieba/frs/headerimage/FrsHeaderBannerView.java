@@ -28,22 +28,22 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f51235e;
+    public TbImageView f51400e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f51236f;
+    public TextView f51401f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51237g;
+    public TextView f51402g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f51238h;
+    public View f51403h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f51239i;
+    public View f51404i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f51240j;
+    public String f51405j;
     public TbPageContext k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,7 +89,7 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     public void hideTitle() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f51238h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f51403h) == null) {
             return;
         }
         view.setVisibility(8);
@@ -99,19 +99,19 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.frs_header_banner, (ViewGroup) this, true);
-            this.f51238h = inflate.findViewById(R.id.frs_header_title_container);
-            this.f51235e = (TbImageView) inflate.findViewById(R.id.frs_head_image);
-            this.f51236f = (TextView) inflate.findViewById(R.id.frs_header_title);
-            this.f51237g = (TextView) inflate.findViewById(R.id.frs_header_title_lable);
-            this.f51239i = inflate.findViewById(R.id.frs_image_header_contianer);
-            this.f51235e.setOnClickListener(this);
-            this.f51238h.setOnClickListener(this);
-            this.f51239i.setOnClickListener(this);
-            this.f51235e.setDefaultResource(0);
-            this.f51235e.setRadius(l.g(getContext(), R.dimen.tbds20));
-            this.f51235e.setConrers(15);
-            this.f51235e.setPlaceHolder(2);
-            this.f51237g.setText(getContext().getString(R.string.frs_header_image_lable));
+            this.f51403h = inflate.findViewById(R.id.frs_header_title_container);
+            this.f51400e = (TbImageView) inflate.findViewById(R.id.frs_head_image);
+            this.f51401f = (TextView) inflate.findViewById(R.id.frs_header_title);
+            this.f51402g = (TextView) inflate.findViewById(R.id.frs_header_title_lable);
+            this.f51404i = inflate.findViewById(R.id.frs_image_header_contianer);
+            this.f51400e.setOnClickListener(this);
+            this.f51403h.setOnClickListener(this);
+            this.f51404i.setOnClickListener(this);
+            this.f51400e.setDefaultResource(0);
+            this.f51400e.setRadius(l.g(getContext(), R.dimen.tbds20));
+            this.f51400e.setConrers(15);
+            this.f51400e.setPlaceHolder(2);
+            this.f51402g.setText(getContext().getString(R.string.frs_header_image_lable));
             this.k = getTbPageContext();
         }
     }
@@ -119,12 +119,12 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            TextView textView = this.f51237g;
+            TextView textView = this.f51402g;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i2);
-                SkinManager.setBackgroundResource(this.f51237g, R.drawable.frs_header_text_bg, i2);
+                SkinManager.setBackgroundResource(this.f51402g, R.drawable.frs_header_text_bg, i2);
             }
-            TextView textView2 = this.f51236f;
+            TextView textView2 = this.f51401f;
             if (textView2 != null) {
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0101, i2);
             }
@@ -136,39 +136,39 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             TbPageContext<?> tbPageContext = getTbPageContext();
-            if (TextUtils.isEmpty(this.f51240j) || tbPageContext == null) {
+            if (TextUtils.isEmpty(this.f51405j) || tbPageContext == null) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f51240j}, true);
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f51405j}, true);
         }
     }
 
     public void setSchemaUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f51240j = str;
+            this.f51405j = str;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f51236f == null || this.f51237g == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f51401f == null || this.f51402g == null) {
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f51236f.setText(str);
-            this.f51237g.setVisibility(0);
-            this.f51236f.setVisibility(0);
+            this.f51401f.setText(str);
+            this.f51402g.setVisibility(0);
+            this.f51401f.setVisibility(0);
             return;
         }
-        this.f51237g.setVisibility(8);
-        this.f51236f.setVisibility(8);
+        this.f51402g.setVisibility(8);
+        this.f51401f.setVisibility(8);
     }
 
     public void startLoad(String str) {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (tbImageView = this.f51235e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (tbImageView = this.f51400e) == null) {
             return;
         }
         tbImageView.startLoad(str, 33, false);

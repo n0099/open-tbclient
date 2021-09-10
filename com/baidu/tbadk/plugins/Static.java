@@ -26,7 +26,7 @@ public class Static {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f48336a;
+    public static final String[] f48469a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -101,7 +101,7 @@ public class Static {
                 return;
             }
             ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-            String[] strArr = Static.f48336a;
+            String[] strArr = Static.f48469a;
             int length = strArr.length;
             int i2 = 0;
             while (true) {
@@ -129,7 +129,7 @@ public class Static {
                             for (StackTraceElement stackTraceElement : stackTrace) {
                                 try {
                                     plugin2.getDexClassLoader().loadClass(stackTraceElement.getClassName());
-                                    c.a.p0.s.d0.b.j().v("plugin_patch_hook_failed_count", c.a.p0.s.d0.b.j().k("plugin_patch_hook_failed_count", 0) + 1);
+                                    c.a.q0.s.d0.b.j().v("plugin_patch_hook_failed_count", c.a.q0.s.d0.b.j().k("plugin_patch_hook_failed_count", 0) + 1);
                                     break;
                                 } catch (ClassNotFoundException unused) {
                                 }
@@ -203,7 +203,7 @@ public class Static {
                 return;
             }
         }
-        f48336a = new String[]{"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+        f48469a = new String[]{"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
         MessageManager.getInstance().registerListener(new a(2001011));
         a();
         MessageManager.getInstance().registerListener(new b(2016301));

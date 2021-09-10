@@ -16,7 +16,7 @@ public final class v extends XMPushService.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ib f78058a;
+    public final /* synthetic */ ib f78238a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ XMPushService f982a;
@@ -43,7 +43,7 @@ public final class v extends XMPushService.i {
             }
         }
         this.f982a = xMPushService;
-        this.f78058a = ibVar;
+        this.f78238a = ibVar;
         this.f983a = str;
     }
 
@@ -59,7 +59,7 @@ public final class v extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                ib a2 = q.a((Context) this.f982a, this.f78058a);
+                ib a2 = q.a((Context) this.f982a, this.f78238a);
                 a2.m453a().a("absent_target_package", this.f983a);
                 y.a(this.f982a, a2);
             } catch (fw e2) {

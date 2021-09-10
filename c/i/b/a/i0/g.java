@@ -13,10 +13,10 @@ public final class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f33680a;
+    public int f33789a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long[] f33681b;
+    public long[] f33790b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public g() {
@@ -39,14 +39,14 @@ public final class g {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            int i2 = this.f33680a;
-            long[] jArr = this.f33681b;
+            int i2 = this.f33789a;
+            long[] jArr = this.f33790b;
             if (i2 == jArr.length) {
-                this.f33681b = Arrays.copyOf(jArr, i2 * 2);
+                this.f33790b = Arrays.copyOf(jArr, i2 * 2);
             }
-            long[] jArr2 = this.f33681b;
-            int i3 = this.f33680a;
-            this.f33680a = i3 + 1;
+            long[] jArr2 = this.f33790b;
+            int i3 = this.f33789a;
+            this.f33789a = i3 + 1;
             jArr2[i3] = j2;
         }
     }
@@ -55,10 +55,10 @@ public final class g {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 >= 0 && i2 < this.f33680a) {
-                return this.f33681b[i2];
+            if (i2 >= 0 && i2 < this.f33789a) {
+                return this.f33790b[i2];
             }
-            throw new IndexOutOfBoundsException("Invalid index " + i2 + ", size is " + this.f33680a);
+            throw new IndexOutOfBoundsException("Invalid index " + i2 + ", size is " + this.f33789a);
         }
         return invokeI.longValue;
     }
@@ -66,13 +66,13 @@ public final class g {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33680a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33789a : invokeV.intValue;
     }
 
     public long[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.copyOf(this.f33681b, this.f33680a) : (long[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.copyOf(this.f33790b, this.f33789a) : (long[]) invokeV.objValue;
     }
 
     public g(int i2) {
@@ -90,6 +90,6 @@ public final class g {
                 return;
             }
         }
-        this.f33681b = new long[i2];
+        this.f33790b = new long[i2];
     }
 }

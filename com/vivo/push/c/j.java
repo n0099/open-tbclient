@@ -13,19 +13,19 @@ public final class j implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f76384a;
+    public final /* synthetic */ int f76564a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ List f76385b;
+    public final /* synthetic */ List f76565b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ List f76386c;
+    public final /* synthetic */ List f76566c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f76387d;
+    public final /* synthetic */ String f76567d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ h f76388e;
+    public final /* synthetic */ h f76568e;
 
     public j(h hVar, int i2, List list, List list2, String str) {
         Interceptable interceptable = $ic;
@@ -42,11 +42,11 @@ public final class j implements Runnable {
                 return;
             }
         }
-        this.f76388e = hVar;
-        this.f76384a = i2;
-        this.f76385b = list;
-        this.f76386c = list2;
-        this.f76387d = str;
+        this.f76568e = hVar;
+        this.f76564a = i2;
+        this.f76565b = list;
+        this.f76566c = list2;
+        this.f76567d = str;
     }
 
     @Override // java.lang.Runnable
@@ -54,10 +54,10 @@ public final class j implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            h hVar = this.f76388e;
-            PushMessageCallback pushMessageCallback = ((ab) hVar).f76363b;
-            context = hVar.f76547a;
-            pushMessageCallback.onDelAlias(context, this.f76384a, this.f76385b, this.f76386c, this.f76387d);
+            h hVar = this.f76568e;
+            PushMessageCallback pushMessageCallback = ((ab) hVar).f76543b;
+            context = hVar.f76727a;
+            pushMessageCallback.onDelAlias(context, this.f76564a, this.f76565b, this.f76566c, this.f76567d);
         }
     }
 }

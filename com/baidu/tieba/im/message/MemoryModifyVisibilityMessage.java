@@ -16,13 +16,13 @@ public class MemoryModifyVisibilityMessage extends CustomResponsedMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53053a;
+        public String f53199a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53054b;
+        public int f53200b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f53055c;
+        public boolean f53201c;
 
         public a(String str, int i2, boolean z) {
             Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public class MemoryModifyVisibilityMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f53053a = str;
-            this.f53054b = i2;
-            this.f53055c = z;
+            this.f53199a = str;
+            this.f53200b = i2;
+            this.f53201c = z;
         }
     }
 

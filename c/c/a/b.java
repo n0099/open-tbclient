@@ -13,17 +13,17 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f31516b = 922337203685477580L;
+    public static long f31625b = 922337203685477580L;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final float[] f31517c;
+    public static final float[] f31626c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final float[] f31518d;
+    public static final float[] f31627d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f31519a;
+    public int f31628a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,8 +38,8 @@ public class b {
                 return;
             }
         }
-        f31517c = new float[]{1.0f, 10.0f, 100.0f, 1000.0f, 10000.0f, 100000.0f, 1000000.0f, 1.0E7f, 1.0E8f, 1.0E9f, 1.0E10f, 1.0E11f, 1.0E12f, 1.0E13f, 1.0E14f, 1.0E15f, 1.0E16f, 1.0E17f, 1.0E18f, 1.0E19f, 1.0E20f, 1.0E21f, 1.0E22f, 1.0E23f, 1.0E24f, 1.0E25f, 1.0E26f, 1.0E27f, 1.0E28f, 1.0E29f, 1.0E30f, 1.0E31f, 1.0E32f, 1.0E33f, 1.0E34f, 1.0E35f, 1.0E36f, 1.0E37f, 1.0E38f};
-        f31518d = new float[]{1.0f, 0.1f, 0.01f, 0.001f, 1.0E-4f, 1.0E-5f, 1.0E-6f, 1.0E-7f, 1.0E-8f, 1.0E-9f, 1.0E-10f, 1.0E-11f, 1.0E-12f, 1.0E-13f, 1.0E-14f, 1.0E-15f, 1.0E-16f, 1.0E-17f, 1.0E-18f, 1.0E-19f, 1.0E-20f, 1.0E-21f, 1.0E-22f, 1.0E-23f, 1.0E-24f, 1.0E-25f, 1.0E-26f, 1.0E-27f, 1.0E-28f, 1.0E-29f, 1.0E-30f, 1.0E-31f, 1.0E-32f, 1.0E-33f, 1.0E-34f, 1.0E-35f, 1.0E-36f, 1.0E-37f, 1.0E-38f};
+        f31626c = new float[]{1.0f, 10.0f, 100.0f, 1000.0f, 10000.0f, 100000.0f, 1000000.0f, 1.0E7f, 1.0E8f, 1.0E9f, 1.0E10f, 1.0E11f, 1.0E12f, 1.0E13f, 1.0E14f, 1.0E15f, 1.0E16f, 1.0E17f, 1.0E18f, 1.0E19f, 1.0E20f, 1.0E21f, 1.0E22f, 1.0E23f, 1.0E24f, 1.0E25f, 1.0E26f, 1.0E27f, 1.0E28f, 1.0E29f, 1.0E30f, 1.0E31f, 1.0E32f, 1.0E33f, 1.0E34f, 1.0E35f, 1.0E36f, 1.0E37f, 1.0E38f};
+        f31627d = new float[]{1.0f, 0.1f, 0.01f, 0.001f, 1.0E-4f, 1.0E-5f, 1.0E-6f, 1.0E-7f, 1.0E-8f, 1.0E-9f, 1.0E-10f, 1.0E-11f, 1.0E-12f, 1.0E-13f, 1.0E-14f, 1.0E-15f, 1.0E-16f, 1.0E-17f, 1.0E-18f, 1.0E-19f, 1.0E-20f, 1.0E-21f, 1.0E-22f, 1.0E-23f, 1.0E-24f, 1.0E-25f, 1.0E-26f, 1.0E-27f, 1.0E-28f, 1.0E-29f, 1.0E-30f, 1.0E-31f, 1.0E-32f, 1.0E-33f, 1.0E-34f, 1.0E-35f, 1.0E-36f, 1.0E-37f, 1.0E-38f};
     }
 
     public b() {
@@ -59,7 +59,7 @@ public class b {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31519a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31628a : invokeV.intValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:119:0x008d A[EDGE_INSN: B:119:0x008d->B:44:0x008d ?: BREAK  , SYNTHETIC] */
@@ -89,7 +89,7 @@ public class b {
         char charAt2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, i3)) == null) {
-            this.f31519a = i2;
+            this.f31628a = i2;
             if (i2 >= i3) {
                 return Float.NaN;
             }
@@ -98,7 +98,7 @@ public class b {
                 z = false;
             } else if (charAt3 != '-') {
                 z = false;
-                int i10 = this.f31519a;
+                int i10 = this.f31628a;
                 long j2 = 0;
                 i4 = 0;
                 i5 = 0;
@@ -106,7 +106,7 @@ public class b {
                 z2 = false;
                 int i12 = 0;
                 while (true) {
-                    i6 = this.f31519a;
+                    i6 = this.f31628a;
                     if (i6 >= i3) {
                         break;
                     }
@@ -120,13 +120,13 @@ public class b {
                     } else if (charAt4 >= '1' && charAt4 <= '9') {
                         int i13 = i4 + i5;
                         while (i5 > 0) {
-                            if (j2 > f31516b) {
+                            if (j2 > f31625b) {
                                 return Float.NaN;
                             }
                             j2 *= 10;
                             i5--;
                         }
-                        if (j2 > f31516b) {
+                        if (j2 > f31625b) {
                             return Float.NaN;
                         }
                         j2 = (j2 * 10) + (charAt4 - '0');
@@ -137,12 +137,12 @@ public class b {
                     } else if (charAt4 != '.' || z2) {
                         break;
                     } else {
-                        i12 = this.f31519a - i10;
+                        i12 = this.f31628a - i10;
                         z2 = true;
                     }
-                    this.f31519a++;
+                    this.f31628a++;
                 }
-                if (z2 || this.f31519a != i12 + 1) {
+                if (z2 || this.f31628a != i12 + 1) {
                     if (i4 == 0) {
                         if (i11 == 0) {
                             return Float.NaN;
@@ -152,10 +152,10 @@ public class b {
                     if (z2) {
                         i5 = (i12 - i11) - i4;
                     }
-                    i7 = this.f31519a;
+                    i7 = this.f31628a;
                     if (i7 < i3 && ((charAt = str.charAt(i7)) == 'E' || charAt == 'e')) {
-                        i9 = this.f31519a + 1;
-                        this.f31519a = i9;
+                        i9 = this.f31628a + 1;
+                        this.f31628a = i9;
                         if (i9 != i3) {
                             return Float.NaN;
                         }
@@ -178,25 +178,25 @@ public class b {
                                     z4 = false;
                                     break;
                                 default:
-                                    this.f31519a--;
+                                    this.f31628a--;
                                     z3 = false;
                                     z4 = true;
                                     break;
                             }
                             if (!z4) {
-                                int i14 = this.f31519a;
+                                int i14 = this.f31628a;
                                 int i15 = 0;
                                 while (true) {
-                                    int i16 = this.f31519a;
+                                    int i16 = this.f31628a;
                                     if (i16 < i3 && (charAt2 = str.charAt(i16)) >= '0' && charAt2 <= '9') {
-                                        if (i15 > f31516b) {
+                                        if (i15 > f31625b) {
                                             return Float.NaN;
                                         }
                                         i15 = (i15 * 10) + (charAt2 - '0');
-                                        this.f31519a++;
+                                        this.f31628a++;
                                     }
                                 }
-                                if (this.f31519a == i14) {
+                                if (this.f31628a == i14) {
                                     return Float.NaN;
                                 }
                                 i5 = z3 ? i5 - i15 : i5 + i15;
@@ -204,7 +204,7 @@ public class b {
                         } else {
                             z3 = true;
                         }
-                        this.f31519a++;
+                        this.f31628a++;
                         z4 = false;
                         if (!z4) {
                         }
@@ -217,13 +217,13 @@ public class b {
                     float f3 = (float) j3;
                     if (j3 != 0) {
                         if (i5 > 0) {
-                            f2 = f31517c[i5];
+                            f2 = f31626c[i5];
                         } else if (i5 < 0) {
                             if (i5 < -38) {
                                 f3 = (float) (f3 * 1.0E-20d);
                                 i5 += 20;
                             }
-                            f2 = f31518d[-i5];
+                            f2 = f31627d[-i5];
                         }
                         f3 *= f2;
                     }
@@ -233,8 +233,8 @@ public class b {
             } else {
                 z = true;
             }
-            this.f31519a++;
-            int i102 = this.f31519a;
+            this.f31628a++;
+            int i102 = this.f31628a;
             long j22 = 0;
             i4 = 0;
             i5 = 0;
@@ -242,10 +242,10 @@ public class b {
             z2 = false;
             int i122 = 0;
             while (true) {
-                i6 = this.f31519a;
+                i6 = this.f31628a;
                 if (i6 >= i3) {
                 }
-                this.f31519a++;
+                this.f31628a++;
             }
             if (z2) {
             }
@@ -253,10 +253,10 @@ public class b {
             }
             if (z2) {
             }
-            i7 = this.f31519a;
+            i7 = this.f31628a;
             if (i7 < i3) {
-                i9 = this.f31519a + 1;
-                this.f31519a = i9;
+                i9 = this.f31628a + 1;
+                this.f31628a = i9;
                 if (i9 != i3) {
                 }
             }

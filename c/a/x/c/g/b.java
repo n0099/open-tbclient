@@ -17,35 +17,35 @@ public abstract class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static long f31055i = 0;
+    public static long f30682i = 0;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f31056j = 10000;
+    public static int f30683j = 10000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f31057a;
+    public int f30684a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f31058b;
+    public boolean f30685b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f31059c;
+    public e f30686c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaCodec f31060d;
+    public MediaCodec f30687d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MediaCodec.BufferInfo f31061e;
+    public MediaCodec.BufferInfo f30688e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f31062f;
+    public c f30689f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f31063g;
+    public boolean f30690g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f31064h;
+    public long f30691h;
 
     static {
         InterceptResult invokeClinit;
@@ -75,31 +75,31 @@ public abstract class b {
                 return;
             }
         }
-        this.f31057a = -1;
-        this.f31058b = false;
-        this.f31064h = 0L;
-        this.f31061e = new MediaCodec.BufferInfo();
+        this.f30684a = -1;
+        this.f30685b = false;
+        this.f30691h = 0L;
+        this.f30688e = new MediaCodec.BufferInfo();
     }
 
     public void a(boolean z, ByteBuffer byteBuffer, int i2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            if (this.f31058b && this.f31057a == -1) {
+            if (this.f30685b && this.f30684a == -1) {
                 return;
             }
-            int dequeueInputBuffer = this.f31060d.dequeueInputBuffer(10000L);
+            int dequeueInputBuffer = this.f30687d.dequeueInputBuffer(10000L);
             if (dequeueInputBuffer >= 0) {
                 if (z) {
-                    this.f31060d.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                    this.f30687d.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
                 } else if (!g(dequeueInputBuffer, byteBuffer, i2, j2)) {
                     return;
                 } else {
-                    MediaCodec mediaCodec = this.f31060d;
-                    MediaCodec.BufferInfo bufferInfo = this.f31061e;
+                    MediaCodec mediaCodec = this.f30687d;
+                    MediaCodec.BufferInfo bufferInfo = this.f30688e;
                     mediaCodec.queueInputBuffer(dequeueInputBuffer, bufferInfo.offset, bufferInfo.size, bufferInfo.presentationTimeUs, 0);
                 }
             }
-            b(z, f31056j);
+            b(z, f30683j);
         }
     }
 
@@ -108,53 +108,53 @@ public abstract class b {
         if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) != null) {
             return;
         }
-        ByteBuffer[] outputBuffers = this.f31060d.getOutputBuffers();
+        ByteBuffer[] outputBuffers = this.f30687d.getOutputBuffers();
         while (true) {
             try {
-                int dequeueOutputBuffer = this.f31060d.dequeueOutputBuffer(this.f31061e, i2);
+                int dequeueOutputBuffer = this.f30687d.dequeueOutputBuffer(this.f30688e, i2);
                 if (dequeueOutputBuffer == -1) {
                     if (!z) {
                         return;
                     }
                 } else if (dequeueOutputBuffer == -3) {
-                    outputBuffers = this.f31060d.getOutputBuffers();
+                    outputBuffers = this.f30687d.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.f31059c.c()) {
+                    if (this.f30686c.c()) {
                         return;
                     }
-                    MediaFormat outputFormat = this.f31060d.getOutputFormat();
+                    MediaFormat outputFormat = this.f30687d.getOutputFormat();
                     String str = "encoder output format changed: " + outputFormat;
-                    this.f31057a = this.f31059c.a(outputFormat);
-                    this.f31058b = true;
-                    c cVar = this.f31062f;
+                    this.f30684a = this.f30686c.a(outputFormat);
+                    this.f30685b = true;
+                    c cVar = this.f30689f;
                     if (cVar != null) {
                         cVar.c(true);
                     }
-                    if (this.f31063g) {
-                        this.f31059c.e();
+                    if (this.f30690g) {
+                        this.f30686c.e();
                     }
                 } else if (dequeueOutputBuffer < 0) {
                     String str2 = "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer;
                 } else {
                     ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
                     if (byteBuffer != null) {
-                        if ((this.f31061e.flags & 2) != 0) {
-                            this.f31061e.size = 0;
+                        if ((this.f30688e.flags & 2) != 0) {
+                            this.f30688e.size = 0;
                         }
-                        if (this.f31061e.size != 0 && this.f31059c.c()) {
-                            byteBuffer.position(this.f31061e.offset);
-                            MediaCodec.BufferInfo bufferInfo = this.f31061e;
+                        if (this.f30688e.size != 0 && this.f30686c.c()) {
+                            byteBuffer.position(this.f30688e.offset);
+                            MediaCodec.BufferInfo bufferInfo = this.f30688e;
                             byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
                             j();
-                            this.f31059c.g(this.f31057a, byteBuffer, this.f31061e);
+                            this.f30686c.g(this.f30684a, byteBuffer, this.f30688e);
                         }
-                        this.f31060d.releaseOutputBuffer(dequeueOutputBuffer, false);
-                        if ((this.f31061e.flags & 4) != 0) {
+                        this.f30687d.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        if ((this.f30688e.flags & 4) != 0) {
                             if (z) {
-                                if (this.f31063g) {
-                                    this.f31059c.f();
+                                if (this.f30690g) {
+                                    this.f30686c.f();
                                 }
-                                c cVar2 = this.f31062f;
+                                c cVar2 = this.f30689f;
                                 if (cVar2 != null) {
                                     cVar2.a(true);
                                     return;
@@ -179,11 +179,11 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                e eVar = this.f31059c;
+                e eVar = this.f30686c;
                 if (eVar != null && eVar.c()) {
-                    this.f31060d.signalEndOfInputStream();
+                    this.f30687d.signalEndOfInputStream();
                 } else {
-                    c cVar = this.f31062f;
+                    c cVar = this.f30689f;
                     if (cVar != null) {
                         cVar.a(true);
                         return;
@@ -198,22 +198,22 @@ public abstract class b {
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31064h * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30691h * 1000 : invokeV.longValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f31060d.release();
-            this.f31060d = null;
-            this.f31059c = null;
+            this.f30687d.release();
+            this.f30687d = null;
+            this.f30686c = null;
         }
     }
 
     public void f(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f31062f = cVar;
+            this.f30689f = cVar;
         }
     }
 
@@ -221,12 +221,12 @@ public abstract class b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), byteBuffer, Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
-            ByteBuffer byteBuffer2 = this.f31060d.getInputBuffers()[i2];
+            ByteBuffer byteBuffer2 = this.f30687d.getInputBuffers()[i2];
             if (byteBuffer2.capacity() >= byteBuffer.capacity()) {
                 byteBuffer2.position(0);
                 byteBuffer2.put(byteBuffer);
                 byteBuffer2.flip();
-                MediaCodec.BufferInfo bufferInfo = this.f31061e;
+                MediaCodec.BufferInfo bufferInfo = this.f30688e;
                 bufferInfo.offset = 0;
                 bufferInfo.size = i3;
                 bufferInfo.presentationTimeUs = j2 / 1000;
@@ -240,8 +240,8 @@ public abstract class b {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f31060d.start();
-            c cVar = this.f31062f;
+            this.f30687d.start();
+            c cVar = this.f30689f;
             if (cVar != null) {
                 cVar.d(true);
             }
@@ -252,7 +252,7 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             try {
-                this.f31060d.stop();
+                this.f30687d.stop();
             } catch (Exception unused) {
             }
         }

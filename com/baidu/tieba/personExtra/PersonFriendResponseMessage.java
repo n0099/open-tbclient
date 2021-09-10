@@ -2,8 +2,8 @@ package com.baidu.tieba.personExtra;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.d.l;
-import c.a.p0.s.q.h1;
-import c.a.p0.s.r.a;
+import c.a.q0.s.q.h1;
+import c.a.q0.s.r.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;

@@ -18,11 +18,11 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39219a = "BaseActivity";
+    public static final String f39330a = "BaseActivity";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f39220b;
+    public Handler f39331b;
     public BeanActivity mAct;
 
     public BeanActivity() {
@@ -38,17 +38,17 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                 return;
             }
         }
-        this.f39220b = null;
+        this.f39331b = null;
     }
 
     private Handler a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f39220b == null) {
-                this.f39220b = new Handler(getMainLooper());
+            if (this.f39331b == null) {
+                this.f39331b = new Handler(getMainLooper());
             }
-            return this.f39220b;
+            return this.f39331b;
         }
         return (Handler) invokeV.objValue;
     }
@@ -94,16 +94,16 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f39226a;
+                public final /* synthetic */ int f39337a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f39227b;
+                public final /* synthetic */ int f39338b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f39228c;
+                public final /* synthetic */ String f39339c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ BeanActivity f39229d;
+                public final /* synthetic */ BeanActivity f39340d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -120,19 +120,19 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                             return;
                         }
                     }
-                    this.f39229d = this;
-                    this.f39226a = i2;
-                    this.f39227b = i3;
-                    this.f39228c = str;
+                    this.f39340d = this;
+                    this.f39337a = i2;
+                    this.f39338b = i3;
+                    this.f39339c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        BeanActivity beanActivity = this.f39229d;
+                        BeanActivity beanActivity = this.f39340d;
                         if (beanActivity.mAct != null) {
-                            beanActivity.handleFailure(this.f39226a, this.f39227b, this.f39228c);
+                            beanActivity.handleFailure(this.f39337a, this.f39338b, this.f39339c);
                         }
                     }
                 }
@@ -149,19 +149,19 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f39221a;
+                public final /* synthetic */ int f39332a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f39222b;
+                public final /* synthetic */ Object f39333b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f39223c;
+                public final /* synthetic */ String f39334c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f39224d;
+                public final /* synthetic */ String f39335d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ BeanActivity f39225e;
+                public final /* synthetic */ BeanActivity f39336e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -178,21 +178,21 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                             return;
                         }
                     }
-                    this.f39225e = this;
-                    this.f39221a = i2;
-                    this.f39222b = obj;
-                    this.f39223c = str;
-                    this.f39224d = str2;
+                    this.f39336e = this;
+                    this.f39332a = i2;
+                    this.f39333b = obj;
+                    this.f39334c = str;
+                    this.f39335d = str2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        BeanActivity beanActivity = this.f39225e;
+                        BeanActivity beanActivity = this.f39336e;
                         if (beanActivity.mAct != null) {
-                            beanActivity.handleResponse(this.f39221a, this.f39222b, this.f39223c);
-                            this.f39225e.handleResponse(this.f39221a, this.f39222b, this.f39223c, this.f39224d);
+                            beanActivity.handleResponse(this.f39332a, this.f39333b, this.f39334c);
+                            this.f39336e.handleResponse(this.f39332a, this.f39333b, this.f39334c, this.f39335d);
                         }
                     }
                 }

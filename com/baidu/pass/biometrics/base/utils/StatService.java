@@ -30,7 +30,7 @@ public final class StatService {
     public static final String TAG = "StatService";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, String> f43933a;
+    public static final Map<String, String> f44048a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,10 +47,10 @@ public final class StatService {
             }
         }
         HashMap hashMap = new HashMap();
-        f43933a = hashMap;
+        f44048a = hashMap;
         hashMap.put("pid", "111");
-        f43933a.put("type", SmartLaunchStats.UBC_START_LAUNCH_ID);
-        f43933a.put("device", "android");
+        f44048a.put("type", SmartLaunchStats.UBC_START_LAUNCH_ID);
+        f44048a.put("device", "android");
     }
 
     public StatService() {
@@ -75,7 +75,7 @@ public final class StatService {
         try {
             if (NetworkUtils.isNetworkAvailable(context)) {
                 HashMap hashMap = new HashMap();
-                hashMap.putAll(f43933a);
+                hashMap.putAll(f44048a);
                 map.put("v", String.valueOf(System.currentTimeMillis()));
                 hashMap.put("name", str);
                 hashMap.put("model", Build.MODEL);

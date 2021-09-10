@@ -110,10 +110,10 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final transient Map<K, Collection<V>> f70202h;
+        public final transient Map<K, Collection<V>> f70382h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ AbstractMapBasedMultimap f70203i;
+        public final /* synthetic */ AbstractMapBasedMultimap f70383i;
 
         /* loaded from: classes10.dex */
         public class a extends Maps.k<K, Collection<V>> {
@@ -121,7 +121,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f70204e;
+            public final /* synthetic */ c f70384e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -138,28 +138,28 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                         return;
                     }
                 }
-                this.f70204e = cVar;
+                this.f70384e = cVar;
             }
 
             @Override // com.google.common.collect.Maps.k
             public Map<K, Collection<V>> b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70204e : (Map) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70384e : (Map) invokeV.objValue;
             }
 
             @Override // com.google.common.collect.Maps.k, java.util.AbstractCollection, java.util.Collection, java.util.Set
             public boolean contains(Object obj) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? c.i.d.c.n.e(this.f70204e.f70202h.entrySet(), obj) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? c.i.d.c.n.e(this.f70384e.f70382h.entrySet(), obj) : invokeL.booleanValue;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
             public Iterator<Map.Entry<K, Collection<V>>> iterator() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new b(this.f70204e) : (Iterator) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new b(this.f70384e) : (Iterator) invokeV.objValue;
             }
 
             @Override // com.google.common.collect.Maps.k, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -168,7 +168,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
                     if (contains(obj)) {
-                        this.f70204e.f70203i.removeValuesForKey(((Map.Entry) obj).getKey());
+                        this.f70384e.f70383i.removeValuesForKey(((Map.Entry) obj).getKey());
                         return true;
                     }
                     return false;
@@ -183,13 +183,13 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final Iterator<Map.Entry<K, Collection<V>>> f70205e;
+            public final Iterator<Map.Entry<K, Collection<V>>> f70385e;
 
             /* renamed from: f  reason: collision with root package name */
-            public Collection<V> f70206f;
+            public Collection<V> f70386f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ c f70207g;
+            public final /* synthetic */ c f70387g;
 
             public b(c cVar) {
                 Interceptable interceptable = $ic;
@@ -206,8 +206,8 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                         return;
                     }
                 }
-                this.f70207g = cVar;
-                this.f70205e = this.f70207g.f70202h.entrySet().iterator();
+                this.f70387g = cVar;
+                this.f70385e = this.f70387g.f70382h.entrySet().iterator();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -217,9 +217,9 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    Map.Entry<K, Collection<V>> next = this.f70205e.next();
-                    this.f70206f = next.getValue();
-                    return this.f70207g.f(next);
+                    Map.Entry<K, Collection<V>> next = this.f70385e.next();
+                    this.f70386f = next.getValue();
+                    return this.f70387g.f(next);
                 }
                 return (Map.Entry) invokeV.objValue;
             }
@@ -228,18 +228,18 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             public boolean hasNext() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70205e.hasNext() : invokeV.booleanValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70385e.hasNext() : invokeV.booleanValue;
             }
 
             @Override // java.util.Iterator
             public void remove() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                    c.i.d.c.m.e(this.f70206f != null);
-                    this.f70205e.remove();
-                    this.f70207g.f70203i.totalSize -= this.f70206f.size();
-                    this.f70206f.clear();
-                    this.f70206f = null;
+                    c.i.d.c.m.e(this.f70386f != null);
+                    this.f70385e.remove();
+                    this.f70387g.f70383i.totalSize -= this.f70386f.size();
+                    this.f70386f.clear();
+                    this.f70386f = null;
                 }
             }
         }
@@ -259,8 +259,8 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                     return;
                 }
             }
-            this.f70203i = abstractMapBasedMultimap;
-            this.f70202h = map;
+            this.f70383i = abstractMapBasedMultimap;
+            this.f70382h = map;
         }
 
         @Override // com.google.common.collect.Maps.y
@@ -274,8 +274,8 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.f70202h == this.f70203i.map) {
-                    this.f70203i.clear();
+                if (this.f70382h == this.f70383i.map) {
+                    this.f70383i.clear();
                 } else {
                     Iterators.e(new b(this));
                 }
@@ -286,7 +286,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public boolean containsKey(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? Maps.z(this.f70202h, obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? Maps.z(this.f70382h, obj) : invokeL.booleanValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -296,11 +296,11 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                Collection<V> collection = (Collection) Maps.A(this.f70202h, obj);
+                Collection<V> collection = (Collection) Maps.A(this.f70382h, obj);
                 if (collection == null) {
                     return null;
                 }
-                return this.f70203i.wrapCollection(obj, collection);
+                return this.f70383i.wrapCollection(obj, collection);
             }
             return (Collection) invokeL.objValue;
         }
@@ -312,13 +312,13 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-                Collection<V> remove = this.f70202h.remove(obj);
+                Collection<V> remove = this.f70382h.remove(obj);
                 if (remove == null) {
                     return null;
                 }
-                Collection<V> createCollection = this.f70203i.createCollection();
+                Collection<V> createCollection = this.f70383i.createCollection();
                 createCollection.addAll(remove);
-                this.f70203i.totalSize -= remove.size();
+                this.f70383i.totalSize -= remove.size();
                 remove.clear();
                 return createCollection;
             }
@@ -329,7 +329,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? this == obj || this.f70202h.equals(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? this == obj || this.f70382h.equals(obj) : invokeL.booleanValue;
         }
 
         public Map.Entry<K, Collection<V>> f(Map.Entry<K, Collection<V>> entry) {
@@ -337,7 +337,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, entry)) == null) {
                 K key = entry.getKey();
-                return Maps.l(key, this.f70203i.wrapCollection(key, entry.getValue()));
+                return Maps.l(key, this.f70383i.wrapCollection(key, entry.getValue()));
             }
             return (Map.Entry) invokeL.objValue;
         }
@@ -346,28 +346,28 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f70202h.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f70382h.hashCode() : invokeV.intValue;
         }
 
         @Override // com.google.common.collect.Maps.y, java.util.AbstractMap, java.util.Map
         public Set<K> keySet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f70203i.keySet() : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f70383i.keySet() : (Set) invokeV.objValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f70202h.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f70382h.size() : invokeV.intValue;
         }
 
         @Override // java.util.AbstractMap
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f70202h.toString() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f70382h.toString() : (String) invokeV.objValue;
         }
     }
 
@@ -377,19 +377,19 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Iterator<Map.Entry<K, Collection<V>>> f70208e;
+        public final Iterator<Map.Entry<K, Collection<V>>> f70388e;
 
         /* renamed from: f  reason: collision with root package name */
-        public K f70209f;
+        public K f70389f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Collection<V> f70210g;
+        public Collection<V> f70390g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Iterator<V> f70211h;
+        public Iterator<V> f70391h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ AbstractMapBasedMultimap f70212i;
+        public final /* synthetic */ AbstractMapBasedMultimap f70392i;
 
         /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: java.util.Iterator<java.util.Map$Entry<K, V>>, java.util.Iterator<java.util.Map$Entry<K, java.util.Collection<V>>> */
         public d(AbstractMapBasedMultimap abstractMapBasedMultimap) {
@@ -407,11 +407,11 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                     return;
                 }
             }
-            this.f70212i = abstractMapBasedMultimap;
-            this.f70208e = (Iterator<Map.Entry<K, V>>) abstractMapBasedMultimap.map.entrySet().iterator();
-            this.f70209f = null;
-            this.f70210g = null;
-            this.f70211h = Iterators.k();
+            this.f70392i = abstractMapBasedMultimap;
+            this.f70388e = (Iterator<Map.Entry<K, V>>) abstractMapBasedMultimap.map.entrySet().iterator();
+            this.f70389f = null;
+            this.f70390g = null;
+            this.f70391h = Iterators.k();
         }
 
         public abstract T a(K k, V v);
@@ -420,7 +420,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70208e.hasNext() || this.f70211h.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70388e.hasNext() || this.f70391h.hasNext() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
@@ -428,14 +428,14 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (!this.f70211h.hasNext()) {
-                    Map.Entry<K, Collection<V>> next = this.f70208e.next();
-                    this.f70209f = next.getKey();
+                if (!this.f70391h.hasNext()) {
+                    Map.Entry<K, Collection<V>> next = this.f70388e.next();
+                    this.f70389f = next.getKey();
                     Collection<V> value = next.getValue();
-                    this.f70210g = value;
-                    this.f70211h = value.iterator();
+                    this.f70390g = value;
+                    this.f70391h = value.iterator();
                 }
-                return a(this.f70209f, this.f70211h.next());
+                return a(this.f70389f, this.f70391h.next());
             }
             return (T) invokeV.objValue;
         }
@@ -444,11 +444,11 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f70211h.remove();
-                if (this.f70210g.isEmpty()) {
-                    this.f70208e.remove();
+                this.f70391h.remove();
+                if (this.f70390g.isEmpty()) {
+                    this.f70388e.remove();
                 }
-                AbstractMapBasedMultimap.access$210(this.f70212i);
+                AbstractMapBasedMultimap.access$210(this.f70392i);
             }
         }
     }
@@ -459,7 +459,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AbstractMapBasedMultimap f70213f;
+        public final /* synthetic */ AbstractMapBasedMultimap f70393f;
 
         /* loaded from: classes10.dex */
         public class a implements Iterator<K> {
@@ -467,13 +467,13 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public Map.Entry<K, Collection<V>> f70214e;
+            public Map.Entry<K, Collection<V>> f70394e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Iterator f70215f;
+            public final /* synthetic */ Iterator f70395f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ e f70216g;
+            public final /* synthetic */ e f70396g;
 
             public a(e eVar, Iterator it) {
                 Interceptable interceptable = $ic;
@@ -490,15 +490,15 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                         return;
                     }
                 }
-                this.f70216g = eVar;
-                this.f70215f = it;
+                this.f70396g = eVar;
+                this.f70395f = it;
             }
 
             @Override // java.util.Iterator
             public boolean hasNext() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70215f.hasNext() : invokeV.booleanValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70395f.hasNext() : invokeV.booleanValue;
             }
 
             @Override // java.util.Iterator
@@ -506,8 +506,8 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    Map.Entry<K, Collection<V>> entry = (Map.Entry) this.f70215f.next();
-                    this.f70214e = entry;
+                    Map.Entry<K, Collection<V>> entry = (Map.Entry) this.f70395f.next();
+                    this.f70394e = entry;
                     return entry.getKey();
                 }
                 return (K) invokeV.objValue;
@@ -517,12 +517,12 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             public void remove() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    c.i.d.c.m.e(this.f70214e != null);
-                    Collection<V> value = this.f70214e.getValue();
-                    this.f70215f.remove();
-                    this.f70216g.f70213f.totalSize -= value.size();
+                    c.i.d.c.m.e(this.f70394e != null);
+                    Collection<V> value = this.f70394e.getValue();
+                    this.f70395f.remove();
+                    this.f70396g.f70393f.totalSize -= value.size();
                     value.clear();
-                    this.f70214e = null;
+                    this.f70394e = null;
                 }
             }
         }
@@ -545,7 +545,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                     return;
                 }
             }
-            this.f70213f = abstractMapBasedMultimap;
+            this.f70393f = abstractMapBasedMultimap;
         }
 
         @Override // com.google.common.collect.Maps.q, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -594,7 +594,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                 if (remove != null) {
                     i2 = remove.size();
                     remove.clear();
-                    this.f70213f.totalSize -= i2;
+                    this.f70393f.totalSize -= i2;
                 } else {
                     i2 = 0;
                 }
@@ -877,7 +877,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ AbstractMapBasedMultimap f70217h;
+        public final /* synthetic */ AbstractMapBasedMultimap f70397h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(AbstractMapBasedMultimap abstractMapBasedMultimap, NavigableMap<K, Collection<V>> navigableMap) {
@@ -898,7 +898,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                     return;
                 }
             }
-            this.f70217h = abstractMapBasedMultimap;
+            this.f70397h = abstractMapBasedMultimap;
         }
 
         @Override // java.util.NavigableSet
@@ -928,7 +928,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public NavigableSet<K> descendingSet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new g(this.f70217h, c().descendingMap()) : (NavigableSet) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new g(this.f70397h, c().descendingMap()) : (NavigableSet) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -997,21 +997,21 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public NavigableSet<K> headSet(K k, boolean z) {
             InterceptResult invokeLZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, k, z)) == null) ? new g(this.f70217h, c().headMap(k, z)) : (NavigableSet) invokeLZ.objValue;
+            return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, k, z)) == null) ? new g(this.f70397h, c().headMap(k, z)) : (NavigableSet) invokeLZ.objValue;
         }
 
         @Override // java.util.NavigableSet
         public NavigableSet<K> subSet(K k, boolean z, K k2, boolean z2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{k, Boolean.valueOf(z), k2, Boolean.valueOf(z2)})) == null) ? new g(this.f70217h, c().subMap(k, z, k2, z2)) : (NavigableSet) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{k, Boolean.valueOf(z), k2, Boolean.valueOf(z2)})) == null) ? new g(this.f70397h, c().subMap(k, z, k2, z2)) : (NavigableSet) invokeCommon.objValue;
         }
 
         @Override // java.util.NavigableSet
         public NavigableSet<K> tailSet(K k, boolean z) {
             InterceptResult invokeLZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048593, this, k, z)) == null) ? new g(this.f70217h, c().tailMap(k, z)) : (NavigableSet) invokeLZ.objValue;
+            return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048593, this, k, z)) == null) ? new g(this.f70397h, c().tailMap(k, z)) : (NavigableSet) invokeLZ.objValue;
         }
     }
 
@@ -1048,7 +1048,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public SortedSet<K> f70218j;
+        public SortedSet<K> f70398j;
         public final /* synthetic */ AbstractMapBasedMultimap k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -1103,10 +1103,10 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                SortedSet<K> sortedSet = this.f70218j;
+                SortedSet<K> sortedSet = this.f70398j;
                 if (sortedSet == null) {
                     SortedSet<K> b2 = b();
-                    this.f70218j = b2;
+                    this.f70398j = b2;
                     return b2;
                 }
                 return sortedSet;
@@ -1123,7 +1123,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public SortedMap<K, Collection<V>> i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (SortedMap) this.f70202h : (SortedMap) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (SortedMap) this.f70382h : (SortedMap) invokeV.objValue;
         }
 
         @Override // java.util.SortedMap
@@ -1152,7 +1152,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AbstractMapBasedMultimap f70219g;
+        public final /* synthetic */ AbstractMapBasedMultimap f70399g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(AbstractMapBasedMultimap abstractMapBasedMultimap, SortedMap<K, Collection<V>> sortedMap) {
@@ -1173,7 +1173,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                     return;
                 }
             }
-            this.f70219g = abstractMapBasedMultimap;
+            this.f70399g = abstractMapBasedMultimap;
         }
 
         public SortedMap<K, Collection<V>> c() {
@@ -1199,7 +1199,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public SortedSet<K> headSet(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k)) == null) ? new j(this.f70219g, c().headMap(k)) : (SortedSet) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k)) == null) ? new j(this.f70399g, c().headMap(k)) : (SortedSet) invokeL.objValue;
         }
 
         @Override // java.util.SortedSet
@@ -1212,13 +1212,13 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public SortedSet<K> subSet(K k, K k2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k, k2)) == null) ? new j(this.f70219g, c().subMap(k, k2)) : (SortedSet) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k, k2)) == null) ? new j(this.f70399g, c().subMap(k, k2)) : (SortedSet) invokeLL.objValue;
         }
 
         public SortedSet<K> tailSet(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k)) == null) ? new j(this.f70219g, c().tailMap(k)) : (SortedSet) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k)) == null) ? new j(this.f70399g, c().tailMap(k)) : (SortedSet) invokeL.objValue;
         }
     }
 
@@ -1305,7 +1305,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, navigableSet)) == null) {
-                return new m(this.k, this.f70220e, navigableSet, c() == null ? this : c());
+                return new m(this.k, this.f70400e, navigableSet, c() == null ? this : c());
             }
             return (NavigableSet) invokeL.objValue;
         }
@@ -1352,7 +1352,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ AbstractMapBasedMultimap f70230j;
+        public final /* synthetic */ AbstractMapBasedMultimap f70410j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public n(AbstractMapBasedMultimap abstractMapBasedMultimap, K k, Set<V> set) {
@@ -1373,7 +1373,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                     return;
                 }
             }
-            this.f70230j = abstractMapBasedMultimap;
+            this.f70410j = abstractMapBasedMultimap;
         }
 
         @Override // com.google.common.collect.AbstractMapBasedMultimap.k, java.util.AbstractCollection, java.util.Collection
@@ -1385,10 +1385,10 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                     return false;
                 }
                 int size = size();
-                boolean k = Sets.k((Set) this.f70221f, collection);
+                boolean k = Sets.k((Set) this.f70401f, collection);
                 if (k) {
-                    int size2 = this.f70221f.size();
-                    this.f70230j.totalSize += size2 - size;
+                    int size2 = this.f70401f.size();
+                    this.f70410j.totalSize += size2 - size;
                     g();
                 }
                 return k;
@@ -1403,7 +1403,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ AbstractMapBasedMultimap f70231j;
+        public final /* synthetic */ AbstractMapBasedMultimap f70411j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public o(AbstractMapBasedMultimap abstractMapBasedMultimap, K k, SortedSet<V> sortedSet, AbstractMapBasedMultimap<K, V>.k kVar) {
@@ -1424,7 +1424,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                     return;
                 }
             }
-            this.f70231j = abstractMapBasedMultimap;
+            this.f70411j = abstractMapBasedMultimap;
         }
 
         @Override // java.util.SortedSet
@@ -1457,7 +1457,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, v)) == null) {
                 f();
-                return new o(this.f70231j, e(), h().headSet(v), c() == null ? this : c());
+                return new o(this.f70411j, e(), h().headSet(v), c() == null ? this : c());
             }
             return (SortedSet) invokeL.objValue;
         }
@@ -1479,7 +1479,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, v, v2)) == null) {
                 f();
-                return new o(this.f70231j, e(), h().subSet(v, v2), c() == null ? this : c());
+                return new o(this.f70411j, e(), h().subSet(v, v2), c() == null ? this : c());
             }
             return (SortedSet) invokeLL.objValue;
         }
@@ -1490,7 +1490,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, v)) == null) {
                 f();
-                return new o(this.f70231j, e(), h().tailSet(v), c() == null ? this : c());
+                return new o(this.f70411j, e(), h().tailSet(v), c() == null ? this : c());
             }
             return (SortedSet) invokeL.objValue;
         }
@@ -1830,19 +1830,19 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f70220e;
+        public final K f70400e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Collection<V> f70221f;
+        public Collection<V> f70401f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final AbstractMapBasedMultimap<K, V>.k f70222g;
+        public final AbstractMapBasedMultimap<K, V>.k f70402g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Collection<V> f70223h;
+        public final Collection<V> f70403h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ AbstractMapBasedMultimap f70224i;
+        public final /* synthetic */ AbstractMapBasedMultimap f70404i;
 
         public k(AbstractMapBasedMultimap abstractMapBasedMultimap, K k, Collection<V> collection, AbstractMapBasedMultimap<K, V>.k kVar) {
             Interceptable interceptable = $ic;
@@ -1859,11 +1859,11 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                     return;
                 }
             }
-            this.f70224i = abstractMapBasedMultimap;
-            this.f70220e = k;
-            this.f70221f = collection;
-            this.f70222g = kVar;
-            this.f70223h = kVar == null ? null : kVar.d();
+            this.f70404i = abstractMapBasedMultimap;
+            this.f70400e = k;
+            this.f70401f = collection;
+            this.f70402g = kVar;
+            this.f70403h = kVar == null ? null : kVar.d();
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
@@ -1872,10 +1872,10 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v)) == null) {
                 f();
-                boolean isEmpty = this.f70221f.isEmpty();
-                boolean add = this.f70221f.add(v);
+                boolean isEmpty = this.f70401f.isEmpty();
+                boolean add = this.f70401f.add(v);
                 if (add) {
-                    AbstractMapBasedMultimap.access$208(this.f70224i);
+                    AbstractMapBasedMultimap.access$208(this.f70404i);
                     if (isEmpty) {
                         b();
                     }
@@ -1894,10 +1894,10 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                     return false;
                 }
                 int size = size();
-                boolean addAll = this.f70221f.addAll(collection);
+                boolean addAll = this.f70401f.addAll(collection);
                 if (addAll) {
-                    int size2 = this.f70221f.size();
-                    this.f70224i.totalSize += size2 - size;
+                    int size2 = this.f70401f.size();
+                    this.f70404i.totalSize += size2 - size;
                     if (size == 0) {
                         b();
                     }
@@ -1910,9 +1910,9 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                AbstractMapBasedMultimap<K, V>.k kVar = this.f70222g;
+                AbstractMapBasedMultimap<K, V>.k kVar = this.f70402g;
                 if (kVar == null) {
-                    this.f70224i.map.put(this.f70220e, this.f70221f);
+                    this.f70404i.map.put(this.f70400e, this.f70401f);
                 } else {
                     kVar.b();
                 }
@@ -1922,7 +1922,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public AbstractMapBasedMultimap<K, V>.k c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70222g : (k) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70402g : (k) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
@@ -1932,8 +1932,8 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (size = size()) == 0) {
                 return;
             }
-            this.f70221f.clear();
-            this.f70224i.totalSize -= size;
+            this.f70401f.clear();
+            this.f70404i.totalSize -= size;
             g();
         }
 
@@ -1943,7 +1943,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
                 f();
-                return this.f70221f.contains(obj);
+                return this.f70401f.contains(obj);
             }
             return invokeL.booleanValue;
         }
@@ -1954,7 +1954,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, collection)) == null) {
                 f();
-                return this.f70221f.containsAll(collection);
+                return this.f70401f.containsAll(collection);
             }
             return invokeL.booleanValue;
         }
@@ -1962,13 +1962,13 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public Collection<V> d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f70221f : (Collection) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f70401f : (Collection) invokeV.objValue;
         }
 
         public K e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f70220e : (K) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f70400e : (K) invokeV.objValue;
         }
 
         @Override // java.util.Collection
@@ -1980,7 +1980,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                     return true;
                 }
                 f();
-                return this.f70221f.equals(obj);
+                return this.f70401f.equals(obj);
             }
             return invokeL.booleanValue;
         }
@@ -1989,15 +1989,15 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             Collection<V> collection;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-                AbstractMapBasedMultimap<K, V>.k kVar = this.f70222g;
+                AbstractMapBasedMultimap<K, V>.k kVar = this.f70402g;
                 if (kVar != null) {
                     kVar.f();
-                    if (this.f70222g.d() != this.f70223h) {
+                    if (this.f70402g.d() != this.f70403h) {
                         throw new ConcurrentModificationException();
                     }
-                } else if (!this.f70221f.isEmpty() || (collection = (Collection) this.f70224i.map.get(this.f70220e)) == null) {
+                } else if (!this.f70401f.isEmpty() || (collection = (Collection) this.f70404i.map.get(this.f70400e)) == null) {
                 } else {
-                    this.f70221f = collection;
+                    this.f70401f = collection;
                 }
             }
         }
@@ -2005,11 +2005,11 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-                AbstractMapBasedMultimap<K, V>.k kVar = this.f70222g;
+                AbstractMapBasedMultimap<K, V>.k kVar = this.f70402g;
                 if (kVar != null) {
                     kVar.g();
-                } else if (this.f70221f.isEmpty()) {
-                    this.f70224i.map.remove(this.f70220e);
+                } else if (this.f70401f.isEmpty()) {
+                    this.f70404i.map.remove(this.f70400e);
                 }
             }
         }
@@ -2020,7 +2020,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
                 f();
-                return this.f70221f.hashCode();
+                return this.f70401f.hashCode();
             }
             return invokeV.intValue;
         }
@@ -2042,9 +2042,9 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
                 f();
-                boolean remove = this.f70221f.remove(obj);
+                boolean remove = this.f70401f.remove(obj);
                 if (remove) {
-                    AbstractMapBasedMultimap.access$210(this.f70224i);
+                    AbstractMapBasedMultimap.access$210(this.f70404i);
                     g();
                 }
                 return remove;
@@ -2061,10 +2061,10 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                     return false;
                 }
                 int size = size();
-                boolean removeAll = this.f70221f.removeAll(collection);
+                boolean removeAll = this.f70401f.removeAll(collection);
                 if (removeAll) {
-                    int size2 = this.f70221f.size();
-                    this.f70224i.totalSize += size2 - size;
+                    int size2 = this.f70401f.size();
+                    this.f70404i.totalSize += size2 - size;
                     g();
                 }
                 return removeAll;
@@ -2079,10 +2079,10 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, collection)) == null) {
                 c.i.d.a.n.p(collection);
                 int size = size();
-                boolean retainAll = this.f70221f.retainAll(collection);
+                boolean retainAll = this.f70401f.retainAll(collection);
                 if (retainAll) {
-                    int size2 = this.f70221f.size();
-                    this.f70224i.totalSize += size2 - size;
+                    int size2 = this.f70401f.size();
+                    this.f70404i.totalSize += size2 - size;
                     g();
                 }
                 return retainAll;
@@ -2096,7 +2096,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 f();
-                return this.f70221f.size();
+                return this.f70401f.size();
             }
             return invokeV.intValue;
         }
@@ -2107,7 +2107,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
                 f();
-                return this.f70221f.toString();
+                return this.f70401f.toString();
             }
             return (String) invokeV.objValue;
         }
@@ -2118,13 +2118,13 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final Iterator<V> f70225e;
+            public final Iterator<V> f70405e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final Collection<V> f70226f;
+            public final Collection<V> f70406f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ k f70227g;
+            public final /* synthetic */ k f70407g;
 
             public a(k kVar) {
                 Interceptable interceptable = $ic;
@@ -2141,9 +2141,9 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                         return;
                     }
                 }
-                this.f70227g = kVar;
-                this.f70226f = this.f70227g.f70221f;
-                this.f70225e = AbstractMapBasedMultimap.iteratorOrListIterator(kVar.f70221f);
+                this.f70407g = kVar;
+                this.f70406f = this.f70407g.f70401f;
+                this.f70405e = AbstractMapBasedMultimap.iteratorOrListIterator(kVar.f70401f);
             }
 
             public Iterator<V> a() {
@@ -2151,7 +2151,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     b();
-                    return this.f70225e;
+                    return this.f70405e;
                 }
                 return (Iterator) invokeV.objValue;
             }
@@ -2159,8 +2159,8 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f70227g.f();
-                    if (this.f70227g.f70221f != this.f70226f) {
+                    this.f70407g.f();
+                    if (this.f70407g.f70401f != this.f70406f) {
                         throw new ConcurrentModificationException();
                     }
                 }
@@ -2172,7 +2172,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     b();
-                    return this.f70225e.hasNext();
+                    return this.f70405e.hasNext();
                 }
                 return invokeV.booleanValue;
             }
@@ -2183,7 +2183,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                     b();
-                    return this.f70225e.next();
+                    return this.f70405e.next();
                 }
                 return (V) invokeV.objValue;
             }
@@ -2192,9 +2192,9 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             public void remove() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                    this.f70225e.remove();
-                    AbstractMapBasedMultimap.access$210(this.f70227g.f70224i);
-                    this.f70227g.g();
+                    this.f70405e.remove();
+                    AbstractMapBasedMultimap.access$210(this.f70407g.f70404i);
+                    this.f70407g.g();
                 }
             }
 
@@ -2213,9 +2213,9 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                         return;
                     }
                 }
-                this.f70227g = kVar;
-                this.f70226f = this.f70227g.f70221f;
-                this.f70225e = it;
+                this.f70407g = kVar;
+                this.f70406f = this.f70407g.f70401f;
+                this.f70405e = it;
             }
         }
     }
@@ -2226,7 +2226,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ AbstractMapBasedMultimap f70228j;
+        public final /* synthetic */ AbstractMapBasedMultimap f70408j;
 
         /* loaded from: classes10.dex */
         public class a extends AbstractMapBasedMultimap<K, V>.k.a implements ListIterator<V> {
@@ -2234,7 +2234,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ l f70229h;
+            public final /* synthetic */ l f70409h;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(l lVar) {
@@ -2254,18 +2254,18 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                         return;
                     }
                 }
-                this.f70229h = lVar;
+                this.f70409h = lVar;
             }
 
             @Override // java.util.ListIterator
             public void add(V v) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, v) == null) {
-                    boolean isEmpty = this.f70229h.isEmpty();
+                    boolean isEmpty = this.f70409h.isEmpty();
                     c().add(v);
-                    AbstractMapBasedMultimap.access$208(this.f70229h.f70228j);
+                    AbstractMapBasedMultimap.access$208(this.f70409h.f70408j);
                     if (isEmpty) {
-                        this.f70229h.b();
+                        this.f70409h.b();
                     }
                 }
             }
@@ -2331,7 +2331,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                         return;
                     }
                 }
-                this.f70229h = lVar;
+                this.f70409h = lVar;
             }
         }
 
@@ -2354,7 +2354,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                     return;
                 }
             }
-            this.f70228j = abstractMapBasedMultimap;
+            this.f70408j = abstractMapBasedMultimap;
         }
 
         @Override // java.util.List
@@ -2364,7 +2364,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                 f();
                 boolean isEmpty = d().isEmpty();
                 h().add(i2, v);
-                AbstractMapBasedMultimap.access$208(this.f70228j);
+                AbstractMapBasedMultimap.access$208(this.f70408j);
                 if (isEmpty) {
                     b();
                 }
@@ -2383,7 +2383,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
                 boolean addAll = h().addAll(i2, collection);
                 if (addAll) {
                     int size2 = d().size();
-                    this.f70228j.totalSize += size2 - size;
+                    this.f70408j.totalSize += size2 - size;
                     if (size == 0) {
                         b();
                     }
@@ -2450,7 +2450,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
                 f();
                 V remove = h().remove(i2);
-                AbstractMapBasedMultimap.access$210(this.f70228j);
+                AbstractMapBasedMultimap.access$210(this.f70408j);
                 g();
                 return remove;
             }
@@ -2476,7 +2476,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i2, i3)) == null) {
                 f();
-                return this.f70228j.wrapList(e(), h().subList(i2, i3), c() == null ? this : c());
+                return this.f70408j.wrapList(e(), h().subList(i2, i3), c() == null ? this : c());
             }
             return (List) invokeII.objValue;
         }

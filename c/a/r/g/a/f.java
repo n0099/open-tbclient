@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class f extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public final class f extends d {
                 return;
             }
         }
-        this.f29560a = 32;
-        this.f29561b = i2;
-        this.f29562c = i3;
+        this.f15390a = 32;
+        this.f15391b = i2;
+        this.f15392c = i3;
     }
 
     @Override // c.a.r.g.a.d

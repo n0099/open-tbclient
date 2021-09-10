@@ -1,6 +1,6 @@
 package com.baidu.tieba.godSquare.model.req;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class GodSquareRequestMsg extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.rn = 30;
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             GetHotGodReqIdl.Builder builder2 = new GetHotGodReqIdl.Builder();
             builder2.data = builder.build(false);

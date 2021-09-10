@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import c.a.p0.d1.i.b.b;
+import c.a.q0.f1.i.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;

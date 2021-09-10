@@ -13,7 +13,7 @@ public class u2 implements DownloadListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ AdvancedWebView f77003a;
+    public final /* synthetic */ AdvancedWebView f77183a;
 
     public u2(AdvancedWebView advancedWebView) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class u2 implements DownloadListener {
                 return;
             }
         }
-        this.f77003a = advancedWebView;
+        this.f77183a = advancedWebView;
     }
 
     @Override // android.webkit.DownloadListener
@@ -38,7 +38,7 @@ public class u2 implements DownloadListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
             String guessFileName = URLUtil.guessFileName(str, str3, str4);
-            v2 v2Var = this.f77003a.f77030c;
+            v2 v2Var = this.f77183a.f77210c;
             if (v2Var != null) {
                 v2Var.a(str, guessFileName, str4, j2, str3, str2);
             }

@@ -14,16 +14,16 @@ public final class m implements Iterator<E> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a<E> f75299a;
+    public a<E> f75479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a<E> f75300b;
+    public a<E> f75480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public E f75301c;
+    public E f75481c;
 
     /* renamed from: d  reason: collision with root package name */
-    public /* synthetic */ l f75302d;
+    public /* synthetic */ l f75482d;
 
     /* JADX WARN: Type inference failed for: r0v4, types: [E, java.lang.Object] */
     public m(l lVar) {
@@ -41,13 +41,13 @@ public final class m implements Iterator<E> {
                 return;
             }
         }
-        this.f75302d = lVar;
+        this.f75482d = lVar;
         lVar.a();
         try {
-            a aVar = lVar.f75291a.f75262a;
-            this.f75299a = aVar;
+            a aVar = lVar.f75471a.f75442a;
+            this.f75479a = aVar;
             if (aVar != null) {
-                this.f75301c = aVar.b();
+                this.f75481c = aVar.b();
             }
         } finally {
             lVar.b();
@@ -68,9 +68,9 @@ public final class m implements Iterator<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, aVar)) == null) {
             while (true) {
-                aVar2 = aVar.f75262a;
+                aVar2 = aVar.f75442a;
                 if (aVar2 == aVar) {
-                    return this.f75302d.f75291a.f75262a;
+                    return this.f75482d.f75471a.f75442a;
                 }
                 if (aVar2 == null || aVar2.b() != null) {
                     break;
@@ -86,7 +86,7 @@ public final class m implements Iterator<E> {
     public final boolean hasNext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75299a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75479a != null : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: E */
@@ -99,26 +99,26 @@ public final class m implements Iterator<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.f75302d.a();
+            this.f75482d.a();
             try {
-                if (this.f75299a != null) {
-                    E e2 = this.f75301c;
-                    this.f75300b = this.f75299a;
-                    a<E> a2 = a(this.f75299a);
-                    this.f75299a = a2;
-                    this.f75301c = a2 == 0 ? 0 : a2.b();
+                if (this.f75479a != null) {
+                    E e2 = this.f75481c;
+                    this.f75480b = this.f75479a;
+                    a<E> a2 = a(this.f75479a);
+                    this.f75479a = a2;
+                    this.f75481c = a2 == 0 ? 0 : a2.b();
                     return e2;
                 }
                 throw new NoSuchElementException();
             } finally {
-                this.f75302d.b();
+                this.f75482d.b();
             }
         }
         return invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x001f, code lost:
-        r4.f75302d.a(r1, r2);
+        r4.f75482d.a(r1, r2);
      */
     @Override // java.util.Iterator
     /*
@@ -127,17 +127,17 @@ public final class m implements Iterator<E> {
     public final void remove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f75300b == null) {
+            if (this.f75480b == null) {
                 throw new IllegalStateException();
             }
-            this.f75302d.a();
+            this.f75482d.a();
             try {
-                a aVar = this.f75300b;
-                this.f75300b = null;
-                a aVar2 = this.f75302d.f75291a;
+                a aVar = this.f75480b;
+                this.f75480b = null;
+                a aVar2 = this.f75482d.f75471a;
                 while (true) {
                     a aVar3 = aVar2;
-                    aVar2 = aVar2.f75262a;
+                    aVar2 = aVar2.f75442a;
                     if (aVar2 == null) {
                         break;
                     } else if (aVar2 == aVar) {
@@ -145,7 +145,7 @@ public final class m implements Iterator<E> {
                     }
                 }
             } finally {
-                this.f75302d.b();
+                this.f75482d.b();
             }
         }
     }

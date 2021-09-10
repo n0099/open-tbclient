@@ -829,7 +829,7 @@ public class b {
                     for (int i2 = 0; i2 < size; i2++) {
                         sb.append("&rec");
                         sb.append(i2);
-                        sb.append(com.alipay.sdk.encrypt.a.f35879h);
+                        sb.append(com.alipay.sdk.encrypt.a.f35988h);
                         try {
                             sb.append(URLEncoder.encode(arrayList.get(i2), "utf-8"));
                         } catch (UnsupportedEncodingException e2) {

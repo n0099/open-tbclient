@@ -17,31 +17,31 @@ public class ImageResponse<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64896a;
+    public String f65076a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64897b;
+    public String f65077b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f64898c;
+    public T f65078c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f64899d;
+    public int f65079d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f64900e;
+    public int f65080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, String> f64901f;
+    public Map<String, String> f65081f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f64902g;
+    public boolean f65082g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f64903h;
+    public boolean f65083h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f64904i;
+    public e f65084i;
 
     public ImageResponse() {
         Interceptable interceptable = $ic;
@@ -61,13 +61,13 @@ public class ImageResponse<T> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, t)) == null) {
-            this.f64898c = t;
-            this.f64896a = aVar.e();
-            this.f64897b = aVar.a();
-            this.f64899d = aVar.h();
-            this.f64900e = aVar.i();
-            this.f64903h = aVar.m();
-            this.f64904i = aVar.n();
+            this.f65078c = t;
+            this.f65076a = aVar.e();
+            this.f65077b = aVar.a();
+            this.f65079d = aVar.h();
+            this.f65080e = aVar.i();
+            this.f65083h = aVar.m();
+            this.f65084i = aVar.n();
             return this;
         }
         return (ImageResponse) invokeLL.objValue;
@@ -76,64 +76,64 @@ public class ImageResponse<T> {
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64896a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f65076a : (String) invokeV.objValue;
     }
 
     @Nullable
     public Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64901f : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65081f : (Map) invokeV.objValue;
     }
 
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64900e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f65080e : invokeV.intValue;
     }
 
     public e getHttpTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64904i : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f65084i : (e) invokeV.objValue;
     }
 
     public T getResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f64898c : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f65078c : (T) invokeV.objValue;
     }
 
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f64897b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f65077b : (String) invokeV.objValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f64899d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f65079d : invokeV.intValue;
     }
 
     public boolean isGif() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f64902g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f65082g : invokeV.booleanValue;
     }
 
     public boolean isLocal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f64903h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f65083h : invokeV.booleanValue;
     }
 
     public ImageResponse fromReuqest(a aVar, T t, Map<String, String> map, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, t, map, Boolean.valueOf(z)})) == null) {
-            this.f64901f = map;
-            this.f64902g = z;
+            this.f65081f = map;
+            this.f65082g = z;
             return fromReuqest(aVar, t);
         }
         return (ImageResponse) invokeCommon.objValue;

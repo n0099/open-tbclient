@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.s.q.c2;
-import c.a.p0.s.q.x0;
+import c.a.q0.s.q.d2;
+import c.a.q0.s.q.x0;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -45,52 +45,52 @@ public class FeedTabCardStatisticHelper {
         }
     }
 
-    public static StatisticItem clickThreadBigPictureStatisticLog(c2 c2Var, String str) {
+    public static StatisticItem clickThreadBigPictureStatisticLog(d2 d2Var, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, c2Var, str)) == null) {
-            if (c2Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, d2Var, str)) == null) {
+            if (d2Var == null) {
                 return null;
             }
-            StatisticItem baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_PICTURE_TEXT_THREAD_BIG_PICTURE_CLICK, c2Var, str);
+            StatisticItem baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_PICTURE_TEXT_THREAD_BIG_PICTURE_CLICK, d2Var, str);
             baseThreadStatisticLog.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            baseThreadStatisticLog.param("obj_locate", c2Var.Q1);
+            baseThreadStatisticLog.param("obj_locate", d2Var.S1);
             baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
-            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(c2Var));
-            baseThreadStatisticLog.param("obj_type", c2Var.X2());
-            if (c2Var.L() != null) {
-                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, c2Var.L().oriUgcNid);
+            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(d2Var));
+            baseThreadStatisticLog.param("obj_type", d2Var.d3());
+            if (d2Var.L() != null) {
+                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, d2Var.L().oriUgcNid);
             }
-            baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, c2Var.r2() ? 1 : 0);
+            baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, d2Var.v2() ? 1 : 0);
             return baseThreadStatisticLog;
         }
         return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem clickThreadEnterForumStatisticLog(c2 c2Var, String str) {
+    public static StatisticItem clickThreadEnterForumStatisticLog(d2 d2Var, String str) {
         InterceptResult invokeLL;
         StatisticItem baseThreadStatisticLog;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, c2Var, str)) == null) {
-            if (c2Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, d2Var, str)) == null) {
+            if (d2Var == null) {
                 return null;
             }
-            if (c2Var.getType() == c2.t3) {
-                baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_ENTER_FORUM_CLICK, c2Var, str);
+            if (d2Var.getType() == d2.w3) {
+                baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_ENTER_FORUM_CLICK, d2Var, str);
                 baseThreadStatisticLog.param("obj_type", 1);
-                if (c2Var.L() != null) {
-                    baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM6, c2Var.L().oriUgcVid);
+                if (d2Var.L() != null) {
+                    baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM6, d2Var.L().oriUgcVid);
                 }
             } else {
-                baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_PICTURE_TEXT_THREAD_ENTER_FORUM_CLICK, c2Var, str);
-                baseThreadStatisticLog.param("obj_type", c2Var.X2());
+                baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_PICTURE_TEXT_THREAD_ENTER_FORUM_CLICK, d2Var, str);
+                baseThreadStatisticLog.param("obj_type", d2Var.d3());
             }
             baseThreadStatisticLog.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            baseThreadStatisticLog.param("obj_locate", c2Var.Q1);
+            baseThreadStatisticLog.param("obj_locate", d2Var.S1);
             baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
-            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(c2Var));
-            if (c2Var.L() != null) {
-                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, c2Var.L().oriUgcNid);
+            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(d2Var));
+            if (d2Var.L() != null) {
+                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, d2Var.L().oriUgcNid);
             }
             return baseThreadStatisticLog;
         }
@@ -122,175 +122,175 @@ public class FeedTabCardStatisticHelper {
         return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem clickThreadPotraitStatisticLog(c2 c2Var, String str) {
+    public static StatisticItem clickThreadPotraitStatisticLog(d2 d2Var, String str) {
         InterceptResult invokeLL;
         StatisticItem baseThreadStatisticLog;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, c2Var, str)) == null) {
-            if (c2Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, d2Var, str)) == null) {
+            if (d2Var == null) {
                 return null;
             }
-            if (c2Var.getType() == c2.t3) {
-                baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_POTRAIT_CLICK, c2Var, str);
-                if (c2Var.L() != null) {
-                    baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM6, c2Var.L().oriUgcVid);
+            if (d2Var.getType() == d2.w3) {
+                baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_POTRAIT_CLICK, d2Var, str);
+                if (d2Var.L() != null) {
+                    baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM6, d2Var.L().oriUgcVid);
                 }
             } else {
-                baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_PICTURE_TEXT_THREAD_POTRAIT_CLICK, c2Var, str);
-                baseThreadStatisticLog.param("obj_type", c2Var.X2());
+                baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_PICTURE_TEXT_THREAD_POTRAIT_CLICK, d2Var, str);
+                baseThreadStatisticLog.param("obj_type", d2Var.d3());
             }
             baseThreadStatisticLog.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            baseThreadStatisticLog.param("obj_locate", c2Var.Q1);
+            baseThreadStatisticLog.param("obj_locate", d2Var.S1);
             baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
-            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(c2Var));
-            if (c2Var.L() != null) {
-                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, c2Var.L().oriUgcNid);
+            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(d2Var));
+            if (d2Var.L() != null) {
+                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, d2Var.L().oriUgcNid);
             }
             return baseThreadStatisticLog;
         }
         return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem clickThreadTitleStatisticLog(c2 c2Var, String str) {
+    public static StatisticItem clickThreadTitleStatisticLog(d2 d2Var, String str) {
         InterceptResult invokeLL;
         StatisticItem baseThreadStatisticLog;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, c2Var, str)) == null) {
-            if (c2Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, d2Var, str)) == null) {
+            if (d2Var == null) {
                 return null;
             }
-            if (c2Var.getType() == c2.t3) {
-                baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_TITLE_CLICK, c2Var, str);
-                if (c2Var.L() != null) {
-                    baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM6, c2Var.L().oriUgcVid);
+            if (d2Var.getType() == d2.w3) {
+                baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_TITLE_CLICK, d2Var, str);
+                if (d2Var.L() != null) {
+                    baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM6, d2Var.L().oriUgcVid);
                 }
-                if (c2Var.t1 > 0) {
+                if (d2Var.v1 > 0) {
                     baseThreadStatisticLog.param(TiebaStatic.Params.MID_PAGE_FLAG, 1);
                 } else {
                     baseThreadStatisticLog.param(TiebaStatic.Params.MID_PAGE_FLAG, 0);
                 }
             } else {
-                baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_PICTURE_TEXT_THREAD_TITLE_CLICK, c2Var, str);
-                baseThreadStatisticLog.param("obj_type", c2Var.X2());
-                baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, c2Var.r2() ? 1 : 0);
+                baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_PICTURE_TEXT_THREAD_TITLE_CLICK, d2Var, str);
+                baseThreadStatisticLog.param("obj_type", d2Var.d3());
+                baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, d2Var.v2() ? 1 : 0);
             }
             baseThreadStatisticLog.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            baseThreadStatisticLog.param("obj_locate", c2Var.Q1);
+            baseThreadStatisticLog.param("obj_locate", d2Var.S1);
             baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
-            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(c2Var));
-            if (c2Var.L() != null) {
-                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, c2Var.L().oriUgcNid);
+            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(d2Var));
+            if (d2Var.L() != null) {
+                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, d2Var.L().oriUgcNid);
             }
             return baseThreadStatisticLog;
         }
         return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem clickThreadVideoAreaStatisticLog(c2 c2Var, String str) {
+    public static StatisticItem clickThreadVideoAreaStatisticLog(d2 d2Var, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, c2Var, str)) == null) {
-            if (c2Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, d2Var, str)) == null) {
+            if (d2Var == null) {
                 return null;
             }
-            StatisticItem baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_VIDEO_AREA_CLICK, c2Var, str);
+            StatisticItem baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_VIDEO_AREA_CLICK, d2Var, str);
             baseThreadStatisticLog.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            baseThreadStatisticLog.param("obj_locate", c2Var.Q1);
+            baseThreadStatisticLog.param("obj_locate", d2Var.S1);
             baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
-            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(c2Var));
-            if (c2Var.L() != null) {
-                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, c2Var.L().oriUgcNid);
-                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM6, c2Var.L().oriUgcVid);
+            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(d2Var));
+            if (d2Var.L() != null) {
+                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, d2Var.L().oriUgcNid);
+                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM6, d2Var.L().oriUgcVid);
             }
             return baseThreadStatisticLog;
         }
         return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem getBaseThreadStatisticLog(String str, c2 c2Var, String str2) {
+    public static StatisticItem getBaseThreadStatisticLog(String str, d2 d2Var, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, c2Var, str2)) == null) {
-            if (c2Var == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, d2Var, str2)) == null) {
+            if (d2Var == null) {
                 return null;
             }
             StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("tid", c2Var.q1());
-            statisticItem.param("fid", c2Var.T());
+            statisticItem.param("tid", d2Var.s1());
+            statisticItem.param("fid", d2Var.T());
             statisticItem.param(TiebaStatic.Params.RESOURCE_ID, str2);
             return statisticItem;
         }
         return (StatisticItem) invokeLLL.objValue;
     }
 
-    public static int getThreadType(c2 c2Var) {
+    public static int getThreadType(d2 d2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, c2Var)) == null) {
-            if (c2Var.getType() == c2.h3 || c2Var.L1()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, d2Var)) == null) {
+            if (d2Var.getType() == d2.k3 || d2Var.O1()) {
                 return 2;
             }
-            return (c2Var.J1() || c2Var.M1()) ? 3 : 1;
+            return (d2Var.M1() || d2Var.P1()) ? 3 : 1;
         }
         return invokeL.intValue;
     }
 
-    public static StatisticItem showPictureTextThreadStatisticLog(c2 c2Var, String str) {
+    public static StatisticItem showPictureTextThreadStatisticLog(d2 d2Var, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, c2Var, str)) == null) {
-            if (c2Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, d2Var, str)) == null) {
+            if (d2Var == null) {
                 return null;
             }
-            StatisticItem baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_PICTURE_TEXT_THREAD_SHOW, c2Var, str);
+            StatisticItem baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_PICTURE_TEXT_THREAD_SHOW, d2Var, str);
             baseThreadStatisticLog.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            baseThreadStatisticLog.param("obj_locate", c2Var.Q1);
-            baseThreadStatisticLog.param("obj_source", c2Var.a0);
+            baseThreadStatisticLog.param("obj_locate", d2Var.S1);
+            baseThreadStatisticLog.param("obj_source", d2Var.c0);
             baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
-            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(c2Var));
-            baseThreadStatisticLog.param("obj_type", c2Var.X2());
-            if (c2Var.t1() != null) {
-                baseThreadStatisticLog.param("obj_name", c2Var.t1().c0 ? 1 : 0);
+            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(d2Var));
+            baseThreadStatisticLog.param("obj_type", d2Var.d3());
+            if (d2Var.v1() != null) {
+                baseThreadStatisticLog.param("obj_name", d2Var.v1().c0 ? 1 : 0);
             }
-            if (c2Var.L() != null) {
-                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, c2Var.L().oriUgcNid);
+            if (d2Var.L() != null) {
+                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, d2Var.L().oriUgcNid);
             }
-            if (c2Var.J() != null) {
-                baseThreadStatisticLog.param(TiebaStatic.Params.AB_TYPE, c2Var.J().getIsLike() ? 1 : 0);
+            if (d2Var.J() != null) {
+                baseThreadStatisticLog.param(TiebaStatic.Params.AB_TYPE, d2Var.J().getIsLike() ? 1 : 0);
             }
-            baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, c2Var.r2() ? 1 : 0);
-            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_FEED_TYPE, c2Var.n0() ? 1 : 2);
+            baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, d2Var.v2() ? 1 : 0);
+            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_FEED_TYPE, d2Var.o0() ? 1 : 2);
             return baseThreadStatisticLog;
         }
         return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem showVideoThreadStatisticLog(c2 c2Var, String str) {
+    public static StatisticItem showVideoThreadStatisticLog(d2 d2Var, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, c2Var, str)) == null) {
-            if (c2Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, d2Var, str)) == null) {
+            if (d2Var == null) {
                 return null;
             }
-            StatisticItem baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_SHOW, c2Var, str);
-            baseThreadStatisticLog.param("obj_locate", c2Var.Q1);
-            baseThreadStatisticLog.param("obj_source", c2Var.a0);
+            StatisticItem baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_SHOW, d2Var, str);
+            baseThreadStatisticLog.param("obj_locate", d2Var.S1);
+            baseThreadStatisticLog.param("obj_source", d2Var.c0);
             baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
-            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(c2Var));
-            baseThreadStatisticLog.param("obj_name", c2Var.W0);
-            if (c2Var.L() != null) {
-                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, c2Var.L().oriUgcNid);
-                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM6, c2Var.L().oriUgcVid);
+            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(d2Var));
+            baseThreadStatisticLog.param("obj_name", d2Var.Y0);
+            if (d2Var.L() != null) {
+                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, d2Var.L().oriUgcNid);
+                baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM6, d2Var.L().oriUgcVid);
             }
-            if (c2Var.t1 > 0) {
+            if (d2Var.v1 > 0) {
                 baseThreadStatisticLog.param(TiebaStatic.Params.MID_PAGE_FLAG, 1);
             } else {
                 baseThreadStatisticLog.param(TiebaStatic.Params.MID_PAGE_FLAG, 0);
             }
-            if (c2Var.J() != null) {
-                baseThreadStatisticLog.param(TiebaStatic.Params.AB_TYPE, c2Var.J().getIsLike() ? 1 : 0);
+            if (d2Var.J() != null) {
+                baseThreadStatisticLog.param(TiebaStatic.Params.AB_TYPE, d2Var.J().getIsLike() ? 1 : 0);
             }
-            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_FEED_TYPE, c2Var.n0() ? 1 : 2);
+            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_FEED_TYPE, d2Var.o0() ? 1 : 2);
             return baseThreadStatisticLog;
         }
         return (StatisticItem) invokeLL.objValue;

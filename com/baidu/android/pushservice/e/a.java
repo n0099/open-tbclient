@@ -23,11 +23,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f37092a;
+    public static volatile a f37211a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final OkHttpClient f37093b;
+    public final OkHttpClient f37212b;
 
     /* renamed from: com.baidu.android.pushservice.e.a$1  reason: invalid class name */
     /* loaded from: classes4.dex */
@@ -43,7 +43,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f37095a;
+        public final /* synthetic */ a f37214a;
 
         public C1585a(a aVar) {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class a {
                     return;
                 }
             }
-            this.f37095a = aVar;
+            this.f37214a = aVar;
         }
 
         public /* synthetic */ C1585a(a aVar, AnonymousClass1 anonymousClass1) {
@@ -99,21 +99,21 @@ public class a {
                 return;
             }
         }
-        this.f37093b = new OkHttpClient.Builder().addInterceptor(new C1585a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
+        this.f37212b = new OkHttpClient.Builder().addInterceptor(new C1585a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f37092a == null) {
+            if (f37211a == null) {
                 synchronized (a.class) {
-                    if (f37092a == null) {
-                        f37092a = new a();
+                    if (f37211a == null) {
+                        f37211a = new a();
                     }
                 }
             }
-            return f37092a;
+            return f37211a;
         }
         return (a) invokeV.objValue;
     }
@@ -173,7 +173,7 @@ public class a {
                     }
                     headers = new Request.Builder().url(str).headers(a(hashMap));
                 }
-                Response execute = this.f37093b.newCall(headers.build()).execute();
+                Response execute = this.f37212b.newCall(headers.build()).execute();
                 bVar.a(execute.code());
                 bVar.a(execute.body().byteStream());
             } catch (IOException | Exception unused) {
@@ -198,7 +198,7 @@ public class a {
                     }
                     headers = new Request.Builder().url(str).headers(a(str3, str4));
                 }
-                Response execute = this.f37093b.newCall(headers.build()).execute();
+                Response execute = this.f37212b.newCall(headers.build()).execute();
                 bVar.a(execute.code());
                 bVar.a(execute.body().byteStream());
             } catch (IOException | Exception unused) {

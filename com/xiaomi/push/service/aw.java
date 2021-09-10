@@ -12,7 +12,7 @@ public class aw implements av.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ av.b f77967a;
+    public final /* synthetic */ av.b f78147a;
 
     public aw(av.b bVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class aw implements av.b.a {
                 return;
             }
         }
-        this.f77967a = bVar;
+        this.f78147a = bVar;
     }
 
     @Override // com.xiaomi.push.service.av.b.a
@@ -38,14 +38,14 @@ public class aw implements av.b.a {
         XMPushService.b bVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, cVar, cVar2, i2) == null) {
-            if (cVar2 == av.c.f77965b) {
-                XMPushService xMPushService = this.f77967a.f911a;
-                bVar2 = this.f77967a.f910a;
+            if (cVar2 == av.c.f78145b) {
+                XMPushService xMPushService = this.f78147a.f911a;
+                bVar2 = this.f78147a.f910a;
                 xMPushService.a(bVar2, 60000L);
                 return;
             }
-            XMPushService xMPushService2 = this.f77967a.f911a;
-            bVar = this.f77967a.f910a;
+            XMPushService xMPushService2 = this.f78147a.f911a;
+            bVar = this.f78147a.f910a;
             xMPushService2.b(bVar);
         }
     }

@@ -16,7 +16,7 @@ import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 @Experimental
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CompletableCache extends Completable implements CompletableObserver {
     public static /* synthetic */ Interceptable $ic;
     public static final InnerCompletableCache[] EMPTY;
@@ -27,7 +27,7 @@ public final class CompletableCache extends Completable implements CompletableOb
     public final AtomicBoolean once;
     public final CompletableSource source;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class InnerCompletableCache extends AtomicBoolean implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8943152917179642732L;

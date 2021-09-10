@@ -52,10 +52,10 @@ public class b implements WalletApiExtListener.LoginstatuSyncListener {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ WalletApiExtListener.SyncLoginStatusCb f62112a;
+                public final /* synthetic */ WalletApiExtListener.SyncLoginStatusCb f62292a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f62113b;
+                public final /* synthetic */ b f62293b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -72,8 +72,8 @@ public class b implements WalletApiExtListener.LoginstatuSyncListener {
                             return;
                         }
                     }
-                    this.f62113b = this;
-                    this.f62112a = syncLoginStatusCb;
+                    this.f62293b = this;
+                    this.f62292a = syncLoginStatusCb;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -82,7 +82,7 @@ public class b implements WalletApiExtListener.LoginstatuSyncListener {
                 public void onBdussExpired(Web2NativeLoginResult web2NativeLoginResult) {
                     WalletApiExtListener.SyncLoginStatusCb syncLoginStatusCb2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, web2NativeLoginResult) == null) || (syncLoginStatusCb2 = this.f62112a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, web2NativeLoginResult) == null) || (syncLoginStatusCb2 = this.f62292a) == null) {
                         return;
                     }
                     syncLoginStatusCb2.onResult(WalletApiExtListener.SyncLoginStatusCb.SyncResult.BDUSSEXPIRED);
@@ -94,7 +94,7 @@ public class b implements WalletApiExtListener.LoginstatuSyncListener {
                 public void onSuccess(Web2NativeLoginResult web2NativeLoginResult) {
                     WalletApiExtListener.SyncLoginStatusCb syncLoginStatusCb2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, web2NativeLoginResult) == null) || (syncLoginStatusCb2 = this.f62112a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, web2NativeLoginResult) == null) || (syncLoginStatusCb2 = this.f62292a) == null) {
                         return;
                     }
                     syncLoginStatusCb2.onResult(WalletApiExtListener.SyncLoginStatusCb.SyncResult.SUCCESS);
@@ -106,7 +106,7 @@ public class b implements WalletApiExtListener.LoginstatuSyncListener {
                 public void onFailure(Web2NativeLoginResult web2NativeLoginResult) {
                     WalletApiExtListener.SyncLoginStatusCb syncLoginStatusCb2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, web2NativeLoginResult) == null) || (syncLoginStatusCb2 = this.f62112a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, web2NativeLoginResult) == null) || (syncLoginStatusCb2 = this.f62292a) == null) {
                         return;
                     }
                     syncLoginStatusCb2.onResult(WalletApiExtListener.SyncLoginStatusCb.SyncResult.FAIL);
@@ -116,7 +116,7 @@ public class b implements WalletApiExtListener.LoginstatuSyncListener {
                 public void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult) {
                     WalletApiExtListener.SyncLoginStatusCb syncLoginStatusCb2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048579, this, web2NativeLoginResult) == null) || (syncLoginStatusCb2 = this.f62112a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048579, this, web2NativeLoginResult) == null) || (syncLoginStatusCb2 = this.f62292a) == null) {
                         return;
                     }
                     syncLoginStatusCb2.onResult(WalletApiExtListener.SyncLoginStatusCb.SyncResult.BDUSSEMPTY);

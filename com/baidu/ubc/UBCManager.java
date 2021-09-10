@@ -1,8 +1,8 @@
 package com.baidu.ubc;
 
-import c.a.s0.m;
-import c.a.s0.s;
-import c.a.s0.w;
+import c.a.t0.m;
+import c.a.t0.s;
+import c.a.t0.w;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import java.util.Map;

@@ -33,7 +33,7 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static ActivityStackManager f60782a;
+        public static ActivityStackManager f60962a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +49,7 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
                     return;
                 }
             }
-            f60782a = new ActivityStackManager(null);
+            f60962a = new ActivityStackManager(null);
         }
 
         public a() {
@@ -74,7 +74,7 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
     public static ActivityStackManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60782a : (ActivityStackManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60962a : (ActivityStackManager) invokeV.objValue;
     }
 
     public void addActivity(Activity activity) {

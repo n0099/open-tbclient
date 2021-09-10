@@ -19,34 +19,34 @@ public final class g implements t.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<t> f31727a;
+    public final List<t> f31836a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.d.b.e0.h.f f31728b;
+    public final c.d.b.e0.h.f f31837b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f31729c;
+    public final c f31838c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.d.b.e0.h.c f31730d;
+    public final c.d.b.e0.h.c f31839d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f31731e;
+    public final int f31840e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final z f31732f;
+    public final z f31841f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.d.b.e f31733g;
+    public final c.d.b.e f31842g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final p f31734h;
+    public final p f31843h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f31735i;
+    public final int f31844i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f31736j;
+    public final int f31845j;
     public final int k;
     public int l;
 
@@ -65,16 +65,16 @@ public final class g implements t.a {
                 return;
             }
         }
-        this.f31727a = list;
-        this.f31730d = cVar2;
-        this.f31728b = fVar;
-        this.f31729c = cVar;
-        this.f31731e = i2;
-        this.f31732f = zVar;
-        this.f31733g = eVar;
-        this.f31734h = pVar;
-        this.f31735i = i3;
-        this.f31736j = i4;
+        this.f31836a = list;
+        this.f31839d = cVar2;
+        this.f31837b = fVar;
+        this.f31838c = cVar;
+        this.f31840e = i2;
+        this.f31841f = zVar;
+        this.f31842g = eVar;
+        this.f31843h = pVar;
+        this.f31844i = i3;
+        this.f31845j = i4;
         this.k = i5;
     }
 
@@ -82,56 +82,56 @@ public final class g implements t.a {
     public b0 a(z zVar) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zVar)) == null) ? e(zVar, this.f31728b, this.f31729c, this.f31730d) : (b0) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zVar)) == null) ? e(zVar, this.f31837b, this.f31838c, this.f31839d) : (b0) invokeL.objValue;
     }
 
     public c.d.b.e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31733g : (c.d.b.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31842g : (c.d.b.e) invokeV.objValue;
     }
 
     public p c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31734h : (p) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31843h : (p) invokeV.objValue;
     }
 
     @Override // c.d.b.t.a
     public int connectTimeoutMillis() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31735i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31844i : invokeV.intValue;
     }
 
     @Override // c.d.b.t.a
     public c.d.b.i connection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31730d : (c.d.b.i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31839d : (c.d.b.i) invokeV.objValue;
     }
 
     public c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f31729c : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f31838c : (c) invokeV.objValue;
     }
 
     public b0 e(z zVar, c.d.b.e0.h.f fVar, c cVar, c.d.b.e0.h.c cVar2) throws IOException {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, zVar, fVar, cVar, cVar2)) == null) {
-            if (this.f31731e < this.f31727a.size()) {
+            if (this.f31840e < this.f31836a.size()) {
                 this.l++;
-                if (this.f31729c != null && !this.f31730d.q(zVar.h())) {
-                    throw new IllegalStateException("network interceptor " + this.f31727a.get(this.f31731e - 1) + " must retain the same host and port");
-                } else if (this.f31729c != null && this.l > 1) {
-                    throw new IllegalStateException("network interceptor " + this.f31727a.get(this.f31731e - 1) + " must call proceed() exactly once");
+                if (this.f31838c != null && !this.f31839d.q(zVar.h())) {
+                    throw new IllegalStateException("network interceptor " + this.f31836a.get(this.f31840e - 1) + " must retain the same host and port");
+                } else if (this.f31838c != null && this.l > 1) {
+                    throw new IllegalStateException("network interceptor " + this.f31836a.get(this.f31840e - 1) + " must call proceed() exactly once");
                 } else {
-                    g gVar = new g(this.f31727a, fVar, cVar, cVar2, this.f31731e + 1, zVar, this.f31733g, this.f31734h, this.f31735i, this.f31736j, this.k);
-                    t tVar = this.f31727a.get(this.f31731e);
+                    g gVar = new g(this.f31836a, fVar, cVar, cVar2, this.f31840e + 1, zVar, this.f31842g, this.f31843h, this.f31844i, this.f31845j, this.k);
+                    t tVar = this.f31836a.get(this.f31840e);
                     b0 a2 = tVar.a(gVar);
-                    if (cVar != null && this.f31731e + 1 < this.f31727a.size() && gVar.l != 1) {
+                    if (cVar != null && this.f31840e + 1 < this.f31836a.size() && gVar.l != 1) {
                         throw new IllegalStateException("network interceptor " + tVar + " must call proceed() exactly once");
                     } else if (a2 != null) {
                         if (a2.g() != null) {
@@ -151,21 +151,21 @@ public final class g implements t.a {
     public c.d.b.e0.h.f f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31728b : (c.d.b.e0.h.f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31837b : (c.d.b.e0.h.f) invokeV.objValue;
     }
 
     @Override // c.d.b.t.a
     public int readTimeoutMillis() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31736j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31845j : invokeV.intValue;
     }
 
     @Override // c.d.b.t.a
     public z request() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f31732f : (z) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f31841f : (z) invokeV.objValue;
     }
 
     @Override // c.d.b.t.a

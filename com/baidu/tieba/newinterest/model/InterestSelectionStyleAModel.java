@@ -1,6 +1,6 @@
 package com.baidu.tieba.newinterest.model;
 
-import c.a.q0.e2.c.b;
+import c.a.r0.f2.c.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -26,16 +26,16 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.e2.a.a f54648e;
+    public c.a.r0.f2.a.a f54796e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b> f54649f;
+    public List<b> f54797f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.q0.e2.f.a f54650g;
+    public c.a.r0.f2.f.a f54798g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f54651h;
+    public HttpMessageListener f54799h;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -43,7 +43,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InterestSelectionStyleAModel f54652a;
+        public final /* synthetic */ InterestSelectionStyleAModel f54800a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(InterestSelectionStyleAModel interestSelectionStyleAModel, int i2, boolean z) {
@@ -64,7 +64,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f54652a = interestSelectionStyleAModel;
+            this.f54800a = interestSelectionStyleAModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,29 +72,29 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003509 && (httpResponsedMessage instanceof GetInterestClassListResponseMessage)) {
-                this.f54652a.f54649f = ((GetInterestClassListResponseMessage) httpResponsedMessage).getInterestSelectionInfoList();
+                this.f54800a.f54797f = ((GetInterestClassListResponseMessage) httpResponsedMessage).getInterestSelectionInfoList();
                 if (httpResponsedMessage.getError() == 0) {
-                    if (this.f54652a.f54649f == null || this.f54652a.f54649f.size() <= 0) {
-                        if (this.f54652a.f54650g != null) {
-                            this.f54652a.f54650g.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    if (this.f54800a.f54797f == null || this.f54800a.f54797f.size() <= 0) {
+                        if (this.f54800a.f54798g != null) {
+                            this.f54800a.f54798g.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                             return;
                         }
                         return;
                     }
-                    InterestSelectionStyleAModel interestSelectionStyleAModel = this.f54652a;
-                    interestSelectionStyleAModel.f54648e.c(interestSelectionStyleAModel.f54649f);
-                    this.f54652a.f54648e.notifyDataSetChanged();
-                    if (this.f54652a.f54650g != null) {
-                        this.f54652a.f54650g.a(this.f54652a.f54649f);
+                    InterestSelectionStyleAModel interestSelectionStyleAModel = this.f54800a;
+                    interestSelectionStyleAModel.f54796e.c(interestSelectionStyleAModel.f54797f);
+                    this.f54800a.f54796e.notifyDataSetChanged();
+                    if (this.f54800a.f54798g != null) {
+                        this.f54800a.f54798g.a(this.f54800a.f54797f);
                     }
-                } else if (this.f54652a.f54650g != null) {
-                    this.f54652a.f54650g.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (this.f54800a.f54798g != null) {
+                    this.f54800a.f54798g.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     }
 
-    public InterestSelectionStyleAModel(c.a.q0.e2.a.a aVar, c.a.q0.e2.f.a aVar2) {
+    public InterestSelectionStyleAModel(c.a.r0.f2.a.a aVar, c.a.r0.f2.f.a aVar2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,10 +109,10 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
                 return;
             }
         }
-        this.f54649f = new ArrayList();
-        this.f54651h = new a(this, CmdConfigHttp.CMD_INTERESTED_GET_CLASS_LIST, true);
-        this.f54650g = aVar2;
-        this.f54648e = aVar;
+        this.f54797f = new ArrayList();
+        this.f54799h = new a(this, CmdConfigHttp.CMD_INTERESTED_GET_CLASS_LIST, true);
+        this.f54798g = aVar2;
+        this.f54796e = aVar;
         A();
         registerListener();
         B();
@@ -138,7 +138,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_INTERESTED_GET_CLASS_LIST);
-            MessageManager.getInstance().unRegisterListener(this.f54651h);
+            MessageManager.getInstance().unRegisterListener(this.f54799h);
         }
     }
 
@@ -172,7 +172,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().registerListener(this.f54651h);
+            MessageManager.getInstance().registerListener(this.f54799h);
         }
     }
 

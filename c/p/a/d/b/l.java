@@ -30,34 +30,34 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final JSONObject f34611a;
+    public static final JSONObject f34720a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f34612b;
+    public static Context f34721b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c.p.a.a.a.c.f f34613c;
+    public static c.p.a.a.a.c.f f34722c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c.p.a.a.a.c.c f34614d;
+    public static c.p.a.a.a.c.c f34723d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static c.p.a.a.a.c.k f34615e;
+    public static c.p.a.a.a.c.k f34724e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c.p.a.a.a.c.g f34616f;
+    public static c.p.a.a.a.c.g f34725f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static c.p.a.a.a.c.h f34617g;
+    public static c.p.a.a.a.c.h f34726g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static c.p.a.a.a.c.i f34618h;
+    public static c.p.a.a.a.c.i f34727h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static c.p.a.a.a.c.b f34619i;
+    public static c.p.a.a.a.c.b f34728i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static d.j f34620j;
+    public static d.j f34729j;
     public static c.p.a.a.a.c.d k;
     public static c.p.a.a.a.c.e l;
     public static o m;
@@ -226,7 +226,7 @@ public class l {
                 return;
             }
         }
-        f34611a = new JSONObject();
+        f34720a = new JSONObject();
     }
 
     public static c.p.a.a.a.c.d A() {
@@ -306,14 +306,14 @@ public class l {
     public static boolean I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? (f34613c == null || f34616f == null || f34618h == null || f34619i == null || t == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? (f34722c == null || f34725f == null || f34727h == null || f34728i == null || t == null) ? false : true : invokeV.booleanValue;
     }
 
     public static Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            Context context = f34612b;
+            Context context = f34721b;
             if (context != null) {
                 return context;
             }
@@ -326,7 +326,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
             if (context != null && context.getApplicationContext() != null) {
-                f34612b = context.getApplicationContext();
+                f34721b = context.getApplicationContext();
                 return;
             }
             throw new IllegalArgumentException("Context is null");
@@ -336,42 +336,42 @@ public class l {
     public static void c(@NonNull c.p.a.a.a.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, bVar) == null) {
-            f34619i = bVar;
+            f34728i = bVar;
         }
     }
 
     public static void d(@NonNull c.p.a.a.a.c.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, fVar) == null) {
-            f34613c = fVar;
+            f34722c = fVar;
         }
     }
 
     public static void e(@NonNull c.p.a.a.a.c.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, gVar) == null) {
-            f34616f = gVar;
+            f34725f = gVar;
         }
     }
 
     public static void f(@NonNull c.p.a.a.a.c.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, null, hVar) == null) {
-            f34617g = hVar;
+            f34726g = hVar;
         }
     }
 
     public static void g(@NonNull c.p.a.a.a.c.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, iVar) == null) {
-            f34618h = iVar;
+            f34727h = iVar;
         }
     }
 
     public static void h(@NonNull c.p.a.a.a.c.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, null, kVar) == null) {
-            f34615e = kVar;
+            f34724e = kVar;
         }
     }
 
@@ -405,15 +405,15 @@ public class l {
     public static c.p.a.a.a.c.f m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? f34613c : (c.p.a.a.a.c.f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? f34722c : (c.p.a.a.a.c.f) invokeV.objValue;
     }
 
     public static void n(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65559, null, context) == null) || f34612b != null || context == null || context.getApplicationContext() == null) {
+        if (!(interceptable == null || interceptable.invokeL(65559, null, context) == null) || f34721b != null || context == null || context.getApplicationContext() == null) {
             return;
         }
-        f34612b = context.getApplicationContext();
+        f34721b = context.getApplicationContext();
     }
 
     @NonNull
@@ -421,10 +421,10 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
-            if (f34614d == null) {
-                f34614d = new a();
+            if (f34723d == null) {
+                f34723d = new a();
             }
-            return f34614d;
+            return f34723d;
         }
         return (c.p.a.a.a.c.c) invokeV.objValue;
     }
@@ -434,10 +434,10 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
-            if (f34615e == null) {
-                f34615e = new c.p.a.a.a.a.a();
+            if (f34724e == null) {
+                f34724e = new c.p.a.a.a.a.a();
             }
-            return f34615e;
+            return f34724e;
         }
         return (c.p.a.a.a.c.k) invokeV.objValue;
     }
@@ -445,7 +445,7 @@ public class l {
     public static c.p.a.a.a.c.g q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? f34616f : (c.p.a.a.a.c.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? f34725f : (c.p.a.a.a.c.g) invokeV.objValue;
     }
 
     @NonNull
@@ -453,10 +453,10 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
-            if (f34617g == null) {
-                f34617g = new c.p.a.a.a.a.b();
+            if (f34726g == null) {
+                f34726g = new c.p.a.a.a.a.b();
             }
-            return f34617g;
+            return f34726g;
         }
         return (c.p.a.a.a.c.h) invokeV.objValue;
     }
@@ -465,10 +465,10 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
-            if (f34620j == null) {
-                f34620j = new b();
+            if (f34729j == null) {
+                f34729j = new b();
             }
-            return f34620j;
+            return f34729j;
         }
         return (d.j) invokeV.objValue;
     }
@@ -497,11 +497,11 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            c.p.a.a.a.c.i iVar = f34618h;
+            c.p.a.a.a.c.i iVar = f34727h;
             if (iVar != null && iVar.a() != null) {
-                return f34618h.a();
+                return f34727h.a();
             }
-            return f34611a;
+            return f34720a;
         }
         return (JSONObject) invokeV.objValue;
     }
@@ -516,7 +516,7 @@ public class l {
     public static c.p.a.a.a.c.b x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) ? f34619i : (c.p.a.a.a.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) ? f34728i : (c.p.a.a.a.c.b) invokeV.objValue;
     }
 
     @Nullable

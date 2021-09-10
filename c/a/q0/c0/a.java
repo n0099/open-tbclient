@@ -1,9 +1,9 @@
 package c.a.q0.c0;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.core.util.BdLog;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
@@ -11,40 +11,46 @@ public interface a {
 
     /* renamed from: c.a.q0.c0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0790a {
+    public static class C0645a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0790a() {
+        /* renamed from: a  reason: collision with root package name */
+        public int f12788a;
+
+        public C0645a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.f12788a = 0;
+            this.f12788a = i2;
         }
 
-        public void a(int i2, int i3) {
+        public int a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) && i2 != 1 && i2 != 2 && i2 != 3 && BdLog.e()) {
-                throw new IllegalArgumentException("invalid source code");
-            }
-        }
-
-        public void b(int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && i2 != 1 && i2 != 2 && i2 != 3 && BdLog.e()) {
-                throw new IllegalArgumentException("invalid source code");
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12788a : invokeV.intValue;
         }
     }
 
-    void a(int i2, C0790a c0790a);
+    int a();
 
-    void b(int i2, String str, C0790a c0790a);
+    String b(String str);
+
+    C0645a c(Context context, String str);
+
+    int d(String str);
+
+    int e(String str);
 }

@@ -10,7 +10,7 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a */
-    public static final b f35450a;
+    public static final b f35559a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,11 +26,11 @@ public final class f {
                 return;
             }
         }
-        f35450a = new b(null);
+        f35559a = new b(null);
     }
 
     /* JADX DEBUG: Method not inlined, still used in: [c.r.a.a.b.b():c.r.a.a.b] */
     public static /* synthetic */ b a() {
-        return f35450a;
+        return f35559a;
     }
 }

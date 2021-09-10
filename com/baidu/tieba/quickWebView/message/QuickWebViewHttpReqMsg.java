@@ -11,6 +11,7 @@ public class QuickWebViewHttpReqMsg extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long begin;
+    public boolean isFromRequestByNative;
     public String jsCallbackMethod;
     public String module;
     public String url;

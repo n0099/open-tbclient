@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import c.a.e.e.l.b;
 import c.a.e.l.d.a;
-import c.a.p0.b0.c;
+import c.a.q0.c0.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;

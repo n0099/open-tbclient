@@ -22,7 +22,7 @@ public final class WalletGlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Dialog f69664a = null;
+    public static Dialog f69844a = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +58,7 @@ public final class WalletGlobalUtils {
     public static void DismissLoadingDialog() {
         Dialog dialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (dialog = f69664a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (dialog = f69844a) == null) {
             return;
         }
         Context context = dialog.getContext();
@@ -69,11 +69,11 @@ public final class WalletGlobalUtils {
             return;
         }
         try {
-            f69664a.dismiss();
+            f69844a.dismiss();
         } catch (Throwable th) {
             LogUtil.e("globalUtils", "dialog Exception", th);
         }
-        f69664a = null;
+        f69844a = null;
     }
 
     public static void safeDismissDialog(BaseActivity baseActivity, int i2) {
@@ -106,20 +106,20 @@ public final class WalletGlobalUtils {
     public static void showLoadingDialog(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
-            if (f69664a == null) {
-                f69664a = new LoadingDialog(context);
+            if (f69844a == null) {
+                f69844a = new LoadingDialog(context);
             }
-            f69664a.show();
+            f69844a.show();
         }
     }
 
     public static void showLoadingDialog(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, str2) == null) {
-            if (f69664a == null) {
-                f69664a = new LoadingDialog(context, str, str2);
+            if (f69844a == null) {
+                f69844a = new LoadingDialog(context, str, str2);
             }
-            f69664a.show();
+            f69844a.show();
         }
     }
 }

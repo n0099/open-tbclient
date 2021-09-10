@@ -24,7 +24,7 @@ public class o extends b<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f71335a;
+    public String f71515a;
 
     /* loaded from: classes10.dex */
     public static final class a implements com.kwad.sdk.core.b {
@@ -33,20 +33,20 @@ public class o extends b<a> {
         @NonNull
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<Integer, String> f71336a;
+        public Map<Integer, String> f71516a;
         @NonNull
 
         /* renamed from: b  reason: collision with root package name */
-        public List<String> f71337b;
+        public List<String> f71517b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<String> f71338c;
+        public List<String> f71518c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f71339d;
+        public int f71519d;
 
         /* renamed from: e  reason: collision with root package name */
-        public JSONObject f71340e;
+        public JSONObject f71520e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -61,9 +61,9 @@ public class o extends b<a> {
                     return;
                 }
             }
-            this.f71336a = new HashMap();
-            this.f71337b = new ArrayList();
-            this.f71338c = new ArrayList();
+            this.f71516a = new HashMap();
+            this.f71517b = new ArrayList();
+            this.f71518c = new ArrayList();
         }
 
         @Override // com.kwad.sdk.core.b
@@ -72,35 +72,35 @@ public class o extends b<a> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f71340e = jSONObject;
+            this.f71520e = jSONObject;
             JSONObject optJSONObject = jSONObject.optJSONObject("platformInfo");
             if (optJSONObject != null) {
                 Iterator<String> keys = optJSONObject.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    this.f71336a.put(Integer.valueOf(next), optJSONObject.optString(next));
+                    this.f71516a.put(Integer.valueOf(next), optJSONObject.optString(next));
                 }
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("keyStacks");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    this.f71337b.add(optJSONArray.optString(i2));
+                    this.f71517b.add(optJSONArray.optString(i2));
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("keyNames");
             if (optJSONArray2 != null) {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    this.f71338c.add(optJSONArray2.optString(i3));
+                    this.f71518c.add(optJSONArray2.optString(i3));
                 }
             }
-            this.f71339d = jSONObject.optInt("handleType");
+            this.f71519d = jSONObject.optInt("handleType");
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71340e : (JSONObject) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71520e : (JSONObject) invokeV.objValue;
         }
     }
 
@@ -127,7 +127,7 @@ public class o extends b<a> {
     public void a(SharedPreferences.Editor editor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editor) == null) {
-            editor.putString("sdkPackInfo", this.f71335a);
+            editor.putString("sdkPackInfo", this.f71515a);
         }
     }
 
@@ -136,12 +136,12 @@ public class o extends b<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
             String string = sharedPreferences.getString("sdkPackInfo", null);
-            this.f71335a = string;
+            this.f71515a = string;
             try {
                 if (TextUtils.isEmpty(string)) {
                     return;
                 }
-                JSONObject jSONObject = new JSONObject(this.f71335a);
+                JSONObject jSONObject = new JSONObject(this.f71515a);
                 a aVar = new a();
                 aVar.parseJson(jSONObject);
                 a((o) aVar);
@@ -158,7 +158,7 @@ public class o extends b<a> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject("sdkPackInfo")) == null) {
             return;
         }
-        this.f71335a = optJSONObject.toString();
+        this.f71515a = optJSONObject.toString();
         a aVar = new a();
         aVar.parseJson(optJSONObject);
         a((o) aVar);

@@ -10,14 +10,14 @@ public class f extends e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<PngChunk> f72973d;
+    public final List<PngChunk> f73153d;
 
     @Override // com.kwad.sdk.pngencrypt.chunk.e
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ChunkList: written: " + a().size() + " queue: " + this.f72973d.size();
+            return "ChunkList: written: " + a().size() + " queue: " + this.f73153d.size();
         }
         return (String) invokeV.objValue;
     }

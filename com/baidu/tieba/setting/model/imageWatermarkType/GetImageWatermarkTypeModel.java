@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.model.imageWatermarkType;
 
 import c.a.e.a.f;
-import c.a.p0.s.k;
+import c.a.q0.s.k;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -21,7 +21,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f56526e;
+    public HttpMessageListener f56686e;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -80,7 +80,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE);
-        this.f56526e = aVar;
+        this.f56686e = aVar;
         registerListener(aVar);
         LoadData();
     }

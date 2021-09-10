@@ -20,13 +20,13 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile IBinder f3477e;
+    public volatile IBinder f3468e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashSet<IBinder.DeathRecipient> f3478f;
+    public HashSet<IBinder.DeathRecipient> f3469f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Object f3479g;
+    public Object f3470g;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
                 return;
             }
         }
-        this.f3478f = new HashSet<>();
-        this.f3479g = new Object();
+        this.f3469f = new HashSet<>();
+        this.f3470g = new Object();
     }
 
     public static void b(String str, Exception exc) {
@@ -55,13 +55,13 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this.f3479g) {
-                IBinder iBinder = this.f3477e;
+            synchronized (this.f3470g) {
+                IBinder iBinder = this.f3468e;
                 if (iBinder != null) {
                     return iBinder;
                 }
                 IBinder c2 = c();
-                this.f3477e = c2;
+                this.f3468e = c2;
                 if (c2 != null) {
                     c2.linkToDeath(this, 0);
                     return c2;
@@ -76,15 +76,15 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
     public void binderDied() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.f3479g) {
-                IBinder iBinder = this.f3477e;
+            synchronized (this.f3470g) {
+                IBinder iBinder = this.f3468e;
                 if (iBinder != null) {
                     iBinder.unlinkToDeath(this, 0);
-                    this.f3477e = null;
+                    this.f3468e = null;
                 }
                 ArrayList<IBinder.DeathRecipient> arrayList = new ArrayList();
-                synchronized (this.f3478f) {
-                    arrayList.addAll(this.f3478f);
+                synchronized (this.f3469f) {
+                    arrayList.addAll(this.f3469f);
                 }
                 for (IBinder.DeathRecipient deathRecipient : arrayList) {
                     deathRecipient.binderDied();
@@ -137,8 +137,8 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
     public void linkToDeath(IBinder.DeathRecipient deathRecipient, int i2) throws RemoteException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, deathRecipient, i2) == null) {
-            synchronized (this.f3478f) {
-                this.f3478f.add(deathRecipient);
+            synchronized (this.f3469f) {
+                this.f3469f.add(deathRecipient);
             }
         }
     }
@@ -185,10 +185,10 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, deathRecipient, i2)) == null) {
-            synchronized (this.f3478f) {
-                this.f3478f.remove(deathRecipient);
+            synchronized (this.f3469f) {
+                this.f3469f.remove(deathRecipient);
             }
-            return this.f3477e != null;
+            return this.f3468e != null;
         }
         return invokeLI.booleanValue;
     }

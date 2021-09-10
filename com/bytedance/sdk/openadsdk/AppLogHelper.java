@@ -26,17 +26,17 @@ public class AppLogHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile AppLogHelper f65165a;
+    public static volatile AppLogHelper f65345a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f65166b;
+    public String f65346b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f65167c;
+    public String f65347c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f65168d;
+    public volatile boolean f65348d;
 
     static {
         InterceptResult invokeClinit;
@@ -66,21 +66,21 @@ public class AppLogHelper {
                 return;
             }
         }
-        this.f65166b = null;
-        this.f65167c = null;
-        this.f65168d = false;
+        this.f65346b = null;
+        this.f65347c = null;
+        this.f65348d = false;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             String did = AppLog.getDid();
-            this.f65166b = did;
+            this.f65346b = did;
             if (TextUtils.isEmpty(did)) {
                 return;
             }
-            a.b(16, this.f65166b);
-            h.a("sdk_app_log_did", this.f65166b);
+            a.b(16, this.f65346b);
+            h.a("sdk_app_log_did", this.f65346b);
         }
     }
 
@@ -88,11 +88,11 @@ public class AppLogHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             String userUniqueID = AppLog.getUserUniqueID();
-            this.f65167c = userUniqueID;
+            this.f65347c = userUniqueID;
             if (TextUtils.isEmpty(userUniqueID)) {
                 return;
             }
-            h.a("app_log_user_unique_id", this.f65167c);
+            h.a("app_log_user_unique_id", this.f65347c);
         }
     }
 
@@ -100,14 +100,14 @@ public class AppLogHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f65165a == null) {
+            if (f65345a == null) {
                 synchronized (AppLogHelper.class) {
-                    if (f65165a == null) {
-                        f65165a = new AppLogHelper();
+                    if (f65345a == null) {
+                        f65345a = new AppLogHelper();
                     }
                 }
             }
-            return f65165a;
+            return f65345a;
         }
         return (AppLogHelper) invokeV.objValue;
     }
@@ -116,18 +116,18 @@ public class AppLogHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f65166b)) {
+            if (TextUtils.isEmpty(this.f65346b)) {
                 String a2 = h.a("sdk_app_log_did", 2592000000L);
-                this.f65166b = a2;
+                this.f65346b = a2;
                 a.b(16, a2);
-                if (TextUtils.isEmpty(this.f65166b)) {
-                    if (!this.f65168d) {
+                if (TextUtils.isEmpty(this.f65346b)) {
+                    if (!this.f65348d) {
                         initAppLog(o.a());
                     }
                     a();
                 }
             }
-            return this.f65166b;
+            return this.f65346b;
         }
         return (String) invokeV.objValue;
     }
@@ -136,17 +136,17 @@ public class AppLogHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.f65167c)) {
+            if (TextUtils.isEmpty(this.f65347c)) {
                 String a2 = h.a("app_log_user_unique_id", 2592000000L);
-                this.f65167c = a2;
+                this.f65347c = a2;
                 if (TextUtils.isEmpty(a2)) {
-                    if (!this.f65168d) {
+                    if (!this.f65348d) {
                         initAppLog(o.a());
                     }
                     b();
                 }
             }
-            return this.f65167c;
+            return this.f65347c;
         }
         return (String) invokeV.objValue;
     }
@@ -154,28 +154,28 @@ public class AppLogHelper {
     public String getSdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !this.f65168d ? "" : (String) AppLog.getHeaderValue(HttpConstants.SDK_VERSION_NAME, "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !this.f65348d ? "" : (String) AppLog.getHeaderValue(HttpConstants.SDK_VERSION_NAME, "") : (String) invokeV.objValue;
     }
 
     public synchronized void initAppLog(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             synchronized (this) {
-                if (!this.f65168d) {
+                if (!this.f65348d) {
                     InitConfig initConfig = new InitConfig(String.valueOf(164362), "unionser_slardar_applog");
-                    if (l.f66560b != null) {
-                        initConfig.setImeiEnable(l.f66560b.isCanUsePhoneState());
-                        if (!l.f66560b.isCanUsePhoneState()) {
-                            initConfig.setAppImei(l.f66560b.getDevImei());
+                    if (l.f66740b != null) {
+                        initConfig.setImeiEnable(l.f66740b.isCanUsePhoneState());
+                        if (!l.f66740b.isCanUsePhoneState()) {
+                            initConfig.setAppImei(l.f66740b.getDevImei());
                         }
-                        initConfig.setMacEnable(l.f66560b.isCanUseWifiState());
+                        initConfig.setMacEnable(l.f66740b.isCanUseWifiState());
                     }
                     initConfig.setSensitiveInfoProvider(new ISensitiveInfoProvider(this) { // from class: com.bytedance.sdk.openadsdk.AppLogHelper.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AppLogHelper f65169a;
+                        public final /* synthetic */ AppLogHelper f65349a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -192,7 +192,7 @@ public class AppLogHelper {
                                     return;
                                 }
                             }
-                            this.f65169a = this;
+                            this.f65349a = this;
                         }
 
                         @Override // com.bytedance.embedapplog.ISensitiveInfoProvider
@@ -212,7 +212,7 @@ public class AppLogHelper {
                     initConfig.setUriConfig(0);
                     AppLog.init(context, initConfig);
                     k.a(context);
-                    this.f65168d = true;
+                    this.f65348d = true;
                     a();
                     b();
                 }
@@ -223,7 +223,7 @@ public class AppLogHelper {
     public void setHeaderInfo(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, hashMap) == null) {
-            if (!this.f65168d) {
+            if (!this.f65348d) {
                 initAppLog(o.a());
             }
             AppLog.setHeaderInfo(hashMap);

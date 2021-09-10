@@ -8,16 +8,16 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.titan.sdk.pm.IPatchInstallObserver;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IPatchManager extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Stub extends Binder implements IPatchManager {
         public static final String DESCRIPTOR = "com.baidu.titan.sdk.pm.IPatchManager";
         public static final int TRANSACTION_install = 1;
         public static final int TRANSACTION_requestCleanPatches = 2;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static class Proxy implements IPatchManager {
             public IBinder mRemote;
 

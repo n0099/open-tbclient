@@ -14,10 +14,10 @@ public final class q extends f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final transient byte[][] f64267f;
+    public final transient byte[][] f64447f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final transient int[] f64268g;
+    public final transient int[] f64448g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(c cVar, int i2) {
@@ -37,38 +37,38 @@ public final class q extends f {
                 return;
             }
         }
-        u.a(cVar.f64226b, 0L, i2);
-        o oVar = cVar.f64225a;
+        u.a(cVar.f64406b, 0L, i2);
+        o oVar = cVar.f64405a;
         int i5 = 0;
         int i6 = 0;
         int i7 = 0;
         while (i6 < i2) {
-            int i8 = oVar.f64260c;
-            int i9 = oVar.f64259b;
+            int i8 = oVar.f64440c;
+            int i9 = oVar.f64439b;
             if (i8 != i9) {
                 i6 += i8 - i9;
                 i7++;
-                oVar = oVar.f64263f;
+                oVar = oVar.f64443f;
             } else {
                 throw new AssertionError("s.limit == s.pos");
             }
         }
-        this.f64267f = new byte[i7];
-        this.f64268g = new int[i7 * 2];
-        o oVar2 = cVar.f64225a;
+        this.f64447f = new byte[i7];
+        this.f64448g = new int[i7 * 2];
+        o oVar2 = cVar.f64405a;
         int i10 = 0;
         while (i5 < i2) {
-            this.f64267f[i10] = oVar2.f64258a;
-            i5 += oVar2.f64260c - oVar2.f64259b;
+            this.f64447f[i10] = oVar2.f64438a;
+            i5 += oVar2.f64440c - oVar2.f64439b;
             if (i5 > i2) {
                 i5 = i2;
             }
-            int[] iArr = this.f64268g;
+            int[] iArr = this.f64448g;
             iArr[i10] = i5;
-            iArr[this.f64267f.length + i10] = oVar2.f64259b;
-            oVar2.f64261d = true;
+            iArr[this.f64447f.length + i10] = oVar2.f64439b;
+            oVar2.f64441d = true;
             i10++;
-            oVar2 = oVar2.f64263f;
+            oVar2 = oVar2.f64443f;
         }
     }
 
@@ -143,7 +143,7 @@ public final class q extends f {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f64268g[this.f64267f.length - 1] : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f64448g[this.f64447f.length - 1] : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.f
@@ -151,17 +151,17 @@ public final class q extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            int[] iArr = this.f64268g;
-            byte[][] bArr = this.f64267f;
+            int[] iArr = this.f64448g;
+            byte[][] bArr = this.f64447f;
             byte[] bArr2 = new byte[iArr[bArr.length - 1]];
             int length = bArr.length;
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                int[] iArr2 = this.f64268g;
+                int[] iArr2 = this.f64448g;
                 int i4 = iArr2[length + i2];
                 int i5 = iArr2[i2];
-                System.arraycopy(this.f64267f[i2], i4, bArr2, i3, i5 - i3);
+                System.arraycopy(this.f64447f[i2], i4, bArr2, i3, i5 - i3);
                 i2++;
                 i3 = i5;
             }
@@ -175,17 +175,17 @@ public final class q extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            int i2 = this.f64231d;
+            int i2 = this.f64411d;
             if (i2 != 0) {
                 return i2;
             }
-            int length = this.f64267f.length;
+            int length = this.f64447f.length;
             int i3 = 0;
             int i4 = 0;
             int i5 = 1;
             while (i3 < length) {
-                byte[] bArr = this.f64267f[i3];
-                int[] iArr = this.f64268g;
+                byte[] bArr = this.f64447f[i3];
+                int[] iArr = this.f64448g;
                 int i6 = iArr[length + i3];
                 int i7 = iArr[i3];
                 int i8 = (i7 - i4) + i6;
@@ -196,7 +196,7 @@ public final class q extends f {
                 i3++;
                 i4 = i7;
             }
-            this.f64231d = i5;
+            this.f64411d = i5;
             return i5;
         }
         return invokeV.intValue;
@@ -213,7 +213,7 @@ public final class q extends f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
-            int binarySearch = Arrays.binarySearch(this.f64268g, 0, this.f64267f.length, i2 + 1);
+            int binarySearch = Arrays.binarySearch(this.f64448g, 0, this.f64447f.length, i2 + 1);
             return binarySearch >= 0 ? binarySearch : ~binarySearch;
         }
         return invokeI.intValue;
@@ -231,11 +231,11 @@ public final class q extends f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            u.a(this.f64268g[this.f64267f.length - 1], i2, 1L);
+            u.a(this.f64448g[this.f64447f.length - 1], i2, 1L);
             int b2 = b(i2);
-            int i3 = b2 == 0 ? 0 : this.f64268g[b2 - 1];
-            int[] iArr = this.f64268g;
-            byte[][] bArr = this.f64267f;
+            int i3 = b2 == 0 ? 0 : this.f64448g[b2 - 1];
+            int[] iArr = this.f64448g;
+            byte[][] bArr = this.f64447f;
             return bArr[b2][(i2 - i3) + iArr[bArr.length + b2]];
         }
         return invokeI.byteValue;
@@ -245,26 +245,26 @@ public final class q extends f {
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            int length = this.f64267f.length;
+            int length = this.f64447f.length;
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                int[] iArr = this.f64268g;
+                int[] iArr = this.f64448g;
                 int i4 = iArr[length + i2];
                 int i5 = iArr[i2];
-                o oVar = new o(this.f64267f[i2], i4, (i4 + i5) - i3, true, false);
-                o oVar2 = cVar.f64225a;
+                o oVar = new o(this.f64447f[i2], i4, (i4 + i5) - i3, true, false);
+                o oVar2 = cVar.f64405a;
                 if (oVar2 == null) {
-                    oVar.f64264g = oVar;
-                    oVar.f64263f = oVar;
-                    cVar.f64225a = oVar;
+                    oVar.f64444g = oVar;
+                    oVar.f64443f = oVar;
+                    cVar.f64405a = oVar;
                 } else {
-                    oVar2.f64264g.a(oVar);
+                    oVar2.f64444g.a(oVar);
                 }
                 i2++;
                 i3 = i5;
             }
-            cVar.f64226b += i3;
+            cVar.f64406b += i3;
         }
     }
 
@@ -278,10 +278,10 @@ public final class q extends f {
             }
             int b2 = b(i2);
             while (i4 > 0) {
-                int i5 = b2 == 0 ? 0 : this.f64268g[b2 - 1];
-                int min = Math.min(i4, ((this.f64268g[b2] - i5) + i5) - i2);
-                int[] iArr = this.f64268g;
-                byte[][] bArr = this.f64267f;
+                int i5 = b2 == 0 ? 0 : this.f64448g[b2 - 1];
+                int min = Math.min(i4, ((this.f64448g[b2] - i5) + i5) - i2);
+                int[] iArr = this.f64448g;
+                byte[][] bArr = this.f64447f;
                 if (!fVar.a(i3, bArr[b2], (i2 - i5) + iArr[bArr.length + b2], min)) {
                     return false;
                 }
@@ -305,10 +305,10 @@ public final class q extends f {
             }
             int b2 = b(i2);
             while (i4 > 0) {
-                int i5 = b2 == 0 ? 0 : this.f64268g[b2 - 1];
-                int min = Math.min(i4, ((this.f64268g[b2] - i5) + i5) - i2);
-                int[] iArr = this.f64268g;
-                byte[][] bArr2 = this.f64267f;
+                int i5 = b2 == 0 ? 0 : this.f64448g[b2 - 1];
+                int min = Math.min(i4, ((this.f64448g[b2] - i5) + i5) - i2);
+                int[] iArr = this.f64448g;
+                byte[][] bArr2 = this.f64447f;
                 if (!u.a(bArr2[b2], (i2 - i5) + iArr[bArr2.length + b2], bArr, i3, min)) {
                     return false;
                 }

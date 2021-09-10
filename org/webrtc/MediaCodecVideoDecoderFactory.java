@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import h.c.l0;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.annotation.Nullable;
@@ -124,10 +125,8 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     @Override // org.webrtc.VideoDecoderFactory
     @Nullable
     @Deprecated
-    public VideoDecoder createDecoder(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? VideoDecoderFactory_CC.$default$createDecoder(this, str) : (VideoDecoder) invokeL.objValue;
+    public /* synthetic */ VideoDecoder createDecoder(String str) {
+        return l0.$default$createDecoder(this, str);
     }
 
     @Override // org.webrtc.VideoDecoderFactory

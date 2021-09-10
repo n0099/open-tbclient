@@ -696,7 +696,7 @@ public final class a {
         hashMap3.put("play_progress", Integer.valueOf((int) (bVar.ec * 100.0f)));
         hashMap2.put("data", hashMap3);
         hashMap.put("msg_data", hashMap2);
-        ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
+        ARPMessage.getInstance().sendMessage(1902, hashMap);
     }
 
     private void a(b bVar, String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener, int i2, String str3, long j2) {

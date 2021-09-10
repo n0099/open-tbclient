@@ -1,6 +1,6 @@
 package com.baidu.tieba.setting.forbiddenforum;
 
-import c.a.q0.a3.a.d;
+import c.a.r0.b3.a.d;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

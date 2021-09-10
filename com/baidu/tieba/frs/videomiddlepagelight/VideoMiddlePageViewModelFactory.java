@@ -17,7 +17,7 @@ public final class VideoMiddlePageViewModelFactory implements ViewModelProvider.
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TbPageContext<?> f51549a;
+    public final TbPageContext<?> f51714a;
 
     public VideoMiddlePageViewModelFactory(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class VideoMiddlePageViewModelFactory implements ViewModelProvider.
                 return;
             }
         }
-        this.f51549a = tbPageContext;
+        this.f51714a = tbPageContext;
     }
 
     @Override // androidx.lifecycle.ViewModelProvider.Factory
@@ -43,7 +43,7 @@ public final class VideoMiddlePageViewModelFactory implements ViewModelProvider.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
             if (cls.isAssignableFrom(VideoMiddlePageViewModel.class)) {
-                return new VideoMiddlePageViewModel(this.f51549a);
+                return new VideoMiddlePageViewModel(this.f51714a);
             }
             throw new RuntimeException("ViewModel create fail!:" + cls.getName());
         }
@@ -53,6 +53,6 @@ public final class VideoMiddlePageViewModelFactory implements ViewModelProvider.
     public final TbPageContext<?> getPageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51549a : (TbPageContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51714a : (TbPageContext) invokeV.objValue;
     }
 }

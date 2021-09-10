@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SnackbarManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LONG_DURATION_MS = 2750;
@@ -31,14 +31,14 @@ public class SnackbarManager {
     @Nullable
     public SnackbarRecord nextSnackbar;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Callback {
         void dismiss(int i2);
 
         void show();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SnackbarRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

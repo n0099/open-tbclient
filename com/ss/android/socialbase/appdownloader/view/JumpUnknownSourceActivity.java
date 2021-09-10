@@ -25,20 +25,20 @@ public class JumpUnknownSourceActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.m f75578a;
+    public d.m f75758a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f75579b;
+    public Intent f75759b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public Intent f75580c;
+    public Intent f75760c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f75581d;
+    public int f75761d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f75582e;
+    public JSONObject f75762e;
 
     /* loaded from: classes10.dex */
     public class a implements DialogInterface.OnCancelListener {
@@ -46,7 +46,7 @@ public class JumpUnknownSourceActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JumpUnknownSourceActivity f75583e;
+        public final /* synthetic */ JumpUnknownSourceActivity f75763e;
 
         public a(JumpUnknownSourceActivity jumpUnknownSourceActivity) {
             Interceptable interceptable = $ic;
@@ -63,19 +63,19 @@ public class JumpUnknownSourceActivity extends Activity {
                     return;
                 }
             }
-            this.f75583e = jumpUnknownSourceActivity;
+            this.f75763e = jumpUnknownSourceActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                if (this.f75583e.f75580c != null) {
-                    JumpUnknownSourceActivity jumpUnknownSourceActivity = this.f75583e;
-                    c.p.a.e.a.c.p(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f75580c, true);
+                if (this.f75763e.f75760c != null) {
+                    JumpUnknownSourceActivity jumpUnknownSourceActivity = this.f75763e;
+                    c.p.a.e.a.c.p(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f75760c, true);
                 }
-                c.p.a.e.a.c.w(this.f75583e.f75581d, this.f75583e.f75582e);
-                this.f75583e.finish();
+                c.p.a.e.a.c.w(this.f75763e.f75761d, this.f75763e.f75762e);
+                this.f75763e.finish();
             }
         }
     }
@@ -86,7 +86,7 @@ public class JumpUnknownSourceActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JumpUnknownSourceActivity f75584e;
+        public final /* synthetic */ JumpUnknownSourceActivity f75764e;
 
         public b(JumpUnknownSourceActivity jumpUnknownSourceActivity) {
             Interceptable interceptable = $ic;
@@ -103,19 +103,19 @@ public class JumpUnknownSourceActivity extends Activity {
                     return;
                 }
             }
-            this.f75584e = jumpUnknownSourceActivity;
+            this.f75764e = jumpUnknownSourceActivity;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                if (this.f75584e.f75580c != null) {
-                    JumpUnknownSourceActivity jumpUnknownSourceActivity = this.f75584e;
-                    c.p.a.e.a.c.p(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f75580c, true);
+                if (this.f75764e.f75760c != null) {
+                    JumpUnknownSourceActivity jumpUnknownSourceActivity = this.f75764e;
+                    c.p.a.e.a.c.p(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f75760c, true);
                 }
-                c.p.a.e.a.c.w(this.f75584e.f75581d, this.f75584e.f75582e);
-                this.f75584e.finish();
+                c.p.a.e.a.c.w(this.f75764e.f75761d, this.f75764e.f75762e);
+                this.f75764e.finish();
             }
         }
     }
@@ -126,7 +126,7 @@ public class JumpUnknownSourceActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JumpUnknownSourceActivity f75585e;
+        public final /* synthetic */ JumpUnknownSourceActivity f75765e;
 
         public c(JumpUnknownSourceActivity jumpUnknownSourceActivity) {
             Interceptable interceptable = $ic;
@@ -143,22 +143,22 @@ public class JumpUnknownSourceActivity extends Activity {
                     return;
                 }
             }
-            this.f75585e = jumpUnknownSourceActivity;
+            this.f75765e = jumpUnknownSourceActivity;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                JumpUnknownSourceActivity jumpUnknownSourceActivity = this.f75585e;
-                if (c.p.a.e.a.c.n(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f75580c, this.f75585e.f75581d, this.f75585e.f75582e)) {
-                    c.p.a.e.a.c.B(this.f75585e.f75581d, this.f75585e.f75582e);
+                JumpUnknownSourceActivity jumpUnknownSourceActivity = this.f75765e;
+                if (c.p.a.e.a.c.n(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f75760c, this.f75765e.f75761d, this.f75765e.f75762e)) {
+                    c.p.a.e.a.c.B(this.f75765e.f75761d, this.f75765e.f75762e);
                 } else {
-                    JumpUnknownSourceActivity jumpUnknownSourceActivity2 = this.f75585e;
-                    c.p.a.e.a.c.p(jumpUnknownSourceActivity2, jumpUnknownSourceActivity2.f75580c, true);
+                    JumpUnknownSourceActivity jumpUnknownSourceActivity2 = this.f75765e;
+                    c.p.a.e.a.c.p(jumpUnknownSourceActivity2, jumpUnknownSourceActivity2.f75760c, true);
                 }
-                c.p.a.e.a.c.f(this.f75585e.f75581d, this.f75585e.f75582e);
-                this.f75585e.finish();
+                c.p.a.e.a.c.f(this.f75765e.f75761d, this.f75765e.f75762e);
+                this.f75765e.finish();
             }
         }
     }
@@ -203,25 +203,25 @@ public class JumpUnknownSourceActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onResume();
             Intent intent = getIntent();
-            this.f75579b = intent;
+            this.f75759b = intent;
             if (intent != null) {
-                this.f75580c = (Intent) intent.getParcelableExtra("intent");
-                this.f75581d = intent.getIntExtra("id", -1);
+                this.f75760c = (Intent) intent.getParcelableExtra("intent");
+                this.f75761d = intent.getIntExtra("id", -1);
                 try {
-                    this.f75582e = new JSONObject(intent.getStringExtra("config"));
+                    this.f75762e = new JSONObject(intent.getStringExtra("config"));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
-            if (this.f75582e == null) {
+            if (this.f75762e == null) {
                 d.q(this);
                 return;
             }
             b();
-            d.m mVar = this.f75578a;
+            d.m mVar = this.f75758a;
             if (mVar != null && !mVar.b()) {
-                this.f75578a.a();
-            } else if (this.f75578a == null) {
+                this.f75758a.a();
+            } else if (this.f75758a == null) {
                 finish();
             }
         }
@@ -239,7 +239,7 @@ public class JumpUnknownSourceActivity extends Activity {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f75578a == null && this.f75579b != null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f75758a == null && this.f75759b != null) {
             try {
                 d.e b2 = e.G().b();
                 d.n a2 = b2 != null ? b2.a(this) : null;
@@ -249,12 +249,12 @@ public class JumpUnknownSourceActivity extends Activity {
                 int a3 = l.a(this, "tt_appdownloader_tip");
                 int a4 = l.a(this, "tt_appdownloader_label_ok");
                 int a5 = l.a(this, "tt_appdownloader_label_cancel");
-                String optString = this.f75582e.optString("jump_unknown_source_tips");
+                String optString = this.f75762e.optString("jump_unknown_source_tips");
                 if (TextUtils.isEmpty(optString)) {
                     optString = getString(l.a(this, "tt_appdownloader_jump_unknown_source_tips"));
                 }
                 a2.a(a3).a(optString).b(a4, new c(this)).a(a5, new b(this)).c(new a(this)).a(false);
-                this.f75578a = a2.a();
+                this.f75758a = a2.a();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

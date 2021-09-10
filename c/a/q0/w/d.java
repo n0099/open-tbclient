@@ -1,129 +1,157 @@
 package c.a.q0.w;
 
-import c.a.q0.w.b;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public final class d extends b<d> {
+/* loaded from: classes3.dex */
+public class d {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public e t;
-    public float u;
-    public boolean v;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public <K> d(K k, c<K> cVar) {
-        super(k, cVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {k, cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(objArr2[0], (c) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* renamed from: a  reason: collision with root package name */
+    public static c.a.a0.a.g.b f15070a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes3.dex */
+    public static class a implements c.a.a0.a.g.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: c.a.q0.w.d$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C0716a implements e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ c.a.a0.a.g.a f15071a;
+
+            public C0716a(a aVar, c.a.a0.a.g.a aVar2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, aVar2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f15071a = aVar2;
+            }
+
+            @Override // c.a.q0.w.e
+            public void onFileDownloadFailed(DownloadData downloadData, int i2, String str) {
+                c.a.a0.a.g.a aVar;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i2, str) == null) || (aVar = this.f15071a) == null) {
+                    return;
+                }
+                aVar.onFailed(new Exception(str));
+            }
+
+            @Override // c.a.q0.w.e
+            public void onFileDownloadSucceed(DownloadData downloadData) {
+                c.a.a0.a.g.a aVar;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || (aVar = this.f15071a) == null) {
+                    return;
+                }
+                aVar.b(downloadData.getPath());
+            }
+
+            @Override // c.a.q0.w.e
+            public boolean onFileDownloaded(DownloadData downloadData) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                    return true;
+                }
+                return invokeL.booleanValue;
+            }
+
+            @Override // c.a.q0.w.e
+            public void onFileUpdateProgress(DownloadData downloadData) {
+                c.a.a0.a.g.a aVar;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || (aVar = this.f15071a) == null) {
+                    return;
+                }
+                aVar.a(0L, 100L, (int) (downloadData.getLength() / downloadData.getSize()));
+            }
+
+            @Override // c.a.q0.w.e
+            public boolean onPreDownload(DownloadData downloadData) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                    c.a.a0.a.g.a aVar = this.f15071a;
+                    if (aVar != null) {
+                        aVar.onStarted();
+                        return true;
+                    }
+                    return true;
+                }
+                return invokeL.booleanValue;
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // c.a.a0.a.g.b
+        public void a(String str, String str2, String str3, c.a.a0.a.g.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, aVar) == null) {
+                DownloadData downloadData = new DownloadData();
+                downloadData.setPath(str2 + "/" + str3);
+                downloadData.setUrl(str);
+                downloadData.setCallback(new C0716a(this, aVar));
+                f.k().l(downloadData);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1522191111, "Lc/a/q0/w/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1522191111, "Lc/a/q0/w/d;");
                 return;
             }
         }
-        this.t = null;
-        this.u = Float.MAX_VALUE;
-        this.v = false;
+        f15070a = new a();
     }
 
-    @Override // c.a.q0.w.b
-    public void g() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            k();
-            this.t.g(d());
-            super.g();
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            c.a.a0.a.b.s(f15070a);
         }
-    }
-
-    @Override // c.a.q0.w.b
-    public boolean i(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            if (this.v) {
-                float f2 = this.u;
-                if (f2 != Float.MAX_VALUE) {
-                    this.t.e(f2);
-                    this.u = Float.MAX_VALUE;
-                }
-                this.f27593b = this.t.a();
-                this.f27592a = 0.0f;
-                this.v = false;
-                return true;
-            }
-            if (this.u != Float.MAX_VALUE) {
-                this.t.a();
-                long j3 = j2 / 2;
-                b.i h2 = this.t.h(this.f27593b, this.f27592a, j3);
-                this.t.e(this.u);
-                this.u = Float.MAX_VALUE;
-                b.i h3 = this.t.h(h2.f27602a, h2.f27603b, j3);
-                this.f27593b = h3.f27602a;
-                this.f27592a = h3.f27603b;
-            } else {
-                b.i h4 = this.t.h(this.f27593b, this.f27592a, j2);
-                this.f27593b = h4.f27602a;
-                this.f27592a = h4.f27603b;
-            }
-            float max = Math.max(this.f27593b, this.f27599h);
-            this.f27593b = max;
-            float min = Math.min(max, this.f27598g);
-            this.f27593b = min;
-            if (j(min, this.f27592a)) {
-                this.f27593b = this.t.a();
-                this.f27592a = 0.0f;
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public boolean j(float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.t.c(f2, f3) : invokeCommon.booleanValue;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e eVar = this.t;
-            if (eVar != null) {
-                double a2 = eVar.a();
-                if (a2 <= this.f27598g) {
-                    if (a2 < this.f27599h) {
-                        throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
-                    }
-                    return;
-                }
-                throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
-            }
-            throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
-        }
-    }
-
-    public d l(e eVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, eVar)) == null) {
-            this.t = eVar;
-            return this;
-        }
-        return (d) invokeL.objValue;
     }
 }

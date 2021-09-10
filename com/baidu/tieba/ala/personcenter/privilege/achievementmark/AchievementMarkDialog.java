@@ -13,9 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.s.s.a;
-import c.a.q0.v.j.g.a;
-import c.a.q0.v.j.g.b;
+import c.a.q0.s.s.a;
+import c.a.r0.v.j.g.a;
+import c.a.r0.v.j.g.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.utils.AlaStringHelper;
 import com.baidu.android.imsdk.internal.Constants;
@@ -43,28 +43,28 @@ public class AchievementMarkDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f49570e;
+    public TbPageContext f49705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f49571f;
+    public View f49706f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f49572g;
+    public TbImageView f49707g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f49573h;
+    public FrameLayout f49708h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f49574i;
+    public TextView f49709i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RelativeLayout f49575j;
+    public RelativeLayout f49710j;
     public TextView k;
     public TextView l;
     public MarkLevelGroup m;
     public TextView n;
-    public c.a.q0.v.j.g.c.b.b o;
-    public c.a.q0.v.j.g.c.b.d p;
+    public c.a.r0.v.j.g.c.b.b o;
+    public c.a.r0.v.j.g.c.b.d p;
     public AlaUpdateMarkStatusModel q;
     public i r;
     public LinearLayout s;
@@ -72,8 +72,8 @@ public class AchievementMarkDialog extends Dialog {
     public TextView u;
     public LinearLayout v;
     public TextView w;
-    public c.a.q0.v.j.g.b x;
-    public c.a.q0.v.j.g.a y;
+    public c.a.r0.v.j.g.b x;
+    public c.a.r0.v.j.g.a y;
 
     /* loaded from: classes7.dex */
     public class a implements AlaUpdateMarkStatusModel.b {
@@ -81,7 +81,7 @@ public class AchievementMarkDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AchievementMarkDialog f49576a;
+        public final /* synthetic */ AchievementMarkDialog f49711a;
 
         public a(AchievementMarkDialog achievementMarkDialog) {
             Interceptable interceptable = $ic;
@@ -98,25 +98,25 @@ public class AchievementMarkDialog extends Dialog {
                     return;
                 }
             }
-            this.f49576a = achievementMarkDialog;
+            this.f49711a = achievementMarkDialog;
         }
 
         @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaUpdateMarkStatusModel.b
         public void onResult(boolean z, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-                this.f49576a.n.setEnabled(true);
+                this.f49711a.n.setEnabled(true);
                 if (z) {
-                    if (this.f49576a.r != null) {
-                        this.f49576a.r.a(true, this.f49576a.o);
+                    if (this.f49711a.r != null) {
+                        this.f49711a.r.a(true, this.f49711a.o);
                     }
-                    this.f49576a.dismiss();
+                    this.f49711a.dismiss();
                     return;
                 }
                 if (StringUtils.isNull(str)) {
-                    str = this.f49576a.getContext().getResources().getString(R.string.ala_achievement_ops_failed_tip);
+                    str = this.f49711a.getContext().getResources().getString(R.string.ala_achievement_ops_failed_tip);
                 }
-                this.f49576a.f49570e.showToast(str);
+                this.f49711a.f49705e.showToast(str);
             }
         }
     }
@@ -127,7 +127,7 @@ public class AchievementMarkDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AchievementMarkDialog f49577a;
+        public final /* synthetic */ AchievementMarkDialog f49712a;
 
         public b(AchievementMarkDialog achievementMarkDialog) {
             Interceptable interceptable = $ic;
@@ -144,16 +144,16 @@ public class AchievementMarkDialog extends Dialog {
                     return;
                 }
             }
-            this.f49577a = achievementMarkDialog;
+            this.f49712a = achievementMarkDialog;
         }
 
-        @Override // c.a.q0.v.j.g.b.c
+        @Override // c.a.r0.v.j.g.b.c
         public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && this.f49577a.o.n <= TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                this.f49577a.w();
-                this.f49577a.v();
-                this.f49577a.t();
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && this.f49712a.o.n <= TbadkCoreApplication.getInst().currentAccountTdouNum) {
+                this.f49712a.w();
+                this.f49712a.v();
+                this.f49712a.t();
             }
         }
     }
@@ -164,7 +164,7 @@ public class AchievementMarkDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AchievementMarkDialog f49578a;
+        public final /* synthetic */ AchievementMarkDialog f49713a;
 
         public c(AchievementMarkDialog achievementMarkDialog) {
             Interceptable interceptable = $ic;
@@ -181,28 +181,28 @@ public class AchievementMarkDialog extends Dialog {
                     return;
                 }
             }
-            this.f49578a = achievementMarkDialog;
+            this.f49713a = achievementMarkDialog;
         }
 
-        @Override // c.a.q0.v.j.g.a.b
+        @Override // c.a.r0.v.j.g.a.b
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
                 if (z) {
-                    if (this.f49578a.o != null) {
-                        this.f49578a.f49570e.showToast(R.string.ala_achievement_tdou_buy_success);
-                        if (this.f49578a.r != null) {
-                            this.f49578a.r.a(true, this.f49578a.o);
+                    if (this.f49713a.o != null) {
+                        this.f49713a.f49705e.showToast(R.string.ala_achievement_tdou_buy_success);
+                        if (this.f49713a.r != null) {
+                            this.f49713a.r.a(true, this.f49713a.o);
                         }
-                        this.f49578a.o.q(2);
-                        this.f49578a.w();
-                        this.f49578a.v();
-                        this.f49578a.t();
+                        this.f49713a.o.q(2);
+                        this.f49713a.w();
+                        this.f49713a.v();
+                        this.f49713a.t();
                     }
                 } else if (!StringUtils.isNull(str)) {
-                    this.f49578a.f49570e.showToast(str);
+                    this.f49713a.f49705e.showToast(str);
                 } else {
-                    this.f49578a.f49570e.showToast(R.string.ala_achievement_tdou_buy_fail);
+                    this.f49713a.f49705e.showToast(R.string.ala_achievement_tdou_buy_fail);
                 }
             }
         }
@@ -214,7 +214,7 @@ public class AchievementMarkDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AchievementMarkDialog f49579e;
+        public final /* synthetic */ AchievementMarkDialog f49714e;
 
         public d(AchievementMarkDialog achievementMarkDialog) {
             Interceptable interceptable = $ic;
@@ -231,17 +231,17 @@ public class AchievementMarkDialog extends Dialog {
                     return;
                 }
             }
-            this.f49579e = achievementMarkDialog;
+            this.f49714e = achievementMarkDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f49579e.r != null) {
-                    this.f49579e.r.a(false, this.f49579e.o);
+                if (this.f49714e.r != null) {
+                    this.f49714e.r.a(false, this.f49714e.o);
                 }
-                this.f49579e.dismiss();
+                this.f49714e.dismiss();
             }
         }
     }
@@ -252,7 +252,7 @@ public class AchievementMarkDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AchievementMarkDialog f49580a;
+        public final /* synthetic */ AchievementMarkDialog f49715a;
 
         public e(AchievementMarkDialog achievementMarkDialog) {
             Interceptable interceptable = $ic;
@@ -269,14 +269,14 @@ public class AchievementMarkDialog extends Dialog {
                     return;
                 }
             }
-            this.f49580a = achievementMarkDialog;
+            this.f49715a = achievementMarkDialog;
         }
 
         @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.MarkLevelGroup.b
         public void a(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                this.f49580a.u(str, str2);
+                this.f49715a.u(str, str2);
             }
         }
     }
@@ -287,7 +287,7 @@ public class AchievementMarkDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AchievementMarkDialog f49581e;
+        public final /* synthetic */ AchievementMarkDialog f49716e;
 
         public f(AchievementMarkDialog achievementMarkDialog) {
             Interceptable interceptable = $ic;
@@ -304,30 +304,30 @@ public class AchievementMarkDialog extends Dialog {
                     return;
                 }
             }
-            this.f49581e = achievementMarkDialog;
+            this.f49716e = achievementMarkDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f49581e.o.j() == 0 || 3 == this.f49581e.o.j()) {
-                    if (this.f49581e.o.m()) {
-                        if (this.f49581e.o.n > TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                            if (this.f49581e.x != null) {
-                                this.f49581e.x.c(this.f49581e.o.n);
+                if (this.f49716e.o.j() == 0 || 3 == this.f49716e.o.j()) {
+                    if (this.f49716e.o.m()) {
+                        if (this.f49716e.o.n > TbadkCoreApplication.getInst().currentAccountTdouNum) {
+                            if (this.f49716e.x != null) {
+                                this.f49716e.x.c(this.f49716e.o.n);
                             }
-                        } else if (this.f49581e.y != null) {
-                            this.f49581e.y.c(this.f49581e.o.d(), this.f49581e.o.m, false);
+                        } else if (this.f49716e.y != null) {
+                            this.f49716e.y.c(this.f49716e.o.d(), this.f49716e.o.m, false);
                         }
-                    } else if (this.f49581e.o.l()) {
+                    } else if (this.f49716e.o.l()) {
                     } else {
-                        this.f49581e.dismiss();
+                        this.f49716e.dismiss();
                     }
-                } else if (!this.f49581e.o.k() || 2 != this.f49581e.o.j()) {
-                    this.f49581e.r();
+                } else if (!this.f49716e.o.k() || 2 != this.f49716e.o.j()) {
+                    this.f49716e.r();
                 } else {
-                    this.f49581e.s();
+                    this.f49716e.s();
                 }
             }
         }
@@ -339,7 +339,7 @@ public class AchievementMarkDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AchievementMarkDialog f49582e;
+        public final /* synthetic */ AchievementMarkDialog f49717e;
 
         public g(AchievementMarkDialog achievementMarkDialog) {
             Interceptable interceptable = $ic;
@@ -356,16 +356,16 @@ public class AchievementMarkDialog extends Dialog {
                     return;
                 }
             }
-            this.f49582e = achievementMarkDialog;
+            this.f49717e = achievementMarkDialog;
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f49582e.n.setEnabled(false);
-                this.f49582e.r();
+                this.f49717e.n.setEnabled(false);
+                this.f49717e.r();
             }
         }
     }
@@ -376,7 +376,7 @@ public class AchievementMarkDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AchievementMarkDialog f49583e;
+        public final /* synthetic */ AchievementMarkDialog f49718e;
 
         public h(AchievementMarkDialog achievementMarkDialog) {
             Interceptable interceptable = $ic;
@@ -393,11 +393,11 @@ public class AchievementMarkDialog extends Dialog {
                     return;
                 }
             }
-            this.f49583e = achievementMarkDialog;
+            this.f49718e = achievementMarkDialog;
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -407,7 +407,7 @@ public class AchievementMarkDialog extends Dialog {
 
     /* loaded from: classes7.dex */
     public interface i {
-        void a(boolean z, c.a.q0.v.j.g.c.b.b bVar);
+        void a(boolean z, c.a.r0.v.j.g.c.b.b bVar);
     }
 
     static {
@@ -445,7 +445,7 @@ public class AchievementMarkDialog extends Dialog {
                 return;
             }
         }
-        this.f49570e = tbPageContext;
+        this.f49705e = tbPageContext;
         this.r = iVar;
     }
 
@@ -462,7 +462,7 @@ public class AchievementMarkDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             n();
-            c.a.q0.v.j.g.c.b.d dVar = this.p;
+            c.a.r0.v.j.g.c.b.d dVar = this.p;
             if (dVar == null) {
                 dismiss();
                 return;
@@ -479,14 +479,14 @@ public class AchievementMarkDialog extends Dialog {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.p = null;
             if (!ListUtils.isEmpty(this.o.c())) {
-                for (c.a.q0.v.j.g.c.b.d dVar : this.o.c()) {
+                for (c.a.r0.v.j.g.c.b.d dVar : this.o.c()) {
                     if (dVar != null && this.o.g() == dVar.c()) {
                         this.p = dVar;
                     }
                 }
             }
             if (this.p == null) {
-                c.a.q0.v.j.g.c.b.d dVar2 = new c.a.q0.v.j.g.c.b.d();
+                c.a.r0.v.j.g.c.b.d dVar2 = new c.a.r0.v.j.g.c.b.d();
                 this.p = dVar2;
                 dVar2.g(this.o.f());
                 this.p.f(this.o.e());
@@ -535,10 +535,10 @@ public class AchievementMarkDialog extends Dialog {
             AlaUpdateMarkStatusModel alaUpdateMarkStatusModel = new AlaUpdateMarkStatusModel(getContext());
             this.q = alaUpdateMarkStatusModel;
             alaUpdateMarkStatusModel.z(new a(this));
-            c.a.q0.v.j.g.b bVar = new c.a.q0.v.j.g.b(this.f49570e);
+            c.a.r0.v.j.g.b bVar = new c.a.r0.v.j.g.b(this.f49705e);
             this.x = bVar;
             bVar.e(new b(this));
-            this.y = new c.a.q0.v.j.g.a(this.f49570e, new c(this));
+            this.y = new c.a.r0.v.j.g.a(this.f49705e, new c(this));
         }
     }
 
@@ -546,23 +546,23 @@ public class AchievementMarkDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             View inflate = getLayoutInflater().inflate(R.layout.ala_achievement_mark_mask_layout, (ViewGroup) null);
-            this.f49571f = inflate;
+            this.f49706f = inflate;
             setContentView(inflate);
-            this.f49571f.setOnClickListener(new d(this));
-            TbImageView tbImageView = (TbImageView) this.f49571f.findViewById(R.id.mark_img);
-            this.f49572g = tbImageView;
+            this.f49706f.setOnClickListener(new d(this));
+            TbImageView tbImageView = (TbImageView) this.f49706f.findViewById(R.id.mark_img);
+            this.f49707g = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.f49572g.setDefaultResource(R.drawable.pic_live_honor);
-            this.f49573h = (FrameLayout) this.f49571f.findViewById(R.id.mark_img_layout);
-            this.f49574i = (TextView) this.f49571f.findViewById(R.id.mark_title);
-            this.f49575j = (RelativeLayout) this.f49571f.findViewById(R.id.mark_desc_layout);
-            this.k = (TextView) this.f49571f.findViewById(R.id.mark_desc);
-            this.l = (TextView) this.f49571f.findViewById(R.id.mark_upgrade_desc);
-            MarkLevelGroup markLevelGroup = (MarkLevelGroup) this.f49571f.findViewById(R.id.mark_level_view);
+            this.f49707g.setDefaultResource(R.drawable.pic_live_honor);
+            this.f49708h = (FrameLayout) this.f49706f.findViewById(R.id.mark_img_layout);
+            this.f49709i = (TextView) this.f49706f.findViewById(R.id.mark_title);
+            this.f49710j = (RelativeLayout) this.f49706f.findViewById(R.id.mark_desc_layout);
+            this.k = (TextView) this.f49706f.findViewById(R.id.mark_desc);
+            this.l = (TextView) this.f49706f.findViewById(R.id.mark_upgrade_desc);
+            MarkLevelGroup markLevelGroup = (MarkLevelGroup) this.f49706f.findViewById(R.id.mark_level_view);
             this.m = markLevelGroup;
             markLevelGroup.setCallback(new e(this));
-            this.n = (TextView) this.f49571f.findViewById(R.id.mark_ops_btn);
-            this.u = (TextView) this.f49571f.findViewById(R.id.mark_limit_time);
+            this.n = (TextView) this.f49706f.findViewById(R.id.mark_ops_btn);
+            this.u = (TextView) this.f49706f.findViewById(R.id.mark_limit_time);
             this.s = (LinearLayout) findViewById(R.id.mark_tdou_layout);
             this.t = (TextView) findViewById(R.id.mark_tdou_price);
             this.v = (LinearLayout) findViewById(R.id.user_tdou_layout);
@@ -584,18 +584,18 @@ public class AchievementMarkDialog extends Dialog {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            c.a.p0.s.s.a aVar = new c.a.p0.s.s.a(this.f49570e.getPageActivity());
+            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f49705e.getPageActivity());
             aVar.setMessageShowCenter(true);
             aVar.setCanceledOnTouchOutside(false);
             aVar.setTitle(R.string.ala_achievement_ops_alert_title);
             aVar.setMessageId(R.string.ala_achievement_ops_alert_content);
             aVar.setPositiveButton(R.string.dialog_ok, new g(this));
             aVar.setNegativeButton(R.string.dialog_cancel, new h(this));
-            aVar.create(this.f49570e).show();
+            aVar.create(this.f49705e).show();
         }
     }
 
-    public void show(c.a.q0.v.j.g.c.b.b bVar) {
+    public void show(c.a.r0.v.j.g.c.b.b bVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) || bVar == null) {
             return;
@@ -646,11 +646,11 @@ public class AchievementMarkDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
             if (StringUtils.isNull(str)) {
-                this.f49572g.startLoad(String.valueOf(R.drawable.pic_live_honor), 24, false);
+                this.f49707g.startLoad(String.valueOf(R.drawable.pic_live_honor), 24, false);
             } else {
-                this.f49572g.startLoad(str, 10, false);
+                this.f49707g.startLoad(str, 10, false);
             }
-            this.f49574i.setText(str2);
+            this.f49709i.setText(str2);
         }
     }
 

@@ -33,7 +33,7 @@ public final class l {
                 } catch (EOFException e2) {
                     e = e2;
                     if (z) {
-                        return com.bytedance.sdk.openadsdk.preload.a.n.f68422a;
+                        return com.bytedance.sdk.openadsdk.preload.a.n.f68602a;
                     }
                     throw new t(e);
                 }
@@ -56,10 +56,10 @@ public final class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Appendable f68347a;
+        public final Appendable f68527a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final C1929a f68348b;
+        public final C1929a f68528b;
 
         /* renamed from: com.bytedance.sdk.openadsdk.preload.a.b.l$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
@@ -68,7 +68,7 @@ public final class l {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public char[] f68349a;
+            public char[] f68529a;
 
             public C1929a() {
                 Interceptable interceptable = $ic;
@@ -88,21 +88,21 @@ public final class l {
             public char charAt(int i2) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f68349a[i2] : invokeI.charValue;
+                return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f68529a[i2] : invokeI.charValue;
             }
 
             @Override // java.lang.CharSequence
             public int length() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68349a.length : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68529a.length : invokeV.intValue;
             }
 
             @Override // java.lang.CharSequence
             public CharSequence subSequence(int i2, int i3) {
                 InterceptResult invokeII;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? new String(this.f68349a, i2, i3 - i2) : (CharSequence) invokeII.objValue;
+                return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? new String(this.f68529a, i2, i3 - i2) : (CharSequence) invokeII.objValue;
             }
         }
 
@@ -121,8 +121,8 @@ public final class l {
                     return;
                 }
             }
-            this.f68348b = new C1929a();
-            this.f68347a = appendable;
+            this.f68528b = new C1929a();
+            this.f68527a = appendable;
         }
 
         @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
@@ -143,9 +143,9 @@ public final class l {
         public void write(char[] cArr, int i2, int i3) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i2, i3) == null) {
-                C1929a c1929a = this.f68348b;
-                c1929a.f68349a = cArr;
-                this.f68347a.append(c1929a, i2, i3 + i2);
+                C1929a c1929a = this.f68528b;
+                c1929a.f68529a = cArr;
+                this.f68527a.append(c1929a, i2, i3 + i2);
             }
         }
 
@@ -153,7 +153,7 @@ public final class l {
         public void write(int i2) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f68347a.append((char) i2);
+                this.f68527a.append((char) i2);
             }
         }
     }

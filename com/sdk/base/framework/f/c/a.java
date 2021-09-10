@@ -19,10 +19,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75394a = "com.sdk.base.framework.f.c.a";
+    public static final String f75574a = "com.sdk.base.framework.f.c.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f75395b;
+    public static final boolean f75575b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class a {
                 return;
             }
         }
-        f75395b = f.f75370b;
+        f75575b = f.f75550b;
     }
 
     public a() {
@@ -94,7 +94,7 @@ public class a {
                 }
                 return jSONObject.toString();
             } catch (Exception e2) {
-                c.b(f75394a, e2.getMessage(), Boolean.valueOf(f75395b));
+                c.b(f75574a, e2.getMessage(), Boolean.valueOf(f75575b));
                 return null;
             }
         }

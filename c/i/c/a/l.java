@@ -31,28 +31,28 @@ public class l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Queue<Runnable> f34019a;
+    public final Queue<Runnable> f34128a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f34020b;
+    public Context f34129b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile int f34021c;
+    public volatile int f34130c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.google.a.b.a.a.a.a f34022d;
+    public com.google.a.b.a.a.a.a f34131d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BroadcastReceiver f34023e;
+    public BroadcastReceiver f34132e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f34024f;
+    public Context f34133f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ServiceConnection f34025g;
+    public final ServiceConnection f34134g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final AtomicReference<c> f34026h;
+    public final AtomicReference<c> f34135h;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -112,14 +112,14 @@ public class l {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
                 p();
-                int i2 = this.f34021c - 1;
+                int i2 = this.f34130c - 1;
                 if (i2 == 1 || i2 == 2) {
-                    this.f34020b.unbindService(this.f34025g);
-                    this.f34020b = null;
-                    this.f34021c = s.f34040a;
+                    this.f34129b.unbindService(this.f34134g);
+                    this.f34129b = null;
+                    this.f34130c = s.f34149a;
                 }
-                if (this.f34023e != null) {
-                    this.f34024f.unregisterReceiver(this.f34023e);
+                if (this.f34132e != null) {
+                    this.f34133f.unregisterReceiver(this.f34132e);
                 }
             }
         }
@@ -129,15 +129,15 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, mVar) == null) {
             c cVar = new c(activity, mVar);
-            c andSet = this.f34026h.getAndSet(cVar);
+            c andSet = this.f34135h.getAndSet(cVar);
             if (andSet != null) {
                 andSet.a();
             }
             cVar.start();
-            if (this.f34023e == null) {
+            if (this.f34132e == null) {
                 p pVar = new p(this, mVar);
-                this.f34023e = pVar;
-                this.f34024f = activity;
+                this.f34132e = pVar;
+                this.f34133f = activity;
                 activity.registerReceiver(pVar, new IntentFilter("com.google.android.play.core.install.ACTION_INSTALL_STATUS"));
             }
             try {
@@ -152,14 +152,14 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             synchronized (this) {
-                this.f34020b = context;
-                if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.f34025g, 1)) {
-                    this.f34021c = s.f34041b;
+                this.f34129b = context;
+                if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.f34134g, 1)) {
+                    this.f34130c = s.f34150b;
                     return;
                 }
-                this.f34021c = s.f34040a;
-                this.f34020b = null;
-                context.unbindService(this.f34025g);
+                this.f34130c = s.f34149a;
+                this.f34129b = null;
+                context.unbindService(this.f34134g);
             }
         }
     }
@@ -181,9 +181,9 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, iBinder) == null) {
             synchronized (this) {
-                this.f34022d = com.google.a.b.a.a.a.b.a(iBinder);
-                this.f34021c = s.f34042c;
-                for (Runnable runnable : this.f34019a) {
+                this.f34131d = com.google.a.b.a.a.a.b.a(iBinder);
+                this.f34130c = s.f34151c;
+                for (Runnable runnable : this.f34128a) {
                     runnable.run();
                 }
             }
@@ -194,12 +194,12 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
             synchronized (this) {
-                int i2 = this.f34021c - 1;
+                int i2 = this.f34130c - 1;
                 if (i2 == 0) {
                     throw new ab();
                 }
                 if (i2 == 1) {
-                    this.f34019a.offer(runnable);
+                    this.f34128a.offer(runnable);
                     return;
                 }
                 if (i2 == 2) {
@@ -212,7 +212,7 @@ public class l {
     public final void p() {
         c andSet;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (andSet = this.f34026h.getAndSet(null)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (andSet = this.f34135h.getAndSet(null)) == null) {
             return;
         }
         andSet.a();
@@ -222,8 +222,8 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
-                this.f34021c = s.f34040a;
-                this.f34022d = null;
+                this.f34130c = s.f34149a;
+                this.f34131d = null;
                 p();
             }
         }
@@ -247,9 +247,9 @@ public class l {
                 return;
             }
         }
-        this.f34019a = new ArrayDeque();
-        this.f34021c = s.f34040a;
-        this.f34025g = new n(this);
-        this.f34026h = new AtomicReference<>();
+        this.f34128a = new ArrayDeque();
+        this.f34130c = s.f34149a;
+        this.f34134g = new n(this);
+        this.f34135h = new AtomicReference<>();
     }
 }

@@ -15,11 +15,11 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f2772b;
+    public static volatile d f2763b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, a> f2773a;
+    public Map<String, a> f2764a;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -27,10 +27,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ServiceProxy f2774a;
+        public ServiceProxy f2765a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Intent f2775b;
+        public Intent f2766b;
 
         public a(ServiceProxy serviceProxy, Intent intent) {
             Interceptable interceptable = $ic;
@@ -47,8 +47,8 @@ public class d {
                     return;
                 }
             }
-            this.f2774a = serviceProxy;
-            this.f2775b = intent;
+            this.f2765a = serviceProxy;
+            this.f2766b = intent;
         }
     }
 
@@ -65,22 +65,22 @@ public class d {
                 return;
             }
         }
-        this.f2773a = null;
-        this.f2773a = new HashMap();
+        this.f2764a = null;
+        this.f2764a = new HashMap();
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f2772b == null) {
+            if (f2763b == null) {
                 synchronized (d.class) {
-                    if (f2772b == null) {
-                        f2772b = new d();
+                    if (f2763b == null) {
+                        f2763b = new d();
                     }
                 }
             }
-            return f2772b;
+            return f2763b;
         }
         return (d) invokeV.objValue;
     }
@@ -88,7 +88,7 @@ public class d {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2773a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2764a.size() : invokeV.intValue;
     }
 
     public synchronized a c(String str) {
@@ -97,7 +97,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             synchronized (this) {
-                aVar = this.f2773a.get(str);
+                aVar = this.f2764a.get(str);
             }
             return aVar;
         }
@@ -108,7 +108,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar) == null) {
             synchronized (this) {
-                this.f2773a.put(str, aVar);
+                this.f2764a.put(str, aVar);
             }
         }
     }
@@ -117,7 +117,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             synchronized (this) {
-                this.f2773a.remove(str);
+                this.f2764a.remove(str);
             }
         }
     }

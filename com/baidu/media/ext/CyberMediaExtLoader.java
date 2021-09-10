@@ -21,7 +21,7 @@ public class CyberMediaExtLoader {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ClassLoader f42530a;
+    public static ClassLoader f42641a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,10 +60,10 @@ public class CyberMediaExtLoader {
             if (context == null || a.d()) {
                 return;
             }
-            String str = c.k() + File.separator + "libs";
-            File file = new File(e.b().a(2048).j());
+            String str = c.m() + File.separator + "libs";
+            File file = new File(e.b().a(8192).j());
             if (file.exists()) {
-                f42530a = new CyberClassLoader(file.getAbsolutePath(), new File(str), null, context.getClassLoader());
+                f42641a = new CyberClassLoader(file.getAbsolutePath(), new File(str), null, context.getClassLoader());
             } else {
                 CyberLog.e("CyberMediaExtInvoker", "dexFile = null or dexFile not exist!");
             }
@@ -77,7 +77,7 @@ public class CyberMediaExtLoader {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             synchronized (CyberMediaExtLoader.class) {
                 a(context);
-                a.e(f42530a);
+                a.e(f42641a);
                 d2 = a.d();
             }
             return d2;

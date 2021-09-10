@@ -3,7 +3,6 @@ package com.baidu.ar.lua;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.message.ARPMessage;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -174,7 +173,7 @@ public class b extends com.baidu.ar.arplay.b.a {
         synchronized (this) {
             com.baidu.ar.h.b.c("EngineMsgBridge", "handleMessage aMessageType = " + i2 + " && aMessageID = " + i3);
             if (this.aJ && b(i2, i3, hashMap)) {
-                i2 = ARPMessageType.MSG_TYPE_LUA_SDK_BRIDGE;
+                i2 = 1901;
                 if (this.sV != null) {
                     return;
                 }

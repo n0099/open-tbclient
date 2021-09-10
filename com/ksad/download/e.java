@@ -15,14 +15,14 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f70768a;
+    public f f70948a;
 
     /* loaded from: classes10.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f70769a;
+        public static final e f70949a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -38,7 +38,7 @@ public class e {
                     return;
                 }
             }
-            f70769a = new e();
+            f70949a = new e();
         }
     }
 
@@ -59,15 +59,15 @@ public class e {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f70769a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f70949a : (e) invokeV.objValue;
     }
 
     public synchronized void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             synchronized (this) {
-                if (this.f70768a != null) {
-                    this.f70768a.a(i2);
+                if (this.f70948a != null) {
+                    this.f70948a.a(i2);
                 }
             }
         }
@@ -79,8 +79,8 @@ public class e {
             synchronized (this) {
                 if (downloadTask.isCanceled()) {
                     a(downloadTask.getId());
-                } else if (this.f70768a != null) {
-                    this.f70768a.a(downloadTask);
+                } else if (this.f70948a != null) {
+                    this.f70948a.a(downloadTask);
                 }
             }
         }
@@ -92,8 +92,8 @@ public class e {
             synchronized (this) {
                 if (downloadTask.isCanceled()) {
                     a(downloadTask.getId());
-                } else if (this.f70768a != null) {
-                    this.f70768a.a(downloadTask, z);
+                } else if (this.f70948a != null) {
+                    this.f70948a.a(downloadTask, z);
                 }
             }
         }
@@ -102,7 +102,7 @@ public class e {
     public void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f70768a = fVar;
+            this.f70948a = fVar;
         }
     }
 
@@ -112,8 +112,8 @@ public class e {
             synchronized (this) {
                 if (downloadTask.isCanceled()) {
                     a(downloadTask.getId());
-                } else if (this.f70768a != null) {
-                    this.f70768a.b(downloadTask);
+                } else if (this.f70948a != null) {
+                    this.f70948a.b(downloadTask);
                 }
             }
         }
@@ -123,8 +123,8 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, downloadTask) == null) {
             synchronized (this) {
-                if (this.f70768a != null) {
-                    this.f70768a.c(downloadTask);
+                if (this.f70948a != null) {
+                    this.f70948a.c(downloadTask);
                 }
                 Object tag = downloadTask.getTag();
                 if (tag instanceof DownloadParams) {

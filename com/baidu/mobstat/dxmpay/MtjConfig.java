@@ -26,7 +26,7 @@ public class MtjConfig {
         public static final FeedTrackStrategy TRACK_SINGLE;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ FeedTrackStrategy[] f43637a;
+        public static final /* synthetic */ FeedTrackStrategy[] f43752a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,7 +46,7 @@ public class MtjConfig {
             TRACK_SINGLE = new FeedTrackStrategy("TRACK_SINGLE", 1);
             FeedTrackStrategy feedTrackStrategy = new FeedTrackStrategy("TRACK_NONE", 2);
             TRACK_NONE = feedTrackStrategy;
-            f43637a = new FeedTrackStrategy[]{TRACK_ALL, TRACK_SINGLE, feedTrackStrategy};
+            f43752a = new FeedTrackStrategy[]{TRACK_ALL, TRACK_SINGLE, feedTrackStrategy};
         }
 
         public FeedTrackStrategy(String str, int i2) {
@@ -77,7 +77,7 @@ public class MtjConfig {
         public static FeedTrackStrategy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FeedTrackStrategy[]) f43637a.clone() : (FeedTrackStrategy[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FeedTrackStrategy[]) f43752a.clone() : (FeedTrackStrategy[]) invokeV.objValue;
         }
     }
 
@@ -97,14 +97,14 @@ public class MtjConfig {
         public static final PushPlatform XINGE;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ PushPlatform[] f43638c;
+        public static final /* synthetic */ PushPlatform[] f43753c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f43639a;
+        public String f43754a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f43640b;
+        public int f43755b;
 
         static {
             InterceptResult invokeClinit;
@@ -130,7 +130,7 @@ public class MtjConfig {
             OPPO = new PushPlatform("OPPO", 8, RomUtils.MANUFACTURER_OPPO, 8);
             PushPlatform pushPlatform = new PushPlatform("MEIZU", 9, "meizu", 9);
             MEIZU = pushPlatform;
-            f43638c = new PushPlatform[]{BAIDUYUN, JIGUANG, GETUI, HUAWEI, XIAOMI, UMENG, XINGE, ALIYUN, OPPO, pushPlatform};
+            f43753c = new PushPlatform[]{BAIDUYUN, JIGUANG, GETUI, HUAWEI, XIAOMI, UMENG, XINGE, ALIYUN, OPPO, pushPlatform};
         }
 
         public PushPlatform(String str, int i2, String str2, int i3) {
@@ -151,8 +151,8 @@ public class MtjConfig {
                     return;
                 }
             }
-            this.f43639a = str2;
-            this.f43640b = i3;
+            this.f43754a = str2;
+            this.f43755b = i3;
         }
 
         public static PushPlatform valueOf(String str) {
@@ -164,20 +164,20 @@ public class MtjConfig {
         public static PushPlatform[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PushPlatform[]) f43638c.clone() : (PushPlatform[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PushPlatform[]) f43753c.clone() : (PushPlatform[]) invokeV.objValue;
         }
 
         public String showName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43639a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43754a : (String) invokeV.objValue;
         }
 
         public String value() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "p" + this.f43640b;
+                return "p" + this.f43755b;
             }
             return (String) invokeV.objValue;
         }

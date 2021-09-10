@@ -14,7 +14,7 @@ public class f implements AbstractPushManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f77129a;
+    public static volatile f f77309a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -53,14 +53,14 @@ public class f implements AbstractPushManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f77129a == null) {
+            if (f77309a == null) {
                 synchronized (f.class) {
-                    if (f77129a == null) {
-                        f77129a = new f(context);
+                    if (f77309a == null) {
+                        f77309a = new f(context);
                     }
                 }
             }
-            return f77129a;
+            return f77309a;
         }
         return (f) invokeL.objValue;
     }
@@ -78,54 +78,54 @@ public class f implements AbstractPushManager {
         if (pushConfiguration.getOpenHmsPush()) {
             StringBuilder sb = new StringBuilder();
             sb.append("ASSEMBLE_PUSH : ");
-            sb.append(" HW user switch : " + this.f94a.getOpenHmsPush() + " HW online switch : " + i.m136a(this.f93a, e.f77125a) + " HW isSupport : " + af.f77090a.equals(n.a(this.f93a)));
+            sb.append(" HW user switch : " + this.f94a.getOpenHmsPush() + " HW online switch : " + i.m136a(this.f93a, e.f77305a) + " HW isSupport : " + af.f77270a.equals(n.a(this.f93a)));
             com.xiaomi.channel.commonutils.logger.b.m73a(sb.toString());
         }
-        if (this.f94a.getOpenHmsPush() && i.m136a(this.f93a, e.f77125a) && af.f77090a.equals(n.a(this.f93a))) {
-            if (!m132a(e.f77125a)) {
-                e eVar = e.f77125a;
+        if (this.f94a.getOpenHmsPush() && i.m136a(this.f93a, e.f77305a) && af.f77270a.equals(n.a(this.f93a))) {
+            if (!m132a(e.f77305a)) {
+                e eVar = e.f77305a;
                 a(eVar, aj.a(this.f93a, eVar));
             }
             com.xiaomi.channel.commonutils.logger.b.c("hw manager add to list");
-        } else if (m132a(e.f77125a) && (a2 = a(e.f77125a)) != null) {
-            m131a(e.f77125a);
+        } else if (m132a(e.f77305a) && (a2 = a(e.f77305a)) != null) {
+            m131a(e.f77305a);
             a2.unregister();
         }
         if (this.f94a.getOpenFCMPush()) {
             StringBuilder sb2 = new StringBuilder();
             sb2.append("ASSEMBLE_PUSH : ");
-            sb2.append(" FCM user switch : " + this.f94a.getOpenFCMPush() + " FCM online switch : " + i.m136a(this.f93a, e.f77126b) + " FCM isSupport : " + n.m139a(this.f93a));
+            sb2.append(" FCM user switch : " + this.f94a.getOpenFCMPush() + " FCM online switch : " + i.m136a(this.f93a, e.f77306b) + " FCM isSupport : " + n.m139a(this.f93a));
             com.xiaomi.channel.commonutils.logger.b.m73a(sb2.toString());
         }
-        if (this.f94a.getOpenFCMPush() && i.m136a(this.f93a, e.f77126b) && n.m139a(this.f93a)) {
-            if (!m132a(e.f77126b)) {
-                e eVar2 = e.f77126b;
+        if (this.f94a.getOpenFCMPush() && i.m136a(this.f93a, e.f77306b) && n.m139a(this.f93a)) {
+            if (!m132a(e.f77306b)) {
+                e eVar2 = e.f77306b;
                 a(eVar2, aj.a(this.f93a, eVar2));
             }
             com.xiaomi.channel.commonutils.logger.b.c("fcm manager add to list");
-        } else if (m132a(e.f77126b) && (a3 = a(e.f77126b)) != null) {
-            m131a(e.f77126b);
+        } else if (m132a(e.f77306b) && (a3 = a(e.f77306b)) != null) {
+            m131a(e.f77306b);
             a3.unregister();
         }
         if (this.f94a.getOpenCOSPush()) {
             StringBuilder sb3 = new StringBuilder();
             sb3.append("ASSEMBLE_PUSH : ");
-            sb3.append(" COS user switch : " + this.f94a.getOpenCOSPush() + " COS online switch : " + i.m136a(this.f93a, e.f77127c) + " COS isSupport : " + n.b(this.f93a));
+            sb3.append(" COS user switch : " + this.f94a.getOpenCOSPush() + " COS online switch : " + i.m136a(this.f93a, e.f77307c) + " COS isSupport : " + n.b(this.f93a));
             com.xiaomi.channel.commonutils.logger.b.m73a(sb3.toString());
         }
-        if (this.f94a.getOpenCOSPush() && i.m136a(this.f93a, e.f77127c) && n.b(this.f93a)) {
-            e eVar3 = e.f77127c;
+        if (this.f94a.getOpenCOSPush() && i.m136a(this.f93a, e.f77307c) && n.b(this.f93a)) {
+            e eVar3 = e.f77307c;
             a(eVar3, aj.a(this.f93a, eVar3));
-        } else if (m132a(e.f77127c) && (a4 = a(e.f77127c)) != null) {
-            m131a(e.f77127c);
+        } else if (m132a(e.f77307c) && (a4 = a(e.f77307c)) != null) {
+            m131a(e.f77307c);
             a4.unregister();
         }
-        if (this.f94a.getOpenFTOSPush() && i.m136a(this.f93a, e.f77128d) && n.c(this.f93a)) {
-            e eVar4 = e.f77128d;
+        if (this.f94a.getOpenFTOSPush() && i.m136a(this.f93a, e.f77308d) && n.c(this.f93a)) {
+            e eVar4 = e.f77308d;
             a(eVar4, aj.a(this.f93a, eVar4));
-        } else if (!m132a(e.f77128d) || (a5 = a(e.f77128d)) == null) {
+        } else if (!m132a(e.f77308d) || (a5 = a(e.f77308d)) == null) {
         } else {
-            m131a(e.f77128d);
+            m131a(e.f77308d);
             a5.unregister();
         }
     }
@@ -177,7 +177,7 @@ public class f implements AbstractPushManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, eVar)) == null) {
-            int i2 = h.f77131a[eVar.ordinal()];
+            int i2 = h.f77311a[eVar.ordinal()];
             boolean z = false;
             if (i2 == 1) {
                 PushConfiguration pushConfiguration = this.f94a;

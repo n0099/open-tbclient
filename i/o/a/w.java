@@ -13,13 +13,13 @@ public final class w<T> implements h.c<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.h<T> f78490e;
+    public final i.h<T> f78728e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.n.b<? super T> f78491f;
+    public final i.n.b<? super T> f78729f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final i.n.b<Throwable> f78492g;
+    public final i.n.b<Throwable> f78730g;
 
     /* loaded from: classes10.dex */
     public static final class a<T> extends i.i<T> {
@@ -27,13 +27,13 @@ public final class w<T> implements h.c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final i.i<? super T> f78493f;
+        public final i.i<? super T> f78731f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final i.n.b<? super T> f78494g;
+        public final i.n.b<? super T> f78732g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final i.n.b<Throwable> f78495h;
+        public final i.n.b<Throwable> f78733h;
 
         public a(i.i<? super T> iVar, i.n.b<? super T> bVar, i.n.b<Throwable> bVar2) {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public final class w<T> implements h.c<T> {
                     return;
                 }
             }
-            this.f78493f = iVar;
-            this.f78494g = bVar;
-            this.f78495h = bVar2;
+            this.f78731f = iVar;
+            this.f78732g = bVar;
+            this.f78733h = bVar2;
         }
 
         @Override // i.i
@@ -60,11 +60,11 @@ public final class w<T> implements h.c<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
                 try {
-                    this.f78495h.call(th);
-                    this.f78493f.b(th);
+                    this.f78733h.call(th);
+                    this.f78731f.b(th);
                 } catch (Throwable th2) {
                     i.m.a.e(th2);
-                    this.f78493f.b(new CompositeException(th, th2));
+                    this.f78731f.b(new CompositeException(th, th2));
                 }
             }
         }
@@ -74,8 +74,8 @@ public final class w<T> implements h.c<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
                 try {
-                    this.f78494g.call(t);
-                    this.f78493f.c(t);
+                    this.f78732g.call(t);
+                    this.f78731f.c(t);
                 } catch (Throwable th) {
                     i.m.a.h(th, this, t);
                 }
@@ -98,9 +98,9 @@ public final class w<T> implements h.c<T> {
                 return;
             }
         }
-        this.f78490e = hVar;
-        this.f78491f = bVar;
-        this.f78492g = bVar2;
+        this.f78728e = hVar;
+        this.f78729f = bVar;
+        this.f78730g = bVar2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -109,9 +109,9 @@ public final class w<T> implements h.c<T> {
     public void call(i.i<? super T> iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-            a aVar = new a(iVar, this.f78491f, this.f78492g);
+            a aVar = new a(iVar, this.f78729f, this.f78730g);
             iVar.a(aVar);
-            this.f78490e.j(aVar);
+            this.f78728e.j(aVar);
         }
     }
 }

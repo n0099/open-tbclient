@@ -1,6 +1,6 @@
 package com.baidu.searchbox.logsystem.util;
 
-import c.a.q0.d3.n;
+import c.a.r0.e3.n;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;

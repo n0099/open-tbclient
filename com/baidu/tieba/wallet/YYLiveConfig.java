@@ -1,7 +1,7 @@
 package com.baidu.tieba.wallet;
 
 import c.a.e.e.p.k;
-import c.a.p0.s.d0.b;
+import c.a.q0.s.d0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

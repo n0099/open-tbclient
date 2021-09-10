@@ -1,8 +1,8 @@
 package com.baidu.tieba.imMessageCenter.mention.agree.message;
 
 import c.a.e.e.p.l;
-import c.a.p0.b1.w;
-import c.a.p0.s.k;
+import c.a.q0.d1.x;
+import c.a.q0.s.k;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -52,7 +52,7 @@ public class AgreeMeRequestMessage extends NetMessage {
                 builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst().getApp()));
                 builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst().getApp()));
                 if (z) {
-                    w.a(builder, true);
+                    x.a(builder, true);
                 }
                 AgreeMeReqIdl.Builder builder2 = new AgreeMeReqIdl.Builder();
                 builder2.data = builder.build(false);

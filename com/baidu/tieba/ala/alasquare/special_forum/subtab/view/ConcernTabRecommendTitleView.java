@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.special_forum.subtab.view;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.q0.a0.b;
-import c.a.q0.v.d.g.c.g;
+import c.a.r0.a0.b;
+import c.a.r0.v.d.g.c.g;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -77,14 +77,14 @@ public class ConcernTabRecommendTitleView extends b<g> {
         l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.q0.a0.b
+    @Override // c.a.r0.a0.b
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.special_bar_concern_recommend_title : invokeV.intValue;
     }
 
-    @Override // c.a.q0.a0.b
+    @Override // c.a.r0.a0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
@@ -100,7 +100,7 @@ public class ConcernTabRecommendTitleView extends b<g> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.q0.a0.b
+    @Override // c.a.r0.a0.b
     /* renamed from: p */
     public void k(g gVar) {
         ViewHolder viewHolder;
@@ -108,7 +108,7 @@ public class ConcernTabRecommendTitleView extends b<g> {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || (viewHolder = this.m) == null) {
             return;
         }
-        if (gVar.f25322e) {
+        if (gVar.f25800e) {
             viewHolder.devider.setVisibility(0);
         } else {
             viewHolder.devider.setVisibility(8);

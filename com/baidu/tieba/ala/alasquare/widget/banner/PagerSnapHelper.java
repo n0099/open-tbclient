@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.q0.v.d.i.f.d;
+import c.a.r0.v.d.i.f.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,11 +23,11 @@ public class PagerSnapHelper extends SnapHelper {
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public d f49481d;
+    public d f49616d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public d f49482e;
+    public d f49617e;
 
     /* loaded from: classes7.dex */
     public class a extends LinearSmoothScroller {
@@ -35,7 +35,7 @@ public class PagerSnapHelper extends SnapHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PagerSnapHelper f49483a;
+        public final /* synthetic */ PagerSnapHelper f49618a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PagerSnapHelper pagerSnapHelper, Context context) {
@@ -55,7 +55,7 @@ public class PagerSnapHelper extends SnapHelper {
                     return;
                 }
             }
-            this.f49483a = pagerSnapHelper;
+            this.f49618a = pagerSnapHelper;
         }
 
         @Override // androidx.recyclerview.widget.LinearSmoothScroller
@@ -76,8 +76,8 @@ public class PagerSnapHelper extends SnapHelper {
         public void onTargetFound(View view, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view, state, action) == null) {
-                PagerSnapHelper pagerSnapHelper = this.f49483a;
-                int[] calculateDistanceToFinalSnap = pagerSnapHelper.calculateDistanceToFinalSnap(pagerSnapHelper.f49484a.getLayoutManager(), view);
+                PagerSnapHelper pagerSnapHelper = this.f49618a;
+                int[] calculateDistanceToFinalSnap = pagerSnapHelper.calculateDistanceToFinalSnap(pagerSnapHelper.f49619a.getLayoutManager(), view);
                 int i2 = calculateDistanceToFinalSnap[0];
                 int i3 = calculateDistanceToFinalSnap[1];
                 int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i2), Math.abs(i3)));
@@ -200,7 +200,7 @@ public class PagerSnapHelper extends SnapHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, layoutManager)) == null) {
             if (layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) {
-                return new a(this, this.f49484a.getContext());
+                return new a(this, this.f49619a.getContext());
             }
             return null;
         }
@@ -212,11 +212,11 @@ public class PagerSnapHelper extends SnapHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, layoutManager)) == null) {
-            d dVar = this.f49482e;
-            if (dVar == null || dVar.f25454a != layoutManager) {
-                this.f49482e = d.a(layoutManager);
+            d dVar = this.f49617e;
+            if (dVar == null || dVar.f25932a != layoutManager) {
+                this.f49617e = d.a(layoutManager);
             }
-            return this.f49482e;
+            return this.f49617e;
         }
         return (d) invokeL.objValue;
     }
@@ -226,11 +226,11 @@ public class PagerSnapHelper extends SnapHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, layoutManager)) == null) {
-            d dVar = this.f49481d;
-            if (dVar == null || dVar.f25454a != layoutManager) {
-                this.f49481d = d.b(layoutManager);
+            d dVar = this.f49616d;
+            if (dVar == null || dVar.f25932a != layoutManager) {
+                this.f49616d = d.b(layoutManager);
             }
-            return this.f49481d;
+            return this.f49616d;
         }
         return (d) invokeL.objValue;
     }

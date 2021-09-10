@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.w0.t.h;
+import c.a.x0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;

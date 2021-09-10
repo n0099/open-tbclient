@@ -104,14 +104,6 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
         }
     }
 
-    @Override // org.webrtc.EglRenderer
-    public void init(EglBase.Context context, int[] iArr, RendererCommon.GlDrawer glDrawer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, iArr, glDrawer) == null) {
-            init(context, (RendererCommon.RendererEvents) null, iArr, glDrawer);
-        }
-    }
-
     @Override // org.webrtc.EglRenderer, org.webrtc.VideoSink
     public void onFrame(VideoFrame videoFrame) {
         Interceptable interceptable = $ic;
@@ -168,7 +160,7 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
             ThreadUtils.checkIsOnMainThread();
             final CountDownLatch countDownLatch = new CountDownLatch(1);
             countDownLatch.getClass();
-            releaseEglSurface(new Runnable() { // from class: org.webrtc._$$Lambda$5k6tNlswoNAjCdgttrkQIe8VHVs
+            releaseEglSurface(new Runnable() { // from class: h.c.a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -181,6 +173,14 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
                 }
             });
             ThreadUtils.awaitUninterruptibly(countDownLatch);
+        }
+    }
+
+    @Override // org.webrtc.EglRenderer
+    public void init(EglBase.Context context, int[] iArr, RendererCommon.GlDrawer glDrawer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, iArr, glDrawer) == null) {
+            init(context, (RendererCommon.RendererEvents) null, iArr, glDrawer);
         }
     }
 }

@@ -17,7 +17,7 @@ public class ScanCoderWrapper implements NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IScanCodeListener f63450a;
+    public IScanCodeListener f63630a;
 
     /* renamed from: com.baidu.wallet.qrcodescanner.ScanCoderWrapper$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -31,7 +31,7 @@ public class ScanCoderWrapper implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static ScanCoderWrapper f63451a;
+        public static ScanCoderWrapper f63631a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +47,7 @@ public class ScanCoderWrapper implements NoProguard {
                     return;
                 }
             }
-            f63451a = new ScanCoderWrapper(null);
+            f63631a = new ScanCoderWrapper(null);
         }
     }
 
@@ -58,13 +58,13 @@ public class ScanCoderWrapper implements NoProguard {
     public static ScanCoderWrapper getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f63451a : (ScanCoderWrapper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f63631a : (ScanCoderWrapper) invokeV.objValue;
     }
 
     public void dispatchUrl(Context context, String str, IScannerDispatchListener iScannerDispatchListener) {
         IScanCodeListener iScanCodeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, str, iScannerDispatchListener) == null) || (iScanCodeListener = this.f63450a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, str, iScannerDispatchListener) == null) || (iScanCodeListener = this.f63630a) == null) {
             return;
         }
         iScanCodeListener.dispatchUrl(context, str, iScannerDispatchListener);
@@ -73,7 +73,7 @@ public class ScanCoderWrapper implements NoProguard {
     public void initListener(IScanCodeListener iScanCodeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iScanCodeListener) == null) {
-            this.f63450a = iScanCodeListener;
+            this.f63630a = iScanCodeListener;
         }
     }
 
@@ -81,7 +81,7 @@ public class ScanCoderWrapper implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            IScanCodeListener iScanCodeListener = this.f63450a;
+            IScanCodeListener iScanCodeListener = this.f63630a;
             if (iScanCodeListener != null) {
                 return iScanCodeListener.shouldDispatchUrl(str);
             }

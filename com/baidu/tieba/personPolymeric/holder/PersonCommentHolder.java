@@ -32,23 +32,23 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static a f55844i;
+    public static a f56002i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f55845j;
+    public static String f56003j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinearLayout f55846e;
+    public final LinearLayout f56004e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55847f;
+    public int f56005f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext<?> f55848g;
+    public TbPageContext<?> f56006g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f55849h;
+    public boolean f56007h;
     public final LinearLayout mChildLayout;
     public TextView mForumName;
     public final ColumnLayout mItemFooter;
@@ -79,11 +79,11 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
                 return;
             }
         }
-        this.f55848g = tbPageContext;
-        this.f55849h = z;
+        this.f56006g = tbPageContext;
+        this.f56007h = z;
         ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view.findViewById(R.id.content_container);
         this.mReplyContent = replyLinearLayout;
-        replyLinearLayout.setIsHost(this.f55849h);
+        replyLinearLayout.setIsHost(this.f56007h);
         this.mOriginalPostTitle = (TextView) view.findViewById(R.id.original_post_title);
         this.mTopLine = (LinearLayout) view.findViewById(R.id.top_line);
         this.mPortrait = (HeadImageView) view.findViewById(R.id.portrait);
@@ -91,12 +91,12 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         this.mReplyTime = (TextView) view.findViewById(R.id.reply_time);
         this.mForumName = (TextView) view.findViewById(R.id.forum_name);
         this.mReplyCount = (TextView) view.findViewById(R.id.reply_count);
-        this.f55846e = (LinearLayout) view.findViewById(R.id.item_content);
+        this.f56004e = (LinearLayout) view.findViewById(R.id.item_content);
         this.mItemHeader = (ColumnLayout) view.findViewById(R.id.item_header);
         this.mItemFooter = (ColumnLayout) view.findViewById(R.id.item_footer);
         this.mChildLayout = (LinearLayout) view.findViewById(R.id.person_child);
-        this.f55847f = l.e(view.getContext(), 42.0f);
-        LinearLayout linearLayout = this.f55846e;
+        this.f56005f = l.e(view.getContext(), 42.0f);
+        LinearLayout linearLayout = this.f56004e;
         if (linearLayout != null) {
             linearLayout.setOnClickListener(this);
         }
@@ -112,18 +112,18 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            String str2 = f55845j;
+            String str2 = f56003j;
             if (str2 != null && !str2.equals(str)) {
-                f55844i = null;
+                f56002i = null;
             }
-            a aVar = f55844i;
+            a aVar = f56002i;
             if (aVar != null) {
                 this.mPortrait.setImageBitmap(aVar.p());
-                f55845j = str;
+                f56003j = str;
                 return;
             }
             HeadImageView headImageView = this.mPortrait;
-            int i2 = this.f55847f;
+            int i2 = this.f56005f;
             headImageView.startLoad(str, 12, i2, i2, false);
         }
     }
@@ -146,15 +146,15 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         String[] strArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            TiebaStatic.log(new StatisticItem("c12043").param("obj_type", this.f55849h ? 1 : 2));
+            TiebaStatic.log(new StatisticItem("c12043").param("obj_type", this.f56007h ? 1 : 2));
             if (view == this.mForumName) {
-                if (this.f55848g != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f55848g.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
+                if (this.f56006g != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f56006g.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
                 }
             } else if (view != this.mOriginalPostTitle || (strArr = (String[]) view.getTag()) == null || strArr.length < 4 || strArr[3] == null) {
             } else {
                 if ("0".equals(strArr[2]) || strArr[1] == null) {
-                    PbActivityConfig createNormalCfg = new PbActivityConfig(this.f55848g.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
+                    PbActivityConfig createNormalCfg = new PbActivityConfig(this.f56006g.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
                     createNormalCfg.setStartFrom(4);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
                 }
@@ -324,7 +324,7 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             this.mReplyCount.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), new Object[]{obj6}));
             this.mForumName.setOnClickListener(this);
             a(str);
-            LinearLayout linearLayout = this.f55846e;
+            LinearLayout linearLayout = this.f56004e;
             if (linearLayout != null) {
                 linearLayout.setTag(strArr);
             }

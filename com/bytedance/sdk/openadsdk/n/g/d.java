@@ -39,10 +39,10 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f68122a;
+    public static final Charset f68302a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f68123b;
+    public static final Handler f68303b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,8 +58,8 @@ public final class d {
                 return;
             }
         }
-        f68123b = new Handler(Looper.getMainLooper());
-        f68122a = Charset.forName("UTF-8");
+        f68303b = new Handler(Looper.getMainLooper());
+        f68302a = Charset.forName("UTF-8");
     }
 
     public static void a(Closeable closeable) {
@@ -180,9 +180,9 @@ public final class d {
             for (int i2 = 0; i2 < size; i2++) {
                 i.b bVar = list.get(0);
                 if (bVar != null) {
-                    sb.append(bVar.f68136a);
+                    sb.append(bVar.f68316a);
                     sb.append(": ");
-                    sb.append(bVar.f68137b);
+                    sb.append(bVar.f68317b);
                     sb.append(Part.CRLF);
                 }
             }
@@ -222,7 +222,7 @@ public final class d {
             sb.append(' ');
             sb.append(aVar.f());
             sb.append(Part.CRLF);
-            if (e.f68042c) {
+            if (e.f68222c) {
                 String str = aVar.e().toUpperCase() + " " + aVar.a() + " " + aVar.f();
             }
             List<i.b> a3 = a(aVar.c());
@@ -232,8 +232,8 @@ public final class d {
                 for (int i3 = 0; i3 < size; i3++) {
                     i.b bVar = a3.get(i3);
                     if (bVar != null) {
-                        String str2 = bVar.f68136a;
-                        String str3 = bVar.f68137b;
+                        String str2 = bVar.f68316a;
+                        String str3 = bVar.f68317b;
                         sb.append(str2);
                         sb.append(": ");
                         sb.append(str3);
@@ -257,7 +257,7 @@ public final class d {
             sb.append(Part.CRLF);
             sb.append(Part.CRLF);
             String sb2 = sb.toString();
-            boolean z2 = e.f68042c;
+            boolean z2 = e.f68222c;
             return sb2;
         }
         return (String) invokeLI.objValue;
@@ -331,29 +331,29 @@ public final class d {
             sb.append("Accept-Ranges: bytes");
             sb.append(Part.CRLF);
             sb.append(Part.CONTENT_TYPE);
-            sb.append(aVar.f67989b);
+            sb.append(aVar.f68169b);
             sb.append(Part.CRLF);
             if (i2 <= 0) {
                 sb.append("Content-Length: ");
-                sb.append(aVar.f67990c);
+                sb.append(aVar.f68170c);
                 sb.append(Part.CRLF);
             } else {
                 sb.append("Content-Range: bytes ");
                 sb.append(i2);
                 sb.append("-");
-                sb.append(aVar.f67990c - 1);
+                sb.append(aVar.f68170c - 1);
                 sb.append("/");
-                sb.append(aVar.f67990c);
+                sb.append(aVar.f68170c);
                 sb.append(Part.CRLF);
                 sb.append("Content-Length: ");
-                sb.append(aVar.f67990c - i2);
+                sb.append(aVar.f68170c - i2);
                 sb.append(Part.CRLF);
             }
             sb.append("Connection: close");
             sb.append(Part.CRLF);
             sb.append(Part.CRLF);
             String sb2 = sb.toString();
-            boolean z = e.f68042c;
+            boolean z = e.f68222c;
             return sb2;
         }
         return (String) invokeLI.objValue;
@@ -374,7 +374,7 @@ public final class d {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public Pattern f68124a;
+                    public Pattern f68304a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -389,14 +389,14 @@ public final class d {
                                 return;
                             }
                         }
-                        this.f68124a = Pattern.compile("^cpu[0-9]+$");
+                        this.f68304a = Pattern.compile("^cpu[0-9]+$");
                     }
 
                     @Override // java.io.FilenameFilter
                     public boolean accept(File file2, String str) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file2, str)) == null) ? this.f68124a.matcher(str).matches() : invokeLL.booleanValue;
+                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file2, str)) == null) ? this.f68304a.matcher(str).matches() : invokeLL.booleanValue;
                     }
                 })) == null) {
                     return 1;
@@ -437,34 +437,34 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{aVar, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (aVar == null) {
-                boolean z3 = e.f68042c;
+                boolean z3 = e.f68222c;
                 return "response null";
             } else if (!aVar.b()) {
-                if (e.f68042c) {
+                if (e.f68222c) {
                     String str = "response code: " + aVar.a();
                 }
                 return "response code: " + aVar.a();
             } else {
                 String a3 = aVar.a("Content-Type", null);
                 if (!c(a3)) {
-                    if (e.f68042c) {
+                    if (e.f68222c) {
                         String str2 = Part.CONTENT_TYPE + a3;
                     }
                     return Part.CONTENT_TYPE + a3;
                 }
                 int a4 = a(aVar);
                 if (a4 <= 0) {
-                    if (e.f68042c) {
+                    if (e.f68222c) {
                         String str3 = "Content-Length: " + a4;
                     }
                     return "Content-Length: " + a4;
                 } else if (z && ((a2 = aVar.a(Util.ACCEPT_RANGES, null)) == null || !a2.contains("bytes"))) {
-                    if (e.f68042c) {
+                    if (e.f68222c) {
                         String str4 = "Accept-Ranges: " + a2;
                     }
                     return "Accept-Ranges: " + a2;
                 } else if (z2 && aVar.d() == null) {
-                    boolean z4 = e.f68042c;
+                    boolean z4 = e.f68222c;
                     return "response body null";
                 } else {
                     return null;
@@ -481,11 +481,11 @@ public final class d {
         }
         if (b()) {
             com.bytedance.sdk.component.d.e.a(gVar);
-            boolean z = e.f68042c;
+            boolean z = e.f68222c;
             return;
         }
         gVar.run();
-        boolean z2 = e.f68042c;
+        boolean z2 = e.f68222c;
     }
 
     public static void a(Runnable runnable) {
@@ -496,7 +496,7 @@ public final class d {
         if (b()) {
             runnable.run();
         } else {
-            f68123b.post(runnable);
+            f68303b.post(runnable);
         }
     }
 
@@ -509,26 +509,26 @@ public final class d {
             if (list == null || list.size() == 0) {
                 return null;
             }
-            if (e.f68042c) {
+            if (e.f68222c) {
                 int size = list.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     if (list.get(i2) != null) {
-                        String str = bVar2.f68136a + ": " + bVar2.f68136a;
+                        String str = bVar2.f68316a + ": " + bVar2.f68316a;
                     }
                 }
             }
             ArrayList arrayList = new ArrayList();
             for (i.b bVar3 : list) {
-                if ("Host".equals(bVar3.f68136a) || HTTP.CONN_KEEP_ALIVE.equals(bVar3.f68136a) || HTTP.CONN_DIRECTIVE.equals(bVar3.f68136a) || "Proxy-Connection".equals(bVar3.f68136a)) {
+                if ("Host".equals(bVar3.f68316a) || HTTP.CONN_KEEP_ALIVE.equals(bVar3.f68316a) || HTTP.CONN_DIRECTIVE.equals(bVar3.f68316a) || "Proxy-Connection".equals(bVar3.f68316a)) {
                     arrayList.add(bVar3);
                 }
             }
             list.removeAll(arrayList);
-            if (e.f68042c) {
+            if (e.f68222c) {
                 int size2 = list.size();
                 for (int i3 = 0; i3 < size2; i3++) {
                     if (list.get(i3) != null) {
-                        String str2 = bVar.f68136a + ": " + bVar.f68137b;
+                        String str2 = bVar.f68316a + ": " + bVar.f68317b;
                     }
                 }
             }
@@ -574,8 +574,8 @@ public final class d {
                 }
                 f g2 = aVar.g();
                 if (g2 != null) {
-                    str3 = g2.f68055b;
-                    str2 = b(g2.f68058e);
+                    str3 = g2.f68235b;
+                    str2 = b(g2.f68238e);
                 } else {
                     str2 = "";
                     str3 = str2;

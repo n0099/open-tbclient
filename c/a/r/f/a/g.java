@@ -9,25 +9,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public i f29526a;
+    public i f15356a;
 
     /* renamed from: b  reason: collision with root package name */
-    public l f29527b;
+    public l f15357b;
 
     /* renamed from: c  reason: collision with root package name */
-    public h f29528c;
+    public h f15358c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f29529d;
+    public JSONObject f15359d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f29530e;
+    public Context f15360e;
 
     public g(Context context) {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public class g implements c {
                 return;
             }
         }
-        this.f29526a = new f();
-        this.f29527b = new p();
-        this.f29528c = new e();
-        if (this.f29529d == null) {
+        this.f15356a = new f();
+        this.f15357b = new p();
+        this.f15358c = new e();
+        if (this.f15359d == null) {
             c(context);
         }
     }
@@ -57,10 +57,10 @@ public class g implements c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f29529d == null) {
-                c(this.f29530e);
+            if (this.f15359d == null) {
+                c(this.f15360e);
             }
-            return this.f29529d;
+            return this.f15359d;
         }
         return (JSONObject) invokeV.objValue;
     }
@@ -76,62 +76,62 @@ public class g implements c {
                 e2.printStackTrace();
             }
             try {
-                jSONObject.put("aid", this.f29526a.a(this.f29530e));
+                jSONObject.put("aid", this.f15356a.a(this.f15360e));
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
             try {
-                jSONObject.put("uid", this.f29528c.a(this.f29530e));
+                jSONObject.put("uid", this.f15358c.a(this.f15360e));
             } catch (Exception e4) {
                 e4.printStackTrace();
             }
             try {
-                jSONObject.put("adrid", this.f29527b.c(this.f29530e));
+                jSONObject.put("adrid", this.f15357b.c(this.f15360e));
             } catch (Exception e5) {
                 e5.printStackTrace();
             }
             try {
-                jSONObject.put("network", this.f29527b.d(this.f29530e));
+                jSONObject.put("network", this.f15357b.d(this.f15360e));
             } catch (Exception e6) {
                 e6.printStackTrace();
             }
             try {
-                jSONObject.put("pkg", this.f29527b.b(this.f29530e));
+                jSONObject.put("pkg", this.f15357b.b(this.f15360e));
             } catch (Exception e7) {
                 e7.printStackTrace();
             }
             try {
-                jSONObject.put("ctime", this.f29527b.b());
+                jSONObject.put("ctime", this.f15357b.b());
             } catch (Exception e8) {
                 e8.printStackTrace();
             }
             try {
-                jSONObject.put("ua", this.f29527b.a(this.f29530e));
+                jSONObject.put("ua", this.f15357b.a(this.f15360e));
             } catch (Exception e9) {
                 e9.printStackTrace();
             }
             try {
-                jSONObject.put("ut", this.f29527b.a());
+                jSONObject.put("ut", this.f15357b.a());
             } catch (Exception e10) {
                 e10.printStackTrace();
             }
             try {
-                jSONObject.put("iid", this.f29526a.e(this.f29530e));
+                jSONObject.put("iid", this.f15356a.e(this.f15360e));
             } catch (Exception e11) {
                 e11.printStackTrace();
             }
             try {
-                jSONObject.put(Config.SID, this.f29526a.b(this.f29530e));
+                jSONObject.put(Config.SID, this.f15356a.b(this.f15360e));
             } catch (Exception e12) {
                 e12.printStackTrace();
             }
             try {
-                jSONObject.put("oid", this.f29526a.c(this.f29530e));
+                jSONObject.put("oid", this.f15356a.c(this.f15360e));
             } catch (Exception e13) {
                 e13.printStackTrace();
             }
             try {
-                jSONObject.put(Config.GAID, this.f29526a.d(this.f29530e));
+                jSONObject.put(Config.GAID, this.f15356a.d(this.f15360e));
             } catch (Exception e14) {
                 e14.printStackTrace();
             }
@@ -146,10 +146,10 @@ public class g implements c {
             if (context == null) {
                 throw new NullPointerException("ctx should not be null");
             }
-            if (this.f29530e == null) {
-                this.f29530e = context.getApplicationContext();
+            if (this.f15360e == null) {
+                this.f15360e = context.getApplicationContext();
             }
-            this.f29529d = b();
+            this.f15359d = b();
         }
     }
 }

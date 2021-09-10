@@ -55,14 +55,14 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<c.a.q0.e0.b> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<c.a.r0.e0.b> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage == null || !(customMessage.getData() instanceof c.a.q0.w3.b)) {
+                if (customMessage == null || !(customMessage.getData() instanceof c.a.r0.x3.b)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921466, new c.a.q0.w3.i.h.b((c.a.q0.w3.b) customMessage.getData()));
+                return new CustomResponsedMessage<>(2921466, new c.a.r0.x3.i.h.b((c.a.r0.x3.b) customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -79,7 +79,7 @@ public class LocalVideoActivityStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f57484a;
+            public final /* synthetic */ CustomResponsedMessage f57646a;
 
             public a(b bVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class LocalVideoActivityStatic {
                         return;
                     }
                 }
-                this.f57484a = customResponsedMessage;
+                this.f57646a = customResponsedMessage;
             }
 
             @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -121,7 +121,7 @@ public class LocalVideoActivityStatic {
             public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) && packageInfo != null && "libnama.so".equals(packageInfo.name)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f57484a.getData()));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f57646a.getData()));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
                 }
             }
@@ -158,7 +158,7 @@ public class LocalVideoActivityStatic {
                     return;
                 }
                 RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(d.f2904a);
+                requestParams.setRunType(d.f2895a);
                 requestParams.setRunNode("aps");
                 requestParams.addChannel(new c(new a(this, customResponsedMessage)));
                 PmsManager.getInstance().execute(requestParams);

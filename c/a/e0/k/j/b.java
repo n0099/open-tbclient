@@ -26,7 +26,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.e0.k.j.a f3237a;
+        public final /* synthetic */ c.a.e0.k.j.a f3228a;
 
         public a(c.a.e0.k.j.a aVar) {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class b {
                     return;
                 }
             }
-            this.f3237a = aVar;
+            this.f3228a = aVar;
         }
 
         @Override // c.a.e0.k.a.a
@@ -51,9 +51,9 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, str) == null) {
                 a.C0062a c0062a = new a.C0062a();
-                c0062a.f3233a = 2;
-                c0062a.f3234b = g.a().getResources().getString(h.calculate_price_default_error);
-                this.f3237a.a(c0062a);
+                c0062a.f3224a = 2;
+                c0062a.f3225b = g.a().getResources().getString(h.calculate_price_default_error);
+                this.f3228a.a(c0062a);
             }
         }
 
@@ -67,21 +67,21 @@ public class b {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     if (jSONObject.optInt("errno") == 0) {
-                        c0062a.f3233a = 0;
-                        c0062a.f3234b = jSONObject.optString("msg");
+                        c0062a.f3224a = 0;
+                        c0062a.f3225b = jSONObject.optString("msg");
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
                         optJSONObject.optLong("totalAmount");
-                        c0062a.f3235c = optJSONObject.optLong("userPayAmount");
-                        c0062a.f3236d = optJSONObject.optString("usedhostMarketingDetail");
+                        c0062a.f3226c = optJSONObject.optLong("userPayAmount");
+                        c0062a.f3227d = optJSONObject.optString("usedhostMarketingDetail");
                     } else {
-                        c0062a.f3233a = jSONObject.optInt("errorLevel", 2);
-                        c0062a.f3234b = jSONObject.optString("msg");
+                        c0062a.f3224a = jSONObject.optInt("errorLevel", 2);
+                        c0062a.f3225b = jSONObject.optString("msg");
                     }
                 } catch (Exception unused) {
-                    c0062a.f3233a = 2;
-                    c0062a.f3234b = g.a().getResources().getString(h.calculate_price_default_error);
+                    c0062a.f3224a = 2;
+                    c0062a.f3225b = g.a().getResources().getString(h.calculate_price_default_error);
                 }
-                this.f3237a.a(c0062a);
+                this.f3228a.a(c0062a);
             }
         }
     }

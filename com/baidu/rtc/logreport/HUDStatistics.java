@@ -136,10 +136,9 @@ public class HUDStatistics {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             int i2 = this.mFrameEncoded - this.mOldFrameEncoded;
-            int i3 = this.mVideoQPSum;
-            int i4 = this.mOldVideoQPSum;
+            int i3 = this.mVideoQPSum - this.mOldVideoQPSum;
             if (i2 != 0) {
-                return (i3 - i4) / i2;
+                return i3 / i2;
             }
             return 0;
         }
@@ -226,7 +225,11 @@ public class HUDStatistics {
                 ErrorInfoReport.getInstance().setClientIp(str2);
             }
             if (map.containsKey("googRemoteAddress")) {
-                this.mRemoteIp = map.get("googRemoteAddress").split(":")[0];
+                String str4 = map.get("googRemoteAddress").split(":")[0];
+                this.mRemoteIp = str4;
+                if (str4 != null) {
+                    ErrorInfoReport.getInstance().setRemoteIp(this.mRemoteIp);
+                }
             }
         }
     }

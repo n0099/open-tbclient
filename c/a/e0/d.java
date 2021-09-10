@@ -30,9 +30,9 @@ public final class d {
     public static final int pay_loading_icon_size = 2131166568;
     public static final int pay_money_layout_height = 2131166569;
     public static final int real_pay_money_size = 2131166604;
-    public static final int title_height = 2131167617;
-    public static final int title_size = 2131167618;
-    public static final int title_top_margin = 2131167619;
-    public static final int total_pay_money_size = 2131167628;
+    public static final int title_height = 2131167618;
+    public static final int title_size = 2131167619;
+    public static final int title_top_margin = 2131167620;
+    public static final int total_pay_money_size = 2131167629;
     public transient /* synthetic */ FieldHolder $fh;
 }

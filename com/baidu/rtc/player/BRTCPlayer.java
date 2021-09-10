@@ -94,7 +94,7 @@ public interface BRTCPlayer extends IMediaRecord, ISnapShot {
 
     boolean hasVideo();
 
-    void initPlayer(BRTCPlayerParameters bRTCPlayerParameters, BRTCPlayerEvents bRTCPlayerEvents);
+    long initPlayer(BRTCPlayerParameters bRTCPlayerParameters, BRTCPlayerEvents bRTCPlayerEvents);
 
     void pausePlay();
 

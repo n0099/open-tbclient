@@ -1,9 +1,9 @@
 package com.baidu.tieba.write.write.work.classdialog.model;
 
-import c.a.p0.u.n;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.data.VideoCategoryClassData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,13 +17,13 @@ import tbclient.GetWorksTags.Category;
 import tbclient.GetWorksTags.DataRes;
 import tbclient.GetWorksTags.GetWorksTagsResIdl;
 import tbclient.GetWorksTags.Tag;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GetSelectClassHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<String> firstClass;
     public List<List<String>> secondClass;
-    public List<n> tags;
+    public List<VideoCategoryClassData> tags;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetSelectClassHttpResMessage() {
@@ -58,7 +58,7 @@ public class GetSelectClassHttpResMessage extends HttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.secondClass : (List) invokeV.objValue;
     }
 
-    public List<n> getTags() {
+    public List<VideoCategoryClassData> getTags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tags : (List) invokeV.objValue;
@@ -92,11 +92,11 @@ public class GetSelectClassHttpResMessage extends HttpResponsedMessage {
             List<Tag> list2 = getWorksTagsResIdl.data.tags;
             if (list2 != null) {
                 for (Tag tag : list2) {
-                    n nVar = new n();
-                    nVar.d(tag.first_class);
-                    nVar.e(tag.second_class);
-                    nVar.f(tag.tags);
-                    this.tags.add(nVar);
+                    VideoCategoryClassData videoCategoryClassData = new VideoCategoryClassData();
+                    videoCategoryClassData.setFirstClass(tag.first_class);
+                    videoCategoryClassData.setSecondClass(tag.second_class);
+                    videoCategoryClassData.setTags(tag.tags);
+                    this.tags.add(videoCategoryClassData);
                 }
             }
         }

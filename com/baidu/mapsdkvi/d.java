@@ -11,7 +11,7 @@ public /* synthetic */ class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f42460a;
+    public static final /* synthetic */ int[] f42571a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,25 +28,25 @@ public /* synthetic */ class d {
             }
         }
         int[] iArr = new int[NetworkInfo.State.values().length];
-        f42460a = iArr;
+        f42571a = iArr;
         try {
             iArr[NetworkInfo.State.CONNECTED.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f42460a[NetworkInfo.State.CONNECTING.ordinal()] = 2;
+            f42571a[NetworkInfo.State.CONNECTING.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f42460a[NetworkInfo.State.DISCONNECTED.ordinal()] = 3;
+            f42571a[NetworkInfo.State.DISCONNECTED.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f42460a[NetworkInfo.State.DISCONNECTING.ordinal()] = 4;
+            f42571a[NetworkInfo.State.DISCONNECTING.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f42460a[NetworkInfo.State.SUSPENDED.ordinal()] = 5;
+            f42571a[NetworkInfo.State.SUSPENDED.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
     }

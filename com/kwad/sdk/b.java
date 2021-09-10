@@ -10,13 +10,13 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f70986a;
+    public static final Boolean f71166a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f70987b;
+    public static final Boolean f71167b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Boolean f70988c;
+    public static final Boolean f71168c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,9 +32,9 @@ public final class b {
                 return;
             }
         }
-        f70986a = Boolean.TRUE;
+        f71166a = Boolean.TRUE;
         Boolean bool = Boolean.FALSE;
-        f70987b = bool;
-        f70988c = bool;
+        f71167b = bool;
+        f71168c = bool;
     }
 }

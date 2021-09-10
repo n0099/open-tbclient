@@ -11,20 +11,20 @@ public abstract class h implements c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f40172f = 24;
+    public static final int f40283f = 24;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f40173g = 1;
+    public static final int f40284g = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f40174h = 1048576;
+    public static final int f40285h = 1048576;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f40175i;
+    public volatile boolean f40286i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f40176j;
+    public b f40287j;
     public volatile boolean k;
     public ExecutorService l;
     public long m;
@@ -57,7 +57,7 @@ public abstract class h implements c {
         this.q = 24;
         this.r = 1;
         this.s = 1048576;
-        this.f40176j = bVar;
+        this.f40287j = bVar;
     }
 
     public abstract boolean a();
@@ -71,7 +71,7 @@ public abstract class h implements c {
     @Override // com.baidu.fsg.face.liveness.video.c
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f40175i && !this.p) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f40286i && !this.p) {
             b();
             d();
         }
@@ -80,7 +80,7 @@ public abstract class h implements c {
     public void h() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bVar = this.f40176j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bVar = this.f40287j) == null) {
             return;
         }
         bVar.a(this);
@@ -89,7 +89,7 @@ public abstract class h implements c {
     public void i() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bVar = this.f40176j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bVar = this.f40287j) == null) {
             return;
         }
         bVar.b(this);

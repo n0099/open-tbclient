@@ -55,7 +55,7 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
                 getMediaResourceResponse.setStatus(jSONObject.getString("status"));
                 getMediaResourceResponse.setAttributes(Attributes.formatFromJson(jSONObject.getJSONObject("attributes")));
                 getMediaResourceResponse.setMeta(MediaMeta.formatFromJson(jSONObject.getJSONObject("meta")));
-                if (getMediaResourceResponse.getStatus().equalsIgnoreCase(e.f35961a)) {
+                if (getMediaResourceResponse.getStatus().equalsIgnoreCase(e.f36070a)) {
                     getMediaResourceResponse.setError(VodError.formatFromJson(jSONObject.getJSONObject("error")));
                 }
                 getMediaResourceResponse.setPublishTime(jSONObject.optString("publishTime"));

@@ -70,14 +70,14 @@ public class Prefetch {
             }
             CyberLog.i(TAG, "adjustPrefetchPolicy call before url : " + str + " prefetchSize : " + i9);
             PlayerConfigManagerInternal.b adjustPrefetchPolicy = adjustPrefetchPolicy(str, i9, prefetchOptions);
-            CyberLog.i(TAG, "adjustPrefetchPolicy call after url : " + adjustPrefetchPolicy.f42539b + " info.adjustSize : " + adjustPrefetchPolicy.f42538a);
-            if (Utils.a() > Utils.f42505b) {
-                nativeAdd(adjustPrefetchPolicy.f42539b, str2 != null ? str2 : "", str3 != null ? str3 : "", str5, i2, i3, adjustPrefetchPolicy.f42538a, str4, i5, i6, i7, i8);
+            CyberLog.i(TAG, "adjustPrefetchPolicy call after url : " + adjustPrefetchPolicy.f42650b + " info.adjustSize : " + adjustPrefetchPolicy.f42649a);
+            if (Utils.a() > Utils.f42616b) {
+                nativeAdd(adjustPrefetchPolicy.f42650b, str2 != null ? str2 : "", str3 != null ? str3 : "", str5, i2, i3, adjustPrefetchPolicy.f42649a, str4, i5, i6, i7, i8);
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x007d A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x007e A[ADDED_TO_REGION] */
     /* JADX WARN: Removed duplicated region for block: B:45:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -94,11 +94,11 @@ public class Prefetch {
         }
         PlayerConfigManagerInternal.b bVar = new PlayerConfigManagerInternal.b(str, i2);
         CyberLog.i(TAG, "adjustPrefetchPolicy call");
-        int i5 = 0;
-        if (!CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_PLAYER_SERVER, false)) {
+        if (!CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_PLAYER_SERVER, true)) {
             return bVar;
         }
         CyberLog.i(TAG, "adjustPrefetchPolicy call use PlayerServer");
+        int i5 = 0;
         if (prefetchOptions != null && (options = prefetchOptions.getOptions()) != null) {
             String str3 = options.get(CyberPlayerManager.OPT_VIDEO_BPS);
             if (str3 != null && !str3.isEmpty()) {

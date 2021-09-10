@@ -48,15 +48,15 @@ public class DynamicTextView extends DynamicBaseWidgetImp {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.b();
             if (Build.VERSION.SDK_INT >= 17) {
-                this.n.setTextAlignment(this.f66191j.h());
+                this.n.setTextAlignment(this.f66371j.h());
             }
-            ((TextView) this.n).setText(this.f66191j.f());
-            ((TextView) this.n).setTextColor(this.f66191j.g());
-            ((TextView) this.n).setTextSize(this.f66191j.e());
+            ((TextView) this.n).setText(this.f66371j.f());
+            ((TextView) this.n).setTextColor(this.f66371j.g());
+            ((TextView) this.n).setTextSize(this.f66371j.e());
             if (Build.VERSION.SDK_INT >= 16) {
                 this.n.setBackground(getBackgroundDrawable());
             }
-            if (!this.f66191j.p()) {
+            if (!this.f66371j.p()) {
                 ((TextView) this.n).setMaxLines(1);
                 ((TextView) this.n).setEllipsize(TextUtils.TruncateAt.END);
             }

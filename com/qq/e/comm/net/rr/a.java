@@ -24,19 +24,19 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f75231a;
+    public static final byte[] f75411a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Cipher f75232b;
+    public static Cipher f75412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Cipher f75233c;
+    public static Cipher f75413c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f75234d;
+    public static String f75414d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static byte[] f75235e;
+    public static byte[] f75415e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.qq.e.comm.net.rr.a$a  reason: collision with other inner class name */
@@ -107,11 +107,11 @@ public final class a {
                 return;
             }
         }
-        f75231a = new byte[]{91, -62};
-        f75232b = null;
-        f75233c = null;
-        f75234d = String.format("AES/%s/PKCS7Padding", "ECB");
-        f75235e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
+        f75411a = new byte[]{91, -62};
+        f75412b = null;
+        f75413c = null;
+        f75414d = String.format("AES/%s/PKCS7Padding", "ECB");
+        f75415e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
     }
 
     @SuppressLint({"TrulyRandom"})
@@ -120,13 +120,13 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (a.class) {
-                if (f75232b != null) {
-                    return f75232b;
+                if (f75412b != null) {
+                    return f75412b;
                 }
                 try {
-                    Cipher cipher = Cipher.getInstance(f75234d);
-                    cipher.init(1, new SecretKeySpec(f75235e, "AES"));
-                    f75232b = cipher;
+                    Cipher cipher = Cipher.getInstance(f75414d);
+                    cipher.init(1, new SecretKeySpec(f75415e, "AES"));
+                    f75412b = cipher;
                     return cipher;
                 } catch (Exception e2) {
                     throw new C2044a("Fail To Init Cipher", e2);
@@ -143,7 +143,7 @@ public final class a {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
             try {
-                dataOutputStream.write(f75231a);
+                dataOutputStream.write(f75411a);
                 dataOutputStream.writeByte(1);
                 dataOutputStream.writeByte(2);
                 dataOutputStream.write(c(com.qq.e.comm.a.a(bArr)));
@@ -161,13 +161,13 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (a.class) {
-                if (f75233c != null) {
-                    return f75233c;
+                if (f75413c != null) {
+                    return f75413c;
                 }
                 try {
-                    Cipher cipher = Cipher.getInstance(f75234d);
-                    cipher.init(2, new SecretKeySpec(f75235e, "AES"));
-                    f75233c = cipher;
+                    Cipher cipher = Cipher.getInstance(f75414d);
+                    cipher.init(2, new SecretKeySpec(f75415e, "AES"));
+                    f75413c = cipher;
                     return cipher;
                 } catch (Exception e2) {
                     throw new C2044a("Fail To Init Cipher", e2);
@@ -188,7 +188,7 @@ public final class a {
             try {
                 byte[] bArr2 = new byte[4];
                 new DataInputStream(new ByteArrayInputStream(bArr)).read(bArr2);
-                if (f75231a[0] == bArr2[0] && f75231a[1] == bArr2[1] && 1 == bArr2[2] && 2 == bArr2[3]) {
+                if (f75411a[0] == bArr2[0] && f75411a[1] == bArr2[1] && 1 == bArr2[2] && 2 == bArr2[3]) {
                     return com.qq.e.comm.a.b(d(Arrays.copyOfRange(bArr, 4, bArr.length)));
                 }
                 throw new b("S2SS Package Magic/Version FormatError", null);

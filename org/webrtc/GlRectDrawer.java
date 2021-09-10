@@ -38,10 +38,6 @@ public class GlRectDrawer extends GlGenericDrawer {
             }
         }
 
-        public /* synthetic */ ShaderCallbacks(AnonymousClass1 anonymousClass1) {
-            this();
-        }
-
         @Override // org.webrtc.GlGenericDrawer.ShaderCallbacks
         public void onNewShader(GlShader glShader) {
             Interceptable interceptable = $ic;
@@ -54,6 +50,10 @@ public class GlRectDrawer extends GlGenericDrawer {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{glShader, fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             }
+        }
+
+        public /* synthetic */ ShaderCallbacks(AnonymousClass1 anonymousClass1) {
+            this();
         }
     }
 

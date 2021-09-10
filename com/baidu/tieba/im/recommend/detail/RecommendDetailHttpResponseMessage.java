@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.recommend.detail;
 
 import c.a.e.e.d.l;
-import c.a.p0.s.r.a;
+import c.a.q0.s.r.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

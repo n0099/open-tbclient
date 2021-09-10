@@ -17,31 +17,31 @@ public final class k implements AudioProcessor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f33948b;
+    public boolean f34057b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33949c;
+    public int f34058c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f33950d;
+    public int f34059d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f33951e;
+    public int f34060e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f33952f;
+    public int f34061f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f33953g;
+    public int f34062g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ByteBuffer f33954h;
+    public ByteBuffer f34063h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ByteBuffer f33955i;
+    public ByteBuffer f34064i;
 
     /* renamed from: j  reason: collision with root package name */
-    public byte[] f33956j;
+    public byte[] f34065j;
     public int k;
     public boolean l;
 
@@ -58,10 +58,10 @@ public final class k implements AudioProcessor {
                 return;
             }
         }
-        ByteBuffer byteBuffer = AudioProcessor.f69886a;
-        this.f33954h = byteBuffer;
-        this.f33955i = byteBuffer;
-        this.f33951e = -1;
+        ByteBuffer byteBuffer = AudioProcessor.f70066a;
+        this.f34063h = byteBuffer;
+        this.f34064i = byteBuffer;
+        this.f34060e = -1;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -71,34 +71,34 @@ public final class k implements AudioProcessor {
             int position = byteBuffer.position();
             int limit = byteBuffer.limit();
             int i2 = limit - position;
-            int min = Math.min(i2, this.f33953g);
-            this.f33953g -= min;
+            int min = Math.min(i2, this.f34062g);
+            this.f34062g -= min;
             byteBuffer.position(position + min);
-            if (this.f33953g > 0) {
+            if (this.f34062g > 0) {
                 return;
             }
             int i3 = i2 - min;
-            int length = (this.k + i3) - this.f33956j.length;
-            if (this.f33954h.capacity() < length) {
-                this.f33954h = ByteBuffer.allocateDirect(length).order(ByteOrder.nativeOrder());
+            int length = (this.k + i3) - this.f34065j.length;
+            if (this.f34063h.capacity() < length) {
+                this.f34063h = ByteBuffer.allocateDirect(length).order(ByteOrder.nativeOrder());
             } else {
-                this.f33954h.clear();
+                this.f34063h.clear();
             }
             int k = v.k(length, 0, this.k);
-            this.f33954h.put(this.f33956j, 0, k);
+            this.f34063h.put(this.f34065j, 0, k);
             int k2 = v.k(length - k, 0, i3);
             byteBuffer.limit(byteBuffer.position() + k2);
-            this.f33954h.put(byteBuffer);
+            this.f34063h.put(byteBuffer);
             byteBuffer.limit(limit);
             int i4 = i3 - k2;
             int i5 = this.k - k;
             this.k = i5;
-            byte[] bArr = this.f33956j;
+            byte[] bArr = this.f34065j;
             System.arraycopy(bArr, k, bArr, 0, i5);
-            byteBuffer.get(this.f33956j, this.k, i4);
+            byteBuffer.get(this.f34065j, this.k, i4);
             this.k += i4;
-            this.f33954h.flip();
-            this.f33955i = this.f33954h;
+            this.f34063h.flip();
+            this.f34064i = this.f34063h;
         }
     }
 
@@ -106,21 +106,21 @@ public final class k implements AudioProcessor {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l && this.f33955i == AudioProcessor.f69886a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l && this.f34064i == AudioProcessor.f70066a : invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33951e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34060e : invokeV.intValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33952f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34061f : invokeV.intValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -145,9 +145,9 @@ public final class k implements AudioProcessor {
     public void flush() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f33955i = AudioProcessor.f69886a;
+            this.f34064i = AudioProcessor.f70066a;
             this.l = false;
-            this.f33953g = 0;
+            this.f34062g = 0;
             this.k = 0;
         }
     }
@@ -157,8 +157,8 @@ public final class k implements AudioProcessor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ByteBuffer byteBuffer = this.f33955i;
-            this.f33955i = AudioProcessor.f69886a;
+            ByteBuffer byteBuffer = this.f34064i;
+            this.f34064i = AudioProcessor.f70066a;
             return byteBuffer;
         }
         return (ByteBuffer) invokeV.objValue;
@@ -170,16 +170,16 @@ public final class k implements AudioProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4)) == null) {
             if (i4 == 2) {
-                this.f33951e = i3;
-                this.f33952f = i2;
-                int i5 = this.f33950d;
-                this.f33956j = new byte[i5 * i3 * 2];
+                this.f34060e = i3;
+                this.f34061f = i2;
+                int i5 = this.f34059d;
+                this.f34065j = new byte[i5 * i3 * 2];
                 this.k = 0;
-                int i6 = this.f33949c;
-                this.f33953g = i3 * i6 * 2;
-                boolean z = this.f33948b;
+                int i6 = this.f34058c;
+                this.f34062g = i3 * i6 * 2;
+                boolean z = this.f34057b;
                 boolean z2 = (i6 == 0 && i5 == 0) ? false : true;
-                this.f33948b = z2;
+                this.f34057b = z2;
                 return z != z2;
             }
             throw new AudioProcessor.UnhandledFormatException(i2, i3, i4);
@@ -190,8 +190,8 @@ public final class k implements AudioProcessor {
     public void i(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
-            this.f33949c = i2;
-            this.f33950d = i3;
+            this.f34058c = i2;
+            this.f34059d = i3;
         }
     }
 
@@ -199,7 +199,7 @@ public final class k implements AudioProcessor {
     public boolean isActive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f33948b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f34057b : invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -207,10 +207,10 @@ public final class k implements AudioProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             flush();
-            this.f33954h = AudioProcessor.f69886a;
-            this.f33951e = -1;
-            this.f33952f = -1;
-            this.f33956j = null;
+            this.f34063h = AudioProcessor.f70066a;
+            this.f34060e = -1;
+            this.f34061f = -1;
+            this.f34065j = null;
         }
     }
 }

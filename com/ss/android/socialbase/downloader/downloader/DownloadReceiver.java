@@ -20,7 +20,7 @@ public class DownloadReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75709a;
+    public static final String f75889a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -29,10 +29,10 @@ public class DownloadReceiver extends BroadcastReceiver {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f75710e;
+        public final /* synthetic */ Context f75890e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f75711f;
+        public final /* synthetic */ String f75891f;
 
         public a(DownloadReceiver downloadReceiver, Context context, String str) {
             Interceptable interceptable = $ic;
@@ -49,8 +49,8 @@ public class DownloadReceiver extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f75710e = context;
-            this.f75711f = str;
+            this.f75890e = context;
+            this.f75891f = str;
         }
 
         @Override // java.lang.Runnable
@@ -58,9 +58,9 @@ public class DownloadReceiver extends BroadcastReceiver {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    Intent intent = new Intent(this.f75710e, DownloadNotificationService.class);
-                    intent.setAction(this.f75711f);
-                    this.f75710e.startService(intent);
+                    Intent intent = new Intent(this.f75890e, DownloadNotificationService.class);
+                    intent.setAction(this.f75891f);
+                    this.f75890e.startService(intent);
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -81,7 +81,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        f75709a = DownloadReceiver.class.getSimpleName();
+        f75889a = DownloadReceiver.class.getSimpleName();
     }
 
     public DownloadReceiver() {
@@ -130,7 +130,7 @@ public class DownloadReceiver extends BroadcastReceiver {
         }
         if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
             if (c.p.a.e.b.c.a.e()) {
-                c.p.a.e.b.c.a.c(f75709a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
+                c.p.a.e.b.c.a.c(f75889a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
             }
             a(context, action);
         } else if (action.equals("android.intent.action.MEDIA_UNMOUNTED") || action.equals("android.intent.action.MEDIA_REMOVED") || action.equals("android.intent.action.MEDIA_BAD_REMOVAL") || action.equals("android.intent.action.MEDIA_EJECT")) {

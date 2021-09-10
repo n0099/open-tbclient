@@ -17,20 +17,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f29781b;
+    public static volatile a f29827b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f29782c;
+    public static final int f29828c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f29783d;
+    public static final int f29829d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f29784e;
+    public static final int f29830e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f29785a;
+    public ThreadPoolExecutor f29831a;
 
     static {
         InterceptResult invokeClinit;
@@ -46,9 +46,9 @@ public class a {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f29782c = availableProcessors;
-        f29783d = Math.max(4, Math.min(availableProcessors - 1, 4));
-        f29784e = (f29782c * 3) + 1;
+        f29828c = availableProcessors;
+        f29829d = Math.max(4, Math.min(availableProcessors - 1, 4));
+        f29830e = (f29828c * 3) + 1;
     }
 
     public a() {
@@ -64,10 +64,10 @@ public class a {
                 return;
             }
         }
-        this.f29785a = null;
+        this.f29831a = null;
         ThreadPoolExecutor.DiscardOldestPolicy discardOldestPolicy = new ThreadPoolExecutor.DiscardOldestPolicy();
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f29783d, f29784e, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), discardOldestPolicy);
-        this.f29785a = threadPoolExecutor;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f29829d, f29830e, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), discardOldestPolicy);
+        this.f29831a = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(false);
         Executors.newSingleThreadExecutor();
     }
@@ -76,14 +76,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f29781b == null) {
+            if (f29827b == null) {
                 synchronized (a.class) {
-                    if (f29781b == null) {
-                        f29781b = new a();
+                    if (f29827b == null) {
+                        f29827b = new a();
                     }
                 }
             }
-            return f29781b;
+            return f29827b;
         }
         return (a) invokeV.objValue;
     }
@@ -93,7 +93,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
             try {
-                this.f29785a.submit(runnable);
+                this.f29831a.submit(runnable);
                 return true;
             } catch (Throwable th) {
                 c.b("UBCTaskManager", "Exception ", th);

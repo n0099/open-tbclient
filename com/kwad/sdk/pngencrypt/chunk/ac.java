@@ -11,13 +11,13 @@ public class ac extends aa {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f72944h;
+    public int f73124h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f72945i;
+    public int f73125i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f72946j;
+    public int f73126j;
     public int k;
     public int l;
     public int m;
@@ -47,15 +47,15 @@ public class ac extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (dVar.f72960a != 7) {
+            if (dVar.f73140a != 7) {
                 throw new PngjException("bad chunk " + dVar);
             }
-            this.f72944h = com.kwad.sdk.pngencrypt.n.b(dVar.f72963d, 0);
-            this.f72945i = com.kwad.sdk.pngencrypt.n.a(dVar.f72963d, 2);
-            this.f72946j = com.kwad.sdk.pngencrypt.n.a(dVar.f72963d, 3);
-            this.k = com.kwad.sdk.pngencrypt.n.a(dVar.f72963d, 4);
-            this.l = com.kwad.sdk.pngencrypt.n.a(dVar.f72963d, 5);
-            this.m = com.kwad.sdk.pngencrypt.n.a(dVar.f72963d, 6);
+            this.f73124h = com.kwad.sdk.pngencrypt.n.b(dVar.f73143d, 0);
+            this.f73125i = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, 2);
+            this.f73126j = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, 3);
+            this.k = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, 4);
+            this.l = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, 5);
+            this.m = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, 6);
         }
     }
 }

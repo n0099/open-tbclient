@@ -24,7 +24,7 @@ public class CyberExtractor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ExtractorProvider f38959a;
+    public ExtractorProvider f39065a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CyberExtractor() {
@@ -59,14 +59,14 @@ public class CyberExtractor {
                 return;
             }
         }
-        this.f38959a = a.a().a(z);
+        this.f39065a = a.a().a(z);
     }
 
     public Bundle getMetaData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ExtractorProvider extractorProvider = this.f38959a;
+            ExtractorProvider extractorProvider = this.f39065a;
             if (extractorProvider != null) {
                 return extractorProvider.getMediaMeta();
             }
@@ -78,17 +78,17 @@ public class CyberExtractor {
     public void release() {
         ExtractorProvider extractorProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (extractorProvider = this.f38959a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (extractorProvider = this.f39065a) == null) {
             return;
         }
         extractorProvider.release();
-        this.f38959a = null;
+        this.f39065a = null;
     }
 
     public void setDataSource(Context context, Uri uri) {
         ExtractorProvider extractorProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, uri) == null) || (extractorProvider = this.f38959a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, uri) == null) || (extractorProvider = this.f39065a) == null) {
             return;
         }
         extractorProvider.setDataSource(context, uri);
@@ -97,7 +97,7 @@ public class CyberExtractor {
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
         ExtractorProvider extractorProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, context, uri, map) == null) || (extractorProvider = this.f38959a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, context, uri, map) == null) || (extractorProvider = this.f39065a) == null) {
             return;
         }
         extractorProvider.setDataSource(context, uri, map);
@@ -106,7 +106,7 @@ public class CyberExtractor {
     public void setDataSource(FileDescriptor fileDescriptor) {
         ExtractorProvider extractorProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, fileDescriptor) == null) || (extractorProvider = this.f38959a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, fileDescriptor) == null) || (extractorProvider = this.f39065a) == null) {
             return;
         }
         extractorProvider.setDataSource(fileDescriptor);
@@ -115,7 +115,7 @@ public class CyberExtractor {
     public void setDataSource(String str) {
         ExtractorProvider extractorProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (extractorProvider = this.f38959a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (extractorProvider = this.f39065a) == null) {
             return;
         }
         extractorProvider.setDataSource(str);
@@ -124,7 +124,7 @@ public class CyberExtractor {
     public void setOption(int i2, String str, long j2) {
         ExtractorProvider extractorProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) || (extractorProvider = this.f38959a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) || (extractorProvider = this.f39065a) == null) {
             return;
         }
         extractorProvider.setOption(i2, str, j2);

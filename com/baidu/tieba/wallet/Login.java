@@ -1,7 +1,7 @@
 package com.baidu.tieba.wallet;
 
 import android.content.Context;
-import c.a.p0.m.a;
+import c.a.q0.m.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -134,7 +134,7 @@ public class Login extends LightAppListenerImpl implements IWalletListener {
             } else if ("tdoudiscount:".equals(str)) {
                 CurrencyJumpHelper.schemaGotoBuyBean(this.mContext);
             } else {
-                a.t(this.mContext, true, str);
+                a.s(this.mContext, true, str);
             }
             return true;
         }

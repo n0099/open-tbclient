@@ -28,10 +28,10 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f47299a;
+        public String f47415a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f47300b;
+        public String f47416b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f47300b = str;
+                this.f47416b = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -67,7 +67,7 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f47299a = str;
+                this.f47415a = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -100,7 +100,7 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
         if (bVar == null || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra("video_url", bVar.f47299a);
-        intent.putExtra("thumb_url", bVar.f47300b);
+        intent.putExtra("video_url", bVar.f47415a);
+        intent.putExtra("thumb_url", bVar.f47416b);
     }
 }

@@ -12,11 +12,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f63856a;
+    public static a f64036a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63857b;
+    public int f64037b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -31,21 +31,21 @@ public class a {
                 return;
             }
         }
-        this.f63857b = -1;
+        this.f64037b = -1;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f63856a == null) {
+            if (f64036a == null) {
                 synchronized (a.class) {
-                    if (f63856a == null) {
-                        f63856a = new a();
+                    if (f64036a == null) {
+                        f64036a = new a();
                     }
                 }
             }
-            return f63856a;
+            return f64036a;
         }
         return (a) invokeV.objValue;
     }
@@ -67,7 +67,7 @@ public class a {
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            a().f63857b = z ? 1 : 0;
+            a().f64037b = z ? 1 : 0;
         }
     }
 
@@ -88,6 +88,6 @@ public class a {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a().f63857b == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a().f64037b == 1 : invokeV.booleanValue;
     }
 }

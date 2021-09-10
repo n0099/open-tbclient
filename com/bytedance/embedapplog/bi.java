@@ -25,7 +25,7 @@ public interface bi extends IInterface {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f63880a;
+            public IBinder f64060a;
 
             public C1873a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public interface bi extends IInterface {
                         return;
                     }
                 }
-                this.f63880a = iBinder;
+                this.f64060a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.bi
@@ -57,7 +57,7 @@ public interface bi extends IInterface {
                         obtain.writeString(str);
                         obtain.writeString(str2);
                         obtain.writeString(str3);
-                        this.f63880a.transact(1, obtain, obtain2, 0);
+                        this.f64060a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -72,7 +72,7 @@ public interface bi extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63880a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64060a : (IBinder) invokeV.objValue;
             }
         }
 

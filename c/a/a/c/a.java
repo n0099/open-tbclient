@@ -28,16 +28,16 @@ public class a implements d.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.a.b.d f1591a;
+    public Map<String, d> f1591a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.a.c.c.c f1592b;
+    public b.a.a.b.d f1592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, d> f1593c;
+    public ExecutorService f1593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ExecutorService f1594d;
+    public c.a.a.c.c.c f1594d;
 
     /* renamed from: e  reason: collision with root package name */
     public Handler f1595e;
@@ -49,10 +49,10 @@ public class a implements d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1596e;
+        public final /* synthetic */ String f1596e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f1597f;
+        public final /* synthetic */ a f1597f;
 
         public RunnableC0013a(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -69,15 +69,15 @@ public class a implements d.a {
                     return;
                 }
             }
-            this.f1596e = aVar;
-            this.f1597f = str;
+            this.f1597f = aVar;
+            this.f1596e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f1596e.f1593c.containsKey(this.f1597f)) {
-                this.f1596e.f1593c.remove(this.f1597f);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f1597f.f1591a.containsKey(this.f1596e)) {
+                this.f1597f.f1591a.remove(this.f1596e);
             }
         }
     }
@@ -112,7 +112,7 @@ public class a implements d.a {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (d dVar : this.f1598e.f1593c.values()) {
+                for (d dVar : this.f1598e.f1591a.values()) {
                     if (dVar != null && dVar.isRunning()) {
                         dVar.pause();
                     }
@@ -151,7 +151,7 @@ public class a implements d.a {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (d dVar : this.f1599e.f1593c.values()) {
+                for (d dVar : this.f1599e.f1591a.values()) {
                     if (dVar != null && dVar.isRunning()) {
                         dVar.cancel();
                     }
@@ -174,7 +174,7 @@ public class a implements d.a {
             }
         }
         this.f1595e = new Handler(Looper.getMainLooper());
-        this.f1593c = new LinkedHashMap();
+        this.f1591a = new LinkedHashMap();
         j(new b.a.a.b.d());
     }
 
@@ -206,12 +206,12 @@ public class a implements d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             String e2 = e(str);
-            if (this.f1593c.containsKey(e2)) {
-                d dVar = this.f1593c.get(e2);
+            if (this.f1591a.containsKey(e2)) {
+                d dVar = this.f1591a.get(e2);
                 if (dVar != null) {
                     dVar.cancel();
                 }
-                this.f1593c.remove(e2);
+                this.f1591a.remove(e2);
             }
         }
     }
@@ -242,8 +242,8 @@ public class a implements d.a {
             if (k(e2)) {
                 return;
             }
-            g gVar = new g(bVar, new b.a.a.b.c.a(this.f1592b, aVar), this.f1594d, e2, this.f1591a, this);
-            this.f1593c.put(e2, gVar);
+            g gVar = new g(bVar, new b.a.a.b.c.a(this.f1594d, aVar), this.f1593c, e2, this.f1592b, this);
+            this.f1591a.put(e2, gVar);
             gVar.start();
         }
     }
@@ -255,8 +255,8 @@ public class a implements d.a {
             if (k(e2)) {
                 return;
             }
-            g gVar = new g(bVar, new b.a.a.b.c.a(cVar, aVar), this.f1594d, e2, this.f1591a, this);
-            this.f1593c.put(e2, gVar);
+            g gVar = new g(bVar, new b.a.a.b.c.a(cVar, aVar), this.f1593c, e2, this.f1592b, this);
+            this.f1591a.put(e2, gVar);
             gVar.start();
         }
     }
@@ -280,12 +280,13 @@ public class a implements d.a {
         if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
             int i2 = dVar.f1563b;
             int i3 = dVar.f1562a;
-            if (i2 > i3) {
-                throw new IllegalArgumentException("thread num must < max thread num");
+            if (i2 <= i3) {
+                this.f1592b = dVar;
+                this.f1593c = Executors.newFixedThreadPool(i3);
+                this.f1594d = new h(this.f1595e);
+                return;
             }
-            this.f1591a = dVar;
-            this.f1594d = Executors.newFixedThreadPool(i3);
-            this.f1592b = new h(this.f1595e);
+            throw new IllegalArgumentException("thread num must < max thread num");
         }
     }
 
@@ -294,7 +295,7 @@ public class a implements d.a {
         d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (!this.f1593c.containsKey(str) || (dVar = this.f1593c.get(str)) == null) {
+            if (!this.f1591a.containsKey(str) || (dVar = this.f1591a.get(str)) == null) {
                 return false;
             }
             if (dVar.isRunning()) {
@@ -313,7 +314,7 @@ public class a implements d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
             String e2 = e(str);
-            if (!this.f1593c.containsKey(e2) || (dVar = this.f1593c.get(e2)) == null) {
+            if (!this.f1591a.containsKey(e2) || (dVar = this.f1591a.get(e2)) == null) {
                 return false;
             }
             return dVar.isRunning();
@@ -325,12 +326,12 @@ public class a implements d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             String e2 = e(str);
-            if (this.f1593c.containsKey(e2)) {
-                d dVar = this.f1593c.get(e2);
+            if (this.f1591a.containsKey(e2)) {
+                d dVar = this.f1591a.get(e2);
                 if (dVar != null && dVar.isRunning()) {
                     dVar.pause();
                 }
-                this.f1593c.remove(e2);
+                this.f1591a.remove(e2);
             }
         }
     }

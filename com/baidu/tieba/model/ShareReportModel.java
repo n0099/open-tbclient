@@ -2,7 +2,7 @@ package com.baidu.tieba.model;
 
 import c.a.e.a.f;
 import c.a.e.e.m.b;
-import c.a.q0.i3.d0.a;
+import c.a.r0.j3.d0.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -74,8 +74,8 @@ public class ShareReportModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, str, str2, i2) == null) {
             ShareReportNetMessage shareReportNetMessage = new ShareReportNetMessage();
-            shareReportNetMessage.setFid(b.f(str, 0L));
-            shareReportNetMessage.setTid(b.f(str2, 0L));
+            shareReportNetMessage.setFid(b.g(str, 0L));
+            shareReportNetMessage.setTid(b.g(str2, 0L));
             shareReportNetMessage.setFrom(i2);
             sendMessage(shareReportNetMessage);
         }

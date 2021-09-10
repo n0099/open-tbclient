@@ -12,19 +12,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f33120a;
+    public final int f33229a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f33121b;
+    public final int f33230b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<g> f33122c;
+    public final List<g> f33231c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<d> f33123d;
+    public final List<d> f33232d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<d> f33124e;
+    public final List<d> f33233e;
 
     public a(int i2, int i3, List<g> list, List<d> list2, List<d> list3) {
         List<d> unmodifiableList;
@@ -43,20 +43,20 @@ public class a {
                 return;
             }
         }
-        this.f33120a = i2;
-        this.f33121b = i3;
-        this.f33122c = Collections.unmodifiableList(list);
+        this.f33229a = i2;
+        this.f33230b = i3;
+        this.f33231c = Collections.unmodifiableList(list);
         if (list2 == null) {
             unmodifiableList = Collections.emptyList();
         } else {
             unmodifiableList = Collections.unmodifiableList(list2);
         }
-        this.f33123d = unmodifiableList;
+        this.f33232d = unmodifiableList;
         if (list3 == null) {
             unmodifiableList2 = Collections.emptyList();
         } else {
             unmodifiableList2 = Collections.unmodifiableList(list3);
         }
-        this.f33124e = unmodifiableList2;
+        this.f33233e = unmodifiableList2;
     }
 }

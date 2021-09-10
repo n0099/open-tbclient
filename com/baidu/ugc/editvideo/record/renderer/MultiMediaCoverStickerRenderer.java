@@ -6,10 +6,11 @@ import android.opengl.GLUtils;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.a0.b.a.e;
-import c.a.w0.t.c;
-import c.a.w0.t.d;
-import c.a.w0.t.h;
+import c.a.x0.t.c;
+import c.a.x0.t.d;
+import c.a.x0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -133,7 +134,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
         float f3 = this.mScaleY;
         int i4 = gLViewPortLocation.height;
         GLES20.glViewport((int) (gLViewPortLocation.x + (((1.0f - f2) * i3) / 2.0f) + ((i3 * this.mTx) / 2.0f)), (int) (gLViewPortLocation.y + (((1.0f - f3) * i4) / 2.0f) + ((i4 * this.mTy) / 2.0f)), (int) (i3 * f2), (int) (i4 * f3));
-        GLES20.glEnable(3042);
+        GLES20.glEnable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
         GLES20.glBlendFunc(1, BankSignFactory.BEAN_ID_BIND_CARD);
         for (int i5 = 0; i5 < this.mCoverStickerDataList.size(); i5++) {
             MultiMediaData multiMediaData = this.mCoverStickerDataList.get(i5);
@@ -160,7 +161,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
                 }
             }
         }
-        GLES20.glDisable(3042);
+        GLES20.glDisable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MultiMediaEditBaseRenderer, com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer

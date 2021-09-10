@@ -18,10 +18,10 @@ public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f36491e;
+    public View f36610e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NestedScrollAcceptedListener f36492f;
+    public NestedScrollAcceptedListener f36611f;
 
     /* loaded from: classes4.dex */
     public interface NestedScrollAcceptedListener {
@@ -52,7 +52,7 @@ public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View view = this.f36491e;
+            View view = this.f36610e;
             if (view == null) {
                 return true;
             }
@@ -64,22 +64,22 @@ public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
     public void clearTargetView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f36491e = null;
+            this.f36610e = null;
         }
     }
 
     public boolean hasTargetView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36491e != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36610e != null : invokeV.booleanValue;
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout, androidx.core.view.NestedScrollingParent2
     public void onNestedScrollAccepted(View view, View view2, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(1048579, this, view, view2, i2, i3) == null) {
-            this.f36491e = view2;
-            NestedScrollAcceptedListener nestedScrollAcceptedListener = this.f36492f;
+            this.f36610e = view2;
+            NestedScrollAcceptedListener nestedScrollAcceptedListener = this.f36611f;
             if (nestedScrollAcceptedListener != null) {
                 nestedScrollAcceptedListener.onNestedScrollAccepted(canDrag());
             }
@@ -90,7 +90,7 @@ public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
     public void setListener(NestedScrollAcceptedListener nestedScrollAcceptedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, nestedScrollAcceptedListener) == null) {
-            this.f36492f = nestedScrollAcceptedListener;
+            this.f36611f = nestedScrollAcceptedListener;
         }
     }
 

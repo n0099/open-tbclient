@@ -24,26 +24,26 @@ public final class j extends k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile j f74236a;
+    public static volatile j f74416a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f74237b;
+    public volatile boolean f74417b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f74238c;
+    public k f74418c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwai.sodler.lib.ext.a f74239d;
+    public com.kwai.sodler.lib.ext.a f74419d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ExecutorService f74240e;
+    public ExecutorService f74420e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, b> f74241f;
+    public Map<String, b> f74421f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f74242g;
+    public a f74422g;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -56,10 +56,10 @@ public final class j extends k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.kwai.sodler.lib.a.f f74247a;
+        public final com.kwai.sodler.lib.a.f f74427a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Future<com.kwai.sodler.lib.a.f> f74248b;
+        public final Future<com.kwai.sodler.lib.a.f> f74428b;
 
         public b(com.kwai.sodler.lib.a.f fVar, Future<com.kwai.sodler.lib.a.f> future) {
             Interceptable interceptable = $ic;
@@ -76,15 +76,15 @@ public final class j extends k {
                     return;
                 }
             }
-            this.f74247a = fVar;
-            this.f74248b = future;
+            this.f74427a = fVar;
+            this.f74428b = future;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f74247a.e();
-                this.f74248b.cancel(true);
+                this.f74427a.e();
+                this.f74428b.cancel(true);
             }
         }
     }
@@ -106,21 +106,21 @@ public final class j extends k {
                 return;
             }
         }
-        this.f74237b = false;
+        this.f74417b = false;
     }
 
     public static j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f74236a == null) {
+            if (f74416a == null) {
                 synchronized (j.class) {
-                    if (f74236a == null) {
-                        f74236a = new j();
+                    if (f74416a == null) {
+                        f74416a = new j();
                     }
                 }
             }
-            return f74236a;
+            return f74416a;
         }
         return (j) invokeV.objValue;
     }
@@ -133,7 +133,7 @@ public final class j extends k {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final AtomicInteger f74243a;
+            public final AtomicInteger f74423a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -148,7 +148,7 @@ public final class j extends k {
                         return;
                     }
                 }
-                this.f74243a = new AtomicInteger(1);
+                this.f74423a = new AtomicInteger(1);
             }
 
             @Override // java.util.concurrent.ThreadFactory
@@ -156,7 +156,7 @@ public final class j extends k {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                    return new Thread(runnable, "ksad-Sodler-" + this.f74243a.getAndIncrement());
+                    return new Thread(runnable, "ksad-Sodler-" + this.f74423a.getAndIncrement());
                 }
                 return (Thread) invokeL.objValue;
             }
@@ -165,7 +165,7 @@ public final class j extends k {
 
     private void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && !this.f74237b) {
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && !this.f74417b) {
             throw new RuntimeException("Sodler has not yet been init.");
         }
     }
@@ -175,9 +175,9 @@ public final class j extends k {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, fVar, aVar)) == null) {
-            if (this.f74237b) {
+            if (this.f74417b) {
                 com.kwai.sodler.lib.a.e b2 = fVar.b();
-                k kVar = this.f74238c;
+                k kVar = this.f74418c;
                 if (b2 == null) {
                     b2 = kVar;
                 }
@@ -198,15 +198,15 @@ public final class j extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, cVar) == null) {
             synchronized (this) {
-                if (!this.f74237b) {
+                if (!this.f74417b) {
                     d dVar = new d(context);
                     e eVar = new e(context);
                     c cVar2 = new c(context, cVar);
                     com.kwai.sodler.lib.b bVar = new com.kwai.sodler.lib.b();
-                    this.f74239d = new com.kwai.sodler.lib.ext.a();
-                    this.f74240e = i();
-                    this.f74238c = new k(dVar, eVar, cVar2, bVar, cVar, new com.kwai.sodler.lib.ext.a());
-                    this.f74237b = true;
+                    this.f74419d = new com.kwai.sodler.lib.ext.a();
+                    this.f74420e = i();
+                    this.f74418c = new k(dVar, eVar, cVar2, bVar, cVar, new com.kwai.sodler.lib.ext.a());
+                    this.f74417b = true;
                     j();
                 }
             }
@@ -218,8 +218,8 @@ public final class j extends k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f74237b) {
-                return this.f74238c.b();
+            if (this.f74417b) {
+                return this.f74418c.b();
             }
             throw new RuntimeException("Sodler has not yet been init.");
         }
@@ -230,26 +230,26 @@ public final class j extends k {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, fVar, aVar)) == null) {
-            if (this.f74237b) {
-                Map<String, b> a2 = a(this.f74241f);
-                this.f74241f = a2;
+            if (this.f74417b) {
+                Map<String, b> a2 = a(this.f74421f);
+                this.f74421f = a2;
                 b bVar = a2.get(fVar.i());
                 if (bVar != null) {
                     bVar.a();
                 }
                 fVar.a(this);
-                b bVar2 = new b(fVar, this.f74240e.submit(new Callable<com.kwai.sodler.lib.a.f>(this, fVar, aVar) { // from class: com.kwai.sodler.lib.j.2
+                b bVar2 = new b(fVar, this.f74420e.submit(new Callable<com.kwai.sodler.lib.a.f>(this, fVar, aVar) { // from class: com.kwai.sodler.lib.j.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ com.kwai.sodler.lib.a.f f74244a;
+                    public final /* synthetic */ com.kwai.sodler.lib.a.f f74424a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ k.a f74245b;
+                    public final /* synthetic */ k.a f74425b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ j f74246c;
+                    public final /* synthetic */ j f74426c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -266,9 +266,9 @@ public final class j extends k {
                                 return;
                             }
                         }
-                        this.f74246c = this;
-                        this.f74244a = fVar;
-                        this.f74245b = aVar;
+                        this.f74426c = this;
+                        this.f74424a = fVar;
+                        this.f74425b = aVar;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -277,11 +277,11 @@ public final class j extends k {
                     public com.kwai.sodler.lib.a.f call() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f74246c.a(this.f74244a, this.f74245b) : (com.kwai.sodler.lib.a.f) invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f74426c.a(this.f74424a, this.f74425b) : (com.kwai.sodler.lib.a.f) invokeV.objValue;
                     }
                 }));
                 if (fVar.i() != null) {
-                    this.f74241f.put(fVar.i(), bVar2);
+                    this.f74421f.put(fVar.i(), bVar2);
                 }
                 return bVar2;
             }
@@ -295,8 +295,8 @@ public final class j extends k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f74237b) {
-                return this.f74238c.c();
+            if (this.f74417b) {
+                return this.f74418c.c();
             }
             throw new RuntimeException("Sodler has not yet been init.");
         }
@@ -308,8 +308,8 @@ public final class j extends k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f74237b) {
-                return this.f74238c.d();
+            if (this.f74417b) {
+                return this.f74418c.d();
             }
             throw new RuntimeException("Sodler has not yet been init.");
         }
@@ -321,8 +321,8 @@ public final class j extends k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f74237b) {
-                return this.f74238c.e();
+            if (this.f74417b) {
+                return this.f74418c.e();
             }
             throw new RuntimeException("Sodler has not yet been init.");
         }
@@ -334,8 +334,8 @@ public final class j extends k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f74237b) {
-                return this.f74238c.f();
+            if (this.f74417b) {
+                return this.f74418c.f();
             }
             throw new RuntimeException("Sodler has not yet been init.");
         }
@@ -347,8 +347,8 @@ public final class j extends k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f74237b) {
-                return this.f74239d;
+            if (this.f74417b) {
+                return this.f74419d;
             }
             throw new RuntimeException("Sodler has not yet been init.");
         }
@@ -358,6 +358,6 @@ public final class j extends k {
     public a h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f74242g : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f74422g : (a) invokeV.objValue;
     }
 }

@@ -10,7 +10,7 @@ import java.io.IOException;
 public interface b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f64672a = new b() { // from class: com.bytedance.sdk.component.b.b.b.1
+    public static final b f64852a = new b() { // from class: com.bytedance.sdk.component.b.b.b.1
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

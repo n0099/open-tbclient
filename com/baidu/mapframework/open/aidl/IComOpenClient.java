@@ -27,7 +27,7 @@ public interface IComOpenClient extends IInterface {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f41930a;
+            public IBinder f42041a;
 
             public C1665a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public interface IComOpenClient extends IInterface {
                         return;
                     }
                 }
-                this.f41930a = iBinder;
+                this.f42041a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.IComOpenClient
@@ -57,7 +57,7 @@ public interface IComOpenClient extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IComOpenClient");
                         obtain.writeString(str);
-                        this.f41930a.transact(1, obtain, obtain2, 0);
+                        this.f42041a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -85,7 +85,7 @@ public interface IComOpenClient extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.f41930a.transact(2, obtain, obtain2, 0);
+                        this.f42041a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -100,7 +100,7 @@ public interface IComOpenClient extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41930a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42041a : (IBinder) invokeV.objValue;
             }
         }
 

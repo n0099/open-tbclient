@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class GroupImageView extends TbClipImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int P;
     public int Q;
+    public int R;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public GroupImageView(Context context) {
@@ -42,8 +42,8 @@ public class GroupImageView extends TbClipImageView {
             setDrawerType(1);
             setGifIconSupport(false);
             setDrawBorder(true);
-            setDefaultResource(this.P);
-            setDefaultBgResource(this.Q);
+            setDefaultResource(this.Q);
+            setDefaultBgResource(this.R);
         }
     }
 
@@ -87,8 +87,8 @@ public class GroupImageView extends TbClipImageView {
                 return;
             }
         }
-        this.P = R.drawable.transparent_bg;
-        this.Q = R.color.CAM_X0205;
+        this.Q = R.drawable.transparent_bg;
+        this.R = R.color.CAM_X0205;
         init();
     }
 }

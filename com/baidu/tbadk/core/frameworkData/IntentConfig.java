@@ -17,8 +17,8 @@ import c.a.e.a.g;
 import c.a.e.a.j;
 import c.a.e.e.m.f;
 import c.a.e.h.j.g.d;
-import c.a.p0.h0.h;
-import c.a.p0.k0.c;
+import c.a.q0.j0.h;
+import c.a.q0.m0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -77,6 +77,7 @@ public class IntentConfig extends OrmObject {
     public static final String IS_ITEM_DETAIL = "is_item_detail";
     public static final String IS_MASK = "isMask";
     public static final String IS_NEED_MULTIPLE = "is_need_multiple";
+    public static final String IS_VIDEO_THREAD = "is_video_thread";
     public static final String KEY_AI_APP_SCHEMA = "KEY_AI_APP_SCHEMA";
     public static final String KEY_ALBUM_THREAD = "album_thread";
     public static final String KEY_CAN_EDIT_IMAGE = "can_edit_image";
@@ -131,6 +132,7 @@ public class IntentConfig extends OrmObject {
     public static final String USER_NAME = "user_name";
     public static final String USER_SEX = "user_sex";
     public static final String VIDEO_EASTER_EGG_DATA = "video_easter_egg_data";
+    public static final String VIDEO_PERSON_FROM = "video_person_from";
     public static final String WEIGHT = "weight";
     public static final String WRITE_VOTE_DATA = "write_vote_data";
     public static Class<?> lastStartActivityClass;
@@ -154,7 +156,7 @@ public class IntentConfig extends OrmObject {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f47424e;
+        public final /* synthetic */ IntentConfig f47544e;
 
         public a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -171,7 +173,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f47424e = intentConfig;
+            this.f47544e = intentConfig;
         }
 
         @Override // android.content.ServiceConnection
@@ -180,17 +182,17 @@ public class IntentConfig extends OrmObject {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) || iBinder == null) {
                 return;
             }
-            this.f47424e.mReplyMessenger = new Messenger(iBinder);
-            if (this.f47424e.mReplyMessenger != null) {
+            this.f47544e.mReplyMessenger = new Messenger(iBinder);
+            if (this.f47544e.mReplyMessenger != null) {
                 Message obtain = Message.obtain();
                 Bundle bundle = new Bundle();
-                if (this.f47424e.mComponentClass != null) {
-                    bundle.putString(DealIntentService.KEY_CLASS, this.f47424e.mComponentClass.getName());
+                if (this.f47544e.mComponentClass != null) {
+                    bundle.putString(DealIntentService.KEY_CLASS, this.f47544e.mComponentClass.getName());
                 }
                 obtain.setData(bundle);
-                obtain.replyTo = this.f47424e.mClientMessenger;
+                obtain.replyTo = this.f47544e.mClientMessenger;
                 try {
-                    this.f47424e.mReplyMessenger.send(obtain);
+                    this.f47544e.mReplyMessenger.send(obtain);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -211,7 +213,7 @@ public class IntentConfig extends OrmObject {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f47425a;
+        public final /* synthetic */ IntentConfig f47545a;
 
         public b(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -228,7 +230,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f47425a = intentConfig;
+            this.f47545a = intentConfig;
         }
 
         public final boolean a(Message message) {
@@ -240,19 +242,19 @@ public class IntentConfig extends OrmObject {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || this.f47425a.mContext == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || this.f47545a.mContext == null) {
                 return;
             }
             if (a(message)) {
-                if (this.f47425a.isForResult) {
-                    IntentConfig intentConfig = this.f47425a;
-                    intentConfig.startActivityForResult(intentConfig.mRequestCode, this.f47425a.mComponentClass);
+                if (this.f47545a.isForResult) {
+                    IntentConfig intentConfig = this.f47545a;
+                    intentConfig.startActivityForResult(intentConfig.mRequestCode, this.f47545a.mComponentClass);
                 } else {
-                    IntentConfig intentConfig2 = this.f47425a;
+                    IntentConfig intentConfig2 = this.f47545a;
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            f.e(this.f47425a.mContext, this.f47425a.mClientConnection);
+            f.e(this.f47545a.mContext, this.f47545a.mClientConnection);
         }
 
         public /* synthetic */ b(IntentConfig intentConfig, a aVar) {
@@ -306,7 +308,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(context);
-        c.a.p0.l0.b tbPageInfo = b2 instanceof c.a.p0.l0.a ? ((c.a.p0.l0.a) b2).getTbPageInfo() : null;
+        c.a.q0.n0.b tbPageInfo = b2 instanceof c.a.q0.n0.a ? ((c.a.q0.n0.a) b2).getTbPageInfo() : null;
         if (tbPageInfo != null) {
             this.mIntent.putExtra("tb_page_tag_source_trace", tbPageInfo.a());
         }
@@ -351,7 +353,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(this.mContext);
-        ArrayList<String> arrayList = b2 instanceof c.a.p0.m0.a ? (ArrayList) ((c.a.p0.m0.a) b2).getNextPageSourceKeyList() : null;
+        ArrayList<String> arrayList = b2 instanceof c.a.q0.o0.a ? (ArrayList) ((c.a.q0.o0.a) b2).getNextPageSourceKeyList() : null;
         if (ListUtils.isEmpty(arrayList)) {
             return;
         }

@@ -36,16 +36,16 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, a> f64127a;
+    public final Map<String, a> f64307a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f64128b;
+    public long f64308b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final File f64129c;
+    public final File f64309c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f64130d;
+    public final int f64310d;
 
     public f(File file, int i2) {
         Interceptable interceptable = $ic;
@@ -62,10 +62,10 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
                 return;
             }
         }
-        this.f64127a = new LinkedHashMap(16, 0.75f, true);
-        this.f64128b = 0L;
-        this.f64129c = file;
-        this.f64130d = i2;
+        this.f64307a = new LinkedHashMap(16, 0.75f, true);
+        this.f64308b = 0L;
+        this.f64309c = file;
+        this.f64310d = i2;
     }
 
     private String d(String str) {
@@ -82,10 +82,10 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
     private void e(String str) {
         a remove;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65551, this, str) == null) || (remove = this.f64127a.remove(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65551, this, str) == null) || (remove = this.f64307a.remove(str)) == null) {
             return;
         }
-        this.f64128b -= remove.f64131a;
+        this.f64308b -= remove.f64311a;
     }
 
     @Override // com.bytedance.sdk.component.adnet.face.a
@@ -100,7 +100,7 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            a aVar = this.f64127a.get(str);
+            a aVar = this.f64307a.get(str);
             if (aVar == null) {
                 return null;
             }
@@ -109,8 +109,8 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
                 bVar = new b(new BufferedInputStream(a(c2)), c2.length());
                 try {
                     a a2 = a.a(bVar);
-                    if (!TextUtils.equals(str, a2.f64132b)) {
-                        o.b("%s: key=%s, found=%s", c2.getAbsolutePath(), str, a2.f64132b);
+                    if (!TextUtils.equals(str, a2.f64312b)) {
+                        o.b("%s: key=%s, found=%s", c2.getAbsolutePath(), str, a2.f64312b);
                         e(str);
                         bVar.close();
                         try {
@@ -161,7 +161,7 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
     public File c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? new File(this.f64129c, d(str)) : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? new File(this.f64309c, d(str)) : (File) invokeL.objValue;
     }
 
     @VisibleForTesting
@@ -171,28 +171,28 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f64131a;
+        public long f64311a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f64132b;
+        public final String f64312b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f64133c;
+        public final String f64313c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long f64134d;
+        public final long f64314d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f64135e;
+        public final long f64315e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f64136f;
+        public final long f64316f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final long f64137g;
+        public final long f64317g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final List<Header> f64138h;
+        public final List<Header> f64318h;
 
         public a(String str, String str2, long j2, long j3, long j4, long j5, List<Header> list) {
             Interceptable interceptable = $ic;
@@ -209,21 +209,21 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
                     return;
                 }
             }
-            this.f64132b = str;
-            this.f64133c = "".equals(str2) ? null : str2;
-            this.f64134d = j2;
-            this.f64135e = j3;
-            this.f64136f = j4;
-            this.f64137g = j5;
-            this.f64138h = list;
+            this.f64312b = str;
+            this.f64313c = "".equals(str2) ? null : str2;
+            this.f64314d = j2;
+            this.f64315e = j3;
+            this.f64316f = j4;
+            this.f64317g = j5;
+            this.f64318h = list;
         }
 
         public static List<Header> a(a.C1882a c1882a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, c1882a)) == null) {
-                List<Header> list = c1882a.f64211i;
-                return list != null ? list : com.bytedance.sdk.component.adnet.d.b.a(c1882a.f64210h);
+                List<Header> list = c1882a.f64391i;
+                return list != null ? list : com.bytedance.sdk.component.adnet.d.b.a(c1882a.f64390h);
             }
             return (List) invokeL.objValue;
         }
@@ -242,7 +242,7 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a(String str, a.C1882a c1882a) {
-            this(str, c1882a.f64205c, c1882a.f64206d, c1882a.f64207e, c1882a.f64208f, c1882a.f64209g, a(c1882a));
+            this(str, c1882a.f64385c, c1882a.f64386d, c1882a.f64387e, c1882a.f64388f, c1882a.f64389g, a(c1882a));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -266,14 +266,14 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
                 a.C1882a c1882a = new a.C1882a();
-                c1882a.f64204b = bArr;
-                c1882a.f64205c = this.f64133c;
-                c1882a.f64206d = this.f64134d;
-                c1882a.f64207e = this.f64135e;
-                c1882a.f64208f = this.f64136f;
-                c1882a.f64209g = this.f64137g;
-                c1882a.f64210h = com.bytedance.sdk.component.adnet.d.b.a(this.f64138h);
-                c1882a.f64211i = Collections.unmodifiableList(this.f64138h);
+                c1882a.f64384b = bArr;
+                c1882a.f64385c = this.f64313c;
+                c1882a.f64386d = this.f64314d;
+                c1882a.f64387e = this.f64315e;
+                c1882a.f64388f = this.f64316f;
+                c1882a.f64389g = this.f64317g;
+                c1882a.f64390h = com.bytedance.sdk.component.adnet.d.b.a(this.f64318h);
+                c1882a.f64391i = Collections.unmodifiableList(this.f64318h);
                 return c1882a;
             }
             return (a.C1882a) invokeL.objValue;
@@ -285,13 +285,13 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream)) == null) {
                 try {
                     f.a(outputStream, 538247942);
-                    f.a(outputStream, this.f64132b);
-                    f.a(outputStream, this.f64133c == null ? "" : this.f64133c);
-                    f.a(outputStream, this.f64134d);
-                    f.a(outputStream, this.f64135e);
-                    f.a(outputStream, this.f64136f);
-                    f.a(outputStream, this.f64137g);
-                    f.a(this.f64138h, outputStream);
+                    f.a(outputStream, this.f64312b);
+                    f.a(outputStream, this.f64313c == null ? "" : this.f64313c);
+                    f.a(outputStream, this.f64314d);
+                    f.a(outputStream, this.f64315e);
+                    f.a(outputStream, this.f64316f);
+                    f.a(outputStream, this.f64317g);
+                    f.a(this.f64318h, outputStream);
                     outputStream.flush();
                     return true;
                 } catch (Throwable th) {
@@ -310,10 +310,10 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f64139a;
+        public final long f64319a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f64140b;
+        public long f64320b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(InputStream inputStream, long j2) {
@@ -333,13 +333,13 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
                     return;
                 }
             }
-            this.f64139a = j2;
+            this.f64319a = j2;
         }
 
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64139a - this.f64140b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64319a - this.f64320b : invokeV.longValue;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream
@@ -349,7 +349,7 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 int read = super.read();
                 if (read != -1) {
-                    this.f64140b++;
+                    this.f64320b++;
                 }
                 return read;
             }
@@ -363,7 +363,7 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
             if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3)) == null) {
                 int read = super.read(bArr, i2, i3);
                 if (read != -1) {
-                    this.f64140b += read;
+                    this.f64320b += read;
                 }
                 return read;
             }
@@ -407,32 +407,32 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || this.f64128b < this.f64130d) {
+        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || this.f64308b < this.f64310d) {
             return;
         }
-        if (o.f64180a) {
+        if (o.f64360a) {
             o.a("Pruning old cache entries.", new Object[0]);
         }
-        long j2 = this.f64128b;
+        long j2 = this.f64308b;
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        Iterator<Map.Entry<String, a>> it = this.f64127a.entrySet().iterator();
+        Iterator<Map.Entry<String, a>> it = this.f64307a.entrySet().iterator();
         int i2 = 0;
         while (it.hasNext()) {
             a value = it.next().getValue();
-            if (c(value.f64132b).delete()) {
-                this.f64128b -= value.f64131a;
+            if (c(value.f64312b).delete()) {
+                this.f64308b -= value.f64311a;
             } else {
-                String str = value.f64132b;
+                String str = value.f64312b;
                 o.b("Could not delete cache entry for key=%s, filename=%s", str, d(str));
             }
             it.remove();
             i2++;
-            if (((float) this.f64128b) < this.f64130d * 0.9f) {
+            if (((float) this.f64308b) < this.f64310d * 0.9f) {
                 break;
             }
         }
-        if (o.f64180a) {
-            o.a("pruned %d files, %d bytes, %d ms", Integer.valueOf(i2), Long.valueOf(this.f64128b - j2), Long.valueOf(SystemClock.elapsedRealtime() - elapsedRealtime));
+        if (o.f64360a) {
+            o.a("pruned %d files, %d bytes, %d ms", Integer.valueOf(i2), Long.valueOf(this.f64308b - j2), Long.valueOf(SystemClock.elapsedRealtime() - elapsedRealtime));
         }
     }
 
@@ -454,13 +454,13 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (!this.f64129c.exists()) {
-                    if (!this.f64129c.mkdirs()) {
-                        o.c("Unable to create cache dir %s", this.f64129c.getAbsolutePath());
+                if (!this.f64309c.exists()) {
+                    if (!this.f64309c.mkdirs()) {
+                        o.c("Unable to create cache dir %s", this.f64309c.getAbsolutePath());
                     }
                     return;
                 }
-                File[] listFiles = this.f64129c.listFiles();
+                File[] listFiles = this.f64309c.listFiles();
                 if (listFiles == null) {
                     return;
                 }
@@ -469,8 +469,8 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
                     b bVar = new b(new BufferedInputStream(a(file)), length);
                     try {
                         a a2 = a.a(bVar);
-                        a2.f64131a = length;
-                        a(a2.f64132b, a2);
+                        a2.f64311a = length;
+                        a(a2.f64312b, a2);
                     } catch (Throwable unused) {
                     }
                     bVar.close();
@@ -503,7 +503,7 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
             return;
         }
         synchronized (this) {
-            if (this.f64128b + c1882a.f64204b.length > this.f64130d && c1882a.f64204b.length > this.f64130d * 0.9f) {
+            if (this.f64308b + c1882a.f64384b.length > this.f64310d && c1882a.f64384b.length > this.f64310d * 0.9f) {
                 return;
             }
             File c2 = c(str);
@@ -513,8 +513,8 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
                 try {
                     a aVar = new a(str, c1882a);
                     if (aVar.a(bufferedOutputStream2)) {
-                        bufferedOutputStream2.write(c1882a.f64204b);
-                        aVar.f64131a = c2.length();
+                        bufferedOutputStream2.write(c1882a.f64384b);
+                        aVar.f64311a = c2.length();
                         a(str, aVar);
                         b();
                         try {
@@ -546,12 +546,12 @@ public class f implements com.bytedance.sdk.component.adnet.face.a {
     private void a(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, str, aVar) == null) {
-            if (!this.f64127a.containsKey(str)) {
-                this.f64128b += aVar.f64131a;
+            if (!this.f64307a.containsKey(str)) {
+                this.f64308b += aVar.f64311a;
             } else {
-                this.f64128b += aVar.f64131a - this.f64127a.get(str).f64131a;
+                this.f64308b += aVar.f64311a - this.f64307a.get(str).f64311a;
             }
-            this.f64127a.put(str, aVar);
+            this.f64307a.put(str, aVar);
         }
     }
 

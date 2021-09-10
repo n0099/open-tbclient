@@ -26,22 +26,22 @@ public class d extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Animator f41964a;
+    public Animator f42075a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f41965b;
+    public long f42076b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Interpolator f41966c;
+    public Interpolator f42077c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Animation.AnimationListener f41967d;
+    public Animation.AnimationListener f42078d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41968e;
+    public int f42079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<Animation> f41969f;
+    public ArrayList<Animation> f42080f;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -56,12 +56,12 @@ public class d extends c {
                 return;
             }
         }
-        this.f41964a = null;
-        this.f41965b = 0L;
-        this.f41966c = null;
-        this.f41967d = null;
-        this.f41968e = 0;
-        this.f41969f = new ArrayList<>();
+        this.f42075a = null;
+        this.f42076b = 0L;
+        this.f42077c = null;
+        this.f42078d = null;
+        this.f42079e = 0;
+        this.f42080f = new ArrayList<>();
     }
 
     @TargetApi(11)
@@ -94,7 +94,7 @@ public class d extends c {
     public void a() {
         Animator animator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (animator = this.f41964a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (animator = this.f42075a) == null) {
             return;
         }
         animator.start();
@@ -114,7 +114,7 @@ public class d extends c {
             if (j2 < 0) {
                 j2 = 0;
             }
-            this.f41965b = j2;
+            this.f42076b = j2;
         }
     }
 
@@ -132,7 +132,7 @@ public class d extends c {
     public void a(Interpolator interpolator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, interpolator) == null) {
-            this.f41966c = interpolator;
+            this.f42077c = interpolator;
         }
     }
 
@@ -140,16 +140,16 @@ public class d extends c {
     public void a(Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, animationListener) == null) {
-            this.f41967d = animationListener;
+            this.f42078d = animationListener;
         }
     }
 
     public void a(Animation animation) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, animation) == null) || this.f41969f.contains(animation)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, animation) == null) || this.f42080f.contains(animation)) {
             return;
         }
-        this.f41969f.add(animation);
+        this.f42080f.add(animation);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -158,8 +158,8 @@ public class d extends c {
         ObjectAnimator b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, marker, animation) == null) {
-            this.f41964a = new AnimatorSet();
-            ArrayList<Animation> arrayList = this.f41969f;
+            this.f42075a = new AnimatorSet();
+            ArrayList<Animation> arrayList = this.f42080f;
             ArrayList arrayList2 = new ArrayList();
             arrayList2.clear();
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
@@ -168,23 +168,23 @@ public class d extends c {
                     arrayList2.add(b2);
                 }
             }
-            long j2 = this.f41965b;
+            long j2 = this.f42076b;
             if (j2 != 0) {
-                this.f41964a.setDuration(j2);
+                this.f42075a.setDuration(j2);
             }
-            Interpolator interpolator = this.f41966c;
+            Interpolator interpolator = this.f42077c;
             if (interpolator != null) {
-                this.f41964a.setInterpolator(interpolator);
+                this.f42075a.setInterpolator(interpolator);
             }
             if (arrayList2.size() != 0) {
-                int i3 = this.f41968e;
+                int i3 = this.f42079e;
                 if (i3 == 0) {
-                    ((AnimatorSet) this.f41964a).playTogether(arrayList2);
+                    ((AnimatorSet) this.f42075a).playTogether(arrayList2);
                 } else if (i3 == 1) {
-                    ((AnimatorSet) this.f41964a).playSequentially(arrayList2);
+                    ((AnimatorSet) this.f42075a).playSequentially(arrayList2);
                 }
             }
-            a(this.f41964a);
+            a(this.f42075a);
         }
     }
 
@@ -193,11 +193,11 @@ public class d extends c {
     public void b() {
         Animator animator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (animator = this.f41964a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (animator = this.f42075a) == null) {
             return;
         }
         animator.cancel();
-        this.f41964a = null;
+        this.f42075a = null;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -211,7 +211,7 @@ public class d extends c {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f41968e = i2;
+            this.f42079e = i2;
         }
     }
 }

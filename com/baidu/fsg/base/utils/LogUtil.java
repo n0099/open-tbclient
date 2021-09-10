@@ -25,22 +25,22 @@ public final class LogUtil {
     public static final boolean DEBUG;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39466a = "apollon_rest";
+    public static final String f39577a = "apollon_rest";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f39467b;
+    public static final boolean f39578b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f39468c;
+    public static final boolean f39579c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f39469d;
+    public static final boolean f39580d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f39470e;
+    public static final boolean f39581e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f39471f;
+    public static final boolean f39582f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,11 +58,11 @@ public final class LogUtil {
         }
         boolean z = ApollonConstants.DEBUG;
         DEBUG = z;
-        f39467b = z;
-        f39468c = z;
-        f39469d = z;
-        f39470e = z;
-        f39471f = z;
+        f39578b = z;
+        f39579c = z;
+        f39580d = z;
+        f39581e = z;
+        f39582f = z;
     }
 
     public LogUtil() {
@@ -103,14 +103,14 @@ public final class LogUtil {
 
     public static void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && f39469d) {
+        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && f39580d) {
             String str2 = "(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f39468c) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f39579c) {
             TextUtils.isEmpty(str2);
             if (TextUtils.isEmpty(str)) {
                 return;
@@ -121,21 +121,21 @@ public final class LogUtil {
 
     public static void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) && f39471f) {
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) && f39582f) {
             String str2 = "(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && f39471f) {
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && f39582f) {
             String str3 = "(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT + str;
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65543, null, str, str2, th) == null) && f39471f) {
+        if ((interceptable == null || interceptable.invokeLLL(65543, null, str, str2, th) == null) && f39582f) {
             TextUtils.isEmpty(str2);
             if (TextUtils.isEmpty(str)) {
                 return;
@@ -179,14 +179,14 @@ public final class LogUtil {
 
     public static void i(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, str) == null) && f39469d) {
+        if ((interceptable == null || interceptable.invokeL(65547, null, str) == null) && f39580d) {
             String str2 = "(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && f39469d) {
+        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && f39580d) {
             TextUtils.isEmpty(str2);
             if (TextUtils.isEmpty(str)) {
                 return;
@@ -225,7 +225,7 @@ public final class LogUtil {
 
     public static void saveLog(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65553, null, str) == null) && f39468c) {
+        if ((interceptable == null || interceptable.invokeL(65553, null, str) == null) && f39579c) {
             String str2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS    ", Locale.ENGLISH).format(new Date()) + str + org.apache.commons.lang3.StringUtils.LF;
             try {
                 FileOutputStream fileOutputStream = new FileOutputStream(new File(String.valueOf(Environment.getExternalStorageDirectory()) + "/wallet.log"), true);
@@ -265,7 +265,7 @@ public final class LogUtil {
 
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65555, null, str, str2) == null) && f39467b) {
+        if ((interceptable == null || interceptable.invokeLL(65555, null, str, str2) == null) && f39578b) {
             TextUtils.isEmpty(str2);
             if (TextUtils.isEmpty(str)) {
                 return;
@@ -276,14 +276,14 @@ public final class LogUtil {
 
     public static void w(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65556, null, str) == null) && f39470e) {
+        if ((interceptable == null || interceptable.invokeL(65556, null, str) == null) && f39581e) {
             String str2 = "(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65557, null, str, str2) == null) && f39470e) {
+        if ((interceptable == null || interceptable.invokeLL(65557, null, str, str2) == null) && f39581e) {
             TextUtils.isEmpty(str2);
             if (TextUtils.isEmpty(str)) {
                 return;

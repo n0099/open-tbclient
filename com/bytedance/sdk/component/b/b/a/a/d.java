@@ -18,35 +18,35 @@ public final class d implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f64303a;
+    public static final Pattern f64483a;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final /* synthetic */ boolean f64304j;
+    public static final /* synthetic */ boolean f64484j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.b.a.f.a f64305b;
+    public final com.bytedance.sdk.component.b.b.a.f.a f64485b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f64306c;
+    public final int f64486c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.component.b.a.d f64307d;
+    public com.bytedance.sdk.component.b.a.d f64487d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinkedHashMap<String, b> f64308e;
+    public final LinkedHashMap<String, b> f64488e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64309f;
+    public int f64489f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f64310g;
+    public boolean f64490g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f64311h;
+    public boolean f64491h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f64312i;
+    public boolean f64492i;
     public long k;
     public long l;
     public long m;
@@ -59,33 +59,33 @@ public final class d implements Closeable, Flushable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f64313a;
+        public final b f64493a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean[] f64314b;
+        public final boolean[] f64494b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f64315c;
+        public final /* synthetic */ d f64495c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f64316d;
+        public boolean f64496d;
 
         public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.f64313a.f64322f != this) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.f64493a.f64502f != this) {
                 return;
             }
             int i2 = 0;
             while (true) {
-                d dVar = this.f64315c;
-                if (i2 < dVar.f64306c) {
+                d dVar = this.f64495c;
+                if (i2 < dVar.f64486c) {
                     try {
-                        dVar.f64305b.a(this.f64313a.f64320d[i2]);
+                        dVar.f64485b.a(this.f64493a.f64500d[i2]);
                     } catch (IOException unused) {
                     }
                     i2++;
                 } else {
-                    this.f64313a.f64322f = null;
+                    this.f64493a.f64502f = null;
                     return;
                 }
             }
@@ -94,12 +94,12 @@ public final class d implements Closeable, Flushable {
         public void b() throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                synchronized (this.f64315c) {
-                    if (!this.f64316d) {
-                        if (this.f64313a.f64322f == this) {
-                            this.f64315c.a(this, false);
+                synchronized (this.f64495c) {
+                    if (!this.f64496d) {
+                        if (this.f64493a.f64502f == this) {
+                            this.f64495c.a(this, false);
                         }
-                        this.f64316d = true;
+                        this.f64496d = true;
                     } else {
                         throw new IllegalStateException();
                     }
@@ -114,30 +114,30 @@ public final class d implements Closeable, Flushable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f64317a;
+        public final String f64497a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long[] f64318b;
+        public final long[] f64498b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final File[] f64319c;
+        public final File[] f64499c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final File[] f64320d;
+        public final File[] f64500d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f64321e;
+        public boolean f64501e;
 
         /* renamed from: f  reason: collision with root package name */
-        public a f64322f;
+        public a f64502f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f64323g;
+        public long f64503g;
 
         public void a(com.bytedance.sdk.component.b.a.d dVar) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-                for (long j2 : this.f64318b) {
+                for (long j2 : this.f64498b) {
                     dVar.i(32).l(j2);
                 }
             }
@@ -157,8 +157,8 @@ public final class d implements Closeable, Flushable {
                 return;
             }
         }
-        f64304j = !d.class.desiredAssertionStatus();
-        f64303a = Pattern.compile("[a-z0-9_-]{1,120}");
+        f64484j = !d.class.desiredAssertionStatus();
+        f64483a = Pattern.compile("[a-z0-9_-]{1,120}");
     }
 
     private synchronized void d() {
@@ -176,12 +176,12 @@ public final class d implements Closeable, Flushable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, aVar, z) == null) {
             synchronized (this) {
-                b bVar = aVar.f64313a;
-                if (bVar.f64322f == aVar) {
-                    if (z && !bVar.f64321e) {
-                        for (int i2 = 0; i2 < this.f64306c; i2++) {
-                            if (aVar.f64314b[i2]) {
-                                if (!this.f64305b.b(bVar.f64320d[i2])) {
+                b bVar = aVar.f64493a;
+                if (bVar.f64502f == aVar) {
+                    if (z && !bVar.f64501e) {
+                        for (int i2 = 0; i2 < this.f64486c; i2++) {
+                            if (aVar.f64494b[i2]) {
+                                if (!this.f64485b.b(bVar.f64500d[i2])) {
                                     aVar.b();
                                     return;
                                 }
@@ -191,41 +191,41 @@ public final class d implements Closeable, Flushable {
                             }
                         }
                     }
-                    for (int i3 = 0; i3 < this.f64306c; i3++) {
-                        File file = bVar.f64320d[i3];
+                    for (int i3 = 0; i3 < this.f64486c; i3++) {
+                        File file = bVar.f64500d[i3];
                         if (z) {
-                            if (this.f64305b.b(file)) {
-                                File file2 = bVar.f64319c[i3];
-                                this.f64305b.a(file, file2);
-                                long j2 = bVar.f64318b[i3];
-                                long c2 = this.f64305b.c(file2);
-                                bVar.f64318b[i3] = c2;
+                            if (this.f64485b.b(file)) {
+                                File file2 = bVar.f64499c[i3];
+                                this.f64485b.a(file, file2);
+                                long j2 = bVar.f64498b[i3];
+                                long c2 = this.f64485b.c(file2);
+                                bVar.f64498b[i3] = c2;
                                 this.l = (this.l - j2) + c2;
                             }
                         } else {
-                            this.f64305b.a(file);
+                            this.f64485b.a(file);
                         }
                     }
-                    this.f64309f++;
-                    bVar.f64322f = null;
-                    if (bVar.f64321e | z) {
-                        bVar.f64321e = true;
-                        this.f64307d.b("CLEAN").i(32);
-                        this.f64307d.b(bVar.f64317a);
-                        bVar.a(this.f64307d);
-                        this.f64307d.i(10);
+                    this.f64489f++;
+                    bVar.f64502f = null;
+                    if (bVar.f64501e | z) {
+                        bVar.f64501e = true;
+                        this.f64487d.b("CLEAN").i(32);
+                        this.f64487d.b(bVar.f64497a);
+                        bVar.a(this.f64487d);
+                        this.f64487d.i(10);
                         if (z) {
                             long j3 = this.m;
                             this.m = 1 + j3;
-                            bVar.f64323g = j3;
+                            bVar.f64503g = j3;
                         }
                     } else {
-                        this.f64308e.remove(bVar.f64317a);
-                        this.f64307d.b("REMOVE").i(32);
-                        this.f64307d.b(bVar.f64317a);
-                        this.f64307d.i(10);
+                        this.f64488e.remove(bVar.f64497a);
+                        this.f64487d.b("REMOVE").i(32);
+                        this.f64487d.b(bVar.f64497a);
+                        this.f64487d.i(10);
                     }
-                    this.f64307d.flush();
+                    this.f64487d.flush();
                     if (this.l > this.k || a()) {
                         this.n.execute(this.o);
                     }
@@ -242,7 +242,7 @@ public final class d implements Closeable, Flushable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                z = this.f64311h;
+                z = this.f64491h;
             }
             return z;
         }
@@ -253,9 +253,9 @@ public final class d implements Closeable, Flushable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             while (this.l > this.k) {
-                a(this.f64308e.values().iterator().next());
+                a(this.f64488e.values().iterator().next());
             }
-            this.f64312i = false;
+            this.f64492i = false;
         }
     }
 
@@ -265,19 +265,19 @@ public final class d implements Closeable, Flushable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
-                if (this.f64310g && !this.f64311h) {
-                    for (b bVar : (b[]) this.f64308e.values().toArray(new b[this.f64308e.size()])) {
-                        if (bVar.f64322f != null) {
-                            bVar.f64322f.b();
+                if (this.f64490g && !this.f64491h) {
+                    for (b bVar : (b[]) this.f64488e.values().toArray(new b[this.f64488e.size()])) {
+                        if (bVar.f64502f != null) {
+                            bVar.f64502f.b();
                         }
                     }
                     c();
-                    this.f64307d.close();
-                    this.f64307d = null;
-                    this.f64311h = true;
+                    this.f64487d.close();
+                    this.f64487d = null;
+                    this.f64491h = true;
                     return;
                 }
-                this.f64311h = true;
+                this.f64491h = true;
             }
         }
     }
@@ -287,10 +287,10 @@ public final class d implements Closeable, Flushable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             synchronized (this) {
-                if (this.f64310g) {
+                if (this.f64490g) {
                     d();
                     c();
-                    this.f64307d.flush();
+                    this.f64487d.flush();
                 }
             }
         }
@@ -300,8 +300,8 @@ public final class d implements Closeable, Flushable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.f64309f;
-            return i2 >= 2000 && i2 >= this.f64308e.size();
+            int i2 = this.f64489f;
+            return i2 >= 2000 && i2 >= this.f64488e.size();
         }
         return invokeV.booleanValue;
     }
@@ -310,20 +310,20 @@ public final class d implements Closeable, Flushable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
-            a aVar = bVar.f64322f;
+            a aVar = bVar.f64502f;
             if (aVar != null) {
                 aVar.a();
             }
-            for (int i2 = 0; i2 < this.f64306c; i2++) {
-                this.f64305b.a(bVar.f64319c[i2]);
+            for (int i2 = 0; i2 < this.f64486c; i2++) {
+                this.f64485b.a(bVar.f64499c[i2]);
                 long j2 = this.l;
-                long[] jArr = bVar.f64318b;
+                long[] jArr = bVar.f64498b;
                 this.l = j2 - jArr[i2];
                 jArr[i2] = 0;
             }
-            this.f64309f++;
-            this.f64307d.b("REMOVE").i(32).b(bVar.f64317a).i(10);
-            this.f64308e.remove(bVar.f64317a);
+            this.f64489f++;
+            this.f64487d.b("REMOVE").i(32).b(bVar.f64497a).i(10);
+            this.f64488e.remove(bVar.f64497a);
             if (a()) {
                 this.n.execute(this.o);
             }

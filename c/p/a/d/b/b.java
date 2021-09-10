@@ -23,14 +23,14 @@ public class b implements h.s.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f34476c;
+    public static b f34585c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public h.s f34477a;
+    public h.s f34586a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f34478b;
+    public long f34587b;
 
     static {
         InterceptResult invokeClinit;
@@ -60,21 +60,21 @@ public class b implements h.s.a {
                 return;
             }
         }
-        this.f34477a = new h.s(Looper.getMainLooper(), this);
+        this.f34586a = new h.s(Looper.getMainLooper(), this);
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f34476c == null) {
+            if (f34585c == null) {
                 synchronized (b.class) {
-                    if (f34476c == null) {
-                        f34476c = new b();
+                    if (f34585c == null) {
+                        f34585c = new b();
                     }
                 }
             }
-            return f34476c;
+            return f34585c;
         }
         return (b) invokeV.objValue;
     }
@@ -85,12 +85,12 @@ public class b implements h.s.a {
             return;
         }
         if (2 == i2) {
-            c.p.a.b.a.c.b u = c.g.e().u(bVar.f34483b);
+            c.p.a.b.a.c.b u = c.g.e().u(bVar.f34592b);
             JSONObject jSONObject = new JSONObject();
             int i3 = -1;
             try {
                 jSONObject.put("ttdownloader_type", "miui_silent_install");
-                if (h.r.G(l.a(), bVar.f34485d)) {
+                if (h.r.G(l.a(), bVar.f34594d)) {
                     jSONObject.put("ttdownloader_message", "miui_silent_install_succeed");
                     i3 = 4;
                 } else {
@@ -102,15 +102,15 @@ public class b implements h.s.a {
             l.s().a(null, new BaseException(i3, jSONObject.toString()), i3);
             e.c.a().p("embeded_ad", "ah_result", jSONObject, u);
         }
-        if (h.r.G(l.a(), bVar.f34485d)) {
-            e.c.a().k("delayinstall_installed", bVar.f34483b);
-        } else if (!h.r.w(bVar.f34488g)) {
-            e.c.a().k("delayinstall_file_lost", bVar.f34483b);
-        } else if (a.a().i(bVar.f34485d)) {
-            e.c.a().k("delayinstall_conflict_with_back_dialog", bVar.f34483b);
+        if (h.r.G(l.a(), bVar.f34594d)) {
+            e.c.a().k("delayinstall_installed", bVar.f34592b);
+        } else if (!h.r.w(bVar.f34597g)) {
+            e.c.a().k("delayinstall_file_lost", bVar.f34592b);
+        } else if (a.a().i(bVar.f34594d)) {
+            e.c.a().k("delayinstall_conflict_with_back_dialog", bVar.f34592b);
         } else {
-            e.c.a().k("delayinstall_install_start", bVar.f34483b);
-            c.p.a.e.a.e.t(l.a(), (int) bVar.f34482a);
+            e.c.a().k("delayinstall_install_start", bVar.f34592b);
+            c.p.a.e.a.e.t(l.a(), (int) bVar.f34591a);
         }
     }
 
@@ -121,12 +121,12 @@ public class b implements h.s.a {
             c.p.a.e.b.j.a d2 = c.p.a.e.b.j.a.d(downloadInfo.getId());
             if (d2.b("back_miui_silent_install", 1) == 0 && ((c.p.a.e.a.h.e.p() || c.p.a.e.a.h.e.q()) && c.p.a.e.b.l.h.a(l.a(), "com.miui.securitycore", "com.miui.enterprise.service.EntInstallService"))) {
                 if (c.p.a.e.b.l.f.Q(downloadInfo.getTempCacheData().get("extra_silent_install_succeed"), false)) {
-                    Message obtainMessage = this.f34477a.obtainMessage(200, bVar);
+                    Message obtainMessage = this.f34586a.obtainMessage(200, bVar);
                     obtainMessage.arg1 = 2;
-                    this.f34477a.sendMessageDelayed(obtainMessage, d2.b("check_silent_install_interval", 60000));
+                    this.f34586a.sendMessageDelayed(obtainMessage, d2.b("check_silent_install_interval", 60000));
                     return;
                 }
-                c.p.a.b.a.c.b u = c.g.e().u(bVar.f34483b);
+                c.p.a.b.a.c.b u = c.g.e().u(bVar.f34592b);
                 JSONObject jSONObject = new JSONObject();
                 int i2 = -1;
                 try {
@@ -139,16 +139,16 @@ public class b implements h.s.a {
                 e.c.a().p("embeded_ad", "ah_result", jSONObject, u);
             }
             if (h.k.m()) {
-                long currentTimeMillis = System.currentTimeMillis() - this.f34478b;
+                long currentTimeMillis = System.currentTimeMillis() - this.f34587b;
                 long n = h.k.n();
                 if (currentTimeMillis < h.k.p()) {
                     long p = h.k.p() - currentTimeMillis;
                     n += p;
-                    this.f34478b = System.currentTimeMillis() + p;
+                    this.f34587b = System.currentTimeMillis() + p;
                 } else {
-                    this.f34478b = System.currentTimeMillis();
+                    this.f34587b = System.currentTimeMillis();
                 }
-                h.s sVar = this.f34477a;
+                h.s sVar = this.f34586a;
                 sVar.sendMessageDelayed(sVar.obtainMessage(200, bVar), n);
             }
         }

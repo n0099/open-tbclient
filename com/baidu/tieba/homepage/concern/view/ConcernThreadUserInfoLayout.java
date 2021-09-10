@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.concern.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import c.a.p0.s.q.c2;
+import c.a.q0.s.q.d2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
@@ -38,11 +38,11 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
-    public boolean setData(c2 c2Var) {
+    public boolean setData(d2 d2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c2Var)) == null) {
-            if (super.setData(c2Var)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d2Var)) == null) {
+            if (super.setData(d2Var)) {
                 this.mUserIcon.setVisibility(8);
                 return true;
             }
@@ -52,16 +52,16 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
-    public void updateShareIntro(c2 c2Var) {
+    public void updateShareIntro(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2Var) == null) {
-            if (c2Var != null && !StringUtils.isNull(c2Var.getRecomReason())) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var) == null) {
+            if (d2Var != null && !StringUtils.isNull(d2Var.getRecomReason())) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mShareIntro.getLayoutParams();
                 if (layoutParams != null && layoutParams.bottomMargin != 0) {
                     layoutParams.bottomMargin = 0;
                     this.mShareIntro.setLayoutParams(layoutParams);
                 }
-                this.mShareIntro.setText(c2Var.getRecomReason());
+                this.mShareIntro.setText(d2Var.getRecomReason());
                 this.mShareIntro.setVisibility(0);
                 return;
             }

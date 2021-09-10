@@ -13,11 +13,11 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f2843b;
+    public static volatile c f2834b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f2844a;
+    public b f2835a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -37,14 +37,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f2843b == null) {
+            if (f2834b == null) {
                 synchronized (c.class) {
-                    if (f2843b == null) {
-                        f2843b = new c();
+                    if (f2834b == null) {
+                        f2834b = new c();
                     }
                 }
             }
-            return f2843b;
+            return f2834b;
         }
         return (c) invokeV.objValue;
     }
@@ -52,7 +52,7 @@ public class c {
     public void a(String str) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bVar = this.f2844a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bVar = this.f2835a) == null) {
             return;
         }
         bVar.a(str);
@@ -63,7 +63,7 @@ public class c {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (bVar = this.f2844a) != null) {
+            if (!TextUtils.isEmpty(str) && (bVar = this.f2835a) != null) {
                 for (BdFileDownloadData bdFileDownloadData : bVar.b()) {
                     if (str.equals(bdFileDownloadData.getId())) {
                         return true;
@@ -78,25 +78,25 @@ public class c {
     public void d(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f2844a = bVar;
+            this.f2835a = bVar;
         }
     }
 
     public void e(BdFileDownloadData bdFileDownloadData, a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, bdFileDownloadData, aVar) == null) || bdFileDownloadData == null || this.f2844a == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, bdFileDownloadData, aVar) == null) || bdFileDownloadData == null || this.f2835a == null) {
             return;
         }
         bdFileDownloadData.setCallback(aVar);
-        this.f2844a.c(bdFileDownloadData);
+        this.f2835a.c(bdFileDownloadData);
     }
 
     public void f(BdFileDownloadData bdFileDownloadData, a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, bdFileDownloadData, aVar) == null) || bdFileDownloadData == null || this.f2844a == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, bdFileDownloadData, aVar) == null) || bdFileDownloadData == null || this.f2835a == null) {
             return;
         }
         bdFileDownloadData.setCallback(aVar);
-        this.f2844a.e(bdFileDownloadData, 1);
+        this.f2835a.e(bdFileDownloadData, 1);
     }
 }

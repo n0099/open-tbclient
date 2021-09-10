@@ -413,7 +413,7 @@ public class e {
         hashMap3.put("play_progress", Integer.valueOf((int) (bVar2.ec * 100.0f)));
         hashMap2.put("data", hashMap3);
         hashMap.put("msg_data", hashMap2);
-        ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
+        ARPMessage.getInstance().sendMessage(1902, hashMap);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -23,10 +23,10 @@ public final class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f34267a;
+    public final String f34376a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<g> f34268b;
+    public final List<g> f34377b;
 
     public f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public final class f {
                 return;
             }
         }
-        this.f34267a = jSONObject.optString("imageKey");
+        this.f34376a = jSONObject.optString("imageKey");
         ArrayList arrayList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("frames");
         if (optJSONArray != null) {
@@ -59,19 +59,19 @@ public final class f {
                 }
             }
         }
-        this.f34268b = CollectionsKt___CollectionsKt.toList(arrayList);
+        this.f34377b = CollectionsKt___CollectionsKt.toList(arrayList);
     }
 
     public final List<g> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34268b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34377b : (List) invokeV.objValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34267a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34376a : (String) invokeV.objValue;
     }
 
     public f(SpriteEntity spriteEntity) {
@@ -90,7 +90,7 @@ public final class f {
                 return;
             }
         }
-        this.f34267a = spriteEntity.imageKey;
+        this.f34376a = spriteEntity.imageKey;
         List<FrameEntity> list = spriteEntity.frames;
         if (list != null) {
             emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
@@ -107,6 +107,6 @@ public final class f {
         } else {
             emptyList = CollectionsKt__CollectionsKt.emptyList();
         }
-        this.f34268b = emptyList;
+        this.f34377b = emptyList;
     }
 }

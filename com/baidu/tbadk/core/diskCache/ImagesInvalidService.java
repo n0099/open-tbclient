@@ -52,7 +52,7 @@ public class ImagesInvalidService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
-                c.a.p0.s.t.a.g();
+                c.a.q0.s.t.a.g();
                 ImagesInvalidReceiver.broadcast(z);
             }
         }
@@ -84,7 +84,7 @@ public class ImagesInvalidService extends BdBaseService {
     public static void setSuccess(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            c.a.p0.s.t.a.e(z);
+            c.a.q0.s.t.a.e(z);
         }
     }
 

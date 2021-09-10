@@ -17,7 +17,7 @@ public class a extends s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f31204e;
+    public final Context f31313e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -38,7 +38,7 @@ public class a extends s1 {
                 return;
             }
         }
-        this.f31204e = context;
+        this.f31313e = context;
     }
 
     @Override // c.b.a.s1
@@ -47,7 +47,7 @@ public class a extends s1 {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            DisplayMetrics displayMetrics = this.f31204e.getResources().getDisplayMetrics();
+            DisplayMetrics displayMetrics = this.f31313e.getResources().getDisplayMetrics();
             int i2 = displayMetrics.densityDpi;
             switch (i2) {
                 case 120:

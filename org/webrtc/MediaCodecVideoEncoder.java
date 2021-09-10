@@ -26,6 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import h.c.i0;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -70,7 +71,7 @@ public class MediaCodecVideoEncoder {
     public static final String VP8_MIME_TYPE = "video/x-vnd.on2.vp8";
     public static final String VP9_MIME_TYPE = "video/x-vnd.on2.vp9";
     public static final MediaCodecProperties amlogicH264HwProperties;
-    public static int bitrateMode = 2;
+    public static int bitrateMode;
     public static int codecErrors;
     @Nullable
     public static MediaCodecVideoEncoderErrorCallback errorCallback;
@@ -136,7 +137,7 @@ public class MediaCodecVideoEncoder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f79122e;
+        public Exception f79360e;
         public final /* synthetic */ MediaCodecVideoEncoder this$0;
 
         public C1CaughtException(MediaCodecVideoEncoder mediaCodecVideoEncoder) {
@@ -407,53 +408,53 @@ public class MediaCodecVideoEncoder {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, videoCodecInfo)) == null) {
-                if (isCodecSupported(this.supportedHardwareCodecs, videoCodecInfo)) {
-                    Logging.d(MediaCodecVideoEncoder.TAG, "Create HW video encoder for " + videoCodecInfo.name);
-                    return new WrappedNativeVideoEncoder(this, videoCodecInfo) { // from class: org.webrtc.MediaCodecVideoEncoder.HwEncoderFactory.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ HwEncoderFactory this$0;
-                        public final /* synthetic */ VideoCodecInfo val$info;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, videoCodecInfo};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$info = videoCodecInfo;
-                        }
-
-                        @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
-                        public long createNativeVideoEncoder() {
-                            InterceptResult invokeV;
-                            Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? MediaCodecVideoEncoder.nativeCreateEncoder(this.val$info, MediaCodecVideoEncoder.staticEglBase instanceof EglBase14) : invokeV.longValue;
-                        }
-
-                        @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
-                        public boolean isHardwareEncoder() {
-                            InterceptResult invokeV;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                                return true;
-                            }
-                            return invokeV.booleanValue;
-                        }
-                    };
+                if (!isCodecSupported(this.supportedHardwareCodecs, videoCodecInfo)) {
+                    Logging.d(MediaCodecVideoEncoder.TAG, "No HW video encoder for codec " + videoCodecInfo.name);
+                    return null;
                 }
-                Logging.d(MediaCodecVideoEncoder.TAG, "No HW video encoder for codec " + videoCodecInfo.name);
-                return null;
+                Logging.d(MediaCodecVideoEncoder.TAG, "Create HW video encoder for " + videoCodecInfo.name);
+                return new WrappedNativeVideoEncoder(this, videoCodecInfo) { // from class: org.webrtc.MediaCodecVideoEncoder.HwEncoderFactory.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ HwEncoderFactory this$0;
+                    public final /* synthetic */ VideoCodecInfo val$info;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, videoCodecInfo};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$info = videoCodecInfo;
+                    }
+
+                    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
+                    public long createNativeVideoEncoder() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? MediaCodecVideoEncoder.nativeCreateEncoder(this.val$info, MediaCodecVideoEncoder.staticEglBase instanceof EglBase14) : invokeV.longValue;
+                    }
+
+                    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
+                    public boolean isHardwareEncoder() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            return true;
+                        }
+                        return invokeV.booleanValue;
+                    }
+                };
             }
             return (VideoEncoder) invokeL.objValue;
         }
@@ -670,6 +671,7 @@ public class MediaCodecVideoEncoder {
         myMTKH264HighProfileHwProperties = mediaCodecProperties2;
         h264HighProfileHwList = new MediaCodecProperties[]{exynosH264HighProfileHwProperties, qcomH264HighProfileHwProperties, hisiH264HighProfileHwProperties, mediaCodecProperties2};
         H264_HW_EXCEPTION_MODELS = new String[]{"SAMSUNG-SGH-I337", "Nexus 7", "Nexus 4"};
+        bitrateMode = 2;
         supportedColorList = new int[]{19, 21, 2141391872, 2141391876};
         supportedSurfaceColorList = new int[]{2130708361};
     }
@@ -1002,6 +1004,10 @@ public class MediaCodecVideoEncoder {
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:19:0x00a4  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private void reportEncodedFrame(int i2) {
         int i3;
         Interceptable interceptable = $ic;
@@ -1015,24 +1021,28 @@ public class MediaCodecVideoEncoder {
             this.bitrateAccumulator = Math.max(min, -d3);
             if (this.bitrateObservationTimeMs > 3000.0d) {
                 Logging.d(TAG, "Acc: " + ((int) this.bitrateAccumulator) + ". Max: " + ((int) this.bitrateAccumulatorMax) + ". ExpScale: " + this.bitrateAdjustmentScaleExp);
+                boolean z = false;
                 double d4 = this.bitrateAccumulator;
                 double d5 = this.bitrateAccumulatorMax;
-                boolean z = true;
                 if (d4 > d5) {
                     this.bitrateAdjustmentScaleExp -= (int) ((d4 / d5) + 0.5d);
                     this.bitrateAccumulator = d5;
-                } else if (d4 < (-d5)) {
-                    this.bitrateAdjustmentScaleExp += (int) (((-d4) / d5) + 0.5d);
-                    this.bitrateAccumulator = -d5;
                 } else {
-                    z = false;
+                    if (d4 < (-d5)) {
+                        this.bitrateAdjustmentScaleExp += (int) (((-d4) / d5) + 0.5d);
+                        this.bitrateAccumulator = -d5;
+                    }
+                    if (z) {
+                        int min2 = Math.min(this.bitrateAdjustmentScaleExp, 20);
+                        this.bitrateAdjustmentScaleExp = min2;
+                        this.bitrateAdjustmentScaleExp = Math.max(min2, -20);
+                        Logging.d(TAG, "Adjusting bitrate scale to " + this.bitrateAdjustmentScaleExp + ". Value: " + getBitrateScale(this.bitrateAdjustmentScaleExp));
+                        setRates(this.targetBitrateBps / 1000, this.targetFps);
+                    }
+                    this.bitrateObservationTimeMs = 0.0d;
                 }
+                z = true;
                 if (z) {
-                    int min2 = Math.min(this.bitrateAdjustmentScaleExp, 20);
-                    this.bitrateAdjustmentScaleExp = min2;
-                    this.bitrateAdjustmentScaleExp = Math.max(min2, -20);
-                    Logging.d(TAG, "Adjusting bitrate scale to " + this.bitrateAdjustmentScaleExp + ". Value: " + getBitrateScale(this.bitrateAdjustmentScaleExp));
-                    setRates(this.targetBitrateBps / 1000, this.targetFps);
                 }
                 this.bitrateObservationTimeMs = 0.0d;
             }
@@ -1046,7 +1056,7 @@ public class MediaCodecVideoEncoder {
                 Logging.w(TAG, "Egl context already set.");
                 staticEglBase.release();
             }
-            staticEglBase = EglBase_CC.create(context);
+            staticEglBase = i0.b(context);
         }
     }
 
@@ -1061,57 +1071,43 @@ public class MediaCodecVideoEncoder {
     @CalledByNativeUnchecked
     private boolean setRates(int i2, int i3) {
         InterceptResult invokeII;
-        StringBuilder sb;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeII = interceptable.invokeII(65566, this, i2, i3)) != null) {
-            return invokeII.booleanValue;
-        }
-        checkOnMediaCodecThread();
-        int i4 = i2 * 1000;
-        if (this.bitrateAdjustmentType == BitrateAdjustmentType.DYNAMIC_ADJUSTMENT) {
-            double d2 = i4;
-            this.bitrateAccumulatorMax = d2 / 8.0d;
-            int i5 = this.targetBitrateBps;
-            if (i5 > 0 && i4 < i5) {
-                this.bitrateAccumulator = (this.bitrateAccumulator * d2) / i5;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65566, this, i2, i3)) == null) {
+            checkOnMediaCodecThread();
+            int i4 = i2 * 1000;
+            if (this.bitrateAdjustmentType == BitrateAdjustmentType.DYNAMIC_ADJUSTMENT) {
+                double d2 = i4;
+                this.bitrateAccumulatorMax = d2 / 8.0d;
+                int i5 = this.targetBitrateBps;
+                if (i5 > 0 && i4 < i5) {
+                    this.bitrateAccumulator = (this.bitrateAccumulator * d2) / i5;
+                }
             }
-        }
-        this.targetBitrateBps = i4;
-        this.targetFps = i3;
-        try {
+            this.targetBitrateBps = i4;
+            this.targetFps = i3;
             if (this.bitrateAdjustmentType == BitrateAdjustmentType.FRAMERATE_ADJUSTMENT && i3 > 0) {
                 i4 = (i4 * 30) / i3;
-                sb = new StringBuilder();
-                sb.append("setRates: ");
-                sb.append(i2);
-                sb.append(LoadErrorCode.TOKEN_NEXT);
-                i2 = i4 / 1000;
+                Logging.v(TAG, "setRates: " + i2 + LoadErrorCode.TOKEN_NEXT + (i4 / 1000) + " kbps. Fps: " + this.targetFps);
             } else if (this.bitrateAdjustmentType == BitrateAdjustmentType.DYNAMIC_ADJUSTMENT) {
                 Logging.v(TAG, "setRates: " + i2 + " kbps. Fps: " + this.targetFps + ". ExpScale: " + this.bitrateAdjustmentScaleExp);
                 int i6 = this.bitrateAdjustmentScaleExp;
                 if (i6 != 0) {
                     i4 = (int) (i4 * getBitrateScale(i6));
                 }
+            } else {
+                Logging.v(TAG, "setRates: " + i2 + " kbps. Fps: " + this.targetFps);
+            }
+            try {
                 Bundle bundle = new Bundle();
                 bundle.putInt("video-bitrate", i4);
                 this.mediaCodec.setParameters(bundle);
                 return true;
-            } else {
-                sb = new StringBuilder();
-                sb.append("setRates: ");
+            } catch (IllegalStateException e2) {
+                Logging.e(TAG, "setRates failed", e2);
+                return false;
             }
-            Bundle bundle2 = new Bundle();
-            bundle2.putInt("video-bitrate", i4);
-            this.mediaCodec.setParameters(bundle2);
-            return true;
-        } catch (IllegalStateException e2) {
-            Logging.e(TAG, "setRates failed", e2);
-            return false;
         }
-        sb.append(i2);
-        sb.append(" kbps. Fps: ");
-        sb.append(this.targetFps);
-        Logging.v(TAG, sb.toString());
+        return invokeII.booleanValue;
     }
 
     @Nullable
@@ -1143,7 +1139,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x002f  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0032  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0035  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1160,7 +1156,11 @@ public class MediaCodecVideoEncoder {
                 if (j4 > 0 && j3 > this.lastKeyFrameMs + j4) {
                     z2 = true;
                     if (!z || z2) {
-                        Logging.d(TAG, !z ? "Sync frame request" : "Sync frame forced");
+                        if (!z) {
+                            Logging.d(TAG, "Sync frame request");
+                        } else {
+                            Logging.d(TAG, "Sync frame forced");
+                        }
                         Bundle bundle = new Bundle();
                         bundle.putInt("request-sync", 0);
                         this.mediaCodec.setParameters(bundle);
@@ -1172,7 +1172,8 @@ public class MediaCodecVideoEncoder {
             z2 = false;
             if (z) {
             }
-            Logging.d(TAG, !z ? "Sync frame request" : "Sync frame forced");
+            if (!z) {
+            }
             Bundle bundle2 = new Bundle();
             bundle2.putInt("request-sync", 0);
             this.mediaCodec.setParameters(bundle2);
@@ -1311,18 +1312,21 @@ public class MediaCodecVideoEncoder {
                     int strideY = i420.getStrideY();
                     int strideU = i420.getStrideU();
                     int strideV = i420.getStrideV();
-                    if (dataY.capacity() < this.height * strideY) {
+                    if (dataY.capacity() >= this.height * strideY) {
+                        if (dataU.capacity() >= strideU * i3) {
+                            if (dataV.capacity() >= i3 * strideV) {
+                                nativeFillInputBuffer(j2, i2, dataY, strideY, dataU, strideU, dataV, strideV);
+                                i420.release();
+                                this.mediaCodec.queueInputBuffer(i2, 0, ((this.width * this.height) * 3) / 2, j3, 0);
+                            } else {
+                                throw new RuntimeException("V-plane buffer size too small.");
+                            }
+                        } else {
+                            throw new RuntimeException("U-plane buffer size too small.");
+                        }
+                    } else {
                         throw new RuntimeException("Y-plane buffer size too small.");
                     }
-                    if (dataU.capacity() < strideU * i3) {
-                        throw new RuntimeException("U-plane buffer size too small.");
-                    }
-                    if (dataV.capacity() < i3 * strideV) {
-                        throw new RuntimeException("V-plane buffer size too small.");
-                    }
-                    nativeFillInputBuffer(j2, i2, dataY, strideY, dataU, strideU, dataV, strideV);
-                    i420.release();
-                    this.mediaCodec.queueInputBuffer(i2, 0, ((this.width * this.height) * 3) / 2, j3, 0);
                 }
                 return true;
             } catch (RuntimeException e2) {
@@ -1352,11 +1356,8 @@ public class MediaCodecVideoEncoder {
         return (ByteBuffer[]) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x011c, code lost:
-        if (r6 > 23) goto L55;
-     */
     /* JADX WARN: Removed duplicated region for block: B:40:0x00d9  */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x024e  */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x0253  */
     @CalledByNativeUnchecked
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1378,125 +1379,126 @@ public class MediaCodecVideoEncoder {
         this.profile = i2;
         this.width = i3;
         this.height = i4;
-        if (this.mediaCodecThread != null) {
-            throw new RuntimeException("Forgot to release()?");
-        }
-        int i8 = 100;
-        String str = "video/x-vnd.on2.vp9";
-        String str2 = "video/avc";
-        if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP8) {
-            encoderProperties = findHwEncoder("video/x-vnd.on2.vp8", vp8HwList(), z ? supportedSurfaceColorList : supportedColorList, i3, i4);
-            str = "video/x-vnd.on2.vp8";
-        } else if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP9) {
-            encoderProperties = findHwEncoder("video/x-vnd.on2.vp9", vp9HwList, z ? supportedSurfaceColorList : supportedColorList, i3, i4);
-        } else if (videoCodecType != VideoCodecType.VIDEO_CODEC_H264) {
-            throw new RuntimeException("initEncode: Non-supported codec " + videoCodecType);
-        } else {
-            EncoderProperties findHwEncoder = findHwEncoder("video/avc", h264HwList(), z ? supportedSurfaceColorList : supportedColorList, i3, i4);
-            if (i2 == H264Profile.CONSTRAINED_HIGH.getValue()) {
-                if (findHwEncoder("video/avc", h264HighProfileHwList, z ? supportedSurfaceColorList : supportedColorList, i3, i4) != null) {
-                    Logging.d(TAG, "High profile H.264 encoder supported.");
-                    z2 = true;
-                    i8 = 20;
-                    z3 = z2;
-                    encoderProperties = findHwEncoder;
-                    if (encoderProperties == null) {
-                        throw new RuntimeException("Can not find HW encoder for " + videoCodecType);
-                    }
-                    runningInstance = this;
-                    this.colorFormat = encoderProperties.colorFormat;
-                    BitrateAdjustmentType bitrateAdjustmentType = encoderProperties.bitrateAdjustmentType;
-                    this.bitrateAdjustmentType = bitrateAdjustmentType;
-                    int min = bitrateAdjustmentType != BitrateAdjustmentType.FRAMERATE_ADJUSTMENT ? Math.min(i6, 30) : 30;
-                    this.forcedKeyFrameMs = 0L;
-                    this.lastKeyFrameMs = -1L;
-                    if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP8 && encoderProperties.codecName.startsWith(qcomVp8HwProperties.codecPrefix)) {
-                        int i9 = Build.VERSION.SDK_INT;
-                        i7 = min;
-                        long j2 = 15000;
-                        if (i9 != 21 && i9 != 22) {
-                            if (i9 == 23) {
-                                j2 = 20000;
+        if (this.mediaCodecThread == null) {
+            int i8 = 100;
+            String str = "video/x-vnd.on2.vp9";
+            if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP8) {
+                encoderProperties = findHwEncoder("video/x-vnd.on2.vp8", vp8HwList(), z ? supportedSurfaceColorList : supportedColorList, i3, i4);
+                str = "video/x-vnd.on2.vp8";
+            } else if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP9) {
+                encoderProperties = findHwEncoder("video/x-vnd.on2.vp9", vp9HwList, z ? supportedSurfaceColorList : supportedColorList, i3, i4);
+            } else if (videoCodecType == VideoCodecType.VIDEO_CODEC_H264) {
+                EncoderProperties findHwEncoder = findHwEncoder("video/avc", h264HwList(), z ? supportedSurfaceColorList : supportedColorList, i3, i4);
+                if (i2 == H264Profile.CONSTRAINED_HIGH.getValue()) {
+                    if (findHwEncoder("video/avc", h264HighProfileHwList, z ? supportedSurfaceColorList : supportedColorList, i3, i4) != null) {
+                        Logging.d(TAG, "High profile H.264 encoder supported.");
+                        z2 = true;
+                        i8 = 20;
+                        str = "video/avc";
+                        z3 = z2;
+                        encoderProperties = findHwEncoder;
+                        if (encoderProperties != null) {
+                            runningInstance = this;
+                            this.colorFormat = encoderProperties.colorFormat;
+                            BitrateAdjustmentType bitrateAdjustmentType = encoderProperties.bitrateAdjustmentType;
+                            this.bitrateAdjustmentType = bitrateAdjustmentType;
+                            int min = bitrateAdjustmentType != BitrateAdjustmentType.FRAMERATE_ADJUSTMENT ? Math.min(i6, 30) : 30;
+                            this.forcedKeyFrameMs = 0L;
+                            this.lastKeyFrameMs = -1L;
+                            if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP8 && encoderProperties.codecName.startsWith(qcomVp8HwProperties.codecPrefix)) {
+                                int i9 = Build.VERSION.SDK_INT;
+                                i7 = min;
+                                if (i9 == 21 || i9 == 22) {
+                                    this.forcedKeyFrameMs = 15000L;
+                                } else if (i9 == 23) {
+                                    this.forcedKeyFrameMs = 20000L;
+                                } else if (i9 > 23) {
+                                    this.forcedKeyFrameMs = 15000L;
+                                }
+                            } else {
+                                i7 = min;
+                            }
+                            if (!TextUtils.isEmpty(this.bitrateModePreset) && ((parseInt = Integer.parseInt(this.bitrateModePreset)) == 0 || parseInt == 1 || parseInt == 2)) {
+                                bitrateMode = parseInt;
+                            }
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("Color format: ");
+                            sb.append(this.colorFormat);
+                            sb.append(". Bitrate adjustment: ");
+                            sb.append(this.bitrateAdjustmentType);
+                            sb.append(". Key frame interval: ");
+                            sb.append(this.forcedKeyFrameMs);
+                            sb.append(" . Initial fps: ");
+                            int i10 = i7;
+                            sb.append(i10);
+                            sb.append(". BitrateMode: ");
+                            sb.append(bitrateMode);
+                            Logging.d(TAG, sb.toString());
+                            int i11 = i5 * 1000;
+                            this.targetBitrateBps = i11;
+                            this.targetFps = i10;
+                            this.bitrateAccumulatorMax = i11 / 8.0d;
+                            this.bitrateAccumulator = 0.0d;
+                            this.bitrateObservationTimeMs = 0.0d;
+                            this.bitrateAdjustmentScaleExp = 0;
+                            this.mediaCodecThread = Thread.currentThread();
+                            try {
+                                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i3, i4);
+                                createVideoFormat.setInteger("bitrate", this.targetBitrateBps);
+                                createVideoFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, bitrateMode);
+                                createVideoFormat.setInteger("color-format", encoderProperties.colorFormat);
+                                createVideoFormat.setInteger("frame-rate", this.targetFps);
+                                createVideoFormat.setInteger("i-frame-interval", i8);
+                                if (z3) {
+                                    createVideoFormat.setInteger("profile", 8);
+                                    createVideoFormat.setInteger("level", 256);
+                                }
+                                Logging.d(TAG, "  Format: " + createVideoFormat);
+                                MediaCodec createByCodecName = createByCodecName(encoderProperties.codecName);
+                                this.mediaCodec = createByCodecName;
+                                this.type = videoCodecType;
+                                if (createByCodecName == null) {
+                                    Logging.e(TAG, "Can not create media encoder");
+                                    release();
+                                    return false;
+                                }
+                                createByCodecName.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+                                if (z) {
+                                    this.eglBase = new EglBase14((EglBase14.Context) getEglContext(), EglBase.CONFIG_RECORDABLE);
+                                    Surface createInputSurface = this.mediaCodec.createInputSurface();
+                                    this.inputSurface = createInputSurface;
+                                    this.eglBase.createSurface(createInputSurface);
+                                    this.drawer = new GlRectDrawer();
+                                }
+                                this.mediaCodec.start();
+                                this.outputBuffers = this.mediaCodec.getOutputBuffers();
+                                Logging.d(TAG, "Output buffers: " + this.outputBuffers.length);
+                                return true;
+                            } catch (IllegalStateException e2) {
+                                Logging.e(TAG, "initEncode failed", e2);
+                                release();
+                                return false;
                             }
                         }
-                        this.forcedKeyFrameMs = j2;
-                    } else {
-                        i7 = min;
+                        throw new RuntimeException("Can not find HW encoder for " + videoCodecType);
                     }
-                    if (!TextUtils.isEmpty(this.bitrateModePreset) && ((parseInt = Integer.parseInt(this.bitrateModePreset)) == 0 || parseInt == 1 || parseInt == 2)) {
-                        bitrateMode = parseInt;
-                    }
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("Color format: ");
-                    sb.append(this.colorFormat);
-                    sb.append(". Bitrate adjustment: ");
-                    sb.append(this.bitrateAdjustmentType);
-                    sb.append(". Key frame interval: ");
-                    sb.append(this.forcedKeyFrameMs);
-                    sb.append(" . Initial fps: ");
-                    int i10 = i7;
-                    sb.append(i10);
-                    sb.append(". BitrateMode: ");
-                    sb.append(bitrateMode);
-                    Logging.d(TAG, sb.toString());
-                    int i11 = i5 * 1000;
-                    this.targetBitrateBps = i11;
-                    this.targetFps = i10;
-                    this.bitrateAccumulatorMax = i11 / 8.0d;
-                    this.bitrateAccumulator = 0.0d;
-                    this.bitrateObservationTimeMs = 0.0d;
-                    this.bitrateAdjustmentScaleExp = 0;
-                    this.mediaCodecThread = Thread.currentThread();
-                    try {
-                        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str2, i3, i4);
-                        createVideoFormat.setInteger("bitrate", this.targetBitrateBps);
-                        createVideoFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, bitrateMode);
-                        createVideoFormat.setInteger("color-format", encoderProperties.colorFormat);
-                        createVideoFormat.setInteger("frame-rate", this.targetFps);
-                        createVideoFormat.setInteger("i-frame-interval", i8);
-                        if (z3) {
-                            createVideoFormat.setInteger("profile", 8);
-                            createVideoFormat.setInteger("level", 256);
-                        }
-                        Logging.d(TAG, "  Format: " + createVideoFormat);
-                        MediaCodec createByCodecName = createByCodecName(encoderProperties.codecName);
-                        this.mediaCodec = createByCodecName;
-                        this.type = videoCodecType;
-                        if (createByCodecName == null) {
-                            Logging.e(TAG, "Can not create media encoder");
-                            release();
-                            return false;
-                        }
-                        createByCodecName.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                        if (z) {
-                            this.eglBase = new EglBase14((EglBase14.Context) getEglContext(), EglBase.CONFIG_RECORDABLE);
-                            Surface createInputSurface = this.mediaCodec.createInputSurface();
-                            this.inputSurface = createInputSurface;
-                            this.eglBase.createSurface(createInputSurface);
-                            this.drawer = new GlRectDrawer();
-                        }
-                        this.mediaCodec.start();
-                        this.outputBuffers = this.mediaCodec.getOutputBuffers();
-                        Logging.d(TAG, "Output buffers: " + this.outputBuffers.length);
-                        return true;
-                    } catch (IllegalStateException e2) {
-                        Logging.e(TAG, "initEncode failed", e2);
-                        release();
-                        return false;
-                    }
+                    Logging.d(TAG, "High profile H.264 encoder requested, but not supported. Use baseline.");
                 }
-                Logging.d(TAG, "High profile H.264 encoder requested, but not supported. Use baseline.");
+                z2 = false;
+                i8 = 20;
+                str = "video/avc";
+                z3 = z2;
+                encoderProperties = findHwEncoder;
+                if (encoderProperties != null) {
+                }
+            } else {
+                throw new RuntimeException("initEncode: Non-supported codec " + videoCodecType);
             }
-            z2 = false;
-            i8 = 20;
-            z3 = z2;
-            encoderProperties = findHwEncoder;
-            if (encoderProperties == null) {
+            z3 = false;
+            if (encoderProperties != null) {
             }
-        }
-        str2 = str;
-        z3 = false;
-        if (encoderProperties == null) {
+        } else {
+            throw new RuntimeException("Forgot to release()?");
         }
     }
 
@@ -1551,7 +1553,7 @@ public class MediaCodecVideoEncoder {
                                 this.this$0.mediaCodec.release();
                             } catch (Exception e3) {
                                 Logging.e(MediaCodecVideoEncoder.TAG, "Media encoder release failed", e3);
-                                this.val$caughtException.f79122e = e3;
+                                this.val$caughtException.f79360e = e3;
                             }
                             Logging.d(MediaCodecVideoEncoder.TAG, "Java releaseEncoder on release thread done");
                             this.val$releaseDone.countDown();
@@ -1581,21 +1583,20 @@ public class MediaCodecVideoEncoder {
                 this.inputSurface = null;
             }
             runningInstance = null;
-            if (!z) {
-                if (c1CaughtException.f79122e == null) {
-                    Logging.d(TAG, "Java releaseEncoder done");
-                    return;
+            if (z) {
+                codecErrors++;
+                if (errorCallback != null) {
+                    Logging.e(TAG, "Invoke codec error callback. Errors: " + codecErrors);
+                    errorCallback.onMediaCodecVideoEncoderCriticalError(codecErrors);
                 }
-                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f79122e);
-                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f79122e.getStackTrace(), runtimeException.getStackTrace()));
+                throw new RuntimeException("Media encoder release timeout.");
+            } else if (c1CaughtException.f79360e == null) {
+                Logging.d(TAG, "Java releaseEncoder done");
+            } else {
+                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f79360e);
+                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f79360e.getStackTrace(), runtimeException.getStackTrace()));
                 throw runtimeException;
             }
-            codecErrors++;
-            if (errorCallback != null) {
-                Logging.e(TAG, "Invoke codec error callback. Errors: " + codecErrors);
-                errorCallback.onMediaCodecVideoEncoderCriticalError(codecErrors);
-            }
-            throw new RuntimeException("Media encoder release timeout.");
         }
     }
 

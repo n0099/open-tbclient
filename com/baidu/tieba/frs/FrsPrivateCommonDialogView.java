@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.e.e.p.l;
-import c.a.p0.s.d0.b;
+import c.a.q0.s.d0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -33,22 +33,22 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f50731e;
+    public LinearLayout f50896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f50732f;
+    public Context f50897f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f50733g;
+    public TbImageView f50898g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f50734h;
+    public TextView f50899h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f50735i;
+    public TextView f50900i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f50736j;
+    public TextView f50901j;
     public RelativeLayout k;
     public TextView l;
     public TextView m;
@@ -72,7 +72,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
                 return;
             }
         }
-        this.f50732f = context;
+        this.f50897f = context;
         a(context);
     }
 
@@ -80,18 +80,18 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         int k;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, tbImageView) == null) {
-            int g2 = l.g(this.f50732f, R.dimen.tbds44);
-            if (UtilHelper.getRealScreenOrientation(this.f50732f) == 2) {
-                k = l.i(this.f50732f);
+            int g2 = l.g(this.f50897f, R.dimen.tbds44);
+            if (UtilHelper.getRealScreenOrientation(this.f50897f) == 2) {
+                k = l.i(this.f50897f);
             } else {
-                k = l.k(this.f50732f);
+                k = l.k(this.f50897f);
             }
             int i2 = k - (g2 * 2);
-            ViewGroup.LayoutParams layoutParams = this.f50733g.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f50898g.getLayoutParams();
             layoutParams.width = i2;
             layoutParams.height = (i2 * 21) / 38;
             tbImageView.setLayoutParams(layoutParams);
-            tbImageView.setRadius(l.g(this.f50732f, R.dimen.tbds30));
+            tbImageView.setRadius(l.g(this.f50897f, R.dimen.tbds30));
             tbImageView.setConrers(3);
             tbImageView.setIsBitmapPic(true);
         }
@@ -102,7 +102,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(65538, this, list) == null) {
             for (TextView textView : list) {
                 Drawable drawable = textView.getCompoundDrawables()[1];
-                int g2 = l.g(this.f50732f, R.dimen.tbds78);
+                int g2 = l.g(this.f50897f, R.dimen.tbds78);
                 drawable.setBounds(0, 0, g2, g2);
                 textView.setCompoundDrawables(null, drawable, null, null);
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0106);
@@ -115,22 +115,22 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.frs_private_common_dialog, this);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_private_common);
-            this.f50731e = linearLayout;
-            this.f50733g = (TbImageView) linearLayout.findViewById(R.id.frs_private_common_image);
-            this.f50734h = (TextView) this.f50731e.findViewById(R.id.frs_private_common_title);
-            this.f50735i = (TextView) this.f50731e.findViewById(R.id.frs_private_common_hint);
-            this.f50736j = (TextView) this.f50731e.findViewById(R.id.frs_private_common_button);
-            this.k = (RelativeLayout) this.f50731e.findViewById(R.id.frs_private_common_tips);
-            this.l = (TextView) this.f50731e.findViewById(R.id.frs_private_center_tip);
-            this.m = (TextView) this.f50731e.findViewById(R.id.frs_private_left_tip);
-            this.n = (TextView) this.f50731e.findViewById(R.id.frs_private_right_tip);
-            setImageAttribute(this.f50733g);
+            this.f50896e = linearLayout;
+            this.f50898g = (TbImageView) linearLayout.findViewById(R.id.frs_private_common_image);
+            this.f50899h = (TextView) this.f50896e.findViewById(R.id.frs_private_common_title);
+            this.f50900i = (TextView) this.f50896e.findViewById(R.id.frs_private_common_hint);
+            this.f50901j = (TextView) this.f50896e.findViewById(R.id.frs_private_common_button);
+            this.k = (RelativeLayout) this.f50896e.findViewById(R.id.frs_private_common_tips);
+            this.l = (TextView) this.f50896e.findViewById(R.id.frs_private_center_tip);
+            this.m = (TextView) this.f50896e.findViewById(R.id.frs_private_left_tip);
+            this.n = (TextView) this.f50896e.findViewById(R.id.frs_private_right_tip);
+            setImageAttribute(this.f50898g);
             setTextAttribute(Arrays.asList(this.l, this.m, this.n));
-            SkinManager.setBackgroundResource(this.f50731e, R.drawable.bg_frs_private_dialog);
-            SkinManager.setViewTextColor(this.f50734h, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f50735i, R.color.CAM_X0107);
-            SkinManager.setBackgroundResourceSelector(this.f50736j, R.drawable.btn_frs_private_n, R.drawable.btn_frs_private_s);
-            SkinManager.setViewTextColor(this.f50736j, R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.f50896e, R.drawable.bg_frs_private_dialog);
+            SkinManager.setViewTextColor(this.f50899h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f50900i, R.color.CAM_X0107);
+            SkinManager.setBackgroundResourceSelector(this.f50901j, R.drawable.btn_frs_private_n, R.drawable.btn_frs_private_s);
+            SkinManager.setViewTextColor(this.f50901j, R.color.CAM_X0101);
         }
     }
 
@@ -146,30 +146,30 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
                 b.j().t(str, true);
                 if (privateForumPopInfoData.y().equals(DIALOG_TYPE_TASK_SUCCESS)) {
                     this.k.setVisibility(0);
-                    this.f50736j.setVisibility(8);
+                    this.f50901j.setVisibility(8);
                 } else {
                     this.k.setVisibility(8);
-                    this.f50736j.setVisibility(0);
+                    this.f50901j.setVisibility(0);
                 }
                 if (privateForumPopInfoData.y().equals(DIALOG_TYPE_CREATE_SUCCESS)) {
-                    this.f50734h.setVisibility(0);
-                    this.f50734h.setText(R.string.frs_private_create_title);
-                    this.f50736j.setText(R.string.frs_private_create_button);
-                    SkinManager.setImageResource(this.f50733g, R.drawable.pic_frs_private_create_success);
+                    this.f50899h.setVisibility(0);
+                    this.f50899h.setText(R.string.frs_private_create_title);
+                    this.f50901j.setText(R.string.frs_private_create_button);
+                    SkinManager.setImageResource(this.f50898g, R.drawable.pic_frs_private_create_success);
                 } else if (privateForumPopInfoData.y().equals(DIALOG_TYPE_TASK_REMIND)) {
-                    this.f50734h.setVisibility(8);
-                    this.f50736j.setText(R.string.frs_private_create_button);
-                    SkinManager.setImageResource(this.f50733g, R.drawable.pic_frs_private_target_remind);
+                    this.f50899h.setVisibility(8);
+                    this.f50901j.setText(R.string.frs_private_create_button);
+                    SkinManager.setImageResource(this.f50898g, R.drawable.pic_frs_private_target_remind);
                 } else if (privateForumPopInfoData.y().equals(DIALOG_TYPE_TASK_FAIL)) {
-                    this.f50734h.setVisibility(8);
-                    this.f50736j.setText(R.string.frs_private_fail_button);
-                    SkinManager.setImageResource(this.f50733g, R.drawable.pic_frs_private_target_fail);
+                    this.f50899h.setVisibility(8);
+                    this.f50901j.setText(R.string.frs_private_fail_button);
+                    SkinManager.setImageResource(this.f50898g, R.drawable.pic_frs_private_target_fail);
                 } else if (privateForumPopInfoData.y().equals(DIALOG_TYPE_TASK_SUCCESS)) {
-                    this.f50734h.setVisibility(0);
-                    this.f50734h.setText(R.string.frs_private_success_title);
-                    SkinManager.setImageResource(this.f50733g, R.drawable.pic_frs_private_target_success);
+                    this.f50899h.setVisibility(0);
+                    this.f50899h.setText(R.string.frs_private_success_title);
+                    SkinManager.setImageResource(this.f50898g, R.drawable.pic_frs_private_target_success);
                 }
-                this.f50735i.setText(privateForumPopInfoData.w());
+                this.f50900i.setText(privateForumPopInfoData.w());
                 return true;
             }
             return false;
@@ -182,6 +182,6 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || onClickListener == null) {
             return;
         }
-        this.f50736j.setOnClickListener(onClickListener);
+        this.f50901j.setOnClickListener(onClickListener);
     }
 }

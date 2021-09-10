@@ -20,7 +20,7 @@ public class NoTitleContentDialogBinding extends BaseBinding<BaseDialogModel> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f69568a;
+    public TextView f69748a;
     public View btnLayouts;
     public View btnLine;
     public Button negativeButton;
@@ -47,7 +47,7 @@ public class NoTitleContentDialogBinding extends BaseBinding<BaseDialogModel> {
         this.rootView = view;
         Context context = view.getContext();
         this.context = context;
-        this.f69568a = (TextView) view.findViewById(ResUtils.id(context, "dialog_text_content"));
+        this.f69748a = (TextView) view.findViewById(ResUtils.id(context, "dialog_text_content"));
         this.negativeButton = (Button) view.findViewById(ResUtils.id(this.context, "negative_btn"));
         this.positiveButton = (Button) view.findViewById(ResUtils.id(this.context, "positive_btn"));
         this.btnLayouts = view.findViewById(ResUtils.id(this.context, "dialog_btns"));
@@ -61,27 +61,27 @@ public class NoTitleContentDialogBinding extends BaseBinding<BaseDialogModel> {
             ContentDialogModel contentDialogModel = (ContentDialogModel) getViewModel();
             int i2 = 8;
             if (contentDialogModel.hideMessage) {
-                this.f69568a.setVisibility(8);
+                this.f69748a.setVisibility(8);
                 return;
             }
             int i3 = contentDialogModel.messageId;
             if (i3 != 0) {
-                this.f69568a.setText(i3);
+                this.f69748a.setText(i3);
             } else if (!TextUtils.isEmpty(contentDialogModel.message)) {
-                this.f69568a.setText(contentDialogModel.message);
+                this.f69748a.setText(contentDialogModel.message);
             }
-            this.f69568a.setMovementMethod(LinkMovementMethod.getInstance());
+            this.f69748a.setMovementMethod(LinkMovementMethod.getInstance());
             int i4 = contentDialogModel.messageColor;
             if (i4 != 0) {
-                this.f69568a.setTextColor(i4);
+                this.f69748a.setTextColor(i4);
             }
             int i5 = contentDialogModel.backgroundColor;
             if (i5 != 0) {
-                this.f69568a.setBackgroundColor(i5);
+                this.f69748a.setBackgroundColor(i5);
             }
             int i6 = contentDialogModel.messageSize;
             if (i6 != 0) {
-                this.f69568a.setTextSize(i6);
+                this.f69748a.setTextSize(i6);
             }
             int i7 = contentDialogModel.dialogBackgound;
             if (i7 != 0) {

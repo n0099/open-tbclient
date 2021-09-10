@@ -12,7 +12,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static AtomicInteger f66521a;
+    public static AtomicInteger f66701a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,13 +28,13 @@ public class g {
                 return;
             }
         }
-        f66521a = new AtomicInteger(1);
+        f66701a = new AtomicInteger(1);
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f66521a.get() == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f66701a.get() == 1 : invokeV.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x0025  */
@@ -48,9 +48,9 @@ public class g {
             boolean z = true;
             if (i2 == 1 || i2 == 2) {
                 try {
-                    if (f66521a.get() != i2) {
+                    if (f66701a.get() != i2) {
                         try {
-                            f66521a.set(i2);
+                            f66701a.set(i2);
                         } catch (Throwable th) {
                             th = th;
                             th.printStackTrace();

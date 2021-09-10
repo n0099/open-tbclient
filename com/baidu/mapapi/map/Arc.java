@@ -19,23 +19,23 @@ public final class Arc extends Overlay {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f41238f = "Arc";
+    public static final String f41349f = "Arc";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41239a;
+    public int f41350a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41240b;
+    public int f41351b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f41241c;
+    public LatLng f41352c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LatLng f41242d;
+    public LatLng f41353d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LatLng f41243e;
+    public LatLng f41354e;
 
     static {
         InterceptResult invokeClinit;
@@ -65,7 +65,7 @@ public final class Arc extends Overlay {
                 return;
             }
         }
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.f42131f;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.f42242f;
     }
 
     @Override // com.baidu.mapapi.map.Overlay
@@ -76,15 +76,15 @@ public final class Arc extends Overlay {
             super.a(bundle);
             ArrayList arrayList = new ArrayList();
             arrayList.clear();
-            arrayList.add(this.f41241c);
-            arrayList.add(this.f41242d);
-            arrayList.add(this.f41243e);
+            arrayList.add(this.f41352c);
+            arrayList.add(this.f41353d);
+            arrayList.add(this.f41354e);
             GeoPoint ll2mc = CoordUtil.ll2mc((LatLng) arrayList.get(0));
             bundle.putDouble("location_x", ll2mc.getLongitudeE6());
             bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-            bundle.putInt("width", this.f41240b);
+            bundle.putInt("width", this.f41351b);
             Overlay.a(arrayList, bundle);
-            Overlay.a(this.f41239a, bundle);
+            Overlay.a(this.f41350a, bundle);
             return bundle;
         }
         return (Bundle) invokeL.objValue;
@@ -93,37 +93,37 @@ public final class Arc extends Overlay {
     public int getColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41239a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41350a : invokeV.intValue;
     }
 
     public LatLng getEndPoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41243e : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41354e : (LatLng) invokeV.objValue;
     }
 
     public LatLng getMiddlePoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41242d : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41353d : (LatLng) invokeV.objValue;
     }
 
     public LatLng getStartPoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41241c : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41352c : (LatLng) invokeV.objValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41240b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41351b : invokeV.intValue;
     }
 
     public void setColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f41239a = i2;
+            this.f41350a = i2;
             this.listener.b(this);
         }
     }
@@ -137,9 +137,9 @@ public final class Arc extends Overlay {
             if (latLng == latLng2 || latLng == latLng3 || latLng2 == latLng3) {
                 throw new IllegalArgumentException("BDMapSDKException: start and middle and end points can not be same");
             }
-            this.f41241c = latLng;
-            this.f41242d = latLng2;
-            this.f41243e = latLng3;
+            this.f41352c = latLng;
+            this.f41353d = latLng2;
+            this.f41354e = latLng3;
             this.listener.b(this);
         }
     }
@@ -149,7 +149,7 @@ public final class Arc extends Overlay {
         if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f41240b = i2;
+        this.f41351b = i2;
         this.listener.b(this);
     }
 }

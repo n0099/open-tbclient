@@ -17,13 +17,13 @@ public final class q implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Activity f34035e;
+    public final /* synthetic */ Activity f34144e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ m f34036f;
+    public final /* synthetic */ m f34145f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ l f34037g;
+    public final /* synthetic */ l f34146g;
 
     public q(l lVar, Activity activity, m mVar) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public final class q implements Runnable {
                 return;
             }
         }
-        this.f34037g = lVar;
-        this.f34035e = activity;
-        this.f34036f = mVar;
+        this.f34146g = lVar;
+        this.f34144e = activity;
+        this.f34145f = mVar;
     }
 
     @Override // java.lang.Runnable
@@ -53,15 +53,15 @@ public final class q implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                aVar = this.f34037g.f34022d;
-                String str = this.f34035e.getApplicationInfo().packageName;
-                l lVar = this.f34037g;
+                aVar = this.f34146g.f34131d;
+                String str = this.f34144e.getApplicationInfo().packageName;
+                l lVar = this.f34146g;
                 l = l.l();
                 aVar.a(str, Collections.singletonList(l), new Bundle(), new x(this, atomicBoolean));
                 new Handler().postDelayed(new r(this, atomicBoolean), 3000L);
             } catch (RemoteException unused) {
-                l lVar2 = this.f34037g;
-                l.n(this.f34035e, this.f34036f);
+                l lVar2 = this.f34146g;
+                l.n(this.f34144e, this.f34145f);
             }
         }
     }

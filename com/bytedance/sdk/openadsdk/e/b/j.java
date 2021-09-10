@@ -12,22 +12,22 @@ public class j implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67537a;
+    public String f67717a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67538b;
+    public long f67718b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f67539c;
+    public long f67719c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67540d;
+    public int f67720d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f67541e;
+    public String f67721e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f67542f;
+    public String f67722f;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -46,42 +46,42 @@ public class j implements c {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f67537a = str;
+            this.f67717a = str;
         }
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f67539c = j2;
+            this.f67719c = j2;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f67542f = str;
+            this.f67722f = str;
         }
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f67538b = j2;
+            this.f67718b = j2;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f67541e = str;
+            this.f67721e = str;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f67540d = i2;
+            this.f67720d = i2;
         }
     }
 
@@ -92,12 +92,12 @@ public class j implements c {
             return;
         }
         try {
-            jSONObject.put("preload_url", this.f67537a);
-            jSONObject.put("preload_size", this.f67538b);
-            jSONObject.put("load_time", this.f67539c);
-            jSONObject.put("error_code", this.f67540d);
-            jSONObject.put("error_message", this.f67541e);
-            jSONObject.put("error_message_server", this.f67542f);
+            jSONObject.put("preload_url", this.f67717a);
+            jSONObject.put("preload_size", this.f67718b);
+            jSONObject.put("load_time", this.f67719c);
+            jSONObject.put("error_code", this.f67720d);
+            jSONObject.put("error_message", this.f67721e);
+            jSONObject.put("error_message_server", this.f67722f);
         } catch (Throwable th) {
             th.printStackTrace();
         }

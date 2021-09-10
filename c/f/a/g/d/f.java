@@ -16,14 +16,14 @@ public class f<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f32176c = "f";
+    public static final String f32285c = "f";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<T> f32177a;
+    public final Class<T> f32286a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AbstractHttpMessageConverter<?> f32178b;
+    public final AbstractHttpMessageConverter<?> f32287b;
 
     static {
         InterceptResult invokeClinit;
@@ -59,8 +59,8 @@ public class f<T> {
             throw new IllegalArgumentException("'responseType' must not be null");
         }
         if (abstractHttpMessageConverter != null) {
-            this.f32177a = cls;
-            this.f32178b = abstractHttpMessageConverter;
+            this.f32286a = cls;
+            this.f32287b = abstractHttpMessageConverter;
             return;
         }
         throw new IllegalArgumentException("'messageConverters' must not be empty");
@@ -72,9 +72,9 @@ public class f<T> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
             if (c(eVar)) {
                 if (eVar.c().i() == null) {
-                    Log.isLoggable(f32176c, 3);
+                    Log.isLoggable(f32285c, 3);
                 }
-                return (T) this.f32178b.a(this.f32177a, eVar);
+                return (T) this.f32287b.a(this.f32286a, eVar);
             }
             return null;
         }
@@ -84,7 +84,7 @@ public class f<T> {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32178b.b() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32287b.b() : (String) invokeV.objValue;
     }
 
     public final boolean c(e eVar) throws Exception {

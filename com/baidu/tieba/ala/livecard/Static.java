@@ -1,13 +1,13 @@
 package com.baidu.tieba.ala.livecard;
 
-import c.a.p0.s.q.c2;
-import c.a.q0.i3.g;
-import c.a.q0.i3.h;
-import c.a.q0.v.i.a.d;
-import c.a.q0.v.i.a.e;
-import c.a.q0.v.i.a.f;
-import c.a.q0.v0.e0;
-import c.a.q0.v0.f0;
+import c.a.q0.s.q.d2;
+import c.a.r0.j3.g;
+import c.a.r0.j3.h;
+import c.a.r0.v.i.a.d;
+import c.a.r0.v.i.a.e;
+import c.a.r0.v.i.a.f;
+import c.a.r0.w0.e0;
+import c.a.r0.w0.f0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -65,11 +65,11 @@ public class Static {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                 CustomMessage customMessage = (CustomMessage) customResponsedMessage.getOrginalMessage();
-                absDelegateAdapterList.add(new c.a.q0.v.i.a.c(null, c2.v3, null));
-                absDelegateAdapterList.add(new f(null, c2.u3, null));
-                absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, c2.w3, null));
-                absDelegateAdapterList.add(new c.a.q0.v.i.a.a(null, g.f20233g, null));
-                absDelegateAdapterList.add(new d(null, h.f20245f, null));
+                absDelegateAdapterList.add(new c.a.r0.v.i.a.c(null, d2.y3, null));
+                absDelegateAdapterList.add(new f(null, d2.x3, null));
+                absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, d2.z3, null));
+                absDelegateAdapterList.add(new c.a.r0.v.i.a.a(null, g.f20797g, null));
+                absDelegateAdapterList.add(new d(null, h.f20809f, null));
             }
         }
     }
@@ -105,10 +105,10 @@ public class Static {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003022 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new c.a.q0.v.i.a.c(null, c2.v3, null));
-                absDelegateAdapterList.add(new e(null, c2.u3, null));
-                absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, c2.w3, null));
-                absDelegateAdapterList.add(new e(null, h.f20245f, null));
+                absDelegateAdapterList.add(new c.a.r0.v.i.a.c(null, d2.y3, null));
+                absDelegateAdapterList.add(new e(null, d2.x3, null));
+                absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, d2.z3, null));
+                absDelegateAdapterList.add(new e(null, h.f20809f, null));
             }
         }
     }
@@ -144,8 +144,8 @@ public class Static {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof e0)) {
                 e0 e0Var = (e0) customResponsedMessage.getData();
-                c.a.q0.v.i.c.a aVar = new c.a.q0.v.i.c.a();
-                aVar.h(e0Var.f25916e);
+                c.a.r0.v.i.c.a aVar = new c.a.r0.v.i.c.a();
+                aVar.h(e0Var.f26569e);
                 e0Var.a(49, aVar);
             }
         }

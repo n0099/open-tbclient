@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.messageCenter;
 
 import c.a.e.e.p.l;
-import c.a.p0.t.d.b;
+import c.a.q0.t.d.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;

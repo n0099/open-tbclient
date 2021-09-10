@@ -33,13 +33,13 @@ public class ao implements com.kwad.sdk.core.d<com.kwad.sdk.collector.a.d> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, dVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        dVar.f71125a = jSONObject.optInt("isRoot");
-        dVar.f71126b = jSONObject.optInt("isXPosed");
-        dVar.f71127c = jSONObject.optInt("isFrameworkHooked");
-        dVar.f71128d = jSONObject.optInt("isVirtual");
-        dVar.f71129e = jSONObject.optInt("isAdbEnabled");
-        dVar.f71130f = jSONObject.optInt("isEmulator");
-        dVar.f71131g = jSONObject.optInt("isGroupControl");
+        dVar.f71305a = jSONObject.optInt("isRoot");
+        dVar.f71306b = jSONObject.optInt("isXPosed");
+        dVar.f71307c = jSONObject.optInt("isFrameworkHooked");
+        dVar.f71308d = jSONObject.optInt("isVirtual");
+        dVar.f71309e = jSONObject.optInt("isAdbEnabled");
+        dVar.f71310f = jSONObject.optInt("isEmulator");
+        dVar.f71311g = jSONObject.optInt("isGroupControl");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,13 +51,13 @@ public class ao implements com.kwad.sdk.core.d<com.kwad.sdk.collector.a.d> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "isRoot", dVar.f71125a);
-            com.kwad.sdk.utils.q.a(jSONObject, "isXPosed", dVar.f71126b);
-            com.kwad.sdk.utils.q.a(jSONObject, "isFrameworkHooked", dVar.f71127c);
-            com.kwad.sdk.utils.q.a(jSONObject, "isVirtual", dVar.f71128d);
-            com.kwad.sdk.utils.q.a(jSONObject, "isAdbEnabled", dVar.f71129e);
-            com.kwad.sdk.utils.q.a(jSONObject, "isEmulator", dVar.f71130f);
-            com.kwad.sdk.utils.q.a(jSONObject, "isGroupControl", dVar.f71131g);
+            com.kwad.sdk.utils.q.a(jSONObject, "isRoot", dVar.f71305a);
+            com.kwad.sdk.utils.q.a(jSONObject, "isXPosed", dVar.f71306b);
+            com.kwad.sdk.utils.q.a(jSONObject, "isFrameworkHooked", dVar.f71307c);
+            com.kwad.sdk.utils.q.a(jSONObject, "isVirtual", dVar.f71308d);
+            com.kwad.sdk.utils.q.a(jSONObject, "isAdbEnabled", dVar.f71309e);
+            com.kwad.sdk.utils.q.a(jSONObject, "isEmulator", dVar.f71310f);
+            com.kwad.sdk.utils.q.a(jSONObject, "isGroupControl", dVar.f71311g);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

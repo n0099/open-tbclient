@@ -32,34 +32,34 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35921a = "\"&";
+    public static final String f36030a = "\"&";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35922b = "&";
+    public static final String f36031b = "&";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f35923c = "bizcontext=\"";
+    public static final String f36032c = "bizcontext=\"";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35924d = "bizcontext=";
+    public static final String f36033d = "bizcontext=";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f35925e = "\"";
+    public static final String f36034e = "\"";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f35926f = "appkey";
+    public static final String f36035f = "appkey";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f35927g = "ty";
+    public static final String f36036g = "ty";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f35928h = "sv";
+    public static final String f36037h = "sv";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f35929i = "an";
+    public static final String f36038i = "an";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f35930j = "setting";
+    public static final String f36039j = "setting";
     public static final String k = "av";
     public static final String l = "sdk_start_time";
     public static final String m = "extInfo";
@@ -191,7 +191,7 @@ public class a {
     private boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) ? !str.contains(f35921a) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) ? !str.contains(f36030a) : invokeL.booleanValue;
     }
 
     private String c(String str) {
@@ -199,12 +199,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) {
             try {
-                String a2 = a(str, "&", f35924d);
+                String a2 = a(str, "&", f36033d);
                 if (TextUtils.isEmpty(a2)) {
-                    str = str + "&" + b(f35924d, "");
+                    str = str + "&" + b(f36033d, "");
                 } else {
                     int indexOf = str.indexOf(a2);
-                    str = str.substring(0, indexOf) + a(a2, f35924d, "", true) + str.substring(indexOf + a2.length());
+                    str = str.substring(0, indexOf) + a(a2, f36033d, "", true) + str.substring(indexOf + a2.length());
                 }
             } catch (Throwable unused) {
             }
@@ -218,15 +218,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, str)) == null) {
             try {
-                String a2 = a(str, f35921a, f35923c);
+                String a2 = a(str, f36030a, f36032c);
                 if (TextUtils.isEmpty(a2)) {
-                    return str + "&" + b(f35923c, "\"");
+                    return str + "&" + b(f36032c, "\"");
                 }
                 if (!a2.endsWith("\"")) {
                     a2 = a2 + "\"";
                 }
                 int indexOf = str.indexOf(a2);
-                return str.substring(0, indexOf) + a(a2, f35923c, "\"", false) + str.substring(indexOf + a2.length());
+                return str.substring(0, indexOf) + a(a2, f36032c, "\"", false) + str.substring(indexOf + a2.length());
             } catch (Throwable unused) {
                 return str;
             }
@@ -240,13 +240,13 @@ public class a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final HashMap<UUID, a> f35931a;
+        public static final HashMap<UUID, a> f36040a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final HashMap<String, a> f35932b;
+        public static final HashMap<String, a> f36041b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f35933c = "i_uuid_b_c";
+        public static final String f36042c = "i_uuid_b_c";
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -262,8 +262,8 @@ public class a {
                     return;
                 }
             }
-            f35931a = new HashMap<>();
-            f35932b = new HashMap<>();
+            f36040a = new HashMap<>();
+            f36041b = new HashMap<>();
         }
 
         public C1565a() {
@@ -286,8 +286,8 @@ public class a {
                 return;
             }
             UUID randomUUID = UUID.randomUUID();
-            f35931a.put(randomUUID, aVar);
-            intent.putExtra(f35933c, randomUUID);
+            f36040a.put(randomUUID, aVar);
+            intent.putExtra(f36042c, randomUUID);
         }
 
         public static a a(Intent intent) {
@@ -297,9 +297,9 @@ public class a {
                 if (intent == null) {
                     return null;
                 }
-                Serializable serializableExtra = intent.getSerializableExtra(f35933c);
+                Serializable serializableExtra = intent.getSerializableExtra(f36042c);
                 if (serializableExtra instanceof UUID) {
-                    return f35931a.remove((UUID) serializableExtra);
+                    return f36040a.remove((UUID) serializableExtra);
                 }
                 return null;
             }
@@ -311,7 +311,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, aVar, str) == null) || aVar == null || TextUtils.isEmpty(str)) {
                 return;
             }
-            f35932b.put(str, aVar);
+            f36041b.put(str, aVar);
         }
 
         public static a a(String str) {
@@ -321,7 +321,7 @@ public class a {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                return f35932b.remove(str);
+                return f36041b.remove(str);
             }
             return (a) invokeL.objValue;
         }
@@ -387,11 +387,11 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("appkey", com.alipay.sdk.cons.a.f35819f);
+                jSONObject.put("appkey", com.alipay.sdk.cons.a.f35928f);
                 jSONObject.put("ty", "and_lite");
                 jSONObject.put("sv", "h.a.3.7.7");
-                if (!this.w.contains(f35930j) || !k.b(this.x)) {
-                    jSONObject.put(f35929i, this.w);
+                if (!this.w.contains(f36039j) || !k.b(this.x)) {
+                    jSONObject.put(f36038i, this.w);
                 }
                 jSONObject.put(k, this.v);
                 jSONObject.put(l, System.currentTimeMillis());
@@ -429,7 +429,7 @@ public class a {
                 jSONObject = new JSONObject(substring2);
             }
             if (!jSONObject.has("appkey")) {
-                jSONObject.put("appkey", com.alipay.sdk.cons.a.f35819f);
+                jSONObject.put("appkey", com.alipay.sdk.cons.a.f35928f);
             }
             if (!jSONObject.has("ty")) {
                 jSONObject.put("ty", "and_lite");
@@ -437,8 +437,8 @@ public class a {
             if (!jSONObject.has("sv")) {
                 jSONObject.put("sv", "h.a.3.7.7");
             }
-            if (!jSONObject.has(f35929i) && (!this.w.contains(f35930j) || !k.b(this.x))) {
-                jSONObject.put(f35929i, this.w);
+            if (!jSONObject.has(f36038i) && (!this.w.contains(f36039j) || !k.b(this.x))) {
+                jSONObject.put(f36038i, this.w);
             }
             if (!jSONObject.has(k)) {
                 jSONObject.put(k, this.v);

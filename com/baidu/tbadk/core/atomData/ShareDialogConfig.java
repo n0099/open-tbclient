@@ -2,11 +2,12 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.text.TextUtils;
 import android.util.Pair;
 import android.util.SparseArray;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.s.s.i;
+import c.a.q0.s.s.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -33,14 +34,21 @@ public class ShareDialogConfig extends IntentConfig {
     public i.d dialogSaveToDiskListener;
     public View.OnClickListener disLikeListener;
     public boolean hasSpecialItem;
+    public View.OnClickListener heatingListener;
     public int hideMode;
+    public boolean isAddedGood;
     public boolean isCollected;
     public boolean isCopyLink;
     public boolean isFromImmersionVideo;
+    public boolean isHost;
     public boolean isImageViewerDialog;
     @Deprecated
     public boolean isInsertBack;
     public boolean isLandscape;
+    public boolean isMadeTop;
+    public int isManager;
+    public int isOriginManager;
+    public boolean isSelfHeating;
     public boolean isSetCopyLink;
     public boolean isSupportNightMode;
     public boolean mAlaLiveRoomShare;
@@ -62,6 +70,7 @@ public class ShareDialogConfig extends IntentConfig {
     public ShareItem shareItem;
     public boolean showAddEmotion;
     public boolean showDisLike;
+    public boolean showHeating;
     public boolean showLocation;
     public boolean showNovelMask;
     public boolean showQRCode;
@@ -212,64 +221,70 @@ public class ShareDialogConfig extends IntentConfig {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAlaLiveRoomShare : invokeV.booleanValue;
     }
 
+    public boolean isPrePagePersonalPage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TextUtils.equals(this.mPrePage, VideoRecommentPlayActivityConfig.FROM_PERSONAL_PAGE) : invokeV.booleanValue;
+    }
+
     public boolean isShowNovelMask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.showNovelMask : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.showNovelMask : invokeV.booleanValue;
     }
 
     public void setAlaLiveRoomShare(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.mAlaLiveRoomShare = z;
         }
     }
 
     public void setCopyLinkListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
             this.copyLinkListener = onClickListener;
         }
     }
 
     public void setCustomCopyTitle(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             this.copyTitleId = i2;
         }
     }
 
     public void setFrom(From from) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, from) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, from) == null) {
             this.mFrom = from;
         }
     }
 
     public void setHasSpecialItem(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.hasSpecialItem = z;
         }
     }
 
     public void setHideMode(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             this.hideMode = i2;
         }
     }
 
     public void setIsAlaLive(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             this.mIsAlaLive = z;
         }
     }
 
     public void setIsCopyLink(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.isSetCopyLink = true;
             this.isCopyLink = z;
         }
@@ -277,56 +292,56 @@ public class ShareDialogConfig extends IntentConfig {
 
     public void setIsLandscape(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.isLandscape = z;
         }
     }
 
     public void setIsShowTransmitShare(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             this.mIsShowTransmitShare = z;
         }
     }
 
     public void setIsSupportNightMode(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             this.isSupportNightMode = z;
         }
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, onDismissListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, onDismissListener) == null) {
             this.onDismissListener = onDismissListener;
         }
     }
 
     public void setPrePage(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             this.mPrePage = str;
         }
     }
 
     public void setPrivateThread(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
             this.mPrivateThread = i2;
         }
     }
 
     public void setShowNovelMask(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             this.showNovelMask = z;
         }
     }
 
     public void setSpecialShareItems(int i2, ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048597, this, i2, shareItem) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048598, this, i2, shareItem) == null) {
             if (this.specialShareItems == null) {
                 this.specialShareItems = new ShareItem[9];
             }
@@ -336,7 +351,7 @@ public class ShareDialogConfig extends IntentConfig {
 
     public void setTransmitForumList(ArrayList<TransmitForumData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, arrayList) == null) {
             this.mForumList = arrayList;
         }
     }

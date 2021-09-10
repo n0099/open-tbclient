@@ -13,32 +13,32 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.bytedance.sdk.component.b.a.f f64436a;
+    public static final com.bytedance.sdk.component.b.a.f f64616a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final com.bytedance.sdk.component.b.a.f f64437b;
+    public static final com.bytedance.sdk.component.b.a.f f64617b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final com.bytedance.sdk.component.b.a.f f64438c;
+    public static final com.bytedance.sdk.component.b.a.f f64618c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final com.bytedance.sdk.component.b.a.f f64439d;
+    public static final com.bytedance.sdk.component.b.a.f f64619d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final com.bytedance.sdk.component.b.a.f f64440e;
+    public static final com.bytedance.sdk.component.b.a.f f64620e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final com.bytedance.sdk.component.b.a.f f64441f;
+    public static final com.bytedance.sdk.component.b.a.f f64621f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.a.f f64442g;
+    public final com.bytedance.sdk.component.b.a.f f64622g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.a.f f64443h;
+    public final com.bytedance.sdk.component.b.a.f f64623h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f64444i;
+    public final int f64624i;
 
     static {
         InterceptResult invokeClinit;
@@ -53,12 +53,12 @@ public final class c {
                 return;
             }
         }
-        f64436a = com.bytedance.sdk.component.b.a.f.a(":");
-        f64437b = com.bytedance.sdk.component.b.a.f.a(":status");
-        f64438c = com.bytedance.sdk.component.b.a.f.a(":method");
-        f64439d = com.bytedance.sdk.component.b.a.f.a(":path");
-        f64440e = com.bytedance.sdk.component.b.a.f.a(":scheme");
-        f64441f = com.bytedance.sdk.component.b.a.f.a(":authority");
+        f64616a = com.bytedance.sdk.component.b.a.f.a(":");
+        f64617b = com.bytedance.sdk.component.b.a.f.a(":status");
+        f64618c = com.bytedance.sdk.component.b.a.f.a(":method");
+        f64619d = com.bytedance.sdk.component.b.a.f.a(":path");
+        f64620e = com.bytedance.sdk.component.b.a.f.a(":scheme");
+        f64621f = com.bytedance.sdk.component.b.a.f.a(":authority");
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -88,7 +88,7 @@ public final class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj instanceof c) {
                 c cVar = (c) obj;
-                return this.f64442g.equals(cVar.f64442g) && this.f64443h.equals(cVar.f64443h);
+                return this.f64622g.equals(cVar.f64622g) && this.f64623h.equals(cVar.f64623h);
             }
             return false;
         }
@@ -98,13 +98,13 @@ public final class c {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((527 + this.f64442g.hashCode()) * 31) + this.f64443h.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((527 + this.f64622g.hashCode()) * 31) + this.f64623h.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.bytedance.sdk.component.b.b.a.c.a("%s: %s", this.f64442g.a(), this.f64443h.a()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.bytedance.sdk.component.b.b.a.c.a("%s: %s", this.f64622g.a(), this.f64623h.a()) : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -143,8 +143,8 @@ public final class c {
                 return;
             }
         }
-        this.f64442g = fVar;
-        this.f64443h = fVar2;
-        this.f64444i = fVar.g() + 32 + fVar2.g();
+        this.f64622g = fVar;
+        this.f64623h = fVar2;
+        this.f64624i = fVar.g() + 32 + fVar2.g();
     }
 }

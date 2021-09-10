@@ -18,7 +18,7 @@ public class e implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MiddleRevenueConfig f78855a;
+    public MiddleRevenueConfig f79093a;
 
     public e(MiddleRevenueConfig middleRevenueConfig) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class e implements a {
                 return;
             }
         }
-        this.f78855a = middleRevenueConfig;
+        this.f79093a = middleRevenueConfig;
     }
 
     @Override // j.a.a.e.k.a
@@ -44,11 +44,11 @@ public class e implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             GetBannerConfigReqParams getBannerConfigReqParams = new GetBannerConfigReqParams();
-            getBannerConfigReqParams.setAppId(this.f78855a.getAppId());
-            getBannerConfigReqParams.setUsedChannel(this.f78855a.getUseChannel());
-            getBannerConfigReqParams.setUid(this.f78855a.getUid());
-            getBannerConfigReqParams.setToken(this.f78855a.getToken());
-            getBannerConfigReqParams.setTokenCallback(this.f78855a.getTokenCallback());
+            getBannerConfigReqParams.setAppId(this.f79093a.getAppId());
+            getBannerConfigReqParams.setUsedChannel(this.f79093a.getUseChannel());
+            getBannerConfigReqParams.setUid(this.f79093a.getUid());
+            getBannerConfigReqParams.setToken(this.f79093a.getToken());
+            getBannerConfigReqParams.setTokenCallback(this.f79093a.getTokenCallback());
             return getBannerConfigReqParams;
         }
         return (GetBannerConfigReqParams) invokeV.objValue;
@@ -60,12 +60,12 @@ public class e implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
-            queryCurrencyReqParams.setCurrencyType(this.f78855a.getCurrencyType());
-            queryCurrencyReqParams.setAppId(this.f78855a.getAppId());
-            queryCurrencyReqParams.setUsedChannel(this.f78855a.getUseChannel());
-            queryCurrencyReqParams.setUid(this.f78855a.getUid());
-            queryCurrencyReqParams.setToken(this.f78855a.getToken());
-            queryCurrencyReqParams.setTokenCallback(this.f78855a.getTokenCallback());
+            queryCurrencyReqParams.setCurrencyType(this.f79093a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.f79093a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.f79093a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.f79093a.getUid());
+            queryCurrencyReqParams.setToken(this.f79093a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.f79093a.getTokenCallback());
             queryCurrencyReqParams.setReturnYb(true);
             return queryCurrencyReqParams;
         }
@@ -78,12 +78,12 @@ public class e implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
-            queryCurrencyReqParams.setCurrencyType(this.f78855a.getCurrencyType());
-            queryCurrencyReqParams.setAppId(this.f78855a.getAppId());
-            queryCurrencyReqParams.setUsedChannel(this.f78855a.getUseChannel());
-            queryCurrencyReqParams.setUid(this.f78855a.getUid());
-            queryCurrencyReqParams.setToken(this.f78855a.getToken());
-            queryCurrencyReqParams.setTokenCallback(this.f78855a.getTokenCallback());
+            queryCurrencyReqParams.setCurrencyType(this.f79093a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.f79093a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.f79093a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.f79093a.getUid());
+            queryCurrencyReqParams.setToken(this.f79093a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.f79093a.getTokenCallback());
             return queryCurrencyReqParams;
         }
         return (QueryCurrencyReqParams) invokeV.objValue;
@@ -95,13 +95,13 @@ public class e implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             j.a.a.b.b.a.a aVar = new j.a.a.b.b.a.a();
-            aVar.A(this.f78855a.getUid());
-            aVar.x(this.f78855a.getToken());
-            aVar.B(this.f78855a.getUseChannel());
-            aVar.s(this.f78855a.getCurrencyType());
-            aVar.y(this.f78855a.getTokenCallback());
-            String deviceId = this.f78855a.getDeviceId();
-            MiddleReportConfig reportConfig = this.f78855a.getReportConfig();
+            aVar.A(this.f79093a.getUid());
+            aVar.x(this.f79093a.getToken());
+            aVar.B(this.f79093a.getUseChannel());
+            aVar.s(this.f79093a.getCurrencyType());
+            aVar.y(this.f79093a.getTokenCallback());
+            String deviceId = this.f79093a.getDeviceId();
+            MiddleReportConfig reportConfig = this.f79093a.getReportConfig();
             if (TextUtils.isEmpty(deviceId) && reportConfig != null && !TextUtils.isEmpty(reportConfig.getDeviceId())) {
                 deviceId = reportConfig.getDeviceId();
             }

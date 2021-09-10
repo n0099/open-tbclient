@@ -7,6 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
+import com.baidu.cyberplayer.sdk.CyberVersion;
 import com.baidu.cyberplayer.sdk.SDKVersion;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.downloader.SilentDownloaderManager;
@@ -21,7 +22,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.mode.CommandMessage;
 import dalvik.system.BaseDexClassLoader;
 import java.io.File;
 import java.util.HashMap;
@@ -34,16 +34,16 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f31155a;
+    public static e f31262a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31156b;
+    public static String f31263b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f31157c;
+    public static String f31264c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f31158d;
+    public static final Set<String> f31265d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -52,7 +52,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f31159e;
+        public final /* synthetic */ e f31266e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class e {
                     return;
                 }
             }
-            this.f31159e = eVar;
+            this.f31266e = eVar;
         }
 
         @Override // java.lang.Runnable
@@ -78,11 +78,11 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    for (File file : new File(e.f31157c).listFiles()) {
+                    for (File file : new File(e.f31264c).listFiles()) {
                         if (file.isFile()) {
-                            this.f31159e.h(file);
-                        } else if (file.getName().equals(e.f31156b)) {
-                            this.f31159e.n(file);
+                            this.f31266e.h(file);
+                        } else if (file.getName().equals(e.f31263b)) {
+                            this.f31266e.n(file);
                         } else {
                             Utils.e(file);
                         }
@@ -106,7 +106,7 @@ public class e {
                 return;
             }
         }
-        f31158d = new LinkedHashSet();
+        f31265d = new LinkedHashSet();
     }
 
     public e() {
@@ -129,11 +129,11 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (e.class) {
-                if (f31155a == null) {
-                    f31156b = Utils.s();
-                    f31155a = new e();
+                if (f31262a == null) {
+                    f31263b = Utils.s();
+                    f31262a = new e();
                 }
-                eVar = f31155a;
+                eVar = f31262a;
             }
             return eVar;
         }
@@ -143,7 +143,7 @@ public class e {
     public boolean A(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (i2 & 896) == i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (i2 & 3584) == i2 : invokeI.booleanValue;
     }
 
     public final void B() {
@@ -159,12 +159,12 @@ public class e {
     public boolean C(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? (i2 & 2048) == i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? (i2 & 8192) == i2 : invokeI.booleanValue;
     }
 
     public final void D() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && SDKVersion.VERSION.equals(CyberPlayerManager.getSDKVersion())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && SDKVersion.VERSION.equals(CyberVersion.getSDKVersionInternal())) {
             for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
                 if (dVar != null && i(dVar)) {
                     r(dVar);
@@ -184,7 +184,7 @@ public class e {
     public boolean F(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (i2 & CommandMessage.COMMAND_BASE) == i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (49152 & i2) == i2 : invokeI.booleanValue;
     }
 
     public com.baidu.media.duplayer.d a(int i2) {
@@ -195,47 +195,28 @@ public class e {
 
     public final String c(Context context, com.baidu.media.duplayer.d dVar) {
         InterceptResult invokeLL;
-        StringBuilder sb;
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, dVar)) == null) {
-            String str2 = null;
-            if (dVar.l() == d.a.f42521a) {
+            String str = null;
+            if (dVar.l() == d.a.f42632a) {
                 if (dVar.d().equals(d(dVar.a())) && c.a.z.b.a.e(context.getClassLoader())) {
                     return "apk_internal_jar";
                 }
-                sb = new StringBuilder();
-                sb.append(f31157c);
-                sb.append(File.separator);
-                sb.append(dVar.a());
-                sb.append("_");
-                sb.append(dVar.d());
-                str = ".jar";
-            } else if (dVar.l() != d.a.f42522b) {
-                return null;
-            } else {
+                return f31264c + File.separator + dVar.a() + "_" + dVar.d() + ".jar";
+            } else if (dVar.l() == d.a.f42633b) {
                 if (dVar.d().equals(d(dVar.a())) && CyberCfgManager.getInstance().getCfgBoolValue("enable_libs_reuse", true)) {
-                    str2 = ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a());
+                    str = ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a());
                 }
-                if (!TextUtils.isEmpty(str2)) {
+                if (!TextUtils.isEmpty(str)) {
                     dVar.i(true);
-                    return str2;
+                    return str;
                 }
-                sb = new StringBuilder();
-                sb.append(f31157c);
-                sb.append(File.separator);
-                sb.append(f31156b);
-                sb.append(File.separator);
-                sb.append(dVar.a());
-                sb.append("_");
-                sb.append(dVar.d());
-                sb.append(File.separator);
-                sb.append("lib");
-                sb.append(dVar.a());
-                str = ".so";
+                String str2 = f31264c + File.separator + f31263b + File.separator + dVar.a() + "_" + dVar.d() + File.separator + "lib" + dVar.a() + ".so";
+                dVar.i(false);
+                return str2;
+            } else {
+                return null;
             }
-            sb.append(str);
-            return sb.toString();
         }
         return (String) invokeLL.objValue;
     }
@@ -261,7 +242,7 @@ public class e {
                 }
             } else if (CyberPlayerCoreProvider.LibsVersionType.SUCCESS_LOADED_VERSION == libsVersionType) {
                 for (com.baidu.media.duplayer.d dVar2 : LibsInfoDef.getAllGroupMap().values()) {
-                    if (c.d(dVar2.g())) {
+                    if (c.e(dVar2.g())) {
                         hashMap.put(dVar2.a(), dVar2.d());
                     }
                 }
@@ -274,7 +255,7 @@ public class e {
     public void f(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, str) == null) {
-            if (SDKVersion.VERSION.equals(CyberPlayerManager.getSDKVersion())) {
+            if (SDKVersion.VERSION.equals(CyberVersion.getSDKVersionInternal())) {
                 B();
             }
             k(context, str);
@@ -323,20 +304,20 @@ public class e {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            int i3 = (i2 & 2) == 2 ? 92 : 28;
+            int i3 = (i2 & 2) == 2 ? 380 : 124;
             if ((i2 & 4) == 4) {
-                i3 |= 32;
+                i3 |= 128;
             }
             if ((i2 & 8) == 8) {
-                i3 |= 896;
+                i3 |= 3584;
             }
             if ((i2 & 16) == 16) {
                 i3 |= 3;
             }
             if ((i2 & 32) == 32) {
-                i3 |= 2048;
+                i3 |= 8192;
             }
-            return (i2 & 64) == 64 ? i3 | CommandMessage.COMMAND_BASE : i3;
+            return (i2 & 64) == 64 ? i3 | 49152 : i3;
         }
         return invokeI.intValue;
     }
@@ -344,16 +325,16 @@ public class e {
     public final void k(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, context, str) == null) {
-            f31157c = str + File.separator + "libs";
+            f31264c = str + File.separator + "libs";
             for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
                 String c2 = c(context, dVar);
                 dVar.e(c2);
-                if (dVar.l() == d.a.f42522b) {
+                if (dVar.l() == d.a.f42633b) {
                     File parentFile = new File(c2).getParentFile();
                     if (!parentFile.exists() || parentFile.isFile()) {
                         parentFile.mkdirs();
                     }
-                    f31158d.add(parentFile.getAbsolutePath());
+                    f31265d.add(parentFile.getAbsolutePath());
                 }
             }
         }
@@ -379,7 +360,7 @@ public class e {
         if (interceptable == null || interceptable.invokeL(1048592, this, file) == null) {
             try {
                 for (File file2 : file.listFiles()) {
-                    Iterator<String> it = f31158d.iterator();
+                    Iterator<String> it = f31265d.iterator();
                     while (true) {
                         if (it.hasNext()) {
                             if (it.next().contains(file2.getAbsolutePath())) {
@@ -404,7 +385,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            Set<String> set = f31158d;
+            Set<String> set = f31265d;
             return (String[]) set.toArray(new String[set.size()]);
         }
         return (String[]) invokeV.objValue;
@@ -413,7 +394,7 @@ public class e {
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? f31156b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? f31263b : (String) invokeV.objValue;
     }
 
     public String q(int i2) {
@@ -424,7 +405,7 @@ public class e {
             if (a2 == null) {
                 return null;
             }
-            return f31156b + "_" + a2.a() + "_" + a2.d() + ".zip";
+            return f31263b + "_" + a2.a() + "_" + a2.d() + ".zip";
         }
         return (String) invokeI.objValue;
     }
@@ -464,13 +445,13 @@ public class e {
 
     public final void t(com.baidu.media.duplayer.d dVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048598, this, dVar) == null) && dVar != null && dVar.l() == d.a.f42522b) {
+        if ((interceptable == null || interceptable.invokeL(1048598, this, dVar) == null) && dVar != null && dVar.l() == d.a.f42633b) {
             try {
                 File parentFile = new File(dVar.j()).getParentFile();
                 if (!parentFile.exists() || parentFile.isFile()) {
                     parentFile.mkdirs();
                 }
-                f31158d.add(parentFile.getAbsolutePath());
+                f31265d.add(parentFile.getAbsolutePath());
             } catch (Exception unused) {
             }
         }
@@ -479,7 +460,7 @@ public class e {
     public boolean u(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) ? (i2 & 28) == i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) ? (i2 & 124) == i2 : invokeI.booleanValue;
     }
 
     public boolean v() {
@@ -507,12 +488,12 @@ public class e {
     public boolean w(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) ? (i2 & 32) == i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) ? (i2 & 128) == i2 : invokeI.booleanValue;
     }
 
     public boolean y(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? (i2 & 64) == i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? (i2 & 256) == i2 : invokeI.booleanValue;
     }
 }

@@ -56,19 +56,19 @@ public class c {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ a.InterfaceC1891a f66949a;
+                        public final /* synthetic */ a.InterfaceC1891a f67129a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ m f66950b;
+                        public final /* synthetic */ m f67130b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ AdSlot f66951c;
+                        public final /* synthetic */ AdSlot f67131c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ com.bytedance.sdk.openadsdk.n.f.b f66952d;
+                        public final /* synthetic */ com.bytedance.sdk.openadsdk.n.f.b f67132d;
 
                         /* renamed from: e  reason: collision with root package name */
-                        public final /* synthetic */ long f66953e;
+                        public final /* synthetic */ long f67133e;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -85,11 +85,11 @@ public class c {
                                     return;
                                 }
                             }
-                            this.f66949a = interfaceC1891a;
-                            this.f66950b = k;
-                            this.f66951c = l;
-                            this.f66952d = bVar;
-                            this.f66953e = r10;
+                            this.f67129a = interfaceC1891a;
+                            this.f67130b = k;
+                            this.f67131c = l;
+                            this.f67132d = bVar;
+                            this.f67133e = r10;
                         }
 
                         @Override // com.bytedance.sdk.component.video.a.c.a.InterfaceC1891a
@@ -97,25 +97,25 @@ public class c {
                             AdSlot adSlot;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLI(1048576, this, aVar2, i2) == null) {
-                                a.InterfaceC1891a interfaceC1891a2 = this.f66949a;
+                                a.InterfaceC1891a interfaceC1891a2 = this.f67129a;
                                 if (interfaceC1891a2 != null) {
                                     interfaceC1891a2.a(aVar2, i2);
                                 }
-                                if (this.f66950b == null || (adSlot = this.f66951c) == null) {
+                                if (this.f67130b == null || (adSlot = this.f67131c) == null) {
                                     return;
                                 }
                                 String b2 = q.b(adSlot.getDurationSlotType());
-                                JSONObject a2 = com.bytedance.sdk.openadsdk.e.a.a.a(this.f66950b, (String) null, -1);
+                                JSONObject a2 = com.bytedance.sdk.openadsdk.e.a.a.a(this.f67130b, (String) null, -1);
                                 l lVar = new l();
-                                lVar.a(this.f66952d.a());
-                                lVar.a(this.f66952d.d());
-                                lVar.b(SystemClock.elapsedRealtime() - this.f66953e);
+                                lVar.a(this.f67132d.a());
+                                lVar.a(this.f67132d.d());
+                                lVar.b(SystemClock.elapsedRealtime() - this.f67133e);
                                 if (aVar2.f() == 1) {
                                     lVar.c(1L);
                                 } else {
                                     lVar.c(0L);
                                 }
-                                com.bytedance.sdk.openadsdk.e.a.a.b(new com.bytedance.sdk.openadsdk.e.b.a(o.a(), this.f66950b, b2, a2, lVar));
+                                com.bytedance.sdk.openadsdk.e.a.a.b(new com.bytedance.sdk.openadsdk.e.b.a(o.a(), this.f67130b, b2, a2, lVar));
                             }
                         }
 
@@ -124,14 +124,14 @@ public class c {
                             AdSlot adSlot;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_SEND_USER_MSG, this, aVar2, i2) == null) {
-                                a.InterfaceC1891a interfaceC1891a2 = this.f66949a;
+                                a.InterfaceC1891a interfaceC1891a2 = this.f67129a;
                                 if (interfaceC1891a2 != null) {
                                     interfaceC1891a2.a(aVar2, i2);
                                 }
-                                if (this.f66950b == null || (adSlot = this.f66951c) == null) {
+                                if (this.f67130b == null || (adSlot = this.f67131c) == null) {
                                     return;
                                 }
-                                com.bytedance.sdk.openadsdk.e.a.a.d(new com.bytedance.sdk.openadsdk.e.b.a(o.a(), this.f66950b, q.b(adSlot.getDurationSlotType()), com.bytedance.sdk.openadsdk.e.a.a.a(this.f66950b, (String) null, -1), new i(this.f66952d.a(), this.f66952d.d())));
+                                com.bytedance.sdk.openadsdk.e.a.a.d(new com.bytedance.sdk.openadsdk.e.b.a(o.a(), this.f67130b, q.b(adSlot.getDurationSlotType()), com.bytedance.sdk.openadsdk.e.a.a.a(this.f67130b, (String) null, -1), new i(this.f67132d.a(), this.f67132d.d())));
                             }
                         }
 
@@ -140,26 +140,26 @@ public class c {
                             AdSlot adSlot;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar2, i2, str) == null) {
-                                a.InterfaceC1891a interfaceC1891a2 = this.f66949a;
+                                a.InterfaceC1891a interfaceC1891a2 = this.f67129a;
                                 if (interfaceC1891a2 != null) {
                                     interfaceC1891a2.a(aVar2, i2, str);
                                 }
-                                if (this.f66950b == null || (adSlot = this.f66951c) == null) {
+                                if (this.f67130b == null || (adSlot = this.f67131c) == null) {
                                     return;
                                 }
                                 String b2 = q.b(adSlot.getDurationSlotType());
-                                JSONObject a2 = com.bytedance.sdk.openadsdk.e.a.a.a(this.f66950b, (String) null, -1);
+                                JSONObject a2 = com.bytedance.sdk.openadsdk.e.a.a.a(this.f67130b, (String) null, -1);
                                 j jVar = new j();
-                                jVar.a(this.f66952d.a());
-                                jVar.a(this.f66952d.d());
-                                jVar.b(SystemClock.elapsedRealtime() - this.f66953e);
+                                jVar.a(this.f67132d.a());
+                                jVar.a(this.f67132d.d());
+                                jVar.b(SystemClock.elapsedRealtime() - this.f67133e);
                                 jVar.a(i2);
                                 if (TextUtils.isEmpty(str)) {
                                     str = "";
                                 }
                                 jVar.b(str);
                                 jVar.c("");
-                                com.bytedance.sdk.openadsdk.e.a.a.c(new com.bytedance.sdk.openadsdk.e.b.a(o.a(), this.f66950b, b2, a2, jVar));
+                                com.bytedance.sdk.openadsdk.e.a.a.c(new com.bytedance.sdk.openadsdk.e.b.a(o.a(), this.f67130b, b2, a2, jVar));
                             }
                         }
                     });

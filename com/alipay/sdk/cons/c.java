@@ -9,34 +9,34 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35834a = "status";
+    public static final String f35943a = "status";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35835b = "msg";
+    public static final String f35944b = "msg";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f35836c = "form";
+    public static final String f35945c = "form";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35837d = "onload";
+    public static final String f35946d = "onload";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f35838e = "name";
+    public static final String f35947e = "name";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f35839f = "host";
+    public static final String f35948f = "host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f35840g = "params";
+    public static final String f35949g = "params";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f35841h = "enctype";
+    public static final String f35950h = "enctype";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f35842i = "request_param";
+    public static final String f35951i = "request_param";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f35843j = "validate";
+    public static final String f35952j = "validate";
     public static final String k = "formSubmit";
     public static final String l = "namespace";
     public static final String m = "apiVersion";

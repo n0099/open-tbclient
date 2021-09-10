@@ -1,110 +1,233 @@
 package c.a.l0;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.smartcolor.utils.Tri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public final class a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int abc_ab_share_pack_mtrl_alpha = 2131230821;
-    public static final int abc_action_bar_item_background_material = 2131230822;
-    public static final int abc_btn_borderless_material = 2131230823;
-    public static final int abc_btn_check_material = 2131230824;
-    public static final int abc_btn_check_to_on_mtrl_000 = 2131230826;
-    public static final int abc_btn_check_to_on_mtrl_015 = 2131230827;
-    public static final int abc_btn_colored_material = 2131230828;
-    public static final int abc_btn_default_mtrl_shape = 2131230829;
-    public static final int abc_btn_radio_material = 2131230830;
-    public static final int abc_btn_radio_to_on_mtrl_000 = 2131230832;
-    public static final int abc_btn_radio_to_on_mtrl_015 = 2131230833;
-    public static final int abc_btn_switch_to_on_mtrl_00001 = 2131230834;
-    public static final int abc_btn_switch_to_on_mtrl_00012 = 2131230835;
-    public static final int abc_cab_background_internal_bg = 2131230836;
-    public static final int abc_cab_background_top_material = 2131230837;
-    public static final int abc_cab_background_top_mtrl_alpha = 2131230838;
-    public static final int abc_control_background_material = 2131230839;
-    public static final int abc_dialog_material_background = 2131230840;
-    public static final int abc_edit_text_material = 2131230841;
-    public static final int abc_ic_ab_back_material = 2131230842;
-    public static final int abc_ic_arrow_drop_right_black_24dp = 2131230843;
-    public static final int abc_ic_clear_material = 2131230844;
-    public static final int abc_ic_commit_search_api_mtrl_alpha = 2131230845;
-    public static final int abc_ic_go_search_api_material = 2131230846;
-    public static final int abc_ic_menu_copy_mtrl_am_alpha = 2131230847;
-    public static final int abc_ic_menu_cut_mtrl_alpha = 2131230848;
-    public static final int abc_ic_menu_overflow_material = 2131230849;
-    public static final int abc_ic_menu_paste_mtrl_am_alpha = 2131230850;
-    public static final int abc_ic_menu_selectall_mtrl_alpha = 2131230851;
-    public static final int abc_ic_menu_share_mtrl_alpha = 2131230852;
-    public static final int abc_ic_search_api_material = 2131230853;
-    public static final int abc_ic_star_black_16dp = 2131230854;
-    public static final int abc_ic_star_black_36dp = 2131230855;
-    public static final int abc_ic_star_black_48dp = 2131230856;
-    public static final int abc_ic_star_half_black_16dp = 2131230857;
-    public static final int abc_ic_star_half_black_36dp = 2131230858;
-    public static final int abc_ic_star_half_black_48dp = 2131230859;
-    public static final int abc_ic_voice_search_api_material = 2131230860;
-    public static final int abc_item_background_holo_dark = 2131230861;
-    public static final int abc_item_background_holo_light = 2131230862;
-    public static final int abc_list_divider_material = 2131230863;
-    public static final int abc_list_divider_mtrl_alpha = 2131230864;
-    public static final int abc_list_focused_holo = 2131230865;
-    public static final int abc_list_longpressed_holo = 2131230866;
-    public static final int abc_list_pressed_holo_dark = 2131230867;
-    public static final int abc_list_pressed_holo_light = 2131230868;
-    public static final int abc_list_selector_background_transition_holo_dark = 2131230869;
-    public static final int abc_list_selector_background_transition_holo_light = 2131230870;
-    public static final int abc_list_selector_disabled_holo_dark = 2131230871;
-    public static final int abc_list_selector_disabled_holo_light = 2131230872;
-    public static final int abc_list_selector_holo_dark = 2131230873;
-    public static final int abc_list_selector_holo_light = 2131230874;
-    public static final int abc_menu_hardkey_panel_mtrl_mult = 2131230875;
-    public static final int abc_popup_background_mtrl_mult = 2131230876;
-    public static final int abc_ratingbar_indicator_material = 2131230877;
-    public static final int abc_ratingbar_material = 2131230878;
-    public static final int abc_ratingbar_small_material = 2131230879;
-    public static final int abc_scrubber_control_off_mtrl_alpha = 2131230880;
-    public static final int abc_scrubber_control_to_pressed_mtrl_000 = 2131230881;
-    public static final int abc_scrubber_control_to_pressed_mtrl_005 = 2131230882;
-    public static final int abc_scrubber_primary_mtrl_alpha = 2131230883;
-    public static final int abc_scrubber_track_mtrl_alpha = 2131230884;
-    public static final int abc_seekbar_thumb_material = 2131230885;
-    public static final int abc_seekbar_tick_mark_material = 2131230886;
-    public static final int abc_seekbar_track_material = 2131230887;
-    public static final int abc_spinner_mtrl_am_alpha = 2131230888;
-    public static final int abc_spinner_textfield_background_material = 2131230889;
-    public static final int abc_switch_thumb_material = 2131230890;
-    public static final int abc_switch_track_mtrl_alpha = 2131230891;
-    public static final int abc_tab_indicator_material = 2131230892;
-    public static final int abc_tab_indicator_mtrl_alpha = 2131230893;
-    public static final int abc_text_cursor_material = 2131230894;
-    public static final int abc_text_select_handle_left_mtrl_dark = 2131230895;
-    public static final int abc_text_select_handle_left_mtrl_light = 2131230896;
-    public static final int abc_text_select_handle_middle_mtrl_dark = 2131230897;
-    public static final int abc_text_select_handle_middle_mtrl_light = 2131230898;
-    public static final int abc_text_select_handle_right_mtrl_dark = 2131230899;
-    public static final int abc_text_select_handle_right_mtrl_light = 2131230900;
-    public static final int abc_textfield_activated_mtrl_alpha = 2131230901;
-    public static final int abc_textfield_default_mtrl_alpha = 2131230902;
-    public static final int abc_textfield_search_activated_mtrl_alpha = 2131230903;
-    public static final int abc_textfield_search_default_mtrl_alpha = 2131230904;
-    public static final int abc_textfield_search_material = 2131230905;
-    public static final int abc_vector_test = 2131230906;
-    public static final int bd_bg_square_round_corner_blue = 2131231249;
-    public static final int bd_progress_bar_horizontal_blue = 2131231263;
-    public static final int ic_stat_bd_notif_download = 2131232543;
-    public static final int notification_action_background = 2131234207;
-    public static final int notification_bg = 2131234208;
-    public static final int notification_bg_low = 2131234209;
-    public static final int notification_bg_low_normal = 2131234210;
-    public static final int notification_bg_low_pressed = 2131234211;
-    public static final int notification_bg_normal = 2131234212;
-    public static final int notification_bg_normal_pressed = 2131234213;
-    public static final int notification_icon_background = 2131234214;
-    public static final int notification_template_icon_bg = 2131234215;
-    public static final int notification_template_icon_low_bg = 2131234216;
-    public static final int notification_tile_bg = 2131234217;
-    public static final int notify_panel_notification_icon_bg = 2131234219;
-    public static final int tooltip_frame_dark = 2131235169;
-    public static final int tooltip_frame_light = 2131235170;
+public class a {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Deprecated
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f3889a;
+    @Deprecated
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f3890b;
+    @Deprecated
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f3891c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f3892d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f3893e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Tri f3894f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Tri f3895g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Tri f3896h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Tri f3897i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f3898j;
+    public int k;
+    public int l;
+    public int m;
+
+    /* renamed from: c.a.l0.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public static class C0096a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final a f3899a;
+
+        public C0096a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f3899a = new a();
+        }
+
+        public a a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3899a : (a) invokeV.objValue;
+        }
+
+        public C0096a b(Tri tri) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tri)) == null) {
+                this.f3899a.f3895g = tri;
+                return this;
+            }
+            return (C0096a) invokeL.objValue;
+        }
+
+        public C0096a c(Tri tri) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tri)) == null) {
+                this.f3899a.f3894f = tri;
+                return this;
+            }
+            return (C0096a) invokeL.objValue;
+        }
+
+        public C0096a d(int i2, int i3) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i2, i3)) == null) {
+                if (i2 > 0 && i3 <= 100 && i3 >= i2) {
+                    this.f3899a.f3898j = i2;
+                    this.f3899a.k = i3;
+                    return this;
+                }
+                throw new IllegalArgumentException("argument out of valid range!");
+            }
+            return (C0096a) invokeII.objValue;
+        }
+
+        public C0096a e(int i2, int i3) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i2, i3)) == null) {
+                if (i2 >= 10 && i3 <= 100 && i3 >= i2 && i2 % 10 == 0 && i3 % 10 == 0) {
+                    this.f3899a.l = i2;
+                    this.f3899a.m = i3;
+                    return this;
+                }
+                throw new IllegalArgumentException("argument out of valid range!");
+            }
+            return (C0096a) invokeII.objValue;
+        }
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f3889a = 0;
+        this.f3890b = 0;
+        this.f3891c = 32;
+        Tri tri = Tri.UNDEFINED;
+        this.f3894f = tri;
+        this.f3895g = tri;
+        this.f3896h = tri;
+        this.f3897i = tri;
+    }
+
+    public Tri g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3897i : (Tri) invokeV.objValue;
+    }
+
+    public Tri h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3896h : (Tri) invokeV.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3890b : invokeV.intValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3889a : invokeV.intValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3893e : (String) invokeV.objValue;
+    }
+
+    public Tri l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3894f : (Tri) invokeV.objValue;
+    }
+
+    public Tri m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3895g : (Tri) invokeV.objValue;
+    }
+
+    @Deprecated
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3891c : invokeV.intValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : invokeV.intValue;
+    }
+
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.m : invokeV.intValue;
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f3898j : invokeV.intValue;
+    }
+
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l : invokeV.intValue;
+    }
+
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f3892d : (String) invokeV.objValue;
+    }
 }

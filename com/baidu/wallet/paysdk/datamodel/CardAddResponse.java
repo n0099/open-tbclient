@@ -76,7 +76,7 @@ public class CardAddResponse extends DirectPayContentResponse {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static CardAddResponse f62268a;
+        public static CardAddResponse f62448a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -92,7 +92,7 @@ public class CardAddResponse extends DirectPayContentResponse {
                     return;
                 }
             }
-            f62268a = new CardAddResponse();
+            f62448a = new CardAddResponse();
         }
     }
 
@@ -113,13 +113,13 @@ public class CardAddResponse extends DirectPayContentResponse {
     public static CardAddResponse getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f62268a : (CardAddResponse) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f62448a : (CardAddResponse) invokeV.objValue;
     }
 
     public static void updateContent(Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, obj) == null) && (obj instanceof CardAddResponse)) {
-            CardAddResponse unused = a.f62268a = (CardAddResponse) obj;
+            CardAddResponse unused = a.f62448a = (CardAddResponse) obj;
         }
     }
 

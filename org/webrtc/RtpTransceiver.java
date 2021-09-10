@@ -136,6 +136,20 @@ public class RtpTransceiver {
             }
         }
 
+        @CalledByNative("RtpTransceiverInit")
+        public int getDirectionNativeIndex() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.direction.getNativeIndex() : invokeV.intValue;
+        }
+
+        @CalledByNative("RtpTransceiverInit")
+        public List<String> getStreamIds() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.streamIds) : (List) invokeV.objValue;
+        }
+
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public RtpTransceiverInit(RtpTransceiverDirection rtpTransceiverDirection) {
             this(rtpTransceiverDirection, Collections.emptyList());
@@ -174,20 +188,6 @@ public class RtpTransceiver {
             }
             this.direction = rtpTransceiverDirection;
             this.streamIds = new ArrayList(list);
-        }
-
-        @CalledByNative("RtpTransceiverInit")
-        public int getDirectionNativeIndex() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.direction.getNativeIndex() : invokeV.intValue;
-        }
-
-        @CalledByNative("RtpTransceiverInit")
-        public List<String> getStreamIds() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.streamIds) : (List) invokeV.objValue;
         }
     }
 

@@ -37,7 +37,7 @@ public class g extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if (i2 == 23) {
-                return new IdentifyCodeGetFailDialog(this.f62526a, IdentifyCodeGetFailDialog.VerifyCodeType.VOICE);
+                return new IdentifyCodeGetFailDialog(this.f62706a, IdentifyCodeGetFailDialog.VerifyCodeType.VOICE);
             }
             return super.doOnCreateDialog(i2);
         }
@@ -48,16 +48,16 @@ public class g extends c {
     public void initSmsActivityView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String string = ResUtils.getString(this.f62526a, "ebpay_submit_pay");
-            PayRequest payRequest = this.f62529d;
+            String string = ResUtils.getString(this.f62706a, "ebpay_submit_pay");
+            PayRequest payRequest = this.f62709d;
             if (payRequest != null) {
                 if (payRequest.mMktSolution != null) {
-                    string = String.format(ResUtils.getString(this.f62526a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f62529d.mMktSolution.easypay_amount));
+                    string = String.format(ResUtils.getString(this.f62706a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f62709d.mMktSolution.easypay_amount));
                 } else {
-                    string = String.format(ResUtils.getString(this.f62526a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f62529d.getFinalPayAmount()));
+                    string = String.format(ResUtils.getString(this.f62706a, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f62709d.getFinalPayAmount()));
                 }
             }
-            this.f62527b.initSMSActivityView("ebpay_sms_top_tip_voice_verify", "", string, SecurePay.unicodeDecode(SecurePay.getInstance().localDecryptProxy(this.f62530e)), true);
+            this.f62707b.initSMSActivityView("ebpay_sms_top_tip_voice_verify", "", string, SecurePay.unicodeDecode(SecurePay.getInstance().localDecryptProxy(this.f62710e)), true);
         }
     }
 

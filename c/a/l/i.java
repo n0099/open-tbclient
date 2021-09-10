@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.l.v0.a;
+import c.a.q0.s.q.d2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.RoundCornerFrameLayout;
@@ -24,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class i extends c.a.l.a<c.a.p0.s.q.a> {
+public class i extends c.a.l.a<c.a.q0.s.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public static final int r;
     public static int s;
@@ -34,9 +35,9 @@ public class i extends c.a.l.a<c.a.p0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f3813j;
+    public View f3806j;
     public TextView k;
-    public c.a.p0.s.q.a l;
+    public c.a.q0.s.q.a l;
     public RoundCornerFrameLayout m;
     public FakeVideoContainer n;
     public int o;
@@ -49,10 +50,10 @@ public class i extends c.a.l.a<c.a.p0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f3814e;
+        public final /* synthetic */ ViewGroup.LayoutParams f3807e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f3815f;
+        public final /* synthetic */ i f3808f;
 
         public a(i iVar, ViewGroup.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
@@ -69,17 +70,17 @@ public class i extends c.a.l.a<c.a.p0.s.q.a> {
                     return;
                 }
             }
-            this.f3815f = iVar;
-            this.f3814e = layoutParams;
+            this.f3808f = iVar;
+            this.f3807e = layoutParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3814e.width = this.f3815f.f3813j.getWidth();
-                this.f3814e.height = (this.f3815f.f3813j.getWidth() / 16) * 9;
-                this.f3815f.m.setLayoutParams(this.f3814e);
+                this.f3807e.width = this.f3808f.f3806j.getWidth();
+                this.f3807e.height = (this.f3808f.f3806j.getWidth() / 16) * 9;
+                this.f3808f.m.setLayoutParams(this.f3807e);
             }
         }
     }
@@ -90,7 +91,7 @@ public class i extends c.a.l.a<c.a.p0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f3816a;
+        public final /* synthetic */ i f3809a;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -107,19 +108,19 @@ public class i extends c.a.l.a<c.a.p0.s.q.a> {
                     return;
                 }
             }
-            this.f3816a = iVar;
+            this.f3809a = iVar;
         }
 
         @Override // c.a.l.v0.a.b
-        public boolean a(a.C0096a c0096a) {
+        public boolean a(a.C0095a c0095a) {
             InterceptResult invokeL;
             RoundCornerFrameLayout roundCornerFrameLayout;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0096a)) == null) {
-                if (c0096a.b() != 7 || (roundCornerFrameLayout = this.f3816a.m) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
+                if (c0095a.b() != 7 || (roundCornerFrameLayout = this.f3809a.m) == null) {
                     return false;
                 }
-                roundCornerFrameLayout.onRootPressed(((Boolean) c0096a.c()).booleanValue());
+                roundCornerFrameLayout.onRootPressed(((Boolean) c0095a.c()).booleanValue());
                 return false;
             }
             return invokeL.booleanValue;
@@ -176,17 +177,17 @@ public class i extends c.a.l.a<c.a.p0.s.q.a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f3813j == null) {
-                View inflate = LayoutInflater.from(this.f3789f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
-                this.f3813j = inflate;
+            if (this.f3806j == null) {
+                View inflate = LayoutInflater.from(this.f3782f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
+                this.f3806j = inflate;
                 this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
-                this.m = (RoundCornerFrameLayout) this.f3813j.findViewById(R.id.frame_video);
-                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f3789f);
+                this.m = (RoundCornerFrameLayout) this.f3806j.findViewById(R.id.frame_video);
+                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f3782f);
                 this.n = fakeVideoContainer;
                 fakeVideoContainer.setBackgroundResource(R.color.transparent);
                 this.m.addView(this.n);
             }
-            return this.f3813j;
+            return this.f3806j;
         }
         return (View) invokeV.objValue;
     }
@@ -201,23 +202,23 @@ public class i extends c.a.l.a<c.a.p0.s.q.a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Code restructure failed: missing block: B:30:0x00b5, code lost:
-        if (r1 != r2) goto L42;
+        if (r1 != r2) goto L44;
      */
     /* JADX WARN: Code restructure failed: missing block: B:33:0x00ba, code lost:
-        if (r1 != r2) goto L42;
+        if (r1 != r2) goto L44;
      */
     /* JADX WARN: Code restructure failed: missing block: B:34:0x00bc, code lost:
         r8 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:35:0x00bd, code lost:
-        r0 = c.a.p0.b.g.b.o(r11, r8, null, r0, r1);
+        r0 = c.a.q0.b.g.b.o(r11, r8, null, r0, r1);
      */
     @Override // c.a.l.p
     /* renamed from: n */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onBindDataToView(c.a.p0.s.q.a aVar) {
+    public void onBindDataToView(c.a.q0.s.q.a aVar) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
@@ -232,7 +233,7 @@ public class i extends c.a.l.a<c.a.p0.s.q.a> {
                 this.o = k;
             }
             this.l = aVar;
-            if (aVar == null || aVar.getThreadData() == null || this.l.getThreadData().o1() == null) {
+            if (aVar == null || aVar.getThreadData() == null || this.l.getThreadData().q1() == null) {
                 return;
             }
             this.n.setData(aVar.getThreadData());
@@ -240,11 +241,11 @@ public class i extends c.a.l.a<c.a.p0.s.q.a> {
             int i3 = layoutParams.width;
             int i4 = layoutParams.height;
             boolean z2 = false;
-            if (this.l.getThreadData().o1().is_vertical.intValue() == 1) {
+            if (this.l.getThreadData().q1().is_vertical.intValue() == 1) {
                 int i5 = (u / 9) * 16;
                 int i6 = v;
-                int intValue = this.l.getThreadData().o1().video_width.intValue();
-                int intValue2 = this.l.getThreadData().o1().video_height.intValue();
+                int intValue = this.l.getThreadData().q1().video_width.intValue();
+                int intValue2 = this.l.getThreadData().q1().video_height.intValue();
                 int i7 = u;
                 layoutParams.width = i7;
                 boolean z3 = i3 != i7;
@@ -267,18 +268,18 @@ public class i extends c.a.l.a<c.a.p0.s.q.a> {
                 z = (i4 == i10 && i3 == i9) ? false : true;
             }
             if (z) {
-                if (this.l.getThreadData().o1().is_vertical.intValue() == 1) {
+                if (this.l.getThreadData().q1().is_vertical.intValue() == 1) {
                     this.m.setLayoutParams(layoutParams);
                 } else {
                     this.m.post(new a(this, layoutParams));
                 }
             }
-            if (this.l.getThreadData().L1()) {
-                this.k.setMaxLines(5);
-                ThreadCardUtils.setTitle(this.k, this.l.getThreadData(), t, this.p);
-            } else {
+            if (!this.l.getThreadData().O1() && this.l.getThreadData().getType() != d2.P3) {
                 this.k.setMaxLines(2);
                 ThreadCardUtils.setTitle(this.k, this.l.getThreadData(), 0, this.p);
+            } else {
+                this.k.setMaxLines(5);
+                ThreadCardUtils.setTitle(this.k, this.l.getThreadData(), t, this.p);
             }
             TextView textView = this.k;
             ThreadCardUtils.dealMainViewTopMargin(this.m, (textView == null || textView.getVisibility() != 0) ? true : true, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
@@ -294,12 +295,12 @@ public class i extends c.a.l.a<c.a.p0.s.q.a> {
 
     @Override // c.a.l.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        c.a.p0.s.q.a aVar;
+        c.a.q0.s.q.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i2) == null) || (aVar = this.l) == null || aVar.getThreadData() == null) {
             return;
         }
-        c.a.q0.a0.m.l(this.k, this.l.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        c.a.r0.a0.m.l(this.k, this.l.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
         this.m.onChangeSkinType(i2);
         this.m.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }

@@ -14,19 +14,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34805a;
+    public String f34914a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34806b;
+    public int f34915b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34807c;
+    public String f34916c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34808d;
+    public String f34917d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34809e;
+    public String f34918e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class b {
                 return;
             }
         }
-        this.f34806b = -1;
+        this.f34915b = -1;
     }
 
     public static b a(String str) {
@@ -54,15 +54,15 @@ public class b {
             b bVar = new b();
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                bVar.f34809e = jSONObject.optString("device_plans", null);
-                bVar.f34808d = jSONObject.optString("real_device_plan", null);
-                bVar.f34807c = jSONObject.optString("error_msg", null);
-                bVar.f34805a = jSONObject.optString("ah_plan_type", null);
+                bVar.f34918e = jSONObject.optString("device_plans", null);
+                bVar.f34917d = jSONObject.optString("real_device_plan", null);
+                bVar.f34916c = jSONObject.optString("error_msg", null);
+                bVar.f34914a = jSONObject.optString("ah_plan_type", null);
                 String optString = jSONObject.optString("error_code");
                 if (TextUtils.isEmpty(optString)) {
-                    bVar.f34806b = -1;
+                    bVar.f34915b = -1;
                 } else {
-                    bVar.f34806b = Integer.parseInt(optString);
+                    bVar.f34915b = Integer.parseInt(optString);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -84,11 +84,11 @@ public class b {
             return;
         }
         try {
-            jSONObject.put("ah_plan_type", this.f34805a);
-            jSONObject.put("error_code", String.valueOf(this.f34806b));
-            jSONObject.put("error_msg", this.f34807c);
-            jSONObject.put("real_device_plan", this.f34808d);
-            jSONObject.put("device_plans", this.f34809e);
+            jSONObject.put("ah_plan_type", this.f34914a);
+            jSONObject.put("error_code", String.valueOf(this.f34915b));
+            jSONObject.put("error_msg", this.f34916c);
+            jSONObject.put("real_device_plan", this.f34917d);
+            jSONObject.put("device_plans", this.f34918e);
         } catch (Throwable unused) {
         }
     }

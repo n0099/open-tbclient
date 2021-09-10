@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mainTab.videoRedIcon;
 
 import android.text.TextUtils;
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -48,7 +48,7 @@ public class VideoRedIconRequest extends NetMessage {
                 builder.call_from = this.callFrom;
             }
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             VideoRedIconReqIdl.Builder builder2 = new VideoRedIconReqIdl.Builder();
             builder2.data = builder.build(false);

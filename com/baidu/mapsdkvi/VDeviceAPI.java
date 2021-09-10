@@ -35,10 +35,10 @@ public class VDeviceAPI {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static PowerManager.WakeLock f42450a;
+    public static PowerManager.WakeLock f42561a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f42451b;
+    public static BroadcastReceiver f42562b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -390,8 +390,8 @@ public class VDeviceAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             unsetNetworkChangedCallback();
-            f42451b = new a();
-            b.a().registerReceiver(f42451b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            f42562b = new a();
+            b.a().registerReceiver(f42562b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         }
     }
 
@@ -399,18 +399,18 @@ public class VDeviceAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65563, null, z) == null) {
             if (z) {
-                if (f42450a == null) {
-                    f42450a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+                if (f42561a == null) {
+                    f42561a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
                 }
-                f42450a.acquire();
+                f42561a.acquire();
                 return;
             }
-            PowerManager.WakeLock wakeLock = f42450a;
+            PowerManager.WakeLock wakeLock = f42561a;
             if (wakeLock == null || !wakeLock.isHeld()) {
                 return;
             }
-            f42450a.release();
-            f42450a = null;
+            f42561a.release();
+            f42561a = null;
         }
     }
 
@@ -425,10 +425,10 @@ public class VDeviceAPI {
 
     public static void unsetNetworkChangedCallback() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f42451b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f42562b == null) {
             return;
         }
-        b.a().unregisterReceiver(f42451b);
-        f42451b = null;
+        b.a().unregisterReceiver(f42562b);
+        f42562b = null;
     }
 }

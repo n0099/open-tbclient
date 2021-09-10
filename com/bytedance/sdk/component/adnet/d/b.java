@@ -33,7 +33,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iVar)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            Map<String, String> map = iVar.f64156c;
+            Map<String, String> map = iVar.f64336c;
             String str = map.get("Date");
             long a2 = str != null ? a(str) : 0L;
             String str2 = map.get("Cache-Control");
@@ -91,15 +91,15 @@ public class b {
                 }
             }
             a.C1882a c1882a = new a.C1882a();
-            c1882a.f64203a = iVar.f64154a;
-            c1882a.f64204b = iVar.f64155b;
-            c1882a.f64205c = str5;
-            c1882a.f64209g = j5;
-            c1882a.f64208f = j4;
-            c1882a.f64206d = a2;
-            c1882a.f64207e = a4;
-            c1882a.f64210h = map;
-            c1882a.f64211i = iVar.f64157d;
+            c1882a.f64383a = iVar.f64334a;
+            c1882a.f64384b = iVar.f64335b;
+            c1882a.f64385c = str5;
+            c1882a.f64389g = j5;
+            c1882a.f64388f = j4;
+            c1882a.f64386d = a2;
+            c1882a.f64387e = a4;
+            c1882a.f64390h = map;
+            c1882a.f64391i = iVar.f64337d;
             return c1882a;
         }
         return (a.C1882a) invokeL.objValue;

@@ -16,11 +16,11 @@ public class m1 extends h1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long[] f31263e;
+    public static final long[] f31372e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f31264d;
+    public long f31373d;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class m1 extends h1 {
                 return;
             }
         }
-        f31263e = new long[]{60000};
+        f31372e = new long[]{60000};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,14 +72,14 @@ public class m1 extends h1 {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31264d + 60000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31373d + 60000 : invokeV.longValue;
     }
 
     @Override // c.b.a.h1
     public long[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f31263e : (long[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f31372e : (long[]) invokeV.objValue;
     }
 
     @Override // c.b.a.h1
@@ -89,16 +89,16 @@ public class m1 extends h1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            p1 m = this.f31239a.m();
+            p1 m = this.f31348a.m();
             if (m != null && (b2 = m.b(currentTimeMillis, 50000L)) != null) {
                 AppLog.onEventV3("play_session", b2);
                 AppLog.flush();
             }
-            if (this.f31239a.j().D() != 0) {
-                JSONObject j2 = this.f31239a.j().j();
+            if (this.f31348a.j().D() != 0) {
+                JSONObject j2 = this.f31348a.j().j();
                 if (j2 != null) {
-                    boolean m2 = this.f31239a.h().m(j2);
-                    this.f31264d = System.currentTimeMillis();
+                    boolean m2 = this.f31348a.h().m(j2);
+                    this.f31373d = System.currentTimeMillis();
                     return m2;
                 }
                 h0.b(null);

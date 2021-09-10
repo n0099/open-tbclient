@@ -30,13 +30,13 @@ public class a implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final m f67705a;
+    public final m f67885a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f67706b;
+    public final b f67886b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, com.bytedance.sdk.openadsdk.downloadnew.core.b> f67707c;
+    public final Map<String, com.bytedance.sdk.openadsdk.downloadnew.core.b> f67887c;
 
     public a(b bVar, m mVar) {
         Interceptable interceptable = $ic;
@@ -53,16 +53,16 @@ public class a implements c {
                 return;
             }
         }
-        this.f67707c = new HashMap();
-        this.f67706b = bVar;
-        this.f67705a = mVar;
+        this.f67887c = new HashMap();
+        this.f67886b = bVar;
+        this.f67885a = mVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.g.c
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f67707c.values()) {
+            for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f67887c.values()) {
                 if (bVar != null) {
                     bVar.c();
                 }
@@ -75,12 +75,12 @@ public class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             b();
-            for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f67707c.values()) {
+            for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f67887c.values()) {
                 if (bVar != null) {
                     bVar.d();
                 }
             }
-            this.f67707c.clear();
+            this.f67887c.clear();
         }
     }
 
@@ -94,7 +94,7 @@ public class a implements c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f67707c.values()) {
+            for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.f67887c.values()) {
                 if (bVar != null) {
                     bVar.b();
                 }
@@ -106,10 +106,10 @@ public class a implements c {
     public void b(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null || this.f67706b == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null || this.f67886b == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
             return;
         }
-        com.bytedance.sdk.openadsdk.downloadnew.core.b bVar = this.f67707c.get(a(optJSONObject, (String) null).al().b());
+        com.bytedance.sdk.openadsdk.downloadnew.core.b bVar = this.f67887c.get(a(optJSONObject, (String) null).al().b());
         if (bVar != null) {
             bVar.f();
         }
@@ -127,14 +127,14 @@ public class a implements c {
             if (!TextUtils.isEmpty(str)) {
                 mVar.k(str);
             }
-            if (this.f67705a == null) {
+            if (this.f67885a == null) {
                 return mVar;
             }
             String b2 = mVar.al() != null ? mVar.al().b() : null;
             if (TextUtils.isEmpty(b2)) {
-                return this.f67705a;
+                return this.f67885a;
             }
-            return (this.f67705a.al() == null || !b2.equals(this.f67705a.al().b())) ? mVar : this.f67705a;
+            return (this.f67885a.al() == null || !b2.equals(this.f67885a.al().b())) ? mVar : this.f67885a;
         }
         return (m) invokeLL.objValue;
     }
@@ -145,7 +145,7 @@ public class a implements c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static ConcurrentHashMap<String, JSONObject> f67716a;
+        public static ConcurrentHashMap<String, JSONObject> f67896a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -161,7 +161,7 @@ public class a implements c {
                     return;
                 }
             }
-            f67716a = new ConcurrentHashMap<>();
+            f67896a = new ConcurrentHashMap<>();
         }
 
         public static synchronized JSONObject a(String str) {
@@ -172,10 +172,10 @@ public class a implements c {
                     if (TextUtils.isEmpty(str)) {
                         return new JSONObject();
                     }
-                    if (f67716a == null) {
+                    if (f67896a == null) {
                         return new JSONObject();
                     }
-                    JSONObject jSONObject = f67716a.get(str);
+                    JSONObject jSONObject = f67896a.get(str);
                     return jSONObject == null ? new JSONObject() : jSONObject;
                 }
             }
@@ -189,13 +189,13 @@ public class a implements c {
                     if (TextUtils.isEmpty(str)) {
                         return;
                     }
-                    if (f67716a == null) {
-                        f67716a = new ConcurrentHashMap<>();
+                    if (f67896a == null) {
+                        f67896a = new ConcurrentHashMap<>();
                     }
-                    JSONObject jSONObject = f67716a.get(str);
+                    JSONObject jSONObject = f67896a.get(str);
                     if (jSONObject == null) {
                         jSONObject = new JSONObject();
-                        f67716a.put(str, jSONObject);
+                        f67896a.put(str, jSONObject);
                     }
                     try {
                         jSONObject.put("downloadStatus", i2);
@@ -222,14 +222,14 @@ public class a implements c {
 
     private void a(Context context, m mVar, JSONObject jSONObject, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{context, mVar, jSONObject, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || context == null || mVar == null || mVar.al() == null || jSONObject == null || this.f67706b == null || this.f67707c.get(mVar.al().b()) != null) {
+        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{context, mVar, jSONObject, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || context == null || mVar == null || mVar.al() == null || jSONObject == null || this.f67886b == null || this.f67887c.get(mVar.al().b()) != null) {
             return;
         }
         String a2 = q.a(i2);
         if (TextUtils.isEmpty(a2)) {
             return;
         }
-        this.f67707c.put(mVar.al().b(), a(context, mVar, jSONObject, a2, z));
+        this.f67887c.put(mVar.al().b(), a(context, mVar, jSONObject, a2, z));
     }
 
     @Override // com.bytedance.sdk.openadsdk.g.c
@@ -252,7 +252,7 @@ public class a implements c {
             return;
         }
         String ak = mVar.ak();
-        com.bytedance.sdk.openadsdk.downloadnew.core.b bVar = this.f67707c.get(mVar.al().b());
+        com.bytedance.sdk.openadsdk.downloadnew.core.b bVar = this.f67887c.get(mVar.al().b());
         if (bVar != null) {
             bVar.g();
             bVar.a(new TTAppDownloadListener(this, ak) { // from class: com.bytedance.sdk.openadsdk.g.a.1
@@ -260,10 +260,10 @@ public class a implements c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f67708a;
+                public final /* synthetic */ String f67888a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f67709b;
+                public final /* synthetic */ a f67889b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -280,8 +280,8 @@ public class a implements c {
                             return;
                         }
                     }
-                    this.f67709b = this;
-                    this.f67708a = ak;
+                    this.f67889b = this;
+                    this.f67888a = ak;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
@@ -290,7 +290,7 @@ public class a implements c {
                     if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str2, str3}) == null) || j2 <= 0) {
                         return;
                     }
-                    C1919a.a(this.f67708a, 3, (int) ((j3 * 100) / j2));
+                    C1919a.a(this.f67888a, 3, (int) ((j3 * 100) / j2));
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
@@ -299,14 +299,14 @@ public class a implements c {
                     if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str2, str3}) == null) || j2 <= 0) {
                         return;
                     }
-                    C1919a.a(this.f67708a, 4, (int) ((j3 * 100) / j2));
+                    C1919a.a(this.f67888a, 4, (int) ((j3 * 100) / j2));
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
                 public void onDownloadFinished(long j2, String str2, String str3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), str2, str3}) == null) {
-                        C1919a.a(this.f67708a, 5, 100);
+                        C1919a.a(this.f67888a, 5, 100);
                     }
                 }
 
@@ -316,14 +316,14 @@ public class a implements c {
                     if (!(interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str2, str3}) == null) || j2 <= 0) {
                         return;
                     }
-                    C1919a.a(this.f67708a, 2, (int) ((j3 * 100) / j2));
+                    C1919a.a(this.f67888a, 2, (int) ((j3 * 100) / j2));
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
                 public void onIdle() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                        C1919a.a(this.f67708a, 1, 0);
+                        C1919a.a(this.f67888a, 1, 0);
                     }
                 }
 
@@ -331,7 +331,7 @@ public class a implements c {
                 public void onInstalled(String str2, String str3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048581, this, str2, str3) == null) {
-                        C1919a.a(this.f67708a, 6, 100);
+                        C1919a.a(this.f67888a, 6, 100);
                     }
                 }
             });
@@ -353,18 +353,18 @@ public class a implements c {
 
     private void a(m mVar, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, this, mVar, jSONObject) == null) || this.f67706b == null || mVar == null || mVar.al() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65543, this, mVar, jSONObject) == null) || this.f67886b == null || mVar == null || mVar.al() == null) {
             return;
         }
         String b2 = mVar.al().b();
-        if (this.f67707c.containsKey(b2)) {
-            this.f67707c.remove(b2);
+        if (this.f67887c.containsKey(b2)) {
+            this.f67887c.remove(b2);
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("message", "success");
                 jSONObject2.put("status", "unsubscribed");
                 jSONObject2.put("appad", jSONObject);
-                this.f67706b.a("app_ad_event", jSONObject2);
+                this.f67886b.a("app_ad_event", jSONObject2);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -381,10 +381,10 @@ public class a implements c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f67710a;
+                public final /* synthetic */ JSONObject f67890a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f67711b;
+                public final /* synthetic */ a f67891b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -401,8 +401,8 @@ public class a implements c {
                             return;
                         }
                     }
-                    this.f67711b = this;
-                    this.f67710a = jSONObject;
+                    this.f67891b = this;
+                    this.f67890a = jSONObject;
                 }
 
                 private void a(String... strArr) {
@@ -411,11 +411,11 @@ public class a implements c {
                         try {
                             JSONObject jSONObject2 = new JSONObject();
                             jSONObject2.put("message", "success");
-                            jSONObject2.put("appad", this.f67710a);
+                            jSONObject2.put("appad", this.f67890a);
                             for (int i2 = 0; i2 < strArr.length; i2 += 2) {
                                 jSONObject2.put(strArr[i2], strArr[i2 + 1]);
                             }
-                            this.f67711b.f67706b.a("app_ad_event", jSONObject2);
+                            this.f67891b.f67886b.a("app_ad_event", jSONObject2);
                         } catch (JSONException unused) {
                             k.b("JsAppAdDownloadManager", "JSONException");
                         }
@@ -475,10 +475,10 @@ public class a implements c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f67712a;
+                public final /* synthetic */ JSONObject f67892a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f67713b;
+                public final /* synthetic */ a f67893b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -495,8 +495,8 @@ public class a implements c {
                             return;
                         }
                     }
-                    this.f67713b = this;
-                    this.f67712a = jSONObject;
+                    this.f67893b = this;
+                    this.f67892a = jSONObject;
                 }
             });
             b2.a(3, new a.InterfaceC1916a(this, z) { // from class: com.bytedance.sdk.openadsdk.g.a.4
@@ -504,10 +504,10 @@ public class a implements c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean f67714a;
+                public final /* synthetic */ boolean f67894a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f67715b;
+                public final /* synthetic */ a f67895b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -524,8 +524,8 @@ public class a implements c {
                             return;
                         }
                     }
-                    this.f67715b = this;
-                    this.f67714a = z;
+                    this.f67895b = this;
+                    this.f67894a = z;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC1916a
@@ -533,7 +533,7 @@ public class a implements c {
                     InterceptResult invokeCommon2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeCommon2 = interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), mVar2, str2, str3, obj})) == null) {
-                        if (i2 != 3 || mVar2 == null || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || this.f67714a) {
+                        if (i2 != 3 || mVar2 == null || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || this.f67894a) {
                             return true;
                         }
                         char c2 = 65535;

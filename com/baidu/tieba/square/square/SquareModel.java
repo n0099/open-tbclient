@@ -2,7 +2,7 @@ package com.baidu.tieba.square.square;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.d.l;
-import c.a.q0.f3.j.f;
+import c.a.r0.g3.j.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,22 +18,22 @@ public class SquareModel extends BdBaseModel<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f56838e;
+    public b f56998e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f56839f;
+    public f f56999f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f56840g;
+    public a f57000g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f56841h;
+    public long f57001h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f56842i;
+    public long f57002i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f56843j;
+    public long f57003j;
     public long k;
     public long l;
 
@@ -48,16 +48,16 @@ public class SquareModel extends BdBaseModel<Object> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.q0.f3.g.a f56844a;
+        public c.a.r0.g3.g.a f57004a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f56845b;
+        public int f57005b;
 
         /* renamed from: c  reason: collision with root package name */
-        public l<String> f56846c;
+        public l<String> f57006c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ SquareModel f56847d;
+        public final /* synthetic */ SquareModel f57007d;
 
         public b(SquareModel squareModel, int i2) {
             Interceptable interceptable = $ic;
@@ -74,11 +74,11 @@ public class SquareModel extends BdBaseModel<Object> {
                     return;
                 }
             }
-            this.f56847d = squareModel;
-            this.f56844a = null;
-            this.f56845b = 1;
-            this.f56846c = null;
-            this.f56845b = i2;
+            this.f57007d = squareModel;
+            this.f57004a = null;
+            this.f57005b = 1;
+            this.f57006c = null;
+            this.f57005b = i2;
             setPriority(3);
         }
 
@@ -90,59 +90,59 @@ public class SquareModel extends BdBaseModel<Object> {
             f fVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                this.f56844a = new c.a.q0.f3.g.a();
-                c.a.p0.s.r.a.f();
-                l<String> g2 = c.a.p0.s.r.a.g("tb.square");
-                this.f56846c = g2;
+                this.f57004a = new c.a.r0.g3.g.a();
+                c.a.q0.s.r.a.f();
+                l<String> g2 = c.a.q0.s.r.a.g("tb.square");
+                this.f57006c = g2;
                 String str = null;
-                if (this.f56845b == 0) {
+                if (this.f57005b == 0) {
                     String str2 = g2.get("square_cache_key");
                     if (str2 == null) {
                         return null;
                     }
                     f fVar2 = new f();
                     fVar2.j(str2);
-                    this.f56847d.l = fVar2.f();
+                    this.f57007d.l = fVar2.f();
                     if (fVar2.g()) {
-                        this.f56847d.l = 0L;
+                        this.f57007d.l = 0L;
                     }
                     if (fVar2.c()) {
                         return fVar2;
                     }
-                    this.f56845b = 1;
+                    this.f57005b = 1;
                     str = str2;
                     fVar = fVar2;
                 } else {
                     fVar = null;
                 }
-                if (this.f56845b == 1) {
-                    this.f56847d.f56841h = System.currentTimeMillis();
-                    this.f56844a.a("prevtime", this.f56847d.l + "");
-                    str = this.f56844a.i();
-                    this.f56847d.f56842i = this.f56844a.h();
-                    this.f56847d.f56843j = this.f56844a.g();
-                    this.f56847d.k = System.currentTimeMillis();
+                if (this.f57005b == 1) {
+                    this.f57007d.f57001h = System.currentTimeMillis();
+                    this.f57004a.a("prevtime", this.f57007d.l + "");
+                    str = this.f57004a.i();
+                    this.f57007d.f57002i = this.f57004a.h();
+                    this.f57007d.f57003j = this.f57004a.g();
+                    this.f57007d.k = System.currentTimeMillis();
                 }
-                if (this.f56844a.e()) {
+                if (this.f57004a.e()) {
                     fVar = new f();
                     fVar.j(str);
                     Long valueOf = Long.valueOf(fVar.f());
-                    if (valueOf.longValue() > this.f56847d.l) {
-                        this.f56846c.e("square_cache_key", str, 86400000L);
+                    if (valueOf.longValue() > this.f57007d.l) {
+                        this.f57006c.e("square_cache_key", str, 86400000L);
                     } else {
-                        String str3 = this.f56846c.get("square_cache_key");
+                        String str3 = this.f57006c.get("square_cache_key");
                         if (str3 != null) {
                             f fVar3 = new f();
                             fVar3.j(str3);
                             fVar3.m(fVar.e());
                             fVar3.n(valueOf.longValue());
-                            this.f56846c.e("square_cache_key", fVar3.d(), 86400000L);
+                            this.f57006c.e("square_cache_key", fVar3.d(), 86400000L);
                             fVar = fVar3;
                         } else {
-                            this.f56846c.e("square_cache_key", str, 86400000L);
+                            this.f57006c.e("square_cache_key", str, 86400000L);
                         }
                     }
-                    this.f56847d.l = valueOf.longValue();
+                    this.f57007d.l = valueOf.longValue();
                 }
                 return fVar;
             }
@@ -155,14 +155,14 @@ public class SquareModel extends BdBaseModel<Object> {
         public void onPostExecute(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-                this.f56847d.f56838e = null;
-                this.f56847d.f56839f = fVar;
-                if (this.f56847d.f56840g != null) {
-                    if (this.f56845b == 0 || this.f56844a.e()) {
-                        this.f56847d.f56840g.a(true, null, fVar);
+                this.f57007d.f56998e = null;
+                this.f57007d.f56999f = fVar;
+                if (this.f57007d.f57000g != null) {
+                    if (this.f57005b == 0 || this.f57004a.e()) {
+                        this.f57007d.f57000g.a(true, null, fVar);
                         return;
                     }
-                    this.f56847d.f56840g.a(false, this.f56844a.c(), fVar);
+                    this.f57007d.f57000g.a(false, this.f57004a.c(), fVar);
                 }
             }
         }
@@ -172,11 +172,11 @@ public class SquareModel extends BdBaseModel<Object> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel();
-                c.a.q0.f3.g.a aVar = this.f56844a;
+                c.a.r0.g3.g.a aVar = this.f57004a;
                 if (aVar != null) {
                     aVar.b();
                 }
-                this.f56847d.f56838e = null;
+                this.f57007d.f56998e = null;
             }
         }
     }
@@ -199,20 +199,20 @@ public class SquareModel extends BdBaseModel<Object> {
                 return;
             }
         }
-        this.f56838e = null;
-        this.f56839f = null;
-        this.f56840g = null;
-        this.f56841h = 0L;
-        this.f56842i = 0L;
-        this.f56843j = 0L;
+        this.f56998e = null;
+        this.f56999f = null;
+        this.f57000g = null;
+        this.f57001h = 0L;
+        this.f57002i = 0L;
+        this.f57003j = 0L;
         this.k = 0L;
-        this.f56839f = new f();
+        this.f56999f = new f();
     }
 
     public f F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56839f : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56999f : (f) invokeV.objValue;
     }
 
     public long G() {
@@ -224,30 +224,30 @@ public class SquareModel extends BdBaseModel<Object> {
     public long H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56841h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f57001h : invokeV.longValue;
     }
 
     public long I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56843j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f57003j : invokeV.longValue;
     }
 
     public long J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f56842i : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f57002i : invokeV.longValue;
     }
 
     public boolean K(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            if (this.f56838e != null) {
+            if (this.f56998e != null) {
                 return false;
             }
             b bVar = new b(this, i2);
-            this.f56838e = bVar;
+            this.f56998e = bVar;
             bVar.execute(new Object[0]);
             return true;
         }
@@ -279,7 +279,7 @@ public class SquareModel extends BdBaseModel<Object> {
     public void N(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f56840g = aVar;
+            this.f57000g = aVar;
         }
     }
 
@@ -288,7 +288,7 @@ public class SquareModel extends BdBaseModel<Object> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            b bVar = this.f56838e;
+            b bVar = this.f56998e;
             if (bVar != null) {
                 bVar.cancel();
                 return false;

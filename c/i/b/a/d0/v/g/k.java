@@ -12,10 +12,10 @@ public final class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f33182a;
+    public final String f33291a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f33183b;
+    public final String f33292b;
 
     public k(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -32,15 +32,15 @@ public final class k {
                 return;
             }
         }
-        this.f33182a = str;
-        this.f33183b = str2;
+        this.f33291a = str;
+        this.f33292b = str2;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f33182a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f33183b;
+            return this.f33291a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f33292b;
         }
         return (String) invokeV.objValue;
     }

@@ -31,34 +31,34 @@ public class NetImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f37672a;
+    public static final boolean f37791a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37673b = "NetImageView";
+    public static final String f37792b = "NetImageView";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f37674c;
+    public static String f37793c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f37675d;
+    public static String f37794d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f37676e;
+    public static String f37795e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f37677f;
+    public static String f37796f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f37678g;
+    public static String f37797g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f37679h;
+    public static String f37798h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f37680i;
+    public static String f37799i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f37681j;
+    public static String f37800j;
     public static Handler k;
     public static HashMap<String, Integer> l;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class NetImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<NetImageView> f37682a;
+        public WeakReference<NetImageView> f37801a;
 
         public a(NetImageView netImageView) {
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class NetImageView extends ImageView {
                     return;
                 }
             }
-            this.f37682a = new WeakReference<>(netImageView);
+            this.f37801a = new WeakReference<>(netImageView);
         }
 
         @Override // com.baidu.apollon.imagemanager.ImageLoader.OnGetBitmapListener
@@ -104,7 +104,7 @@ public class NetImageView extends ImageView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
-                WeakReference<NetImageView> weakReference = this.f37682a;
+                WeakReference<NetImageView> weakReference = this.f37801a;
                 boolean z = false;
                 if (weakReference != null) {
                     NetImageView netImageView = weakReference.get();
@@ -112,7 +112,7 @@ public class NetImageView extends ImageView {
                         return false;
                     }
                     z = (netImageView.o == null && TextUtils.equals(str, netImageView.m)) ? true : true;
-                    if (NetImageView.f37672a && z) {
+                    if (NetImageView.f37791a && z) {
                         String str2 = "Canceled   url: " + str;
                     }
                 }
@@ -125,9 +125,9 @@ public class NetImageView extends ImageView {
         public void onError(String str, Object obj) {
             NetImageView netImageView;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) && NetImageView.f37672a) {
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) && NetImageView.f37791a) {
                 String str2 = "getImage error: " + str;
-                WeakReference<NetImageView> weakReference = this.f37682a;
+                WeakReference<NetImageView> weakReference = this.f37801a;
                 if (weakReference == null || (netImageView = weakReference.get()) == null) {
                     return;
                 }
@@ -136,13 +136,13 @@ public class NetImageView extends ImageView {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NetImageView f37687a;
+                    public final /* synthetic */ NetImageView f37806a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f37688b;
+                    public final /* synthetic */ String f37807b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f37689c;
+                    public final /* synthetic */ a f37808c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -159,16 +159,16 @@ public class NetImageView extends ImageView {
                                 return;
                             }
                         }
-                        this.f37689c = this;
-                        this.f37687a = netImageView;
-                        this.f37688b = str;
+                        this.f37808c = this;
+                        this.f37806a = netImageView;
+                        this.f37807b = str;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && TextUtils.equals(this.f37687a.m, this.f37688b)) {
-                            this.f37687a.onLoadUrlError(true);
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && TextUtils.equals(this.f37806a.m, this.f37807b)) {
+                            this.f37806a.onLoadUrlError(true);
                         }
                     }
                 });
@@ -179,7 +179,7 @@ public class NetImageView extends ImageView {
         public void onGetBitmap(String str, Object obj, Bitmap bitmap) {
             WeakReference<NetImageView> weakReference;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, obj, bitmap) == null) || (weakReference = this.f37682a) == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, obj, bitmap) == null) || (weakReference = this.f37801a) == null) {
                 return;
             }
             NetImageView netImageView = weakReference.get();
@@ -191,16 +191,16 @@ public class NetImageView extends ImageView {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NetImageView f37683a;
+                public final /* synthetic */ NetImageView f37802a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f37684b;
+                public final /* synthetic */ String f37803b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ Bitmap f37685c;
+                public final /* synthetic */ Bitmap f37804c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f37686d;
+                public final /* synthetic */ a f37805d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -217,17 +217,17 @@ public class NetImageView extends ImageView {
                             return;
                         }
                     }
-                    this.f37686d = this;
-                    this.f37683a = netImageView;
-                    this.f37684b = str;
-                    this.f37685c = bitmap;
+                    this.f37805d = this;
+                    this.f37802a = netImageView;
+                    this.f37803b = str;
+                    this.f37804c = bitmap;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f37683a.setRemoteDrawable(this.f37684b, this.f37685c);
+                        this.f37802a.setRemoteDrawable(this.f37803b, this.f37804c);
                     }
                 }
             });
@@ -247,24 +247,24 @@ public class NetImageView extends ImageView {
                 return;
             }
         }
-        f37672a = ApollonConstants.DEBUG & true;
-        f37674c = "ldpi";
-        f37675d = "mdpi";
-        f37676e = "hdpi";
-        f37677f = "xhdpi";
-        f37678g = "xxhdpi";
-        f37679h = "xxxhdpi";
-        f37680i = "tvdpi";
-        f37681j = "density";
+        f37791a = ApollonConstants.DEBUG & true;
+        f37793c = "ldpi";
+        f37794d = "mdpi";
+        f37795e = "hdpi";
+        f37796f = "xhdpi";
+        f37797g = "xxhdpi";
+        f37798h = "xxxhdpi";
+        f37799i = "tvdpi";
+        f37800j = "density";
         HashMap<String, Integer> hashMap = new HashMap<>();
         l = hashMap;
-        hashMap.put(f37674c, 120);
-        l.put(f37675d, 160);
-        l.put(f37680i, 213);
-        l.put(f37676e, 240);
-        l.put(f37677f, Integer.valueOf((int) MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP));
-        l.put(f37678g, 480);
-        l.put(f37679h, 640);
+        hashMap.put(f37793c, 120);
+        l.put(f37794d, 160);
+        l.put(f37799i, 213);
+        l.put(f37795e, 240);
+        l.put(f37796f, Integer.valueOf((int) MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP));
+        l.put(f37797g, 480);
+        l.put(f37798h, 640);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -313,7 +313,7 @@ public class NetImageView extends ImageView {
         if (!(interceptable == null || interceptable.invokeL(65546, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        String attributeValue = attributeSet.getAttributeValue(null, f37681j);
+        String attributeValue = attributeSet.getAttributeValue(null, f37800j);
         if (TextUtils.isEmpty(attributeValue)) {
             return;
         }
@@ -459,7 +459,7 @@ public class NetImageView extends ImageView {
             BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bitmap);
             this.o = bitmapDrawable;
             callRealSetImageDrawable(bitmapDrawable, false);
-            if (f37672a) {
+            if (f37791a) {
                 String str2 = "getImage ok: " + this.o.getIntrinsicWidth() + "x" + this.o.getIntrinsicHeight() + " url: " + str;
             }
         }
@@ -472,7 +472,7 @@ public class NetImageView extends ImageView {
                 this.m = null;
             } else if (TextUtils.equals(this.m, str)) {
             } else {
-                if (f37672a) {
+                if (f37791a) {
                     String str2 = "req: " + z + " img url: " + str;
                 }
                 this.m = str;

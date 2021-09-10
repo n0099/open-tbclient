@@ -27,15 +27,15 @@ public class ComponentModel {
         @c(a = "c")
 
         /* renamed from: a  reason: collision with root package name */
-        public String f68603a;
+        public String f68783a;
         @c(a = "clean_type")
 
         /* renamed from: b  reason: collision with root package name */
-        public int f68604b;
+        public int f68784b;
         @c(a = "version")
 
         /* renamed from: c  reason: collision with root package name */
-        public List<Long> f68605c;
+        public List<Long> f68785c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class ComponentModel {
         @c(a = "specified_clean")
 
         /* renamed from: a  reason: collision with root package name */
-        public List<a> f68606a;
+        public List<a> f68786a;
 
         public b() {
             Interceptable interceptable = $ic;

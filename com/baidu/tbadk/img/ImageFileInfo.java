@@ -503,7 +503,7 @@ public class ImageFileInfo extends MediaFileInfo {
                             if (next != null) {
                                 sb.append(':');
                                 sb.append(next.actionName);
-                                sb.append(a.f35879h);
+                                sb.append(a.f35988h);
                                 sb.append(next.actionParam);
                             }
                         }
@@ -515,7 +515,7 @@ public class ImageFileInfo extends MediaFileInfo {
                             if (next2 != null) {
                                 sb.append(':');
                                 sb.append(next2.actionName);
-                                sb.append(a.f35879h);
+                                sb.append(a.f35988h);
                                 sb.append(next2.actionParam);
                             }
                         }
@@ -533,7 +533,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         ImageOperation imageOperation = this.pageActionsList.get(i2);
                         sb2.append(':');
                         sb2.append(imageOperation.actionName);
-                        sb2.append(a.f35879h);
+                        sb2.append(a.f35988h);
                         sb2.append(imageOperation.actionParam);
                     }
                 }

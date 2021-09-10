@@ -10,7 +10,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import c.a.e.e.l.d;
 import c.a.e.l.d.a;
-import c.a.p0.b0.c;
+import c.a.q0.c0.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigSocket;

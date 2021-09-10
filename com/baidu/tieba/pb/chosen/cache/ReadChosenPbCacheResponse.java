@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.chosen.cache;
 
-import c.a.q0.i2.g.c.a;
+import c.a.r0.j2.g.c.a;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

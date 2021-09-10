@@ -25,11 +25,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f2810b;
+    public static volatile a f2801b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Integer> f2811a;
+    public HashMap<String, Integer> f2802a;
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +59,7 @@ public class a {
                 return;
             }
         }
-        this.f2811a = new HashMap<>();
+        this.f2802a = new HashMap<>();
     }
 
     public static synchronized a b() {
@@ -68,14 +68,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f2810b == null) {
+                if (f2801b == null) {
                     synchronized (a.class) {
-                        if (f2810b == null) {
-                            f2810b = new a();
+                        if (f2801b == null) {
+                            f2801b = new a();
                         }
                     }
                 }
-                aVar = f2810b;
+                aVar = f2801b;
             }
             return aVar;
         }
@@ -87,10 +87,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
             return;
         }
-        for (Map.Entry<String, Integer> entry : this.f2811a.entrySet()) {
+        for (Map.Entry<String, Integer> entry : this.f2802a.entrySet()) {
             aVar.b(entry.getKey() + "_count", String.valueOf(entry.getValue()));
         }
-        this.f2811a.clear();
+        this.f2802a.clear();
     }
 
     public final c.a.e.e.n.a c() {
@@ -292,11 +292,11 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048593, this, str) == null) || str == null) {
             return;
         }
-        Integer num = this.f2811a.get(str);
+        Integer num = this.f2802a.get(str);
         if (num == null) {
             num = 0;
         }
-        this.f2811a.put(str, Integer.valueOf(num.intValue() + 1));
+        this.f2802a.put(str, Integer.valueOf(num.intValue() + 1));
     }
 
     public void t(String str, String str2) {
@@ -316,7 +316,7 @@ public class a {
 
     public void v() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || this.f2811a.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || this.f2802a.size() == 0) {
             return;
         }
         c.a.e.e.n.a c2 = c();

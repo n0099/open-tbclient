@@ -4,7 +4,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import c.a.p0.s.d0.b;
+import c.a.q0.s.d0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.PushMessageReceiver;
@@ -21,7 +21,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SHAREDPRE_PUSH_STARTWORK = "baidu_yunpush_start_work";
@@ -92,11 +92,11 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     str4 = jSONObject3.getString("task_id");
                 }
             }
-            int d2 = c.a.e.e.m.b.d(str4, 2500);
-            if (d2 < 2500) {
-                d2 += 2500;
+            int e2 = c.a.e.e.m.b.e(str4, 2500);
+            if (e2 < 2500) {
+                e2 += 2500;
             }
-            int i3 = d2;
+            int i3 = e2;
             Intent parseUri = Intent.parseUri(str3, 1);
             parseUri.setFlags(276824064);
             NotificationHelper.showNotification(context, i3, string, string2, string2, PendingIntent.getActivity(context, i3, parseUri, 134217728), false);

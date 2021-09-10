@@ -1,6 +1,6 @@
 package com.baidu.tieba.likedForum;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -45,7 +45,7 @@ public class GetBottleForumListReqMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 if (z) {
-                    w.a(builder, true);
+                    x.a(builder, true);
                 }
                 RecommendForumListForBottleReqIdl.Builder builder2 = new RecommendForumListForBottleReqIdl.Builder();
                 builder2.data = builder.build(false);

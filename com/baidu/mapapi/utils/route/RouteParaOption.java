@@ -16,22 +16,22 @@ public class RouteParaOption {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f41923a;
+    public LatLng f42034a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f41924b;
+    public LatLng f42035b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41925c;
+    public String f42036c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41926d;
+    public String f42037d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41927e;
+    public String f42038e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EBusStrategyType f41928f;
+    public EBusStrategyType f42039f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -39,7 +39,7 @@ public class RouteParaOption {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ EBusStrategyType[] f41929a;
+        public static final /* synthetic */ EBusStrategyType[] f42040a;
         public static final EBusStrategyType bus_no_subway;
         public static final EBusStrategyType bus_recommend_way;
         public static final EBusStrategyType bus_time_first;
@@ -66,7 +66,7 @@ public class RouteParaOption {
             bus_no_subway = new EBusStrategyType("bus_no_subway", 3);
             EBusStrategyType eBusStrategyType = new EBusStrategyType("bus_recommend_way", 4);
             bus_recommend_way = eBusStrategyType;
-            f41929a = new EBusStrategyType[]{bus_time_first, bus_transfer_little, bus_walk_little, bus_no_subway, eBusStrategyType};
+            f42040a = new EBusStrategyType[]{bus_time_first, bus_transfer_little, bus_walk_little, bus_no_subway, eBusStrategyType};
         }
 
         public EBusStrategyType(String str, int i2) {
@@ -97,7 +97,7 @@ public class RouteParaOption {
         public static EBusStrategyType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EBusStrategyType[]) f41929a.clone() : (EBusStrategyType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EBusStrategyType[]) f42040a.clone() : (EBusStrategyType[]) invokeV.objValue;
         }
     }
 
@@ -114,14 +114,14 @@ public class RouteParaOption {
                 return;
             }
         }
-        this.f41928f = EBusStrategyType.bus_recommend_way;
+        this.f42039f = EBusStrategyType.bus_recommend_way;
     }
 
     public RouteParaOption busStrategyType(EBusStrategyType eBusStrategyType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eBusStrategyType)) == null) {
-            this.f41928f = eBusStrategyType;
+            this.f42039f = eBusStrategyType;
             return this;
         }
         return (RouteParaOption) invokeL.objValue;
@@ -131,7 +131,7 @@ public class RouteParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f41927e = str;
+            this.f42038e = str;
             return this;
         }
         return (RouteParaOption) invokeL.objValue;
@@ -141,7 +141,7 @@ public class RouteParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f41926d = str;
+            this.f42037d = str;
             return this;
         }
         return (RouteParaOption) invokeL.objValue;
@@ -151,7 +151,7 @@ public class RouteParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, latLng)) == null) {
-            this.f41924b = latLng;
+            this.f42035b = latLng;
             return this;
         }
         return (RouteParaOption) invokeL.objValue;
@@ -160,44 +160,44 @@ public class RouteParaOption {
     public EBusStrategyType getBusStrategyType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41928f : (EBusStrategyType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42039f : (EBusStrategyType) invokeV.objValue;
     }
 
     public String getCityName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41927e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f42038e : (String) invokeV.objValue;
     }
 
     public String getEndName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41926d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f42037d : (String) invokeV.objValue;
     }
 
     public LatLng getEndPoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f41924b : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f42035b : (LatLng) invokeV.objValue;
     }
 
     public String getStartName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41925c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f42036c : (String) invokeV.objValue;
     }
 
     public LatLng getStartPoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f41923a : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f42034a : (LatLng) invokeV.objValue;
     }
 
     public RouteParaOption startName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            this.f41925c = str;
+            this.f42036c = str;
             return this;
         }
         return (RouteParaOption) invokeL.objValue;
@@ -207,7 +207,7 @@ public class RouteParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, latLng)) == null) {
-            this.f41923a = latLng;
+            this.f42034a = latLng;
             return this;
         }
         return (RouteParaOption) invokeL.objValue;

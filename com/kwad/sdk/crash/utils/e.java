@@ -59,7 +59,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final PrintWriter f72520a;
+        public final PrintWriter f72700a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PrintWriter printWriter) {
@@ -79,21 +79,21 @@ public class e {
                     return;
                 }
             }
-            this.f72520a = printWriter;
+            this.f72700a = printWriter;
         }
 
         @Override // com.kwad.sdk.crash.utils.e.a
         public Object a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72520a : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72700a : invokeV.objValue;
         }
 
         @Override // com.kwad.sdk.crash.utils.e.a
         public void a(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                this.f72520a.println(obj);
+                this.f72700a.println(obj);
             }
         }
     }

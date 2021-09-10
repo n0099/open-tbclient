@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.b;
 import c.a.e.e.p.k;
-import c.a.p0.e.f;
-import c.a.p0.u.j;
-import c.a.q0.u.a;
+import c.a.q0.e.f;
+import c.a.q0.u.j;
+import c.a.r0.u.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -78,9 +78,9 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
                 return;
             }
             UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-            aVar.f47954a = true;
-            aVar.f47957d = "1".equals(queryParameter2);
-            aVar.f47956c = queryParameter;
+            aVar.f48082a = true;
+            aVar.f48085d = "1".equals(queryParameter2);
+            aVar.f48084c = queryParameter;
             MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
         }
     }
@@ -92,7 +92,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
             return;
         }
         Uri parse = Uri.parse(pageStringValue.getResult());
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921545, new f(this, new AlaPersonCenterActivityConfig(TbadkCoreApplication.getInst(), parse.getQueryParameter("kUid"), parse.getQueryParameter(TbEnum.SystemMessage.KEY_USER_NAME), parse.getQueryParameter("portrait"), b.d(parse.getQueryParameter("sex"), 0), true)) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.UtilityOpenPage.1
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921545, new f(this, new AlaPersonCenterActivityConfig(TbadkCoreApplication.getInst(), parse.getQueryParameter("kUid"), parse.getQueryParameter(TbEnum.SystemMessage.KEY_USER_NAME), parse.getQueryParameter("portrait"), b.e(parse.getQueryParameter("sex"), 0), true)) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.UtilityOpenPage.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ UtilityOpenPage this$0;
@@ -117,7 +117,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
                 this.val$alaPersonCenterConfig = r7;
             }
 
-            @Override // c.a.p0.e.f
+            @Override // c.a.q0.e.f
             public void onFail() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -125,7 +125,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
                 }
             }
 
-            @Override // c.a.p0.e.f
+            @Override // c.a.q0.e.f
             public void onSwitchGet(boolean z) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -177,7 +177,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         if (!(interceptable == null || interceptable.invokeL(1048581, this, toWhereParam) == null) || toWhereParam.getResult() == null) {
             return;
         }
-        c.a.p0.s.a0.b.g(TbadkCoreApplication.getInst(), toWhereParam.getResult().intValue(), false);
+        c.a.q0.s.a0.b.g(TbadkCoreApplication.getInst(), toWhereParam.getResult().intValue(), false);
     }
 
     @Override // com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityOpenPageAuto.HostUtilityOpenPage
@@ -267,7 +267,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         if (interceptable == null || interceptable.invokeL(1048589, this, signProcessParam) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity instanceof TbPageContextSupport) {
-                c.a.p0.t.d.f.c().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
+                c.a.q0.t.d.f.c().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
             }
         }
     }

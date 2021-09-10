@@ -32,34 +32,34 @@ public class g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f31383a = false;
+    public static boolean f31492a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f31384b = true;
+    public static boolean f31493b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f31385c;
+    public static int f31494c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<d> f31386d;
+    public static List<d> f31495d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile AtomicLong f31387e;
+    public static volatile AtomicLong f31496e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f31388f;
+    public static long f31497f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f31389g;
+    public static long f31498g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static HandlerThread f31390h;
+    public static HandlerThread f31499h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static long f31391i;
+    public static long f31500i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static long f31392j;
+    public static long f31501j;
     public static Handler k;
     public static int l;
     public static boolean m;
@@ -97,14 +97,14 @@ public class g {
         public void println(String str) {
             int i2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && g.f31384b) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && g.f31493b) {
                 String unused = g.n = str;
                 if (!g.m) {
                     boolean unused2 = g.m = true;
                     int unused3 = g.p = Process.myTid();
                     g.I();
                 }
-                g.q = g.f31387e.get();
+                g.q = g.f31496e.get();
                 if (g.r == -1) {
                     return;
                 }
@@ -124,10 +124,10 @@ public class g {
                     long J = g.J();
                     long uptimeMillis = SystemClock.uptimeMillis();
                     if (!g.o) {
-                        g.o(g.H(), J - g.f31391i, uptimeMillis - g.f31392j, j2, i2, g.l, null);
+                        g.o(g.H(), J - g.f31500i, uptimeMillis - g.f31501j, j2, i2, g.l, null);
                     }
-                    long unused4 = g.f31391i = J;
-                    long unused5 = g.f31392j = uptimeMillis;
+                    long unused4 = g.f31500i = J;
+                    long unused5 = g.f31501j = uptimeMillis;
                     int unused6 = g.l = 1;
                     return;
                 }
@@ -160,7 +160,7 @@ public class g {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                g.r = g.f31387e.get();
+                g.r = g.f31496e.get();
                 if (g.q <= 0) {
                     return;
                 }
@@ -181,10 +181,10 @@ public class g {
                     i2 = 4;
                 }
                 if (!g.o) {
-                    g.o(g.H(), J - g.f31391i, uptimeMillis - g.f31392j, j2, i2, g.l, str);
+                    g.o(g.H(), J - g.f31500i, uptimeMillis - g.f31501j, j2, i2, g.l, str);
                 }
-                long unused = g.f31391i = J;
-                long unused2 = g.f31392j = uptimeMillis;
+                long unused = g.f31500i = J;
+                long unused2 = g.f31501j = uptimeMillis;
                 int unused3 = g.l = 0;
                 g.q = -1L;
             }
@@ -215,13 +215,13 @@ public class g {
             long j2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g.f31387e.set((SystemClock.uptimeMillis() - g.f31389g) / g.f31388f);
-                long uptimeMillis = (SystemClock.uptimeMillis() - g.f31389g) % g.f31388f;
+                g.f31496e.set((SystemClock.uptimeMillis() - g.f31498g) / g.f31497f);
+                long uptimeMillis = (SystemClock.uptimeMillis() - g.f31498g) % g.f31497f;
                 if (uptimeMillis >= 95) {
-                    g.f31387e.incrementAndGet();
-                    j2 = g.f31388f << 1;
+                    g.f31496e.incrementAndGet();
+                    j2 = g.f31497f << 1;
                 } else {
-                    j2 = g.f31388f;
+                    j2 = g.f31497f;
                 }
                 g.k.postDelayed(this, j2 - uptimeMillis);
             }
@@ -234,25 +234,25 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f31393a;
+        public int f31502a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31394b;
+        public int f31503b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f31395c;
+        public long f31504c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f31396d;
+        public long f31505d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f31397e;
+        public long f31506e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f31398f;
+        public boolean f31507f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f31399g;
+        public String f31508g;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -272,29 +272,29 @@ public class g {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = this.f31394b;
+                int i2 = this.f31503b;
                 if (i2 == 0) {
-                    return "[[[ IDLE  ]]] cost " + this.f31395c + " tick , mDuration：" + this.f31396d + ",cpuTime:" + this.f31397e;
+                    return "[[[ IDLE  ]]] cost " + this.f31504c + " tick , mDuration：" + this.f31505d + ",cpuTime:" + this.f31506e;
                 } else if (i2 == 1) {
-                    return "[[[ Long IDLE  ]]] cost " + this.f31395c + " tick , mDuration：" + this.f31396d + ",cpuTime:" + this.f31397e;
+                    return "[[[ Long IDLE  ]]] cost " + this.f31504c + " tick , mDuration：" + this.f31505d + ",cpuTime:" + this.f31506e;
                 } else if (i2 == 2) {
-                    return "[[[  1 msg  ]]] cost " + this.f31395c + " tick , mDuration：" + this.f31396d + ",cpuTime:" + this.f31397e + ", msg:" + this.f31399g;
+                    return "[[[  1 msg  ]]] cost " + this.f31504c + " tick , mDuration：" + this.f31505d + ",cpuTime:" + this.f31506e + ", msg:" + this.f31508g;
                 } else if (i2 == 3) {
-                    return "[[[ 1 msg + IDLE  ]]] cost " + this.f31395c + " tick , mDuration：" + this.f31396d + ",cpuTime:" + this.f31397e;
+                    return "[[[ 1 msg + IDLE  ]]] cost " + this.f31504c + " tick , mDuration：" + this.f31505d + ",cpuTime:" + this.f31506e;
                 } else if (i2 == 4) {
-                    return "[[[ " + (this.f31393a - 1) + " msgs  ]]] cost less than 1 tick, [[[  last msg ]]] cost more than " + (this.f31395c - 1) + "tick ,, mDuration：" + this.f31396d + "cpuTime:" + this.f31397e + " msg:" + this.f31399g;
+                    return "[[[ " + (this.f31502a - 1) + " msgs  ]]] cost less than 1 tick, [[[  last msg ]]] cost more than " + (this.f31504c - 1) + "tick ,, mDuration：" + this.f31505d + "cpuTime:" + this.f31506e + " msg:" + this.f31508g;
                 } else if (i2 == 5) {
-                    return "[[[ " + this.f31393a + " msgs ]]] cost less than 1 tick but [[[  IDLE ]]] cost more than" + (this.f31395c - 1) + " ticks, , mDuration：" + this.f31396d + "cpuTime:" + this.f31397e;
+                    return "[[[ " + this.f31502a + " msgs ]]] cost less than 1 tick but [[[  IDLE ]]] cost more than" + (this.f31504c - 1) + " ticks, , mDuration：" + this.f31505d + "cpuTime:" + this.f31506e;
                 } else if (i2 == 6) {
-                    return "[[[  1 msg  ]]] cost less than 1 tick , but [[[  IDLE ]]] cost more than" + (this.f31395c - 1) + ", , mDuration：" + this.f31396d + "cpuTime:" + this.f31397e;
+                    return "[[[  1 msg  ]]] cost less than 1 tick , but [[[  IDLE ]]] cost more than" + (this.f31504c - 1) + ", , mDuration：" + this.f31505d + "cpuTime:" + this.f31506e;
                 } else if (i2 == 7) {
-                    return "[[[ " + this.f31393a + " msgs + IDLE  ]]] cost 1 tick , mDuration：" + this.f31396d + " cost cpuTime:" + this.f31397e;
+                    return "[[[ " + this.f31502a + " msgs + IDLE  ]]] cost 1 tick , mDuration：" + this.f31505d + " cost cpuTime:" + this.f31506e;
                 } else if (i2 == 8) {
-                    return "[[[ 1 msgs ]]] cost " + this.f31395c + " ticks , mDuration：" + this.f31396d + " cost cpuTime:" + this.f31397e + " msg:" + this.f31399g;
+                    return "[[[ 1 msgs ]]] cost " + this.f31504c + " ticks , mDuration：" + this.f31505d + " cost cpuTime:" + this.f31506e + " msg:" + this.f31508g;
                 } else if (i2 == 9) {
-                    return "[[[ " + this.f31393a + " msgs ]]] cost 1 tick , mDuration：" + this.f31396d + " cost cpuTime:" + this.f31397e;
+                    return "[[[ " + this.f31502a + " msgs ]]] cost 1 tick , mDuration：" + this.f31505d + " cost cpuTime:" + this.f31506e;
                 } else {
-                    return "=========   UNKNOW =========  Type:" + this.f31394b + " cost ticks " + this.f31395c + " msgs:" + this.f31393a;
+                    return "=========   UNKNOW =========  Type:" + this.f31503b + " cost ticks " + this.f31504c + " msgs:" + this.f31502a;
                 }
             }
             return (String) invokeV.objValue;
@@ -314,8 +314,8 @@ public class g {
                 return;
             }
         }
-        f31387e = new AtomicLong(-1L);
-        f31388f = 100L;
+        f31496e = new AtomicLong(-1L);
+        f31497f = 100L;
         n = null;
         o = false;
         p = -1;
@@ -331,15 +331,15 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            int size = f31386d.size();
-            int i2 = f31385c;
+            int size = f31495d.size();
+            int i2 = f31494c;
             if (size == i2) {
                 int i3 = (s + 1) % i2;
                 s = i3;
-                return f31386d.get(i3);
+                return f31495d.get(i3);
             }
             d dVar = new d();
-            f31386d.add(dVar);
+            f31495d.add(dVar);
             s++;
             return dVar;
         }
@@ -349,11 +349,11 @@ public class g {
     public static void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            f31390h = i.a();
-            f31389g = SystemClock.uptimeMillis();
-            k = new Handler(f31390h.getLooper());
+            f31499h = i.a();
+            f31498g = SystemClock.uptimeMillis();
+            k = new Handler(f31499h.getLooper());
             h.a(8L);
-            k.postDelayed(new c(), f31388f);
+            k.postDelayed(new c(), f31497f);
         }
     }
 
@@ -374,7 +374,7 @@ public class g {
                     v = declaredField;
                     declaredField.setAccessible(true);
                     Message message2 = (Message) v.get(message);
-                    if (f31383a) {
+                    if (f31492a) {
                         String str = "[getNextMessage] success get next msg :" + message2;
                     }
                     return message2;
@@ -456,8 +456,8 @@ public class g {
             try {
                 jSONObject.put("message", n);
                 jSONObject.put("currentMessageCost", s());
-                jSONObject.put("currentMessageCpu", J() - f31391i);
-                jSONObject.put("currentTick", f31387e.get());
+                jSONObject.put("currentMessageCpu", J() - f31500i);
+                jSONObject.put("currentTick", f31496e.get());
             } catch (Throwable th) {
                 l.k.b(th);
             }
@@ -505,21 +505,21 @@ public class g {
             c.b.c.b.h.g.a().h();
             c.b.c.b.h.g.a().i(new a());
             c.b.c.b.h.g.a().d(new b());
-            f31391i = J();
-            f31392j = SystemClock.uptimeMillis();
+            f31500i = J();
+            f31501j = SystemClock.uptimeMillis();
         }
     }
 
     public static void i(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(65555, null, i2, i3) == null) && f31384b) {
+        if ((interceptable == null || interceptable.invokeII(65555, null, i2, i3) == null) && f31493b) {
             if (i2 > 10) {
-                f31385c = i2;
+                f31494c = i2;
             }
             if (i3 > 10) {
-                f31388f = i3;
+                f31497f = i3;
             }
-            f31386d = new ArrayList();
+            f31495d = new ArrayList();
             h();
             c(r());
         }
@@ -540,12 +540,12 @@ public class g {
                     i2++;
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("msg", dVar.f31399g);
-                        jSONObject.put("cpuDuration", dVar.f31397e);
-                        jSONObject.put("duration", dVar.f31396d);
-                        jSONObject.put("tick", dVar.f31395c);
-                        jSONObject.put("type", dVar.f31394b);
-                        jSONObject.put("count", dVar.f31393a);
+                        jSONObject.put("msg", dVar.f31508g);
+                        jSONObject.put("cpuDuration", dVar.f31506e);
+                        jSONObject.put("duration", dVar.f31505d);
+                        jSONObject.put("tick", dVar.f31504c);
+                        jSONObject.put("type", dVar.f31503b);
+                        jSONObject.put("count", dVar.f31502a);
                         jSONObject.put("id", i2);
                     } catch (JSONException e2) {
                         e2.printStackTrace();
@@ -561,15 +561,15 @@ public class g {
     public static void o(d dVar, long j2, long j3, long j4, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{dVar, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
-            dVar.f31397e = j2;
-            dVar.f31395c = j4;
-            dVar.f31396d = j3;
-            dVar.f31398f = false;
-            dVar.f31393a = i3;
+            dVar.f31506e = j2;
+            dVar.f31504c = j4;
+            dVar.f31505d = j3;
+            dVar.f31507f = false;
+            dVar.f31502a = i3;
             if (str != null) {
-                dVar.f31399g = str;
+                dVar.f31508g = str;
             }
-            dVar.f31394b = i2;
+            dVar.f31503b = i2;
         }
     }
 
@@ -577,20 +577,20 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
-            if (f31386d == null) {
+            if (f31495d == null) {
                 return null;
             }
             o = true;
             ArrayList arrayList = new ArrayList();
-            if (f31386d.size() == f31385c) {
-                for (int i2 = s; i2 < f31386d.size(); i2++) {
-                    arrayList.add(f31386d.get(i2));
+            if (f31495d.size() == f31494c) {
+                for (int i2 = s; i2 < f31495d.size(); i2++) {
+                    arrayList.add(f31495d.get(i2));
                 }
                 for (int i3 = 0; i3 < s; i3++) {
-                    arrayList.add(f31386d.get(i3));
+                    arrayList.add(f31495d.get(i3));
                 }
             } else {
-                arrayList.addAll(f31386d);
+                arrayList.addAll(f31495d);
             }
             o = false;
             return arrayList;
@@ -631,13 +631,13 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
             if (q < 0) {
-                uptimeMillis = SystemClock.uptimeMillis() - f31389g;
+                uptimeMillis = SystemClock.uptimeMillis() - f31498g;
                 j2 = r;
-                j3 = f31388f;
+                j3 = f31497f;
             } else {
-                uptimeMillis = SystemClock.uptimeMillis() - f31389g;
+                uptimeMillis = SystemClock.uptimeMillis() - f31498g;
                 j2 = q;
-                j3 = f31388f;
+                j3 = f31497f;
             }
             return uptimeMillis - (j2 * j3);
         }

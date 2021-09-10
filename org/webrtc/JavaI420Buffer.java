@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
+import org.webrtc.JniCommon;
 import org.webrtc.VideoFrame;
 /* loaded from: classes2.dex */
 public class JavaI420Buffer implements VideoFrame.I420Buffer {
@@ -54,7 +55,7 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
     public static JavaI420Buffer allocate(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) {
             int i4 = (i3 + 1) / 2;
             int i5 = (i2 + 1) / 2;
             int i6 = i2 * i3;
@@ -70,7 +71,7 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
             ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
             nativeAllocateByteBuffer.position(i9);
             nativeAllocateByteBuffer.limit(i9 + i8);
-            return new JavaI420Buffer(i2, i3, slice, i2, slice2, i5, nativeAllocateByteBuffer.slice(), i5, new Runnable() { // from class: org.webrtc._$$Lambda$JavaI420Buffer$_Oc35sRrucoGcYlFFmf5S_RP8fI
+            return new JavaI420Buffer(i2, i3, slice, i2, slice2, i5, nativeAllocateByteBuffer.slice(), i5, new Runnable() { // from class: h.c.o
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -89,7 +90,7 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
     public static void checkCapacity(ByteBuffer byteBuffer, int i2, int i3, int i4) {
         int i5;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(65538, null, byteBuffer, i2, i3, i4) == null) || byteBuffer.capacity() >= (i5 = (i4 * (i3 - 1)) + i2)) {
+        if (!(interceptable == null || interceptable.invokeLIII(65539, null, byteBuffer, i2, i3, i4) == null) || byteBuffer.capacity() >= (i5 = (i4 * (i3 - 1)) + i2)) {
             return;
         }
         throw new IllegalArgumentException("Buffer must be at least " + i5 + " bytes, but was " + byteBuffer.capacity());
@@ -98,7 +99,7 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
     public static VideoFrame.Buffer cropAndScaleI420(final VideoFrame.I420Buffer i420Buffer, int i2, int i3, int i4, int i5, int i6, int i7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{i420Buffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{i420Buffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) {
             if (i4 == i6 && i5 == i7) {
                 ByteBuffer dataY = i420Buffer.getDataY();
                 ByteBuffer dataU = i420Buffer.getDataU();
@@ -116,7 +117,7 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
                 ByteBuffer slice3 = dataV.slice();
                 int strideV = i420Buffer.getStrideV();
                 i420Buffer.getClass();
-                return wrap(i6, i7, slice, strideY, slice2, strideU, slice3, strideV, new Runnable() { // from class: org.webrtc._$$Lambda$cpstbe6pEi_a9uN5WMp_TN86PFo
+                return wrap(i6, i7, slice, strideY, slice2, strideU, slice3, strideV, new Runnable() { // from class: h.c.f0
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -142,21 +143,21 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), byteBuffer, Integer.valueOf(i4), byteBuffer2, Integer.valueOf(i5), byteBuffer3, Integer.valueOf(i6), runnable})) == null) {
-            if (byteBuffer == null || byteBuffer2 == null || byteBuffer3 == null) {
-                throw new IllegalArgumentException("Data buffers cannot be null.");
+            if (byteBuffer != null && byteBuffer2 != null && byteBuffer3 != null) {
+                if (byteBuffer.isDirect() && byteBuffer2.isDirect() && byteBuffer3.isDirect()) {
+                    ByteBuffer slice = byteBuffer.slice();
+                    ByteBuffer slice2 = byteBuffer2.slice();
+                    ByteBuffer slice3 = byteBuffer3.slice();
+                    int i7 = (i2 + 1) / 2;
+                    int i8 = (i3 + 1) / 2;
+                    checkCapacity(slice, i2, i3, i4);
+                    checkCapacity(slice2, i7, i8, i5);
+                    checkCapacity(slice3, i7, i8, i6);
+                    return new JavaI420Buffer(i2, i3, slice, i4, slice2, i5, slice3, i6, runnable);
+                }
+                throw new IllegalArgumentException("Data buffers must be direct byte buffers.");
             }
-            if (byteBuffer.isDirect() && byteBuffer2.isDirect() && byteBuffer3.isDirect()) {
-                ByteBuffer slice = byteBuffer.slice();
-                ByteBuffer slice2 = byteBuffer2.slice();
-                ByteBuffer slice3 = byteBuffer3.slice();
-                int i7 = (i2 + 1) / 2;
-                int i8 = (i3 + 1) / 2;
-                checkCapacity(slice, i2, i3, i4);
-                checkCapacity(slice2, i7, i8, i5);
-                checkCapacity(slice3, i7, i8, i6);
-                return new JavaI420Buffer(i2, i3, slice, i4, slice2, i5, slice3, i6, runnable);
-            }
-            throw new IllegalArgumentException("Data buffers must be direct byte buffers.");
+            throw new IllegalArgumentException("Data buffers cannot be null.");
         }
         return (JavaI420Buffer) invokeCommon.objValue;
     }

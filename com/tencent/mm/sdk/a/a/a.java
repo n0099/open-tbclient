@@ -21,7 +21,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f76086j;
+        public String f76266j;
         public Bundle k;
         public String l;
         public String m;
@@ -61,8 +61,8 @@ public final class a {
                 String packageName = context.getPackageName();
                 intent.putExtra("_mmessage_sdkVersion", 570490883);
                 intent.putExtra("_mmessage_appPackage", packageName);
-                intent.putExtra("_mmessage_content", c2088a.f76086j);
-                intent.putExtra("_mmessage_checksum", b.a(c2088a.f76086j, 570490883, packageName));
+                intent.putExtra("_mmessage_content", c2088a.f76266j);
+                intent.putExtra("_mmessage_checksum", b.a(c2088a.f76266j, 570490883, packageName));
                 context.sendBroadcast(intent, str2);
                 com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.MMessage", "send mm message, intent=" + intent + ", perm=" + str2);
                 return true;

@@ -8,8 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.a.i;
 import c.a.e.a.j;
-import c.a.e.f.a.i;
+import c.a.e.f.a.h;
 import c.a.e.l.e.b;
 import c.a.e.l.e.c;
 import c.a.e.l.e.e;
@@ -553,8 +554,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 if (!(interceptable2 == null || interceptable2.invokeL(65537, this, view) == null) || view == null) {
                     return;
                 }
-                if (view instanceof i) {
-                    ((i) view).refresh();
+                if (view instanceof h) {
+                    ((h) view).refresh();
                 }
                 if (view instanceof ViewGroup) {
                     ViewGroup viewGroup = (ViewGroup) view;
@@ -573,7 +574,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     for (int i4 = 0; i4 < childCount; i4++) {
                         refreshImage(this.this$0.getChildAt(i4));
                     }
-                    c.a.e.a.i c2 = j.c(this.this$0.getContext());
+                    i c2 = j.c(this.this$0.getContext());
                     if (c2 != null) {
                         c2.onPreLoad(this.this$0.mPreLoadListView);
                     }
@@ -605,7 +606,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
 
             @Override // java.lang.Runnable
             public void run() {
-                c.a.e.a.i c2;
+                i c2;
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (c2 = j.c(this.this$0.getContext())) == null) {
                     return;
@@ -772,7 +773,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 public void onScrollStateChanged(PLA_AbsListView pLA_AbsListView, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pLA_AbsListView, i2) == null) {
-                        c.a.e.a.i c2 = j.c(this.this$0.getContext());
+                        i c2 = j.c(this.this$0.getContext());
                         if (c2 != null) {
                             if (i2 == 2) {
                                 BdMultiColumnListView bdMultiColumnListView = this.this$0;
@@ -1432,8 +1433,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 if (!(interceptable2 == null || interceptable2.invokeL(65537, this, view) == null) || view == null) {
                     return;
                 }
-                if (view instanceof i) {
-                    ((i) view).refresh();
+                if (view instanceof h) {
+                    ((h) view).refresh();
                 }
                 if (view instanceof ViewGroup) {
                     ViewGroup viewGroup = (ViewGroup) view;
@@ -1452,7 +1453,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     for (int i4 = 0; i4 < childCount; i4++) {
                         refreshImage(this.this$0.getChildAt(i4));
                     }
-                    c.a.e.a.i c2 = j.c(this.this$0.getContext());
+                    i c2 = j.c(this.this$0.getContext());
                     if (c2 != null) {
                         c2.onPreLoad(this.this$0.mPreLoadListView);
                     }
@@ -1484,7 +1485,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
 
             @Override // java.lang.Runnable
             public void run() {
-                c.a.e.a.i c2;
+                i c2;
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (c2 = j.c(this.this$0.getContext())) == null) {
                     return;
@@ -1662,8 +1663,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 if (!(interceptable2 == null || interceptable2.invokeL(65537, this, view) == null) || view == null) {
                     return;
                 }
-                if (view instanceof i) {
-                    ((i) view).refresh();
+                if (view instanceof h) {
+                    ((h) view).refresh();
                 }
                 if (view instanceof ViewGroup) {
                     ViewGroup viewGroup = (ViewGroup) view;
@@ -1682,7 +1683,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     for (int i42 = 0; i42 < childCount; i42++) {
                         refreshImage(this.this$0.getChildAt(i42));
                     }
-                    c.a.e.a.i c2 = j.c(this.this$0.getContext());
+                    i c2 = j.c(this.this$0.getContext());
                     if (c2 != null) {
                         c2.onPreLoad(this.this$0.mPreLoadListView);
                     }
@@ -1714,7 +1715,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
 
             @Override // java.lang.Runnable
             public void run() {
-                c.a.e.a.i c2;
+                i c2;
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (c2 = j.c(this.this$0.getContext())) == null) {
                     return;

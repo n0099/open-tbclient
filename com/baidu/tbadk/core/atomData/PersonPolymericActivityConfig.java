@@ -17,6 +17,11 @@ public class PersonPolymericActivityConfig extends IntentConfig {
     public static final String IS_SHOW_THREAD_TOP = "is_show_thread_top";
     public static final String IS_USER_SELF = "is_user_self";
     public static final String RESOURCE_TYPE = "resouce_type";
+    public static final String VIDEO_PERSON_FROM_FRS = "frs";
+    public static final String VIDEO_PERSON_FROM_HOME = "home";
+    public static final String VIDEO_PERSON_FROM_TOPIC_DETAIL = "topic_detail";
+    public static final String VIDEO_PERSON_FROM_VIDEO_CHANNEL = "video_channel";
+    public static final String VIDEO_PERSON_FROM_VIDEO_MIDDLE = "video_middle";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -85,15 +90,16 @@ public class PersonPolymericActivityConfig extends IntentConfig {
         intent.putExtra(IntentConfig.KEY_URI, uri);
     }
 
-    public PersonPolymericActivityConfig createNormalConfig(long j2, boolean z, boolean z2, boolean z3) {
+    public PersonPolymericActivityConfig createNormalConfig(long j2, boolean z, boolean z2, boolean z3, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str})) == null) {
             Intent intent = getIntent();
             intent.putExtra("user_id", j2);
             intent.putExtra(IS_USER_SELF, z);
             intent.putExtra(IS_BIGV, z2);
-            intent.putExtra(IS_SHOW_THREAD_TOP, z3);
+            intent.putExtra(IntentConfig.IS_VIDEO_THREAD, z3);
+            intent.putExtra(IntentConfig.VIDEO_PERSON_FROM, str);
             return this;
         }
         return (PersonPolymericActivityConfig) invokeCommon.objValue;

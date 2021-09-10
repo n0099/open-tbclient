@@ -353,7 +353,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 return false;
             }
             try {
-                c.f30154a = z;
+                c.f30259a = z;
             } catch (Throwable unused) {
                 LogUtils.e(BaseManager.TAG, "LCPConstants.LOG_DEBUG not found");
             }
@@ -712,8 +712,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
             }
             Context applicationContext = context.getApplicationContext();
             sContext = applicationContext;
-            c.a.t.a.f30000e = a.d(applicationContext);
-            if (c.a.t.a.f30000e) {
+            c.a.t.a.f29902e = a.d(applicationContext);
+            if (c.a.t.a.f29902e) {
                 try {
                     initLCP();
                     c.c(applicationContext, i2 != 0);
@@ -754,7 +754,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                         }
                         try {
                             BIMManager.initIMServiceImpl(context2);
-                            c.a.t.a.f29998c.removeCallbacks(BIMManager.checkIMLoginState);
+                            c.a.t.a.f29900c.removeCallbacks(BIMManager.checkIMLoginState);
                             if (z) {
                                 BIMManager.postCheckRunnable();
                             }
@@ -1137,7 +1137,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         if (interceptable == null || interceptable.invokeV(65629, null) == null) {
             try {
                 LogUtils.i("BIMManager", "postCheckRunnable after 30s");
-                c.a.t.a.f29998c.postDelayed(checkIMLoginState, 30000L);
+                c.a.t.a.f29900c.postDelayed(checkIMLoginState, 30000L);
             } catch (Exception e2) {
                 LogUtils.e(BaseManager.TAG, "postCheckRunnable exception ", e2);
             }
@@ -1361,7 +1361,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
 
     public static void tryConnection(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65656, null, context) == null) || c.a.t.a.f30000e) {
+        if (!(interceptable == null || interceptable.invokeL(65656, null, context) == null) || c.a.t.a.f29902e) {
             return;
         }
         AccountManagerImpl.getInstance(context);

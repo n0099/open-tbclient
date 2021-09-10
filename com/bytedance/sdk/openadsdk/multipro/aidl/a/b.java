@@ -21,10 +21,10 @@ public class b extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, RemoteCallbackList<ITTAppDownloadListener>> f67865a;
+    public static Map<String, RemoteCallbackList<ITTAppDownloadListener>> f68045a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f67866b;
+    public static volatile b f68046b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class b extends a {
                 return;
             }
         }
-        f67865a = Collections.synchronizedMap(new HashMap());
+        f68045a = Collections.synchronizedMap(new HashMap());
     }
 
     public b() {
@@ -61,14 +61,14 @@ public class b extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f67866b == null) {
+            if (f68046b == null) {
                 synchronized (b.class) {
-                    if (f67866b == null) {
-                        f67866b = new b();
+                    if (f68046b == null) {
+                        f68046b = new b();
                     }
                 }
             }
-            return f67866b;
+            return f68046b;
         }
         return (b) invokeV.objValue;
     }
@@ -85,14 +85,14 @@ public class b extends a {
     public void registerTTAppDownloadListener(String str, ITTAppDownloadListener iTTAppDownloadListener) throws RemoteException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, iTTAppDownloadListener) == null) {
-            RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f67865a.get(str);
+            RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f68045a.get(str);
             if (remoteCallbackList == null) {
                 remoteCallbackList = new RemoteCallbackList<>();
             }
             remoteCallbackList.register(iTTAppDownloadListener);
-            f67865a.put(str, remoteCallbackList);
+            f68045a.put(str, remoteCallbackList);
             k.f("DMLibManager", "aidl registerTTAppDownloadListener, materialMd5:" + str);
-            k.f("DMLibManager", "aidl registerTTAppDownloadListener, mListenerMap size:" + f67865a.size());
+            k.f("DMLibManager", "aidl registerTTAppDownloadListener, mListenerMap size:" + f68045a.size());
         }
     }
 
@@ -100,7 +100,7 @@ public class b extends a {
     public void unregisterTTAppDownloadListener(String str, ITTAppDownloadListener iTTAppDownloadListener) throws RemoteException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, iTTAppDownloadListener) == null) {
-            Map<String, RemoteCallbackList<ITTAppDownloadListener>> map = f67865a;
+            Map<String, RemoteCallbackList<ITTAppDownloadListener>> map = f68045a;
             if (map == null) {
                 k.f("DMLibManager", "aidl unregisterTTAppDownloadListener mListenerMap = null, materialMd5:" + str);
                 return;
@@ -112,7 +112,7 @@ public class b extends a {
             }
             a(remove);
             k.f("DMLibManager", "aidl unregisterTTAppDownloadListener, materialMd5:" + str);
-            k.f("DMLibManager", "aidl unregisterTTAppDownloadListener, mListenerMap size:" + f67865a.size());
+            k.f("DMLibManager", "aidl unregisterTTAppDownloadListener, mListenerMap size:" + f68045a.size());
         }
     }
 
@@ -125,16 +125,16 @@ public class b extends a {
                 } catch (Throwable th) {
                     k.c("MultiProcess", "AppDownloadListenerManagerImpl MultiProcess2: " + str2 + " throws Exception :", th);
                 }
-                if (f67865a == null) {
+                if (f68045a == null) {
                     return;
                 }
                 if ("recycleRes".equals(str2)) {
-                    a(f67865a.remove(str));
+                    a(f68045a.remove(str));
                     k.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, materialMd5:" + str);
-                    k.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, mListenerMap sizee:" + f67865a.size());
+                    k.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, mListenerMap sizee:" + f68045a.size());
                     return;
                 }
-                RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f67865a.get(str);
+                RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f68045a.get(str);
                 if (remoteCallbackList != null) {
                     int beginBroadcast = remoteCallbackList.beginBroadcast();
                     for (int i2 = 0; i2 < beginBroadcast; i2++) {

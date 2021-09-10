@@ -15,7 +15,7 @@ public class f extends c {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Context context, b bVar, d dVar) {
-        super(com.bytedance.tea.crash.c.f68734h, context, bVar, dVar);
+        super(com.bytedance.tea.crash.c.f68914h, context, bVar, dVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,10 +40,10 @@ public class f extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             c.b.c.b.e.a a2 = super.a(aVar);
-            c.b.c.b.e.b a3 = c.b.c.b.e.b.a(this.f31437b);
+            c.b.c.b.e.b a3 = c.b.c.b.e.b.a(this.f31546b);
             a3.d(m.a().a());
             a3.c(m.d().a());
-            a3.g(this.f31438c.c());
+            a3.g(this.f31547c.c());
             a2.d(a3);
             return a2;
         }

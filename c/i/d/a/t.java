@@ -12,7 +12,7 @@ public abstract class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final t f34064a;
+    public static final t f34173a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -55,7 +55,7 @@ public abstract class t {
                 return;
             }
         }
-        f34064a = new a();
+        f34173a = new a();
     }
 
     public t() {
@@ -75,7 +75,7 @@ public abstract class t {
     public static t b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f34064a : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f34173a : (t) invokeV.objValue;
     }
 
     public abstract long a();

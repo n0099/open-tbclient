@@ -15,7 +15,7 @@ public class cc extends XMPushService.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f78016a;
+    public final /* synthetic */ XMPushService f78196a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f951a;
@@ -24,7 +24,7 @@ public class cc extends XMPushService.i {
     public final /* synthetic */ byte[] f952a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f78017b;
+    public final /* synthetic */ int f78197b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cc(XMPushService xMPushService, int i2, int i3, byte[] bArr, String str) {
@@ -44,8 +44,8 @@ public class cc extends XMPushService.i {
                 return;
             }
         }
-        this.f78016a = xMPushService;
-        this.f78017b = i3;
+        this.f78196a = xMPushService;
+        this.f78197b = i3;
         this.f952a = bArr;
         this.f951a = str;
     }
@@ -62,12 +62,12 @@ public class cc extends XMPushService.i {
         fm fmVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m.m634a((Context) this.f78016a);
+            m.m634a((Context) this.f78196a);
             av.a().m607a("5");
-            com.xiaomi.push.ab.a(this.f78017b);
-            fmVar = this.f78016a.f848a;
+            com.xiaomi.push.ab.a(this.f78197b);
+            fmVar = this.f78196a.f848a;
             fmVar.c(fm.a());
-            this.f78016a.a(this.f952a, this.f951a);
+            this.f78196a.a(this.f952a, this.f951a);
         }
     }
 }

@@ -104,7 +104,7 @@ public final class Predicates {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final g<A, ? extends B> f70103f;
+        public final g<A, ? extends B> f70283f;
         public final o<B> p;
 
         public /* synthetic */ CompositionPredicate(o oVar, g gVar, a aVar) {
@@ -115,7 +115,7 @@ public final class Predicates {
         public boolean apply(A a2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a2)) == null) ? this.p.apply(this.f70103f.apply(a2)) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a2)) == null) ? this.p.apply(this.f70283f.apply(a2)) : invokeL.booleanValue;
         }
 
         @Override // c.i.d.a.o
@@ -125,7 +125,7 @@ public final class Predicates {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
                 if (obj instanceof CompositionPredicate) {
                     CompositionPredicate compositionPredicate = (CompositionPredicate) obj;
-                    return this.f70103f.equals(compositionPredicate.f70103f) && this.p.equals(compositionPredicate.p);
+                    return this.f70283f.equals(compositionPredicate.f70283f) && this.p.equals(compositionPredicate.p);
                 }
                 return false;
             }
@@ -135,14 +135,14 @@ public final class Predicates {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70103f.hashCode() ^ this.p.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70283f.hashCode() ^ this.p.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.p + "(" + this.f70103f + SmallTailInfo.EMOTION_SUFFIX;
+                return this.p + "(" + this.f70283f + SmallTailInfo.EMOTION_SUFFIX;
             }
             return (String) invokeV.objValue;
         }
@@ -165,7 +165,7 @@ public final class Predicates {
             n.p(oVar);
             this.p = oVar;
             n.p(gVar);
-            this.f70103f = gVar;
+            this.f70283f = gVar;
         }
     }
 

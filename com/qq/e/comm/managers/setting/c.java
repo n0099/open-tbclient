@@ -51,14 +51,14 @@ public final class c extends e {
     public final Object a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f75186a.opt(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f75366a.opt(str) : invokeL.objValue;
     }
 
     public final Object a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            JSONObject optJSONObject = this.f75186a.optJSONObject(str2);
+            JSONObject optJSONObject = this.f75366a.optJSONObject(str2);
             if (optJSONObject != null) {
                 return optJSONObject.opt(str);
             }
@@ -71,7 +71,7 @@ public final class c extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj) == null) {
             try {
-                this.f75186a.putOpt(str, obj);
+                this.f75366a.putOpt(str, obj);
             } catch (JSONException e2) {
                 GDTLogger.d(e2.getMessage());
             }

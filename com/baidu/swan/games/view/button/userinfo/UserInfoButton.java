@@ -2,7 +2,7 @@ package com.baidu.swan.games.view.button.userinfo;
 
 import android.content.Context;
 import android.view.View;
-import c.a.o0.h.o0.d.b.c;
+import c.a.p0.h.o0.d.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.swan.games.view.button.base.ApiButton;
@@ -22,7 +22,7 @@ public class UserInfoButton extends ApiButton {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserInfoButton f46953a;
+        public final /* synthetic */ UserInfoButton f47068a;
 
         public a(UserInfoButton userInfoButton) {
             Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class UserInfoButton extends ApiButton {
                     return;
                 }
             }
-            this.f46953a = userInfoButton;
+            this.f47068a = userInfoButton;
         }
 
-        @Override // c.a.o0.h.o0.d.b.c.b
+        @Override // c.a.p0.h.o0.d.b.c.b
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f46953a.dispatchData(jSONObject);
+                this.f47068a.dispatchData(jSONObject);
             }
         }
     }
@@ -74,7 +74,7 @@ public class UserInfoButton extends ApiButton {
     public void dispatchData(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            c.a.o0.h.o0.d.b.a aVar = new c.a.o0.h.o0.d.b.a();
+            c.a.p0.h.o0.d.b.a aVar = new c.a.p0.h.o0.d.b.a();
             aVar.data = jSONObject;
             dispatchEvent(aVar);
         }

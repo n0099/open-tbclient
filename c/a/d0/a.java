@@ -213,11 +213,11 @@ public class a {
         public void a(Activity activity, c.a.e0.o.a.b bVar, c.a.e0.o.a.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, bVar, aVar) == null) {
-                if (bVar == null || TextUtils.isEmpty(bVar.f3249a) || bVar.f3250b == null) {
+                if (bVar == null || TextUtils.isEmpty(bVar.f3240a) || bVar.f3241b == null) {
                     a.f(aVar, 6, "支付信息不能为空");
                     return;
                 }
-                String str = bVar.f3249a;
+                String str = bVar.f3240a;
                 char c2 = 65535;
                 switch (str.hashCode()) {
                     case -1537577171:
@@ -258,15 +258,15 @@ public class a {
                         break;
                 }
                 if (c2 == 0 || c2 == 1) {
-                    c.a.d0.c.e().a(activity, bVar.f3250b.optString("orderInfo"), new C0026a(this, aVar));
+                    c.a.d0.c.e().a(activity, bVar.f3241b.optString("orderInfo"), new C0026a(this, aVar));
                 } else if (c2 == 2) {
-                    c.a.d0.c.e().d(activity, bVar.f3250b, new C0027b(this, aVar));
+                    c.a.d0.c.e().d(activity, bVar.f3241b, new C0027b(this, aVar));
                 } else if (c2 == 3) {
-                    c.a.d0.c.e().b(activity, bVar.f3250b.optString("orderInfo"), new c(this, aVar));
+                    c.a.d0.c.e().b(activity, bVar.f3241b.optString("orderInfo"), new c(this, aVar));
                 } else if (c2 == 4) {
                     c.a.e0.o.a.a unused = a.f1963b = aVar;
                     d.c();
-                    c.a.d0.c.e().c(activity, bVar.f3250b);
+                    c.a.d0.c.e().c(activity, bVar.f3241b);
                 } else {
                     aVar.onResult(3, "未知的支付方式");
                 }

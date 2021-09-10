@@ -16,7 +16,7 @@ public final class bi extends BroadcastReceiver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59567a;
+    public final /* synthetic */ FeedbackInputActivity f59747a;
 
     public bi(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class bi extends BroadcastReceiver {
                 return;
             }
         }
-        this.f59567a = feedbackInputActivity;
+        this.f59747a = feedbackInputActivity;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0061  */
@@ -53,39 +53,39 @@ public final class bi extends BroadcastReceiver {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             if (intent.getAction().equals("com.baidu.ufosdk.getchat")) {
                 ArrayList parcelableArrayList = intent.getExtras().getParcelableArrayList("msgList");
-                handler2 = this.f59567a.aK;
+                handler2 = this.f59747a.aK;
                 handler2.obtainMessage(2, parcelableArrayList).sendToTarget();
             }
             if (intent.getAction().equals("com.baidu.ufosdk.getmsgid")) {
-                this.f59567a.f59495e = intent.getStringExtra("msgid");
-                str = this.f59567a.ar;
+                this.f59747a.f59675e = intent.getStringExtra("msgid");
+                str = this.f59747a.ar;
                 if (str != null) {
-                    str3 = this.f59567a.ar;
+                    str3 = this.f59747a.ar;
                     if (str3.length() > 0) {
-                        str2 = this.f59567a.ar;
-                        feedbackInputActivity = this.f59567a;
-                        if (feedbackInputActivity.f59497g == null) {
-                            feedbackInputActivity.f59497g = new com.baidu.ufosdk.a.a(this.f59567a.getApplicationContext(), this.f59567a.f59495e, str2);
+                        str2 = this.f59747a.ar;
+                        feedbackInputActivity = this.f59747a;
+                        if (feedbackInputActivity.f59677g == null) {
+                            feedbackInputActivity.f59677g = new com.baidu.ufosdk.a.a(this.f59747a.getApplicationContext(), this.f59747a.f59675e, str2);
                         }
-                        this.f59567a.f59497g.b();
-                        if (!this.f59567a.f59497g.isAlive()) {
-                            this.f59567a.f59497g.start();
+                        this.f59747a.f59677g.b();
+                        if (!this.f59747a.f59677g.isAlive()) {
+                            this.f59747a.f59677g.start();
                         }
                     }
                 }
                 str2 = UfoSDK.appid;
-                feedbackInputActivity = this.f59567a;
-                if (feedbackInputActivity.f59497g == null) {
+                feedbackInputActivity = this.f59747a;
+                if (feedbackInputActivity.f59677g == null) {
                 }
-                this.f59567a.f59497g.b();
-                if (!this.f59567a.f59497g.isAlive()) {
+                this.f59747a.f59677g.b();
+                if (!this.f59747a.f59677g.isAlive()) {
                 }
             }
             if (intent.getAction().equals("com.baidu.ufosdk.deletemsg_dialogdismiss")) {
-                this.f59567a.k.setVisibility(8);
+                this.f59747a.k.setVisibility(8);
             }
             if (intent.getAction().equals("com.baidu.ufosdk.reload")) {
-                handler = this.f59567a.aK;
+                handler = this.f59747a.aK;
                 handler.obtainMessage(4, null).sendToTarget();
             }
         }

@@ -7,8 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.p0.s.f0.f;
-import c.a.p0.s.q.c2;
+import c.a.q0.s.f0.f;
+import c.a.q0.s.q.d2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -43,16 +43,16 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     public transient /* synthetic */ FieldHolder $fh;
     public String forumId;
     public String forumName;
-    public c.a.q0.v.e.c.d frsLiveViewEvent;
+    public c.a.r0.v.e.c.d frsLiveViewEvent;
     public f.g listPullRefreshListener;
     public AlaFrsStoryLiveGatherModel liveModel;
     public TextView mAllBtn;
-    public c.a.q0.v.e.c.b mLiveView;
+    public c.a.r0.v.e.c.b mLiveView;
     public NavigationBar mNavigationBar;
     public View mStatusBarView;
     public AlaFrsStoryLiveGatherModel.b modelCallback;
     public BdListView.p scrollToBottomListener;
-    public c.a.q0.v.c subCardClickListener;
+    public c.a.r0.v.c subCardClickListener;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -60,7 +60,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsStoryLiveGatherActivity f49509e;
+        public final /* synthetic */ AlaFrsStoryLiveGatherActivity f49644e;
 
         public a(AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity) {
             Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                     return;
                 }
             }
-            this.f49509e = alaFrsStoryLiveGatherActivity;
+            this.f49644e = alaFrsStoryLiveGatherActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49509e.finish();
+                this.f49644e.finish();
             }
         }
     }
@@ -95,7 +95,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsStoryLiveGatherActivity f49510e;
+        public final /* synthetic */ AlaFrsStoryLiveGatherActivity f49645e;
 
         public b(AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity) {
             Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                     return;
                 }
             }
-            this.f49510e = alaFrsStoryLiveGatherActivity;
+            this.f49645e = alaFrsStoryLiveGatherActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -120,7 +120,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TiebaStatic.log(new StatisticItem("c12551"));
-                this.f49510e.sendMessage(new CustomMessage((int) AlaCmdConfigCustom.CMD_ALA_ALL_LIVE_SIMPLE, new IntentConfig(this.f49510e.getPageContext().getPageActivity())));
+                this.f49645e.sendMessage(new CustomMessage((int) AlaCmdConfigCustom.CMD_ALA_ALL_LIVE_SIMPLE, new IntentConfig(this.f49645e.getPageContext().getPageActivity())));
             }
         }
     }
@@ -131,7 +131,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsStoryLiveGatherActivity f49511a;
+        public final /* synthetic */ AlaFrsStoryLiveGatherActivity f49646a;
 
         public c(AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity) {
             Interceptable interceptable = $ic;
@@ -148,28 +148,28 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                     return;
                 }
             }
-            this.f49511a = alaFrsStoryLiveGatherActivity;
+            this.f49646a = alaFrsStoryLiveGatherActivity;
         }
 
         @Override // com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherModel.b
         public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f49511a.getPageContext() == null || this.f49511a.mLiveView == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f49646a.getPageContext() == null || this.f49646a.mLiveView == null) {
                 return;
             }
-            AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity = this.f49511a;
+            AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity = this.f49646a;
             alaFrsStoryLiveGatherActivity.hideLoadingView(alaFrsStoryLiveGatherActivity.mLiveView.g());
-            this.f49511a.mLiveView.e();
-            this.f49511a.mLiveView.t(this.f49511a.liveModel.K(), this.f49511a.liveModel.Q(), z);
-            this.f49511a.mLiveView.o(this.f49511a.liveModel.L());
-            if (ListUtils.getCount(this.f49511a.liveModel.K()) == 0) {
-                AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity2 = this.f49511a;
+            this.f49646a.mLiveView.e();
+            this.f49646a.mLiveView.t(this.f49646a.liveModel.K(), this.f49646a.liveModel.Q(), z);
+            this.f49646a.mLiveView.o(this.f49646a.liveModel.L());
+            if (ListUtils.getCount(this.f49646a.liveModel.K()) == 0) {
+                AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity2 = this.f49646a;
                 alaFrsStoryLiveGatherActivity2.setNetRefreshViewTopMargin(alaFrsStoryLiveGatherActivity2.getResources().getDimensionPixelSize(R.dimen.ds160));
-                AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity3 = this.f49511a;
-                alaFrsStoryLiveGatherActivity3.showNetRefreshView(alaFrsStoryLiveGatherActivity3.mLiveView.g(), this.f49511a.getPageContext().getString(R.string.no_data_text), false);
+                AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity3 = this.f49646a;
+                alaFrsStoryLiveGatherActivity3.showNetRefreshView(alaFrsStoryLiveGatherActivity3.mLiveView.g(), this.f49646a.getPageContext().getString(R.string.no_data_text), false);
                 return;
             }
-            AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity4 = this.f49511a;
+            AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity4 = this.f49646a;
             alaFrsStoryLiveGatherActivity4.hideNetRefreshView(alaFrsStoryLiveGatherActivity4.mLiveView.g());
         }
 
@@ -177,30 +177,30 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         public void onLoadError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                if (this.f49511a.mLiveView != null) {
-                    AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity = this.f49511a;
+                if (this.f49646a.mLiveView != null) {
+                    AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity = this.f49646a;
                     alaFrsStoryLiveGatherActivity.hideLoadingView(alaFrsStoryLiveGatherActivity.mLiveView.g());
-                    this.f49511a.mLiveView.e();
+                    this.f49646a.mLiveView.e();
                 }
-                if (ListUtils.getCount(this.f49511a.liveModel.K()) > 0 && this.f49511a.mLiveView != null) {
-                    this.f49511a.showToast(str);
+                if (ListUtils.getCount(this.f49646a.liveModel.K()) > 0 && this.f49646a.mLiveView != null) {
+                    this.f49646a.showToast(str);
                     return;
                 }
-                AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity2 = this.f49511a;
+                AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity2 = this.f49646a;
                 alaFrsStoryLiveGatherActivity2.setNetRefreshViewTopMargin(alaFrsStoryLiveGatherActivity2.getResources().getDimensionPixelSize(R.dimen.ds160));
-                AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity3 = this.f49511a;
+                AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity3 = this.f49646a;
                 alaFrsStoryLiveGatherActivity3.showNetRefreshView(alaFrsStoryLiveGatherActivity3.mLiveView.g(), str, false);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class d implements c.a.q0.v.c {
+    public class d implements c.a.r0.v.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsStoryLiveGatherActivity f49512a;
+        public final /* synthetic */ AlaFrsStoryLiveGatherActivity f49647a;
 
         public d(AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity) {
             Interceptable interceptable = $ic;
@@ -217,15 +217,15 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                     return;
                 }
             }
-            this.f49512a = alaFrsStoryLiveGatherActivity;
+            this.f49647a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // c.a.q0.v.c
-        public void a(c2 c2Var) {
+        @Override // c.a.r0.v.c
+        public void a(d2 d2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c2Var) == null) {
-                AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity = this.f49512a;
-                alaFrsStoryLiveGatherActivity.jumpToLiveRoom(alaFrsStoryLiveGatherActivity.getPageContext(), c2Var);
+            if (interceptable == null || interceptable.invokeL(1048576, this, d2Var) == null) {
+                AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity = this.f49647a;
+                alaFrsStoryLiveGatherActivity.jumpToLiveRoom(alaFrsStoryLiveGatherActivity.getPageContext(), d2Var);
             }
         }
     }
@@ -236,7 +236,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsStoryLiveGatherActivity f49513e;
+        public final /* synthetic */ AlaFrsStoryLiveGatherActivity f49648e;
 
         public e(AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity) {
             Interceptable interceptable = $ic;
@@ -253,16 +253,16 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                     return;
                 }
             }
-            this.f49513e = alaFrsStoryLiveGatherActivity;
+            this.f49648e = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // c.a.p0.s.f0.f.g
+        @Override // c.a.q0.s.f0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f49513e.liveModel == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f49648e.liveModel == null) {
                 return;
             }
-            this.f49513e.liveModel.S();
+            this.f49648e.liveModel.S();
         }
     }
 
@@ -272,7 +272,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsStoryLiveGatherActivity f49514e;
+        public final /* synthetic */ AlaFrsStoryLiveGatherActivity f49649e;
 
         public f(AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity) {
             Interceptable interceptable = $ic;
@@ -289,19 +289,19 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                     return;
                 }
             }
-            this.f49514e = alaFrsStoryLiveGatherActivity;
+            this.f49649e = alaFrsStoryLiveGatherActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean R = this.f49514e.liveModel != null ? this.f49514e.liveModel.R() : false;
-                if (this.f49514e.mLiveView != null) {
+                boolean R = this.f49649e.liveModel != null ? this.f49649e.liveModel.R() : false;
+                if (this.f49649e.mLiveView != null) {
                     if (R) {
-                        this.f49514e.mLiveView.w();
+                        this.f49649e.mLiveView.w();
                     } else {
-                        this.f49514e.mLiveView.x();
+                        this.f49649e.mLiveView.x();
                     }
                 }
             }
@@ -309,12 +309,12 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes7.dex */
-    public class g implements c.a.q0.v.e.c.d {
+    public class g implements c.a.r0.v.e.c.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsStoryLiveGatherActivity f49515a;
+        public final /* synthetic */ AlaFrsStoryLiveGatherActivity f49650a;
 
         public g(AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity) {
             Interceptable interceptable = $ic;
@@ -331,18 +331,18 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                     return;
                 }
             }
-            this.f49515a = alaFrsStoryLiveGatherActivity;
+            this.f49650a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // c.a.q0.v.e.c.d
+        @Override // c.a.r0.v.e.c.d
         public void a(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f49515a.liveModel == null || this.f49515a.liveModel.N() == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f49650a.liveModel == null || this.f49650a.liveModel.N() == i2) {
                 return;
             }
-            this.f49515a.liveModel.setSortType(i2);
-            if (this.f49515a.mLiveView != null) {
-                this.f49515a.mLiveView.f().startPullRefresh();
+            this.f49650a.liveModel.setSortType(i2);
+            if (this.f49650a.mLiveView != null) {
+                this.f49650a.mLiveView.f().startPullRefresh();
             }
         }
     }
@@ -405,7 +405,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.mNavigationBar.setCenterTextTitle(string);
             linearLayout.addView(this.mNavigationBar, new LinearLayout.LayoutParams(-1, -2));
             SkinManager.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.CAM_X0204);
-            c.a.q0.v.e.c.b bVar = new c.a.q0.v.e.c.b(getPageContext(), false, false, getUniqueId());
+            c.a.r0.v.e.c.b bVar = new c.a.r0.v.e.c.b(getPageContext(), false, false, getUniqueId());
             this.mLiveView = bVar;
             bVar.j();
             this.mLiveView.p(1);
@@ -420,27 +420,27 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         return (View) invokeV.objValue;
     }
 
-    private AlaLiveInfoCoreData parseThreadToLiveCoreData(c2 c2Var) {
+    private AlaLiveInfoCoreData parseThreadToLiveCoreData(d2 d2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, c2Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, d2Var)) == null) {
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(c2Var.j1());
-            alaLiveInfoCoreData.userName = c2Var.J().getUserName();
+            alaLiveInfoCoreData.fillWithInfoData(d2Var.l1());
+            alaLiveInfoCoreData.userName = d2Var.J().getUserName();
             return alaLiveInfoCoreData;
         }
         return (AlaLiveInfoCoreData) invokeL.objValue;
     }
 
-    public void jumpToLiveRoom(TbPageContext<?> tbPageContext, c2 c2Var) {
+    public void jumpToLiveRoom(TbPageContext<?> tbPageContext, d2 d2Var) {
         String str;
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, c2Var) == null) || tbPageContext == null || c2Var == null || c2Var.J() == null || c2Var.j1() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, d2Var) == null) || tbPageContext == null || d2Var == null || d2Var.J() == null || d2Var.l1() == null) {
             return;
         }
         if (TbadkCoreApplication.getCurrentAccount() != null) {
-            String userId = c2Var.J().getUserId();
+            String userId = d2Var.J().getUserId();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             z = TextUtils.equals(userId, currentAccount);
             str = currentAccount;
@@ -448,13 +448,13 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             str = "";
             z = false;
         }
-        TiebaStatic.log(new StatisticItem("c12550").param("obj_param1", c2Var.J().getUserId()));
+        TiebaStatic.log(new StatisticItem("c12550").param("obj_param1", d2Var.J().getUserId()));
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(c2Var.j1());
+        alaLiveInfoCoreData.fillWithInfoData(d2Var.l1());
         AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
         alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-        for (c2 c2Var2 : this.liveModel.M()) {
-            alaLiveInfoListCoreData.mLiveInfoList.add(parseThreadToLiveCoreData(c2Var2));
+        for (d2 d2Var2 : this.liveModel.M()) {
+            alaLiveInfoListCoreData.mLiveInfoList.add(parseThreadToLiveCoreData(d2Var2));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_SQUARE_SUB_LIVE, str, z, null, null)));
     }
@@ -477,7 +477,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0106);
             }
-            c.a.q0.v.e.c.b bVar = this.mLiveView;
+            c.a.r0.v.e.c.b bVar = this.mLiveView;
             if (bVar != null) {
                 bVar.l(TbadkCoreApplication.getInst().getSkinType());
             }

@@ -16,22 +16,22 @@ public class k implements com.kwai.sodler.lib.a.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwai.sodler.lib.a.d f74249a;
+    public final com.kwai.sodler.lib.a.d f74429a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwai.sodler.lib.a.g f74250b;
+    public final com.kwai.sodler.lib.a.g f74430b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.kwai.sodler.lib.a.c f74251c;
+    public final com.kwai.sodler.lib.a.c f74431c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwai.sodler.lib.a.b f74252d;
+    public final com.kwai.sodler.lib.a.b f74432d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwai.sodler.lib.ext.c f74253e;
+    public final com.kwai.sodler.lib.ext.c f74433e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.kwai.sodler.lib.ext.a f74254f;
+    public final com.kwai.sodler.lib.ext.a f74434f;
 
     /* loaded from: classes10.dex */
     public static abstract class a {
@@ -39,7 +39,7 @@ public class k implements com.kwai.sodler.lib.a.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.kwai.sodler.lib.a.e f74255a;
+        public final com.kwai.sodler.lib.a.e f74435a;
 
         /* renamed from: com.kwai.sodler.lib.k$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
@@ -71,7 +71,7 @@ public class k implements com.kwai.sodler.lib.a.e {
             public void a(com.kwai.sodler.lib.a.f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                    this.f74255a.f().a(fVar);
+                    this.f74435a.f().a(fVar);
                 }
             }
         }
@@ -105,7 +105,7 @@ public class k implements com.kwai.sodler.lib.a.e {
             public void a(com.kwai.sodler.lib.a.f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                    this.f74255a.c().a(fVar);
+                    this.f74435a.c().a(fVar);
                 }
             }
         }
@@ -139,7 +139,7 @@ public class k implements com.kwai.sodler.lib.a.e {
             public void a(com.kwai.sodler.lib.a.f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                    this.f74255a.d().a(fVar);
+                    this.f74435a.d().a(fVar);
                 }
             }
         }
@@ -159,7 +159,7 @@ public class k implements com.kwai.sodler.lib.a.e {
                     return;
                 }
             }
-            this.f74255a = eVar;
+            this.f74435a = eVar;
         }
 
         public static a a(com.kwai.sodler.lib.a.e eVar, int i2) {
@@ -186,12 +186,12 @@ public class k implements com.kwai.sodler.lib.a.e {
                 return;
             }
         }
-        this.f74249a = dVar;
-        this.f74250b = gVar;
-        this.f74251c = cVar;
-        this.f74253e = cVar2;
-        this.f74254f = aVar;
-        this.f74252d = bVar;
+        this.f74429a = dVar;
+        this.f74430b = gVar;
+        this.f74431c = cVar;
+        this.f74433e = cVar2;
+        this.f74434f = aVar;
+        this.f74432d = bVar;
     }
 
     public com.kwai.sodler.lib.a.f a(@NonNull com.kwai.sodler.lib.a.f fVar, @NonNull a aVar) {
@@ -218,41 +218,41 @@ public class k implements com.kwai.sodler.lib.a.e {
     public com.kwai.sodler.lib.ext.c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f74253e : (com.kwai.sodler.lib.ext.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f74433e : (com.kwai.sodler.lib.ext.c) invokeV.objValue;
     }
 
     @Override // com.kwai.sodler.lib.a.e
     public com.kwai.sodler.lib.a.d c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f74249a : (com.kwai.sodler.lib.a.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f74429a : (com.kwai.sodler.lib.a.d) invokeV.objValue;
     }
 
     @Override // com.kwai.sodler.lib.a.e
     public com.kwai.sodler.lib.a.g d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f74250b : (com.kwai.sodler.lib.a.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f74430b : (com.kwai.sodler.lib.a.g) invokeV.objValue;
     }
 
     @Override // com.kwai.sodler.lib.a.e
     public com.kwai.sodler.lib.a.c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f74251c : (com.kwai.sodler.lib.a.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f74431c : (com.kwai.sodler.lib.a.c) invokeV.objValue;
     }
 
     @Override // com.kwai.sodler.lib.a.e
     public com.kwai.sodler.lib.a.b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f74252d : (com.kwai.sodler.lib.a.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f74432d : (com.kwai.sodler.lib.a.b) invokeV.objValue;
     }
 
     @Override // com.kwai.sodler.lib.a.e
     public com.kwai.sodler.lib.ext.a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f74254f : (com.kwai.sodler.lib.ext.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f74434f : (com.kwai.sodler.lib.ext.a) invokeV.objValue;
     }
 }

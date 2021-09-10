@@ -14,7 +14,7 @@ public class e extends s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f31223e;
+    public final Context f31332e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Context context) {
@@ -35,7 +35,7 @@ public class e extends s1 {
                 return;
             }
         }
-        this.f31223e = context;
+        this.f31332e = context;
     }
 
     @Override // c.b.a.s1
@@ -44,7 +44,7 @@ public class e extends s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            z1.g(jSONObject, "access", e0.b(this.f31223e));
+            z1.g(jSONObject, "access", e0.b(this.f31332e));
             return true;
         }
         return invokeL.booleanValue;

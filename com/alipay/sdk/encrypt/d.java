@@ -17,7 +17,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35882a = "RSA";
+    public static final String f35991a = "RSA";
     public transient /* synthetic */ FieldHolder $fh;
 
     public d() {

@@ -15,7 +15,7 @@ public class RotateFrameLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PaintFlagsDrawFilter f57483e;
+    public PaintFlagsDrawFilter f57645e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RotateFrameLayout(Context context) {
@@ -42,7 +42,7 @@ public class RotateFrameLayout extends FrameLayout {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.setDrawFilter(this.f57483e);
+            canvas.setDrawFilter(this.f57645e);
             super.onDraw(canvas);
         }
     }
@@ -87,6 +87,6 @@ public class RotateFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f57483e = new PaintFlagsDrawFilter(0, 3);
+        this.f57645e = new PaintFlagsDrawFilter(0, 3);
     }
 }

@@ -37,10 +37,10 @@ public class s extends u {
     public void a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, AdSlot adSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, mVar, adSlot) == null) {
-            this.f66728d = "draw_ad";
+            this.f66908d = "draw_ad";
             NativeExpressDrawVideoView nativeExpressDrawVideoView = new NativeExpressDrawVideoView(context, mVar, adSlot, "draw_ad");
-            this.f66725a = nativeExpressDrawVideoView;
-            a(nativeExpressDrawVideoView, this.f66727c);
+            this.f66905a = nativeExpressDrawVideoView;
+            a(nativeExpressDrawVideoView, this.f66907c);
         }
     }
 
@@ -48,7 +48,7 @@ public class s extends u {
     public void setCanInterruptVideoPlay(boolean z) {
         NativeExpressView nativeExpressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (nativeExpressView = this.f66725a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (nativeExpressView = this.f66905a) == null) {
             return;
         }
         ((NativeExpressVideoView) nativeExpressView).setCanInterruptVideoPlay(z);

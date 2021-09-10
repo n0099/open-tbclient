@@ -27,13 +27,13 @@ public class GDTNativeUnifiedImg2View extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f69775d;
+    public ImageView f69955d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f69776e;
+    public ImageView f69956e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f69777f;
+    public float f69957f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public GDTNativeUnifiedImg2View(Context context) {
@@ -96,7 +96,7 @@ public class GDTNativeUnifiedImg2View extends b {
                 return;
             }
         }
-        this.f69777f = 1.78f;
+        this.f69957f = 1.78f;
     }
 
     @Override // a.a.a.a.s.b.b.b
@@ -108,8 +108,8 @@ public class GDTNativeUnifiedImg2View extends b {
             arrayList.add(this.f1021c);
             arrayList.add(((b) this).f1020b);
             arrayList.add(((b) this).f1019a);
-            arrayList.add(this.f69776e);
-            arrayList.add(this.f69775d);
+            arrayList.add(this.f69956e);
+            arrayList.add(this.f69955d);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -122,7 +122,7 @@ public class GDTNativeUnifiedImg2View extends b {
             super.a(activity, nativeUnifiedADData);
             Context context = getContext();
             String iconUrl = nativeUnifiedADData.getIconUrl();
-            ImageView imageView = this.f69775d;
+            ImageView imageView = this.f69955d;
             if (context == null) {
                 d.f("GlideHelper: context is null when load: " + iconUrl, new Object[0]);
             } else if (context instanceof Activity) {
@@ -136,10 +136,10 @@ public class GDTNativeUnifiedImg2View extends b {
                 Glide.with(context).load(iconUrl).into(imageView);
             }
             d.f("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
-            this.f69777f = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
+            this.f69957f = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
             Context context2 = getContext();
             String imgUrl = nativeUnifiedADData.getImgUrl();
-            ImageView imageView2 = this.f69776e;
+            ImageView imageView2 = this.f69956e;
             if (context2 == null) {
                 d.f("GlideHelper: context is null when load: " + imgUrl, new Object[0]);
             } else if (context2 instanceof Activity) {
@@ -160,8 +160,8 @@ public class GDTNativeUnifiedImg2View extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.f69775d = (ImageView) findViewById(R.id.ad_icon);
-            this.f69776e = (ImageView) findViewById(R.id.ad_img);
+            this.f69955d = (ImageView) findViewById(R.id.ad_icon);
+            this.f69956e = (ImageView) findViewById(R.id.ad_img);
         }
     }
 
@@ -170,11 +170,11 @@ public class GDTNativeUnifiedImg2View extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f69776e.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f69956e.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f69777f);
-            this.f69776e.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (i6 / this.f69957f);
+            this.f69956e.setLayoutParams(layoutParams);
         }
     }
 }

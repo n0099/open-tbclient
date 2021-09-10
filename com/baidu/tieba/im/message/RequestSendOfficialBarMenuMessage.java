@@ -42,9 +42,9 @@ public class RequestSendOfficialBarMenuMessage extends TbSocketMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.rid = Integer.valueOf(b.d(this.rid, 0));
+            builder.rid = Integer.valueOf(b.e(this.rid, 0));
             builder.forum_id = getForum_id();
-            builder.user_id = Long.valueOf(b.f(this.user_id, 0L));
+            builder.user_id = Long.valueOf(b.g(this.user_id, 0L));
             SendMenuMsgReqIdl.Builder builder2 = new SendMenuMsgReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

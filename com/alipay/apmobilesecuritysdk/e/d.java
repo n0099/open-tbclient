@@ -21,7 +21,7 @@ public final class d {
                     return null;
                 }
                 JSONObject jSONObject = new JSONObject(str);
-                return new c(jSONObject.optString("apdid"), jSONObject.optString("deviceInfoHash"), jSONObject.optString("timestamp"), jSONObject.optString("tid"), jSONObject.optString(com.alipay.sdk.cons.b.f35830g));
+                return new c(jSONObject.optString("apdid"), jSONObject.optString("deviceInfoHash"), jSONObject.optString("timestamp"), jSONObject.optString("tid"), jSONObject.optString(com.alipay.sdk.cons.b.f35939g));
             } catch (Exception e2) {
                 com.alipay.apmobilesecuritysdk.c.a.a(e2);
                 return null;
@@ -54,11 +54,11 @@ public final class d {
             synchronized (d.class) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("apdid", cVar.f35682a);
-                    jSONObject.put("deviceInfoHash", cVar.f35683b);
-                    jSONObject.put("timestamp", cVar.f35684c);
-                    jSONObject.put("tid", cVar.f35685d);
-                    jSONObject.put(com.alipay.sdk.cons.b.f35830g, cVar.f35686e);
+                    jSONObject.put("apdid", cVar.f35791a);
+                    jSONObject.put("deviceInfoHash", cVar.f35792b);
+                    jSONObject.put("timestamp", cVar.f35793c);
+                    jSONObject.put("tid", cVar.f35794d);
+                    jSONObject.put(com.alipay.sdk.cons.b.f35939g, cVar.f35795e);
                     String jSONObject2 = jSONObject.toString();
                     com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v4", "key_deviceid_v4", jSONObject2);
                     com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v4", "key_wxcasxx_v4", jSONObject2);

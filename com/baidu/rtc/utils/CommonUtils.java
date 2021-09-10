@@ -1,14 +1,17 @@
 package com.baidu.rtc.utils;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
+import org.webrtc.Logging;
 /* loaded from: classes5.dex */
 public class CommonUtils {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String TAG = "CommonUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
     public CommonUtils() {
@@ -51,5 +54,21 @@ public class CommonUtils {
             return sb.toString();
         }
         return (String) invokeL.objValue;
+    }
+
+    public static long strToLong(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    return Long.valueOf(str).longValue();
+                } catch (NumberFormatException e2) {
+                    Logging.e("CommonUtils", "number format fault:" + e2.getMessage());
+                }
+            }
+            return -1L;
+        }
+        return invokeL.longValue;
     }
 }

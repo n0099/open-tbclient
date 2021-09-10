@@ -1,6 +1,6 @@
 package com.baidu.tieba.model.message;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -48,7 +48,7 @@ public class AddPollPostRequestNetMessage extends NetMessage {
             builder.options = this.options;
             builder.forum_id = Long.valueOf(this.forumId);
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             AddPollPostReqIdl.Builder builder2 = new AddPollPostReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -31,7 +31,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2909a;
+    public static final boolean f2900a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -74,7 +74,7 @@ public class d {
                             byteArrayOutputStream.write(bArr, 0, read);
                         }
                         JSONObject jSONObject = new JSONObject(byteArrayOutputStream.toString("UTF-8"));
-                        if (d.f2909a) {
+                        if (d.f2900a) {
                             jSONObject.toString();
                         }
                         return jSONObject;
@@ -109,7 +109,7 @@ public class d {
                 return;
             }
         }
-        f2909a = c.a.e.k.a.f2907a;
+        f2900a = c.a.e.k.a.f2898a;
     }
 
     public static String b(Context context) {
@@ -189,7 +189,7 @@ public class d {
                 if (!TextUtils.equals(str2, "POST")) {
                     outputStream2 = null;
                 } else if (bArr == null) {
-                    boolean z = f2909a;
+                    boolean z = f2900a;
                     if (bVar != null) {
                         bVar.b(-1, "post requestSync body is null", null);
                     }

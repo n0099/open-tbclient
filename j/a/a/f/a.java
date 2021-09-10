@@ -18,7 +18,7 @@ public final class a implements IAppPayServiceListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f79021a;
+    public static final a f79259a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class a implements IAppPayServiceListener {
                 return;
             }
         }
-        f79021a = new a();
+        f79259a = new a();
     }
 
     public a() {

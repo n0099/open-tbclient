@@ -58,22 +58,22 @@ public class VideoClipLayout extends FrameLayout {
     public int J;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58400e;
+    public int f58581e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f58401f;
+    public RecyclerView f58582f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RangeSlider f58402g;
+    public RangeSlider f58583g;
 
     /* renamed from: h  reason: collision with root package name */
-    public VideoClipAdapter f58403h;
+    public VideoClipAdapter f58584h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomLinearLayoutManager f58404i;
+    public CustomLinearLayoutManager f58585i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<MultiMediaData> f58405j;
+    public List<MultiMediaData> f58586j;
     public double k;
     public double l;
     public double m;
@@ -98,10 +98,10 @@ public class VideoClipLayout extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int[] f58406a;
+        public final /* synthetic */ int[] f58587a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ VideoClipLayout f58407b;
+        public final /* synthetic */ VideoClipLayout f58588b;
 
         public a(VideoClipLayout videoClipLayout, int[] iArr) {
             Interceptable interceptable = $ic;
@@ -118,8 +118,8 @@ public class VideoClipLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f58407b = videoClipLayout;
-            this.f58406a = iArr;
+            this.f58588b = videoClipLayout;
+            this.f58587a = iArr;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -127,12 +127,12 @@ public class VideoClipLayout extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) {
                 if (i2 == 0) {
-                    this.f58407b.B(5);
+                    this.f58588b.B(5);
                 }
-                if (this.f58407b.I && i2 == 0) {
-                    this.f58407b.I = false;
-                    VideoClipLayout videoClipLayout = this.f58407b;
-                    videoClipLayout.P(videoClipLayout.f58401f, this.f58407b.J, 0);
+                if (this.f58588b.I && i2 == 0) {
+                    this.f58588b.I = false;
+                    VideoClipLayout videoClipLayout = this.f58588b;
+                    videoClipLayout.P(videoClipLayout.f58582f, this.f58588b.J, 0);
                 }
             }
         }
@@ -141,21 +141,21 @@ public class VideoClipLayout extends FrameLayout {
         public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i2, i3) == null) {
-                if (this.f58407b.f58404i.findFirstVisibleItemPosition() == 0) {
-                    this.f58407b.f58402g.updateLeftCoverOffset(recyclerView.computeHorizontalScrollOffset());
+                if (this.f58588b.f58585i.findFirstVisibleItemPosition() == 0) {
+                    this.f58588b.f58583g.updateLeftCoverOffset(recyclerView.computeHorizontalScrollOffset());
                 } else {
-                    this.f58407b.f58402g.updateAbsoluteLeftCoverOffset(0.0f);
+                    this.f58588b.f58583g.updateAbsoluteLeftCoverOffset(0.0f);
                 }
-                if (this.f58407b.f58404i.findLastVisibleItemPosition() == recyclerView.getAdapter().getItemCount() - 1) {
-                    this.f58407b.f58404i.getChildAt(this.f58407b.f58404i.getChildCount() - 1).getLocationOnScreen(this.f58406a);
-                    this.f58407b.f58402g.updateAbsoluteRightOffset(this.f58406a[0]);
+                if (this.f58588b.f58585i.findLastVisibleItemPosition() == recyclerView.getAdapter().getItemCount() - 1) {
+                    this.f58588b.f58585i.getChildAt(this.f58588b.f58585i.getChildCount() - 1).getLocationOnScreen(this.f58587a);
+                    this.f58588b.f58583g.updateAbsoluteRightOffset(this.f58587a[0]);
                 } else {
-                    this.f58407b.f58402g.updateAbsoluteRightOffset((int) ((this.f58407b.o - this.f58407b.k) - recyclerView.computeHorizontalScrollOffset()));
+                    this.f58588b.f58583g.updateAbsoluteRightOffset((int) ((this.f58588b.o - this.f58588b.k) - recyclerView.computeHorizontalScrollOffset()));
                 }
-                if (this.f58407b.z) {
-                    this.f58407b.z = false;
+                if (this.f58588b.z) {
+                    this.f58588b.z = false;
                 } else {
-                    this.f58407b.B(6);
+                    this.f58588b.B(6);
                 }
             }
         }
@@ -167,7 +167,7 @@ public class VideoClipLayout extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoClipLayout f58408a;
+        public final /* synthetic */ VideoClipLayout f58589a;
 
         public b(VideoClipLayout videoClipLayout) {
             Interceptable interceptable = $ic;
@@ -184,25 +184,25 @@ public class VideoClipLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f58408a = videoClipLayout;
+            this.f58589a = videoClipLayout;
         }
 
         @Override // com.baidu.tieba.view.widget.mediaedit.RangeSlider.b
         public void a(float f2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(1048576, this, f2) == null) || this.f58408a.F == null) {
+            if (!(interceptable == null || interceptable.invokeF(1048576, this, f2) == null) || this.f58589a.F == null) {
                 return;
             }
-            this.f58408a.F.onDraging(this.f58408a.D(f2) * 1000.0d);
+            this.f58589a.F.onDraging(this.f58589a.D(f2) * 1000.0d);
         }
 
         @Override // com.baidu.tieba.view.widget.mediaedit.RangeSlider.b
         public void onDragCancel(float f2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || this.f58408a.F == null) {
+            if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || this.f58589a.F == null) {
                 return;
             }
-            this.f58408a.F.onDragCancel(((float) this.f58408a.D(f2)) * 1000.0f);
+            this.f58589a.F.onDragCancel(((float) this.f58589a.D(f2)) * 1000.0f);
         }
     }
 
@@ -212,7 +212,7 @@ public class VideoClipLayout extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoClipLayout f58409a;
+        public final /* synthetic */ VideoClipLayout f58590a;
 
         public c(VideoClipLayout videoClipLayout) {
             Interceptable interceptable = $ic;
@@ -229,16 +229,16 @@ public class VideoClipLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f58409a = videoClipLayout;
+            this.f58590a = videoClipLayout;
         }
 
         @Override // com.baidu.tieba.view.widget.mediaedit.RangeSlider.a
         public void a(RangeSlider rangeSlider, int i2, float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{rangeSlider, Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                this.f58409a.v = f2;
-                this.f58409a.w = f3;
-                this.f58409a.B(i2);
+                this.f58590a.v = f2;
+                this.f58590a.w = f3;
+                this.f58590a.B(i2);
             }
         }
     }
@@ -249,7 +249,7 @@ public class VideoClipLayout extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoClipLayout f58410e;
+        public final /* synthetic */ VideoClipLayout f58591e;
 
         public d(VideoClipLayout videoClipLayout) {
             Interceptable interceptable = $ic;
@@ -266,7 +266,7 @@ public class VideoClipLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f58410e = videoClipLayout;
+            this.f58591e = videoClipLayout;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:17:0x0090  */
@@ -287,67 +287,67 @@ public class VideoClipLayout extends FrameLayout {
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            if (this.f58410e.K()) {
-                float N = this.f58410e.N();
-                int[] C = this.f58410e.C((int) N);
+            if (this.f58591e.K()) {
+                float N = this.f58591e.N();
+                int[] C = this.f58591e.C((int) N);
                 if (N == 0.0f) {
-                    this.f58410e.f58402g.updateSelectedRange(this.f58410e.getLeftRangeSliderX(), this.f58410e.getRightRangeSliderX());
+                    this.f58591e.f58583g.updateSelectedRange(this.f58591e.getLeftRangeSliderX(), this.f58591e.getRightRangeSliderX());
                 } else {
-                    VideoClipLayout videoClipLayout = this.f58410e;
-                    videoClipLayout.P(videoClipLayout.f58401f, C[0], C[1]);
-                    this.f58410e.f58402g.updateSelectedRange(this.f58410e.getLeftRangeSliderX() - N, this.f58410e.getRightRangeSliderX() - N);
+                    VideoClipLayout videoClipLayout = this.f58591e;
+                    videoClipLayout.P(videoClipLayout.f58582f, C[0], C[1]);
+                    this.f58591e.f58583g.updateSelectedRange(this.f58591e.getLeftRangeSliderX() - N, this.f58591e.getRightRangeSliderX() - N);
                     z = true;
-                    if (this.f58410e.G && !this.f58410e.K()) {
-                        this.f58410e.G = false;
-                        float thumbWidth = (float) (this.f58410e.k - this.f58410e.f58402g.getThumbWidth());
+                    if (this.f58591e.G && !this.f58591e.K()) {
+                        this.f58591e.G = false;
+                        float thumbWidth = (float) (this.f58591e.k - this.f58591e.f58583g.getThumbWidth());
                         if (VideoClipLayout.N > VideoClipLayout.M) {
-                            d2 = this.f58410e.m * VideoClipLayout.N;
-                            d3 = this.f58410e.k;
+                            d2 = this.f58591e.m * VideoClipLayout.N;
+                            d3 = this.f58591e.k;
                         } else {
-                            d2 = this.f58410e.m * VideoClipLayout.M;
-                            d3 = this.f58410e.k;
+                            d2 = this.f58591e.m * VideoClipLayout.M;
+                            d3 = this.f58591e.k;
                         }
-                        this.f58410e.f58402g.updateSelectedRange(thumbWidth, (float) (d2 + d3));
+                        this.f58591e.f58583g.updateSelectedRange(thumbWidth, (float) (d2 + d3));
                     }
                     if (((int) VideoClipLayout.N) > VideoClipLayout.M) {
-                        this.f58410e.f58404i.setScrollEnabled(false);
+                        this.f58591e.f58585i.setScrollEnabled(false);
                     } else {
-                        this.f58410e.f58404i.setScrollEnabled(true);
+                        this.f58591e.f58585i.setScrollEnabled(true);
                     }
-                    this.f58410e.f58402g.updateAbsoluteRightOffset((int) (this.f58410e.o - this.f58410e.k));
-                    VideoClipLayout videoClipLayout2 = this.f58410e;
-                    videoClipLayout2.v = videoClipLayout2.f58402g.getLeftThumbX();
-                    VideoClipLayout videoClipLayout3 = this.f58410e;
-                    videoClipLayout3.w = videoClipLayout3.f58402g.getRightThumbX();
-                    if (this.f58410e.K() || z) {
-                        if (this.f58410e.K()) {
-                            this.f58410e.B(0);
+                    this.f58591e.f58583g.updateAbsoluteRightOffset((int) (this.f58591e.o - this.f58591e.k));
+                    VideoClipLayout videoClipLayout2 = this.f58591e;
+                    videoClipLayout2.v = videoClipLayout2.f58583g.getLeftThumbX();
+                    VideoClipLayout videoClipLayout3 = this.f58591e;
+                    videoClipLayout3.w = videoClipLayout3.f58583g.getRightThumbX();
+                    if (this.f58591e.K() || z) {
+                        if (this.f58591e.K()) {
+                            this.f58591e.B(0);
                             return;
                         }
                         return;
                     }
-                    this.f58410e.B(0);
+                    this.f58591e.B(0);
                     return;
                 }
             }
             z = false;
-            if (this.f58410e.G) {
-                this.f58410e.G = false;
-                float thumbWidth2 = (float) (this.f58410e.k - this.f58410e.f58402g.getThumbWidth());
+            if (this.f58591e.G) {
+                this.f58591e.G = false;
+                float thumbWidth2 = (float) (this.f58591e.k - this.f58591e.f58583g.getThumbWidth());
                 if (VideoClipLayout.N > VideoClipLayout.M) {
                 }
-                this.f58410e.f58402g.updateSelectedRange(thumbWidth2, (float) (d2 + d3));
+                this.f58591e.f58583g.updateSelectedRange(thumbWidth2, (float) (d2 + d3));
             }
             if (((int) VideoClipLayout.N) > VideoClipLayout.M) {
             }
-            this.f58410e.f58402g.updateAbsoluteRightOffset((int) (this.f58410e.o - this.f58410e.k));
-            VideoClipLayout videoClipLayout22 = this.f58410e;
-            videoClipLayout22.v = videoClipLayout22.f58402g.getLeftThumbX();
-            VideoClipLayout videoClipLayout32 = this.f58410e;
-            videoClipLayout32.w = videoClipLayout32.f58402g.getRightThumbX();
-            if (this.f58410e.K()) {
+            this.f58591e.f58583g.updateAbsoluteRightOffset((int) (this.f58591e.o - this.f58591e.k));
+            VideoClipLayout videoClipLayout22 = this.f58591e;
+            videoClipLayout22.v = videoClipLayout22.f58583g.getLeftThumbX();
+            VideoClipLayout videoClipLayout32 = this.f58591e;
+            videoClipLayout32.w = videoClipLayout32.f58583g.getRightThumbX();
+            if (this.f58591e.K()) {
             }
-            if (this.f58410e.K()) {
+            if (this.f58591e.K()) {
             }
         }
     }
@@ -358,13 +358,13 @@ public class VideoClipLayout extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f58411e;
+        public final /* synthetic */ int f58592e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f58412f;
+        public final /* synthetic */ int f58593f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ VideoClipLayout f58413g;
+        public final /* synthetic */ VideoClipLayout f58594g;
 
         public e(VideoClipLayout videoClipLayout, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -381,31 +381,31 @@ public class VideoClipLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f58413g = videoClipLayout;
-            this.f58411e = i2;
-            this.f58412f = i3;
+            this.f58594g = videoClipLayout;
+            this.f58592e = i2;
+            this.f58593f = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f58413g.G = false;
-                this.f58413g.f58402g.updateSelectedRange((float) ((((this.f58413g.m * this.f58411e) / 1000.0d) + this.f58413g.k) - this.f58413g.f58402g.getThumbWidth()), (float) (((this.f58413g.m * this.f58412f) / 1000.0d) + this.f58413g.k));
+                this.f58594g.G = false;
+                this.f58594g.f58583g.updateSelectedRange((float) ((((this.f58594g.m * this.f58592e) / 1000.0d) + this.f58594g.k) - this.f58594g.f58583g.getThumbWidth()), (float) (((this.f58594g.m * this.f58593f) / 1000.0d) + this.f58594g.k));
                 if (((int) VideoClipLayout.N) <= VideoClipLayout.M) {
-                    this.f58413g.f58404i.setScrollEnabled(false);
+                    this.f58594g.f58585i.setScrollEnabled(false);
                 } else {
-                    this.f58413g.f58404i.setScrollEnabled(true);
+                    this.f58594g.f58585i.setScrollEnabled(true);
                 }
-                this.f58413g.f58402g.updateAbsoluteRightOffset((int) (this.f58413g.o - this.f58413g.k));
-                VideoClipLayout videoClipLayout = this.f58413g;
-                videoClipLayout.v = videoClipLayout.f58402g.getLeftThumbX();
-                VideoClipLayout videoClipLayout2 = this.f58413g;
-                videoClipLayout2.w = videoClipLayout2.f58402g.getRightThumbX();
-                if (this.f58413g.K()) {
-                    this.f58413g.B(0);
+                this.f58594g.f58583g.updateAbsoluteRightOffset((int) (this.f58594g.o - this.f58594g.k));
+                VideoClipLayout videoClipLayout = this.f58594g;
+                videoClipLayout.v = videoClipLayout.f58583g.getLeftThumbX();
+                VideoClipLayout videoClipLayout2 = this.f58594g;
+                videoClipLayout2.w = videoClipLayout2.f58583g.getRightThumbX();
+                if (this.f58594g.K()) {
+                    this.f58594g.B(0);
                 } else {
-                    this.f58413g.B(0);
+                    this.f58594g.B(0);
                 }
             }
         }
@@ -417,7 +417,7 @@ public class VideoClipLayout extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoClipLayout f58414e;
+        public final /* synthetic */ VideoClipLayout f58595e;
 
         public f(VideoClipLayout videoClipLayout) {
             Interceptable interceptable = $ic;
@@ -434,7 +434,7 @@ public class VideoClipLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f58414e = videoClipLayout;
+            this.f58595e = videoClipLayout;
         }
 
         @Override // java.lang.Runnable
@@ -504,11 +504,11 @@ public class VideoClipLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            List<MultiMediaData> list = this.f58405j;
-            if (list == null || list.size() <= 0 || this.f58402g == null) {
+            List<MultiMediaData> list = this.f58586j;
+            if (list == null || list.size() <= 0 || this.f58583g == null) {
                 return 0.0f;
             }
-            return (float) (((this.m * ((((float) this.f58405j.get(0).start) / this.f58405j.get(0).mSpeed) / 1000.0f)) + this.k) - this.f58402g.getThumbWidth());
+            return (float) (((this.m * ((((float) this.f58586j.get(0).start) / this.f58586j.get(0).mSpeed) / 1000.0f)) + this.k) - this.f58583g.getThumbWidth());
         }
         return invokeV.floatValue;
     }
@@ -517,7 +517,7 @@ public class VideoClipLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            int i2 = this.f58400e;
+            int i2 = this.f58581e;
             return i2 > 0 ? i2 : K() ? L : K;
         }
         return invokeV.intValue;
@@ -528,12 +528,12 @@ public class VideoClipLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
-            List<MultiMediaData> list = this.f58405j;
+            List<MultiMediaData> list = this.f58586j;
             if (list == null || list.size() <= 0) {
                 return 0.0f;
             }
-            long j2 = ((float) this.f58405j.get(0).start) / this.f58405j.get(0).mSpeed;
-            long j3 = ((float) this.f58405j.get(0).end) / this.f58405j.get(0).mSpeed;
+            long j2 = ((float) this.f58586j.get(0).start) / this.f58586j.get(0).mSpeed;
+            long j3 = ((float) this.f58586j.get(0).end) / this.f58586j.get(0).mSpeed;
             if (j2 > 0 && j2 + (M * 1000.0d) >= j3) {
                 return (float) ((this.m * (((float) j3) / 1000.0f)) + this.k);
             }
@@ -551,11 +551,11 @@ public class VideoClipLayout extends FrameLayout {
         CustomLinearLayoutManager customLinearLayoutManager;
         View childAt;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (customLinearLayoutManager = this.f58404i) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (customLinearLayoutManager = this.f58585i) == null) {
             return;
         }
         int findFirstVisibleItemPosition = customLinearLayoutManager.findFirstVisibleItemPosition();
-        int findFirstCompletelyVisibleItemPosition = this.f58404i.findFirstCompletelyVisibleItemPosition();
+        int findFirstCompletelyVisibleItemPosition = this.f58585i.findFirstCompletelyVisibleItemPosition();
         if (findFirstCompletelyVisibleItemPosition == 0) {
             double d2 = this.v;
             double d3 = this.k;
@@ -565,9 +565,9 @@ public class VideoClipLayout extends FrameLayout {
         } else {
             int[] iArr = new int[2];
             if (findFirstVisibleItemPosition == findFirstCompletelyVisibleItemPosition) {
-                childAt = this.f58404i.getChildAt(0);
+                childAt = this.f58585i.getChildAt(0);
             } else {
-                childAt = this.f58404i.getChildAt(1);
+                childAt = this.f58585i.getChildAt(1);
             }
             if (childAt == null) {
                 return;
@@ -618,7 +618,7 @@ public class VideoClipLayout extends FrameLayout {
         if (gVar != null) {
             gVar.onHaveSelectedTime(i7);
         }
-        this.f58402g.playValueAnimator(i7);
+        this.f58583g.playValueAnimator(i7);
         if (i2 == 0 || i2 == 3 || i2 == 4 || i2 == 5) {
             O(i5, i6);
             L(false);
@@ -628,14 +628,14 @@ public class VideoClipLayout extends FrameLayout {
             if (gVar2 != null) {
                 gVar2.onSeekTo(i5);
             }
-            this.f58402g.setCurrentAbsolutePosition((float) this.v);
+            this.f58583g.setCurrentAbsolutePosition((float) this.v);
         } else if (i2 == 2) {
             L(true);
             g gVar3 = this.F;
             if (gVar3 != null) {
                 gVar3.onSeekTo(i5);
             }
-            RangeSlider rangeSlider = this.f58402g;
+            RangeSlider rangeSlider = this.f58583g;
             rangeSlider.setCurrentAbsolutePosition(((float) this.w) - rangeSlider.getVerticalLineSize());
         }
     }
@@ -645,9 +645,9 @@ public class VideoClipLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             int[] iArr = new int[2];
-            if (this.f58404i != null) {
+            if (this.f58585i != null) {
                 int i3 = 0;
-                for (int i4 = 0; i4 < this.f58404i.getItemCount(); i4++) {
+                for (int i4 = 0; i4 < this.f58585i.getItemCount(); i4++) {
                     if (i4 == 0) {
                         double d2 = i3;
                         double d3 = this.k;
@@ -657,10 +657,10 @@ public class VideoClipLayout extends FrameLayout {
                             return iArr;
                         }
                         i3 = (int) (d2 + d3);
-                    } else if (this.f58404i.getChildAt(i4) == null) {
+                    } else if (this.f58585i.getChildAt(i4) == null) {
                         continue;
                     } else {
-                        int measuredWidth = this.f58404i.getChildAt(i4).getMeasuredWidth() + i3;
+                        int measuredWidth = this.f58585i.getChildAt(i4).getMeasuredWidth() + i3;
                         if (i2 < measuredWidth) {
                             iArr[0] = i4;
                             iArr[1] = i2 - i3;
@@ -682,21 +682,21 @@ public class VideoClipLayout extends FrameLayout {
         double d3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2)) == null) {
-            CustomLinearLayoutManager customLinearLayoutManager = this.f58404i;
+            CustomLinearLayoutManager customLinearLayoutManager = this.f58585i;
             if (customLinearLayoutManager == null) {
                 return 0.0d;
             }
             int findFirstVisibleItemPosition = customLinearLayoutManager.findFirstVisibleItemPosition();
-            int findFirstCompletelyVisibleItemPosition = this.f58404i.findFirstCompletelyVisibleItemPosition();
+            int findFirstCompletelyVisibleItemPosition = this.f58585i.findFirstCompletelyVisibleItemPosition();
             if (findFirstCompletelyVisibleItemPosition == 0) {
                 d2 = f2 - this.k;
                 d3 = this.m;
             } else {
                 int[] iArr = new int[2];
                 if (findFirstVisibleItemPosition == findFirstCompletelyVisibleItemPosition) {
-                    childAt = this.f58404i.getChildAt(0);
+                    childAt = this.f58585i.getChildAt(0);
                 } else {
-                    childAt = this.f58404i.getChildAt(1);
+                    childAt = this.f58585i.getChildAt(1);
                 }
                 if (childAt == null) {
                     return 0.0d;
@@ -721,8 +721,8 @@ public class VideoClipLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             VideoClipAdapter videoClipAdapter = new VideoClipAdapter(getContext());
-            this.f58403h = videoClipAdapter;
-            this.f58401f.setAdapter(videoClipAdapter);
+            this.f58584h = videoClipAdapter;
+            this.f58582f.setAdapter(videoClipAdapter);
         }
     }
 
@@ -738,8 +738,8 @@ public class VideoClipLayout extends FrameLayout {
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f58401f.addOnScrollListener(new a(this, new int[2]));
-            this.f58402g.setVideoPointerViewDragListener(new b(this));
+            this.f58582f.addOnScrollListener(new a(this, new int[2]));
+            this.f58583g.setVideoPointerViewDragListener(new b(this));
         }
     }
 
@@ -779,15 +779,15 @@ public class VideoClipLayout extends FrameLayout {
             } else {
                 this.u = this.q;
             }
-            this.f58402g.setMinRangeWidth(this.n);
-            this.f58402g.setRangeChangeListener(new c(this));
-            ViewGroup.LayoutParams layoutParams = this.f58401f.getLayoutParams();
-            ViewGroup.LayoutParams layoutParams2 = this.f58402g.getLayoutParams();
+            this.f58583g.setMinRangeWidth(this.n);
+            this.f58583g.setRangeChangeListener(new c(this));
+            ViewGroup.LayoutParams layoutParams = this.f58582f.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams2 = this.f58583g.getLayoutParams();
             layoutParams.width = (int) this.o;
             layoutParams2.width = (int) this.p;
-            this.f58401f.setLayoutParams(layoutParams);
-            this.f58402g.setLayoutParams(layoutParams2);
-            this.f58402g.postDelayed(new d(this), 50L);
+            this.f58582f.setLayoutParams(layoutParams);
+            this.f58583g.setLayoutParams(layoutParams2);
+            this.f58583g.postDelayed(new d(this), 50L);
         }
     }
 
@@ -795,13 +795,13 @@ public class VideoClipLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.ugc_capture_multi_video_clip_view, (ViewGroup) null);
-            this.f58401f = (RecyclerView) inflate.findViewById(R.id.ugc_video_recycler);
-            this.f58402g = (RangeSlider) inflate.findViewById(R.id.ugc_video_range_slider);
+            this.f58582f = (RecyclerView) inflate.findViewById(R.id.ugc_video_recycler);
+            this.f58583g = (RangeSlider) inflate.findViewById(R.id.ugc_video_range_slider);
             addView(inflate);
             CustomLinearLayoutManager customLinearLayoutManager = new CustomLinearLayoutManager(getContext(), 0, false);
-            this.f58404i = customLinearLayoutManager;
+            this.f58585i = customLinearLayoutManager;
             customLinearLayoutManager.setScrollEnabled(true);
-            this.f58401f.setLayoutManager(this.f58404i);
+            this.f58582f.setLayoutManager(this.f58585i);
         }
     }
 
@@ -851,10 +851,10 @@ public class VideoClipLayout extends FrameLayout {
         double d3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            List<MultiMediaData> list = this.f58405j;
+            List<MultiMediaData> list = this.f58586j;
             if (list != null && list.size() > 0) {
-                long j2 = ((float) this.f58405j.get(0).start) / this.f58405j.get(0).mSpeed;
-                long j3 = ((float) this.f58405j.get(0).end) / this.f58405j.get(0).mSpeed;
+                long j2 = ((float) this.f58586j.get(0).start) / this.f58586j.get(0).mSpeed;
+                long j3 = ((float) this.f58586j.get(0).end) / this.f58586j.get(0).mSpeed;
                 if (j2 > 0) {
                     if (j3 > M * 1000.0d) {
                         return (float) ((this.m * ((long) (d2 - (d3 * 1000.0d)))) / 1000.0d);
@@ -885,9 +885,9 @@ public class VideoClipLayout extends FrameLayout {
             }
             this.D = i2;
             if (K()) {
-                List<MultiMediaData> list = this.f58405j;
+                List<MultiMediaData> list = this.f58586j;
                 if (list != null && list.size() == 1) {
-                    int i4 = (int) this.f58405j.get(0).originalDuration;
+                    int i4 = (int) this.f58586j.get(0).originalDuration;
                     if (i3 >= i4) {
                         i3 = i4;
                     }
@@ -920,7 +920,7 @@ public class VideoClipLayout extends FrameLayout {
             int childLayoutPosition = recyclerView.getChildLayoutPosition(recyclerView.getChildAt(0));
             int childLayoutPosition2 = recyclerView.getChildLayoutPosition(recyclerView.getChildAt(recyclerView.getChildCount() - 1));
             if (i2 < childLayoutPosition) {
-                this.f58404i.scrollToPositionWithOffset(i2, i3);
+                this.f58585i.scrollToPositionWithOffset(i2, i3);
                 recyclerView.offsetChildrenHorizontal(i3);
             } else if (i2 <= childLayoutPosition2) {
                 int i4 = i2 - childLayoutPosition;
@@ -951,7 +951,7 @@ public class VideoClipLayout extends FrameLayout {
                 d3 = this.B;
             }
             float min = Math.min(1.0f, Math.max((float) (d2 / (d3 - i3)), 0.0f));
-            RangeSlider rangeSlider = this.f58402g;
+            RangeSlider rangeSlider = this.f58583g;
             if (rangeSlider != null) {
                 rangeSlider.setCurrentRelativelyPosition(min);
             }
@@ -974,7 +974,7 @@ public class VideoClipLayout extends FrameLayout {
     public void release() {
         VideoClipAdapter videoClipAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (videoClipAdapter = this.f58403h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (videoClipAdapter = this.f58584h) == null) {
             return;
         }
         videoClipAdapter.release();
@@ -998,31 +998,31 @@ public class VideoClipLayout extends FrameLayout {
         VideoClipAdapter videoClipAdapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048597, this, vlogEditManager, list, z) == null) {
-            this.f58405j = list;
+            this.f58586j = list;
             this.x = 0L;
             if (list != null) {
                 if (K()) {
-                    if (this.f58405j.size() >= 1) {
-                        this.x = ((float) this.f58405j.get(0).originalDuration) / this.f58405j.get(0).getCurrentSpeed();
+                    if (this.f58586j.size() >= 1) {
+                        this.x = ((float) this.f58586j.get(0).originalDuration) / this.f58586j.get(0).getCurrentSpeed();
                     }
                 } else {
-                    for (int i2 = 0; i2 < this.f58405j.size(); i2++) {
-                        this.x += ((float) this.f58405j.get(i2).originalDuration) / this.f58405j.get(i2).getCurrentSpeed();
+                    for (int i2 = 0; i2 < this.f58586j.size(); i2++) {
+                        this.x += ((float) this.f58586j.get(i2).originalDuration) / this.f58586j.get(i2).getCurrentSpeed();
                     }
                 }
             }
             if (this.x > 0) {
                 I();
             }
-            if (z && (videoClipAdapter = this.f58403h) != null) {
+            if (z && (videoClipAdapter = this.f58584h) != null) {
                 videoClipAdapter.setImageConfig(this.y, this.k, this.q, this.r, this.u, UtilHelper.getDimenPixelSize(R.dimen.tbds130));
                 if (vlogEditManager == null) {
                     return;
                 }
                 if (this.H >= 0) {
-                    this.f58403h.setData((MultiMediaData) ListUtils.getItem(vlogEditManager.getInputMultiMediaData(), this.H), this.t);
+                    this.f58584h.setData((MultiMediaData) ListUtils.getItem(vlogEditManager.getInputMultiMediaData(), this.H), this.t);
                 } else {
-                    this.f58403h.setData(vlogEditManager, this.t);
+                    this.f58584h.setData(vlogEditManager, this.t);
                 }
             }
         }
@@ -1038,14 +1038,14 @@ public class VideoClipLayout extends FrameLayout {
     public void setMinDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.f58400e = i2;
+            this.f58581e = i2;
         }
     }
 
     public void setRange(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048600, this, i2, i3) == null) {
-            this.f58402g.postDelayed(new e(this, i2, i3), 100L);
+            this.f58583g.postDelayed(new e(this, i2, i3), 100L);
         }
     }
 
@@ -1062,7 +1062,7 @@ public class VideoClipLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
             if (K() && i2 == 8) {
                 super.setVisibility(4);
-                this.f58401f.scrollToPosition(0);
+                this.f58582f.scrollToPosition(0);
                 this.D = 0;
                 this.E = 0;
                 postDelayed(new f(this), 30L);

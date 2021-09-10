@@ -6,7 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.c.f.b;
-import c.a.q0.i3.i0.n;
+import c.a.r0.j3.i0.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -45,17 +45,16 @@ public class FlutterStatic {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(540114414, "Lcom/baidu/tieba/flutter/base/FlutterStatic;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(540114414, "Lcom/baidu/tieba/flutter/base/FlutterStatic;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(540114414, "Lcom/baidu/tieba/flutter/base/FlutterStatic;")) == null) {
+            return;
         }
-        initFlutter();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(540114414, "Lcom/baidu/tieba/flutter/base/FlutterStatic;");
+        }
     }
 
     public FlutterStatic() {
@@ -155,7 +154,7 @@ public class FlutterStatic {
             };
             FlutterBoost.ConfigBuilder configBuilder = new FlutterBoost.ConfigBuilder(TbadkCoreApplication.getInst(), iNativeRouter);
             configBuilder.isDebug(isDebugMode());
-            configBuilder.whenEngineStart(FlutterBoost.ConfigBuilder.FLUTTER_ACTIVITY_CREATED);
+            configBuilder.whenEngineStart(FlutterBoost.ConfigBuilder.ANY_ACTIVITY_CREATED);
             configBuilder.renderMode(FlutterView.RenderMode.texture);
             configBuilder.lifecycleListener(boostLifecycleListener);
             FlutterBoost.instance().init(configBuilder.build());

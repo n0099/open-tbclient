@@ -18,10 +18,10 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f50864a;
+    public Context f51029a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<OriForumInfo> f50865b;
+    public List<OriForumInfo> f51030b;
 
     public RelationBarAdapter(Context context) {
         Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
                 return;
             }
         }
-        this.f50864a = context;
+        this.f51029a = context;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f50865b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f51030b) : invokeV.intValue;
     }
 
     public void setData(List<OriForumInfo> list) {
@@ -53,7 +53,7 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
         if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f50865b = list;
+        this.f51030b = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +61,7 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
     public void onBindViewHolder(RelationBarHolder relationBarHolder, int i2) {
         OriForumInfo oriForumInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, relationBarHolder, i2) == null) || (oriForumInfo = (OriForumInfo) ListUtils.getItem(this.f50865b, i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, relationBarHolder, i2) == null) || (oriForumInfo = (OriForumInfo) ListUtils.getItem(this.f51030b, i2)) == null) {
             return;
         }
         RelationBarCellView relationBarCellView = (RelationBarCellView) relationBarHolder.getRelationBarCellView();
@@ -74,6 +74,6 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
     public RelationBarHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i2)) == null) ? new RelationBarHolder(new RelationBarCellView(this.f50864a)) : (RelationBarHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i2)) == null) ? new RelationBarHolder(new RelationBarCellView(this.f51029a)) : (RelationBarHolder) invokeLI.objValue;
     }
 }

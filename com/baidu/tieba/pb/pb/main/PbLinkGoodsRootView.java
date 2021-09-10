@@ -19,8 +19,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.p0.s.q.c2;
-import c.a.q0.i2.h.e;
+import c.a.q0.s.q.d2;
+import c.a.r0.j2.h.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
@@ -53,35 +53,35 @@ public class PbLinkGoodsRootView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f54997e;
+    public c f55146e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f54998f;
+    public TextView f55147f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f54999g;
+    public ImageView f55148g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f55000h;
+    public RelativeLayout f55149h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ThreadForumEnterGoodsButton f55001i;
+    public ThreadForumEnterGoodsButton f55150i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f55002j;
+    public Context f55151j;
     public BdRecyclerView k;
     public LinearLayout l;
     public int m;
     public int n;
     public int o;
     public int p;
-    public List<c.a.q0.a0.d0.c> q;
+    public List<c.a.r0.a0.d0.c> q;
     public int r;
     public int s;
     public boolean t;
     public PbFragment u;
     public AbsVideoPbFragment v;
-    public c2 w;
+    public d2 w;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -89,7 +89,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbLinkGoodsRootView f55003e;
+        public final /* synthetic */ PbLinkGoodsRootView f55152e;
 
         public a(PbLinkGoodsRootView pbLinkGoodsRootView) {
             Interceptable interceptable = $ic;
@@ -106,14 +106,14 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                     return;
                 }
             }
-            this.f55003e = pbLinkGoodsRootView;
+            this.f55152e = pbLinkGoodsRootView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f55003e.j();
+                this.f55152e.j();
             }
         }
     }
@@ -124,13 +124,13 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SingleLinkCardView f55004a;
+        public SingleLinkCardView f55153a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f55005b;
+        public View f55154b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PbLinkGoodsRootView f55006c;
+        public final /* synthetic */ PbLinkGoodsRootView f55155c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PbLinkGoodsRootView pbLinkGoodsRootView, View view) {
@@ -150,9 +150,9 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                     return;
                 }
             }
-            this.f55006c = pbLinkGoodsRootView;
-            this.f55005b = view.findViewById(R.id.mask_view);
-            this.f55004a = (SingleLinkCardView) view.findViewById(R.id.pb_item_single_link_card);
+            this.f55155c = pbLinkGoodsRootView;
+            this.f55154b = view.findViewById(R.id.mask_view);
+            this.f55153a = (SingleLinkCardView) view.findViewById(R.id.pb_item_single_link_card);
         }
     }
 
@@ -162,7 +162,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbLinkGoodsRootView f55007a;
+        public final /* synthetic */ PbLinkGoodsRootView f55156a;
 
         /* loaded from: classes7.dex */
         public class a implements View.OnClickListener {
@@ -170,7 +170,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f55008e;
+            public final /* synthetic */ c f55157e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -187,14 +187,14 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                         return;
                     }
                 }
-                this.f55008e = cVar;
+                this.f55157e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f55008e.f55007a.j();
+                    this.f55157e.f55156a.j();
                 }
             }
         }
@@ -205,7 +205,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f55009e;
+            public final /* synthetic */ c f55158e;
 
             public b(c cVar) {
                 Interceptable interceptable = $ic;
@@ -222,14 +222,14 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                         return;
                     }
                 }
-                this.f55009e = cVar;
+                this.f55158e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f55009e.f55007a.j();
+                    this.f55158e.f55156a.j();
                 }
             }
         }
@@ -241,10 +241,10 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f55010e;
+            public final /* synthetic */ int f55159e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f55011f;
+            public final /* synthetic */ c f55160f;
 
             public View$OnClickListenerC1789c(c cVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -261,16 +261,16 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                         return;
                     }
                 }
-                this.f55011f = cVar;
-                this.f55010e = i2;
+                this.f55160f = cVar;
+                this.f55159e = i2;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    PbLinkGoodsRootView pbLinkGoodsRootView = this.f55011f.f55007a;
-                    pbLinkGoodsRootView.m((c.a.q0.a0.d0.c) pbLinkGoodsRootView.q.get(this.f55010e));
+                    PbLinkGoodsRootView pbLinkGoodsRootView = this.f55160f.f55156a;
+                    pbLinkGoodsRootView.m((c.a.r0.a0.d0.c) pbLinkGoodsRootView.q.get(this.f55159e));
                 }
             }
         }
@@ -290,14 +290,14 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                     return;
                 }
             }
-            this.f55007a = pbLinkGoodsRootView;
+            this.f55156a = pbLinkGoodsRootView;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55007a.r : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55156a.r : invokeV.intValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -305,30 +305,30 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewHolder, i2) == null) && (viewHolder instanceof b)) {
                 b bVar = (b) viewHolder;
-                if (i2 >= this.f55007a.q.size() || this.f55007a.q.get(i2) == null) {
+                if (i2 >= this.f55156a.q.size() || this.f55156a.q.get(i2) == null) {
                     return;
                 }
-                if (this.f55007a.u == null || this.f55007a.u.getLinkGoodsMoreShow() || i2 != 2 || this.f55007a.q.size() <= 3) {
-                    if (this.f55007a.v == null || this.f55007a.v.getLinkGoodsMoreShow() || i2 != 2 || this.f55007a.q.size() <= 3) {
-                        bVar.f55005b.setVisibility(8);
+                if (this.f55156a.u == null || this.f55156a.u.getLinkGoodsMoreShow() || i2 != 2 || this.f55156a.q.size() <= 3) {
+                    if (this.f55156a.v == null || this.f55156a.v.getLinkGoodsMoreShow() || i2 != 2 || this.f55156a.q.size() <= 3) {
+                        bVar.f55154b.setVisibility(8);
                     } else {
-                        bVar.f55005b.setOnClickListener(new b(this));
-                        bVar.f55005b.setVisibility(0);
-                        TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(bVar.f55005b);
+                        bVar.f55154b.setOnClickListener(new b(this));
+                        bVar.f55154b.setVisibility(0);
+                        TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(bVar.f55154b);
                     }
                 } else {
-                    bVar.f55005b.setOnClickListener(new a(this));
-                    bVar.f55005b.setVisibility(0);
-                    TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(bVar.f55005b);
+                    bVar.f55154b.setOnClickListener(new a(this));
+                    bVar.f55154b.setVisibility(0);
+                    TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(bVar.f55154b);
                 }
-                bVar.f55004a.bindData((c.a.q0.a0.d0.c) this.f55007a.q.get(i2));
-                bVar.f55004a.setOnClickListener(new View$OnClickListenerC1789c(this, i2));
-                if (!(this.f55007a.q.get(i2) instanceof PbLinkData) || this.f55007a.q.get(i2) == null) {
-                    if (this.f55007a.q.get(i2) instanceof PbGoodsData) {
-                        this.f55007a.l("c13961", 2);
+                bVar.f55153a.bindData((c.a.r0.a0.d0.c) this.f55156a.q.get(i2));
+                bVar.f55153a.setOnClickListener(new View$OnClickListenerC1789c(this, i2));
+                if (!(this.f55156a.q.get(i2) instanceof PbLinkData) || this.f55156a.q.get(i2) == null) {
+                    if (this.f55156a.q.get(i2) instanceof PbGoodsData) {
+                        this.f55156a.l("c13961", 2);
                     }
-                } else if (((PbLinkData) this.f55007a.q.get(i2)).urlType == 2) {
-                    this.f55007a.l("c13961", 1);
+                } else if (((PbLinkData) this.f55156a.q.get(i2)).urlType == 2) {
+                    this.f55156a.l("c13961", 1);
                 }
             }
         }
@@ -338,7 +338,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) ? new b(this.f55007a, LayoutInflater.from(this.f55007a.f55002j).inflate(R.layout.pb_link_goods_item_layout, (ViewGroup) null)) : (RecyclerView.ViewHolder) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) ? new b(this.f55156a, LayoutInflater.from(this.f55156a.f55151j).inflate(R.layout.pb_link_goods_item_layout, (ViewGroup) null)) : (RecyclerView.ViewHolder) invokeLI.objValue;
         }
     }
 
@@ -363,7 +363,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
     }
 
-    public void bindData(e eVar, List<c.a.q0.a0.d0.c> list, String str, PbFragment pbFragment, boolean z) {
+    public void bindData(e eVar, List<c.a.r0.a0.d0.c> list, String str, PbFragment pbFragment, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{eVar, list, str, pbFragment, Boolean.valueOf(z)}) == null) {
             this.u = pbFragment;
@@ -384,7 +384,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
                 this.r = this.q.size();
-                TextView textView = this.f54998f;
+                TextView textView = this.f55147f;
                 if (this.t) {
                     resources2 = getResources();
                     i3 = R.string.pb_first_goods_more_close;
@@ -398,7 +398,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 if (this.r > 3) {
                     this.r = 3;
                 }
-                TextView textView2 = this.f54998f;
+                TextView textView2 = this.f55147f;
                 if (this.t) {
                     resources = getResources();
                     i2 = R.string.pb_first_goods_more_open;
@@ -409,10 +409,10 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 textView2.setText(resources.getString(i2));
                 this.s = R.drawable.icon_pure_unfold12_svg;
             }
-            this.f54997e.notifyDataSetChanged();
+            this.f55146e.notifyDataSetChanged();
             setMarginTop(z);
-            SkinManager.setViewTextColor(this.f54998f, R.color.CAM_X0107);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f54999g, this.s, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SkinManager.setViewTextColor(this.f55147f, R.color.CAM_X0107);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f55148g, this.s, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
@@ -448,7 +448,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.w != null && this.t) {
-            TiebaStatic.log(new StatisticItem("c13968").param("fid", this.w.T()).param("fname", this.w.Z()).param("tid", this.w.q1()));
+            TiebaStatic.log(new StatisticItem("c13968").param("fid", this.w.T()).param("fname", this.w.Z()).param("tid", this.w.s1()));
         }
     }
 
@@ -457,10 +457,10 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeLI(1048582, this, str, i2) == null) || this.w == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem(str).param("obj_type", i2).param("fid", this.w.T()).param("fname", this.w.Z()).param("tid", this.w.q1()));
+        TiebaStatic.log(new StatisticItem(str).param("obj_type", i2).param("fid", this.w.T()).param("fname", this.w.Z()).param("tid", this.w.s1()));
     }
 
-    public final void m(c.a.q0.a0.d0.c cVar) {
+    public final void m(c.a.r0.a0.d0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
             if (cVar instanceof PbLinkData) {
@@ -468,7 +468,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 if (pbLinkData == null) {
                     return;
                 }
-                TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) this.f55002j;
+                TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) this.f55151j;
                 if (pbLinkData.urlType == 1) {
                     UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{pbLinkData.linkUrl});
                 } else {
@@ -480,7 +480,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                     l("c13962", 1);
                 }
             } else if (cVar instanceof PbGoodsData) {
-                TbPageContextSupport tbPageContextSupport2 = (TbPageContextSupport) this.f55002j;
+                TbPageContextSupport tbPageContextSupport2 = (TbPageContextSupport) this.f55151j;
                 PbGoodsData pbGoodsData = (PbGoodsData) cVar;
                 if (pbGoodsData == null) {
                     return;
@@ -492,7 +492,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(pbGoodsData.linkUrl));
                         intent.addFlags(268468224);
                         if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
-                            this.f55002j.startActivity(intent);
+                            this.f55151j.startActivity(intent);
                         } else if (!TextUtils.isEmpty(pbGoodsData.goodsUrlH5)) {
                             UrlManager urlManager2 = UrlManager.getInstance();
                             TbPageContext<?> pageContext2 = tbPageContextSupport2.getPageContext();
@@ -563,27 +563,27 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         this.q = new ArrayList();
         this.r = 3;
         this.t = false;
-        this.f55002j = context;
+        this.f55151j = context;
         LayoutInflater.from(context).inflate(R.layout.pb_link_goods_layout, this);
         BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.pb_link_goods_rv);
         this.k = bdRecyclerView;
         bdRecyclerView.setNestedScrollingEnabled(false);
         this.l = (LinearLayout) findViewById(R.id.pb_more_post_rl);
-        this.f54998f = (TextView) findViewById(R.id.tv_post);
-        this.f55000h = (RelativeLayout) findViewById(R.id.rl_more_post);
-        this.f54999g = (ImageView) findViewById(R.id.iv_arrow);
-        this.f55001i = (ThreadForumEnterGoodsButton) findViewById(R.id.pb_tip_enter_button);
-        this.m = l.g(this.f55002j, R.dimen.tbds14);
-        this.n = l.g(this.f55002j, R.dimen.tbds44);
-        this.o = l.g(this.f55002j, R.dimen.tbds36);
-        this.p = l.g(this.f55002j, R.dimen.tbds22);
-        this.f54997e = new c(this);
-        this.k.setLayoutManager(new LinearLayoutManager(this.f55002j));
-        this.k.setAdapter(this.f54997e);
-        this.f55000h.setOnClickListener(new a(this));
+        this.f55147f = (TextView) findViewById(R.id.tv_post);
+        this.f55149h = (RelativeLayout) findViewById(R.id.rl_more_post);
+        this.f55148g = (ImageView) findViewById(R.id.iv_arrow);
+        this.f55150i = (ThreadForumEnterGoodsButton) findViewById(R.id.pb_tip_enter_button);
+        this.m = l.g(this.f55151j, R.dimen.tbds14);
+        this.n = l.g(this.f55151j, R.dimen.tbds44);
+        this.o = l.g(this.f55151j, R.dimen.tbds36);
+        this.p = l.g(this.f55151j, R.dimen.tbds22);
+        this.f55146e = new c(this);
+        this.k.setLayoutManager(new LinearLayoutManager(this.f55151j));
+        this.k.setAdapter(this.f55146e);
+        this.f55149h.setOnClickListener(new a(this));
     }
 
-    public void bindData(e eVar, List<c.a.q0.a0.d0.c> list, String str, AbsVideoPbFragment absVideoPbFragment, boolean z) {
+    public void bindData(e eVar, List<c.a.r0.a0.d0.c> list, String str, AbsVideoPbFragment absVideoPbFragment, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{eVar, list, str, absVideoPbFragment, Boolean.valueOf(z)}) == null) {
             this.v = absVideoPbFragment;
@@ -595,14 +595,14 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
     }
 
-    public void bindData(e eVar, List<c.a.q0.a0.d0.c> list, String str, boolean z) {
+    public void bindData(e eVar, List<c.a.r0.a0.d0.c> list, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{eVar, list, str, Boolean.valueOf(z)}) == null) {
             this.q = list;
-            c2 O = eVar.O();
+            d2 O = eVar.O();
             this.w = O;
-            O.B3(eVar.o());
-            this.w.x3(Long.valueOf(eVar.n()).longValue());
+            O.I3(eVar.o());
+            this.w.E3(Long.valueOf(eVar.n()).longValue());
             this.t = z;
             this.r = list.size();
             if (list.size() < 4) {
@@ -612,12 +612,12 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             }
             if (this.t) {
                 this.t = z;
-                this.f55001i.setFrom(1);
-                this.f55001i.bindData(this.w);
-                this.f55001i.setVisibility(0);
+                this.f55150i.setFrom(1);
+                this.f55150i.bindData(this.w);
+                this.f55150i.setVisibility(0);
                 return;
             }
-            this.f55001i.setVisibility(8);
+            this.f55150i.setVisibility(8);
         }
     }
 }

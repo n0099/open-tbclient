@@ -12,25 +12,25 @@ public final class z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ab f42193a;
+    public ab f42304a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42194b;
+    public boolean f42305b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42195c;
+    public int f42306c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f42196d;
+    public boolean f42307d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f42197e;
+    public boolean f42308e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f42198f;
+    public boolean f42309f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f42199g;
+    public boolean f42310g;
 
     public z() {
         Interceptable interceptable = $ic;
@@ -45,20 +45,20 @@ public final class z {
                 return;
             }
         }
-        this.f42193a = new ab();
-        this.f42194b = true;
-        this.f42195c = 1;
-        this.f42196d = true;
-        this.f42197e = true;
-        this.f42198f = true;
-        this.f42199g = true;
+        this.f42304a = new ab();
+        this.f42305b = true;
+        this.f42306c = 1;
+        this.f42307d = true;
+        this.f42308e = true;
+        this.f42309f = true;
+        this.f42310g = true;
     }
 
     public z a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            this.f42195c = i2;
+            this.f42306c = i2;
             return this;
         }
         return (z) invokeI.objValue;
@@ -68,7 +68,7 @@ public final class z {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abVar)) == null) {
-            this.f42193a = abVar;
+            this.f42304a = abVar;
             return this;
         }
         return (z) invokeL.objValue;
@@ -78,7 +78,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.f42194b = z;
+            this.f42305b = z;
             return this;
         }
         return (z) invokeZ.objValue;
@@ -88,7 +88,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.f42196d = z;
+            this.f42307d = z;
             return this;
         }
         return (z) invokeZ.objValue;
@@ -98,7 +98,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            this.f42197e = z;
+            this.f42308e = z;
             return this;
         }
         return (z) invokeZ.objValue;
@@ -108,7 +108,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            this.f42198f = z;
+            this.f42309f = z;
             return this;
         }
         return (z) invokeZ.objValue;
@@ -118,7 +118,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.f42199g = z;
+            this.f42310g = z;
             return this;
         }
         return (z) invokeZ.objValue;

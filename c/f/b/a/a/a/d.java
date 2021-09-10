@@ -25,22 +25,22 @@ public class d implements Camera.PreviewCallback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile c f32216e;
+    public volatile c f32325e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f32217f;
+    public final int f32326f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f32218g;
+    public final int f32327g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f32219h;
+    public int f32328h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f32220i;
+    public int f32329i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f32221j;
+    public final int f32330j;
     public final int k;
     public final int l;
     public final long m;
@@ -81,16 +81,16 @@ public class d implements Camera.PreviewCallback {
                 return;
             }
         }
-        this.f32216e = null;
+        this.f32325e = null;
         this.o = 0L;
         i7 = i7 == 0 ? 15 : i7;
         this.l = i2;
-        this.f32217f = i3;
-        this.f32218g = i4;
-        this.f32221j = i6;
+        this.f32326f = i3;
+        this.f32327g = i4;
+        this.f32330j = i6;
         this.k = i7;
         this.m = 1000 / i7;
-        this.f32216e = cVar;
+        this.f32325e = cVar;
         if (i5 % 90 == 0) {
             this.n = (i5 + 360) % 360;
         } else {
@@ -147,7 +147,7 @@ public class d implements Camera.PreviewCallback {
                         return q;
                     }
                     s.destroy();
-                    q.f32216e.destroyCamera();
+                    q.f32325e.destroyCamera();
                 }
                 try {
                     if (!s.init(i2, i3, i4, dVar.n, i6, i7)) {
@@ -155,8 +155,8 @@ public class d implements Camera.PreviewCallback {
                         q = null;
                         return null;
                     }
-                    dVar.f32219h = s.getPreviewWidht();
-                    dVar.f32220i = s.getPreviewHeight();
+                    dVar.f32328h = s.getPreviewWidht();
+                    dVar.f32329i = s.getPreviewHeight();
                     q = dVar;
                     dVar.e(cVar);
                     return q;
@@ -182,16 +182,16 @@ public class d implements Camera.PreviewCallback {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             synchronized (r) {
                 if (cVar != null) {
-                    if (this.f32216e != null && cVar != this.f32216e) {
-                        this.f32216e.destroyCamera();
+                    if (this.f32325e != null && cVar != this.f32325e) {
+                        this.f32325e.destroyCamera();
                     }
-                    cVar.initCamera(this.f32219h, this.f32220i, this.f32221j, this.k);
-                    this.f32216e = cVar;
+                    cVar.initCamera(this.f32328h, this.f32329i, this.f32330j, this.k);
+                    this.f32325e = cVar;
                 } else {
-                    if (this.f32216e != null) {
-                        this.f32216e.destroyCamera();
+                    if (this.f32325e != null) {
+                        this.f32325e.destroyCamera();
                     }
-                    this.f32216e = null;
+                    this.f32325e = null;
                 }
             }
         }
@@ -206,8 +206,8 @@ public class d implements Camera.PreviewCallback {
             }
             if (obj instanceof d) {
                 d dVar = (d) obj;
-                c cVar = dVar.f32216e;
-                return (cVar == null || this.f32216e != null) && dVar.l == this.l && dVar.f32218g == this.f32218g && dVar.f32217f == this.f32217f && dVar.n == this.n && dVar.f32221j == this.f32221j && dVar.k == this.k && cVar.equals(this.f32216e);
+                c cVar = dVar.f32325e;
+                return (cVar == null || this.f32325e != null) && dVar.l == this.l && dVar.f32327g == this.f32327g && dVar.f32326f == this.f32326f && dVar.n == this.n && dVar.f32330j == this.f32330j && dVar.k == this.k && cVar.equals(this.f32325e);
             }
             return false;
         }
@@ -219,10 +219,10 @@ public class d implements Camera.PreviewCallback {
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             synchronized (r) {
                 s.destroy();
-                if (!z && this.f32216e != null) {
-                    this.f32216e.destroyCamera();
+                if (!z && this.f32325e != null) {
+                    this.f32325e.destroyCamera();
                 }
-                this.f32216e = null;
+                this.f32325e = null;
                 q = null;
             }
         }
@@ -254,12 +254,12 @@ public class d implements Camera.PreviewCallback {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.l);
-            sb.append(this.f32218g);
-            sb.append(this.f32217f);
+            sb.append(this.f32327g);
+            sb.append(this.f32326f);
             sb.append(this.n);
-            sb.append(this.f32221j);
+            sb.append(this.f32330j);
             sb.append(this.k);
-            sb.append(this.f32216e.hashCode());
+            sb.append(this.f32325e.hashCode());
             return sb.hashCode();
         }
         return invokeV.intValue;
@@ -275,9 +275,9 @@ public class d implements Camera.PreviewCallback {
                 this.o = currentTimeMillis;
             } else if (currentTimeMillis - j2 > this.m) {
                 this.o = currentTimeMillis;
-                if (this.f32216e != null) {
+                if (this.f32325e != null) {
                     try {
-                        this.f32216e.processImage(bArr);
+                        this.f32325e.processImage(bArr);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }

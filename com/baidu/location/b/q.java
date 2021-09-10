@@ -10,7 +10,7 @@ public class q implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ o f41020a;
+    public final /* synthetic */ o f41131a;
 
     public q(o oVar) {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class q implements Runnable {
                 return;
             }
         }
-        this.f41020a = oVar;
+        this.f41131a = oVar;
     }
 
     @Override // java.lang.Runnable

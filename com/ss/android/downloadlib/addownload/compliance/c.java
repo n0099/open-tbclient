@@ -26,7 +26,7 @@ public class c extends h<Long, c.C1524c> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f75528a;
+        public static c f75708a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +42,7 @@ public class c extends h<Long, c.C1524c> {
                     return;
                 }
             }
-            f75528a = new c(null);
+            f75708a = new c(null);
         }
     }
 
@@ -53,7 +53,7 @@ public class c extends h<Long, c.C1524c> {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f75528a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f75708a : (c) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

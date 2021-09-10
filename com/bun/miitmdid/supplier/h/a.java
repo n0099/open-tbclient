@@ -21,10 +21,10 @@ public class a implements InnerIdSupplier {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63829a;
+    public String f64009a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f63830b;
+    public Context f64010b;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class a implements InnerIdSupplier {
                 return;
             }
         }
-        this.f63830b = context;
-        this.f63829a = "";
+        this.f64010b = context;
+        this.f64009a = "";
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -54,10 +54,10 @@ public class a implements InnerIdSupplier {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SupplierListener f63831a;
+                public final /* synthetic */ SupplierListener f64011a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f63832b;
+                public final /* synthetic */ a f64012b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -74,8 +74,8 @@ public class a implements InnerIdSupplier {
                             return;
                         }
                     }
-                    this.f63832b = this;
-                    this.f63831a = supplierListener;
+                    this.f64012b = this;
+                    this.f64011a = supplierListener;
                 }
 
                 @Override // java.lang.Runnable
@@ -86,15 +86,15 @@ public class a implements InnerIdSupplier {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            if (this.f63831a != null) {
+                            if (this.f64011a != null) {
                                 if (Build.VERSION.SDK_INT < 28) {
-                                    supplierListener2 = this.f63831a;
+                                    supplierListener2 = this.f64011a;
                                     isSupported = false;
                                     idSupplier = new com.bun.miitmdid.supplier.a();
                                 } else {
-                                    supplierListener2 = this.f63831a;
-                                    isSupported = this.f63832b.isSupported();
-                                    idSupplier = this.f63832b;
+                                    supplierListener2 = this.f64011a;
+                                    isSupported = this.f64012b.isSupported();
+                                    idSupplier = this.f64012b;
                                 }
                                 supplierListener2.OnSupport(isSupported, idSupplier);
                             }
@@ -110,7 +110,7 @@ public class a implements InnerIdSupplier {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f63829a = str;
+            this.f64009a = str;
         }
     }
 
@@ -129,7 +129,7 @@ public class a implements InnerIdSupplier {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String b2 = d.b(this.f63830b, this.f63829a);
+            String b2 = d.b(this.f64010b, this.f64009a);
             return TextUtils.isEmpty(b2) ? sysParamters.f() : b2;
         }
         return (String) invokeV.objValue;
@@ -140,7 +140,7 @@ public class a implements InnerIdSupplier {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String b2 = d.b(this.f63830b);
+            String b2 = d.b(this.f64010b);
             return b2 == null ? "" : b2;
         }
         return (String) invokeV.objValue;
@@ -158,7 +158,7 @@ public class a implements InnerIdSupplier {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String a2 = d.a(this.f63830b, this.f63829a);
+            String a2 = d.a(this.f64010b, this.f64009a);
             return a2 == null ? "" : a2;
         }
         return (String) invokeV.objValue;
@@ -168,7 +168,7 @@ public class a implements InnerIdSupplier {
     public boolean isSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? d.a(this.f63830b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? d.a(this.f64010b) : invokeV.booleanValue;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier

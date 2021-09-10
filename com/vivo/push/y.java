@@ -16,10 +16,10 @@ public abstract class y {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f76553a;
+    public int f76733a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f76554b;
+    public String f76734b;
 
     public y(int i2) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public abstract class y {
                 return;
             }
         }
-        this.f76553a = -1;
+        this.f76733a = -1;
         if (i2 >= 0) {
-            this.f76553a = i2;
+            this.f76733a = i2;
             return;
         }
         throw new IllegalArgumentException("PushCommand: the value of command must > 0.");
@@ -47,8 +47,8 @@ public abstract class y {
     private final void e(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, aVar) == null) {
-            aVar.a("command", this.f76553a);
-            aVar.a("client_pkgname", this.f76554b);
+            aVar.a("command", this.f76733a);
+            aVar.a("client_pkgname", this.f76734b);
             c(aVar);
         }
     }
@@ -56,13 +56,13 @@ public abstract class y {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76554b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76734b : (String) invokeV.objValue;
     }
 
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f76553a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f76733a : invokeV.intValue;
     }
 
     public abstract void c(a aVar);
@@ -87,7 +87,7 @@ public abstract class y {
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f76554b = str;
+            this.f76734b = str;
         }
     }
 
@@ -99,7 +99,7 @@ public abstract class y {
                 com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
                 return;
             }
-            a2.a("method", this.f76553a);
+            a2.a("method", this.f76733a);
             e(a2);
             Bundle b2 = a2.b();
             if (b2 != null) {
@@ -127,7 +127,7 @@ public abstract class y {
     public final void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            String a2 = z.a(this.f76553a);
+            String a2 = z.a(this.f76733a);
             if (a2 == null) {
                 a2 = "";
             }
@@ -141,9 +141,9 @@ public abstract class y {
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             String a2 = aVar.a();
             if (!TextUtils.isEmpty(a2)) {
-                this.f76554b = a2;
+                this.f76734b = a2;
             } else {
-                this.f76554b = aVar.a("client_pkgname");
+                this.f76734b = aVar.a("client_pkgname");
             }
             d(aVar);
         }

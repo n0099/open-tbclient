@@ -24,42 +24,42 @@ public final class PayResultActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35750a = "{\"isLogin\":\"false\"}";
+    public static final String f35859a = "{\"isLogin\":\"false\"}";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<String, Object> f35751b;
+    public static final HashMap<String, Object> f35860b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f35752c = "hk.alipay.wallet";
+    public static final String f35861c = "hk.alipay.wallet";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35753d = "phonecashier.pay.hash";
+    public static final String f35862d = "phonecashier.pay.hash";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f35754e = "orderSuffix";
+    public static final String f35863e = "orderSuffix";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f35755f = "externalPkgName";
+    public static final String f35864f = "externalPkgName";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f35756g = "phonecashier.pay.result";
+    public static final String f35865g = "phonecashier.pay.result";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f35757h = "phonecashier.pay.resultOrderHash";
+    public static final String f35866h = "phonecashier.pay.resultOrderHash";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.alipay.sdk.sys.a f35758i;
+    public com.alipay.sdk.sys.a f35867i;
 
     /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile String f35760a;
+        public static volatile String f35869a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static volatile String f35761b;
+        public static volatile String f35870b;
         public transient /* synthetic */ FieldHolder $fh;
 
         public a() {
@@ -90,7 +90,7 @@ public final class PayResultActivity extends Activity {
                 return;
             }
         }
-        f35751b = new HashMap<>();
+        f35860b = new HashMap<>();
     }
 
     public PayResultActivity() {
@@ -106,7 +106,7 @@ public final class PayResultActivity extends Activity {
                 return;
             }
         }
-        this.f35758i = null;
+        this.f35867i = null;
     }
 
     public static void a(Activity activity, String str, String str2, String str3) {
@@ -116,7 +116,7 @@ public final class PayResultActivity extends Activity {
         }
         Intent intent = new Intent();
         try {
-            intent.setPackage(f35752c);
+            intent.setPackage(f35861c);
             intent.setData(Uri.parse("alipayhk://platformapi/startApp?appId=20000125&schemePaySession=" + URLEncoder.encode(str, "UTF-8") + "&orderSuffix=" + URLEncoder.encode(str2, "UTF-8") + "&packageName=" + URLEncoder.encode(str3, "UTF-8") + "&externalPkgName=" + URLEncoder.encode(str3, "UTF-8")));
         } catch (UnsupportedEncodingException e2) {
             com.alipay.sdk.util.c.a(e2);
@@ -137,37 +137,37 @@ public final class PayResultActivity extends Activity {
             super.onCreate(bundle);
             try {
                 Intent intent = getIntent();
-                if (!TextUtils.isEmpty(intent.getStringExtra(f35754e))) {
-                    a.f35760a = intent.getStringExtra(f35753d);
-                    String stringExtra = intent.getStringExtra(f35754e);
-                    String stringExtra2 = intent.getStringExtra(f35755f);
+                if (!TextUtils.isEmpty(intent.getStringExtra(f35863e))) {
+                    a.f35869a = intent.getStringExtra(f35862d);
+                    String stringExtra = intent.getStringExtra(f35863e);
+                    String stringExtra2 = intent.getStringExtra(f35864f);
                     com.alipay.sdk.sys.a a2 = a.C1565a.a(intent);
-                    this.f35758i = a2;
+                    this.f35867i = a2;
                     if (a2 == null) {
                         finish();
                     }
-                    a(this, a.f35760a, stringExtra, stringExtra2);
+                    a(this, a.f35869a, stringExtra, stringExtra2);
                     a(this, 300);
                     return;
                 }
-                if (this.f35758i == null) {
+                if (this.f35867i == null) {
                     finish();
                 }
-                String stringExtra3 = intent.getStringExtra(f35756g);
-                int intExtra = intent.getIntExtra(f35757h, 0);
-                if (intExtra != 0 && TextUtils.equals(a.f35760a, String.valueOf(intExtra))) {
+                String stringExtra3 = intent.getStringExtra(f35865g);
+                int intExtra = intent.getIntExtra(f35866h, 0);
+                if (intExtra != 0 && TextUtils.equals(a.f35869a, String.valueOf(intExtra))) {
                     if (!TextUtils.isEmpty(stringExtra3)) {
-                        a(stringExtra3, a.f35760a);
+                        a(stringExtra3, a.f35869a);
                     } else {
-                        a(a.f35760a);
+                        a(a.f35869a);
                     }
-                    a.f35760a = "";
+                    a.f35869a = "";
                     a(this, 300);
                     return;
                 }
-                com.alipay.sdk.sys.a aVar = this.f35758i;
-                com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.af, "Expected " + a.f35760a + ", got " + intExtra);
-                a(a.f35760a);
+                com.alipay.sdk.sys.a aVar = this.f35867i;
+                com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.af, "Expected " + a.f35869a + ", got " + intExtra);
+                a(a.f35869a);
                 a(this, 300);
             } catch (Throwable unused) {
                 finish();
@@ -178,16 +178,16 @@ public final class PayResultActivity extends Activity {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a.f35761b = b.c();
-            a(f35751b, str);
+            a.f35870b = b.c();
+            a(f35860b, str);
         }
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
-            a.f35761b = str;
-            a(f35751b, str2);
+            a.f35870b = str;
+            a(f35860b, str2);
         }
     }
 
@@ -199,7 +199,7 @@ public final class PayResultActivity extends Activity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f35759a;
+                public final /* synthetic */ Activity f35868a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -216,14 +216,14 @@ public final class PayResultActivity extends Activity {
                             return;
                         }
                     }
-                    this.f35759a = activity;
+                    this.f35868a = activity;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f35759a.finish();
+                        this.f35868a.finish();
                     }
                 }
             }, i2);

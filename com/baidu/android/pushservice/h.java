@@ -23,34 +23,34 @@ public final class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f37163a = 5287;
+    public static int f37282a = 5287;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f37164b = 5288;
+    public static int f37283b = 5288;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f37165c = "https://info.tuisong.baidu.com";
+    public static String f37284c = "https://info.tuisong.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f37166d = "/setter";
+    public static String f37285d = "/setter";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f37167e = "/v2/setter";
+    public static String f37286e = "/v2/setter";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f37168f = "/getter";
+    public static String f37287f = "/getter";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f37169g = "/v2/getter";
+    public static String f37288g = "/v2/getter";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f37170h = "/bccs/upload";
+    public static String f37289h = "/bccs/upload";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f37171i = "https://ack.tuisong.baidu.com";
+    public static String f37290i = "https://ack.tuisong.baidu.com";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f37172j = "/click";
+    public static String f37291j = "/click";
     public static String k = "api.tuisong.baidu.com";
     public static String[] l = null;
     public static String m = "sa.tuisong.baidu.com";
@@ -78,7 +78,7 @@ public final class h {
     public static int a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? m.o(context) ? f37164b : f37163a : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? m.o(context) ? f37283b : f37282a : invokeL.intValue;
     }
 
     public static String a() {
@@ -163,27 +163,27 @@ public final class h {
             }
             String property3 = properties.getProperty("data_update_server");
             if (!TextUtils.isEmpty(property3)) {
-                f37165c = property3;
+                f37284c = property3;
             }
             String property4 = properties.getProperty("push_ack_server");
             if (!TextUtils.isEmpty(property4)) {
-                f37171i = property4;
+                f37290i = property4;
             }
             if (m.o(context)) {
                 String property5 = properties.getProperty("socket_server_port_v3");
                 if (!TextUtils.isEmpty(property5)) {
-                    f37164b = Integer.parseInt(property5);
+                    f37283b = Integer.parseInt(property5);
                 }
             } else {
                 String property6 = properties.getProperty("socket_server_port");
                 if (!TextUtils.isEmpty(property6)) {
-                    f37163a = Integer.parseInt(property6);
+                    f37282a = Integer.parseInt(property6);
                 }
             }
-            if (f.f37103a == 0) {
+            if (f.f37222a == 0) {
                 String property7 = properties.getProperty(Constants.API_KEY);
                 if (TextUtils.equals(properties.getProperty(EmotionResourceInfo.JSON_KEY_PKG_NAME), context.getPackageName()) && !TextUtils.isEmpty(property7)) {
-                    f.f37104b = property7;
+                    f.f37223b = property7;
                 }
             }
             o = true;

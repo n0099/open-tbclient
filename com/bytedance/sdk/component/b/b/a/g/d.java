@@ -14,13 +14,13 @@ public class d<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<?> f64612a;
+    public final Class<?> f64792a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f64613b;
+    public final String f64793b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Class[] f64614c;
+    public final Class[] f64794c;
 
     public d(Class<?> cls, String str, Class... clsArr) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class d<T> {
                 return;
             }
         }
-        this.f64612a = cls;
-        this.f64613b = str;
-        this.f64614c = clsArr;
+        this.f64792a = cls;
+        this.f64793b = str;
+        this.f64794c = clsArr;
     }
 
     public boolean a(T t) {
@@ -81,7 +81,7 @@ public class d<T> {
                     throw assertionError;
                 }
             }
-            throw new AssertionError("Method " + this.f64613b + " not supported for object " + t);
+            throw new AssertionError("Method " + this.f64793b + " not supported for object " + t);
         }
         return invokeLL.objValue;
     }
@@ -127,10 +127,10 @@ public class d<T> {
         Class<?> cls2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cls)) == null) {
-            String str = this.f64613b;
+            String str = this.f64793b;
             if (str != null) {
-                Method a2 = a(cls, str, this.f64614c);
-                if (a2 == null || (cls2 = this.f64612a) == null || cls2.isAssignableFrom(a2.getReturnType())) {
+                Method a2 = a(cls, str, this.f64794c);
+                if (a2 == null || (cls2 = this.f64792a) == null || cls2.isAssignableFrom(a2.getReturnType())) {
                     return a2;
                 }
                 return null;

@@ -20,14 +20,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Gson f79007c;
+    public static Gson f79245c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f79008a;
+    public f f79246a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f79009b;
+    public Handler f79247b;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -35,13 +35,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f79010e;
+        public final /* synthetic */ int f79248e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UrlPageParams f79011f;
+        public final /* synthetic */ UrlPageParams f79249f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f79012g;
+        public final /* synthetic */ b f79250g;
 
         public a(b bVar, int i2, UrlPageParams urlPageParams) {
             Interceptable interceptable = $ic;
@@ -58,22 +58,22 @@ public class b {
                     return;
                 }
             }
-            this.f79012g = bVar;
-            this.f79010e = i2;
-            this.f79011f = urlPageParams;
+            this.f79250g = bVar;
+            this.f79248e = i2;
+            this.f79249f = urlPageParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f79012g.f79008a == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f79250g.f79246a == null) {
                 return;
             }
-            if (this.f79010e == 1) {
-                this.f79012g.f79008a.onOpenUrl(this.f79011f);
+            if (this.f79248e == 1) {
+                this.f79250g.f79246a.onOpenUrl(this.f79249f);
             }
-            if (this.f79010e == 3) {
-                this.f79012g.f79008a.onUpdateTopUi(this.f79011f);
+            if (this.f79248e == 3) {
+                this.f79250g.f79246a.onUpdateTopUi(this.f79249f);
             }
         }
     }
@@ -85,7 +85,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f79013e;
+        public final /* synthetic */ b f79251e;
 
         public RunnableC2150b(b bVar) {
             Interceptable interceptable = $ic;
@@ -102,16 +102,16 @@ public class b {
                     return;
                 }
             }
-            this.f79013e = bVar;
+            this.f79251e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f79013e.f79008a == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f79251e.f79246a == null) {
                 return;
             }
-            this.f79013e.f79008a.onNativeOperation(new NativeOperationParams(2));
+            this.f79251e.f79246a.onNativeOperation(new NativeOperationParams(2));
         }
     }
 
@@ -121,10 +121,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f79014e;
+        public final /* synthetic */ String f79252e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f79015f;
+        public final /* synthetic */ b f79253f;
 
         public c(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -141,17 +141,17 @@ public class b {
                     return;
                 }
             }
-            this.f79015f = bVar;
-            this.f79014e = str;
+            this.f79253f = bVar;
+            this.f79252e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f79015f.f79008a == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f79253f.f79246a == null) {
                 return;
             }
-            this.f79015f.f79008a.onNativeOperation(new NativeOperationParams(5, this.f79014e));
+            this.f79253f.f79246a.onNativeOperation(new NativeOperationParams(5, this.f79252e));
         }
     }
 
@@ -161,10 +161,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f79016e;
+        public final /* synthetic */ String f79254e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f79017f;
+        public final /* synthetic */ b f79255f;
 
         public d(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -181,17 +181,17 @@ public class b {
                     return;
                 }
             }
-            this.f79017f = bVar;
-            this.f79016e = str;
+            this.f79255f = bVar;
+            this.f79254e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f79017f.f79008a == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f79255f.f79246a == null) {
                 return;
             }
-            this.f79017f.f79008a.onNativeOperation(new NativeOperationParams(4, this.f79016e));
+            this.f79255f.f79246a.onNativeOperation(new NativeOperationParams(4, this.f79254e));
         }
     }
 
@@ -201,10 +201,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f79018e;
+        public final /* synthetic */ String f79256e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f79019f;
+        public final /* synthetic */ b f79257f;
 
         public e(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -221,17 +221,17 @@ public class b {
                     return;
                 }
             }
-            this.f79019f = bVar;
-            this.f79018e = str;
+            this.f79257f = bVar;
+            this.f79256e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f79019f.f79008a == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f79257f.f79246a == null) {
                 return;
             }
-            this.f79019f.f79008a.onNativeOperation(new NativeOperationParams(6, this.f79018e));
+            this.f79257f.f79246a.onNativeOperation(new NativeOperationParams(6, this.f79256e));
         }
     }
 
@@ -259,7 +259,7 @@ public class b {
                 return;
             }
         }
-        f79007c = new Gson();
+        f79245c = new Gson();
     }
 
     public b(f fVar) {
@@ -277,8 +277,8 @@ public class b {
                 return;
             }
         }
-        this.f79009b = new Handler(Looper.getMainLooper());
-        this.f79008a = fVar;
+        this.f79247b = new Handler(Looper.getMainLooper());
+        this.f79246a = fVar;
     }
 
     public final void b(Runnable runnable) {
@@ -287,7 +287,7 @@ public class b {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 runnable.run();
             } else {
-                this.f79009b.post(runnable);
+                this.f79247b.post(runnable);
             }
         }
     }
@@ -309,7 +309,7 @@ public class b {
                     String str2 = i2 == 1 ? "CODE_OPEN_URL_PAGE" : "CODE_UPFATE_TOP_INFO";
                     UrlPageParams urlPageParams2 = null;
                     try {
-                        urlPageParams = (UrlPageParams) f79007c.fromJson(str, (Class<Object>) UrlPageParams.class);
+                        urlPageParams = (UrlPageParams) f79245c.fromJson(str, (Class<Object>) UrlPageParams.class);
                     } catch (Throwable th) {
                         th = th;
                     }
@@ -320,34 +320,34 @@ public class b {
                         urlPageParams2 = urlPageParams;
                         RLog.error("YYPaySdkJsInterface", str2 + " error,", th);
                         urlPageParams = urlPageParams2;
-                        if (this.f79008a == null) {
+                        if (this.f79246a == null) {
                         }
                     }
-                    if (this.f79008a == null) {
+                    if (this.f79246a == null) {
                         b(new a(this, i2, urlPageParams));
                         return;
                     }
                     return;
                 case 2:
-                    if (this.f79008a != null) {
+                    if (this.f79246a != null) {
                         b(new RunnableC2150b(this));
                         return;
                     }
                     return;
                 case 4:
-                    if (this.f79008a != null) {
+                    if (this.f79246a != null) {
                         b(new d(this, str));
                         return;
                     }
                     return;
                 case 5:
-                    if (this.f79008a != null) {
+                    if (this.f79246a != null) {
                         b(new c(this, str));
                         return;
                     }
                     return;
                 case 6:
-                    if (this.f79008a != null) {
+                    if (this.f79246a != null) {
                         b(new e(this, str));
                         return;
                     }
@@ -363,7 +363,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f fVar = this.f79008a;
+            f fVar = this.f79246a;
             if (fVar != null) {
                 return fVar.getToken();
             }

@@ -33,29 +33,29 @@ public class DownloadStatusManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static com.ksad.download.f f71408f;
+    public static com.ksad.download.f f71588f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BroadcastReceiver f71409g;
+    public static final BroadcastReceiver f71589g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BroadcastReceiver f71410h;
+    public static final BroadcastReceiver f71590h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakHashMap<d, AdTemplate> f71411a;
+    public final WeakHashMap<d, AdTemplate> f71591a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<d, AdTemplate> f71412b;
+    public final Map<d, AdTemplate> f71592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f71413c;
+    public volatile boolean f71593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashMap<String, AdTemplate> f71414d;
+    public final HashMap<String, AdTemplate> f71594d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, AdTemplate> f71415e;
+    public final Map<String, AdTemplate> f71595e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -123,7 +123,7 @@ public class DownloadStatusManager {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!this.mInstance.f71413c) {
+                if (!this.mInstance.f71593c) {
                     synchronized (this.lock) {
                         this.mInstance.b();
                     }
@@ -147,7 +147,7 @@ public class DownloadStatusManager {
                 return;
             }
         }
-        f71409g = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.1
+        f71589g = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -173,7 +173,7 @@ public class DownloadStatusManager {
                 }
             }
         };
-        f71410h = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.2
+        f71590h = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -215,12 +215,12 @@ public class DownloadStatusManager {
             }
         }
         WeakHashMap<d, AdTemplate> weakHashMap = new WeakHashMap<>();
-        this.f71411a = weakHashMap;
-        this.f71412b = Collections.synchronizedMap(weakHashMap);
-        this.f71413c = false;
+        this.f71591a = weakHashMap;
+        this.f71592b = Collections.synchronizedMap(weakHashMap);
+        this.f71593c = false;
         HashMap<String, AdTemplate> hashMap = new HashMap<>();
-        this.f71414d = hashMap;
-        this.f71415e = Collections.synchronizedMap(hashMap);
+        this.f71594d = hashMap;
+        this.f71595e = Collections.synchronizedMap(hashMap);
         b();
     }
 
@@ -232,15 +232,15 @@ public class DownloadStatusManager {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && Holder.INSTANCE.mInstance.f71413c) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && Holder.INSTANCE.mInstance.f71593c) {
             try {
                 synchronized (Holder.INSTANCE.lock) {
-                    if (Holder.INSTANCE.mInstance.f71413c) {
-                        context.unregisterReceiver(f71409g);
-                        context.unregisterReceiver(f71410h);
-                        Holder.INSTANCE.mInstance.f71412b.clear();
-                        Holder.INSTANCE.mInstance.f71415e.clear();
-                        Holder.INSTANCE.mInstance.f71413c = false;
+                    if (Holder.INSTANCE.mInstance.f71593c) {
+                        context.unregisterReceiver(f71589g);
+                        context.unregisterReceiver(f71590h);
+                        Holder.INSTANCE.mInstance.f71592b.clear();
+                        Holder.INSTANCE.mInstance.f71595e.clear();
+                        Holder.INSTANCE.mInstance.f71593c = false;
                     }
                 }
             } catch (Exception unused) {
@@ -265,7 +265,7 @@ public class DownloadStatusManager {
         String string = extras.getString("RESULT_DOWNLOAD_ID");
         String action = intent.getAction();
         char c3 = 2;
-        if (TextUtils.equals(a.f71432b, action)) {
+        if (TextUtils.equals(a.f71612b, action)) {
             str = "";
             str2 = null;
             i2 = 0;
@@ -273,7 +273,7 @@ public class DownloadStatusManager {
             i4 = 0;
             i5 = 0;
             c2 = 1;
-        } else if (TextUtils.equals(a.f71433c, action)) {
+        } else if (TextUtils.equals(a.f71613c, action)) {
             i2 = extras.getInt("KEY_RESULT_PROGRESS", 0);
             i5 = extras.getInt("KEY_RESULT_PROGRESS_SOFARBYTES", 0);
             str2 = null;
@@ -281,7 +281,7 @@ public class DownloadStatusManager {
             i4 = extras.getInt("KEY_RESULT_PROGRESS_TOTALBYTES", 0);
             str = "";
             i3 = 0;
-        } else if (TextUtils.equals(a.f71434d, action)) {
+        } else if (TextUtils.equals(a.f71614d, action)) {
             String string2 = extras.getString("KEY_REUSLT_FILEPATH");
             str = "";
             str2 = string2;
@@ -290,7 +290,7 @@ public class DownloadStatusManager {
             i4 = 0;
             i5 = 0;
             c2 = 3;
-        } else if (TextUtils.equals(a.f71435e, action)) {
+        } else if (TextUtils.equals(a.f71615e, action)) {
             int i6 = extras.getInt("KEY_RESULT_ERROR_CODE", 0);
             str = extras.getString("KEY_RESULT_ERROR_MSG", "");
             str2 = null;
@@ -299,7 +299,7 @@ public class DownloadStatusManager {
             c2 = 4;
             i3 = i6;
             i2 = 0;
-        } else if (TextUtils.equals(a.f71436f, action)) {
+        } else if (TextUtils.equals(a.f71616f, action)) {
             str = "";
             str2 = null;
             i2 = 0;
@@ -307,7 +307,7 @@ public class DownloadStatusManager {
             i4 = 0;
             i5 = 0;
             c2 = 5;
-        } else if (TextUtils.equals(a.f71437g, action)) {
+        } else if (TextUtils.equals(a.f71617g, action)) {
             str = "";
             str2 = null;
             i2 = 0;
@@ -315,7 +315,7 @@ public class DownloadStatusManager {
             i4 = 0;
             i5 = 0;
             c2 = 6;
-        } else if (TextUtils.equals(a.f71438h, action)) {
+        } else if (TextUtils.equals(a.f71618h, action)) {
             str = "";
             str2 = null;
             i2 = 0;
@@ -323,7 +323,7 @@ public class DownloadStatusManager {
             i4 = 0;
             i5 = 0;
             c2 = 7;
-        } else if (TextUtils.equals(a.f71439i, action)) {
+        } else if (TextUtils.equals(a.f71619i, action)) {
             str = "";
             str2 = null;
             i2 = 0;
@@ -331,7 +331,7 @@ public class DownloadStatusManager {
             i4 = 0;
             i5 = 0;
             c2 = '\b';
-        } else if (TextUtils.equals(a.f71440j, action)) {
+        } else if (TextUtils.equals(a.f71620j, action)) {
             str = "";
             str2 = null;
             i2 = 0;
@@ -377,8 +377,8 @@ public class DownloadStatusManager {
             }
         }
         g gVar = new g();
-        Set<d> keySet = this.f71412b.keySet();
-        synchronized (this.f71412b) {
+        Set<d> keySet = this.f71592b.keySet();
+        synchronized (this.f71592b) {
             for (d dVar : keySet) {
                 if (dVar != null) {
                     if (TextUtils.equals(dVar.a(), string)) {
@@ -427,7 +427,7 @@ public class DownloadStatusManager {
         AdTemplate value;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, str, gVar) == null) {
-            for (Map.Entry<String, AdTemplate> entry : this.f71415e.entrySet()) {
+            for (Map.Entry<String, AdTemplate> entry : this.f71595e.entrySet()) {
                 if (entry != null && (value = entry.getValue()) != null) {
                     AdInfo i2 = com.kwad.sdk.core.response.b.c.i(value);
                     com.kwad.sdk.core.a.a().a(str, value);
@@ -448,30 +448,30 @@ public class DownloadStatusManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             Context context = KsAdSDKImpl.get().getContext();
-            if (this.f71413c || context == null) {
+            if (this.f71593c || context == null) {
                 return;
             }
-            f71408f = new com.kwad.sdk.core.download.c.a(context);
+            f71588f = new com.kwad.sdk.core.download.c.a(context);
             IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(a.f71432b);
-            intentFilter.addAction(a.f71433c);
-            intentFilter.addAction(a.f71434d);
-            intentFilter.addAction(a.f71435e);
-            intentFilter.addAction(a.f71436f);
-            intentFilter.addAction(a.f71437g);
-            intentFilter.addAction(a.f71438h);
-            intentFilter.addAction(a.f71439i);
-            intentFilter.addAction(a.f71440j);
+            intentFilter.addAction(a.f71612b);
+            intentFilter.addAction(a.f71613c);
+            intentFilter.addAction(a.f71614d);
+            intentFilter.addAction(a.f71615e);
+            intentFilter.addAction(a.f71616f);
+            intentFilter.addAction(a.f71617g);
+            intentFilter.addAction(a.f71618h);
+            intentFilter.addAction(a.f71619i);
+            intentFilter.addAction(a.f71620j);
             intentFilter.addAction(a.k);
             intentFilter.addAction(a.m);
             intentFilter.addAction(a.l);
             intentFilter.addAction(a.n);
-            context.registerReceiver(f71409g, intentFilter);
+            context.registerReceiver(f71589g, intentFilter);
             IntentFilter intentFilter2 = new IntentFilter();
             intentFilter2.addAction(PackageChangedReceiver.ACTION_INSTALL);
             intentFilter2.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
-            context.registerReceiver(f71410h, intentFilter2);
-            this.f71413c = true;
+            context.registerReceiver(f71590h, intentFilter2);
+            this.f71593c = true;
         }
     }
 
@@ -484,17 +484,17 @@ public class DownloadStatusManager {
                 return;
             }
             g gVar = new g();
-            Set<d> keySet = this.f71412b.keySet();
-            synchronized (this.f71412b) {
+            Set<d> keySet = this.f71592b.keySet();
+            synchronized (this.f71592b) {
                 for (d dVar : keySet) {
                     if (dVar != null && !TextUtils.isEmpty(schemeSpecificPart) && TextUtils.equals(schemeSpecificPart, dVar.b())) {
                         dVar.a((String) null, 0, gVar);
                     }
                 }
             }
-            f71408f.a(schemeSpecificPart);
-            Set<Map.Entry<String, AdTemplate>> entrySet = this.f71415e.entrySet();
-            synchronized (this.f71415e) {
+            f71588f.a(schemeSpecificPart);
+            Set<Map.Entry<String, AdTemplate>> entrySet = this.f71595e.entrySet();
+            synchronized (this.f71595e) {
                 Iterator<Map.Entry<String, AdTemplate>> it = entrySet.iterator();
                 while (it.hasNext()) {
                     Map.Entry<String, AdTemplate> next = it.next();
@@ -512,14 +512,14 @@ public class DownloadStatusManager {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.f71412b.remove(dVar);
+            this.f71592b.remove(dVar);
         }
     }
 
     public void a(d dVar, AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, adTemplate) == null) {
-            this.f71412b.put(dVar, adTemplate);
+            this.f71592b.put(dVar, adTemplate);
         }
     }
 
@@ -531,7 +531,7 @@ public class DownloadStatusManager {
                 if (TextUtils.isEmpty(q)) {
                     return;
                 }
-                this.f71415e.put(q, adTemplate);
+                this.f71595e.put(q, adTemplate);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }

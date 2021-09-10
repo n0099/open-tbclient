@@ -25,7 +25,7 @@ public class BinderPoolService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Binder f67854a;
+    public Binder f68034a;
 
     /* loaded from: classes9.dex */
     public static class a extends IBinderPool.Stub {
@@ -86,7 +86,7 @@ public class BinderPoolService extends Service {
                 return;
             }
         }
-        this.f67854a = new a();
+        this.f68034a = new a();
     }
 
     @Override // android.app.Service
@@ -96,7 +96,7 @@ public class BinderPoolService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
             k.b("MultiProcess", "BinderPoolService onBind ! ");
-            return this.f67854a;
+            return this.f68034a;
         }
         return (IBinder) invokeL.objValue;
     }

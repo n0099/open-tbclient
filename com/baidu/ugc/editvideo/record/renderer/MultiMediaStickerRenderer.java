@@ -4,11 +4,12 @@ import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.a0.b.a.e;
-import c.a.w0.t.h;
+import c.a.x0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.plugin.capture.bean.FaceItem;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -136,7 +137,7 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
         int i7 = (int) (i3 * f2);
         int i8 = (int) (i5 * f3);
         GLES20.glViewport(i4, i6, i7, i8);
-        GLES20.glEnable(3042);
+        GLES20.glEnable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
         GLES20.glBlendFunc(1, BankSignFactory.BEAN_ID_BIND_CARD);
         for (int i9 = 0; i9 < this.mSubtitleAndStickerTrack.mediaSegments.size(); i9++) {
             MediaSegment mediaSegment = this.mSubtitleAndStickerTrack.mediaSegments.get(i9);
@@ -164,14 +165,14 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
                             aVar.a(this.mFullScreen2D, this.mFullScreenEXT);
                         } else {
                             aVar.b(this.mFullScreen2D);
-                            GLES20.glBindFramebuffer(36160, aVar.f59814a[0]);
+                            GLES20.glBindFramebuffer(36160, aVar.f59994a[0]);
                             GLViewPortLocation gLViewPortLocation2 = this.mGLViewPortLocation;
                             GLES20.glViewport(0, 0, gLViewPortLocation2.width, gLViewPortLocation2.height);
                             GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                             GLES20.glClear(16640);
                             aVar.a(this.mFullScreen2D, this.mFullScreenEXT);
                             GLES20.glBindFramebuffer(36160, 0);
-                            int h2 = eVar.h(mediaSegment, aVar.f59815b[0], null);
+                            int h2 = eVar.h(mediaSegment, aVar.f59995b[0], null);
                             GLES20.glViewport(i4, i6, i7, i8);
                             this.mFullScreen2D.drawFrame(h2, fArr);
                         }
@@ -189,7 +190,7 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
                 }
             }
         }
-        GLES20.glDisable(3042);
+        GLES20.glDisable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MultiMediaEditBaseRenderer, com.baidu.ugc.editvideo.record.preview.OnMediaPreviewTouchEventListener

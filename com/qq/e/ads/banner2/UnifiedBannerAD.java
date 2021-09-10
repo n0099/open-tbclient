@@ -23,22 +23,22 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public UnifiedBannerADListener f74929b;
+    public UnifiedBannerADListener f75109b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DownAPPConfirmPolicy f74930c;
+    public DownAPPConfirmPolicy f75110c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicInteger f74931d;
+    public AtomicInteger f75111d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f74932e;
+    public int f75112e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LoadAdParams f74933f;
+    public LoadAdParams f75113f;
 
     /* renamed from: g  reason: collision with root package name */
-    public UnifiedBannerView f74934g;
+    public UnifiedBannerView f75114g;
 
     public UnifiedBannerAD(Activity activity, UnifiedBannerView unifiedBannerView, String str, UnifiedBannerADListener unifiedBannerADListener) {
         Interceptable interceptable = $ic;
@@ -55,11 +55,11 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
                 return;
             }
         }
-        this.f74931d = new AtomicInteger(0);
-        this.f74932e = 30;
-        this.f74933f = null;
-        this.f74929b = unifiedBannerADListener;
-        this.f74934g = unifiedBannerView;
+        this.f75111d = new AtomicInteger(0);
+        this.f75112e = 30;
+        this.f75113f = null;
+        this.f75109b = unifiedBannerADListener;
+        this.f75114g = unifiedBannerView;
         a(activity, str);
     }
 
@@ -78,25 +78,25 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
                 return;
             }
         }
-        this.f74931d = new AtomicInteger(0);
-        this.f74932e = 30;
-        this.f74933f = null;
-        this.f74929b = unifiedBannerADListener;
-        this.f74934g = unifiedBannerView;
+        this.f75111d = new AtomicInteger(0);
+        this.f75112e = 30;
+        this.f75113f = null;
+        this.f75109b = unifiedBannerADListener;
+        this.f75114g = unifiedBannerView;
         a(activity, str, str2);
     }
 
     @Override // com.qq.e.ads.AbstractAD
     public final /* synthetic */ Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
-        return pOFactory.getUnifiedBannerViewDelegate(this.f74934g, (Activity) context, str, str2, str3, this.f74929b);
+        return pOFactory.getUnifiedBannerViewDelegate(this.f75114g, (Activity) context, str, str2, str3, this.f75109b);
     }
 
     public final void a(DownAPPConfirmPolicy downAPPConfirmPolicy) {
         T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downAPPConfirmPolicy) == null) {
-            this.f74930c = downAPPConfirmPolicy;
-            if (downAPPConfirmPolicy == null || (t = this.f74912a) == 0) {
+            this.f75110c = downAPPConfirmPolicy;
+            if (downAPPConfirmPolicy == null || (t = this.f75092a) == 0) {
                 return;
             }
             ((UBVI) t).setDownAPPConfirmPolicy(downAPPConfirmPolicy);
@@ -106,8 +106,8 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
     public final void a(LoadAdParams loadAdParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, loadAdParams) == null) {
-            this.f74933f = loadAdParams;
-            T t = this.f74912a;
+            this.f75113f = loadAdParams;
+            T t = this.f75092a;
             if (t != 0) {
                 ((UBVI) t).setLoadAdParams(loadAdParams);
             }
@@ -116,13 +116,13 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
 
     @Override // com.qq.e.ads.AbstractAD
     public final /* synthetic */ void a(Object obj) {
-        DownAPPConfirmPolicy downAPPConfirmPolicy = this.f74930c;
+        DownAPPConfirmPolicy downAPPConfirmPolicy = this.f75110c;
         if (downAPPConfirmPolicy != null) {
             a(downAPPConfirmPolicy);
         }
-        c(this.f74932e);
-        a(this.f74933f);
-        while (this.f74931d.getAndDecrement() > 0) {
+        c(this.f75112e);
+        a(this.f75113f);
+        while (this.f75111d.getAndDecrement() > 0) {
             d();
         }
     }
@@ -130,7 +130,7 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
     public final void a(boolean z) {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (t = this.f74912a) == 0) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (t = this.f75092a) == 0) {
             return;
         }
         ((UBVI) t).onWindowFocusChanged(z);
@@ -140,7 +140,7 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
     public final void b(int i2) {
         UnifiedBannerADListener unifiedBannerADListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (unifiedBannerADListener = this.f74929b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (unifiedBannerADListener = this.f75109b) == null) {
             return;
         }
         unifiedBannerADListener.onNoAD(AdErrorConvertor.formatErrorCode(i2));
@@ -149,8 +149,8 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
     public final void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f74932e = i2;
-            T t = this.f74912a;
+            this.f75112e = i2;
+            T t = this.f75092a;
             if (t != 0) {
                 ((UBVI) t).setRefresh(i2);
             }
@@ -161,10 +161,10 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && b()) {
             if (!a()) {
-                this.f74931d.incrementAndGet();
+                this.f75111d.incrementAndGet();
                 return;
             }
-            T t = this.f74912a;
+            T t = this.f75092a;
             if (t != 0) {
                 ((UBVI) t).fetchAd();
             } else {
@@ -177,7 +177,7 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f74912a != 0) {
+            if (this.f75092a != 0) {
                 return UBVI.ext;
             }
             a("getExt");
@@ -189,7 +189,7 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            T t = this.f74912a;
+            T t = this.f75092a;
             if (t != 0) {
                 ((UBVI) t).destroy();
             } else {

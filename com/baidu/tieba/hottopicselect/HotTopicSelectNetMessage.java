@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopicselect;
 import GetSugTopic.DataReq;
 import GetSugTopic.GetSugTopicReqIdl;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -19,7 +19,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f52686common;
+    public CommonReq f52832common;
     public long fid;
     public String firstDir;
     public String prefix;
@@ -68,7 +68,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
                 builder.second_dir = str3;
             }
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             GetSugTopicReqIdl.Builder builder2 = new GetSugTopicReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -80,7 +80,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52686common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52832common : (CommonReq) invokeV.objValue;
     }
 
     public long getFid() {
@@ -110,7 +110,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, commonReq) == null) {
-            this.f52686common = commonReq;
+            this.f52832common = commonReq;
         }
     }
 

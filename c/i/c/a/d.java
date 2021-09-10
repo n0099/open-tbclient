@@ -12,7 +12,7 @@ public class d implements ArCoreApk.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ AtomicReference f34001a;
+    public final /* synthetic */ AtomicReference f34110a;
 
     public d(AtomicReference atomicReference) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class d implements ArCoreApk.a {
                 return;
             }
         }
-        this.f34001a = atomicReference;
+        this.f34110a = atomicReference;
     }
 
     @Override // com.google.ar.core.ArCoreApk.a
     public void a(ArCoreApk.Availability availability) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            this.f34001a.set(availability);
+            this.f34110a.set(availability);
         }
     }
 }

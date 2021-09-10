@@ -22,19 +22,19 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<c> f35471a;
+    public SparseArray<c> f35580a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f35472b;
+    public Handler f35581b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f35473c;
+    public Context f35582c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35474d;
+    public String f35583d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.s.b.g.a f35475e;
+    public c.s.b.g.a f35584e;
 
     /* renamed from: c.s.b.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -43,19 +43,19 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f35476e;
+        public final /* synthetic */ int f35585e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.s.b.b f35477f;
+        public final /* synthetic */ c.s.b.b f35586f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Intent f35478g;
+        public final /* synthetic */ Intent f35587g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f35479h;
+        public final /* synthetic */ long f35588h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f35480i;
+        public final /* synthetic */ a f35589i;
 
         public RunnableC1559a(a aVar, int i2, c.s.b.b bVar, Intent intent, long j2) {
             Interceptable interceptable = $ic;
@@ -72,11 +72,11 @@ public final class a {
                     return;
                 }
             }
-            this.f35480i = aVar;
-            this.f35476e = i2;
-            this.f35477f = bVar;
-            this.f35478g = intent;
-            this.f35479h = j2;
+            this.f35589i = aVar;
+            this.f35585e = i2;
+            this.f35586f = bVar;
+            this.f35587g = intent;
+            this.f35588h = j2;
         }
 
         @Override // java.lang.Runnable
@@ -86,35 +86,35 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f35476e == 0) {
-                        this.f35477f.onCancel();
+                    if (this.f35585e == 0) {
+                        this.f35586f.onCancel();
                         return;
                     }
-                    String stringExtra = this.f35478g.getStringExtra("resjson");
-                    this.f35480i.f35475e.a(stringExtra);
+                    String stringExtra = this.f35587g.getStringExtra("resjson");
+                    this.f35589i.f35584e.a(stringExtra);
                     JSONObject jSONObject = new JSONObject(stringExtra);
                     if (jSONObject.has("resCode") && jSONObject.has("resMsg")) {
                         String optString = jSONObject.optString("resMsg");
                         int optInt = jSONObject.optInt("resCode");
                         if (optInt != 1000006 && optInt != 1290001) {
-                            optInt = this.f35476e;
-                            this.f35480i.f(this.f35478g, this.f35477f, this.f35479h, optInt, optString);
+                            optInt = this.f35585e;
+                            this.f35589i.f(this.f35587g, this.f35586f, this.f35588h, optInt, optString);
                             return;
                         }
                         String str2 = "resCode:" + optInt;
-                        this.f35480i.f(this.f35478g, this.f35477f, this.f35479h, optInt, optString);
+                        this.f35589i.f(this.f35587g, this.f35586f, this.f35588h, optInt, optString);
                         return;
                     }
                     if (jSONObject.has("openid") && jSONObject.has("access_code")) {
-                        i2 = this.f35476e;
+                        i2 = this.f35585e;
                         str = "success";
                     } else {
                         str = "handleAuthLoginResult--default error!";
                         i2 = 444222199;
                     }
-                    this.f35480i.f(this.f35478g, this.f35477f, this.f35479h, i2, str);
+                    this.f35589i.f(this.f35587g, this.f35586f, this.f35588h, i2, str);
                 } catch (Exception unused) {
-                    this.f35477f.onError(new c.s.b.d(444222105, d.h(444222105)));
+                    this.f35586f.onError(new c.s.b.d(444222105, d.h(444222105)));
                 }
             }
         }
@@ -126,10 +126,10 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.s.b.b f35481e;
+        public final /* synthetic */ c.s.b.b f35590e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.s.b.d f35482f;
+        public final /* synthetic */ c.s.b.d f35591f;
 
         public b(a aVar, c.s.b.b bVar, c.s.b.d dVar) {
             Interceptable interceptable = $ic;
@@ -146,15 +146,15 @@ public final class a {
                     return;
                 }
             }
-            this.f35481e = bVar;
-            this.f35482f = dVar;
+            this.f35590e = bVar;
+            this.f35591f = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f35481e.onError(this.f35482f);
+                this.f35590e.onError(this.f35591f);
             }
         }
     }
@@ -165,10 +165,10 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.s.b.b f35483a;
+        public c.s.b.b f35592a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f35484b;
+        public long f35593b;
 
         public c(a aVar, c.s.b.b bVar) {
             Interceptable interceptable = $ic;
@@ -185,8 +185,8 @@ public final class a {
                     return;
                 }
             }
-            this.f35483a = bVar;
-            this.f35484b = System.currentTimeMillis();
+            this.f35592a = bVar;
+            this.f35593b = System.currentTimeMillis();
         }
     }
 
@@ -205,11 +205,11 @@ public final class a {
                 return;
             }
         }
-        this.f35475e = c.s.b.g.a.b();
-        this.f35473c = context;
-        this.f35474d = str;
-        this.f35471a = new SparseArray<>();
-        this.f35472b = new Handler(Looper.getMainLooper());
+        this.f35584e = c.s.b.g.a.b();
+        this.f35582c = context;
+        this.f35583d = str;
+        this.f35580a = new SparseArray<>();
+        this.f35581b = new Handler(Looper.getMainLooper());
     }
 
     public final void c(Activity activity, String str, c.s.b.b bVar) {
@@ -219,8 +219,8 @@ public final class a {
                 int a2 = d.a(activity);
                 if (a2 != 0) {
                     try {
-                        this.f35471a.put(62345, new c(this, bVar));
-                        String c2 = d.c(this.f35473c, this.f35474d, str, true);
+                        this.f35580a.put(62345, new c(this, bVar));
+                        String c2 = d.c(this.f35582c, this.f35583d, str, true);
                         Intent intent = new Intent(activity, AssistActivity.class);
                         intent.putExtra("type", AssistActivity.TYPE_WEB);
                         intent.putExtra("url", c2);
@@ -232,8 +232,8 @@ public final class a {
                     }
                 }
                 Intent e2 = d.e(activity);
-                this.f35471a.put(62345, new c(this, bVar));
-                Bundle d2 = d.d(activity, this.f35474d);
+                this.f35580a.put(62345, new c(this, bVar));
+                Bundle d2 = d.d(activity, this.f35583d);
                 e2.putExtra("action", "action_login");
                 e2.putExtra("bundle", d2);
                 i(activity, e2, 62345);
@@ -250,11 +250,11 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), intent, bVar})) == null) {
             if (i2 == 62345 || i2 == 62347) {
-                c cVar = this.f35471a.get(i2);
+                c cVar = this.f35580a.get(i2);
                 if (cVar != null) {
-                    currentTimeMillis = cVar.f35484b;
-                    bVar2 = cVar.f35483a;
-                    this.f35471a.remove(i2);
+                    currentTimeMillis = cVar.f35593b;
+                    bVar2 = cVar.f35592a;
+                    this.f35580a.remove(i2);
                 } else {
                     currentTimeMillis = System.currentTimeMillis();
                     bVar2 = bVar;
@@ -277,7 +277,7 @@ public final class a {
     public final void e(int i2, Intent intent, c.s.b.b bVar, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), intent, bVar, Long.valueOf(j2)}) == null) {
-            this.f35472b.postDelayed(new RunnableC1559a(this, i2, bVar, intent, j2), 10L);
+            this.f35581b.postDelayed(new RunnableC1559a(this, i2, bVar, intent, j2), 10L);
         }
     }
 
@@ -294,7 +294,7 @@ public final class a {
                 case 444111001:
                     try {
                         String stringExtra = intent.getStringExtra("resjson");
-                        this.f35475e.a(stringExtra);
+                        this.f35584e.a(stringExtra);
                         JSONObject jSONObject = new JSONObject(stringExtra);
                         jSONObject.optString("openid");
                         jSONObject.optString("uid");
@@ -378,7 +378,7 @@ public final class a {
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, dVar, bVar) == null) || bVar == null) {
             return;
         }
-        this.f35472b.postDelayed(new b(this, bVar, dVar), 50L);
+        this.f35581b.postDelayed(new b(this, bVar, dVar), 50L);
     }
 
     public final void h(int i2, Intent intent, c.s.b.b bVar, long j2) {

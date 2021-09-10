@@ -9,9 +9,9 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.e.e.p.l;
-import c.a.p0.s.d0.b;
-import c.a.p0.s.u.c;
-import c.a.q0.v0.a;
+import c.a.q0.s.d0.b;
+import c.a.q0.s.u.c;
+import c.a.r0.w0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
@@ -30,22 +30,22 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f51577e;
+    public TbPageContext f51742e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f51578f;
+    public RelativeLayout f51743f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f51579g;
+    public EMTextView f51744g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f51580h;
+    public EMTextView f51745h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RecyclerView f51581i;
+    public RecyclerView f51746i;
 
     /* renamed from: j  reason: collision with root package name */
-    public FrsMoveAreaChooseAdapter f51582j;
+    public FrsMoveAreaChooseAdapter f51747j;
     public EMTextView k;
     public View.OnClickListener l;
 
@@ -67,7 +67,7 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
                 return;
             }
         }
-        this.f51577e = tbPageContext;
+        this.f51742e = tbPageContext;
         a();
     }
 
@@ -77,19 +77,19 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
             setOrientation(1);
             setGravity(80);
             LayoutInflater.from(getContext()).inflate(R.layout.frs_move_area_choose_layout, this);
-            this.f51578f = (RelativeLayout) findViewById(R.id.frs_move_area_choose_bar);
-            this.f51579g = (EMTextView) findViewById(R.id.frs_move_area_choose_title);
-            this.f51580h = (EMTextView) findViewById(R.id.frs_move_area_choose_done);
+            this.f51743f = (RelativeLayout) findViewById(R.id.frs_move_area_choose_bar);
+            this.f51744g = (EMTextView) findViewById(R.id.frs_move_area_choose_title);
+            this.f51745h = (EMTextView) findViewById(R.id.frs_move_area_choose_done);
             this.k = (EMTextView) findViewById(R.id.frs_move_area_choose_cancel);
             RecyclerView recyclerView = (RecyclerView) findViewById(R.id.frs_move_area_choose_list);
-            this.f51581i = recyclerView;
+            this.f51746i = recyclerView;
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
-            this.f51581i.addItemDecoration(new GridSpacingItemDecoration(3, l.g(getContext(), R.dimen.M_W_X004), l.g(getContext(), R.dimen.M_H_X003), false));
+            this.f51746i.addItemDecoration(new GridSpacingItemDecoration(3, l.g(getContext(), R.dimen.M_W_X004), l.g(getContext(), R.dimen.M_H_X003), false));
             FrsMoveAreaChooseAdapter frsMoveAreaChooseAdapter = new FrsMoveAreaChooseAdapter(this);
-            this.f51582j = frsMoveAreaChooseAdapter;
-            this.f51581i.setAdapter(frsMoveAreaChooseAdapter);
-            this.f51578f.setOnClickListener(this);
-            this.f51580h.setOnClickListener(this);
+            this.f51747j = frsMoveAreaChooseAdapter;
+            this.f51746i.setAdapter(frsMoveAreaChooseAdapter);
+            this.f51743f.setOnClickListener(this);
+            this.f51745h.setOnClickListener(this);
             this.k.setOnClickListener(this);
             onChangeSkinType();
         }
@@ -98,10 +98,10 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f51582j.getSelectPos() >= 0) {
-                this.f51580h.setAlpha(1.0f);
+            if (this.f51747j.getSelectPos() >= 0) {
+                this.f51745h.setAlpha(1.0f);
             } else {
-                this.f51580h.setAlpha(0.5f);
+                this.f51745h.setAlpha(0.5f);
             }
         }
     }
@@ -110,13 +110,13 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0605);
-            c d2 = c.d(this.f51578f);
-            d2.n(R.string.J_X14);
+            c d2 = c.d(this.f51743f);
+            d2.o(R.string.J_X14);
             d2.f(R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.f51579g, R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.f51580h, R.color.CAM_X0304);
+            SkinManager.setViewTextColor(this.f51744g, R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.f51745h, R.color.CAM_X0304);
             b();
-            SkinManager.setBackgroundColor(this.f51581i, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f51746i, R.color.CAM_X0204);
             SkinManager.setViewTextColorSelector(this.k, R.color.CAM_X0107);
         }
     }
@@ -127,19 +127,19 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             if (view.getTag() instanceof Integer) {
                 b();
-            } else if (view == this.f51580h) {
-                if (this.f51577e == null || getParent() == null || this.f51582j.getSelectPos() < 0) {
+            } else if (view == this.f51745h) {
+                if (this.f51742e == null || getParent() == null || this.f51747j.getSelectPos() < 0) {
                     return;
                 }
                 boolean g2 = b.j().g("key_frs_move_area_tip", true);
                 List<FrsTabInfo> g3 = a.h().g();
-                FrsTabInfo frsTabInfo = (FrsTabInfo) ListUtils.getItem(g3, this.f51582j.getCurPos());
-                FrsTabInfo frsTabInfo2 = (FrsTabInfo) ListUtils.getItem(g3, this.f51582j.getSelectPos());
+                FrsTabInfo frsTabInfo = (FrsTabInfo) ListUtils.getItem(g3, this.f51747j.getCurPos());
+                FrsTabInfo frsTabInfo2 = (FrsTabInfo) ListUtils.getItem(g3, this.f51747j.getSelectPos());
                 if (frsTabInfo == null || frsTabInfo2 == null) {
                     return;
                 }
                 if (g2) {
-                    c.a.q0.v0.q2.c.a(this.f51577e, frsTabInfo, frsTabInfo2);
+                    c.a.r0.w0.r2.c.a(this.f51742e, frsTabInfo, frsTabInfo2);
                 } else {
                     a.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                 }

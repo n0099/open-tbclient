@@ -46,10 +46,10 @@ public abstract class b implements o<Character> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final char f34043e;
+        public final char f34152e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final char f34044f;
+        public final char f34153f;
 
         public C1505b(char c2, char c3) {
             Interceptable interceptable = $ic;
@@ -67,22 +67,22 @@ public abstract class b implements o<Character> {
                 }
             }
             n.d(c3 >= c2);
-            this.f34043e = c2;
-            this.f34044f = c3;
+            this.f34152e = c2;
+            this.f34153f = c3;
         }
 
         @Override // c.i.d.a.b
         public boolean f(char c2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)})) == null) ? this.f34043e <= c2 && c2 <= this.f34044f : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)})) == null) ? this.f34152e <= c2 && c2 <= this.f34153f : invokeCommon.booleanValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "CharMatcher.inRange('" + b.g(this.f34043e) + "', '" + b.g(this.f34044f) + "')";
+                return "CharMatcher.inRange('" + b.g(this.f34152e) + "', '" + b.g(this.f34153f) + "')";
             }
             return (String) invokeV.objValue;
         }
@@ -94,7 +94,7 @@ public abstract class b implements o<Character> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final char f34045e;
+        public final char f34154e;
 
         public c(char c2) {
             Interceptable interceptable = $ic;
@@ -111,21 +111,21 @@ public abstract class b implements o<Character> {
                     return;
                 }
             }
-            this.f34045e = c2;
+            this.f34154e = c2;
         }
 
         @Override // c.i.d.a.b
         public boolean f(char c2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)})) == null) ? c2 == this.f34045e : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)})) == null) ? c2 == this.f34154e : invokeCommon.booleanValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "CharMatcher.is('" + b.g(this.f34045e) + "')";
+                return "CharMatcher.is('" + b.g(this.f34154e) + "')";
             }
             return (String) invokeV.objValue;
         }

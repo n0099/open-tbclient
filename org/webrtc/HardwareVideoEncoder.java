@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import h.c.m0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Map;
@@ -194,21 +195,6 @@ public class HardwareVideoEncoder implements VideoEncoder {
             }
         }
 
-        public static YuvFormat valueOf(int i2) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-                if (i2 != 19) {
-                    if (i2 == 21 || i2 == 2141391872 || i2 == 2141391876) {
-                        return NV12;
-                    }
-                    throw new IllegalArgumentException("Unsupported colorFormat: " + i2);
-                }
-                return I420;
-            }
-            return (YuvFormat) invokeI.objValue;
-        }
-
         public static YuvFormat valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -222,6 +208,21 @@ public class HardwareVideoEncoder implements VideoEncoder {
         }
 
         public abstract void fillBuffer(ByteBuffer byteBuffer, VideoFrame.Buffer buffer);
+
+        public static YuvFormat valueOf(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
+                if (i2 != 19) {
+                    if (i2 != 21 && i2 != 2141391872 && i2 != 2141391876) {
+                        throw new IllegalArgumentException("Unsupported colorFormat: " + i2);
+                    }
+                    return NV12;
+                }
+                return I420;
+            }
+            return (YuvFormat) invokeI.objValue;
+        }
     }
 
     public HardwareVideoEncoder(MediaCodecWrapperFactory mediaCodecWrapperFactory, String str, VideoCodecType videoCodecType, Integer num, Integer num2, Map<String, String> map, int i2, int i3, BitrateAdjuster bitrateAdjuster, EglBase14.Context context) {
@@ -511,10 +512,8 @@ public class HardwareVideoEncoder implements VideoEncoder {
 
     @Override // org.webrtc.VideoEncoder
     @CalledByNative
-    public long createNativeVideoEncoder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? VideoEncoder_CC.$default$createNativeVideoEncoder(this) : invokeV.longValue;
+    public /* synthetic */ long createNativeVideoEncoder() {
+        return m0.$default$createNativeVideoEncoder(this);
     }
 
     public void deliverEncodedImage() {
@@ -574,6 +573,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     public VideoCodecStatus encode(VideoFrame videoFrame, VideoEncoder.EncodeInfo encodeInfo) {
         InterceptResult invokeLL;
         VideoCodecStatus resetCodec;
+        VideoCodecStatus encodeByteBuffer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, videoFrame, encodeInfo)) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
@@ -601,11 +601,15 @@ public class HardwareVideoEncoder implements VideoEncoder {
                 }
                 int height2 = ((buffer.getHeight() * buffer.getWidth()) * 3) / 2;
                 this.outputBuilders.offer(EncodedImage.builder().setCaptureTimeNs(videoFrame.getTimestampNs()).setCompleteFrame(true).setEncodedWidth(videoFrame.getBuffer().getWidth()).setEncodedHeight(videoFrame.getBuffer().getHeight()).setRotation(videoFrame.getRotation()));
-                VideoCodecStatus encodeTextureBuffer = this.useSurfaceMode ? encodeTextureBuffer(videoFrame) : encodeByteBuffer(videoFrame, buffer, height2);
-                if (encodeTextureBuffer != VideoCodecStatus.OK) {
+                if (this.useSurfaceMode) {
+                    encodeByteBuffer = encodeTextureBuffer(videoFrame);
+                } else {
+                    encodeByteBuffer = encodeByteBuffer(videoFrame, buffer, height2);
+                }
+                if (encodeByteBuffer != VideoCodecStatus.OK) {
                     this.outputBuilders.pollLast();
                 }
-                return encodeTextureBuffer;
+                return encodeByteBuffer;
             }
             return resetCodec;
         }
@@ -671,27 +675,20 @@ public class HardwareVideoEncoder implements VideoEncoder {
 
     @Override // org.webrtc.VideoEncoder
     @CalledByNative
-    public boolean isHardwareEncoder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? VideoEncoder_CC.$default$isHardwareEncoder(this) : invokeV.booleanValue;
+    public /* synthetic */ boolean isHardwareEncoder() {
+        return m0.$default$isHardwareEncoder(this);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0043  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x004c  */
     @Override // org.webrtc.VideoEncoder
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public VideoCodecStatus release() {
         InterceptResult invokeV;
         VideoCodecStatus videoCodecStatus;
-        EglBase14 eglBase14;
-        Surface surface;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
-            if (this.outputThread != null) {
+            if (this.outputThread == null) {
+                videoCodecStatus = VideoCodecStatus.OK;
+            } else {
                 this.running = false;
                 if (!ThreadUtils.joinUninterruptibly(this.outputThread, 5000L)) {
                     Logging.e(TAG, "Media encoder release timeout");
@@ -699,33 +696,21 @@ public class HardwareVideoEncoder implements VideoEncoder {
                 } else if (this.shutdownException != null) {
                     Logging.e(TAG, "Media encoder release exception", this.shutdownException);
                     videoCodecStatus = VideoCodecStatus.ERROR;
+                } else {
+                    videoCodecStatus = VideoCodecStatus.OK;
                 }
-                this.textureDrawer.release();
-                this.videoFrameDrawer.release();
-                eglBase14 = this.textureEglBase;
-                if (eglBase14 != null) {
-                    eglBase14.release();
-                    this.textureEglBase = null;
-                }
-                surface = this.textureInputSurface;
-                if (surface != null) {
-                    surface.release();
-                    this.textureInputSurface = null;
-                }
-                this.outputBuilders.clear();
-                this.codec = null;
-                this.outputThread = null;
-                this.encodeThreadChecker.detachThread();
-                return videoCodecStatus;
             }
-            videoCodecStatus = VideoCodecStatus.OK;
             this.textureDrawer.release();
             this.videoFrameDrawer.release();
-            eglBase14 = this.textureEglBase;
+            EglBase14 eglBase14 = this.textureEglBase;
             if (eglBase14 != null) {
+                eglBase14.release();
+                this.textureEglBase = null;
             }
-            surface = this.textureInputSurface;
+            Surface surface = this.textureInputSurface;
             if (surface != null) {
+                surface.release();
+                this.textureInputSurface = null;
             }
             this.outputBuilders.clear();
             this.codec = null;

@@ -15,7 +15,7 @@ public final class ResultType {
     public static final ResultType RAW;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ ResultType[] f64922a;
+    public static final /* synthetic */ ResultType[] f65102a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class ResultType {
         BITMAP = new ResultType("BITMAP", 0);
         ResultType resultType = new ResultType("RAW", 1);
         RAW = resultType;
-        f64922a = new ResultType[]{BITMAP, resultType};
+        f65102a = new ResultType[]{BITMAP, resultType};
     }
 
     public ResultType(String str, int i2) {
@@ -65,6 +65,6 @@ public final class ResultType {
     public static ResultType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ResultType[]) f64922a.clone() : (ResultType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ResultType[]) f65102a.clone() : (ResultType[]) invokeV.objValue;
     }
 }

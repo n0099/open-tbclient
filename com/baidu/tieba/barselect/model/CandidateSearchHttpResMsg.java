@@ -1,6 +1,6 @@
 package com.baidu.tieba.barselect.model;
 
-import c.a.q0.x.b.a;
+import c.a.r0.x.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -57,7 +57,7 @@ public class CandidateSearchHttpResMsg extends TbHttpResponsedMessage {
                 if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
                     return;
                 }
-                this.candidateData.f28525a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
+                this.candidateData.f28229a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
             }
         }
     }

@@ -44,31 +44,7 @@ public class b {
         }
     }
 
-    public b(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f1045a = null;
-        this.f1046b = 0;
-        this.f1047c = 0;
-        this.f1048d = 0;
-        this.f1049e = 0;
-        this.f1049e = i2;
-        this.f1045a = new byte[i2];
-    }
-
-    public void a() {
+    public synchronized void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
@@ -79,7 +55,7 @@ public class b {
         }
     }
 
-    public boolean b(byte[] bArr, int i2) {
+    public synchronized boolean b(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2)) == null) {
@@ -105,7 +81,7 @@ public class b {
         return invokeLI.booleanValue;
     }
 
-    public boolean c(byte[] bArr, int i2) {
+    public synchronized boolean c(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bArr, i2)) == null) {
@@ -129,5 +105,29 @@ public class b {
             }
         }
         return invokeLI.booleanValue;
+    }
+
+    public b(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f1045a = null;
+        this.f1046b = 0;
+        this.f1047c = 0;
+        this.f1048d = 0;
+        this.f1049e = 0;
+        this.f1049e = i2;
+        this.f1045a = new byte[i2];
     }
 }

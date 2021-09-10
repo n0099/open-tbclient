@@ -882,9 +882,19 @@ public class LiveNPSPluginManager {
         }
     }
 
-    private void npsLoadChainInitOther() {
+    private void npsLoadChainInitMedia() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65579, this) == null) {
+            NpsLoadChainLog.getInstance().initAndStart();
+            NpsLoadChainLog.getInstance().setEntry("YY-Media");
+            NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
+            npsLoadChainLog.setPluginVersion(getPluginInstallVersion() + "");
+        }
+    }
+
+    private void npsLoadChainInitOther() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65580, this) == null) {
             NpsLoadChainLog.getInstance().initAndStart();
             NpsLoadChainLog.getInstance().setEntry("YY-Other");
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
@@ -894,7 +904,7 @@ public class LiveNPSPluginManager {
 
     private void npsLoadChainInitStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65581, this) == null) {
             NpsLoadChainLog.getInstance().initAndStart();
             NpsLoadChainLog.getInstance().setEntry("YY-StartLive");
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
@@ -905,7 +915,7 @@ public class LiveNPSPluginManager {
     public static Map<String, String> paramsJsonToMap(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, jSONObject)) == null) {
             if (jSONObject == null) {
                 return null;
             }
@@ -930,7 +940,7 @@ public class LiveNPSPluginManager {
     private String parseEntry(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65582, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65583, this, str)) == null) {
             HashMap<String, String> stringToMap = stringToMap(getParamsStr(str));
             boolean containsKey = stringToMap.containsKey("params");
             Map map = stringToMap;
@@ -966,7 +976,7 @@ public class LiveNPSPluginManager {
     /* JADX WARN: Multi-variable type inference failed */
     public void realJumpToYYLiveActivity(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65583, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65584, this, context, str) == null) {
             if (str.contains("&isMix=")) {
                 HashMap<String, String> stringToMap = stringToMap(getParamsStr(str));
                 boolean containsKey = stringToMap.containsKey("params");
@@ -997,7 +1007,7 @@ public class LiveNPSPluginManager {
     private void showLoading() {
         LiveNpsLoadingCallback liveNpsLoadingCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65584, this) == null) || (liveNpsLoadingCallback = this.loadingCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65585, this) == null) || (liveNpsLoadingCallback = this.loadingCallback) == null) {
             return;
         }
         liveNpsLoadingCallback.onLoadingStart();
@@ -1007,7 +1017,7 @@ public class LiveNPSPluginManager {
     public void showNormalToast(int i2, int i3) {
         ToastService toastService;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65585, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(65586, this, i2, i3) == null) {
             if (Looper.myLooper() != Looper.getMainLooper()) {
                 this.handler.post(new Runnable(this, i2, i3) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.39
                     public static /* synthetic */ Interceptable $ic;
@@ -1059,7 +1069,7 @@ public class LiveNPSPluginManager {
     public void stopLoading(int i2) {
         LiveNpsLoadingCallback liveNpsLoadingCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65587, this, i2) == null) || (liveNpsLoadingCallback = this.loadingCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65588, this, i2) == null) || (liveNpsLoadingCallback = this.loadingCallback) == null) {
             return;
         }
         liveNpsLoadingCallback.onLoadingEnd(i2);
@@ -1068,7 +1078,7 @@ public class LiveNPSPluginManager {
     public static HashMap<String, String> stringToMap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -3343,9 +3353,9 @@ public class LiveNPSPluginManager {
 
     private void startLiveMediaActivity(Context context, String str, String str2, String str3, Uri uri, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65586, this, new Object[]{context, str, str2, str3, uri, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65587, this, new Object[]{context, str, str2, str3, uri, Boolean.valueOf(z)}) == null) {
             if (!z) {
-                npsLoadChainInitOther();
+                npsLoadChainInitMedia();
             }
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {

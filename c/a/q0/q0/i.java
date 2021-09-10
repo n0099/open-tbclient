@@ -1,151 +1,187 @@
 package c.a.q0.q0;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class i extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic;
+public class i extends j {
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f13697b = 100;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static int f13698c = 10;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Context f23681e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ArrayList<String> f23682f;
-
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f23683a;
+        public static int f13699a;
 
-        public b(i iVar) {
+        /* renamed from: b  reason: collision with root package name */
+        public static int f13700b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public static int f13701c;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static void a() {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+                c.a.e.e.n.a a2 = j.a();
+                a2.b("action", "imbusy");
+                a2.b("totalNum", String.valueOf(f13699a));
+                a2.b("tfailNum", String.valueOf(f13700b));
+                a2.b("qfailNum", String.valueOf(f13701c));
+                BdStatisticsManager.getInstance().performance("im", a2);
+                b();
             }
         }
 
-        public /* synthetic */ b(i iVar, a aVar) {
-            this(iVar);
+        public static void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+                f13699a = 0;
+                f13700b = 0;
+                f13701c = 0;
+            }
         }
     }
 
-    public i(Context context, ArrayList<String> arrayList) {
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static int f13702a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public static long f13703b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public static long f13704c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public static long f13705d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public static int f13706e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public static int f13707f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public static long f13708g;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+                c.a.e.e.n.a a2 = j.a();
+                a2.b("action", "imcost");
+                a2.b("dect", String.valueOf(f13703b));
+                a2.b("dlsize", String.valueOf(f13704c));
+                a2.b("dbt", String.valueOf(f13705d));
+                a2.b("pnum", String.valueOf(f13706e));
+                a2.b("reqcost", String.valueOf(f13708g));
+                a2.b("cpu", String.valueOf(f13707f));
+                a2.b("totalNum", String.valueOf(f13702a));
+                BdStatisticsManager.getInstance().performance("im", a2);
+                b();
+            }
+        }
+
+        public static void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+                f13702a = 0;
+                f13703b = 0L;
+                f13704c = 0L;
+                f13705d = 0L;
+                f13706e = 0;
+                f13707f = 0;
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(51155032, "Lc/a/q0/q0/i;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(51155032, "Lc/a/q0/q0/i;");
+        }
+    }
+
+    public i() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, arrayList};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static void b(boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            a.f13699a++;
+            if (z2) {
+                a.f13700b++;
+            } else if (z3) {
+                a.f13701c++;
+            }
+            if (a.f13699a > f13697b) {
+                a.a();
+            }
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && k.d().g()) {
+            if (b.f13702a > f13698c) {
+                b.a();
+            }
+            if (a.f13699a > f13698c) {
+                a.a();
+            }
+        }
+    }
+
+    public void c(f fVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) && k.d().g()) {
+            if (b.f13702a < f13697b) {
+                b.f13703b += fVar.f13677b;
+                b.f13704c += fVar.f13678c;
+                b.f13705d += fVar.f13679d;
+                b.f13706e += fVar.f13680e;
+                b.f13708g += fVar.f13681f;
+                b.f13707f += fVar.f13682g;
+                b.f13702a++;
                 return;
             }
+            b.a();
         }
-        this.f23681e = context;
-        this.f23682f = arrayList;
-    }
-
-    public void a(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.f23682f = arrayList;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.f23682f;
-            if (arrayList == null) {
-                return 0;
-            }
-            return arrayList.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            ArrayList<String> arrayList = this.f23682f;
-            if (arrayList == null || arrayList.size() <= 0 || i2 < 0 || i2 >= this.f23682f.size()) {
-                return null;
-            }
-            return this.f23682f.get(i2);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? i2 : invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i2, View view, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
-            int k = (c.a.e.e.p.l.k(this.f23681e) - c.a.e.e.p.l.g(this.f23681e, R.dimen.ds22)) / 4;
-            if (view == null) {
-                b bVar = new b(this, null);
-                View inflate = LayoutInflater.from(this.f23681e).inflate(R.layout.face_package_item_image, (ViewGroup) null);
-                bVar.f23683a = (TbImageView) inflate.findViewById(R.id.image);
-                inflate.setTag(bVar);
-                inflate.setLayoutParams(new AbsListView.LayoutParams(k, k));
-                view = inflate;
-            }
-            b bVar2 = (b) view.getTag();
-            String obj = getItem(i2).toString();
-            SkinManager.setBackgroundResource(bVar2.f23683a, R.drawable.btn_choose_face_selector);
-            bVar2.f23683a.startLoad(obj, 10, k, k, false);
-            if (i2 == getCount() - 1) {
-                viewGroup.invalidate();
-            }
-            return view;
-        }
-        return (View) invokeILL.objValue;
     }
 }

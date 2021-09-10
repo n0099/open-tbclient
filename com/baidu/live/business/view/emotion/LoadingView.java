@@ -23,10 +23,10 @@ public class LoadingView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f40749e;
+    public boolean f40860e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LottieAnimationView f40750f;
+    public LottieAnimationView f40861f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingView(Context context) {
@@ -46,7 +46,7 @@ public class LoadingView extends LinearLayout {
                 return;
             }
         }
-        this.f40749e = true;
+        this.f40860e = true;
         a();
     }
 
@@ -57,18 +57,18 @@ public class LoadingView extends LinearLayout {
             setOrientation(1);
             LayoutInflater.from(getContext()).inflate(d.live_feed_page_loading_view, (ViewGroup) this, true);
             LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(c.loading_anim_view);
-            this.f40750f = lottieAnimationView;
+            this.f40861f = lottieAnimationView;
             if (lottieAnimationView == null || !lottieAnimationView.isAnimating()) {
                 return;
             }
-            this.f40750f.cancelAnimation();
+            this.f40861f.cancelAnimation();
         }
     }
 
     public void destroy() {
         LottieAnimationView lottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (lottieAnimationView = this.f40750f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (lottieAnimationView = this.f40861f) == null) {
             return;
         }
         lottieAnimationView.cancelAnimation();
@@ -77,30 +77,30 @@ public class LoadingView extends LinearLayout {
     public void onDarkModeChange(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f40750f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f40861f.getLayoutParams();
             layoutParams.width = a.a(getContext(), b.a().C);
             layoutParams.height = a.a(getContext(), b.a().D);
-            this.f40750f.setLayoutParams(layoutParams);
-            this.f40750f.setImageAssetsFolder(b.a().B);
+            this.f40861f.setLayoutParams(layoutParams);
+            this.f40861f.setImageAssetsFolder(b.a().B);
             String h2 = f.e().h(z);
             if (TextUtils.isEmpty(h2)) {
                 int i2 = f.e().i(z);
                 if (i2 != 0) {
-                    this.f40750f.setAnimation(i2);
+                    this.f40861f.setAnimation(i2);
                     return;
                 }
                 return;
             }
-            this.f40750f.setAnimation(h2);
+            this.f40861f.setAnimation(h2);
         }
     }
 
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f40749e = false;
-            if (this.f40750f.isAnimating()) {
-                this.f40750f.cancelAnimation();
+            this.f40860e = false;
+            if (this.f40861f.isAnimating()) {
+                this.f40861f.cancelAnimation();
             }
         }
     }
@@ -108,11 +108,11 @@ public class LoadingView extends LinearLayout {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f40749e = true;
-            if (getVisibility() != 0 || this.f40750f.isAnimating()) {
+            this.f40860e = true;
+            if (getVisibility() != 0 || this.f40861f.isAnimating()) {
                 return;
             }
-            this.f40750f.playAnimation();
+            this.f40861f.playAnimation();
         }
     }
 
@@ -121,11 +121,11 @@ public class LoadingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             if (i2 == 0) {
-                if (this.f40749e) {
-                    this.f40750f.playAnimation();
+                if (this.f40860e) {
+                    this.f40861f.playAnimation();
                 }
             } else {
-                this.f40750f.cancelAnimation();
+                this.f40861f.cancelAnimation();
             }
             super.setVisibility(i2);
         }
@@ -150,7 +150,7 @@ public class LoadingView extends LinearLayout {
                 return;
             }
         }
-        this.f40749e = true;
+        this.f40860e = true;
         a();
     }
 
@@ -173,7 +173,7 @@ public class LoadingView extends LinearLayout {
                 return;
             }
         }
-        this.f40749e = true;
+        this.f40860e = true;
         a();
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.mention.officialNotification;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.q0.k1.b.q.a;
+import c.a.r0.l1.b.q.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;

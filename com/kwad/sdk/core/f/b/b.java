@@ -19,7 +19,7 @@ public interface b extends IInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f71571a;
+        public IBinder f71751a;
 
         public a(IBinder iBinder) {
             Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public interface b extends IInterface {
                     return;
                 }
             }
-            this.f71571a = iBinder;
+            this.f71751a = iBinder;
         }
 
         public String a() {
@@ -48,7 +48,7 @@ public interface b extends IInterface {
                 try {
                     try {
                         obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                        this.f71571a.transact(1, obtain, obtain2, 0);
+                        this.f71751a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } catch (Exception e2) {
@@ -69,7 +69,7 @@ public interface b extends IInterface {
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71571a : (IBinder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71751a : (IBinder) invokeV.objValue;
         }
 
         public boolean b() {
@@ -82,7 +82,7 @@ public interface b extends IInterface {
                 try {
                     try {
                         obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                        this.f71571a.transact(1, obtain, obtain2, 0);
+                        this.f71751a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         if (obtain2.readInt() == 0) {
                             z = true;

@@ -27,19 +27,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f30313a;
+    public final String f30395a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f30314b;
+    public final boolean f30396b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30315c;
+    public String f30397c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f30316d;
+    public b f30398d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f30317e;
+    public Context f30399e;
 
     /* renamed from: c.a.w.b.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -48,13 +48,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f30318a;
+        public final /* synthetic */ String f30400a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f30319b;
+        public final /* synthetic */ int f30401b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f30320c;
+        public final /* synthetic */ a f30402c;
 
         public C1408a(a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
@@ -71,15 +71,15 @@ public class a {
                     return;
                 }
             }
-            this.f30320c = aVar;
-            this.f30318a = str;
-            this.f30319b = i2;
+            this.f30402c = aVar;
+            this.f30400a = str;
+            this.f30401b = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't wrap try/catch for region: R(13:3|(2:5|(1:45)(1:8))(1:46)|9|(1:11)(1:44)|12|(3:14|(9:38|39|40|18|(2:(1:36)(1:27)|28)(1:37)|29|30|31|32)|16)(1:43)|17|18|(0)(0)|29|30|31|32) */
-        /* JADX WARN: Removed duplicated region for block: B:27:0x00ca  */
-        /* JADX WARN: Removed duplicated region for block: B:37:0x00e2  */
+        /* JADX WARN: Removed duplicated region for block: B:27:0x00c9  */
+        /* JADX WARN: Removed duplicated region for block: B:37:0x00e1  */
         @Override // c.a.w.e.d.a
         /* renamed from: b */
         /*
@@ -102,25 +102,25 @@ public class a {
                 long currentTimeMillis = System.currentTimeMillis();
                 String str8 = "";
                 if (netResponse == null) {
-                    String string = this.f30320c.f30317e.getResources().getString(e.live_feed_net_error);
-                    this.f30320c.f30316d.b(-100, string, map);
+                    String string = this.f30402c.f30399e.getResources().getString(e.live_feed_net_error);
+                    this.f30402c.f30398d.b(-100, string, map);
                     str = "";
                     str2 = string;
                     i2 = -100;
                 } else if (!netResponse.isSuccessful() || cVar == null) {
-                    this.f30320c.f30316d.b(netResponse.responseCode, netResponse.exception, map);
+                    this.f30402c.f30398d.b(netResponse.responseCode, netResponse.exception, map);
                     int i3 = netResponse.responseCode;
                     str2 = netResponse.exception;
                     str = "";
                     i2 = i3;
                 } else {
-                    this.f30320c.f30316d.a(cVar, map);
+                    this.f30402c.f30398d.a(cVar, map);
                     c.a.w.b.f.b.a(list);
-                    i2 = cVar.f30325a;
-                    str2 = cVar.f30326b;
-                    str = cVar.f30327c;
+                    i2 = cVar.f30407a;
+                    str2 = cVar.f30408b;
+                    str = cVar.f30409c;
                 }
-                String str9 = this.f30320c.f30314b ? "chenjinshi" : "zhibopindao";
+                String str9 = this.f30402c.f30396b ? "chenjinshi" : "zhibopindao";
                 if (map != null) {
                     String str10 = map.get("tab");
                     String str11 = map.get("subtab");
@@ -137,10 +137,10 @@ public class a {
                         if (str4.contains("tab")) {
                             str7 = "";
                         } else {
-                            str7 = (cVar == null || (gVar = cVar.f30331g) == null || (list2 = gVar.f30349c) == null || list2.isEmpty()) ? "1" : "0";
+                            str7 = (cVar == null || (gVar = cVar.f30413g) == null || (list2 = gVar.f30431c) == null || list2.isEmpty()) ? "1" : "0";
                         }
                         str8 = URLEncoder.encode(str4, "UTF-8");
-                        c.a.w.b.c.a.q(this.f30320c.f30317e, this.f30320c.f30313a, str9, j2, i2, str2, str, str8, str3, str5, str6, str7);
+                        c.a.w.b.c.a.q(this.f30402c.f30399e, this.f30402c.f30395a, str9, j2, i2, str2, str, str8, str3, str5, str6, str7);
                     }
                     str3 = str10;
                     str5 = str11;
@@ -155,7 +155,7 @@ public class a {
                 if (str4.contains("tab")) {
                 }
                 str8 = URLEncoder.encode(str4, "UTF-8");
-                c.a.w.b.c.a.q(this.f30320c.f30317e, this.f30320c.f30313a, str9, j2, i2, str2, str, str8, str3, str5, str6, str7);
+                c.a.w.b.c.a.q(this.f30402c.f30399e, this.f30402c.f30395a, str9, j2, i2, str2, str, str8, str3, str5, str6, str7);
             }
         }
 
@@ -169,10 +169,10 @@ public class a {
                 c cVar = new c();
                 if (netResponse != null && !TextUtils.isEmpty(netResponse.decodedResponseStr)) {
                     try {
-                        cVar.c(new JSONObject(netResponse.decodedResponseStr), this.f30318a, this.f30319b);
+                        cVar.c(new JSONObject(netResponse.decodedResponseStr), this.f30400a, this.f30401b);
                     } catch (JSONException e2) {
                         LiveFeedPageSdk.l(e2.getMessage());
-                        if (TextUtils.equals("banner,tab,feed,follow,config", this.f30318a)) {
+                        if (TextUtils.equals("banner,tab,feed,follow,config", this.f30400a)) {
                             cVar.a("banner,tab,feed,follow,config", -101, e2.getMessage());
                         }
                     }
@@ -205,10 +205,10 @@ public class a {
                 return;
             }
         }
-        this.f30317e = context;
-        this.f30313a = str;
-        this.f30314b = z;
-        this.f30315c = z ? "immer" : "tab";
+        this.f30399e = context;
+        this.f30395a = str;
+        this.f30396b = z;
+        this.f30397c = z ? "immer" : "tab";
     }
 
     public final void e(String str, String str2, int i2, String str3, String str4, String str5, int i3, String str6, List<String> list) {
@@ -216,7 +216,7 @@ public class a {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i2), str3, str4, str5, Integer.valueOf(i3), str6, list}) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("resource", str);
-            hashMap.put("scene", this.f30315c);
+            hashMap.put("scene", this.f30397c);
             if (str2 == null) {
                 str2 = "";
             }
@@ -242,21 +242,21 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            e("banner,tab,feed,follow,config", "", 0, "", "", "", 1, c.a.w.b.f.b.b(), c.a.w.b.f.b.f30376b);
+            e("banner,tab,feed,follow,config", "", 0, "", "", "", 1, c.a.w.b.f.b.b(), c.a.w.b.f.b.f30458b);
         }
     }
 
     public void h(String str, String str2, int i2, String str3, String str4, String str5, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i2), str3, str4, str5, Integer.valueOf(i3)}) == null) {
-            e(str, str2, i2, str3, str4, str5, i3, c.a.w.b.f.b.b(), c.a.w.b.f.b.f30376b);
+            e(str, str2, i2, str3, str4, str5, i3, c.a.w.b.f.b.b(), c.a.w.b.f.b.f30458b);
         }
     }
 
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f30316d = bVar;
+            this.f30398d = bVar;
         }
     }
 }

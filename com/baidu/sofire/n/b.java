@@ -15,10 +15,10 @@ public final class b implements com.baidu.sofire.j.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f45290a;
+    public Context f45405a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f45291b;
+    public a f45406b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -38,28 +38,28 @@ public final class b implements com.baidu.sofire.j.b {
     public final void a(Context context, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, cVar) == null) {
-            this.f45290a = context;
+            this.f45405a = context;
             a aVar = new a();
-            this.f45291b = aVar;
-            aVar.f45286c = null;
-            aVar.f45287d = null;
-            aVar.f45288e = null;
+            this.f45406b = aVar;
+            aVar.f45401c = null;
+            aVar.f45402d = null;
+            aVar.f45403e = null;
             try {
                 Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                aVar.f45285b = cls;
-                aVar.f45284a = cls.newInstance();
+                aVar.f45400b = cls;
+                aVar.f45399a = cls.newInstance();
             } catch (Exception unused) {
             }
             try {
-                aVar.f45286c = aVar.f45285b.getMethod("getOAID", Context.class);
+                aVar.f45401c = aVar.f45400b.getMethod("getOAID", Context.class);
             } catch (Exception unused2) {
             }
             try {
-                aVar.f45287d = aVar.f45285b.getMethod("getVAID", Context.class);
+                aVar.f45402d = aVar.f45400b.getMethod("getVAID", Context.class);
             } catch (Exception unused3) {
             }
             try {
-                aVar.f45288e = aVar.f45285b.getMethod("getAAID", Context.class);
+                aVar.f45403e = aVar.f45400b.getMethod("getAAID", Context.class);
             } catch (Exception unused4) {
             }
         }
@@ -70,12 +70,12 @@ public final class b implements com.baidu.sofire.j.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a aVar = this.f45291b;
-            Context context = this.f45290a;
-            if (TextUtils.isEmpty(aVar.f45289f)) {
-                aVar.f45289f = aVar.a(context, aVar.f45286c);
+            a aVar = this.f45406b;
+            Context context = this.f45405a;
+            if (TextUtils.isEmpty(aVar.f45404f)) {
+                aVar.f45404f = aVar.a(context, aVar.f45401c);
             }
-            return aVar.f45289f;
+            return aVar.f45404f;
         }
         return (String) invokeV.objValue;
     }

@@ -24,22 +24,22 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f2966e;
+    public Context f2957e;
 
     /* renamed from: f  reason: collision with root package name */
-    public w f2967f;
+    public w f2958f;
 
     /* renamed from: g  reason: collision with root package name */
-    public x f2968g;
+    public x f2959g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f2969h;
+    public BdUniqueId f2960h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdUniqueId f2970i;
+    public BdUniqueId f2961i;
 
     /* renamed from: j  reason: collision with root package name */
-    public r<n> f2971j;
+    public r<n> f2962j;
     public V k;
     public c.a.e.l.c.a l;
 
@@ -58,21 +58,21 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
                 return;
             }
         }
-        this.f2966e = context;
-        this.f2969h = bdUniqueId;
+        this.f2957e = context;
+        this.f2960h = bdUniqueId;
         this.l = new c.a.e.l.c.a();
     }
 
     public w A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2967f : (w) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2958f : (w) invokeV.objValue;
     }
 
     public x B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2968g : (x) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2959g : (x) invokeV.objValue;
     }
 
     public int D(int i2) {
@@ -80,8 +80,8 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
         BdUniqueId bdUniqueId;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            r<n> rVar = this.f2971j;
-            if (rVar == null || (bdUniqueId = this.f2969h) == null) {
+            r<n> rVar = this.f2962j;
+            if (rVar == null || (bdUniqueId = this.f2960h) == null) {
                 return -1;
             }
             return rVar.getPositionByType(i2, bdUniqueId.getId());
@@ -98,7 +98,7 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
     public BdUniqueId K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2969h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2960h : (BdUniqueId) invokeV.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: c.a.e.l.e.a<T, V extends com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder> */
@@ -137,7 +137,7 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
     public void P() {
         r<n> rVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (rVar = this.f2971j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (rVar = this.f2962j) == null) {
             return;
         }
         rVar.notifyDataSetChanged();
@@ -223,28 +223,28 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
     public void c0(r<n> rVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, rVar) == null) {
-            this.f2971j = rVar;
+            this.f2962j = rVar;
         }
     }
 
     public void d0(w wVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, wVar) == null) {
-            this.f2967f = wVar;
+            this.f2958f = wVar;
         }
     }
 
     public void e0(x xVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, xVar) == null) {
-            this.f2968g = xVar;
+            this.f2959g = xVar;
         }
     }
 
     public void f0(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, bdUniqueId) == null) {
-            this.f2970i = bdUniqueId;
+            this.f2961i = bdUniqueId;
         }
     }
 
@@ -309,7 +309,7 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i2)) == null) {
-            r<n> rVar = this.f2971j;
+            r<n> rVar = this.f2962j;
             if (rVar != null) {
                 return rVar.getItem(i2);
             }
@@ -333,9 +333,9 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
                 return;
             }
         }
-        this.f2966e = context;
-        this.f2969h = bdUniqueId;
-        this.f2970i = bdUniqueId2;
+        this.f2957e = context;
+        this.f2960h = bdUniqueId;
+        this.f2961i = bdUniqueId2;
         this.l = new c.a.e.l.c.a();
     }
 }

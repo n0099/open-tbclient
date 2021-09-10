@@ -29,20 +29,6 @@ public final class CryptoOptions {
         public boolean enableGcmCryptoSuites;
         public boolean requireFrameEncryption;
 
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         public /* synthetic */ Builder(AnonymousClass1 anonymousClass1) {
             this();
         }
@@ -92,6 +78,20 @@ public final class CryptoOptions {
             }
             return (Builder) invokeZ.objValue;
         }
+
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes2.dex */
@@ -100,6 +100,17 @@ public final class CryptoOptions {
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean requireFrameEncryption;
         public final /* synthetic */ CryptoOptions this$0;
+
+        public /* synthetic */ SFrame(CryptoOptions cryptoOptions, boolean z, AnonymousClass1 anonymousClass1) {
+            this(cryptoOptions, z);
+        }
+
+        @CalledByNative("SFrame")
+        public boolean getRequireFrameEncryption() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.requireFrameEncryption : invokeV.booleanValue;
+        }
 
         public SFrame(CryptoOptions cryptoOptions, boolean z) {
             Interceptable interceptable = $ic;
@@ -119,17 +130,6 @@ public final class CryptoOptions {
             this.this$0 = cryptoOptions;
             this.requireFrameEncryption = z;
         }
-
-        public /* synthetic */ SFrame(CryptoOptions cryptoOptions, boolean z, AnonymousClass1 anonymousClass1) {
-            this(cryptoOptions, z);
-        }
-
-        @CalledByNative("SFrame")
-        public boolean getRequireFrameEncryption() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.requireFrameEncryption : invokeV.booleanValue;
-        }
     }
 
     /* loaded from: classes2.dex */
@@ -140,27 +140,6 @@ public final class CryptoOptions {
         public final boolean enableEncryptedRtpHeaderExtensions;
         public final boolean enableGcmCryptoSuites;
         public final /* synthetic */ CryptoOptions this$0;
-
-        public Srtp(CryptoOptions cryptoOptions, boolean z, boolean z2, boolean z3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cryptoOptions, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = cryptoOptions;
-            this.enableGcmCryptoSuites = z;
-            this.enableAes128Sha1_32CryptoCipher = z2;
-            this.enableEncryptedRtpHeaderExtensions = z3;
-        }
 
         public /* synthetic */ Srtp(CryptoOptions cryptoOptions, boolean z, boolean z2, boolean z3, AnonymousClass1 anonymousClass1) {
             this(cryptoOptions, z, z2, z3);
@@ -186,25 +165,27 @@ public final class CryptoOptions {
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.enableGcmCryptoSuites : invokeV.booleanValue;
         }
-    }
 
-    public CryptoOptions(boolean z, boolean z2, boolean z3, boolean z4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public Srtp(CryptoOptions cryptoOptions, boolean z, boolean z2, boolean z3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cryptoOptions, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.this$0 = cryptoOptions;
+            this.enableGcmCryptoSuites = z;
+            this.enableAes128Sha1_32CryptoCipher = z2;
+            this.enableEncryptedRtpHeaderExtensions = z3;
         }
-        this.srtp = new Srtp(this, z, z2, z3, null);
-        this.sframe = new SFrame(this, z4, null);
     }
 
     public /* synthetic */ CryptoOptions(boolean z, boolean z2, boolean z3, boolean z4, AnonymousClass1 anonymousClass1) {
@@ -229,5 +210,24 @@ public final class CryptoOptions {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.srtp : (Srtp) invokeV.objValue;
+    }
+
+    public CryptoOptions(boolean z, boolean z2, boolean z3, boolean z4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.srtp = new Srtp(this, z, z2, z3, null);
+        this.sframe = new SFrame(this, z4, null);
     }
 }

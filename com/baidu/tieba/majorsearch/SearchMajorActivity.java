@@ -2,7 +2,7 @@ package com.baidu.tieba.majorsearch;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.q0.u1.b.a;
+import c.a.r0.v1.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.ErrorData;

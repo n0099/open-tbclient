@@ -15,7 +15,7 @@ public final class cy extends AsyncTask {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59624a;
+    public final /* synthetic */ FeedbackInputActivity f59804a;
 
     public cy(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class cy extends AsyncTask {
                 return;
             }
         }
-        this.f59624a = feedbackInputActivity;
+        this.f59804a = feedbackInputActivity;
     }
 
     public static Integer a() {
@@ -58,17 +58,17 @@ public final class cy extends AsyncTask {
     @Override // android.os.AsyncTask
     public final /* synthetic */ void onPostExecute(Object obj) {
         boolean z;
-        z = this.f59624a.aD;
+        z = this.f59804a.aD;
         if (z) {
-            Intent intent = new Intent(this.f59624a, FeedbackListActivity.class);
-            intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59377j);
+            Intent intent = new Intent(this.f59804a, FeedbackListActivity.class);
+            intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59557j);
             intent.putExtra("backPress", true);
-            this.f59624a.startActivity(intent);
+            this.f59804a.startActivity(intent);
         }
-        this.f59624a.finish();
+        this.f59804a.finish();
         try {
             com.baidu.ufosdk.f.c.d("执行动画...");
-            this.f59624a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f59624a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f59624a.getApplicationContext(), "ufo_slide_out_to_right"));
+            this.f59804a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f59804a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f59804a.getApplicationContext(), "ufo_slide_out_to_right"));
         } catch (Exception unused) {
             com.baidu.ufosdk.f.c.d("执行动画失败！！");
         }
@@ -77,10 +77,10 @@ public final class cy extends AsyncTask {
     @Override // android.os.AsyncTask
     public final void onPreExecute() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f59624a.getCurrentFocus() == null || this.f59624a.getCurrentFocus().getWindowToken() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f59804a.getCurrentFocus() == null || this.f59804a.getCurrentFocus().getWindowToken() == null) {
             return;
         }
-        ((InputMethodManager) this.f59624a.getSystemService("input_method")).hideSoftInputFromWindow(this.f59624a.getCurrentFocus().getWindowToken(), 2);
+        ((InputMethodManager) this.f59804a.getSystemService("input_method")).hideSoftInputFromWindow(this.f59804a.getCurrentFocus().getWindowToken(), 2);
     }
 
     @Override // android.os.AsyncTask

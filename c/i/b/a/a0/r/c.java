@@ -18,13 +18,13 @@ public class c implements c.i.b.a.a0.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.i.b.a.a0.g f32584a;
+    public c.i.b.a.a0.g f32693a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f32585b;
+    public h f32694b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f32586c;
+    public boolean f32695c;
 
     static {
         InterceptResult invokeClinit;
@@ -69,7 +69,7 @@ public class c implements c.i.b.a.a0.e {
     public void a(long j2, long j3) {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || (hVar = this.f32585b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || (hVar = this.f32694b) == null) {
             return;
         }
         hVar.k(j2, j3);
@@ -80,21 +80,21 @@ public class c implements c.i.b.a.a0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar)) == null) {
             e eVar = new e();
-            if (eVar.a(fVar, true) && (eVar.f32594b & 2) == 2) {
-                int min = Math.min(eVar.f32598f, 8);
+            if (eVar.a(fVar, true) && (eVar.f32703b & 2) == 2) {
+                int min = Math.min(eVar.f32707f, 8);
                 l lVar = new l(min);
-                fVar.c(lVar.f33703a, 0, min);
+                fVar.c(lVar.f33812a, 0, min);
                 b(lVar);
                 if (b.o(lVar)) {
-                    this.f32585b = new b();
+                    this.f32694b = new b();
                 } else {
                     b(lVar);
                     if (j.p(lVar)) {
-                        this.f32585b = new j();
+                        this.f32694b = new j();
                     } else {
                         b(lVar);
                         if (g.n(lVar)) {
-                            this.f32585b = new g();
+                            this.f32694b = new g();
                         }
                     }
                 }
@@ -124,20 +124,20 @@ public class c implements c.i.b.a.a0.e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, fVar, kVar)) == null) {
-            if (this.f32585b == null) {
+            if (this.f32694b == null) {
                 if (c(fVar)) {
                     fVar.e();
                 } else {
                     throw new ParserException("Failed to determine bitstream type");
                 }
             }
-            if (!this.f32586c) {
-                m a2 = this.f32584a.a(0, 1);
-                this.f32584a.j();
-                this.f32585b.c(this.f32584a, a2);
-                this.f32586c = true;
+            if (!this.f32695c) {
+                m a2 = this.f32693a.a(0, 1);
+                this.f32693a.j();
+                this.f32694b.c(this.f32693a, a2);
+                this.f32695c = true;
             }
-            return this.f32585b.f(fVar, kVar);
+            return this.f32694b.f(fVar, kVar);
         }
         return invokeLL.intValue;
     }
@@ -146,7 +146,7 @@ public class c implements c.i.b.a.a0.e {
     public void f(c.i.b.a.a0.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) {
-            this.f32584a = gVar;
+            this.f32693a = gVar;
         }
     }
 

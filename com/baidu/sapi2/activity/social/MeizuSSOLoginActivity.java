@@ -26,7 +26,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MeizuSSOLoginActivity f44711a;
+        public final /* synthetic */ MeizuSSOLoginActivity f44826a;
 
         public a(MeizuSSOLoginActivity meizuSSOLoginActivity) {
             Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            this.f44711a = meizuSSOLoginActivity;
+            this.f44826a = meizuSSOLoginActivity;
         }
 
         public void onError(OAuthError oAuthError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oAuthError) == null) {
-                MeizuSSOLoginActivity meizuSSOLoginActivity = this.f44711a;
-                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f44695g);
+                MeizuSSOLoginActivity meizuSSOLoginActivity = this.f44826a;
+                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f44810g);
             }
         }
 
@@ -60,11 +60,11 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
                 String accessToken = oAuthToken.getAccessToken();
                 String openId = oAuthToken.getOpenId();
                 if (!TextUtils.isEmpty(accessToken) && !TextUtils.isEmpty(openId)) {
-                    this.f44711a.a(ParamsUtil.getUrlBind(this.f44711a.configuration, SocialType.MEIZU, accessToken, openId, null), "授权魅族帐号登录中");
+                    this.f44826a.a(ParamsUtil.getUrlBind(this.f44826a.configuration, SocialType.MEIZU, accessToken, openId, null), "授权魅族帐号登录中");
                     return;
                 }
-                MeizuSSOLoginActivity meizuSSOLoginActivity = this.f44711a;
-                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f44695g);
+                MeizuSSOLoginActivity meizuSSOLoginActivity = this.f44826a;
+                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f44810g);
             }
         }
     }

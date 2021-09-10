@@ -15,7 +15,7 @@ public class DuDelayProcess {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f38301a;
+    public long f38420a;
 
     static {
         InterceptResult invokeClinit;
@@ -48,8 +48,8 @@ public class DuDelayProcess {
                 return;
             }
         }
-        this.f38301a = 0L;
-        this.f38301a = nativeInitDelay(i2, i3);
+        this.f38420a = 0L;
+        this.f38420a = nativeInitDelay(i2, i3);
     }
 
     private native int nativeAvailableBytes(long j2);
@@ -77,16 +77,16 @@ public class DuDelayProcess {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? nativeAvailableBytes(this.f38301a) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? nativeAvailableBytes(this.f38420a) : invokeV.intValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j2 = this.f38301a;
+            long j2 = this.f38420a;
             if (j2 != 0) {
                 nativeDestroyDelay(j2);
-                this.f38301a = 0L;
+                this.f38420a = 0L;
             }
         }
     }
@@ -94,54 +94,54 @@ public class DuDelayProcess {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            nativeFlushBuffer(this.f38301a);
+            nativeFlushBuffer(this.f38420a);
         }
     }
 
     public boolean d(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i2)) == null) ? nativeDelayPutBytes(this.f38301a, bArr, i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i2)) == null) ? nativeDelayPutBytes(this.f38420a, bArr, i2) : invokeLI.booleanValue;
     }
 
     public int e(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i2)) == null) ? nativeDelayReceiveBytes(this.f38301a, bArr, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i2)) == null) ? nativeDelayReceiveBytes(this.f38420a, bArr, i2) : invokeLI.intValue;
     }
 
     public void f(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            nativeSetDelayDecrease(this.f38301a, f2);
+            nativeSetDelayDecrease(this.f38420a, f2);
         }
     }
 
     public void g(int i2, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i2, iArr) == null) {
-            nativeSetDelayInterval(this.f38301a, i2, iArr);
+            nativeSetDelayInterval(this.f38420a, i2, iArr);
         }
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            nativeSetDelayMode(this.f38301a, i2);
+            nativeSetDelayMode(this.f38420a, i2);
         }
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            nativeSetDelayNewPosition(this.f38301a, i2);
+            nativeSetDelayNewPosition(this.f38420a, i2);
         }
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            nativeSetDelayTime(this.f38301a, i2);
+            nativeSetDelayTime(this.f38420a, i2);
         }
     }
 }

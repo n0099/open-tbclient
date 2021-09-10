@@ -17,7 +17,7 @@ public class ShowMarketDialogAction implements RouterAction {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<a> f69080a;
+    public WeakReference<a> f69260a;
 
     public ShowMarketDialogAction() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class ShowMarketDialogAction implements RouterAction {
         if (interceptable == null || interceptable.invokeLL(65537, this, context, hashMap) == null) {
             a aVar = new a((Activity) context);
             aVar.e((hashMap == null || hashMap.size() <= 0) ? "0" : (String) hashMap.get("queryType"));
-            this.f69080a = new WeakReference<>(aVar);
+            this.f69260a = new WeakReference<>(aVar);
         }
     }
 
@@ -56,8 +56,8 @@ public class ShowMarketDialogAction implements RouterAction {
                 }
                 return;
             }
-            WeakReference<a> weakReference = this.f69080a;
-            if (weakReference != null && weakReference.get() != null && (aVar = this.f69080a.get()) != null && aVar.d() != null && aVar.d().a() != null && aVar.d().a().size() > 0) {
+            WeakReference<a> weakReference = this.f69260a;
+            if (weakReference != null && weakReference.get() != null && (aVar = this.f69260a.get()) != null && aVar.d() != null && aVar.d().a() != null && aVar.d().a().size() > 0) {
                 boolean z = false;
                 int i2 = 0;
                 while (true) {

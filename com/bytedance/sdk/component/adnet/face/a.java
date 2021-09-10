@@ -20,31 +20,31 @@ public interface a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f64203a;
+        public int f64383a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f64204b;
+        public byte[] f64384b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f64205c;
+        public String f64385c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f64206d;
+        public long f64386d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f64207e;
+        public long f64387e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f64208f;
+        public long f64388f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f64209g;
+        public long f64389g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Map<String, String> f64210h;
+        public Map<String, String> f64390h;
 
         /* renamed from: i  reason: collision with root package name */
-        public List<Header> f64211i;
+        public List<Header> f64391i;
 
         public C1882a() {
             Interceptable interceptable = $ic;
@@ -59,19 +59,19 @@ public interface a {
                     return;
                 }
             }
-            this.f64210h = Collections.emptyMap();
+            this.f64390h = Collections.emptyMap();
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64208f < System.currentTimeMillis() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64388f < System.currentTimeMillis() : invokeV.booleanValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64209g < System.currentTimeMillis() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64389g < System.currentTimeMillis() : invokeV.booleanValue;
         }
     }
 

@@ -126,8 +126,8 @@ public class AlaEnterEffectData implements Serializable, n {
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("props_info");
         if (optJSONObject2 != null) {
-            this.propId = b.d(optJSONObject2.optString("props_id"), 0);
-            this.price = b.f(optJSONObject2.optString("price"), 0L);
+            this.propId = b.e(optJSONObject2.optString("props_id"), 0);
+            this.price = b.g(optJSONObject2.optString("price"), 0L);
             this.time = optJSONObject2.optString("buy_cycle");
             this.buy_staus = optJSONObject2.optInt("buy_staus");
         }

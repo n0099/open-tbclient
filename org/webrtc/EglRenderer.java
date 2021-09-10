@@ -18,6 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.gles.GeneratedTexture;
+import h.c.i0;
 import java.nio.ByteBuffer;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
+import org.webrtc.EglRenderer;
 import org.webrtc.RendererCommon;
 /* loaded from: classes2.dex */
 public class EglRenderer implements VideoSink {
@@ -91,17 +93,17 @@ public class EglRenderer implements VideoSink {
         }
 
         @Override // java.lang.Runnable
-        public void run() {
+        public synchronized void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
                     if (this.surface != null && this.this$0.eglBase != null && !this.this$0.eglBase.hasSurface()) {
                         if (this.surface instanceof Surface) {
                             this.this$0.eglBase.createSurface((Surface) this.surface);
-                        } else if (!(this.surface instanceof SurfaceTexture)) {
-                            throw new IllegalStateException("Invalid surface: " + this.surface);
-                        } else {
+                        } else if (this.surface instanceof SurfaceTexture) {
                             this.this$0.eglBase.createSurface((SurfaceTexture) this.surface);
+                        } else {
+                            throw new IllegalStateException("Invalid surface: " + this.surface);
                         }
                         this.this$0.eglBase.makeCurrent();
                         GLES20.glPixelStorei(3317, 1);
@@ -110,7 +112,7 @@ public class EglRenderer implements VideoSink {
             }
         }
 
-        public void setSurface(Object obj) {
+        public synchronized void setSurface(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                 synchronized (this) {
@@ -275,8 +277,10 @@ public class EglRenderer implements VideoSink {
         return (String) invokeCommon.objValue;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
-    public void clearSurfaceOnRenderThread(float f2, float f3, float f4, float f5) {
+    /* renamed from: clearSurfaceOnRenderThread */
+    public void b(float f2, float f3, float f4, float f5) {
         EglBase eglBase;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) && (eglBase = this.eglBase) != null && eglBase.hasSurface()) {
@@ -295,70 +299,9 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    public static /* synthetic */ void lambda$addFrameListener$3(EglRenderer eglRenderer, RendererCommon.GlDrawer glDrawer, FrameListener frameListener, float f2, boolean z) {
-        if (glDrawer == null) {
-            glDrawer = eglRenderer.drawer;
-        }
-        eglRenderer.frameListeners.add(new FrameListenerAndParams(frameListener, f2, glDrawer, z));
-    }
-
-    public static /* synthetic */ void lambda$init$0(EglRenderer eglRenderer, EglBase.Context context, int[] iArr) {
-        EglBase create;
-        if (context == null) {
-            eglRenderer.logD("EglBase10.create context");
-            create = EglBase_CC.createEgl10(iArr);
-        } else {
-            eglRenderer.logD("EglBase.create shared context");
-            create = EglBase_CC.create(context, iArr);
-        }
-        eglRenderer.eglBase = create;
-    }
-
-    public static /* synthetic */ void lambda$release$1(EglRenderer eglRenderer, CountDownLatch countDownLatch) {
-        RendererCommon.GlDrawer glDrawer = eglRenderer.drawer;
-        if (glDrawer != null) {
-            glDrawer.release();
-            eglRenderer.drawer = null;
-        }
-        eglRenderer.frameDrawer.release();
-        eglRenderer.bitmapTextureFramebuffer.release();
-        if (eglRenderer.eglBase != null) {
-            eglRenderer.logD("eglBase detach and release.");
-            eglRenderer.eglBase.detachCurrent();
-            eglRenderer.eglBase.release();
-            eglRenderer.eglBase = null;
-        }
-        eglRenderer.frameListeners.clear();
-        countDownLatch.countDown();
-    }
-
-    public static /* synthetic */ void lambda$release$2(EglRenderer eglRenderer, Looper looper) {
-        eglRenderer.logD("Quitting render thread.");
-        looper.quit();
-    }
-
-    public static /* synthetic */ void lambda$releaseEglSurface$5(EglRenderer eglRenderer, Runnable runnable) {
-        EglBase eglBase = eglRenderer.eglBase;
-        if (eglBase != null) {
-            eglBase.detachCurrent();
-            eglRenderer.eglBase.releaseSurface();
-        }
-        runnable.run();
-    }
-
-    public static /* synthetic */ void lambda$removeFrameListener$4(EglRenderer eglRenderer, CountDownLatch countDownLatch, FrameListener frameListener) {
-        countDownLatch.countDown();
-        Iterator<FrameListenerAndParams> it = eglRenderer.frameListeners.iterator();
-        while (it.hasNext()) {
-            if (it.next().listener == frameListener) {
-                it.remove();
-            }
-        }
-    }
-
     private void logD(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65547, this, str) == null) {
             Logging.d(TAG, this.name + str);
         }
     }
@@ -366,7 +309,7 @@ public class EglRenderer implements VideoSink {
     /* JADX INFO: Access modifiers changed from: private */
     public void logStatistics() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             DecimalFormat decimalFormat = new DecimalFormat("#.0");
             long nanoTime = System.nanoTime();
             synchronized (this.statisticsLock) {
@@ -382,10 +325,8 @@ public class EglRenderer implements VideoSink {
     }
 
     private void notifyCallbacks(VideoFrame videoFrame, boolean z) {
-        FrameListener frameListener;
-        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65556, this, videoFrame, z) == null) || this.frameListeners.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeLZ(65549, this, videoFrame, z) == null) || this.frameListeners.isEmpty()) {
             return;
         }
         this.drawMatrix.reset();
@@ -402,10 +343,7 @@ public class EglRenderer implements VideoSink {
                 it.remove();
                 int rotatedWidth = (int) (next.scale * videoFrame.getRotatedWidth());
                 int rotatedHeight = (int) (next.scale * videoFrame.getRotatedHeight());
-                if (rotatedWidth == 0 || rotatedHeight == 0) {
-                    frameListener = next.listener;
-                    bitmap = null;
-                } else {
+                if (rotatedWidth != 0 && rotatedHeight != 0) {
                     this.bitmapTextureFramebuffer.setSize(rotatedWidth, rotatedHeight);
                     GLES20.glBindFramebuffer(36160, this.bitmapTextureFramebuffer.getFrameBufferId());
                     GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.bitmapTextureFramebuffer.getTextureId(), 0);
@@ -417,18 +355,19 @@ public class EglRenderer implements VideoSink {
                     GLES20.glReadPixels(0, 0, rotatedWidth, rotatedHeight, GeneratedTexture.FORMAT, 5121, allocateDirect);
                     GLES20.glBindFramebuffer(36160, 0);
                     GlUtil.checkNoGLES2Error("EglRenderer.notifyCallbacks");
-                    bitmap = Bitmap.createBitmap(rotatedWidth, rotatedHeight, Bitmap.Config.ARGB_8888);
-                    bitmap.copyPixelsFromBuffer(allocateDirect);
-                    frameListener = next.listener;
+                    Bitmap createBitmap = Bitmap.createBitmap(rotatedWidth, rotatedHeight, Bitmap.Config.ARGB_8888);
+                    createBitmap.copyPixelsFromBuffer(allocateDirect);
+                    next.listener.onFrame(createBitmap);
+                } else {
+                    next.listener.onFrame(null);
                 }
-                frameListener.onFrame(bitmap);
             }
         }
     }
 
     private void postToRenderThread(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, this, runnable) == null) {
+        if (interceptable == null || interceptable.invokeL(65550, this, runnable) == null) {
             synchronized (this.handlerLock) {
                 if (this.renderThreadHandler != null) {
                     this.renderThreadHandler.post(runnable);
@@ -444,7 +383,7 @@ public class EglRenderer implements VideoSink {
         float f3;
         float f4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65558, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
             synchronized (this.frameLock) {
                 if (this.pendingFrame == null) {
                     return;
@@ -452,9 +391,7 @@ public class EglRenderer implements VideoSink {
                 VideoFrame videoFrame = this.pendingFrame;
                 this.pendingFrame = null;
                 EglBase eglBase = this.eglBase;
-                if (eglBase == null || !eglBase.hasSurface()) {
-                    logD("Dropping frame - No surface");
-                } else {
+                if (eglBase != null && eglBase.hasSurface()) {
                     synchronized (this.fpsReductionLock) {
                         if (this.minRenderPeriodNs != Long.MAX_VALUE) {
                             if (this.minRenderPeriodNs > 0) {
@@ -508,7 +445,10 @@ public class EglRenderer implements VideoSink {
                         }
                     }
                     notifyCallbacks(videoFrame, z);
+                    videoFrame.release();
+                    return;
                 }
+                logD("Dropping frame - No surface");
                 videoFrame.release();
             }
         }
@@ -516,7 +456,7 @@ public class EglRenderer implements VideoSink {
 
     private void resetStatistics(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65559, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65552, this, j2) == null) {
             synchronized (this.statisticsLock) {
                 this.statisticsStartTimeNs = j2;
                 this.framesReceived = 0;
@@ -528,157 +468,155 @@ public class EglRenderer implements VideoSink {
         }
     }
 
+    public /* synthetic */ void a(RendererCommon.GlDrawer glDrawer, FrameListener frameListener, float f2, boolean z) {
+        if (glDrawer == null) {
+            glDrawer = this.drawer;
+        }
+        this.frameListeners.add(new FrameListenerAndParams(frameListener, f2, glDrawer, z));
+    }
+
     public void addFrameListener(FrameListener frameListener, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048576, this, frameListener, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameListener, f2) == null) {
             addFrameListener(frameListener, f2, null, false);
         }
     }
 
-    public void addFrameListener(FrameListener frameListener, float f2, RendererCommon.GlDrawer glDrawer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{frameListener, Float.valueOf(f2), glDrawer}) == null) {
-            addFrameListener(frameListener, f2, glDrawer, false);
+    public /* synthetic */ void c(EglBase.Context context, int[] iArr) {
+        if (context == null) {
+            logD("EglBase10.create context");
+            this.eglBase = i0.d(iArr);
+            return;
         }
-    }
-
-    public void addFrameListener(final FrameListener frameListener, final float f2, @Nullable final RendererCommon.GlDrawer glDrawer, final boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{frameListener, Float.valueOf(f2), glDrawer, Boolean.valueOf(z)}) == null) {
-            postToRenderThread(new Runnable() { // from class: org.webrtc._$$Lambda$EglRenderer$RQnwmlnL5c18V7FwaqbMl6FsQRo
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        EglRenderer.lambda$addFrameListener$3(EglRenderer.this, glDrawer, frameListener, f2, z);
-                    }
-                }
-            });
-        }
+        logD("EglBase.create shared context");
+        this.eglBase = i0.c(context, iArr);
     }
 
     public void clearImage() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             clearImage(0.0f, 0.0f, 0.0f, 0.0f);
-        }
-    }
-
-    public void clearImage(final float f2, final float f3, final float f4, final float f5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            synchronized (this.handlerLock) {
-                if (this.renderThreadHandler == null) {
-                    return;
-                }
-                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: org.webrtc._$$Lambda$EglRenderer$rAPTAEHKQxRxBFU3vvHmF68TV5E
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            EglRenderer.this.clearSurfaceOnRenderThread(f2, f3, f4, f5);
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    public void createEglSurface(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, surfaceTexture) == null) {
-            createEglSurfaceInternal(surfaceTexture);
         }
     }
 
     public void createEglSurface(Surface surface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, surface) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, surface) == null) {
             createEglSurfaceInternal(surface);
         }
     }
 
+    public /* synthetic */ void d(CountDownLatch countDownLatch) {
+        RendererCommon.GlDrawer glDrawer = this.drawer;
+        if (glDrawer != null) {
+            glDrawer.release();
+            this.drawer = null;
+        }
+        this.frameDrawer.release();
+        this.bitmapTextureFramebuffer.release();
+        if (this.eglBase != null) {
+            logD("eglBase detach and release.");
+            this.eglBase.detachCurrent();
+            this.eglBase.release();
+            this.eglBase = null;
+        }
+        this.frameListeners.clear();
+        countDownLatch.countDown();
+    }
+
     public void disableFpsReduction() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             setFpsReduction(Float.POSITIVE_INFINITY);
         }
     }
 
-    public void init(@Nullable EglBase.Context context, int[] iArr, RendererCommon.GlDrawer glDrawer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, iArr, glDrawer) == null) {
-            init(context, iArr, glDrawer, false);
+    public /* synthetic */ void e(Looper looper) {
+        logD("Quitting render thread.");
+        looper.quit();
+    }
+
+    public /* synthetic */ void f(Runnable runnable) {
+        EglBase eglBase = this.eglBase;
+        if (eglBase != null) {
+            eglBase.detachCurrent();
+            this.eglBase.releaseSurface();
+        }
+        runnable.run();
+    }
+
+    public /* synthetic */ void g(CountDownLatch countDownLatch, FrameListener frameListener) {
+        countDownLatch.countDown();
+        Iterator<FrameListenerAndParams> it = this.frameListeners.iterator();
+        while (it.hasNext()) {
+            if (it.next().listener == frameListener) {
+                it.remove();
+            }
         }
     }
 
     public void init(@Nullable final EglBase.Context context, final int[] iArr, RendererCommon.GlDrawer glDrawer, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, iArr, glDrawer, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{context, iArr, glDrawer, Boolean.valueOf(z)}) == null) {
             synchronized (this.handlerLock) {
-                if (this.renderThreadHandler != null) {
+                if (this.renderThreadHandler == null) {
+                    logD("Initializing EglRenderer");
+                    this.drawer = glDrawer;
+                    this.usePresentationTimeStamp = z;
+                    HandlerThread handlerThread = new HandlerThread(this.name + TAG);
+                    handlerThread.start();
+                    HandlerWithExceptionCallback handlerWithExceptionCallback = new HandlerWithExceptionCallback(handlerThread.getLooper(), new Runnable(this) { // from class: org.webrtc.EglRenderer.2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ EglRenderer this$0;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                synchronized (this.this$0.handlerLock) {
+                                    this.this$0.renderThreadHandler = null;
+                                }
+                            }
+                        }
+                    });
+                    this.renderThreadHandler = handlerWithExceptionCallback;
+                    ThreadUtils.invokeAtFrontUninterruptibly(handlerWithExceptionCallback, new Runnable() { // from class: h.c.i
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        @Override // java.lang.Runnable
+                        public final void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                EglRenderer.this.c(context, iArr);
+                            }
+                        }
+                    });
+                    this.renderThreadHandler.post(this.eglSurfaceCreationRunnable);
+                    resetStatistics(System.nanoTime());
+                    this.renderThreadHandler.postDelayed(this.logStatisticsRunnable, TimeUnit.SECONDS.toMillis(4L));
+                } else {
                     throw new IllegalStateException(this.name + "Already initialized");
                 }
-                logD("Initializing EglRenderer");
-                this.drawer = glDrawer;
-                this.usePresentationTimeStamp = z;
-                HandlerThread handlerThread = new HandlerThread(this.name + TAG);
-                handlerThread.start();
-                HandlerWithExceptionCallback handlerWithExceptionCallback = new HandlerWithExceptionCallback(handlerThread.getLooper(), new Runnable(this) { // from class: org.webrtc.EglRenderer.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ EglRenderer this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            synchronized (this.this$0.handlerLock) {
-                                this.this$0.renderThreadHandler = null;
-                            }
-                        }
-                    }
-                });
-                this.renderThreadHandler = handlerWithExceptionCallback;
-                ThreadUtils.invokeAtFrontUninterruptibly(handlerWithExceptionCallback, new Runnable() { // from class: org.webrtc._$$Lambda$EglRenderer$A5MPsBufyTiKpmjvPS46Dr9iaHs
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            EglRenderer.lambda$init$0(EglRenderer.this, context, iArr);
-                        }
-                    }
-                });
-                this.renderThreadHandler.post(this.eglSurfaceCreationRunnable);
-                resetStatistics(System.nanoTime());
-                this.renderThreadHandler.postDelayed(this.logStatisticsRunnable, TimeUnit.SECONDS.toMillis(4L));
             }
         }
     }
@@ -687,7 +625,7 @@ public class EglRenderer implements VideoSink {
     public void onFrame(VideoFrame videoFrame) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, videoFrame) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, videoFrame) == null) {
             synchronized (this.statisticsLock) {
                 this.framesReceived++;
             }
@@ -703,7 +641,7 @@ public class EglRenderer implements VideoSink {
                     }
                     this.pendingFrame = videoFrame;
                     videoFrame.retain();
-                    this.renderThreadHandler.post(new Runnable() { // from class: org.webrtc._$$Lambda$EglRenderer$vWDJEj1GWjHSjwoQQjEEK_IVOJE
+                    this.renderThreadHandler.post(new Runnable() { // from class: h.c.n
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -727,14 +665,14 @@ public class EglRenderer implements VideoSink {
 
     public void pauseVideo() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             setFpsReduction(0.0f);
         }
     }
 
     public void printStackTrace() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             synchronized (this.handlerLock) {
                 Thread thread = this.renderThreadHandler == null ? null : this.renderThreadHandler.getLooper().getThread();
                 if (thread != null) {
@@ -752,7 +690,7 @@ public class EglRenderer implements VideoSink {
 
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             logD("Releasing.");
             final CountDownLatch countDownLatch = new CountDownLatch(1);
             synchronized (this.handlerLock) {
@@ -761,7 +699,7 @@ public class EglRenderer implements VideoSink {
                     return;
                 }
                 this.renderThreadHandler.removeCallbacks(this.logStatisticsRunnable);
-                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: org.webrtc._$$Lambda$EglRenderer$MFF8Cl7oJsgEmXm7UI2GkKtNTYY
+                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: h.c.j
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -769,12 +707,12 @@ public class EglRenderer implements VideoSink {
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            EglRenderer.lambda$release$1(EglRenderer.this, countDownLatch);
+                            EglRenderer.this.d(countDownLatch);
                         }
                     }
                 });
                 final Looper looper = this.renderThreadHandler.getLooper();
-                this.renderThreadHandler.post(new Runnable() { // from class: org.webrtc._$$Lambda$EglRenderer$0TOf6TQvvPy5g4d42QjmzelnDZI
+                this.renderThreadHandler.post(new Runnable() { // from class: h.c.g
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -782,7 +720,7 @@ public class EglRenderer implements VideoSink {
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            EglRenderer.lambda$release$2(EglRenderer.this, looper);
+                            EglRenderer.this.e(looper);
                         }
                     }
                 });
@@ -801,61 +739,62 @@ public class EglRenderer implements VideoSink {
 
     public void releaseEglSurface(final Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, runnable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, runnable) == null) {
             this.eglSurfaceCreationRunnable.setSurface(null);
             synchronized (this.handlerLock) {
-                if (this.renderThreadHandler == null) {
-                    runnable.run();
+                if (this.renderThreadHandler != null) {
+                    this.renderThreadHandler.removeCallbacks(this.eglSurfaceCreationRunnable);
+                    this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: h.c.l
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        @Override // java.lang.Runnable
+                        public final void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                EglRenderer.this.f(runnable);
+                            }
+                        }
+                    });
                     return;
                 }
-                this.renderThreadHandler.removeCallbacks(this.eglSurfaceCreationRunnable);
-                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: org.webrtc._$$Lambda$EglRenderer$ZLNzG80KHUk0Ad58984FOsNt9s8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            EglRenderer.lambda$releaseEglSurface$5(EglRenderer.this, runnable);
-                        }
-                    }
-                });
+                runnable.run();
             }
         }
     }
 
     public void removeFrameListener(final FrameListener frameListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, frameListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, frameListener) == null) {
             final CountDownLatch countDownLatch = new CountDownLatch(1);
             synchronized (this.handlerLock) {
                 if (this.renderThreadHandler == null) {
                     return;
                 }
-                if (Thread.currentThread() == this.renderThreadHandler.getLooper().getThread()) {
-                    throw new RuntimeException("removeFrameListener must not be called on the render thread.");
-                }
-                postToRenderThread(new Runnable() { // from class: org.webrtc._$$Lambda$EglRenderer$6uTxCXz4FQA7p26IUV3iP2Ty5gk
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+                if (Thread.currentThread() != this.renderThreadHandler.getLooper().getThread()) {
+                    postToRenderThread(new Runnable() { // from class: h.c.h
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            EglRenderer.lambda$removeFrameListener$4(EglRenderer.this, countDownLatch, frameListener);
+                        @Override // java.lang.Runnable
+                        public final void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                EglRenderer.this.g(countDownLatch, frameListener);
+                            }
                         }
-                    }
-                });
-                ThreadUtils.awaitUninterruptibly(countDownLatch);
+                    });
+                    ThreadUtils.awaitUninterruptibly(countDownLatch);
+                    return;
+                }
+                throw new RuntimeException("removeFrameListener must not be called on the render thread.");
             }
         }
     }
 
     public void setFpsReduction(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048599, this, f2) == null) {
             logD("setFpsReduction: " + f2);
             synchronized (this.fpsReductionLock) {
                 long j2 = this.minRenderPeriodNs;
@@ -873,7 +812,7 @@ public class EglRenderer implements VideoSink {
 
     public void setLayoutAspectRatio(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048593, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048600, this, f2) == null) {
             logD("setLayoutAspectRatio: " + f2);
             synchronized (this.layoutLock) {
                 this.layoutAspectRatio = f2;
@@ -883,11 +822,73 @@ public class EglRenderer implements VideoSink {
 
     public void setMirror(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
             logD("setMirror: " + z);
             synchronized (this.layoutLock) {
                 this.mirror = z;
             }
+        }
+    }
+
+    public void addFrameListener(FrameListener frameListener, float f2, RendererCommon.GlDrawer glDrawer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{frameListener, Float.valueOf(f2), glDrawer}) == null) {
+            addFrameListener(frameListener, f2, glDrawer, false);
+        }
+    }
+
+    public void clearImage(final float f2, final float f3, final float f4, final float f5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+            synchronized (this.handlerLock) {
+                if (this.renderThreadHandler == null) {
+                    return;
+                }
+                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: h.c.m
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            EglRenderer.this.b(f2, f3, f4, f5);
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    public void createEglSurface(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceTexture) == null) {
+            createEglSurfaceInternal(surfaceTexture);
+        }
+    }
+
+    public void addFrameListener(final FrameListener frameListener, final float f2, @Nullable final RendererCommon.GlDrawer glDrawer, final boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{frameListener, Float.valueOf(f2), glDrawer, Boolean.valueOf(z)}) == null) {
+            postToRenderThread(new Runnable() { // from class: h.c.k
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        EglRenderer.this.a(glDrawer, frameListener, f2, z);
+                    }
+                }
+            });
+        }
+    }
+
+    public void init(@Nullable EglBase.Context context, int[] iArr, RendererCommon.GlDrawer glDrawer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048591, this, context, iArr, glDrawer) == null) {
+            init(context, iArr, glDrawer, false);
         }
     }
 }

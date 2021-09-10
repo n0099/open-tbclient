@@ -17,19 +17,19 @@ public class ActivityLifeTask {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f43420a;
+    public static boolean f43535a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f43421b;
+    public static ActivityLifeObserver.IActivityLifeCallback f43536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f43422c;
+    public static ActivityLifeObserver.IActivityLifeCallback f43537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f43423d;
+    public static ActivityLifeObserver.IActivityLifeCallback f43538d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f43424e;
+    public static ActivityLifeObserver.IActivityLifeCallback f43539e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,10 +65,10 @@ public class ActivityLifeTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             synchronized (ActivityLifeTask.class) {
-                f43421b = new AutoTrack.MyActivityLifeCallback(1);
-                f43423d = new b.a();
-                f43422c = new d.a();
-                f43424e = new AutoTrack.MyActivityLifeCallback(2);
+                f43536b = new AutoTrack.MyActivityLifeCallback(1);
+                f43538d = new b.a();
+                f43537c = new d.a();
+                f43539e = new AutoTrack.MyActivityLifeCallback(2);
             }
         }
     }
@@ -77,15 +77,15 @@ public class ActivityLifeTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             synchronized (ActivityLifeTask.class) {
-                if (f43420a) {
+                if (f43535a) {
                     return;
                 }
                 a(context);
                 ActivityLifeObserver.instance().clearObservers();
-                ActivityLifeObserver.instance().addObserver(f43421b);
-                ActivityLifeObserver.instance().addObserver(f43424e);
+                ActivityLifeObserver.instance().addObserver(f43536b);
+                ActivityLifeObserver.instance().addObserver(f43539e);
                 ActivityLifeObserver.instance().registerActivityLifeCallback(context);
-                f43420a = true;
+                f43535a = true;
             }
         }
     }

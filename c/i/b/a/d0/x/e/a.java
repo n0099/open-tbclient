@@ -18,19 +18,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f33293a;
+    public final boolean f33402a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final C1489a f33294b;
+    public final C1489a f33403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b[] f33295c;
+    public final b[] f33404c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f33296d;
+    public final long f33405d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f33297e;
+    public final long f33406e;
 
     /* renamed from: c.i.b.a.d0.x.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -39,10 +39,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final UUID f33298a;
+        public final UUID f33407a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f33299b;
+        public final byte[] f33408b;
 
         public C1489a(UUID uuid, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -59,8 +59,8 @@ public class a {
                     return;
                 }
             }
-            this.f33298a = uuid;
-            this.f33299b = bArr;
+            this.f33407a = uuid;
+            this.f33408b = bArr;
         }
     }
 
@@ -91,31 +91,31 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f33300a;
+        public final int f33409a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f33301b;
+        public final long f33410b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Format[] f33302c;
+        public final Format[] f33411c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f33303d;
+        public final int f33412d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f33304e;
+        public final String f33413e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f33305f;
+        public final String f33414f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final List<Long> f33306g;
+        public final List<Long> f33415g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long[] f33307h;
+        public final long[] f33416h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final long f33308i;
+        public final long f33417i;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public b(String str, String str2, int i2, String str3, long j2, String str4, int i3, int i4, int i5, int i6, String str5, Format[] formatArr, List<Long> list, long j3) {
@@ -142,12 +142,12 @@ public class a {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-                c.i.b.a.i0.a.f(this.f33302c != null);
-                c.i.b.a.i0.a.f(this.f33306g != null);
-                c.i.b.a.i0.a.f(i3 < this.f33306g.size());
-                String num = Integer.toString(this.f33302c[i2].bitrate);
-                String l = this.f33306g.get(i3).toString();
-                return u.d(this.f33304e, this.f33305f.replace("{bitrate}", num).replace("{Bitrate}", num).replace("{start time}", l).replace("{start_time}", l));
+                c.i.b.a.i0.a.f(this.f33411c != null);
+                c.i.b.a.i0.a.f(this.f33415g != null);
+                c.i.b.a.i0.a.f(i3 < this.f33415g.size());
+                String num = Integer.toString(this.f33411c[i2].bitrate);
+                String l = this.f33415g.get(i3).toString();
+                return u.d(this.f33413e, this.f33414f.replace("{bitrate}", num).replace("{Bitrate}", num).replace("{start time}", l).replace("{start_time}", l));
             }
             return (Uri) invokeII.objValue;
         }
@@ -156,10 +156,10 @@ public class a {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (i2 == this.f33303d - 1) {
-                    return this.f33308i;
+                if (i2 == this.f33412d - 1) {
+                    return this.f33417i;
                 }
-                long[] jArr = this.f33307h;
+                long[] jArr = this.f33416h;
                 return jArr[i2 + 1] - jArr[i2];
             }
             return invokeI.longValue;
@@ -168,13 +168,13 @@ public class a {
         public int c(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? v.e(this.f33307h, j2, true, true) : invokeJ.intValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? v.e(this.f33416h, j2, true, true) : invokeJ.intValue;
         }
 
         public long d(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f33307h[i2] : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f33416h[i2] : invokeI.longValue;
         }
 
         public b(String str, String str2, int i2, String str3, long j2, String str4, int i3, int i4, int i5, int i6, String str5, Format[] formatArr, List<Long> list, long[] jArr, long j3) {
@@ -192,15 +192,15 @@ public class a {
                     return;
                 }
             }
-            this.f33304e = str;
-            this.f33305f = str2;
-            this.f33300a = i2;
-            this.f33301b = j2;
-            this.f33302c = formatArr;
-            this.f33306g = list;
-            this.f33307h = jArr;
-            this.f33308i = j3;
-            this.f33303d = list.size();
+            this.f33413e = str;
+            this.f33414f = str2;
+            this.f33409a = i2;
+            this.f33410b = j2;
+            this.f33411c = formatArr;
+            this.f33415g = list;
+            this.f33416h = jArr;
+            this.f33417i = j3;
+            this.f33412d = list.size();
         }
     }
 
@@ -219,10 +219,10 @@ public class a {
                 return;
             }
         }
-        this.f33296d = j2;
-        this.f33297e = j3;
-        this.f33293a = z;
-        this.f33294b = c1489a;
-        this.f33295c = bVarArr;
+        this.f33405d = j2;
+        this.f33406e = j3;
+        this.f33402a = z;
+        this.f33403b = c1489a;
+        this.f33404c = bVarArr;
     }
 }

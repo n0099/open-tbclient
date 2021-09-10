@@ -14,10 +14,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f3251a;
+    public boolean f3242a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<C0065a> f3252b;
+    public List<C0065a> f3243b;
 
     /* renamed from: c.a.e0.p.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -26,28 +26,28 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f3253a;
+        public int f3244a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f3254b;
+        public String f3245b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f3255c;
+        public String f3246c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f3256d;
+        public String f3247d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f3257e;
+        public String f3248e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Long f3258f;
+        public Long f3249f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f3259g;
+        public int f3250g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f3260h;
+        public String f3251h;
 
         public C0065a() {
             Interceptable interceptable = $ic;
@@ -81,14 +81,14 @@ public class a {
             if (jSONObject == null) {
                 return;
             }
-            this.f3254b = jSONObject.optString("display_name");
-            this.f3255c = jSONObject.optString("pay_text");
-            this.f3257e = jSONObject.optString("icon");
-            this.f3256d = jSONObject.optString("valid_info");
-            this.f3260h = jSONObject.optString("host_marketing_detail");
-            this.f3258f = Long.valueOf(jSONObject.optLong("available_par_money"));
-            this.f3259g = jSONObject.optInt("is_selected");
-            this.f3253a = jSONObject.optInt("type");
+            this.f3245b = jSONObject.optString("display_name");
+            this.f3246c = jSONObject.optString("pay_text");
+            this.f3248e = jSONObject.optString("icon");
+            this.f3247d = jSONObject.optString("valid_info");
+            this.f3251h = jSONObject.optString("host_marketing_detail");
+            this.f3249f = Long.valueOf(jSONObject.optLong("available_par_money"));
+            this.f3250g = jSONObject.optInt("is_selected");
+            this.f3244a = jSONObject.optInt("type");
         }
     }
 
@@ -110,14 +110,14 @@ public class a {
         if (jSONArray == null) {
             return;
         }
-        this.f3252b = new ArrayList();
+        this.f3243b = new ArrayList();
         int length = jSONArray.length();
         for (int i4 = 0; i4 < length; i4++) {
             JSONObject jSONObject = (JSONObject) jSONArray.opt(i4);
             if (jSONObject != null) {
-                this.f3252b.add(new C0065a(jSONObject));
+                this.f3243b.add(new C0065a(jSONObject));
             }
         }
-        this.f3251a = this.f3252b.size() > 1;
+        this.f3242a = this.f3243b.size() > 1;
     }
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.media.MediaRecorder;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.net.tnc.TNCManager;
+import h.c.h0;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
@@ -171,15 +171,17 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                         this.this$0.cameraStatistics = new CameraVideoCapturer.CameraStatistics(this.this$0.surfaceHelper, this.this$0.eventsHandler);
                         this.this$0.firstFrameObserved = false;
                         this.this$0.stateLock.notifyAll();
-                        if (this.this$0.switchState == SwitchState.IN_PROGRESS) {
+                        if (this.this$0.switchState != SwitchState.IN_PROGRESS) {
+                            if (this.this$0.switchState == SwitchState.PENDING) {
+                                this.this$0.switchState = SwitchState.IDLE;
+                                this.this$0.switchCameraInternal(this.this$0.switchEventsHandler);
+                            }
+                        } else {
                             this.this$0.switchState = SwitchState.IDLE;
                             if (this.this$0.switchEventsHandler != null) {
                                 this.this$0.switchEventsHandler.onCameraSwitchDone(this.this$0.cameraEnumerator.isFrontFacing(this.this$0.cameraName));
                                 this.this$0.switchEventsHandler = null;
                             }
-                        } else if (this.this$0.switchState == SwitchState.PENDING) {
-                            this.this$0.switchState = SwitchState.IDLE;
-                            this.this$0.switchCameraInternal(this.this$0.switchEventsHandler);
                         }
                     }
                 }
@@ -262,12 +264,12 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cameraSession) == null) {
                     this.this$0.checkIsOnCameraThread();
                     synchronized (this.this$0.stateLock) {
-                        if (cameraSession != this.this$0.currentSession) {
-                            Logging.w(CameraCapturer.TAG, "onCameraDisconnected from another session.");
+                        if (cameraSession == this.this$0.currentSession) {
+                            this.this$0.eventsHandler.onCameraDisconnected();
+                            this.this$0.stopCapture();
                             return;
                         }
-                        this.this$0.eventsHandler.onCameraDisconnected();
-                        this.this$0.stopCapture();
+                        Logging.w(CameraCapturer.TAG, "onCameraDisconnected from another session.");
                     }
                 }
             }
@@ -294,10 +296,10 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                 if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
                     this.this$0.checkIsOnCameraThread();
                     synchronized (this.this$0.stateLock) {
-                        if (this.this$0.currentSession != null) {
-                            Logging.w(CameraCapturer.TAG, "onCameraOpening while session was open.");
-                        } else {
+                        if (this.this$0.currentSession == null) {
                             this.this$0.eventsHandler.onCameraOpening(this.this$0.cameraName);
+                        } else {
+                            Logging.w(CameraCapturer.TAG, "onCameraOpening while session was open.");
                         }
                     }
                 }
@@ -309,16 +311,16 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                 if (interceptable2 == null || interceptable2.invokeLL(1048580, this, cameraSession, videoFrame) == null) {
                     this.this$0.checkIsOnCameraThread();
                     synchronized (this.this$0.stateLock) {
-                        if (cameraSession != this.this$0.currentSession) {
-                            Logging.w(CameraCapturer.TAG, "onFrameCaptured from another session.");
+                        if (cameraSession == this.this$0.currentSession) {
+                            if (!this.this$0.firstFrameObserved) {
+                                this.this$0.eventsHandler.onFirstFrameAvailable();
+                                this.this$0.firstFrameObserved = true;
+                            }
+                            this.this$0.cameraStatistics.addFrame();
+                            this.this$0.capturerObserver.onFrameCaptured(videoFrame);
                             return;
                         }
-                        if (!this.this$0.firstFrameObserved) {
-                            this.this$0.eventsHandler.onFirstFrameAvailable();
-                            this.this$0.firstFrameObserved = true;
-                        }
-                        this.this$0.cameraStatistics.addFrame();
-                        this.this$0.capturerObserver.onFrameCaptured(videoFrame);
+                        Logging.w(CameraCapturer.TAG, "onFrameCaptured from another session.");
                     }
                 }
             }
@@ -425,13 +427,13 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
         this.cameraName = str;
         this.uiThreadHandler = new Handler(Looper.getMainLooper());
         String[] deviceNames = cameraEnumerator.getDeviceNames();
-        if (deviceNames.length == 0) {
-            throw new RuntimeException("No cameras attached.");
+        if (deviceNames.length != 0) {
+            if (Arrays.asList(deviceNames).contains(this.cameraName)) {
+                return;
+            }
+            throw new IllegalArgumentException("Camera name " + this.cameraName + " does not match any known camera device.");
         }
-        if (Arrays.asList(deviceNames).contains(this.cameraName)) {
-            return;
-        }
-        throw new IllegalArgumentException("Camera name " + this.cameraName + " does not match any known camera device.");
+        throw new RuntimeException("No cameras attached.");
     }
 
     public static /* synthetic */ int access$1610(CameraCapturer cameraCapturer) {
@@ -574,11 +576,8 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
 
     @Override // org.webrtc.CameraVideoCapturer
     @Deprecated
-    public void addMediaRecorderToCamera(MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, mediaRecorder, mediaRecorderHandler) == null) {
-            CameraVideoCapturer_CC.$default$addMediaRecorderToCamera(this, mediaRecorder, mediaRecorderHandler);
-        }
+    public /* synthetic */ void addMediaRecorderToCamera(MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
+        h0.$default$addMediaRecorderToCamera(this, mediaRecorder, mediaRecorderHandler);
     }
 
     @Override // org.webrtc.VideoCapturer
@@ -657,11 +656,8 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
 
     @Override // org.webrtc.CameraVideoCapturer
     @Deprecated
-    public void removeMediaRecorderFromCamera(CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaRecorderHandler) == null) {
-            CameraVideoCapturer_CC.$default$removeMediaRecorderFromCamera(this, mediaRecorderHandler);
-        }
+    public /* synthetic */ void removeMediaRecorderFromCamera(CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
+        h0.$default$removeMediaRecorderFromCamera(this, mediaRecorderHandler);
     }
 
     @Override // org.webrtc.VideoCapturer
@@ -669,21 +665,22 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048585, this, i2, i3, i4) == null) {
             Logging.d(TAG, "startCapture: " + i2 + "x" + i3 + TNCManager.TNC_PROBE_HEADER_SECEPTOR + i4);
-            if (this.applicationContext == null) {
-                throw new RuntimeException("CameraCapturer must be initialized before calling startCapture.");
-            }
-            synchronized (this.stateLock) {
-                if (!this.sessionOpening && this.currentSession == null) {
-                    this.width = i2;
-                    this.height = i3;
-                    this.framerate = i4;
-                    this.sessionOpening = true;
-                    this.openAttemptsRemaining = 3;
-                    createSessionInternal(0);
+            if (this.applicationContext != null) {
+                synchronized (this.stateLock) {
+                    if (!this.sessionOpening && this.currentSession == null) {
+                        this.width = i2;
+                        this.height = i3;
+                        this.framerate = i4;
+                        this.sessionOpening = true;
+                        this.openAttemptsRemaining = 3;
+                        createSessionInternal(0);
+                        return;
+                    }
+                    Logging.w(TAG, "Session already open");
                     return;
                 }
-                Logging.w(TAG, "Session already open");
             }
+            throw new RuntimeException("CameraCapturer must be initialized before calling startCapture.");
         }
     }
 

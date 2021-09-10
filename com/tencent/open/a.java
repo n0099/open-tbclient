@@ -24,7 +24,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, b> f76123a;
+    public HashMap<String, b> f76303a;
 
     /* loaded from: classes10.dex */
     public static class b {
@@ -127,13 +127,13 @@ public class a {
                 return;
             }
         }
-        this.f76123a = new HashMap<>();
+        this.f76303a = new HashMap<>();
     }
 
     public void a(b bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, str) == null) {
-            this.f76123a.put(str, bVar);
+            this.f76303a.put(str, bVar);
         }
     }
 
@@ -149,7 +149,7 @@ public class a {
                     e2.printStackTrace();
                 }
             }
-            b bVar = this.f76123a.get(str);
+            b bVar = this.f76303a.get(str);
             if (bVar != null) {
                 SLog.d("openSDK_LOG.JsBridge", "call----");
                 bVar.call(str2, list, c2091a);
@@ -169,13 +169,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<WebView> f76125a;
+        public WeakReference<WebView> f76305a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f76126b;
+        public long f76306b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f76127c;
+        public String f76307c;
 
         public C2091a(WebView webView, long j2, String str) {
             Interceptable interceptable = $ic;
@@ -192,16 +192,16 @@ public class a {
                     return;
                 }
             }
-            this.f76125a = new WeakReference<>(webView);
-            this.f76126b = j2;
-            this.f76127c = str;
+            this.f76305a = new WeakReference<>(webView);
+            this.f76306b = j2;
+            this.f76307c = str;
         }
 
         public void a(Object obj) {
             WebView webView;
             String obj2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || (webView = this.f76125a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || (webView = this.f76305a.get()) == null) {
                 return;
             }
             if (obj instanceof String) {
@@ -212,22 +212,22 @@ public class a {
             } else {
                 obj2 = obj.toString();
             }
-            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f76126b + ",{'r':0,'result':" + obj2 + "});");
+            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f76306b + ",{'r':0,'result':" + obj2 + "});");
         }
 
         public void a() {
             WebView webView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (webView = this.f76125a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (webView = this.f76305a.get()) == null) {
                 return;
             }
-            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f76126b + ",{'r':1,'result':'no such method'})");
+            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f76306b + ",{'r':1,'result':'no such method'})");
         }
 
         public void a(String str) {
             WebView webView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (webView = this.f76125a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (webView = this.f76305a.get()) == null) {
                 return;
             }
             webView.loadUrl("javascript:" + str);

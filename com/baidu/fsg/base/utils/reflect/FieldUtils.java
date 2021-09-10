@@ -21,7 +21,7 @@ public class FieldUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Field> f39509a;
+    public static Map<String, Field> f39620a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class FieldUtils {
                 return;
             }
         }
-        f39509a = new HashMap();
+        f39620a = new HashMap();
     }
 
     public FieldUtils() {
@@ -72,8 +72,8 @@ public class FieldUtils {
             Validate.a(cls != null, "The class must not be null", new Object[0]);
             Validate.a(!TextUtils.isEmpty(str), "The field name must not be blank/empty", new Object[0]);
             String a2 = a(cls, str);
-            synchronized (f39509a) {
-                field = f39509a.get(a2);
+            synchronized (f39620a) {
+                field = f39620a.get(a2);
             }
             if (field != null) {
                 if (z && !field.isAccessible()) {
@@ -93,8 +93,8 @@ public class FieldUtils {
                         continue;
                     }
                 }
-                synchronized (f39509a) {
-                    f39509a.put(a2, declaredField);
+                synchronized (f39620a) {
+                    f39620a.put(a2, declaredField);
                 }
                 return declaredField;
             }
@@ -107,8 +107,8 @@ public class FieldUtils {
                 } catch (NoSuchFieldException unused2) {
                 }
             }
-            synchronized (f39509a) {
-                f39509a.put(a2, field2);
+            synchronized (f39620a) {
+                f39620a.put(a2, field2);
             }
             return field2;
         }

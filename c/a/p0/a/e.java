@@ -1,938 +1,519 @@
 package c.a.p0.a;
 
-import android.app.Activity;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.f;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedRuntime;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.BdToken.DecryptCodeHttpRespMsg;
-import com.baidu.tbadk.BdToken.DecryptCodeReqMsg;
-import com.baidu.tbadk.BdToken.DecryptCodeSocketRespMsg;
-import com.baidu.tbadk.BdToken.TiebaUidCheckHttpResMsg;
-import com.baidu.tbadk.BdToken.TiebaUidCheckReqMsg;
-import com.baidu.tbadk.BdToken.TiebaUidCheckSocketResMsg;
-import com.baidu.tbadk.GrowthStatsUtil;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.RomTypeUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.data.UserData;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
-public class e {
-    public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final Pattern f12571h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final Pattern f12572i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final Pattern f12573j;
-    public transient /* synthetic */ FieldHolder $fh;
+/* loaded from: classes.dex */
+public final class e {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f12574a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f12575b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public u f12576c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public c.a.p0.a.f f12577d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f12578e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public AtomicBoolean f12579f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public f.b f12580g;
-
-    /* loaded from: classes3.dex */
-    public class a extends BdAsyncTask<String, Integer, l> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12581a;
-
-        public a(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f12581a = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public l doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Matcher matcher;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                if (strArr == null || strArr.length < 1) {
-                    return null;
-                }
-                String str = strArr[0];
-                if (!c.a.e.e.p.k.isEmpty(str) && (matcher = e.f12572i.matcher(str)) != null && matcher.find() && matcher.groupCount() >= 2) {
-                    String group = matcher.group(1);
-                    String group2 = matcher.group(2);
-                    if (TextUtils.isEmpty(group2)) {
-                        return null;
-                    }
-                    UserData b2 = c.a.p0.a0.b.a().b();
-                    String tiebaUid = b2 != null ? b2.getTiebaUid() : "";
-                    if ((TextUtils.isEmpty(group) || !group.equals(TbadkCoreApplication.getCurrentAccountNameShow())) && !group2.equals(tiebaUid)) {
-                        l lVar = new l();
-                        lVar.c(group);
-                        lVar.d(group2);
-                        return lVar;
-                    }
-                    return null;
-                }
-                return null;
-            }
-            return (l) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(l lVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
-                super.onPostExecute(lVar);
-                if (lVar == null || this.f12581a.f12579f.get()) {
-                    return;
-                }
-                this.f12581a.f12579f.compareAndSet(false, true);
-                TiebaUidCheckReqMsg tiebaUidCheckReqMsg = new TiebaUidCheckReqMsg();
-                tiebaUidCheckReqMsg.setTiebaUid(lVar);
-                MessageManager.getInstance().sendMessage(tiebaUidCheckReqMsg);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements f.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12582a;
-
-        public b(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f12582a = eVar;
-        }
-
-        @Override // c.a.p0.a.f.b
-        public void a(boolean z, a0 a0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, a0Var) == null) && z && a0Var != null) {
-                this.f12582a.p();
-                this.f12582a.q(a0Var.a(), a0Var.c());
-                this.f12582a.s(a0Var);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f12583e;
-
-        public c(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f12583e = eVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.y().m(this.f12583e.w());
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f12584e;
-
-        public d(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f12584e = eVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.y().m(this.f12584e.w());
-            }
-        }
-    }
-
-    /* renamed from: c.a.p0.a.e$e  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0643e extends c.a.e.c.g.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12585a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0643e(e eVar, int i2, int i3) {
-            super(i2, i3);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f12585a = eVar;
-        }
-
-        @Override // c.a.e.c.g.a
-        public void onMessage(ResponsedMessage responsedMessage) {
-            c.a.p0.a.h decryptData;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f12585a.f12578e.compareAndSet(true, false);
-                if (responsedMessage instanceof DecryptCodeHttpRespMsg) {
-                    decryptData = ((DecryptCodeHttpRespMsg) responsedMessage).getDecryptData();
-                } else if (!(responsedMessage instanceof DecryptCodeSocketRespMsg)) {
-                    return;
-                } else {
-                    decryptData = ((DecryptCodeSocketRespMsg) responsedMessage).getDecryptData();
-                }
-                if (decryptData == null) {
-                    return;
-                }
-                GrowthStatsUtil.statisticClipBoard(decryptData.f());
-                UtilHelper.clearClipBoard();
-                int g2 = decryptData.g();
-                if (g2 == 1 || g2 == 0) {
-                    if (MessageManager.getInstance().findTask(2921361) == null || decryptData.f12615g.equals(TbadkCoreApplication.getInst().getCurAiAppid())) {
-                        return;
-                    }
-                    TbadkCoreApplication.getInst().setCurAiAppid(null);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921377, decryptData));
-                } else if (g2 == 2) {
-                    this.f12585a.q(decryptData.e(), decryptData.f());
-                } else if (g2 == 4 || g2 != 3 || StringUtils.isNull(decryptData.f())) {
-                } else {
-                    Uri parse = Uri.parse(decryptData.f());
-                    String queryParameter = parse != null ? parse.getQueryParameter("obj_source") : "";
-                    String queryParameter2 = parse != null ? parse.getQueryParameter("obj_type") : "";
-                    String queryParameter3 = parse != null ? parse.getQueryParameter("tid") : "";
-                    String queryParameter4 = parse != null ? parse.getQueryParameter("fname") : "";
-                    String queryParameter5 = parse != null ? parse.getQueryParameter("eqid") : "";
-                    if (TextUtils.isEmpty(queryParameter) || TextUtils.isEmpty(queryParameter2) || !queryParameter2.startsWith("tbcm")) {
-                        this.f12585a.r(decryptData.f());
-                        TiebaStatic.log(new StatisticItem("c13390").param("obj_type", queryParameter2).param("obj_source", queryParameter).param("tid", queryParameter3).param("fname", queryParameter4).param("query", queryParameter5));
-                        return;
-                    }
-                    this.f12585a.r(decryptData.f());
-                    TiebaStatic.log(new StatisticItem("c13390").param("obj_type", queryParameter2).param("obj_source", queryParameter).param("tid", queryParameter3).param("fname", queryParameter4));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class f extends c.a.e.c.g.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12586a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(e eVar, int i2, int i3) {
-            super(i2, i3);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f12586a = eVar;
-        }
-
-        @Override // c.a.e.c.g.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            com.baidu.tbadk.core.data.UserData userData;
-            TiebaUidCheckReqMsg tiebaUidCheckReqMsg;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f12586a.f12579f.compareAndSet(true, false);
-                if (responsedMessage instanceof TiebaUidCheckSocketResMsg) {
-                    userData = ((TiebaUidCheckSocketResMsg) responsedMessage).getUserData();
-                } else if (!(responsedMessage instanceof TiebaUidCheckHttpResMsg)) {
-                    return;
-                } else {
-                    userData = ((TiebaUidCheckHttpResMsg) responsedMessage).getUserData();
-                }
-                l lVar = (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof TiebaUidCheckReqMsg) || (tiebaUidCheckReqMsg = (TiebaUidCheckReqMsg) responsedMessage.getOrginalMessage().getExtra()) == null) ? null : tiebaUidCheckReqMsg.mTiebaUidData;
-                if (userData == null || lVar == null) {
-                    return;
-                }
-                UtilHelper.clearClipBoard();
-                y d2 = y.d();
-                d2.b();
-                d2.e(userData, lVar);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class g extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12587a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(e eVar, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f12587a = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage instanceof BackgroundSwitchMessage) || ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                return;
-            }
-            this.f12587a.m(this.f12587a.w());
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class h extends BdAsyncTask<String, Integer, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12588a;
-
-        public h(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f12588a = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Matcher matcher;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                if (strArr != null && strArr.length >= 1) {
-                    String str = strArr[0];
-                    if (c.a.e.e.p.k.isEmpty(str)) {
-                        return null;
-                    }
-                    String z = this.f12588a.z();
-                    if (!c.a.e.e.p.k.isEmpty(z) && (matcher = Pattern.compile(z).matcher(str)) != null && matcher.find()) {
-                        return str;
-                    }
-                }
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                super.onPostExecute((h) str);
-                if (str == null) {
-                    if (this.f12588a.f12576c == null || !this.f12588a.B()) {
-                        return;
-                    }
-                    this.f12588a.f12576c.b();
-                    return;
-                }
-                this.f12588a.n(str);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class i extends BdAsyncTask<String, Integer, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12589a;
-
-        public i(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f12589a = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Matcher matcher;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                if (strArr != null && strArr.length >= 1) {
-                    String str = strArr[0];
-                    if (!c.a.e.e.p.k.isEmpty(str) && (matcher = e.f12573j.matcher(str)) != null && matcher.find()) {
-                        return str;
-                    }
-                }
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                super.onPostExecute((i) str);
-                if (str != null) {
-                    this.f12589a.r(str.substring(1, str.length() - 1));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class j extends BdAsyncTask<String, Integer, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12590a;
-
-        public j(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f12590a = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Matcher matcher;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                if (strArr != null && strArr.length >= 1) {
-                    String str = strArr[0];
-                    if (!c.a.e.e.p.k.isEmpty(str) && (matcher = e.f12571h.matcher(str)) != null && matcher.find()) {
-                        return str;
-                    }
-                }
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                super.onPostExecute((j) str);
-                if (str == null || this.f12590a.f12578e.get()) {
-                    return;
-                }
-                this.f12590a.f12578e.compareAndSet(false, true);
-                DecryptCodeReqMsg decryptCodeReqMsg = new DecryptCodeReqMsg();
-                decryptCodeReqMsg.setCode(str);
-                MessageManager.getInstance().sendMessage(decryptCodeReqMsg);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class k {
-        public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final e f12591a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1359152826, "Lc/a/p0/a/e$k;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1359152826, "Lc/a/p0/a/e$k;");
-                    return;
-                }
-            }
-            f12591a = new e();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class l {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f12592a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f12593b;
-
-        public l() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12592a : (String) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12593b : (String) invokeV.objValue;
-        }
-
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f12592a = str;
-            }
-        }
-
-        public void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.f12593b = str;
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1884617133, "Lc/a/p0/a/e;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1884617133, "Lc/a/p0/a/e;");
-                return;
-            }
-        }
-        f12571h = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
-        f12572i = Pattern.compile("^@(.*)@给你分享了贴吧号#(\\d+)#\\s?整段复制后打开贴吧即可找到Ta$", 2);
-        f12573j = Pattern.compile("\\$(com.baidu.tieba://unidispatch/)[0-9a-zA-Z]{1,10}\\?[0-9a-zA-Z_=&%\\-.]{1,300}[$]", 2);
-    }
-
-    public e() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f12578e = new AtomicBoolean(false);
-        this.f12579f = new AtomicBoolean(false);
-        this.f12580g = new b(this);
-    }
-
-    public static final e y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? k.f12591a : (e) invokeV.objValue;
-    }
-
-    public void A(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || this.f12574a) {
-            return;
-        }
-        C();
-        E();
-        D();
-        c.a.p0.a.f fVar = new c.a.p0.a.f();
-        this.f12577d = fVar;
-        fVar.g(this.f12580g);
-        this.f12576c = new u();
-        String w = w();
-        if (!c.a.e.e.p.k.isEmpty(w)) {
-            y().m(w);
-        } else if (UtilHelper.isActivityStartFromScheme(activity)) {
-            c.a.e.e.m.e.a().postDelayed(new c(this), 4000L);
-        } else if (RomTypeUtil.isEmui() || RomTypeUtil.isOnePlus() || RomTypeUtil.check("MIUI")) {
-            c.a.e.e.m.e.a().postDelayed(new d(this), 2000L);
-        }
-        this.f12574a = true;
-    }
-
-    public final boolean B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String topActivityClassName = UtilHelper.getTopActivityClassName();
-            return !c.a.e.e.p.k.isEmpty(topActivityClassName) && topActivityClassName.equals(SpeedRuntime.MAIN_ACTIVITY_NAME) && TbSingleton.getInstance().isRecommendPage();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.q0.i3.d0.a.h(309626, DecryptCodeSocketRespMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, c.a.q0.i3.d0.a.a(TbConfig.DECRYPT_CODE_URL, 309626));
-            tbHttpMessageTask.setResponsedClass(DecryptCodeHttpRespMsg.class);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(new C0643e(this, CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, 309626));
-            MessageManager.getInstance().registerListener(new f(this, CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, 309702));
-            MessageManager.getInstance().registerListener(new g(this, 2001011));
-        }
-    }
-
-    public final void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.q0.i3.d0.a.h(309702, TiebaUidCheckSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, c.a.q0.i3.d0.a.a(TbConfig.URL_GET_USER_BY_TIEBA_UID, 309702));
-            tbHttpMessageTask.setResponsedClass(TiebaUidCheckHttpResMsg.class);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || c.a.e.e.p.k.isEmpty(str)) {
-            return;
-        }
-        new h(this).execute(str);
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            l(str);
-            o(str);
-            t(str);
-            u(str);
-            v(str);
-        }
-    }
-
-    public final void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f12577d.c(str);
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && !c.a.e.e.p.k.isEmpty(str) && str.contains("^sZqulxTVsT$")) {
-            n(str);
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            UtilHelper.clearClipBoard();
-        }
-    }
-
-    public final void q(String str, String str2) {
-        TbPageContext<?> x;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) || c.a.e.e.p.k.isEmpty(str2) || (x = x(TbadkCoreApplication.getInst().getCurrentActivity())) == null) {
-            return;
-        }
-        UrlManager.getInstance().dealOneLink(x, str, new String[]{str2});
-    }
-
-    public final void r(String str) {
-        Activity currentActivity;
-        Uri parse;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || c.a.e.e.p.k.isEmpty(str) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (parse = Uri.parse(str)) == null) {
-            return;
-        }
-        if (str.startsWith(c.a.p0.a.g.f12598a)) {
-            Uri.Builder buildUpon = Uri.parse(str).buildUpon();
-            buildUpon.appendQueryParameter(c.a.p0.a.g.x, c.a.p0.a.g.U);
-            parse = buildUpon.build();
-        }
-        UtilHelper.dealOneScheme(currentActivity, parse.toString());
-    }
-
-    public final void s(a0 a0Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, a0Var) == null) || a0Var == null || a0Var.b() == null || c.a.e.e.p.k.isEmpty(a0Var.b().f12494a) || !B()) {
-            return;
-        }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921380, a0Var.b().f12494a));
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || c.a.e.e.p.k.isEmpty(str)) {
-            return;
-        }
-        new j(this).execute(str);
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || c.a.e.e.p.k.isEmpty(str)) {
-            return;
-        }
-        new i(this).execute(str);
-    }
-
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || c.a.e.e.p.k.isEmpty(str)) {
-            return;
-        }
-        new a(this).execute(str);
-    }
-
-    public final String w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (System.currentTimeMillis() - this.f12575b < 2000) {
-                return null;
-            }
-            this.f12575b = System.currentTimeMillis();
-            return UtilHelper.getClipBoardContent();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final TbPageContext x(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, activity)) == null) {
-            if (activity instanceof BaseActivity) {
-                return ((BaseActivity) activity).getPageContext();
-            }
-            if (activity instanceof BaseFragmentActivity) {
-                return ((BaseFragmentActivity) activity).getPageContext();
-            }
-            return null;
-        }
-        return (TbPageContext) invokeL.objValue;
-    }
-
-    public final String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? new String(Base64.decode(c.a.p0.s.d0.b.j().p("key_baidu_password_re", "LipcXlsjJGEtekEtWjAtOV9dezUsfVxeezAsMX1bXF4kXXsxfS4q"), 0)) : (String) invokeV.objValue;
-    }
+    public static final int f5178a = 2131230820;
+    public static final int abc_ab_share_pack_mtrl_alpha = 2131230821;
+    public static final int abc_action_bar_item_background_material = 2131230822;
+    public static final int abc_btn_borderless_material = 2131230823;
+    public static final int abc_btn_check_material = 2131230824;
+    public static final int abc_btn_check_material_anim = 2131230825;
+    public static final int abc_btn_check_to_on_mtrl_000 = 2131230826;
+    public static final int abc_btn_check_to_on_mtrl_015 = 2131230827;
+    public static final int abc_btn_colored_material = 2131230828;
+    public static final int abc_btn_default_mtrl_shape = 2131230829;
+    public static final int abc_btn_radio_material = 2131230830;
+    public static final int abc_btn_radio_material_anim = 2131230831;
+    public static final int abc_btn_radio_to_on_mtrl_000 = 2131230832;
+    public static final int abc_btn_radio_to_on_mtrl_015 = 2131230833;
+    public static final int abc_btn_switch_to_on_mtrl_00001 = 2131230834;
+    public static final int abc_btn_switch_to_on_mtrl_00012 = 2131230835;
+    public static final int abc_cab_background_internal_bg = 2131230836;
+    public static final int abc_cab_background_top_material = 2131230837;
+    public static final int abc_cab_background_top_mtrl_alpha = 2131230838;
+    public static final int abc_control_background_material = 2131230839;
+    public static final int abc_dialog_material_background = 2131230840;
+    public static final int abc_edit_text_material = 2131230841;
+    public static final int abc_ic_ab_back_material = 2131230842;
+    public static final int abc_ic_arrow_drop_right_black_24dp = 2131230843;
+    public static final int abc_ic_clear_material = 2131230844;
+    public static final int abc_ic_commit_search_api_mtrl_alpha = 2131230845;
+    public static final int abc_ic_go_search_api_material = 2131230846;
+    public static final int abc_ic_menu_copy_mtrl_am_alpha = 2131230847;
+    public static final int abc_ic_menu_cut_mtrl_alpha = 2131230848;
+    public static final int abc_ic_menu_overflow_material = 2131230849;
+    public static final int abc_ic_menu_paste_mtrl_am_alpha = 2131230850;
+    public static final int abc_ic_menu_selectall_mtrl_alpha = 2131230851;
+    public static final int abc_ic_menu_share_mtrl_alpha = 2131230852;
+    public static final int abc_ic_search_api_material = 2131230853;
+    public static final int abc_ic_star_black_16dp = 2131230854;
+    public static final int abc_ic_star_black_36dp = 2131230855;
+    public static final int abc_ic_star_black_48dp = 2131230856;
+    public static final int abc_ic_star_half_black_16dp = 2131230857;
+    public static final int abc_ic_star_half_black_36dp = 2131230858;
+    public static final int abc_ic_star_half_black_48dp = 2131230859;
+    public static final int abc_ic_voice_search_api_material = 2131230860;
+    public static final int abc_item_background_holo_dark = 2131230861;
+    public static final int abc_item_background_holo_light = 2131230862;
+    public static final int abc_list_divider_material = 2131230863;
+    public static final int abc_list_divider_mtrl_alpha = 2131230864;
+    public static final int abc_list_focused_holo = 2131230865;
+    public static final int abc_list_longpressed_holo = 2131230866;
+    public static final int abc_list_pressed_holo_dark = 2131230867;
+    public static final int abc_list_pressed_holo_light = 2131230868;
+    public static final int abc_list_selector_background_transition_holo_dark = 2131230869;
+    public static final int abc_list_selector_background_transition_holo_light = 2131230870;
+    public static final int abc_list_selector_disabled_holo_dark = 2131230871;
+    public static final int abc_list_selector_disabled_holo_light = 2131230872;
+    public static final int abc_list_selector_holo_dark = 2131230873;
+    public static final int abc_list_selector_holo_light = 2131230874;
+    public static final int abc_menu_hardkey_panel_mtrl_mult = 2131230875;
+    public static final int abc_popup_background_mtrl_mult = 2131230876;
+    public static final int abc_ratingbar_indicator_material = 2131230877;
+    public static final int abc_ratingbar_material = 2131230878;
+    public static final int abc_ratingbar_small_material = 2131230879;
+    public static final int abc_scrubber_control_off_mtrl_alpha = 2131230880;
+    public static final int abc_scrubber_control_to_pressed_mtrl_000 = 2131230881;
+    public static final int abc_scrubber_control_to_pressed_mtrl_005 = 2131230882;
+    public static final int abc_scrubber_primary_mtrl_alpha = 2131230883;
+    public static final int abc_scrubber_track_mtrl_alpha = 2131230884;
+    public static final int abc_seekbar_thumb_material = 2131230885;
+    public static final int abc_seekbar_tick_mark_material = 2131230886;
+    public static final int abc_seekbar_track_material = 2131230887;
+    public static final int abc_spinner_mtrl_am_alpha = 2131230888;
+    public static final int abc_spinner_textfield_background_material = 2131230889;
+    public static final int abc_switch_thumb_material = 2131230890;
+    public static final int abc_switch_track_mtrl_alpha = 2131230891;
+    public static final int abc_tab_indicator_material = 2131230892;
+    public static final int abc_tab_indicator_mtrl_alpha = 2131230893;
+    public static final int abc_text_cursor_material = 2131230894;
+    public static final int abc_text_select_handle_left_mtrl_dark = 2131230895;
+    public static final int abc_text_select_handle_left_mtrl_light = 2131230896;
+    public static final int abc_text_select_handle_middle_mtrl_dark = 2131230897;
+    public static final int abc_text_select_handle_middle_mtrl_light = 2131230898;
+    public static final int abc_text_select_handle_right_mtrl_dark = 2131230899;
+    public static final int abc_text_select_handle_right_mtrl_light = 2131230900;
+    public static final int abc_textfield_activated_mtrl_alpha = 2131230901;
+    public static final int abc_textfield_default_mtrl_alpha = 2131230902;
+    public static final int abc_textfield_search_activated_mtrl_alpha = 2131230903;
+    public static final int abc_textfield_search_default_mtrl_alpha = 2131230904;
+    public static final int abc_textfield_search_material = 2131230905;
+    public static final int abc_vector_test = 2131230906;
+    public static final int aiapp_alertdialog_button_day_bg_all_selector = 2131230929;
+    public static final int aiapp_alertdialog_button_day_bg_left_selector = 2131230930;
+    public static final int aiapp_alertdialog_button_day_bg_right_selector = 2131230931;
+    public static final int aiapp_alertdialog_button_day_bg_selector = 2131230932;
+    public static final int aiapp_loading_progress = 2131230933;
+    public static final int aiapp_menu_item_add_fav = 2131230936;
+    public static final int aiapp_menu_item_add_fav_click = 2131230937;
+    public static final int aiapp_menu_item_add_fav_selector = 2131230938;
+    public static final int aiapp_menu_item_ai_apps_add_to_launcher_selector = 2131230939;
+    public static final int aiapp_menu_item_ai_apps_authority_management = 2131230940;
+    public static final int aiapp_menu_item_ai_apps_authority_management_click = 2131230941;
+    public static final int aiapp_menu_item_ai_apps_authority_management_selector = 2131230942;
+    public static final int aiapp_menu_item_apply_guarantee_selector = 2131230943;
+    public static final int aiapp_menu_item_cancel_fav = 2131230944;
+    public static final int aiapp_menu_item_cancel_fav_click = 2131230945;
+    public static final int aiapp_menu_item_cancel_fav_selector = 2131230946;
+    public static final int aiapp_menu_item_customer_service = 2131230947;
+    public static final int aiapp_menu_item_customer_service_pressed = 2131230948;
+    public static final int aiapp_menu_item_customer_service_selector = 2131230949;
+    public static final int aiapp_menu_item_day_mode = 2131230950;
+    public static final int aiapp_menu_item_day_mode_click = 2131230951;
+    public static final int aiapp_menu_item_daymode = 2131230952;
+    public static final int aiapp_menu_item_feedback = 2131230953;
+    public static final int aiapp_menu_item_feedback_click = 2131230954;
+    public static final int aiapp_menu_item_feedback_selector = 2131230955;
+    public static final int aiapp_menu_item_gamecenter = 2131230956;
+    public static final int aiapp_menu_item_gamecenter_click = 2131230957;
+    public static final int aiapp_menu_item_global_notice = 2131230958;
+    public static final int aiapp_menu_item_global_notice_pressed = 2131230959;
+    public static final int aiapp_menu_item_global_notice_selector = 2131230960;
+    public static final int aiapp_menu_item_global_private = 2131230961;
+    public static final int aiapp_menu_item_global_private_pressed = 2131230962;
+    public static final int aiapp_menu_item_global_private_selector = 2131230963;
+    public static final int aiapp_menu_item_go_gamecenter_selector = 2131230964;
+    public static final int aiapp_menu_item_guarantee_normal = 2131230965;
+    public static final int aiapp_menu_item_guarantee_pressed = 2131230966;
+    public static final int aiapp_menu_item_night_mode = 2131230967;
+    public static final int aiapp_menu_item_night_mode_click = 2131230968;
+    public static final int aiapp_menu_item_nightmode = 2131230969;
+    public static final int aiapp_menu_item_restart = 2131230970;
+    public static final int aiapp_menu_item_restart_click = 2131230971;
+    public static final int aiapp_menu_item_restart_selector = 2131230972;
+    public static final int aiapp_menu_item_share_arrow = 2131230973;
+    public static final int aiapp_menu_item_share_arrow_click = 2131230974;
+    public static final int aiapp_menu_item_share_arrow_selector = 2131230975;
+    public static final int aiapp_menu_item_star = 2131230976;
+    public static final int aiapp_menu_item_star_click = 2131230977;
+    public static final int aiapp_menu_item_stared = 2131230978;
+    public static final int aiapp_menu_item_stared_click = 2131230979;
+    public static final int aiapp_menu_slide_indicator_normal = 2131230980;
+    public static final int aiapp_menu_slide_indicator_selected = 2131230981;
+    public static final int aiapps_action_bar_back_black_normal = 2131230984;
+    public static final int aiapps_action_bar_back_black_pressed = 2131230985;
+    public static final int aiapps_action_bar_back_black_selector = 2131230986;
+    public static final int aiapps_action_bar_back_selector = 2131230987;
+    public static final int aiapps_action_bar_back_white_normal = 2131230988;
+    public static final int aiapps_action_bar_back_white_pressed = 2131230989;
+    public static final int aiapps_action_bar_back_white_selector = 2131230990;
+    public static final int aiapps_action_bar_close_black_normal = 2131230991;
+    public static final int aiapps_action_bar_close_black_pressed = 2131230992;
+    public static final int aiapps_action_bar_close_black_selector = 2131230993;
+    public static final int aiapps_action_bar_exit_black = 2131230994;
+    public static final int aiapps_action_bar_exit_black_pressed = 2131230995;
+    public static final int aiapps_action_bar_exit_black_selector = 2131230996;
+    public static final int aiapps_action_bar_exit_white = 2131230997;
+    public static final int aiapps_action_bar_exit_white_pressed = 2131230998;
+    public static final int aiapps_action_bar_exit_white_selector = 2131230999;
+    public static final int aiapps_action_bar_home_black_normal = 2131231000;
+    public static final int aiapps_action_bar_home_black_pressed = 2131231001;
+    public static final int aiapps_action_bar_home_black_selector = 2131231002;
+    public static final int aiapps_action_bar_home_white_normal = 2131231003;
+    public static final int aiapps_action_bar_home_white_pressed = 2131231004;
+    public static final int aiapps_action_bar_home_white_selector = 2131231005;
+    public static final int aiapps_action_bar_menu_black_normal = 2131231006;
+    public static final int aiapps_action_bar_menu_black_pressed = 2131231007;
+    public static final int aiapps_action_bar_menu_black_selector = 2131231008;
+    public static final int aiapps_action_bar_menu_normal = 2131231009;
+    public static final int aiapps_action_bar_menu_normal_pressed = 2131231010;
+    public static final int aiapps_action_bar_menu_normal_selector = 2131231011;
+    public static final int aiapps_action_bar_menu_white_normal = 2131231012;
+    public static final int aiapps_action_bar_menu_white_pressed = 2131231013;
+    public static final int aiapps_action_bar_menu_white_selector = 2131231014;
+    public static final int aiapps_action_bar_right_menu_bg = 2131231015;
+    public static final int aiapps_action_bar_right_menu_bg_solid = 2131231016;
+    public static final int aiapps_action_bar_single_menu_black_selector = 2131231017;
+    public static final int aiapps_action_bar_single_menu_white_normal = 2131231018;
+    public static final int aiapps_action_bar_single_menu_white_pressed = 2131231019;
+    public static final int aiapps_action_bar_single_menu_white_selector = 2131231020;
+    public static final int aiapps_action_sheet_bg = 2131231021;
+    public static final int aiapps_action_sheet_scrollbar = 2131231022;
+    public static final int aiapps_ai_games_input_view_bg = 2131231023;
+    public static final int aiapps_auth_dialog_detail_bg = 2131231024;
+    public static final int aiapps_bear_paw_enter_btn = 2131231025;
+    public static final int aiapps_bear_paw_follow_btn = 2131231026;
+    public static final int aiapps_big_pic_toast_btn_bg = 2131231027;
+    public static final int aiapps_big_pic_toast_close = 2131231028;
+    public static final int aiapps_big_pic_toast_close_clicked = 2131231029;
+    public static final int aiapps_big_pic_toast_close_selector = 2131231030;
+    public static final int aiapps_black_shimmer_loading = 2131231031;
+    public static final int aiapps_checkbox_checked = 2131231032;
+    public static final int aiapps_checkbox_checked_disable = 2131231033;
+    public static final int aiapps_checkbox_normal = 2131231034;
+    public static final int aiapps_checkbox_normal_disable = 2131231035;
+    public static final int aiapps_checkbox_private = 2131231036;
+    public static final int aiapps_clickable_circle_toast_view_bg = 2131231037;
+    public static final int aiapps_clickable_toast_icon = 2131231038;
+    public static final int aiapps_clickable_toast_view_bg = 2131231039;
+    public static final int aiapps_custom_blue_btn_corner_bg = 2131231045;
+    public static final int aiapps_data_error_icon_new = 2131231046;
+    public static final int aiapps_day_mode_toast_icon = 2131231047;
+    public static final int aiapps_default_grey_icon = 2131231048;
+    public static final int aiapps_default_icon = 2131231049;
+    public static final int aiapps_default_placeholder_image = 2131231050;
+    public static final int aiapps_default_ptr_rotate = 2131231051;
+    public static final int aiapps_dialog_bg_white = 2131231052;
+    public static final int aiapps_dialog_browser_security_bad = 2131231053;
+    public static final int aiapps_dialog_browser_security_good = 2131231054;
+    public static final int aiapps_dialog_btn_bg_day_all = 2131231055;
+    public static final int aiapps_dialog_btn_bg_day_left = 2131231056;
+    public static final int aiapps_dialog_btn_bg_day_right = 2131231057;
+    public static final int aiapps_dialog_btn_bg_pressed_day = 2131231058;
+    public static final int aiapps_dialog_multi_auth_dot = 2131231059;
+    public static final int aiapps_discovery_feedback_menu_bg = 2131231060;
+    public static final int aiapps_discovery_home_menu_item_selector = 2131231061;
+    public static final int aiapps_empty_icon_error = 2131231062;
+    public static final int aiapps_empty_icon_network = 2131231063;
+    public static final int aiapps_emptyview_btn_bg = 2131231064;
+    public static final int aiapps_emptyview_btn_bg_default = 2131231065;
+    public static final int aiapps_emptyview_btn_bg_pressed = 2131231066;
+    public static final int aiapps_enter_fullscreen = 2131231067;
+    public static final int aiapps_entry_guide_bg = 2131231068;
+    public static final int aiapps_entry_guide_nightmode_mask = 2131231069;
+    public static final int aiapps_favorite_guide_add_bg = 2131231070;
+    public static final int aiapps_favorite_guide_add_text = 2131231071;
+    public static final int aiapps_favorite_guide_arrow = 2131231072;
+    public static final int aiapps_favorite_guide_bg = 2131231073;
+    public static final int aiapps_favorite_guide_checkbox_normal = 2131231074;
+    public static final int aiapps_favorite_guide_checkbox_selected = 2131231075;
+    public static final int aiapps_favorite_guide_checkbox_selector = 2131231076;
+    public static final int aiapps_favorite_guide_close = 2131231077;
+    public static final int aiapps_favorite_guide_close_pressed = 2131231078;
+    public static final int aiapps_favorite_guide_close_selector = 2131231079;
+    public static final int aiapps_favorite_guide_tips_bg = 2131231080;
+    public static final int aiapps_float_view_button_shape = 2131231081;
+    public static final int aiapps_follow_vip_authentication = 2131231082;
+    public static final int aiapps_follow_vip_blue = 2131231083;
+    public static final int aiapps_follow_vip_golden = 2131231084;
+    public static final int aiapps_follow_vip_yellow = 2131231085;
+    public static final int aiapps_game_keyboard_sendbuton_bg = 2131231089;
+    public static final int aiapps_game_keyboard_sendbutton_disabled = 2131231090;
+    public static final int aiapps_game_keyboard_sendbutton_normal = 2131231091;
+    public static final int aiapps_game_keyboard_sendbutton_pressed = 2131231092;
+    public static final int aiapps_highlight_toast_image_d20 = 2131231103;
+    public static final int aiapps_highlight_toast_view_bg = 2131231104;
+    public static final int aiapps_home_fragment_button_pressed = 2131231105;
+    public static final int aiapps_home_fragment_button_radius = 2131231106;
+    public static final int aiapps_home_fragment_button_selector = 2131231107;
+    public static final int aiapps_icon_route_en = 2131231109;
+    public static final int aiapps_icon_route_st = 2131231110;
+    public static final int aiapps_keyboard_arrow_down = 2131231117;
+    public static final int aiapps_keyboard_delete_normal = 2131231118;
+    public static final int aiapps_keyboard_delete_pressed = 2131231119;
+    public static final int aiapps_keyboard_delete_selector = 2131231120;
+    public static final int aiapps_keyboard_non_number_item_selector = 2131231121;
+    public static final int aiapps_keyboard_number_item_selector = 2131231122;
+    public static final int aiapps_loading_bg = 2131231124;
+    public static final int aiapps_loading_dark_image_view = 2131231125;
+    public static final int aiapps_loading_light_image_view = 2131231126;
+    public static final int aiapps_loading_progress = 2131231127;
+    public static final int aiapps_loading_progress_animation = 2131231128;
+    public static final int aiapps_multi_custom_layout_bg = 2131231148;
+    public static final int aiapps_night_black_background_bg = 2131231150;
+    public static final int aiapps_night_mode_toast_icon = 2131231151;
+    public static final int aiapps_no_recommend = 2131231152;
+    public static final int aiapps_normal_toast_view_bg = 2131231153;
+    public static final int aiapps_null_drawable = 2131231154;
+    public static final int aiapps_open_app_buttion_selector = 2131231155;
+    public static final int aiapps_open_app_button_normal = 2131231156;
+    public static final int aiapps_open_app_button_pressed = 2131231157;
+    public static final int aiapps_openlocation_go_my_point_bg_shape = 2131231158;
+    public static final int aiapps_permission_denied = 2131231164;
+    public static final int aiapps_person_center_dot = 2131231165;
+    public static final int aiapps_person_header_new_dot = 2131231166;
+    public static final int aiapps_personal_swan_label_bg = 2131231167;
+    public static final int aiapps_pop_transparent_bg = 2131231168;
+    public static final int aiapps_progress_thumb = 2131231170;
+    public static final int aiapps_property_window_bg = 2131231172;
+    public static final int aiapps_pull_refresh_arrow_down = 2131231173;
+    public static final int aiapps_pull_refresh_icon = 2131231174;
+    public static final int aiapps_pull_refresh_loading = 2131231175;
+    public static final int aiapps_pull_refresh_success_tip_bg = 2131231176;
+    public static final int aiapps_pull_refresh_success_tip_icon = 2131231177;
+    public static final int aiapps_right_button_toast_view_bg = 2131231178;
+    public static final int aiapps_right_close_btn_new = 2131231179;
+    public static final int aiapps_running_info_edging_bg = 2131231180;
+    public static final int aiapps_scroll_bar_thumb_vertical = 2131231181;
+    public static final int aiapps_server_request_btn_pressed = 2131231182;
+    public static final int aiapps_subscribe_msg_selected = 2131231184;
+    public static final int aiapps_subscribe_msg_unselected = 2131231185;
+    public static final int aiapps_template_2_btn_bg_d20 = 2131231186;
+    public static final int aiapps_textarea_comfirm_bar = 2131231187;
+    public static final int aiapps_toast_bg_d20 = 2131231188;
+    public static final int aiapps_toast_button_view_bg = 2131231189;
+    public static final int aiapps_toast_left_icon_d20 = 2131231190;
+    public static final int aiapps_toast_loading_d20 = 2131231191;
+    public static final int aiapps_toast_right_jump_d20 = 2131231192;
+    public static final int aiapps_transparent_drawable = 2131231193;
+    public static final int aiapps_white_shimmer_loading = 2131231194;
+    public static final int aiapps_wx_pay_loading = 2131231196;
+    public static final int aiapps_xsearch_msg_pull_arrow_down = 2131231197;
+    public static final int btn_checkbox_checked_mtrl = 2131231619;
+    public static final int btn_checkbox_checked_to_unchecked_mtrl_animation = 2131231620;
+    public static final int btn_checkbox_unchecked_mtrl = 2131231621;
+    public static final int btn_checkbox_unchecked_to_checked_mtrl_animation = 2131231622;
+    public static final int btn_radio_off_mtrl = 2131231749;
+    public static final int btn_radio_off_to_on_mtrl_animation = 2131231750;
+    public static final int btn_radio_on_mtrl = 2131231751;
+    public static final int btn_radio_on_to_off_mtrl_animation = 2131231752;
+    public static final int channel_checked = 2131231869;
+    public static final int channel_closenew = 2131231870;
+    public static final int core_permission_guide_next_step_button_bg = 2131231893;
+    public static final int core_permission_location_icon = 2131231894;
+    public static final int core_permission_phone_icon = 2131231895;
+    public static final int core_permission_storage_icon = 2131231896;
+    public static final int coupon_selector = 2131231897;
+    public static final int cut = 2131231908;
+    public static final int ic_pay_back = 2131232517;
+    public static final int icon_back = 2131232607;
+    public static final int ksw_md_thumb = 2131234027;
+    public static final int loading = 2131234118;
+    public static final int menu_indicator_normal = 2131234154;
+    public static final int menu_indicator_selected = 2131234155;
+    public static final int mini_games_edit_person_header = 2131234158;
+    public static final int miui_back_drawable = 2131234160;
+    public static final int miui_thumb_drawable = 2131234161;
+    public static final int more = 2131234162;
+    public static final int ng_game_banner_ad_act_btn = 2131234205;
+    public static final int ng_game_banner_close = 2131234206;
+    public static final int ng_game_bg_close_ad = 2131234207;
+    public static final int ng_game_bg_reward_banner = 2131234208;
+    public static final int ng_game_reward_banner_act_btn = 2131234209;
+    public static final int ng_game_vol_close = 2131234210;
+    public static final int ng_game_vol_open = 2131234211;
+    public static final int notification_action_background = 2131234222;
+    public static final int notification_bg = 2131234223;
+    public static final int notification_bg_low = 2131234224;
+    public static final int notification_bg_low_normal = 2131234225;
+    public static final int notification_bg_low_pressed = 2131234226;
+    public static final int notification_bg_normal = 2131234227;
+    public static final int notification_bg_normal_pressed = 2131234228;
+    public static final int notification_icon_background = 2131234229;
+    public static final int notification_template_icon_bg = 2131234230;
+    public static final int notification_template_icon_low_bg = 2131234231;
+    public static final int notification_tile_bg = 2131234232;
+    public static final int notify_panel_notification_icon_bg = 2131234234;
+    public static final int oval_top_left_right = 2131234246;
+    public static final int pay_button_top_shape = 2131234269;
+    public static final int pay_success = 2131234270;
+    public static final int pay_view_bg = 2131234304;
+    public static final int permission_guide_dialog_bg = 2131234330;
+    public static final int personal_swan_label_bg_game = 2131234347;
+    public static final int pop_window_bg = 2131234516;
+    public static final int popup_view_bg = 2131234517;
+    public static final int sailor_ssl_ic_dialog_browser_security_bad = 2131234621;
+    public static final int success = 2131234959;
+    public static final int swan_ad_alertdialog_button_day_bg_all_selector = 2131234977;
+    public static final int swan_ad_alertdialog_button_day_bg_left_selector = 2131234978;
+    public static final int swan_ad_alertdialog_button_day_bg_right_selector = 2131234979;
+    public static final int swan_ad_alertdialog_button_day_bg_selector = 2131234980;
+    public static final int swan_ad_dialog_bg_white = 2131234981;
+    public static final int swan_ad_dialog_btn_bg_day_all = 2131234982;
+    public static final int swan_ad_dialog_btn_bg_day_left = 2131234983;
+    public static final int swan_ad_dialog_btn_bg_day_right = 2131234984;
+    public static final int swan_ad_dialog_btn_bg_pressed_day = 2131234985;
+    public static final int swan_ad_dialog_multi_auth_dot = 2131234986;
+    public static final int swan_ad_entry_guide_nightmode_mask = 2131234987;
+    public static final int swan_app_about_attention_pressed = 2131234988;
+    public static final int swan_app_about_attention_selector = 2131234989;
+    public static final int swan_app_about_cancel_attention_pressed = 2131234990;
+    public static final int swan_app_about_cancel_attention_selector = 2131234991;
+    public static final int swan_app_about_fragment_attentation = 2131234992;
+    public static final int swan_app_about_fragment_attentation_pressed = 2131234993;
+    public static final int swan_app_agreement_enter = 2131234994;
+    public static final int swan_app_agreement_layout_bg = 2131234995;
+    public static final int swan_app_agreement_layout_bg_normal = 2131234996;
+    public static final int swan_app_agreement_layout_bg_pressed = 2131234997;
+    public static final int swan_app_apply_guarantee_new = 2131234998;
+    public static final int swan_app_auth_neg_button_normal = 2131234999;
+    public static final int swan_app_auth_neg_button_pressed = 2131235000;
+    public static final int swan_app_auth_negative_bg_selector = 2131235001;
+    public static final int swan_app_auth_pos_button_normal = 2131235002;
+    public static final int swan_app_auth_pos_button_pressed = 2131235003;
+    public static final int swan_app_auth_pos_button_unable = 2131235004;
+    public static final int swan_app_auth_positive_bg_selector = 2131235005;
+    public static final int swan_app_auth_question_mark_pressed = 2131235006;
+    public static final int swan_app_common_scrollbar_horizontal = 2131235007;
+    public static final int swan_app_common_scrollbar_vertical = 2131235008;
+    public static final int swan_app_context_menu_bg = 2131235009;
+    public static final int swan_app_context_menu_bottom_corner_selector = 2131235010;
+    public static final int swan_app_context_menu_no_corner_selector = 2131235011;
+    public static final int swan_app_context_menu_round_corner_selector = 2131235012;
+    public static final int swan_app_context_menu_top_corner_selector = 2131235013;
+    public static final int swan_app_guarantee_icon_normal = 2131235014;
+    public static final int swan_app_guarantee_plan_enter = 2131235015;
+    public static final int swan_app_hover_button_shape = 2131235016;
+    public static final int swan_app_icon_label = 2131235017;
+    public static final int swan_app_menu_add_to_launcher = 2131235018;
+    public static final int swan_app_menu_add_to_launcher_click = 2131235019;
+    public static final int swan_app_menu_content_bg = 2131235020;
+    public static final int swan_app_menu_head_view_arrow = 2131235021;
+    public static final int swan_app_menu_item_font = 2131235022;
+    public static final int swan_app_menu_item_font_click = 2131235023;
+    public static final int swan_app_menu_item_font_setting_selector = 2131235024;
+    public static final int swan_app_menu_item_setting_selector = 2131235025;
+    public static final int swan_app_menu_item_settings = 2131235026;
+    public static final int swan_app_menu_item_settings_click = 2131235027;
+    public static final int swan_app_menu_new_bg = 2131235028;
+    public static final int swan_app_menu_new_dot = 2131235029;
+    public static final int swan_app_request_server_reload = 2131235037;
+    public static final int swan_app_request_server_reload_press = 2131235038;
+    public static final int swan_app_request_server_reload_selector = 2131235039;
+    public static final int swan_app_right_arrow = 2131235040;
+    public static final int swan_app_user_portrait_pressed = 2131235041;
+    public static final int swan_game_ad_volume_bg = 2131235042;
+    public static final int swan_image_menu_bg = 2131235043;
+    public static final int swan_image_menu_item_bg = 2131235044;
+    public static final int swan_image_menu_item_rounded_bg = 2131235045;
+    public static final int swan_image_menu_night_mask = 2131235046;
+    public static final int swanapp_ad_common_download_btn_selector = 2131235053;
+    public static final int swanapp_ad_tab_video_img_default_icon = 2131235054;
+    public static final int swanapp_ad_video_tail_head = 2131235055;
+    public static final int swanapp_album_back_normal = 2131235056;
+    public static final int swanapp_album_back_pressed = 2131235057;
+    public static final int swanapp_album_camera_icon = 2131235058;
+    public static final int swanapp_album_camera_item_selector = 2131235059;
+    public static final int swanapp_album_camera_pressed_icon = 2131235060;
+    public static final int swanapp_album_camera_unenable_icon = 2131235061;
+    public static final int swanapp_album_camera_video_pressed = 2131235062;
+    public static final int swanapp_album_camera_video_selector = 2131235063;
+    public static final int swanapp_album_camera_video_unpress = 2131235064;
+    public static final int swanapp_album_compress_progress = 2131235065;
+    public static final int swanapp_album_down_triangle = 2131235066;
+    public static final int swanapp_album_empty_icon = 2131235067;
+    public static final int swanapp_album_item_bg = 2131235068;
+    public static final int swanapp_album_item_duration_bg = 2131235069;
+    public static final int swanapp_album_name_item_selector = 2131235070;
+    public static final int swanapp_album_name_list_bg = 2131235071;
+    public static final int swanapp_album_preview_back_selector = 2131235072;
+    public static final int swanapp_album_preview_done_bg = 2131235073;
+    public static final int swanapp_album_preview_select_bg = 2131235074;
+    public static final int swanapp_album_preview_unselect = 2131235075;
+    public static final int swanapp_album_preview_unselect_unable = 2131235076;
+    public static final int swanapp_album_progress_bg = 2131235077;
+    public static final int swanapp_album_progress_icon = 2131235078;
+    public static final int swanapp_album_progress_medium = 2131235079;
+    public static final int swanapp_album_progress_night_layer = 2131235080;
+    public static final int swanapp_album_select_icon_bg = 2131235081;
+    public static final int swanapp_album_thumbnail_selected = 2131235082;
+    public static final int swanapp_album_unselect_thumb_icon = 2131235083;
+    public static final int swanapp_album_up_triangle = 2131235084;
+    public static final int swanapp_attention_btn_bg = 2131235085;
+    public static final int swanapp_attention_btn_bg_default = 2131235086;
+    public static final int swanapp_attention_btn_bg_pressed = 2131235087;
+    public static final int swanapp_browser_select_btn_bg = 2131235088;
+    public static final int swanapp_browser_select_btn_bg_pressed = 2131235089;
+    public static final int swanapp_browser_select_menu_down_bg = 2131235090;
+    public static final int swanapp_browser_select_menu_up_bg = 2131235091;
+    public static final int swanapp_cancel_attention_btn_bg = 2131235092;
+    public static final int swanapp_cancel_attention_btn_bg_default = 2131235093;
+    public static final int swanapp_cancel_attention_btn_bg_pressed = 2131235094;
+    public static final int swanapp_clear_title = 2131235095;
+    public static final int swanapp_hover_dialog_tip_bg = 2131235096;
+    public static final int swanapp_hover_dialog_tip_selector = 2131235097;
+    public static final int swanapp_menu_header_selector = 2131235099;
+    public static final int swanapp_picker_dialog_btn_bg = 2131235104;
+    public static final int swanapp_preview_video = 2131235105;
+    public static final int swanapp_preview_video_play = 2131235106;
+    public static final int swanapp_publisher_color_cursor = 2131235107;
+    public static final int swanapp_publisher_delete = 2131235108;
+    public static final int swanapp_publisher_photo_choose_selector = 2131235109;
+    public static final int swanapp_publisher_picture = 2131235110;
+    public static final int swanapp_reply_editor_emotion = 2131235111;
+    public static final int swanapp_reply_editor_input_bg = 2131235112;
+    public static final int swanapp_reply_editor_keyboard = 2131235113;
+    public static final int swanapp_reply_editor_pic = 2131235114;
+    public static final int swanapp_reply_editor_picture_bg = 2131235115;
+    public static final int swanapp_reply_editor_picture_close = 2131235116;
+    public static final int swanapp_reply_editor_publish_disabled = 2131235117;
+    public static final int swanapp_reply_editor_publish_normal = 2131235118;
+    public static final int swanapp_reply_editor_publish_pressed = 2131235119;
+    public static final int swanapp_reply_editor_publish_selector = 2131235120;
+    public static final int swanapp_right_menu_red_dot = 2131235121;
+    public static final int swanapp_scope_selected = 2131235122;
+    public static final int swanapp_scope_unselected = 2131235123;
+    public static final int swanapp_ugc_add_localalbum_selector = 2131235124;
+    public static final int swanapp_ugc_add_photo_pressed = 2131235125;
+    public static final int swanapp_ugc_add_photo_stroke_bg = 2131235126;
+    public static final int swanapp_ugc_add_photo_unpressed = 2131235127;
+    public static final int swanapp_ugc_choose_photo_pressed = 2131235128;
+    public static final int swanapp_ugc_delete_selected_img = 2131235129;
+    public static final int swanapp_ugc_img_stroke_bg = 2131235130;
+    public static final int swanapp_ugc_keyboard_pressed = 2131235131;
+    public static final int swanapp_ugc_keyboard_selector = 2131235132;
+    public static final int swanapp_ugc_keyboard_unpress = 2131235133;
+    public static final int swanapp_ugc_switch_soft_emoji_pressed = 2131235134;
+    public static final int swanapp_ugc_switch_soft_emoji_selector = 2131235135;
+    public static final int swanapp_ugc_switch_soft_emoji_unpress = 2131235136;
+    public static final int swanapp_ugc_video_timelong_bg = 2131235137;
+    public static final int swangame_game_ad_progressbar_color = 2131235139;
+    public static final int swangame_game_close_guide_bg = 2131235140;
+    public static final int swangame_recommend_button_bg = 2131235141;
+    public static final int swangame_recommend_list_bg = 2131235145;
+    public static final int swangame_recommend_list_button_selector = 2131235146;
+    public static final int swangame_recommend_list_item_selector = 2131235147;
+    public static final int swangame_recommend_list_night_mask = 2131235148;
+    public static final int tip_view_bg = 2131235174;
+    public static final int tips_loading = 2131235177;
+    public static final int toast_loading_view_bg = 2131235181;
+    public static final int tooltip_frame_dark = 2131235184;
+    public static final int tooltip_frame_light = 2131235185;
+    public static final int unchecked = 2131235369;
+    public transient /* synthetic */ FieldHolder $fh;
 }

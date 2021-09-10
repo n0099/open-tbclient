@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Config {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f70051a;
+    public long f70231a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class AugmentedFaceMode {
         public static final /* synthetic */ AugmentedFaceMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -99,7 +99,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class CloudAnchorMode {
         public static final /* synthetic */ CloudAnchorMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -180,7 +180,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class FocusMode {
         public static final /* synthetic */ FocusMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -261,7 +261,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class LightEstimationMode {
         public static final /* synthetic */ LightEstimationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -342,7 +342,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class PlaneFindingMode {
         public static final /* synthetic */ PlaneFindingMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -427,7 +427,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class UpdateMode {
         public static final /* synthetic */ UpdateMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -520,7 +520,7 @@ public class Config {
                 return;
             }
         }
-        this.f70051a = 0L;
+        this.f70231a = 0L;
     }
 
     public static native long nativeCreate(long j2);
@@ -558,7 +558,7 @@ public class Config {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.f70051a;
+            long j2 = this.f70231a;
             if (j2 != 0) {
                 nativeDestroy(j2);
             }

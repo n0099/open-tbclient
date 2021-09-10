@@ -10,34 +10,34 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f41126a = "baidu_location_service";
+    public static String f41237a = "baidu_location_service";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f41127b = 12000;
+    public static int f41238b = 12000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f41128c = 20000;
+    public static int f41239c = 20000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f41129d = 1;
+    public static int f41240d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f41130e = 2;
+    public static int f41241e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f41131f = 3;
+    public static int f41242f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f41132g = 4;
+    public static int f41243g = 4;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f41133h = 5;
+    public static int f41244h = 5;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f41134i = 5120;
+    public static int f41245i = 5120;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f41135j = 0;
+    public static int f41246j = 0;
     public static int k = 1;
     public static int l = 2;
     public static int m = 4;

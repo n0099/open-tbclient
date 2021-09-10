@@ -17,34 +17,34 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34338a;
+    public Context f34447a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34339b;
+    public String f34448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34340c;
+    public String f34449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34341d;
+    public String f34450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34342e;
+    public String f34451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f34343f;
+    public boolean f34452f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f34344g;
+    public Drawable f34453g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC1519c f34345h;
+    public InterfaceC1519c f34454h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f34346i;
+    public View f34455i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f34347j;
+    public int f34456j;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -58,34 +58,34 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f34348a;
+        public Context f34457a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34349b;
+        public String f34458b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f34350c;
+        public String f34459c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f34351d;
+        public String f34460d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f34352e;
+        public String f34461e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f34353f;
+        public boolean f34462f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Drawable f34354g;
+        public Drawable f34463g;
 
         /* renamed from: h  reason: collision with root package name */
-        public InterfaceC1519c f34355h;
+        public InterfaceC1519c f34464h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f34356i;
+        public View f34465i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f34357j;
+        public int f34466j;
 
         public b(Context context) {
             Interceptable interceptable = $ic;
@@ -102,14 +102,14 @@ public class c {
                     return;
                 }
             }
-            this.f34348a = context;
+            this.f34457a = context;
         }
 
         public b b(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f34357j = i2;
+                this.f34466j = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -119,7 +119,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable)) == null) {
-                this.f34354g = drawable;
+                this.f34463g = drawable;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -129,7 +129,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1519c)) == null) {
-                this.f34355h = interfaceC1519c;
+                this.f34464h = interfaceC1519c;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -139,7 +139,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f34349b = str;
+                this.f34458b = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -149,7 +149,7 @@ public class c {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f34353f = z;
+                this.f34462f = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -165,7 +165,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f34350c = str;
+                this.f34459c = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -175,7 +175,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.f34351d = str;
+                this.f34460d = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -185,7 +185,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-                this.f34352e = str;
+                this.f34461e = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -221,16 +221,16 @@ public class c {
                 return;
             }
         }
-        this.f34343f = true;
-        this.f34338a = bVar.f34348a;
-        this.f34339b = bVar.f34349b;
-        this.f34340c = bVar.f34350c;
-        this.f34341d = bVar.f34351d;
-        this.f34342e = bVar.f34352e;
-        this.f34343f = bVar.f34353f;
-        this.f34344g = bVar.f34354g;
-        this.f34345h = bVar.f34355h;
-        this.f34346i = bVar.f34356i;
-        this.f34347j = bVar.f34357j;
+        this.f34452f = true;
+        this.f34447a = bVar.f34457a;
+        this.f34448b = bVar.f34458b;
+        this.f34449c = bVar.f34459c;
+        this.f34450d = bVar.f34460d;
+        this.f34451e = bVar.f34461e;
+        this.f34452f = bVar.f34462f;
+        this.f34453g = bVar.f34463g;
+        this.f34454h = bVar.f34464h;
+        this.f34455i = bVar.f34465i;
+        this.f34456j = bVar.f34466j;
     }
 }

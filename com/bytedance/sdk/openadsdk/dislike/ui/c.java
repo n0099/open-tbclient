@@ -20,13 +20,13 @@ public class c extends TTDislikeDialogAbstract {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.b.d f67402a;
+    public com.bytedance.sdk.openadsdk.dislike.b.d f67582a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TTDislikeLayout f67403b;
+    public TTDislikeLayout f67583b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.dislike.c.b f67404c;
+    public final com.bytedance.sdk.openadsdk.dislike.c.b f67584c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context, com.bytedance.sdk.openadsdk.dislike.c.b bVar) {
@@ -48,21 +48,21 @@ public class c extends TTDislikeDialogAbstract {
             }
         }
         super.setDislikeModel(bVar);
-        this.f67404c = bVar;
+        this.f67584c = bVar;
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             TTDislikeLayout tTDislikeLayout = (TTDislikeLayout) findViewById(t.e(getContext(), "tt_dislike_layout"));
-            this.f67403b = tTDislikeLayout;
+            this.f67583b = tTDislikeLayout;
             if (tTDislikeLayout != null) {
-                tTDislikeLayout.a(this.f67404c, new com.bytedance.sdk.openadsdk.dislike.b.c(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.c.1
+                tTDislikeLayout.a(this.f67584c, new com.bytedance.sdk.openadsdk.dislike.b.c(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.c.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ c f67405a;
+                    public final /* synthetic */ c f67585a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -79,17 +79,17 @@ public class c extends TTDislikeDialogAbstract {
                                 return;
                             }
                         }
-                        this.f67405a = this;
+                        this.f67585a = this;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.dislike.b.c
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (this.f67405a.f67402a != null) {
-                                this.f67405a.f67402a.a();
+                            if (this.f67585a.f67582a != null) {
+                                this.f67585a.f67582a.a();
                             }
-                            this.f67405a.dismiss();
+                            this.f67585a.dismiss();
                         }
                     }
 
@@ -97,11 +97,11 @@ public class c extends TTDislikeDialogAbstract {
                     public void b() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                            if (this.f67405a.f67402a != null) {
-                                this.f67405a.f67402a.a(this.f67405a.f67404c.a());
+                            if (this.f67585a.f67582a != null) {
+                                this.f67585a.f67582a.a(this.f67585a.f67584c.a());
                             }
-                            com.bytedance.sdk.openadsdk.dislike.a.a.b().a(this.f67405a.getContext(), this.f67405a.f67404c, false);
-                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f67405a.getContext(), this.f67405a.f67404c, "ad_explation_click");
+                            com.bytedance.sdk.openadsdk.dislike.a.a.b().a(this.f67585a.getContext(), this.f67585a.f67584c, false);
+                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f67585a.getContext(), this.f67585a.f67584c, "ad_explation_click");
                         }
                     }
 
@@ -109,10 +109,10 @@ public class c extends TTDislikeDialogAbstract {
                     public void a(int i2, FilterWord filterWord) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, filterWord) == null) {
-                            if (this.f67405a.f67402a != null) {
-                                this.f67405a.f67402a.a(i2, filterWord);
+                            if (this.f67585a.f67582a != null) {
+                                this.f67585a.f67582a.a(i2, filterWord);
                             }
-                            this.f67405a.dismiss();
+                            this.f67585a.dismiss();
                         }
                     }
                 });
@@ -125,7 +125,7 @@ public class c extends TTDislikeDialogAbstract {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.dismiss();
-            com.bytedance.sdk.openadsdk.dislike.b.d dVar = this.f67402a;
+            com.bytedance.sdk.openadsdk.dislike.b.d dVar = this.f67582a;
             if (dVar != null) {
                 dVar.c();
             }
@@ -172,7 +172,7 @@ public class c extends TTDislikeDialogAbstract {
             return;
         }
         super.setDislikeModel(bVar);
-        TTDislikeLayout tTDislikeLayout = this.f67403b;
+        TTDislikeLayout tTDislikeLayout = this.f67583b;
         if (tTDislikeLayout != null) {
             tTDislikeLayout.setDislikeInfo(bVar);
         }
@@ -183,7 +183,7 @@ public class c extends TTDislikeDialogAbstract {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.show();
-            com.bytedance.sdk.openadsdk.dislike.b.d dVar = this.f67402a;
+            com.bytedance.sdk.openadsdk.dislike.b.d dVar = this.f67582a;
             if (dVar != null) {
                 dVar.b();
             }
@@ -203,7 +203,7 @@ public class c extends TTDislikeDialogAbstract {
     public void a(com.bytedance.sdk.openadsdk.dislike.b.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.f67402a = dVar;
+            this.f67582a = dVar;
         }
     }
 }

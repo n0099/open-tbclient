@@ -14,17 +14,17 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long[] f32417d;
+    public static final long[] f32526d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f32418a;
+    public final byte[] f32527a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32419b;
+    public int f32528b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f32420c;
+    public int f32529c;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public final class f {
                 return;
             }
         }
-        f32417d = new long[]{128, 64, 32, 16, 8, 4, 2, 1};
+        f32526d = new long[]{128, 64, 32, 16, 8, 4, 2, 1};
     }
 
     public f() {
@@ -55,7 +55,7 @@ public final class f {
                 return;
             }
         }
-        this.f32418a = new byte[8];
+        this.f32527a = new byte[8];
     }
 
     public static long a(byte[] bArr, int i2, boolean z) {
@@ -64,7 +64,7 @@ public final class f {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             long j2 = bArr[0] & 255;
             if (z) {
-                j2 &= ~f32417d[i2 - 1];
+                j2 &= ~f32526d[i2 - 1];
             }
             for (int i3 = 1; i3 < i2; i3++) {
                 j2 = (j2 << 8) | (bArr[i3] & 255);
@@ -82,7 +82,7 @@ public final class f {
         }
         int i3 = 0;
         while (true) {
-            long[] jArr = f32417d;
+            long[] jArr = f32526d;
             if (i3 >= jArr.length) {
                 return -1;
             }
@@ -96,35 +96,35 @@ public final class f {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32420c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32529c : invokeV.intValue;
     }
 
     public long d(c.i.b.a.a0.f fVar, boolean z, boolean z2, int i2) throws IOException, InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{fVar, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)})) == null) {
-            if (this.f32419b == 0) {
-                if (!fVar.a(this.f32418a, 0, 1, z)) {
+            if (this.f32528b == 0) {
+                if (!fVar.a(this.f32527a, 0, 1, z)) {
                     return -1L;
                 }
-                int c2 = c(this.f32418a[0] & 255);
-                this.f32420c = c2;
+                int c2 = c(this.f32527a[0] & 255);
+                this.f32529c = c2;
                 if (c2 != -1) {
-                    this.f32419b = 1;
+                    this.f32528b = 1;
                 } else {
                     throw new IllegalStateException("No valid varint length mask found");
                 }
             }
-            int i3 = this.f32420c;
+            int i3 = this.f32529c;
             if (i3 > i2) {
-                this.f32419b = 0;
+                this.f32528b = 0;
                 return -2L;
             }
             if (i3 != 1) {
-                fVar.readFully(this.f32418a, 1, i3 - 1);
+                fVar.readFully(this.f32527a, 1, i3 - 1);
             }
-            this.f32419b = 0;
-            return a(this.f32418a, this.f32420c, z2);
+            this.f32528b = 0;
+            return a(this.f32527a, this.f32529c, z2);
         }
         return invokeCommon.longValue;
     }
@@ -132,8 +132,8 @@ public final class f {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f32419b = 0;
-            this.f32420c = 0;
+            this.f32528b = 0;
+            this.f32529c = 0;
         }
     }
 }

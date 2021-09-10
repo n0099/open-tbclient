@@ -51,7 +51,7 @@ public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
         getIntent().putExtra("channel", i2);
         getIntent().putExtra("action", i3);
         getIntent().putExtra("liveid", shareItem.q);
-        getIntent().putExtra(SHARE_ALA_SDK_LIVE_EXT_INFO, shareItem.l0);
+        getIntent().putExtra(SHARE_ALA_SDK_LIVE_EXT_INFO, shareItem.o0);
         getIntent().putExtra(SHARE_ALA_SDK_YY_ANCHOR_BDUID, shareItem.z);
     }
 }

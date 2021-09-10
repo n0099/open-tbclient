@@ -29,22 +29,22 @@ public class j1 implements Handler.Callback, Comparator<p> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f1 f31246e;
+    public f1 f31355e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f31247f;
+    public boolean f31356f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Application f31248g;
+    public Application f31357g;
 
     /* renamed from: h  reason: collision with root package name */
-    public y1 f31249h;
+    public y1 f31358h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ArrayList<p> f31250i;
+    public final ArrayList<p> f31359i;
 
     /* renamed from: j  reason: collision with root package name */
-    public q f31251j;
+    public q f31360j;
     public z1 k;
     public Handler l;
     public p1 m;
@@ -64,7 +64,7 @@ public class j1 implements Handler.Callback, Comparator<p> {
                 return;
             }
         }
-        this.f31250i = new ArrayList<>(32);
+        this.f31359i = new ArrayList<>(32);
     }
 
     public static void b() {
@@ -87,15 +87,15 @@ public class j1 implements Handler.Callback, Comparator<p> {
                 r1.b(pVar);
                 return;
             }
-            if (pVar.f31282e == 0) {
+            if (pVar.f31391e == 0) {
                 h0.b(null);
             }
             if (pVar instanceof x) {
-                ((x) pVar).o = j1Var.f31249h.J();
+                ((x) pVar).o = j1Var.f31358h.J();
             }
-            synchronized (j1Var.f31250i) {
-                size = j1Var.f31250i.size();
-                j1Var.f31250i.add(pVar);
+            synchronized (j1Var.f31359i) {
+                size = j1Var.f31359i.size();
+                j1Var.f31359i.add(pVar);
             }
             if (size % 10 != 0 || (handler = j1Var.o) == null) {
                 return;
@@ -146,7 +146,7 @@ public class j1 implements Handler.Callback, Comparator<p> {
             if (j1Var == null || (p1Var = j1Var.m) == null) {
                 return null;
             }
-            return p1Var.f31295e;
+            return p1Var.f31404e;
         }
         return (String) invokeV.objValue;
     }
@@ -158,7 +158,7 @@ public class j1 implements Handler.Callback, Comparator<p> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pVar, pVar2)) == null) {
-            int i2 = ((pVar.f31282e - pVar2.f31282e) > 0L ? 1 : ((pVar.f31282e - pVar2.f31282e) == 0L ? 0 : -1));
+            int i2 = ((pVar.f31391e - pVar2.f31391e) > 0L ? 1 : ((pVar.f31391e - pVar2.f31391e) == 0L ? 0 : -1));
             if (i2 < 0) {
                 return -1;
             }
@@ -170,12 +170,12 @@ public class j1 implements Handler.Callback, Comparator<p> {
     public void c(Application application, y1 y1Var, z1 z1Var, e1 e1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application, y1Var, z1Var, e1Var) == null) {
-            this.f31248g = application;
-            this.f31251j = new q(application, z1Var, y1Var);
-            this.f31249h = y1Var;
+            this.f31357g = application;
+            this.f31360j = new q(application, z1Var, y1Var);
+            this.f31358h = y1Var;
             this.k = z1Var;
             this.m = new p1(z1Var, y1Var);
-            this.f31248g.registerActivityLifecycleCallbacks(e1Var);
+            this.f31357g.registerActivityLifecycleCallbacks(e1Var);
             HandlerThread handlerThread = new HandlerThread("bd_tracker_w");
             handlerThread.start();
             Handler handler = new Handler(handlerThread.getLooper(), this);
@@ -188,16 +188,16 @@ public class j1 implements Handler.Callback, Comparator<p> {
     public Context f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31248g : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31357g : (Context) invokeV.objValue;
     }
 
     public final void g(String[] strArr) {
         ArrayList<p> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, strArr) == null) {
-            synchronized (this.f31250i) {
-                arrayList = (ArrayList) this.f31250i.clone();
-                this.f31250i.clear();
+            synchronized (this.f31359i) {
+                arrayList = (ArrayList) this.f31359i.clone();
+                this.f31359i.clear();
             }
             int i2 = 0;
             if (strArr != null) {
@@ -206,12 +206,12 @@ public class j1 implements Handler.Callback, Comparator<p> {
                     arrayList.add(p.c(str));
                 }
             }
-            boolean w = this.f31249h.w(arrayList);
+            boolean w = this.f31358h.w(arrayList);
             if (arrayList.size() > 0) {
-                if (this.f31249h.S()) {
+                if (this.f31358h.S()) {
                     if (!w && arrayList.size() <= 100) {
-                        synchronized (this.f31250i) {
-                            this.f31250i.addAll(arrayList);
+                        synchronized (this.f31359i) {
+                            this.f31359i.addAll(arrayList);
                         }
                         return;
                     }
@@ -233,17 +233,17 @@ public class j1 implements Handler.Callback, Comparator<p> {
                         if (z) {
                             this.o.removeMessages(7);
                         } else {
-                            this.o.sendEmptyMessageDelayed(7, this.f31249h.Y());
+                            this.o.sendEmptyMessageDelayed(7, this.f31358h.Y());
                         }
                     }
-                    this.f31251j.j(arrayList2);
-                    if (this.f31247f || !this.m.h() || this.l == null || !AppLog.getAutoActiveState()) {
+                    this.f31360j.j(arrayList2);
+                    if (this.f31356f || !this.m.h() || this.l == null || !AppLog.getAutoActiveState()) {
                         return;
                     }
                     o();
                     return;
                 }
-                Intent intent = new Intent(this.f31248g, Collector.class);
+                Intent intent = new Intent(this.f31357g, Collector.class);
                 int size = arrayList.size();
                 String[] strArr2 = new String[size];
                 int i3 = 0;
@@ -257,7 +257,7 @@ public class j1 implements Handler.Callback, Comparator<p> {
                 }
                 intent.putExtra("EMBED_K_DATA", strArr2);
                 try {
-                    this.f31248g.sendBroadcast(intent);
+                    this.f31357g.sendBroadcast(intent);
                 } catch (Exception e2) {
                     h0.b(e2);
                 }
@@ -268,7 +268,7 @@ public class j1 implements Handler.Callback, Comparator<p> {
     public q h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f31251j : (q) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f31360j : (q) invokeV.objValue;
     }
 
     @Override // android.os.Handler.Callback
@@ -278,15 +278,15 @@ public class j1 implements Handler.Callback, Comparator<p> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, message)) == null) {
             int i2 = message.what;
             if (i2 == 1) {
-                h0.f31237a = this.f31249h.X();
+                h0.f31346a = this.f31358h.X();
                 if (this.k.r()) {
-                    if (this.f31249h.S()) {
+                    if (this.f31358h.S()) {
                         HandlerThread handlerThread = new HandlerThread("bd_tracker_n");
                         handlerThread.start();
                         Handler handler = new Handler(handlerThread.getLooper(), this);
                         this.l = handler;
                         handler.sendEmptyMessage(2);
-                        if (this.f31250i.size() > 0) {
+                        if (this.f31359i.size() > 0) {
                             this.o.removeMessages(4);
                             this.o.sendEmptyMessageDelayed(4, 1000L);
                         }
@@ -307,7 +307,7 @@ public class j1 implements Handler.Callback, Comparator<p> {
                 while (it.hasNext()) {
                     h1 h1Var = (h1) it.next();
                     long h2 = h1Var.h();
-                    if (h2 < ImageLoader.f37824d) {
+                    if (h2 < ImageLoader.f37943d) {
                         this.l.sendMessageDelayed(this.o.obtainMessage(6, h1Var), h2);
                     }
                 }
@@ -320,7 +320,7 @@ public class j1 implements Handler.Callback, Comparator<p> {
                 h1 h1Var2 = (h1) message.obj;
                 if (!h1Var2.g()) {
                     long h3 = h1Var2.h();
-                    if (h3 < ImageLoader.f37824d) {
+                    if (h3 < ImageLoader.f37943d) {
                         this.l.sendMessageDelayed(this.o.obtainMessage(6, h1Var2), h3);
                     }
                     p();
@@ -328,8 +328,8 @@ public class j1 implements Handler.Callback, Comparator<p> {
             } else if (i2 != 7) {
                 h0.b(null);
             } else {
-                synchronized (this.f31250i) {
-                    this.f31250i.add(p1.j());
+                synchronized (this.f31359i) {
+                    this.f31359i.add(p1.j());
                 }
                 g(null);
             }
@@ -341,7 +341,7 @@ public class j1 implements Handler.Callback, Comparator<p> {
     public y1 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31249h : (y1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31358h : (y1) invokeV.objValue;
     }
 
     public z1 j() {
@@ -361,7 +361,7 @@ public class j1 implements Handler.Callback, Comparator<p> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             if (this.n == null) {
-                UriConfig uriConfig = this.f31249h.o().getUriConfig();
+                UriConfig uriConfig = this.f31358h.o().getUriConfig();
                 this.n = uriConfig;
                 if (uriConfig == null) {
                     this.n = c.b.a.u1.a.a(0);
@@ -376,7 +376,7 @@ public class j1 implements Handler.Callback, Comparator<p> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            this.f31247f = true;
+            this.f31356f = true;
             g1 g1Var = new g1(this);
             Handler handler = this.l;
             if (handler != null) {
@@ -391,19 +391,19 @@ public class j1 implements Handler.Callback, Comparator<p> {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (this.f31249h.W()) {
-                if (this.f31246e == null) {
+            if (this.f31358h.W()) {
+                if (this.f31355e == null) {
                     f1 f1Var = new f1(this);
-                    this.f31246e = f1Var;
+                    this.f31355e = f1Var;
                     this.l.obtainMessage(6, f1Var).sendToTarget();
                     return;
                 }
                 return;
             }
-            f1 f1Var2 = this.f31246e;
+            f1 f1Var2 = this.f31355e;
             if (f1Var2 != null) {
                 f1Var2.f();
-                this.f31246e = null;
+                this.f31355e = null;
             }
         }
     }
@@ -411,8 +411,8 @@ public class j1 implements Handler.Callback, Comparator<p> {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (h0.f31238b) {
-                h0.a("packAndSend once, " + this.m.f31295e + ", hadUI:" + this.m.h(), null);
+            if (h0.f31347b) {
+                h0.a("packAndSend once, " + this.m.f31404e + ", hadUI:" + this.m.h(), null);
             }
             Handler handler = this.l;
             if (handler != null) {

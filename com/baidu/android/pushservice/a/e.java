@@ -12,10 +12,10 @@ public class e extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f36757d;
+    public String f36876d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f36758e;
+    public boolean f36877e;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public class e extends a {
                 return;
             }
         }
-        this.f36757d = "";
-        this.f36758e = false;
+        this.f36876d = "";
+        this.f36877e = false;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f36758e = z;
+            this.f36877e = z;
         }
     }
 
@@ -45,7 +45,7 @@ public class e extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "mPackageName: " + this.f36746b + ", mAppId: " + this.f36745a + ", mUserId: " + this.f36757d + ", mPushSDKVersion: " + this.f36747c;
+            return "mPackageName: " + this.f36865b + ", mAppId: " + this.f36864a + ", mUserId: " + this.f36876d + ", mPushSDKVersion: " + this.f36866c;
         }
         return (String) invokeV.objValue;
     }

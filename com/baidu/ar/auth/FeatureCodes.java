@@ -55,7 +55,7 @@ public final class FeatureCodes {
             arrayList.add(Integer.valueOf((int) BASIC_FILTER));
             arrayList.add(1200);
             arrayList.add(1300);
-            arrayList.add(Integer.valueOf((int) POSE));
+            arrayList.add(1400);
             arrayList.add(1500);
             arrayList.add(Integer.valueOf((int) ADVANCE_BEAUTY));
             arrayList.add(Integer.valueOf((int) BODY_SEG));

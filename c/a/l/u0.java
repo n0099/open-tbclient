@@ -27,12 +27,12 @@ public class u0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.s.q.a f3880e;
+        public final /* synthetic */ c.a.q0.s.q.a f3873e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ u0 f3881f;
+        public final /* synthetic */ u0 f3874f;
 
-        public a(u0 u0Var, c.a.p0.s.q.a aVar) {
+        public a(u0 u0Var, c.a.q0.s.q.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,15 +47,15 @@ public class u0 extends h {
                     return;
                 }
             }
-            this.f3881f = u0Var;
-            this.f3880e = aVar;
+            this.f3874f = u0Var;
+            this.f3873e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ThreadCardUtils.jumpToPB(this.f3880e, (Context) this.f3881f.l.getPageActivity(), this.f3881f.m, false);
+                ThreadCardUtils.jumpToPB(this.f3873e, (Context) this.f3874f.l.getPageActivity(), this.f3874f.m, false);
             }
         }
     }
@@ -97,21 +97,21 @@ public class u0 extends h {
         }
     }
 
-    public final boolean t(c.a.p0.s.q.a aVar) {
+    public final boolean t(c.a.q0.s.q.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().G0() == null || aVar.getThreadData().G0().getOptions() == null || aVar.getThreadData().G0().getOptions().size() <= 0 || aVar.getThreadData().A2()) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().I0() == null || aVar.getThreadData().I0().getOptions() == null || aVar.getThreadData().I0().getOptions().size() <= 0 || aVar.getThreadData().E2()) ? false : true : invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: u */
-    public void onBindDataToView(c.a.p0.s.q.a aVar) {
+    public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             if (t(aVar)) {
                 this.n.setVisibility(0);
-                this.n.setData(aVar.getThreadData().G0(), aVar.getThreadData().q1(), aVar.getThreadData().T());
+                this.n.setData(aVar.getThreadData().I0(), aVar.getThreadData().s1(), aVar.getThreadData().T());
                 this.n.setOnItemClickListener(new a(this, aVar));
                 return;
             }

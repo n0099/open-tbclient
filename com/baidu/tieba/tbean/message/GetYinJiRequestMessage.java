@@ -1,6 +1,6 @@
 package com.baidu.tieba.tbean.message;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -44,7 +44,7 @@ public class GetYinJiRequestMessage extends NetMessage {
             ReqData.Builder builder = new ReqData.Builder();
             builder.st_type = getSt_type();
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             GetIconListReqIdl.Builder builder2 = new GetIconListReqIdl.Builder();
             builder2.data = builder.build(false);

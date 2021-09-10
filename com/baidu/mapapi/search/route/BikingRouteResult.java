@@ -20,10 +20,10 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BikingRouteLine> f41740a;
+    public List<BikingRouteLine> f41851a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SuggestAddrInfo f41741b;
+    public SuggestAddrInfo f41852b;
 
     static {
         InterceptResult invokeClinit;
@@ -71,9 +71,9 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
             }
         }
         ArrayList arrayList = new ArrayList();
-        this.f41740a = arrayList;
+        this.f41851a = arrayList;
         parcel.readList(arrayList, BikingRouteLine.class.getClassLoader());
-        this.f41741b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        this.f41852b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -89,26 +89,26 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     public List<BikingRouteLine> getRouteLines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41740a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41851a : (List) invokeV.objValue;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41741b : (SuggestAddrInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41852b : (SuggestAddrInfo) invokeV.objValue;
     }
 
     public void setRouteLines(List<BikingRouteLine> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f41740a = list;
+            this.f41851a = list;
         }
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, suggestAddrInfo) == null) {
-            this.f41741b = suggestAddrInfo;
+            this.f41852b = suggestAddrInfo;
         }
     }
 
@@ -116,8 +116,8 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
-            parcel.writeList(this.f41740a);
-            parcel.writeParcelable(this.f41741b, 1);
+            parcel.writeList(this.f41851a);
+            parcel.writeParcelable(this.f41852b, 1);
         }
     }
 }

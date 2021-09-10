@@ -1,91 +1,167 @@
 package c.a.q0.f1.f.a;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import c.a.p0.s.q.c2;
-import c.a.q0.f1.f.a.e.e;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tieba.R;
+import android.view.ViewGroup;
+import c.a.q0.n.e;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class a {
+public abstract class a<T> extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view, Object obj, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65536, null, view, obj, i2, str) == null) {
-            if (obj instanceof c.a.q0.f1.f.a.e.c) {
-                c.a.q0.f1.f.a.e.c cVar = (c.a.q0.f1.f.a.e.c) obj;
-                if (cVar.f17577e) {
-                    StatisticItem statisticItem = new StatisticItem("c13736");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    statisticItem.eventStat();
+    /* renamed from: b  reason: collision with root package name */
+    public int f13139b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<T> f13140c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Context f13141d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public LayoutInflater f13142e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public e<T> f13143f;
+
+    /* renamed from: c.a.q0.f1.f.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC0655a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public T f13144e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f13145f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ a f13146g;
+
+        public View$OnClickListenerC0655a(a aVar, T t, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, t, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                StatisticItem statisticItem2 = new StatisticItem("c13735");
-                statisticItem2.param("obj_locate", i2);
-                statisticItem2.param("topic_id", cVar.f17573a);
-                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem2.eventStat();
-            } else if (obj instanceof e) {
-                c2 c2Var = ((e) obj).f17584j;
-                StatisticItem statisticItem3 = new StatisticItem("c13738");
-                statisticItem3.param("obj_type", str);
-                statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
-                if (c2Var != null) {
-                    statisticItem3.param("tid", c2Var.q1());
-                    statisticItem3.param("fid", c2Var.T());
-                }
-                statisticItem3.eventStat();
-            } else if ((obj instanceof c.a.p0.s.q.a) && c(view)) {
-                c2 threadData = ((c.a.p0.s.q.a) obj).getThreadData();
-                StatisticItem statisticItem4 = new StatisticItem("c13738");
-                statisticItem4.param("obj_type", str);
-                statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
-                if (threadData != null) {
-                    statisticItem4.param("tid", threadData.q1());
-                    statisticItem4.param("fid", threadData.T());
-                }
-                statisticItem4.eventStat();
             }
+            this.f13146g = aVar;
+            this.f13144e = t;
+            this.f13145f = i2;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            e<T> eVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (eVar = this.f13146g.f13143f) == null) {
+                return;
+            }
+            T t = this.f13144e;
+            int i2 = this.f13145f;
+            eVar.a(view, t, i2, i2);
         }
     }
 
-    public static void b(View view, Object obj, String str) {
+    public a(Context context, List<T> list, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, view, obj, str) == null) {
-            if (obj instanceof e) {
-                c2 c2Var = ((e) obj).f17584j;
-                StatisticItem statisticItem = new StatisticItem("c13825");
-                statisticItem.param("obj_type", str);
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                if (c2Var != null) {
-                    statisticItem.param("tid", c2Var.q1());
-                }
-                statisticItem.eventStat();
-            } else if (obj instanceof c.a.p0.s.q.a) {
-                c2 threadData = ((c.a.p0.s.q.a) obj).getThreadData();
-                StatisticItem statisticItem2 = new StatisticItem("c13825");
-                statisticItem2.param("obj_type", str);
-                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-                if (threadData != null) {
-                    statisticItem2.param("tid", threadData.q1());
-                }
-                statisticItem2.eventStat();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, list, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.f13141d = context;
+        this.f13140c = list == null ? new ArrayList() : new ArrayList(list);
+        this.f13139b = i2;
+        this.f13142e = LayoutInflater.from(this.f13141d);
+    }
+
+    @Override // c.a.q0.f1.f.a.b
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13140c.size() : invokeV.intValue;
+    }
+
+    @Override // c.a.q0.f1.f.a.b
+    public View b(int i2, ViewGroup viewGroup) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, viewGroup)) == null) {
+            View inflate = this.f13142e.inflate(this.f13139b, viewGroup, false);
+            c cVar = new c(inflate);
+            T t = this.f13140c.get(i2);
+            f(cVar, t, i2);
+            cVar.c(new View$OnClickListenerC0655a(this, t, i2));
+            return inflate;
+        }
+        return (View) invokeIL.objValue;
+    }
+
+    public abstract void f(c cVar, T t, int i2);
+
+    public void g(List<T> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            this.f13140c = list;
+            c();
         }
     }
 
-    public static boolean c(View view) {
-        InterceptResult invokeL;
+    public void h(e<T> eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view)) == null) {
-            int id = view.getId();
-            return id == R.id.thread_card_root || id == R.id.thread_info_commont_container;
+        if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
+            this.f13143f = eVar;
         }
-        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public a(Context context, int i2) {
+        this(context, null, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (List) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 }

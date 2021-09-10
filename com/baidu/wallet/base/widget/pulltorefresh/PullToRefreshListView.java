@@ -21,16 +21,16 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ListView f60648a;
+    public ListView f60828a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoadingLayout f60649b;
+    public LoadingLayout f60829b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AbsListView.OnScrollListener f60650c;
+    public AbsListView.OnScrollListener f60830c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f60651d;
+    public int f60831d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PullToRefreshListView(Context context) {
@@ -57,7 +57,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            LoadingLayout loadingLayout = this.f60649b;
+            LoadingLayout loadingLayout = this.f60829b;
             return loadingLayout == null || loadingLayout.getState() != LoadingLayout.State.NO_MORE_DATA;
         }
         return invokeV.booleanValue;
@@ -67,11 +67,11 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            ListAdapter adapter = this.f60648a.getAdapter();
+            ListAdapter adapter = this.f60828a.getAdapter();
             if (adapter == null || adapter.isEmpty()) {
                 return true;
             }
-            return (this.f60648a.getChildCount() > 0 ? this.f60648a.getChildAt(0).getTop() : 0) >= 0 && this.f60651d == 0;
+            return (this.f60828a.getChildCount() > 0 ? this.f60828a.getChildAt(0).getTop() : 0) >= 0 && this.f60831d == 0;
         }
         return invokeV.booleanValue;
     }
@@ -80,14 +80,14 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            ListAdapter adapter = this.f60648a.getAdapter();
+            ListAdapter adapter = this.f60828a.getAdapter();
             if (adapter == null || adapter.isEmpty()) {
                 return true;
             }
-            int lastVisiblePosition = this.f60648a.getLastVisiblePosition();
+            int lastVisiblePosition = this.f60828a.getLastVisiblePosition();
             if (lastVisiblePosition >= (adapter.getCount() - 1) - 1) {
-                View childAt = this.f60648a.getChildAt(Math.min(lastVisiblePosition - this.f60648a.getFirstVisiblePosition(), this.f60648a.getChildCount() - 1));
-                return childAt != null && childAt.getBottom() <= this.f60648a.getBottom();
+                View childAt = this.f60828a.getChildAt(Math.min(lastVisiblePosition - this.f60828a.getFirstVisiblePosition(), this.f60828a.getChildCount() - 1));
+                return childAt != null && childAt.getBottom() <= this.f60828a.getBottom();
             }
             return false;
         }
@@ -100,7 +100,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (isScrollLoadEnabled()) {
-                return this.f60649b;
+                return this.f60829b;
             }
             return super.getFooterLoadingLayout();
         }
@@ -133,11 +133,11 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048582, this, absListView, i2, i3, i4) == null) {
-            AbsListView.OnScrollListener onScrollListener = this.f60650c;
+            AbsListView.OnScrollListener onScrollListener = this.f60830c;
             if (onScrollListener != null) {
                 onScrollListener.onScroll(absListView, i2, i3, i4);
             }
-            this.f60651d = i2;
+            this.f60831d = i2;
         }
     }
 
@@ -148,7 +148,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
             if (isScrollLoadEnabled() && a() && ((i2 == 0 || i2 == 2) && isReadyForPullUp())) {
                 startLoading();
             }
-            AbsListView.OnScrollListener onScrollListener = this.f60650c;
+            AbsListView.OnScrollListener onScrollListener = this.f60830c;
             if (onScrollListener != null) {
                 onScrollListener.onScrollStateChanged(absListView, i2);
             }
@@ -158,7 +158,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     public void setHasMoreData(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            LoadingLayout loadingLayout = this.f60649b;
+            LoadingLayout loadingLayout = this.f60829b;
             if (loadingLayout != null) {
                 loadingLayout.setState(z ? LoadingLayout.State.RESET : LoadingLayout.State.NO_MORE_DATA);
             }
@@ -172,7 +172,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, onScrollListener) == null) {
-            this.f60650c = onScrollListener;
+            this.f60830c = onScrollListener;
         }
     }
 
@@ -197,15 +197,15 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         }
         super.setScrollLoadEnabled(z);
         if (z) {
-            if (this.f60649b == null) {
+            if (this.f60829b == null) {
                 FooterLoadingLayout footerLoadingLayout = new FooterLoadingLayout(getContext());
-                this.f60649b = footerLoadingLayout;
-                this.f60648a.addFooterView(footerLoadingLayout, null, false);
+                this.f60829b = footerLoadingLayout;
+                this.f60828a.addFooterView(footerLoadingLayout, null, false);
             }
-            this.f60649b.show(true);
+            this.f60829b.show(true);
             return;
         }
-        LoadingLayout loadingLayout = this.f60649b;
+        LoadingLayout loadingLayout = this.f60829b;
         if (loadingLayout != null) {
             loadingLayout.show(false);
         }
@@ -214,10 +214,10 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     public void showOrHideFootView(int i2) {
         LoadingLayout loadingLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || (loadingLayout = this.f60649b) == null || loadingLayout.getVisibility() == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || (loadingLayout = this.f60829b) == null || loadingLayout.getVisibility() == i2) {
             return;
         }
-        this.f60649b.show(i2 == 0);
+        this.f60829b.show(i2 == 0);
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -247,7 +247,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
                 return;
             }
         }
-        this.f60651d = 0;
+        this.f60831d = 0;
         setPullLoadEnabled(false);
     }
 
@@ -258,7 +258,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet)) == null) {
             ListView listView = new ListView(context);
-            this.f60648a = listView;
+            this.f60828a = listView;
             listView.setOnScrollListener(this);
             return listView;
         }

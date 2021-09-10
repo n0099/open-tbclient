@@ -3,18 +3,18 @@ package com.meizu.cloud.pushsdk.b.g;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static j f74505a;
+    public static j f74685a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f74506b;
+    public static long f74686b;
 
     public static j a() {
         synchronized (k.class) {
-            if (f74505a != null) {
-                j jVar = f74505a;
-                f74505a = jVar.f74503f;
-                jVar.f74503f = null;
-                f74506b -= 2048;
+            if (f74685a != null) {
+                j jVar = f74685a;
+                f74685a = jVar.f74683f;
+                jVar.f74683f = null;
+                f74686b -= 2048;
                 return jVar;
             }
             return new j();
@@ -22,21 +22,21 @@ public final class k {
     }
 
     public static void a(j jVar) {
-        if (jVar.f74503f != null || jVar.f74504g != null) {
+        if (jVar.f74683f != null || jVar.f74684g != null) {
             throw new IllegalArgumentException();
         }
-        if (jVar.f74501d) {
+        if (jVar.f74681d) {
             return;
         }
         synchronized (k.class) {
-            if (f74506b + 2048 > 65536) {
+            if (f74686b + 2048 > 65536) {
                 return;
             }
-            f74506b += 2048;
-            jVar.f74503f = f74505a;
-            jVar.f74500c = 0;
-            jVar.f74499b = 0;
-            f74505a = jVar;
+            f74686b += 2048;
+            jVar.f74683f = f74685a;
+            jVar.f74680c = 0;
+            jVar.f74679b = 0;
+            f74685a = jVar;
         }
     }
 }

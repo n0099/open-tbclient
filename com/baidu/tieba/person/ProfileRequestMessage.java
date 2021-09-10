@@ -2,9 +2,9 @@ package com.baidu.tieba.person;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.p0.b1.w;
-import c.a.p0.s.k;
-import c.a.q0.k2.b;
+import c.a.q0.d1.x;
+import c.a.q0.s.k;
+import c.a.r0.l2.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -81,7 +81,7 @@ public class ProfileRequestMessage extends NetMessage {
                 builder.scr_dip = Double.valueOf(l.h(TbadkCoreApplication.getInst().getApp()));
                 builder.q_type = Integer.valueOf(e2);
                 if (z) {
-                    w.a(builder, true);
+                    x.a(builder, true);
                 }
                 ProfileReqIdl.Builder builder2 = new ProfileReqIdl.Builder();
                 builder2.data = builder.build(false);

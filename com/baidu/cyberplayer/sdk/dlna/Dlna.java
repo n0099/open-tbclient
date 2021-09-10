@@ -38,7 +38,7 @@ public class Dlna {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DlnaProvider f38924a;
+    public DlnaProvider f39030a;
 
     /* renamed from: com.baidu.cyberplayer.sdk.dlna.Dlna$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -52,7 +52,7 @@ public class Dlna {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Dlna f38925a;
+        public static final Dlna f39031a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -68,7 +68,7 @@ public class Dlna {
                     return;
                 }
             }
-            f38925a = new Dlna(null);
+            f39031a = new Dlna(null);
         }
     }
 
@@ -100,7 +100,7 @@ public class Dlna {
                 return;
             }
         }
-        this.f38924a = null;
+        this.f39030a = null;
     }
 
     public /* synthetic */ Dlna(AnonymousClass1 anonymousClass1) {
@@ -110,7 +110,7 @@ public class Dlna {
     public static Dlna getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f38925a : (Dlna) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f39031a : (Dlna) invokeV.objValue;
     }
 
     public synchronized PnPController getCtrlPoint(String str) {
@@ -118,8 +118,8 @@ public class Dlna {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             synchronized (this) {
-                if (this.f38924a != null && str != null) {
-                    return new PnPController(str, this.f38924a);
+                if (this.f39030a != null && str != null) {
+                    return new PnPController(str, this.f39030a);
                 }
                 return null;
             }
@@ -131,13 +131,13 @@ public class Dlna {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dlnaSearchListener) == null) {
             synchronized (this) {
-                if (this.f38924a == null) {
-                    this.f38924a = d.f();
+                if (this.f39030a == null) {
+                    this.f39030a = d.f();
                 }
-                if (this.f38924a != null) {
-                    this.f38924a.stop();
+                if (this.f39030a != null) {
+                    this.f39030a.stop();
                     if (dlnaSearchListener != null) {
-                        this.f38924a.search(dlnaSearchListener);
+                        this.f39030a.search(dlnaSearchListener);
                     }
                 }
             }
@@ -148,8 +148,8 @@ public class Dlna {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f38924a != null) {
-                    this.f38924a.stop();
+                if (this.f39030a != null) {
+                    this.f39030a.stop();
                 } else {
                     CyberLog.d(TAG, "Dlna: provider == null");
                 }

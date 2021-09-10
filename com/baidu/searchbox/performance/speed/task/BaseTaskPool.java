@@ -1,5 +1,6 @@
 package com.baidu.searchbox.performance.speed.task;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,17 +26,22 @@ public abstract class BaseTaskPool {
         }
     }
 
+    public abstract List<LaunchTask> beforeAppCreate(boolean z);
+
     public List<LaunchTask> getTaskList(int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (i2 != 1) {
-                if (i2 != 3) {
-                    return null;
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        return null;
+                    }
+                    return onUiReady(z);
                 }
-                return onUiReady(z);
+                return onAppCreate(z);
             }
-            return onAppCreate(z);
+            return beforeAppCreate(z);
         }
         return (List) invokeCommon.objValue;
     }

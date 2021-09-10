@@ -32,10 +32,10 @@ public abstract class a extends b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public ArrayList<WebSocket> f78278e;
+        public ArrayList<WebSocket> f78458e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f78279f;
+        public final /* synthetic */ a f78459f;
 
         public C2110a(a aVar) {
             Interceptable interceptable = $ic;
@@ -52,19 +52,19 @@ public abstract class a extends b {
                     return;
                 }
             }
-            this.f78279f = aVar;
-            this.f78278e = new ArrayList<>();
+            this.f78459f = aVar;
+            this.f78458e = new ArrayList<>();
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f78278e.clear();
+                this.f78458e.clear();
                 try {
-                    this.f78278e.addAll(this.f78279f.getConnections());
-                    long currentTimeMillis = System.currentTimeMillis() - (this.f78279f.connectionLostTimeout * 1500);
-                    Iterator<WebSocket> it = this.f78278e.iterator();
+                    this.f78458e.addAll(this.f78459f.getConnections());
+                    long currentTimeMillis = System.currentTimeMillis() - (this.f78459f.connectionLostTimeout * 1500);
+                    Iterator<WebSocket> it = this.f78458e.iterator();
                     while (it.hasNext()) {
                         WebSocket next = it.next();
                         if (next instanceof c) {
@@ -89,7 +89,7 @@ public abstract class a extends b {
                         printStream3.println("Exception during connection lost ping: " + e2.getMessage());
                     }
                 }
-                this.f78278e.clear();
+                this.f78458e.clear();
             }
         }
     }

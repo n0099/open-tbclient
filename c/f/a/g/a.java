@@ -8,7 +8,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static InterfaceC1470a f32169a;
+    public static InterfaceC1470a f32278a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.f.a.g.a$a  reason: collision with other inner class name */
@@ -22,13 +22,13 @@ public class a {
     public static InterfaceC1470a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f32169a : (InterfaceC1470a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f32278a : (InterfaceC1470a) invokeV.objValue;
     }
 
     public static void b(InterfaceC1470a interfaceC1470a) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, interfaceC1470a) == null) {
-            f32169a = interfaceC1470a;
+            f32278a = interfaceC1470a;
         }
     }
 }

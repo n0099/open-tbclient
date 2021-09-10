@@ -26,28 +26,28 @@ public class h implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f66668a;
+    public Context f66848a;
 
     /* renamed from: b  reason: collision with root package name */
-    public q f66669b;
+    public q f66849b;
 
     /* renamed from: c  reason: collision with root package name */
-    public v f66670c;
+    public v f66850c;
 
     /* renamed from: d  reason: collision with root package name */
-    public n f66671d;
+    public n f66851d;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f66672e;
+    public g f66852e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ScheduledFuture<?> f66673f;
+    public ScheduledFuture<?> f66853f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ThemeStatusBroadcastReceiver f66674g;
+    public ThemeStatusBroadcastReceiver f66854g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AtomicBoolean f66675h;
+    public AtomicBoolean f66855h;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
@@ -55,13 +55,13 @@ public class h implements e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public e.a f66678a;
+        public e.a f66858a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f66679b;
+        public final /* synthetic */ h f66859b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f66680c;
+        public int f66860c;
 
         public a(h hVar, int i2, e.a aVar) {
             Interceptable interceptable = $ic;
@@ -78,18 +78,18 @@ public class h implements e {
                     return;
                 }
             }
-            this.f66679b = hVar;
-            this.f66680c = i2;
-            this.f66678a = aVar;
+            this.f66859b = hVar;
+            this.f66860c = i2;
+            this.f66858a = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f66680c == 1) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f66860c == 1) {
                 k.b("RenderInterceptor", "WebView Render timeout");
-                this.f66679b.f66670c.a(true);
-                this.f66679b.a(this.f66678a, 107);
+                this.f66859b.f66850c.a(true);
+                this.f66859b.a(this.f66858a, 107);
             }
         }
     }
@@ -109,15 +109,15 @@ public class h implements e {
                 return;
             }
         }
-        this.f66668a = context;
-        this.f66672e = gVar;
-        this.f66674g = themeStatusBroadcastReceiver;
-        this.f66669b = qVar;
-        this.f66671d = nVar;
-        this.f66675h = new AtomicBoolean(false);
-        v vVar = new v(this.f66668a, gVar, this.f66674g, this.f66669b);
-        this.f66670c = vVar;
-        vVar.a(this.f66671d);
+        this.f66848a = context;
+        this.f66852e = gVar;
+        this.f66854g = themeStatusBroadcastReceiver;
+        this.f66849b = qVar;
+        this.f66851d = nVar;
+        this.f66855h = new AtomicBoolean(false);
+        v vVar = new v(this.f66848a, gVar, this.f66854g, this.f66849b);
+        this.f66850c = vVar;
+        vVar.a(this.f66851d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -125,9 +125,9 @@ public class h implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             try {
-                if (this.f66673f != null && !this.f66673f.isCancelled()) {
-                    this.f66673f.cancel(false);
-                    this.f66673f = null;
+                if (this.f66853f != null && !this.f66853f.isCancelled()) {
+                    this.f66853f.cancel(false);
+                    this.f66853f = null;
                 }
                 k.b("RenderInterceptor", "WebView Render cancel timeout timer");
             } catch (Throwable th) {
@@ -139,7 +139,7 @@ public class h implements e {
     public v b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f66670c : (v) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f66850c : (v) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.a.e
@@ -147,16 +147,16 @@ public class h implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            this.f66673f = com.bytedance.sdk.component.d.e.d().schedule(new a(this, 1, aVar), this.f66672e.e(), TimeUnit.MILLISECONDS);
-            this.f66670c.a(new m(this, aVar) { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.a.h.1
+            this.f66853f = com.bytedance.sdk.component.d.e.d().schedule(new a(this, 1, aVar), this.f66852e.e(), TimeUnit.MILLISECONDS);
+            this.f66850c.a(new m(this, aVar) { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.a.h.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e.a f66676a;
+                public final /* synthetic */ e.a f66856a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ h f66677b;
+                public final /* synthetic */ h f66857b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -173,8 +173,8 @@ public class h implements e {
                             return;
                         }
                     }
-                    this.f66677b = this;
-                    this.f66676a = aVar;
+                    this.f66857b = this;
+                    this.f66856a = aVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.m
@@ -182,12 +182,12 @@ public class h implements e {
                     com.bytedance.sdk.openadsdk.core.nativeexpress.p b2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, pVar) == null) {
-                        this.f66677b.c();
-                        if (this.f66676a.c() || (b2 = this.f66676a.b()) == null) {
+                        this.f66857b.c();
+                        if (this.f66856a.c() || (b2 = this.f66856a.b()) == null) {
                             return;
                         }
-                        b2.a(this.f66677b.f66670c, pVar);
-                        this.f66676a.a(true);
+                        b2.a(this.f66857b.f66850c, pVar);
+                        this.f66856a.a(true);
                     }
                 }
 
@@ -195,7 +195,7 @@ public class h implements e {
                 public void a(int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                        this.f66677b.a(this.f66676a, i2);
+                        this.f66857b.a(this.f66856a, i2);
                     }
                 }
             });
@@ -208,7 +208,7 @@ public class h implements e {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f66670c.e();
+            this.f66850c.e();
             c();
         }
     }
@@ -216,11 +216,11 @@ public class h implements e {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(e.a aVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65537, this, aVar, i2) == null) || this.f66675h.get()) {
+        if (!(interceptable == null || interceptable.invokeLI(65537, this, aVar, i2) == null) || this.f66855h.get()) {
             return;
         }
         c();
-        this.f66672e.d().a(i2);
+        this.f66852e.d().a(i2);
         if (aVar.b(this)) {
             aVar.a(this);
         } else {
@@ -230,6 +230,6 @@ public class h implements e {
             }
             b2.d(i2);
         }
-        this.f66675h.getAndSet(true);
+        this.f66855h.getAndSet(true);
     }
 }

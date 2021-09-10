@@ -32,25 +32,25 @@ public class m implements f {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
             q.a(context).getClass();
             String str = null;
-            if (!q.f69863b) {
+            if (!q.f70043b) {
                 FunOpenIDSdk.isLogEnabled();
                 aVar.a(false, null);
                 return;
             }
             q a2 = q.a(context);
             a2.getClass();
-            if (q.f69863b) {
-                String str2 = q.f69869h;
+            if (q.f70043b) {
+                String str2 = q.f70049h;
                 if (str2 != null) {
                     str = str2;
                 } else {
                     a2.a(0, null);
-                    if (q.f69864c == null) {
-                        Context context2 = q.f69862a;
-                        q.f69864c = new s(q.f69870i, 0, null);
-                        context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f69864c);
+                    if (q.f70044c == null) {
+                        Context context2 = q.f70042a;
+                        q.f70044c = new s(q.f70050i, 0, null);
+                        context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f70044c);
                     }
-                    str = q.f69869h;
+                    str = q.f70049h;
                 }
             }
             aVar.a(true, str);

@@ -27,7 +27,7 @@ public class gk {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static XmlPullParser f77548a;
+    public static XmlPullParser f77728a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -91,14 +91,14 @@ public class gk {
                 }
             }
             if (gaVar == null) {
-                if (ga.a.f77492a == a2 || ga.a.f77493b == a2) {
+                if (ga.a.f77672a == a2 || ga.a.f77673b == a2) {
                     gl glVar = new gl();
                     glVar.k(attributeValue);
                     glVar.m(attributeValue3);
                     glVar.n(attributeValue2);
-                    glVar.a(ga.a.f77495d);
+                    glVar.a(ga.a.f77675d);
                     glVar.l(attributeValue4);
-                    glVar.a(new gg(gg.a.f77540e));
+                    glVar.a(new gg(gg.a.f77720e));
                     flVar.a(glVar);
                     com.xiaomi.channel.commonutils.logger.b.d("iq usage error. send packet in packet parser.");
                     return null;
@@ -159,9 +159,9 @@ public class gk {
                                 gbVar.a(fzVar);
                                 return gbVar;
                             }
-                            a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f77957h, attributeValue2), text));
-                            f77548a.next();
-                            gcVar = a(f77548a);
+                            a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f78137h, attributeValue2), text));
+                            f77728a.next();
+                            gcVar = a(f77728a);
                         } else if (next == 3 && xmlPullParser.getName().equals("message")) {
                             z = true;
                         }
@@ -267,7 +267,7 @@ public class gk {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, xmlPullParser)) == null) {
-            ge.b bVar = ge.b.f77523a;
+            ge.b bVar = ge.b.f77703a;
             String attributeValue = xmlPullParser.getAttributeValue("", "type");
             if (attributeValue != null && !attributeValue.equals("")) {
                 try {
@@ -413,16 +413,16 @@ public class gk {
     public static void a(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, bArr) == null) {
-            if (f77548a == null) {
+            if (f77728a == null) {
                 try {
                     XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
-                    f77548a = newPullParser;
+                    f77728a = newPullParser;
                     newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
                 } catch (XmlPullParserException e2) {
                     e2.printStackTrace();
                 }
             }
-            f77548a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
+            f77728a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
         }
     }
 

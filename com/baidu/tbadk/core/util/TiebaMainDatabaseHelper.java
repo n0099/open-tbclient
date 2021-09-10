@@ -13,13 +13,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class TiebaMainDatabaseHelper extends c {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int DATABASE_VERSION = 22;
+    public static final int DATABASE_VERSION = 23;
+    public static final String TABLE_NAME_DOWNLOAD_INFO = "download_info";
     public static final String TABLE_NAME_LOCAL_GAME = "local_game";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TiebaMainDatabaseHelper(Context context) {
-        super(context, TbConfig.PHONE_DATEBASE_NAME, 22);
+        super(context, TbConfig.PHONE_DATEBASE_NAME, 23);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,6 +79,7 @@ public class TiebaMainDatabaseHelper extends c {
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS user_graffiti");
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS activity_mission_info");
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS ad_follow_up_info_table");
+            executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS download_info");
         }
     }
 
@@ -104,6 +106,7 @@ public class TiebaMainDatabaseHelper extends c {
                 prepareDBForV18(sQLiteDatabase);
                 prepareDBForV19V20V21(sQLiteDatabase);
                 prepareDBForV22(sQLiteDatabase);
+                prepareDBForV23(sQLiteDatabase);
             } catch (Exception e2) {
                 TiebaStatic.printDBExceptionLog(e2, "DatabaseHelper.createTables", new Object[0]);
             }
@@ -180,6 +183,10 @@ public class TiebaMainDatabaseHelper extends c {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS ad_follow_up_info_table");
                 prepareDBForV22(sQLiteDatabase);
             }
+            if (i2 < 23) {
+                executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS download_info");
+                prepareDBForV23(sQLiteDatabase);
+            }
         }
     }
 
@@ -246,9 +253,16 @@ public class TiebaMainDatabaseHelper extends c {
         }
     }
 
-    public void prepareDBForV7(SQLiteDatabase sQLiteDatabase) {
+    public void prepareDBForV23(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, sQLiteDatabase) == null) {
+            executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists download_info(id INTEGER primary key autoincrement, pkg_name TEXT NOT NULL, download_time INTEGER, item_info TEXT)");
+        }
+    }
+
+    public void prepareDBForV7(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, sQLiteDatabase) == null) {
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists chat_msgs(pk INTEGER primary key autoincrement, msgId bigint,ownerId varchar(32), friendId varchar(32), msgType int(11) default 0, status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE INDEX if not exists idx_c_msgs_of ON chat_msgs(ownerId, friendId, msgId)");
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists chat_recent_friends(pk varchar(64) primary key, unReadCount int(11) default 0 ,ownerId varchar(32), friendId varchar(32), ownerName varchar(64), friendName varchar(64), friendPortrait varchar(64), status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");

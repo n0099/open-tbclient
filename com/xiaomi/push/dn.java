@@ -19,7 +19,7 @@ public class dn {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile dn f77307a;
+    public static volatile dn f77487a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -53,24 +53,24 @@ public class dn {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f77307a == null) {
+            if (f77487a == null) {
                 synchronized (dn.class) {
-                    if (f77307a == null) {
-                        f77307a = new dn(context);
+                    if (f77487a == null) {
+                        f77487a = new dn(context);
                     }
                 }
             }
-            return f77307a;
+            return f77487a;
         }
         return (dn) invokeL.objValue;
     }
 
     private void a(com.xiaomi.push.service.aq aqVar, ai aiVar, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, aqVar, aiVar, z) == null) && aqVar.a(hk.f77615a.a(), true)) {
+        if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, aqVar, aiVar, z) == null) && aqVar.a(hk.f77795a.a(), true)) {
             ds dsVar = new ds(this.f244a);
             if (z) {
-                aiVar.a((ai.a) dsVar, a(aqVar.a(hk.f77616b.a(), 86400)));
+                aiVar.a((ai.a) dsVar, a(aqVar.a(hk.f77796b.a(), 86400)));
             } else {
                 aiVar.m145a((ai.a) dsVar);
             }

@@ -41,7 +41,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CreateForumSuccessActivity f51862e;
+        public final /* synthetic */ CreateForumSuccessActivity f52008e;
 
         public a(CreateForumSuccessActivity createForumSuccessActivity) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
                     return;
                 }
             }
-            this.f51862e = createForumSuccessActivity;
+            this.f52008e = createForumSuccessActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f51862e.finish();
+                this.f52008e.finish();
             }
         }
     }
@@ -143,7 +143,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
             super.changeSkinType(i2);
             super.changeSkinType(i2);
             getLayoutMode().j(this.mRootView);
-            c.a.p0.u0.a.a(getPageContext(), this.mRootView);
+            c.a.q0.w0.a.a(getPageContext(), this.mRootView);
             NoNetworkView noNetworkView = this.mNoNetView;
             if (noNetworkView != null && noNetworkView.getVisibility() == 0) {
                 this.mNoNetView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());

@@ -79,13 +79,13 @@ public final class SpliceInsertCommand extends SpliceCommand {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f69925a;
+        public final int f70105a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f69926b;
+        public final long f70106b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f69927c;
+        public final long f70107c;
 
         public /* synthetic */ b(int i2, long j2, long j3, a aVar) {
             this(i2, j2, j3);
@@ -100,9 +100,9 @@ public final class SpliceInsertCommand extends SpliceCommand {
         public void b(Parcel parcel) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
-                parcel.writeInt(this.f69925a);
-                parcel.writeLong(this.f69926b);
-                parcel.writeLong(this.f69927c);
+                parcel.writeInt(this.f70105a);
+                parcel.writeLong(this.f70106b);
+                parcel.writeLong(this.f70107c);
             }
         }
 
@@ -121,9 +121,9 @@ public final class SpliceInsertCommand extends SpliceCommand {
                     return;
                 }
             }
-            this.f69925a = i2;
-            this.f69926b = j2;
-            this.f69927c = j3;
+            this.f70105a = i2;
+            this.f70106b = j2;
+            this.f70107c = j3;
         }
     }
 

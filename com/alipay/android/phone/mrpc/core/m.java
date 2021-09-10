@@ -14,10 +14,10 @@ public final class m extends FutureTask<u> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ q f35632a;
+    public final /* synthetic */ q f35741a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f35633b;
+    public final /* synthetic */ l f35742b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(l lVar, Callable callable, q qVar) {
@@ -37,15 +37,15 @@ public final class m extends FutureTask<u> {
                 return;
             }
         }
-        this.f35633b = lVar;
-        this.f35632a = qVar;
+        this.f35742b = lVar;
+        this.f35741a = qVar;
     }
 
     @Override // java.util.concurrent.FutureTask
     public final void done() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            o a2 = this.f35632a.a();
+            o a2 = this.f35741a.a();
             if (a2.f() == null) {
                 super.done();
                 return;

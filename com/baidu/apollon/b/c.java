@@ -12,14 +12,14 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.Certificate;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f37649a;
+    public final String f37768a;
 
     public c(@NonNull Certificate certificate) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class c {
             }
         }
         try {
-            this.f37649a = Base64.encodeToString(MessageDigest.getInstance("SHA-256").digest(certificate.getPublicKey().getEncoded()), 0).trim();
+            this.f37768a = Base64.encodeToString(MessageDigest.getInstance("SHA-256").digest(certificate.getPublicKey().getEncoded()), 0).trim();
         } catch (NoSuchAlgorithmException unused) {
             throw new IllegalStateException("Should never happen");
         }
@@ -53,7 +53,7 @@ public class c {
             if (obj == null || c.class != obj.getClass()) {
                 return false;
             }
-            return this.f37649a.equals(((c) obj).f37649a);
+            return this.f37768a.equals(((c) obj).f37768a);
         }
         return invokeL.booleanValue;
     }
@@ -61,14 +61,14 @@ public class c {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37649a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37768a.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "pin='" + this.f37649a + ExtendedMessageFormat.QUOTE;
+            return "pin='" + this.f37768a + ExtendedMessageFormat.QUOTE;
         }
         return (String) invokeV.objValue;
     }
@@ -89,7 +89,7 @@ public class c {
             }
         }
         if (Base64.decode(str, 0).length == 32) {
-            this.f37649a = str.trim();
+            this.f37768a = str.trim();
             return;
         }
         throw new IllegalArgumentException("Invalid pin: length is not 32 bytes");

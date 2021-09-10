@@ -12,7 +12,7 @@ public final class w extends v {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Runnable f78066a;
+    public final /* synthetic */ Runnable f78246a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(Context context, File file, Runnable runnable) {
@@ -33,14 +33,14 @@ public final class w extends v {
                 return;
             }
         }
-        this.f78066a = runnable;
+        this.f78246a = runnable;
     }
 
     @Override // com.xiaomi.push.v
     public void a(Context context) {
         Runnable runnable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (runnable = this.f78066a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (runnable = this.f78246a) == null) {
             return;
         }
         runnable.run();

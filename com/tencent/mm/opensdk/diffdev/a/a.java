@@ -21,13 +21,13 @@ public final class a implements IDiffDevOAuth {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<OAuthListener> f76067c;
+    public List<OAuthListener> f76247c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f76068d;
+    public d f76248d;
 
     /* renamed from: e  reason: collision with root package name */
-    public OAuthListener f76069e;
+    public OAuthListener f76249e;
     public Handler handler;
 
     public a() {
@@ -44,17 +44,17 @@ public final class a implements IDiffDevOAuth {
             }
         }
         this.handler = null;
-        this.f76067c = new ArrayList();
-        this.f76069e = new b(this);
+        this.f76247c = new ArrayList();
+        this.f76249e = new b(this);
     }
 
     @Override // com.tencent.mm.opensdk.diffdev.IDiffDevOAuth
     public final void addListener(OAuthListener oAuthListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, oAuthListener) == null) || this.f76067c.contains(oAuthListener)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, oAuthListener) == null) || this.f76247c.contains(oAuthListener)) {
             return;
         }
-        this.f76067c.add(oAuthListener);
+        this.f76247c.add(oAuthListener);
     }
 
     @Override // com.tencent.mm.opensdk.diffdev.IDiffDevOAuth
@@ -71,12 +71,12 @@ public final class a implements IDiffDevOAuth {
                 this.handler = new Handler(Looper.getMainLooper());
             }
             addListener(oAuthListener);
-            if (this.f76068d != null) {
+            if (this.f76248d != null) {
                 Log.d("MicroMsg.SDK.DiffDevOAuth", "auth, already running, no need to start auth again");
                 return true;
             }
-            d dVar = new d(str, str2, str3, str4, str5, this.f76069e);
-            this.f76068d = dVar;
+            d dVar = new d(str, str2, str3, str4, str5, this.f76249e);
+            this.f76248d = dVar;
             if (Build.VERSION.SDK_INT >= 11) {
                 dVar.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
             } else {
@@ -92,7 +92,7 @@ public final class a implements IDiffDevOAuth {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Log.i("MicroMsg.SDK.DiffDevOAuth", "detach");
-            this.f76067c.clear();
+            this.f76247c.clear();
             stopAuth();
         }
     }
@@ -101,7 +101,7 @@ public final class a implements IDiffDevOAuth {
     public final void removeAllListeners() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f76067c.clear();
+            this.f76247c.clear();
         }
     }
 
@@ -109,7 +109,7 @@ public final class a implements IDiffDevOAuth {
     public final void removeListener(OAuthListener oAuthListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, oAuthListener) == null) {
-            this.f76067c.remove(oAuthListener);
+            this.f76247c.remove(oAuthListener);
         }
     }
 
@@ -121,12 +121,12 @@ public final class a implements IDiffDevOAuth {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             Log.i("MicroMsg.SDK.DiffDevOAuth", "stopAuth");
             try {
-                z = this.f76068d == null ? true : this.f76068d.a();
+                z = this.f76248d == null ? true : this.f76248d.a();
             } catch (Exception e2) {
                 Log.w("MicroMsg.SDK.DiffDevOAuth", "stopAuth fail, ex = " + e2.getMessage());
                 z = false;
             }
-            this.f76068d = null;
+            this.f76248d = null;
             return z;
         }
         return invokeV.booleanValue;

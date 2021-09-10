@@ -139,7 +139,7 @@ public class JuheH5PayResultProcess extends H5PayResultProcess {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ JuheH5PayResultProcess f36676a;
+                    public final /* synthetic */ JuheH5PayResultProcess f36795a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -156,7 +156,7 @@ public class JuheH5PayResultProcess extends H5PayResultProcess {
                                 return;
                             }
                         }
-                        this.f36676a = this;
+                        this.f36795a = this;
                     }
 
                     @Override // com.baidu.wallet.paysdk.payresult.presenter.H5LifeCycleCallback, android.app.Application.ActivityLifecycleCallbacks
@@ -164,7 +164,7 @@ public class JuheH5PayResultProcess extends H5PayResultProcess {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) {
                             BaiduWalletDelegate.getInstance().removeH5LifeCycleCb(activity, this);
-                            this.f36676a.afterShow();
+                            this.f36795a.afterShow();
                         }
                     }
                 };

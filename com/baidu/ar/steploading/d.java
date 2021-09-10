@@ -3,7 +3,6 @@ package com.baidu.ar.steploading;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.ar.arplay.core.message.ARPMessage;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.bean.ARCaseBundleInfo;
 import com.baidu.ar.bean.ARConfig;
 import com.baidu.ar.callback.ICallback;
@@ -229,7 +228,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
             hashMap.put("id", Integer.valueOf((int) SpeedStatsStampTable.CHECK_REAL_NAME_END_STAMP_KEY));
             hashMap.put("if_download", 0);
             hashMap.put("download_batchid", this.xD);
-            ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
+            ARPMessage.getInstance().sendMessage(1902, hashMap);
         }
     }
 
@@ -240,7 +239,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(5001);
-            arrayList.add(Integer.valueOf((int) ARPMessageType.MSG_TYPE_LUA_SDK_BRIDGE));
+            arrayList.add(1901);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -267,7 +266,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
             hashMap.put("id", Integer.valueOf((int) SpeedStatsStampTable.CHECK_REAL_NAME_END_STAMP_KEY));
             hashMap.put("if_download", 1);
             hashMap.put("download_batchid", this.xD);
-            ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
+            ARPMessage.getInstance().sendMessage(1902, hashMap);
         }
     }
 

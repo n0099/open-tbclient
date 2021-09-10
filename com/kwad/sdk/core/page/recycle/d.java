@@ -17,7 +17,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Presenter> f71919a;
+    public List<Presenter> f72099a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
                 return;
             }
         }
-        this.f71919a = new ArrayList();
+        this.f72099a = new ArrayList();
     }
 
     public abstract c a(ViewGroup viewGroup, int i2);
@@ -40,7 +40,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (Presenter presenter : this.f71919a) {
+            for (Presenter presenter : this.f72099a) {
                 presenter.h();
             }
         }
@@ -53,7 +53,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             super.onViewRecycled(cVar);
-            cVar.f71917a.g();
+            cVar.f72097a.g();
         }
     }
 
@@ -63,7 +63,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
     public void onBindViewHolder(c cVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, cVar, i2) == null) {
-            cVar.f71917a.a(cVar.f71918b);
+            cVar.f72097a.a(cVar.f72098b);
         }
     }
 
@@ -75,7 +75,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i2)) == null) {
             c a2 = a(viewGroup, i2);
-            this.f71919a.add(a2.f71917a);
+            this.f72099a.add(a2.f72097a);
             return a2;
         }
         return (c) invokeLI.objValue;

@@ -25,7 +25,7 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f61379a;
+    public boolean f61559a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                 return;
             }
         }
-        this.f61379a = false;
+        this.f61559a = false;
     }
 
     @Override // com.baidu.wallet.lightapp.ability.a
@@ -54,7 +54,7 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
     public void a(Activity activity, String str, ILightappInvokerCallback iLightappInvokerCallback, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, iLightappInvokerCallback, str2) == null) {
-            this.f61379a = false;
+            this.f61559a = false;
             String str3 = "";
             if (!TextUtils.isEmpty(str)) {
                 try {
@@ -70,7 +70,7 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                         e3.printStackTrace();
                     }
                     try {
-                        this.f61379a = ((Boolean) jSONObject.get("showDialog")).booleanValue();
+                        this.f61559a = ((Boolean) jSONObject.get("showDialog")).booleanValue();
                     } catch (Exception e4) {
                         e4.printStackTrace();
                     }
@@ -78,18 +78,18 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                     e5.printStackTrace();
                 }
             }
-            LocalRouter.getInstance(DxmApplicationContextImpl.getApplicationContext(activity)).route(activity, new RouterRequest().provider("dxmPay").action("enterDoInnerBind").data("showDialog", Boolean.valueOf(this.f61379a)).data("orderInfo", str3), new RouterCallback(this, iLightappInvokerCallback, str2) { // from class: com.baidu.wallet.lightapp.ability.a.a.1
+            LocalRouter.getInstance(DxmApplicationContextImpl.getApplicationContext(activity)).route(activity, new RouterRequest().provider("dxmPay").action("enterDoInnerBind").data("showDialog", Boolean.valueOf(this.f61559a)).data("orderInfo", str3), new RouterCallback(this, iLightappInvokerCallback, str2) { // from class: com.baidu.wallet.lightapp.ability.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ILightappInvokerCallback f61380a;
+                public final /* synthetic */ ILightappInvokerCallback f61560a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f61381b;
+                public final /* synthetic */ String f61561b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f61382c;
+                public final /* synthetic */ a f61562c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -106,9 +106,9 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                             return;
                         }
                     }
-                    this.f61382c = this;
-                    this.f61380a = iLightappInvokerCallback;
-                    this.f61381b = str2;
+                    this.f61562c = this;
+                    this.f61560a = iLightappInvokerCallback;
+                    this.f61561b = str2;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -122,17 +122,17 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                             int intValue = ((Integer) hashMap.get("statusCode")).intValue();
                             String str4 = (String) hashMap.get("params");
                             if (intValue != 0) {
-                                this.f61382c.a(this.f61380a, this.f61381b, LightappConstants.ERRCODE_CANCEL, str4, "#bindCardInitiativeFail");
+                                this.f61562c.a(this.f61560a, this.f61561b, LightappConstants.ERRCODE_CANCEL, str4, "#bindCardInitiativeFail");
                                 return;
                             } else {
-                                this.f61380a.onResult(0, str4);
+                                this.f61560a.onResult(0, str4);
                                 return;
                             }
                         }
                         String str5 = (String) hashMap.get("errorMsg");
-                        a aVar = this.f61382c;
-                        ILightappInvokerCallback iLightappInvokerCallback2 = this.f61380a;
-                        String str6 = this.f61381b;
+                        a aVar = this.f61562c;
+                        ILightappInvokerCallback iLightappInvokerCallback2 = this.f61560a;
+                        String str6 = this.f61561b;
                         String num = Integer.toString(i2);
                         if (!TextUtils.isEmpty(str5)) {
                             str5 = LightappConstants.ROUTER_INVOKE_FAIL;

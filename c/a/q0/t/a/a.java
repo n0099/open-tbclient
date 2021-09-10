@@ -1,397 +1,87 @@
 package c.a.q0.t.a;
 
-import android.app.Activity;
-import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import c.a.e.e.p.l;
-import c.a.p0.t.c.m;
+import android.os.Build;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.sapi2.utils.enums.Domain;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.advert.sdk.data.AdType;
-import com.baidu.tieba.advert.sdk.data.RedirectType;
-import com.baidu.tieba.advert.sdk.view.SplashAdView;
-import com.baidu.tieba.advert.sdk.widget.CountDownTextView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f24419a;
+    public static Domain f14609a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24420b;
+    public static boolean f14610b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<SplashAdView> f24421c;
+    public static b f14611c;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c.a.q0.t.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C1129a implements CustomMessageTask.CustomRunnable<m> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24422e;
-
-        public C1129a(a aVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1672204973, "Lc/a/q0/t/a/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.f24422e = aVar;
-        }
-
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<m> customMessage) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getCmd() == 2016310) {
-                    try {
-                        return new CustomResponsedMessage<>(2016310, this.f24422e.f(customMessage.getData()));
-                    } catch (Exception unused) {
-                    }
-                }
-                return null;
-            }
-            return (CustomResponsedMessage) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements c.a.q0.t.a.g.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SplashAdView f24423a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f24424b;
-
-        public b(a aVar, SplashAdView splashAdView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, splashAdView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f24424b = aVar;
-            this.f24423a = splashAdView;
-        }
-
-        @Override // c.a.q0.t.a.g.a
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, str));
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_CLICK);
-                statisticItem.param("obj_source", str);
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        @Override // c.a.q0.t.a.g.a
-        public void b(c.a.q0.t.a.f.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            }
-        }
-
-        @Override // c.a.q0.t.a.g.a
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        @Override // c.a.q0.t.a.g.a
-        public void d() {
-            c.a.q0.t.a.f.b entryInfoData;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                SplashAdView splashAdView = (SplashAdView) this.f24424b.f24421c.get();
-                if (splashAdView != null) {
-                    this.f24424b.f24420b = this.f24423a.skipText();
-                    a aVar = this.f24424b;
-                    aVar.h(aVar.f24420b);
-                }
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_SHOW);
-                if (splashAdView != null && (entryInfoData = splashAdView.getEntryInfoData()) != null) {
-                    if (entryInfoData.d()) {
-                        statisticItem.param("obj_source", entryInfoData.f24468e);
-                    } else {
-                        statisticItem.param("obj_source", entryInfoData.f24465b);
-                    }
-                }
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        @Override // c.a.q0.t.a.g.a
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://ignore"));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements CountDownTextView.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.advert.sdk.widget.CountDownTextView.d
-        public void onTimeout(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://timeout"));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<CountDownTextView> f24425a;
-
-        public /* synthetic */ e(CountDownTextView countDownTextView, C1129a c1129a) {
-            this(countDownTextView);
-        }
-
-        public void a(String str) {
-            CountDownTextView countDownTextView;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (countDownTextView = this.f24425a.get()) == null) {
-                return;
-            }
-            countDownTextView.init(str, 0);
-        }
-
-        public e(CountDownTextView countDownTextView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {countDownTextView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f24425a = new WeakReference<>(countDownTextView);
-        }
-    }
-
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1672204973, "Lc/a/q0/t/a/a;");
                 return;
             }
         }
-        this.f24419a = null;
-        this.f24420b = null;
+        f14609a = Domain.DOMAIN_ONLINE;
+        f14610b = true;
+        f14611c = null;
     }
 
-    public final View f(m mVar) {
-        InterceptResult invokeL;
-        boolean z;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mVar)) == null) {
-            if (mVar == null || !mVar.d()) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (TbConfig.USE_OLD_LOGIN) {
+                f14610b = true;
+                return;
             }
-            Activity pageActivity = mVar.c().getPageActivity();
-            int a2 = mVar.a();
-            int b2 = mVar.b();
-            SplashAdView splashAdView = new SplashAdView(mVar.c(), "1481698145541", AdType.SPLASH, a2, b2, RedirectType.APPMANAGE);
-            splashAdView.setLayoutParams(new RelativeLayout.LayoutParams(b2, a2));
-            this.f24421c = new WeakReference<>(splashAdView);
-            splashAdView.setBCAdCallBack(new b(this, splashAdView));
-            try {
-                z = splashAdView.isSplashAvailable();
-            } catch (Throwable unused) {
-                z = false;
-            }
-            if (z) {
-                try {
-                    int dimension = (int) pageActivity.getResources().getDimension(R.dimen.ds22);
-                    int dimension2 = (int) pageActivity.getResources().getDimension(R.dimen.ds36);
-                    Activity pageActivity2 = mVar.c().getPageActivity();
-                    if (UtilHelper.isNotchScreen(pageActivity2) || UtilHelper.isCutoutScreen(pageActivity2)) {
-                        dimension2 += l.r(pageActivity2);
-                    }
-                    int dimension3 = (int) pageActivity.getResources().getDimension(R.dimen.ds32);
-                    int dimension4 = (int) pageActivity.getResources().getDimension(R.dimen.ds106);
-                    int dimension5 = (int) pageActivity.getResources().getDimension(R.dimen.ds52);
-                    CountDownTextView countDownTextView = new CountDownTextView(pageActivity);
-                    this.f24419a = new e(countDownTextView, null);
-                    String str = this.f24420b;
-                    if (TextUtils.isEmpty(str)) {
-                        str = pageActivity.getResources().getString(R.string.skip);
-                    }
-                    if (splashAdView.isVideoAd) {
-                        countDownTextView.init(str, 6);
-                    } else {
-                        countDownTextView.init(str, 3);
-                    }
-                    splashAdView.setTag(Boolean.valueOf(splashAdView.isVideoAd));
-                    float f2 = dimension;
-                    countDownTextView.setTextSize(0, f2);
-                    countDownTextView.setTextColor(Color.parseColor("#ffffff"));
-                    countDownTextView.setGravity(17);
-                    countDownTextView.setAlpha(0.5f);
-                    GradientDrawable gradientDrawable = new GradientDrawable();
-                    gradientDrawable.setColor(Color.parseColor("#000000"));
-                    gradientDrawable.setCornerRadius(pageActivity.getResources().getDimension(R.dimen.ds4));
-                    gradientDrawable.setStroke(1, Color.parseColor("#000000"));
-                    countDownTextView.setBackgroundDrawable(gradientDrawable);
-                    countDownTextView.setOnClickListener(new c(this));
-                    countDownTextView.setTimeoutListener(new d(this));
-                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimension4, dimension5);
-                    layoutParams.addRule(10);
-                    layoutParams.addRule(11);
-                    layoutParams.setMargins(0, dimension2, dimension3, 0);
-                    int g2 = l.g(pageActivity, R.dimen.ds9);
-                    countDownTextView.setPadding(g2, g2, g2, g2);
-                    splashAdView.addView(countDownTextView, layoutParams);
-                    int dimension6 = (int) pageActivity.getResources().getDimension(R.dimen.ds28);
-                    TextView textView = new TextView(pageActivity);
-                    textView.setText(R.string.advert_label);
-                    textView.setTextSize(0, f2);
-                    textView.setAlpha(0.5f);
-                    textView.setIncludeFontPadding(false);
-                    textView.setGravity(17);
-                    textView.setBackgroundDrawable(gradientDrawable.getConstantState().newDrawable());
-                    int g3 = l.g(pageActivity, R.dimen.ds2);
-                    textView.setPadding(g3, g3, g3, g3);
-                    SkinManager.setViewTextColor(textView, R.color.common_color_10013);
-                    RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams((int) pageActivity.getResources().getDimension(R.dimen.ds68), (int) pageActivity.getResources().getDimension(R.dimen.ds40));
-                    layoutParams2.setMargins(dimension6, 0, 0, dimension6);
-                    layoutParams2.addRule(9);
-                    layoutParams2.addRule(12);
-                    splashAdView.addView(textView, layoutParams2);
-                } catch (Exception unused2) {
+            if (Build.VERSION.SDK_INT < 9) {
+                if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
+                    f14610b = false;
+                } else {
+                    f14610b = true;
                 }
-                return splashAdView;
+            } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
+                f14610b = false;
+            } else {
+                f14610b = true;
             }
-            return null;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2016310, new C1129a(this));
-            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(customMessageTask);
+            if (Build.VERSION.SDK_INT > 10 || f14610b || !UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
+                return;
+            }
+            TbadkCoreApplication.getInst().incPassportV6CrashCount();
+            f14610b = true;
         }
     }
 
-    public final void h(String str) {
+    public static b b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f24419a == null || TextUtils.isEmpty(str)) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f14611c : (b) invokeV.objValue;
+    }
+
+    public static void c() {
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f14611c != null || (runTask = MessageManager.getInstance().runTask(2001268, b.class)) == null || runTask.getData() == null) {
             return;
         }
-        this.f24419a.a(str);
+        f14611c = (b) runTask.getData();
     }
 }

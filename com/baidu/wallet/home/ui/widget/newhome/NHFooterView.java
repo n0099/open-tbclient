@@ -126,7 +126,7 @@ public class NHFooterView extends LinearLayout {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ NHFooterView f61300a;
+                        public final /* synthetic */ NHFooterView f61480a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -143,14 +143,14 @@ public class NHFooterView extends LinearLayout {
                                     return;
                                 }
                             }
-                            this.f61300a = this;
+                            this.f61480a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                NHFooterView nHFooterView = this.f61300a;
+                                NHFooterView nHFooterView = this.f61480a;
                                 b bVar2 = nHFooterView.mWalletHomeInterface;
                                 HomeCfgResponse.FooterItemDate[] footerItemDateArr2 = nHFooterView.mFooterData.data;
                                 bVar2.jump(footerItemDateArr2[0].footer_desc, footerItemDateArr2[0].footer_type, footerItemDateArr2[0].footer_link_addr, false);

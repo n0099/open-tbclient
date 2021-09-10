@@ -14,6 +14,7 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTextureData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -276,8 +277,8 @@ public abstract class f implements e {
     /* JADX WARN: Code restructure failed: missing block: B:26:0x005a, code lost:
         if (r5 <= r14) goto L15;
      */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x0109  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x010c  */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x0108  */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x010b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -911,10 +912,10 @@ public abstract class f implements e {
                         c.a.a0.b.a.a aVar2 = this.m.get(c.a.a0.b.a.k.c.f1843b);
                         if (aVar2 != null) {
                             v(aVar2, null);
-                            GLES20.glEnable(3042);
+                            GLES20.glEnable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
                             GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
                             int e3 = this.f1816c.e(i2, aVar2);
-                            GLES20.glDisable(3042);
+                            GLES20.glDisable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
                             if (e3 != i2) {
                                 i2 = e3;
                             }

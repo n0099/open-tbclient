@@ -1,6 +1,6 @@
 package com.baidu.tbadk.img;
 
-import c.a.p0.c0.c;
+import c.a.q0.d0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

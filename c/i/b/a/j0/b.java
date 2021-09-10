@@ -16,10 +16,10 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<byte[]> f33765a;
+    public final List<byte[]> f33874a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f33766b;
+    public final int f33875b;
 
     public b(List<byte[]> list, int i2) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public final class b {
                 return;
             }
         }
-        this.f33765a = list;
-        this.f33766b = i2;
+        this.f33874a = list;
+        this.f33875b = i2;
     }
 
     public static b a(l lVar) throws ParserException {
@@ -67,9 +67,9 @@ public final class b {
                     int D3 = lVar.D();
                     for (int i7 = 0; i7 < D3; i7++) {
                         int D4 = lVar.D();
-                        System.arraycopy(j.f33682a, 0, bArr, i5, j.f33682a.length);
-                        int length = i5 + j.f33682a.length;
-                        System.arraycopy(lVar.f33703a, lVar.c(), bArr, length, D4);
+                        System.arraycopy(j.f33791a, 0, bArr, i5, j.f33791a.length);
+                        int length = i5 + j.f33791a.length;
+                        System.arraycopy(lVar.f33812a, lVar.c(), bArr, length, D4);
                         i5 = length + D4;
                         lVar.K(D4);
                     }

@@ -16,10 +16,10 @@ public abstract class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f30393a;
+    public static final a f30475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f30394b;
+    public static final a f30476b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.w.b.g.c.a$a  reason: collision with other inner class name */
@@ -63,10 +63,10 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Interpolator f30395c;
+        public final Interpolator f30477c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Interpolator f30396d;
+        public final Interpolator f30478d;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public b() {
@@ -90,14 +90,14 @@ public abstract class a {
         public float a(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? this.f30395c.getInterpolation(f2) : invokeF.floatValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? this.f30477c.getInterpolation(f2) : invokeF.floatValue;
         }
 
         @Override // c.a.w.b.g.c.a
         public float b(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? this.f30396d.getInterpolation(f2) : invokeF.floatValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? this.f30478d.getInterpolation(f2) : invokeF.floatValue;
         }
 
         @Override // c.a.w.b.g.c.a
@@ -122,8 +122,8 @@ public abstract class a {
                     return;
                 }
             }
-            this.f30395c = new AccelerateInterpolator(f2);
-            this.f30396d = new DecelerateInterpolator(f2);
+            this.f30477c = new AccelerateInterpolator(f2);
+            this.f30478d = new DecelerateInterpolator(f2);
         }
     }
 
@@ -140,8 +140,8 @@ public abstract class a {
                 return;
             }
         }
-        f30393a = new b();
-        f30394b = new C1412a();
+        f30475a = new b();
+        f30476b = new C1412a();
     }
 
     public a() {
@@ -164,11 +164,11 @@ public abstract class a {
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
             if (i2 != 0) {
                 if (i2 == 1) {
-                    return f30394b;
+                    return f30476b;
                 }
                 throw new IllegalArgumentException("Unknown id: " + i2);
             }
-            return f30393a;
+            return f30475a;
         }
         return (a) invokeI.objValue;
     }

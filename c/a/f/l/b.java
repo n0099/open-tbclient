@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.f.d;
-import c.a.p0.s.q.e;
+import c.a.q0.s.q.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.afd.adapter.FacadeEmptyViewHolder;
 import com.baidu.android.imsdk.internal.Constants;

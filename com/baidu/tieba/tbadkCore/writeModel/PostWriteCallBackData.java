@@ -1,8 +1,8 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.s.q.v1;
-import c.a.p0.u.a;
+import c.a.q0.s.q.w1;
+import c.a.q0.u.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.AccessState;
@@ -45,7 +45,7 @@ public class PostWriteCallBackData implements Serializable {
     public a mAdverSegmentData;
     public ContriInfo mContriInfo;
     public int mFrom;
-    public v1 mReplyPrivacyTip;
+    public w1 mReplyPrivacyTip;
     public VideoEasterEggData mVideoEasterEggData;
     public String mVideoMd5;
     public VideoTitleData mVideoTitleData;
@@ -168,10 +168,10 @@ public class PostWriteCallBackData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.proZone : invokeV.intValue;
     }
 
-    public v1 getReplyPrivacyTip() {
+    public w1 getReplyPrivacyTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mReplyPrivacyTip : (v1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mReplyPrivacyTip : (w1) invokeV.objValue;
     }
 
     public ArrayList<String> getSensitiveWords() {
@@ -319,10 +319,10 @@ public class PostWriteCallBackData implements Serializable {
         }
     }
 
-    public void setReplyPrivacyTip(v1 v1Var) {
+    public void setReplyPrivacyTip(w1 w1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, v1Var) == null) {
-            this.mReplyPrivacyTip = v1Var;
+        if (interceptable == null || interceptable.invokeL(1048612, this, w1Var) == null) {
+            this.mReplyPrivacyTip = w1Var;
         }
     }
 

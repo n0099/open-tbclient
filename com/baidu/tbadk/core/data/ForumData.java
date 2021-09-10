@@ -3,15 +3,15 @@ package com.baidu.tbadk.core.data;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.l.e.n;
-import c.a.p0.s.q.b0;
-import c.a.p0.s.q.d0;
-import c.a.p0.s.q.e2;
-import c.a.p0.s.q.f2;
-import c.a.p0.s.q.g0;
-import c.a.p0.s.q.h2;
-import c.a.p0.s.q.l;
-import c.a.p0.s.q.m0;
-import c.a.p0.s.q.o2;
+import c.a.q0.s.q.b0;
+import c.a.q0.s.q.d0;
+import c.a.q0.s.q.f2;
+import c.a.q0.s.q.g0;
+import c.a.q0.s.q.g2;
+import c.a.q0.s.q.i2;
+import c.a.q0.s.q.l;
+import c.a.q0.s.q.m0;
+import c.a.q0.s.q.q2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -104,7 +104,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
     public List<Manager> managers;
     public int member_num;
     public String name;
-    public h2 news_info;
+    public i2 news_info;
     public int post_num;
     public String riskTipNotice;
     public String riskTipPop;
@@ -117,13 +117,13 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
     public String tag_name;
     public int thread_num;
     public String topIcon;
-    public e2 top_code;
-    public f2 top_notice_data;
+    public f2 top_code;
+    public g2 top_notice_data;
     public String topic_special_icon;
     public String topic_special_icon_right;
     public int user_level;
     public String warning_msg;
-    public o2 yuleData;
+    public q2 yuleData;
 
     static {
         InterceptResult invokeClinit;
@@ -177,18 +177,18 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         this.levelup_score = 0;
         this.is_support_local = 0;
         this.is_local_effect = 0;
-        this.top_notice_data = new f2();
+        this.top_notice_data = new g2();
         this.mBadgeData = new ArrayList<>();
         this.mFrsBannerData = new g0();
         this.mBannerListData = new BannerListData();
         this.mRecommendForumData = new ArrayList<>();
         this.mPrefixData = new PostPrefixData();
         this.mPostTopicData = new PostTopicData();
-        this.top_code = new e2();
-        this.news_info = new h2();
+        this.top_code = new f2();
+        this.news_info = new i2();
         this.canAddPhotoLivePost = false;
         this.mMemberShowIconData = new d0();
-        this.yuleData = new o2();
+        this.yuleData = new q2();
         this.mIsLiveGameForum = 0;
         this.warning_msg = null;
         this.special_forum_type = null;
@@ -369,10 +369,10 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.name : (String) invokeV.objValue;
     }
 
-    public h2 getNewsInfo() {
+    public i2 getNewsInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.news_info : (h2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.news_info : (i2) invokeV.objValue;
     }
 
     public PostTopicData getPostTopicData() {
@@ -483,10 +483,10 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.mTipInfos : (List) invokeV.objValue;
     }
 
-    public e2 getTopCode() {
+    public f2 getTopCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.top_code : (e2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.top_code : (f2) invokeV.objValue;
     }
 
     public String getTopIcon() {
@@ -495,10 +495,10 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.topIcon : (String) invokeV.objValue;
     }
 
-    public f2 getTop_notice_data() {
+    public g2 getTop_notice_data() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.top_notice_data : (f2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.top_notice_data : (g2) invokeV.objValue;
     }
 
     public String getTopic_special_icon() {
@@ -532,10 +532,10 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.warning_msg : (String) invokeV.objValue;
     }
 
-    public o2 getYuleData() {
+    public q2 getYuleData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.yuleData : (o2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.yuleData : (q2) invokeV.objValue;
     }
 
     public String getfShareImage() {
@@ -858,10 +858,10 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         }
     }
 
-    public void setNewsInfo(h2 h2Var) {
+    public void setNewsInfo(i2 i2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048660, this, h2Var) == null) {
-            this.news_info = h2Var;
+        if (interceptable == null || interceptable.invokeL(1048660, this, i2Var) == null) {
+            this.news_info = i2Var;
         }
     }
 
@@ -942,17 +942,17 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         }
     }
 
-    public void setTopCode(e2 e2Var) {
+    public void setTopCode(f2 f2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048672, this, e2Var) == null) {
-            this.top_code = e2Var;
+        if (interceptable == null || interceptable.invokeL(1048672, this, f2Var) == null) {
+            this.top_code = f2Var;
         }
     }
 
-    public void setTop_notice_data(f2 f2Var) {
+    public void setTop_notice_data(g2 g2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048673, this, f2Var) == null) {
-            this.top_notice_data = f2Var;
+        if (interceptable == null || interceptable.invokeL(1048673, this, g2Var) == null) {
+            this.top_notice_data = g2Var;
         }
     }
 
@@ -963,10 +963,10 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         }
     }
 
-    public void setYuleData(o2 o2Var) {
+    public void setYuleData(q2 q2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048675, this, o2Var) == null) {
-            this.yuleData = o2Var;
+        if (interceptable == null || interceptable.invokeL(1048675, this, q2Var) == null) {
+            this.yuleData = q2Var;
         }
     }
 

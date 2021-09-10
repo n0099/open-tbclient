@@ -247,13 +247,13 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                     int i2 = this.vP.oU;
                     if (i2 == 2) {
                         int[] iArr = new int[2];
-                        return aVar.f38294tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
+                        return aVar.f38413tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
                     } else if (i2 == 4) {
-                        return aVar.f38294tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
+                        return aVar.f38413tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
                     } else if (i2 != 5) {
                         return -1;
                     } else {
-                        return aVar.f38294tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
+                        return aVar.f38413tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
                     }
                 }
                 return invokeL2.intValue;

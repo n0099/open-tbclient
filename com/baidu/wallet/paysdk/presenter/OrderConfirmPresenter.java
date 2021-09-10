@@ -294,7 +294,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OrderConfirmPresenter f62477a;
+                public final /* synthetic */ OrderConfirmPresenter f62657a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -311,14 +311,14 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                             return;
                         }
                     }
-                    this.f62477a = this;
+                    this.f62657a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f62477a.getViewData();
+                        this.f62657a.getViewData();
                     }
                 }
             }, 800L);
@@ -420,7 +420,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OrderConfirmPresenter f62476a;
+                public final /* synthetic */ OrderConfirmPresenter f62656a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -437,7 +437,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                             return;
                         }
                     }
-                    this.f62476a = this;
+                    this.f62656a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.fingerprint.b
@@ -451,18 +451,18 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                         }
                         if (i2 == 0) {
                             StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_CHECK_FINGERPRINT_DURATION, null, new String[0]);
-                            this.f62476a.onFpCheckSucces(str);
+                            this.f62656a.onFpCheckSucces(str);
                         } else if (i2 == -5) {
-                            this.f62476a.onFpCheckError();
+                            this.f62656a.onFpCheckError();
                         } else if (i2 == -3) {
-                            this.f62476a.gotoPayUsePwd(true, str);
+                            this.f62656a.gotoPayUsePwd(true, str);
                         } else if (i2 == -1) {
                             StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_CHECK_FINGERPRINT_DURATION, null, new String[0]);
-                            this.f62476a.changePwdMode();
+                            this.f62656a.changePwdMode();
                         } else if (i2 == -4 || i2 == -6) {
-                            this.f62476a.gotoPayUsePwd(true, str);
+                            this.f62656a.gotoPayUsePwd(true, str);
                         } else if (i2 == -2) {
-                            this.f62476a.gotoPayUsePwd(true, "");
+                            this.f62656a.gotoPayUsePwd(true, "");
                         }
                     }
                 }

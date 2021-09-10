@@ -14,13 +14,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f71203a;
+    public volatile boolean f71383a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f71204b;
+    public long f71384b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C1980a f71205c;
+    public C1980a f71385c;
 
     /* renamed from: com.kwad.sdk.contentalliance.detail.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
@@ -29,10 +29,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f71206a;
+        public long f71386a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f71207b;
+        public int f71387b;
 
         public C1980a() {
             Interceptable interceptable = $ic;
@@ -47,28 +47,28 @@ public class a {
                     return;
                 }
             }
-            this.f71206a = 0L;
-            this.f71207b = 0;
+            this.f71386a = 0L;
+            this.f71387b = 0;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71207b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71387b : invokeV.intValue;
         }
 
         public void a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                this.f71206a += j2;
-                this.f71207b++;
+                this.f71386a += j2;
+                this.f71387b++;
             }
         }
 
         public long b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71206a : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71386a : invokeV.longValue;
         }
     }
 
@@ -85,30 +85,30 @@ public class a {
                 return;
             }
         }
-        this.f71205c = new C1980a();
+        this.f71385c = new C1980a();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f71203a) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f71383a) {
             return;
         }
-        this.f71203a = true;
-        this.f71204b = SystemClock.elapsedRealtime();
+        this.f71383a = true;
+        this.f71384b = SystemClock.elapsedRealtime();
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f71203a) {
-            this.f71205c.a(SystemClock.elapsedRealtime() - this.f71204b);
-            this.f71203a = false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f71383a) {
+            this.f71385c.a(SystemClock.elapsedRealtime() - this.f71384b);
+            this.f71383a = false;
         }
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71203a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71383a : invokeV.booleanValue;
     }
 
     @NonNull
@@ -116,11 +116,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f71203a) {
-                this.f71205c.a(SystemClock.elapsedRealtime() - this.f71204b);
-                this.f71203a = false;
+            if (this.f71383a) {
+                this.f71385c.a(SystemClock.elapsedRealtime() - this.f71384b);
+                this.f71383a = false;
             }
-            return this.f71205c;
+            return this.f71385c;
         }
         return (C1980a) invokeV.objValue;
     }
@@ -128,6 +128,6 @@ public class a {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f71204b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f71384b : invokeV.longValue;
     }
 }

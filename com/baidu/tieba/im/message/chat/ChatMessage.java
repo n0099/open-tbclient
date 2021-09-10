@@ -326,7 +326,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
                 try {
                     JSONArray jSONArray = new JSONArray(this.content);
                     if (jSONArray.length() > 0) {
-                        this.statisticsTaskId = b.f(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                        this.statisticsTaskId = b.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
                     }
                 } catch (Exception unused) {
                 }
@@ -352,7 +352,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
                 try {
                     JSONArray jSONArray = new JSONArray(this.content);
                     if (jSONArray.length() > 0) {
-                        this.statisticsServiceId = b.f(jSONArray.optJSONObject(0).optString("service_id"), 0L);
+                        this.statisticsServiceId = b.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
                     }
                 } catch (Exception unused) {
                 }

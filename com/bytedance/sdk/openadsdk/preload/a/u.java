@@ -14,13 +14,13 @@ public abstract class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final u f68425a;
+    public static final u f68605a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final u f68426b;
+    public static final u f68606b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final /* synthetic */ u[] f68427c;
+    public static final /* synthetic */ u[] f68607c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public abstract class u {
                 return;
             }
         }
-        f68425a = new u("DEFAULT", 0) { // from class: com.bytedance.sdk.openadsdk.preload.a.u.1
+        f68605a = new u("DEFAULT", 0) { // from class: com.bytedance.sdk.openadsdk.preload.a.u.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -86,8 +86,8 @@ public abstract class u {
                 }
             }
         };
-        f68426b = uVar;
-        f68427c = new u[]{f68425a, uVar};
+        f68606b = uVar;
+        f68607c = new u[]{f68605a, uVar};
     }
 
     public u(String str, int i2) {
@@ -118,6 +118,6 @@ public abstract class u {
     public static u[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (u[]) f68427c.clone() : (u[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (u[]) f68607c.clone() : (u[]) invokeV.objValue;
     }
 }

@@ -17,19 +17,19 @@ public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final j<? super List<T>> f79176e;
+    public final j<? super List<T>> f79414e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f79177f;
+    public final int f79415f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f79178g;
+    public final int f79416g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ArrayDeque<List<T>> f79179h;
+    public final ArrayDeque<List<T>> f79417h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final AtomicLong f79180i;
+    public final AtomicLong f79418i;
 
     /* loaded from: classes2.dex */
     public final class BufferOverlapProducer extends AtomicBoolean implements f {
@@ -61,13 +61,13 @@ public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
                 OperatorBufferWithSize$BufferOverlap operatorBufferWithSize$BufferOverlap = this.this$0;
-                if (!a.e(operatorBufferWithSize$BufferOverlap.f79180i, j2, operatorBufferWithSize$BufferOverlap.f79179h, operatorBufferWithSize$BufferOverlap.f79176e) || j2 == 0) {
+                if (!a.e(operatorBufferWithSize$BufferOverlap.f79418i, j2, operatorBufferWithSize$BufferOverlap.f79417h, operatorBufferWithSize$BufferOverlap.f79414e) || j2 == 0) {
                     return;
                 }
                 if (get() || !compareAndSet(false, true)) {
-                    operatorBufferWithSize$BufferOverlap.request(a.c(operatorBufferWithSize$BufferOverlap.f79178g, j2));
+                    operatorBufferWithSize$BufferOverlap.request(a.c(operatorBufferWithSize$BufferOverlap.f79416g, j2));
                 } else {
-                    operatorBufferWithSize$BufferOverlap.request(a.a(a.c(operatorBufferWithSize$BufferOverlap.f79178g, j2 - 1), operatorBufferWithSize$BufferOverlap.f79177f));
+                    operatorBufferWithSize$BufferOverlap.request(a.a(a.c(operatorBufferWithSize$BufferOverlap.f79416g, j2 - 1), operatorBufferWithSize$BufferOverlap.f79415f));
                 }
             }
         }

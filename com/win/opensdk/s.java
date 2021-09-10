@@ -11,7 +11,7 @@ public class s implements PBInterstitialListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBInterstitial f76980a;
+    public final /* synthetic */ PBInterstitial f77160a;
 
     public s(PBInterstitial pBInterstitial) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class s implements PBInterstitialListener {
                 return;
             }
         }
-        this.f76980a = pBInterstitial;
+        this.f77160a = pBInterstitial;
     }
 
     @Override // com.win.opensdk.PBListener
     public void onClicked() {
         PBInterstitialListener pBInterstitialListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBInterstitialListener = this.f76980a.f76669c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBInterstitialListener = this.f77160a.f76849c) == null) {
             return;
         }
         pBInterstitialListener.onClicked();
@@ -45,7 +45,7 @@ public class s implements PBInterstitialListener {
     public void onFail(PBError pBError) {
         PBInterstitialListener pBInterstitialListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) || (pBInterstitialListener = this.f76980a.f76669c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) || (pBInterstitialListener = this.f77160a.f76849c) == null) {
             return;
         }
         pBInterstitialListener.onFail(pBError);
@@ -55,7 +55,7 @@ public class s implements PBInterstitialListener {
     public void onInterstitialDismissed() {
         PBInterstitialListener pBInterstitialListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (pBInterstitialListener = this.f76980a.f76669c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (pBInterstitialListener = this.f77160a.f76849c) == null) {
             return;
         }
         pBInterstitialListener.onInterstitialDismissed();
@@ -65,7 +65,7 @@ public class s implements PBInterstitialListener {
     public void onInterstitialDisplayed() {
         PBInterstitialListener pBInterstitialListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBInterstitialListener = this.f76980a.f76669c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBInterstitialListener = this.f77160a.f76849c) == null) {
             return;
         }
         pBInterstitialListener.onInterstitialDisplayed();
@@ -75,7 +75,7 @@ public class s implements PBInterstitialListener {
     public void onInterstitialShowFail(String str) {
         PBInterstitialListener pBInterstitialListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (pBInterstitialListener = this.f76980a.f76669c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (pBInterstitialListener = this.f77160a.f76849c) == null) {
             return;
         }
         pBInterstitialListener.onInterstitialShowFail(str);
@@ -85,7 +85,7 @@ public class s implements PBInterstitialListener {
     public void onLoaded() {
         PBInterstitialListener pBInterstitialListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (pBInterstitialListener = this.f76980a.f76669c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (pBInterstitialListener = this.f77160a.f76849c) == null) {
             return;
         }
         pBInterstitialListener.onLoaded();

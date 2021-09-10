@@ -2,7 +2,7 @@ package c.a.r.f.a;
 
 import android.content.Context;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface i {
     String a(Context context);
 

@@ -40,34 +40,34 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f64363a;
+    public static final byte[] f64543a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f64364b;
+    public static final String[] f64544b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ac f64365c;
+    public static final ac f64545c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final aa f64366d;
+    public static final aa f64546d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Charset f64367e;
+    public static final Charset f64547e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Charset f64368f;
+    public static final Charset f64548f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final TimeZone f64369g;
+    public static final TimeZone f64549g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Comparator<String> f64370h;
+    public static final Comparator<String> f64550h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final f f64371i;
+    public static final f f64551i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final f f64372j;
+    public static final f f64552j;
     public static final f k;
     public static final f l;
     public static final f m;
@@ -92,23 +92,23 @@ public final class c {
             }
         }
         byte[] bArr = new byte[0];
-        f64363a = bArr;
-        f64364b = new String[0];
-        f64365c = ac.a(null, bArr);
-        f64366d = aa.a((v) null, f64363a);
-        f64371i = f.b("efbbbf");
-        f64372j = f.b("feff");
+        f64543a = bArr;
+        f64544b = new String[0];
+        f64545c = ac.a(null, bArr);
+        f64546d = aa.a((v) null, f64543a);
+        f64551i = f.b("efbbbf");
+        f64552j = f.b("feff");
         k = f.b("fffe");
         l = f.b("0000ffff");
         m = f.b("ffff0000");
-        f64367e = Charset.forName("UTF-8");
-        f64368f = Charset.forName("ISO-8859-1");
+        f64547e = Charset.forName("UTF-8");
+        f64548f = Charset.forName("ISO-8859-1");
         n = Charset.forName("UTF-16BE");
         o = Charset.forName("UTF-16LE");
         p = Charset.forName("UTF-32BE");
         q = Charset.forName("UTF-32LE");
-        f64369g = TimeZone.getTimeZone("GMT");
-        f64370h = new Comparator<String>() { // from class: com.bytedance.sdk.component.b.b.a.c.1
+        f64549g = TimeZone.getTimeZone("GMT");
+        f64550h = new Comparator<String>() { // from class: com.bytedance.sdk.component.b.b.a.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -396,10 +396,10 @@ public final class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f64373a;
+            public final /* synthetic */ String f64553a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ boolean f64374b;
+            public final /* synthetic */ boolean f64554b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -416,8 +416,8 @@ public final class c {
                         return;
                     }
                 }
-                this.f64373a = str;
-                this.f64374b = z;
+                this.f64553a = str;
+                this.f64554b = z;
             }
 
             @Override // java.util.concurrent.ThreadFactory
@@ -425,8 +425,8 @@ public final class c {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                    Thread thread = new Thread(runnable, "tt_pangle_thread_" + this.f64373a);
-                    thread.setDaemon(this.f64374b);
+                    Thread thread = new Thread(runnable, "tt_pangle_thread_" + this.f64553a);
+                    thread.setDaemon(this.f64554b);
                     return thread;
                 }
                 return (Thread) invokeL.objValue;
@@ -651,11 +651,11 @@ public final class c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, eVar, charset)) == null) {
-            if (eVar.a(0L, f64371i)) {
-                eVar.h(f64371i.g());
-                return f64367e;
-            } else if (eVar.a(0L, f64372j)) {
-                eVar.h(f64372j.g());
+            if (eVar.a(0L, f64551i)) {
+                eVar.h(f64551i.g());
+                return f64547e;
+            } else if (eVar.a(0L, f64552j)) {
+                eVar.h(f64552j.g());
                 return n;
             } else if (eVar.a(0L, k)) {
                 eVar.h(k.g());

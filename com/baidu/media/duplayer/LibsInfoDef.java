@@ -23,20 +23,22 @@ public class LibsInfoDef {
     public static final String CYBER_VIDEO_SR_MODEL_VERSION = "1.2";
     public static final int LIB_ID_CRASHPAD_CLIENT = 1;
     public static final int LIB_ID_CRASHPAD_HANDLER = 2;
-    public static final int LIB_ID_CYBER_FFMPEG = 4;
-    public static final int LIB_ID_CYBER_FFMPEG_EXTEND = 32;
-    public static final int LIB_ID_CYBER_PCDN = 64;
-    public static final int LIB_ID_CYBER_PLAYER = 16;
-    public static final int LIB_ID_CYBER_SDL = 8;
-    public static final int LIB_ID_DECODE_MODE = 8192;
-    public static final int LIB_ID_MML_FRAMEWORK = 512;
-    public static final int LIB_ID_MML_GBDT = 4096;
-    public static final int LIB_ID_OPENCV_JAVA3 = 256;
-    public static final int LIB_ID_PADDLE_LITE = 128;
-    public static final int LIB_ID_THIRD_PARTY_RTC = 2048;
+    public static final int LIB_ID_CYBER_CRYPTO = 4;
+    public static final int LIB_ID_CYBER_FFMPEG = 16;
+    public static final int LIB_ID_CYBER_FFMPEG_EXTEND = 128;
+    public static final int LIB_ID_CYBER_OPENSSL = 8;
+    public static final int LIB_ID_CYBER_PCDN = 256;
+    public static final int LIB_ID_CYBER_PLAYER = 64;
+    public static final int LIB_ID_CYBER_SDL = 32;
+    public static final int LIB_ID_DECODE_MODE = 32768;
+    public static final int LIB_ID_MML_FRAMEWORK = 2048;
+    public static final int LIB_ID_MML_GBDT = 16384;
+    public static final int LIB_ID_OPENCV_JAVA3 = 1024;
+    public static final int LIB_ID_PADDLE_LITE = 512;
+    public static final int LIB_ID_THIRD_PARTY_RTC = 8192;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Integer, d> f42497a;
+    public static final Map<Integer, d> f42608a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,20 +55,22 @@ public class LibsInfoDef {
             }
         }
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
-        f42497a = concurrentHashMap;
-        concurrentHashMap.put(4, new d(4, "cyber-ffmpeg", "4.1.2.64"));
-        f42497a.put(16, new d(16, "cyber-player", SDKVersion.VERSION));
-        f42497a.put(8, new d(8, "cyber-sdl", SDKVersion.VERSION));
-        f42497a.put(32, new d(32, "cyber-ffmpeg-extend", "4.1.2.15"));
-        f42497a.put(64, new d(64, "cyber-pcdn", "2.0.1.1631"));
-        f42497a.put(128, new d(128, "paddle-mobile-cl", "0.5.0.3"));
-        f42497a.put(256, new d(256, "opencv_java3", "0.3.2.0"));
-        f42497a.put(512, new d(512, "mml_framework", "0.5.0.3"));
-        f42497a.put(1, new d(1, "crashpad_client", "1.0.0.3"));
-        f42497a.put(2, new d(2, "crashpad_handler", "1.0.0.3"));
-        f42497a.put(2048, new d(2048, "cybermedia-ext-rtc", "5.4.14.0", d.a.f42521a));
-        f42497a.put(4096, new d(4096, "mml_gbdt", "1.0.0.2"));
-        f42497a.put(8192, new d(8192, "decode_mode", CYBER_PLAY_SCORE_STORAGE_VERSION));
+        f42608a = concurrentHashMap;
+        concurrentHashMap.put(8, new d(8, "ssl.1.1.1j", "1.1.1j"));
+        f42608a.put(4, new d(4, "crypto.1.1.1j", "1.1.1j"));
+        f42608a.put(16, new d(16, "cyber-ffmpeg", "4.1.2.87"));
+        f42608a.put(64, new d(64, "cyber-player", SDKVersion.VERSION));
+        f42608a.put(32, new d(32, "cyber-sdl", SDKVersion.VERSION));
+        f42608a.put(128, new d(128, "cyber-ffmpeg-extend", "4.1.2.16"));
+        f42608a.put(256, new d(256, "cyber-pcdn", "2.0.1.1659"));
+        f42608a.put(512, new d(512, "paddle-mobile-cl", "0.5.0.3"));
+        f42608a.put(1024, new d(1024, "opencv_java3", "0.3.2.0"));
+        f42608a.put(2048, new d(2048, "mml_framework", "0.5.0.3"));
+        f42608a.put(1, new d(1, "crashpad_client", "1.0.0.3"));
+        f42608a.put(2, new d(2, "crashpad_handler", "1.0.0.3"));
+        f42608a.put(8192, new d(8192, "cybermedia-ext-rtc", "5.4.14.0", d.a.f42632a));
+        f42608a.put(16384, new d(16384, "mml_gbdt", "1.0.0.2"));
+        f42608a.put(32768, new d(32768, "decode_mode", CYBER_PLAY_SCORE_STORAGE_VERSION));
     }
 
     public LibsInfoDef() {
@@ -86,6 +90,6 @@ public class LibsInfoDef {
     public static final Map<Integer, d> getAllGroupMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f42497a : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f42608a : (Map) invokeV.objValue;
     }
 }

@@ -10,7 +10,7 @@ public final class s implements IPushActionListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p f76467a;
+    public final /* synthetic */ p f76647a;
 
     public s(p pVar) {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public final class s implements IPushActionListener {
                 return;
             }
         }
-        this.f76467a = pVar;
+        this.f76647a = pVar;
     }
 
     @Override // com.vivo.push.IPushActionListener
@@ -37,15 +37,15 @@ public final class s implements IPushActionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 == 0) {
-                this.f76467a.l = "";
-                aVar2 = this.f76467a.k;
+                this.f76647a.l = "";
+                aVar2 = this.f76647a.k;
                 aVar2.a("APP_TOKEN", "");
-                this.f76467a.t();
-                this.f76467a.k.c("APP_TAGS");
+                this.f76647a.t();
+                this.f76647a.k.c("APP_TAGS");
                 return;
             }
-            this.f76467a.l = null;
-            aVar = this.f76467a.k;
+            this.f76647a.l = null;
+            aVar = this.f76647a.k;
             aVar.c("APP_TOKEN");
         }
     }

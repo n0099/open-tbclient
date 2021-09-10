@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import c.a.p0.s.q.c2;
-import c.a.p0.s.u.c;
+import c.a.q0.s.q.d2;
+import c.a.q0.s.u.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.dialog.BdToast;
@@ -26,16 +26,16 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f55970e;
+    public TbImageView f56128e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f55971f;
+    public View f56129f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f55972g;
+    public ImageView f56130g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f55973h;
+    public EMTextView f56131h;
     public View.OnClickListener mAfterClickListener;
     public Context mContext;
     public View.OnClickListener mJumpToPbListener;
@@ -68,17 +68,17 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.fake_video_container, this);
-            this.f55970e = (TbImageView) findViewById(R.id.video_thumbnail);
-            this.f55971f = findViewById(R.id.black_mask);
-            this.f55972g = (ImageView) findViewById(R.id.video_play);
-            this.f55973h = (EMTextView) findViewById(R.id.fake_video_info);
-            this.f55972g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-            c d2 = c.d(this.f55973h);
-            d2.u(R.color.CAM_X0101);
-            d2.z(R.string.F_X01);
-            this.f55970e.clearCornerFlag();
-            this.f55970e.setDrawCorner(false);
-            this.f55970e.setPlaceHolder(3);
+            this.f56128e = (TbImageView) findViewById(R.id.video_thumbnail);
+            this.f56129f = findViewById(R.id.black_mask);
+            this.f56130g = (ImageView) findViewById(R.id.video_play);
+            this.f56131h = (EMTextView) findViewById(R.id.fake_video_info);
+            this.f56130g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+            c d2 = c.d(this.f56131h);
+            d2.w(R.color.CAM_X0101);
+            d2.B(R.string.F_X01);
+            this.f56128e.clearCornerFlag();
+            this.f56128e.setDrawCorner(false);
+            this.f56128e.setPlaceHolder(3);
             setOnClickListener(this);
         }
     }
@@ -91,17 +91,17 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
         }
     }
 
-    public void setData(c2 c2Var) {
+    public void setData(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c2Var) == null) || c2Var == null || c2Var.o1() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) || d2Var == null || d2Var.q1() == null) {
             return;
         }
-        c2Var.o1().is_vertical.intValue();
-        this.f55970e.setPlaceHolder(3);
-        if (!c2Var.o1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !c2Var.o1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
-            this.f55970e.startLoad(c2Var.o1().thumbnail_url, 32, false);
+        d2Var.q1().is_vertical.intValue();
+        this.f56128e.setPlaceHolder(3);
+        if (!d2Var.q1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !d2Var.q1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
+            this.f56128e.startLoad(d2Var.q1().thumbnail_url, 32, false);
         } else {
-            this.f55970e.startLoad(c2Var.o1().thumbnail_url, 10, false);
+            this.f56128e.startLoad(d2Var.q1().thumbnail_url, 10, false);
         }
     }
 

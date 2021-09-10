@@ -201,27 +201,6 @@ public class WebRtcAudioRecord {
         public final byte[] data;
         public final int sampleRate;
 
-        public AudioSamples(AudioRecord audioRecord, byte[] bArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {audioRecord, bArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.audioFormat = audioRecord.getAudioFormat();
-            this.channelCount = audioRecord.getChannelCount();
-            this.sampleRate = audioRecord.getSampleRate();
-            this.data = bArr;
-        }
-
         public /* synthetic */ AudioSamples(AudioRecord audioRecord, byte[] bArr, AnonymousClass1 anonymousClass1) {
             this(audioRecord, bArr);
         }
@@ -248,6 +227,27 @@ public class WebRtcAudioRecord {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sampleRate : invokeV.intValue;
+        }
+
+        public AudioSamples(AudioRecord audioRecord, byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {audioRecord, bArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.audioFormat = audioRecord.getAudioFormat();
+            this.channelCount = audioRecord.getChannelCount();
+            this.sampleRate = audioRecord.getSampleRate();
+            this.data = bArr;
         }
     }
 
@@ -371,33 +371,33 @@ public class WebRtcAudioRecord {
             nativeCacheDirectBufferAddress(this.byteBuffer, this.nativeAudioRecord);
             int channelCountToConfiguration = channelCountToConfiguration(i3);
             int minBufferSize = AudioRecord.getMinBufferSize(i2, channelCountToConfiguration, 2);
-            if (minBufferSize == -1 || minBufferSize == -2) {
-                reportWebRtcAudioRecordInitError("AudioRecord.getMinBufferSize failed: " + minBufferSize);
-                return -1;
-            }
-            Logging.d(TAG, "AudioRecord.getMinBufferSize: " + minBufferSize);
-            int max = Math.max(minBufferSize * 2, this.byteBuffer.capacity());
-            Logging.d(TAG, "bufferSizeInBytes: " + max);
-            try {
-                AudioRecord audioRecord = new AudioRecord(audioSource, i2, channelCountToConfiguration, 2, max);
-                this.audioRecord = audioRecord;
-                if (audioRecord == null || audioRecord.getState() != 1) {
+            if (minBufferSize != -1 && minBufferSize != -2) {
+                Logging.d(TAG, "AudioRecord.getMinBufferSize: " + minBufferSize);
+                int max = Math.max(minBufferSize * 2, this.byteBuffer.capacity());
+                Logging.d(TAG, "bufferSizeInBytes: " + max);
+                try {
+                    AudioRecord audioRecord = new AudioRecord(audioSource, i2, channelCountToConfiguration, 2, max);
+                    this.audioRecord = audioRecord;
+                    if (audioRecord != null && audioRecord.getState() == 1) {
+                        WebRtcAudioEffects webRtcAudioEffects = this.effects;
+                        if (webRtcAudioEffects != null) {
+                            webRtcAudioEffects.enable(this.audioRecord.getAudioSessionId());
+                        }
+                        logMainParameters();
+                        logMainParametersExtended();
+                        return i4;
+                    }
                     reportWebRtcAudioRecordInitError("Failed to create a new AudioRecord instance");
                     releaseAudioResources();
                     return -1;
+                } catch (IllegalArgumentException e2) {
+                    reportWebRtcAudioRecordInitError("AudioRecord ctor error: " + e2.getMessage());
+                    releaseAudioResources();
+                    return -1;
                 }
-                WebRtcAudioEffects webRtcAudioEffects = this.effects;
-                if (webRtcAudioEffects != null) {
-                    webRtcAudioEffects.enable(this.audioRecord.getAudioSessionId());
-                }
-                logMainParameters();
-                logMainParametersExtended();
-                return i4;
-            } catch (IllegalArgumentException e2) {
-                reportWebRtcAudioRecordInitError("AudioRecord ctor error: " + e2.getMessage());
-                releaseAudioResources();
-                return -1;
             }
+            reportWebRtcAudioRecordInitError("AudioRecord.getMinBufferSize failed: " + minBufferSize);
+            return -1;
         }
         return invokeII.intValue;
     }
@@ -471,7 +471,7 @@ public class WebRtcAudioRecord {
         }
     }
 
-    public static void setAudioSource(int i2) {
+    public static synchronized void setAudioSource(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65561, null, i2) == null) {
             synchronized (WebRtcAudioRecord.class) {
@@ -513,15 +513,15 @@ public class WebRtcAudioRecord {
             assertTrue(this.audioThread == null);
             try {
                 this.audioRecord.startRecording();
-                if (this.audioRecord.getRecordingState() == 3) {
-                    AudioRecordThread audioRecordThread = new AudioRecordThread(this, "AudioRecordJavaThread");
-                    this.audioThread = audioRecordThread;
-                    audioRecordThread.start();
-                    return true;
+                if (this.audioRecord.getRecordingState() != 3) {
+                    AudioRecordStartErrorCode audioRecordStartErrorCode = AudioRecordStartErrorCode.AUDIO_RECORD_START_STATE_MISMATCH;
+                    reportWebRtcAudioRecordStartError(audioRecordStartErrorCode, "AudioRecord.startRecording failed - incorrect state :" + this.audioRecord.getRecordingState());
+                    return false;
                 }
-                AudioRecordStartErrorCode audioRecordStartErrorCode = AudioRecordStartErrorCode.AUDIO_RECORD_START_STATE_MISMATCH;
-                reportWebRtcAudioRecordStartError(audioRecordStartErrorCode, "AudioRecord.startRecording failed - incorrect state :" + this.audioRecord.getRecordingState());
-                return false;
+                AudioRecordThread audioRecordThread = new AudioRecordThread(this, "AudioRecordJavaThread");
+                this.audioThread = audioRecordThread;
+                audioRecordThread.start();
+                return true;
             } catch (IllegalStateException e2) {
                 AudioRecordStartErrorCode audioRecordStartErrorCode2 = AudioRecordStartErrorCode.AUDIO_RECORD_START_EXCEPTION;
                 reportWebRtcAudioRecordStartError(audioRecordStartErrorCode2, "AudioRecord.startRecording failed: " + e2.getMessage());

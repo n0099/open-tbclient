@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.e.e.p.l;
-import c.a.p0.s.u.c;
+import c.a.q0.s.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
@@ -24,19 +24,19 @@ public class WritePrefixItemLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f58526e;
+    public Context f58707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f58527f;
+    public TextView f58708f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f58528g;
+    public TextView f58709g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f58529h;
+    public ImageView f58710h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f58530i;
+    public View f58711i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public WritePrefixItemLayout(Context context) {
@@ -62,17 +62,17 @@ public class WritePrefixItemLayout extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.f58526e).inflate(R.layout.prefix_item, this);
+            LayoutInflater.from(this.f58707e).inflate(R.layout.prefix_item, this);
             setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             setOrientation(1);
-            this.f58527f = (TextView) findViewById(R.id.prefix_text);
-            this.f58528g = (TextView) findViewById(R.id.prefix_no_tip);
-            this.f58529h = (ImageView) findViewById(R.id.prefix_checked);
-            this.f58530i = findViewById(R.id.prefix_item_divider);
-            this.f58527f.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-            c.d(this.f58528g).u(R.color.CAM_X0109);
-            this.f58529h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_set_list_ok16, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
-            SkinManager.setBackgroundColor(this.f58530i, R.color.CAM_X0204);
+            this.f58708f = (TextView) findViewById(R.id.prefix_text);
+            this.f58709g = (TextView) findViewById(R.id.prefix_no_tip);
+            this.f58710h = (ImageView) findViewById(R.id.prefix_checked);
+            this.f58711i = findViewById(R.id.prefix_item_divider);
+            this.f58708f.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+            c.d(this.f58709g).w(R.color.CAM_X0109);
+            this.f58710h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_set_list_ok16, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            SkinManager.setBackgroundColor(this.f58711i, R.color.CAM_X0204);
             SkinManager.setBackgroundResource(this, R.drawable.addresslist_item_bg);
         }
     }
@@ -82,20 +82,20 @@ public class WritePrefixItemLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || z) {
             return;
         }
-        ((LinearLayout.LayoutParams) this.f58530i.getLayoutParams()).setMargins(l.g(this.f58526e, R.dimen.ds30), 0, l.g(this.f58526e, R.dimen.ds30), 0);
+        ((LinearLayout.LayoutParams) this.f58711i.getLayoutParams()).setMargins(l.g(this.f58707e, R.dimen.ds30), 0, l.g(this.f58707e, R.dimen.ds30), 0);
     }
 
     public void setPrefixText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f58527f.setText(str);
+            this.f58708f.setText(str);
         }
     }
 
     public void setPrefixTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f58527f.setTextColor(i2);
+            this.f58708f.setTextColor(i2);
         }
     }
 
@@ -103,9 +103,9 @@ public class WritePrefixItemLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
-                this.f58529h.setVisibility(0);
+                this.f58710h.setVisibility(0);
             } else {
-                this.f58529h.setVisibility(8);
+                this.f58710h.setVisibility(8);
             }
         }
     }
@@ -113,7 +113,7 @@ public class WritePrefixItemLayout extends LinearLayout {
     public void showPrefixTip(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f58528g.setVisibility(z ? 0 : 8);
+            this.f58709g.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -136,7 +136,7 @@ public class WritePrefixItemLayout extends LinearLayout {
                 return;
             }
         }
-        this.f58526e = context;
+        this.f58707e = context;
         a();
     }
 }

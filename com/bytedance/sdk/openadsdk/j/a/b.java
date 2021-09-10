@@ -13,10 +13,10 @@ public class b extends c<b> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f67761a;
+    public long f67941a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67762b;
+    public long f67942b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class b extends c<b> {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            this.f67761a = j2;
+            this.f67941a = j2;
             return this;
         }
         return (b) invokeJ.objValue;
@@ -46,7 +46,7 @@ public class b extends c<b> {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-            this.f67762b = j2;
+            this.f67942b = j2;
             return this;
         }
         return (b) invokeJ.objValue;
@@ -59,8 +59,8 @@ public class b extends c<b> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject a2 = super.a();
             try {
-                a2.put("c_process_time", this.f67761a);
-                a2.put("s_process_time", this.f67762b);
+                a2.put("c_process_time", this.f67941a);
+                a2.put("s_process_time", this.f67942b);
             } catch (Exception unused) {
             }
             return a2;

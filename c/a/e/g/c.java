@@ -25,17 +25,17 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f2742b;
+    public static boolean f2733b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f2743c;
+    public static boolean f2734c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f2744d;
+    public static c f2735d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile c.a.e.i.a f2745a;
+    public volatile c.a.e.i.a f2736a;
 
     /* loaded from: classes.dex */
     public static class a implements c.a.b0.d.a.a {
@@ -85,7 +85,7 @@ public class c {
                 return;
             }
         }
-        f2744d = new c();
+        f2735d = new c();
     }
 
     public c() {
@@ -104,25 +104,25 @@ public class c {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !f2743c && c.a.e.i.a.m()) {
-            f2743c = true;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !f2734c && c.a.e.i.a.m()) {
+            f2734c = true;
             NPSPackageManager.getInstance().downloadAllBundles();
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f2742b) {
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f2733b) {
             return;
         }
-        f2742b = true;
+        f2733b = true;
         NPSPackageManager.getInstance().fetchBundleInfo();
     }
 
     public static c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f2744d : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f2735d : (c) invokeV.objValue;
     }
 
     public static void j() {
@@ -150,7 +150,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             i();
-            return this.f2745a.l();
+            return this.f2736a.l();
         }
         return (RequestParams.Channel) invokeV.objValue;
     }
@@ -166,7 +166,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             i();
-            return this.f2745a;
+            return this.f2736a;
         }
         return (c.a.e.i.a) invokeV.objValue;
     }
@@ -199,8 +199,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
-                if (this.f2745a == null) {
-                    this.f2745a = new c.a.e.i.a();
+                if (this.f2736a == null) {
+                    this.f2736a = new c.a.e.i.a();
                 }
             }
         }

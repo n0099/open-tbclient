@@ -59,7 +59,7 @@ public class RemotePlayerService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent)) == null) {
             try {
-                CyberPlayerManager.install(getApplicationContext(), intent.getStringExtra("clientID"), null, intent.getIntExtra("installType", 1), null, (Map) intent.getSerializableExtra("installOpts"), null);
+                CyberPlayerManager.install(getApplicationContext(), intent.getStringExtra("clientID"), (String) null, intent.getIntExtra("installType", 1), (Class<?>) null, (Map<String, String>) intent.getSerializableExtra("installOpts"), (CyberPlayerManager.InstallListener2) null);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

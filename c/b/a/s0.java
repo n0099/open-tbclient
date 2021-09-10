@@ -17,7 +17,7 @@ public final class s0 implements v0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public j0<Boolean> f31312a;
+    public j0<Boolean> f31421a;
 
     /* loaded from: classes4.dex */
     public class a extends j0<Boolean> {
@@ -73,7 +73,7 @@ public final class s0 implements v0 {
                 return;
             }
         }
-        this.f31312a = new a(this);
+        this.f31421a = new a(this);
     }
 
     @Override // c.b.a.v0
@@ -84,7 +84,7 @@ public final class s0 implements v0 {
             if (context == null) {
                 return false;
             }
-            return this.f31312a.b(context).booleanValue();
+            return this.f31421a.b(context).booleanValue();
         }
         return invokeL.booleanValue;
     }
@@ -105,7 +105,7 @@ public final class s0 implements v0 {
             }
             try {
                 v0.a aVar = new v0.a();
-                aVar.f31329a = a(cursor);
+                aVar.f31438a = a(cursor);
                 if (cursor != null) {
                     cursor.close();
                 }

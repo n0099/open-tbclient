@@ -20,7 +20,7 @@ public final class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f78064a;
+    public static final Set<String> f78244a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -48,7 +48,7 @@ public final class u {
                 return;
             }
         }
-        f78064a = Collections.synchronizedSet(new HashSet());
+        f78244a = Collections.synchronizedSet(new HashSet());
     }
 
     public u(Context context) {
@@ -80,7 +80,7 @@ public final class u {
                 file2.getParentFile().mkdirs();
                 file2.createNewFile();
             }
-            if (f78064a.add(str)) {
+            if (f78244a.add(str)) {
                 u uVar = new u(context);
                 uVar.f992a = str;
                 try {
@@ -95,7 +95,7 @@ public final class u {
                         if (randomAccessFile2 != null) {
                             y.a(randomAccessFile2);
                         }
-                        f78064a.remove(uVar.f992a);
+                        f78244a.remove(uVar.f992a);
                     }
                 }
             }
@@ -120,7 +120,7 @@ public final class u {
             if (randomAccessFile != null) {
                 y.a(randomAccessFile);
             }
-            f78064a.remove(this.f992a);
+            f78244a.remove(this.f992a);
         }
     }
 }

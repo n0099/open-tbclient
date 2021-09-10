@@ -11,7 +11,7 @@ public class I0 implements ViewTreeObserver.OnWindowFocusChangeListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ O0 f76621a;
+    public final /* synthetic */ O0 f76801a;
 
     public I0(O0 o0) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class I0 implements ViewTreeObserver.OnWindowFocusChangeListener {
                 return;
             }
         }
-        this.f76621a = o0;
+        this.f76801a = o0;
     }
 
     @Override // android.view.ViewTreeObserver.OnWindowFocusChangeListener
@@ -36,8 +36,8 @@ public class I0 implements ViewTreeObserver.OnWindowFocusChangeListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             String str = "onWindowFocusChanged:" + z;
-            if (this.f76621a.f76647c != null) {
-                this.f76621a.f76647c.a(z);
+            if (this.f76801a.f76827c != null) {
+                this.f76801a.f76827c.a(z);
             }
         }
     }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
-import c.a.q0.k2.b;
+import c.a.r0.l2.b;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

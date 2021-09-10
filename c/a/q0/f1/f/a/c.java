@@ -1,204 +1,96 @@
 package c.a.q0.f1.f.a;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.k;
-import c.a.e.l.e.n;
-import c.a.p0.b.d;
-import c.a.p0.s.q.b2;
-import c.a.p0.s.q.c2;
-import c.a.q0.f1.f.a.e.e;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.frs.FrsTabItemData;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsTabInfo;
-import tbclient.HotThreadList.DataRes;
-import tbclient.HotThreadList.HotThreadListResIdl;
-import tbclient.ThreadInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<n> a(List<c2> list) {
-        InterceptResult invokeL;
+    /* renamed from: a  reason: collision with root package name */
+    public SparseArray<WeakReference<View>> f13148a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f13149b;
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public c(View view) {
+        this(view, -1);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((View) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ArrayList arrayList = new ArrayList();
-            int i2 = 0;
-            for (c2 c2Var : list) {
-                int[] g0 = c2Var.g0();
-                if (c2Var.getType() == c2.W2) {
-                    c2Var.position = i2;
-                    b2 b2Var = new b2();
-                    b2Var.w = c2Var;
-                    b2Var.position = i2;
-                    b2Var.v = true;
-                    b2Var.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList.add(b2Var);
-                    b2 b2Var2 = new b2();
-                    b2Var2.w = c2Var;
-                    b2Var2.position = i2;
-                    if (c2Var.K1()) {
-                        b2Var2.f14154j = true;
-                    } else if (c2Var.X2() == 1) {
-                        b2Var2.f14152h = true;
-                        b2Var2.x = g0[0];
-                        b2Var2.y = g0[1];
-                    } else if (c2Var.X2() >= 2) {
-                        b2Var2.f14153i = true;
-                    } else {
-                        b2Var2.f14150f = true;
-                    }
-                    b2Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList.add(b2Var2);
-                    b2 b2Var3 = new b2();
-                    b2Var3.k = true;
-                    b2Var3.w = c2Var;
-                    b2Var3.position = i2;
-                    b2Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList.add(b2Var3);
-                } else if (c2Var.getType() == c2.t3) {
-                    c2Var.position = i2;
-                    b2 b2Var4 = new b2();
-                    b2Var4.w = c2Var;
-                    b2Var4.position = i2;
-                    b2Var4.v = true;
-                    b2Var4.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList.add(b2Var4);
-                    b2 b2Var5 = new b2();
-                    b2Var5.w = c2Var;
-                    b2Var5.position = i2;
-                    b2Var5.m = true;
-                    b2Var5.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList.add(b2Var5);
-                    b2 b2Var6 = new b2();
-                    b2Var6.k = true;
-                    b2Var6.w = c2Var;
-                    b2Var6.position = i2;
-                    b2Var6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList.add(b2Var6);
-                } else {
-                    c2Var.setSupportType(BaseCardInfo.SupportType.TOP);
+        }
+    }
+
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13149b : (View) invokeV.objValue;
+    }
+
+    public <T extends View> T b(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            WeakReference<View> weakReference = this.f13148a.get(i2);
+            if (weakReference == null) {
+                T t = (T) this.f13149b.findViewById(i2);
+                if (t != null) {
+                    this.f13148a.put(i2, new WeakReference<>(t));
+                    return t;
                 }
-                i2++;
-                c2Var.setSupportType(BaseCardInfo.SupportType.TOP);
+                return t;
             }
-            return arrayList;
+            return (T) weakReference.get();
         }
-        return (List) invokeL.objValue;
+        return (T) invokeI.objValue;
     }
 
-    public static List<n> b(List<ThreadInfo> list) {
+    public c c(View.OnClickListener onClickListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (ThreadInfo threadInfo : list) {
-                c2 c2Var = new c2();
-                c2Var.d2 = true;
-                c2Var.S2(threadInfo);
-                f(c2Var);
-                arrayList.add(c2Var);
-            }
-            return a(arrayList);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener)) == null) {
+            this.f13149b.setOnClickListener(onClickListener);
+            return this;
         }
-        return (List) invokeL.objValue;
+        return (c) invokeL.objValue;
     }
 
-    public static List<n> c(List<ThreadInfo> list) {
-        InterceptResult invokeL;
+    public c(View view, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            if (list == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            ArrayList arrayList = new ArrayList(list.size());
-            int size = list.size();
-            int i2 = 0;
-            for (int i3 = 0; i3 < size; i3++) {
-                ThreadInfo threadInfo = list.get(i3);
-                if (threadInfo != null && !TextUtils.isEmpty(threadInfo.title)) {
-                    arrayList.add(new e(threadInfo, i2));
-                    i2++;
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public static List<n> d(HotThreadListResIdl hotThreadListResIdl) {
-        InterceptResult invokeL;
-        DataRes dataRes;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, hotThreadListResIdl)) == null) {
-            if (hotThreadListResIdl == null || (dataRes = hotThreadListResIdl.data) == null || ListUtils.isEmpty(dataRes.thread_info)) {
-                return null;
-            }
-            boolean G = d.G();
-            List<ThreadInfo> list = hotThreadListResIdl.data.thread_info;
-            if (G) {
-                return b(list);
-            }
-            return c(list);
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static c.a.q0.f1.f.a.e.b e(List<FrsTabInfo> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
-            ArrayList arrayList = new ArrayList();
-            frsTabInfoData.tabList = arrayList;
-            FrsTabItemData frsTabItemData = new FrsTabItemData();
-            frsTabItemData.tabCode = "all";
-            frsTabItemData.name = TbadkCoreApplication.getInst().getString(R.string.hot_topic_hot_all);
-            int i2 = 0;
-            frsTabItemData.tabId = 0;
-            arrayList.add(frsTabItemData);
-            if (!ListUtils.isEmpty(list)) {
-                for (FrsTabInfo frsTabInfo : list) {
-                    if (frsTabInfo != null && !k.isEmpty(frsTabInfo.tab_code) && !k.isEmpty(frsTabInfo.tab_name)) {
-                        i2++;
-                        FrsTabItemData frsTabItemData2 = new FrsTabItemData(frsTabInfo);
-                        frsTabItemData2.tabId = i2;
-                        arrayList.add(frsTabItemData2);
-                    }
-                }
-            }
-            return new c.a.q0.f1.f.a.e.b(frsTabInfoData);
-        }
-        return (c.a.q0.f1.f.a.e.b) invokeL.objValue;
-    }
-
-    public static void f(c2 c2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, c2Var) == null) {
-            String x0 = c2Var.x0();
-            String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(c2Var.t0() * 1000);
-            if (!TextUtils.isEmpty(x0) && !TextUtils.isEmpty(formatTimeForHomeC)) {
-                x0 = x0 + "   " + formatTimeForHomeC;
-            }
-            c2Var.o4(x0);
-        }
+        this.f13149b = view;
+        this.f13148a = new SparseArray<>();
     }
 }

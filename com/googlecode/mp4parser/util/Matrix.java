@@ -22,16 +22,16 @@ public class Matrix {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public double f70683a;
+    public double f70863a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f70684b;
+    public double f70864b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f70685c;
+    public double f70865c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f70686d;
+    public double f70866d;
     public double tx;
     public double ty;
     public double u;
@@ -75,10 +75,10 @@ public class Matrix {
         this.u = d6;
         this.v = d7;
         this.w = d8;
-        this.f70683a = d2;
-        this.f70684b = d3;
-        this.f70685c = d4;
-        this.f70686d = d5;
+        this.f70863a = d2;
+        this.f70864b = d3;
+        this.f70865c = d4;
+        this.f70866d = d5;
         this.tx = d9;
         this.ty = d10;
     }
@@ -106,7 +106,7 @@ public class Matrix {
                 return false;
             }
             Matrix matrix = (Matrix) obj;
-            return Double.compare(matrix.f70683a, this.f70683a) == 0 && Double.compare(matrix.f70684b, this.f70684b) == 0 && Double.compare(matrix.f70685c, this.f70685c) == 0 && Double.compare(matrix.f70686d, this.f70686d) == 0 && Double.compare(matrix.tx, this.tx) == 0 && Double.compare(matrix.ty, this.ty) == 0 && Double.compare(matrix.u, this.u) == 0 && Double.compare(matrix.v, this.v) == 0 && Double.compare(matrix.w, this.w) == 0;
+            return Double.compare(matrix.f70863a, this.f70863a) == 0 && Double.compare(matrix.f70864b, this.f70864b) == 0 && Double.compare(matrix.f70865c, this.f70865c) == 0 && Double.compare(matrix.f70866d, this.f70866d) == 0 && Double.compare(matrix.tx, this.tx) == 0 && Double.compare(matrix.ty, this.ty) == 0 && Double.compare(matrix.u, this.u) == 0 && Double.compare(matrix.v, this.v) == 0 && Double.compare(matrix.w, this.w) == 0;
         }
         return invokeL.booleanValue;
     }
@@ -114,11 +114,11 @@ public class Matrix {
     public void getContent(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.f70683a);
-            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.f70684b);
+            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.f70863a);
+            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.f70864b);
             IsoTypeWriter.writeFixedPoint0230(byteBuffer, this.u);
-            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.f70685c);
-            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.f70686d);
+            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.f70865c);
+            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.f70866d);
             IsoTypeWriter.writeFixedPoint0230(byteBuffer, this.v);
             IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.tx);
             IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.ty);
@@ -133,10 +133,10 @@ public class Matrix {
             long doubleToLongBits = Double.doubleToLongBits(this.u);
             long doubleToLongBits2 = Double.doubleToLongBits(this.v);
             long doubleToLongBits3 = Double.doubleToLongBits(this.w);
-            long doubleToLongBits4 = Double.doubleToLongBits(this.f70683a);
-            long doubleToLongBits5 = Double.doubleToLongBits(this.f70684b);
-            long doubleToLongBits6 = Double.doubleToLongBits(this.f70685c);
-            long doubleToLongBits7 = Double.doubleToLongBits(this.f70686d);
+            long doubleToLongBits4 = Double.doubleToLongBits(this.f70863a);
+            long doubleToLongBits5 = Double.doubleToLongBits(this.f70864b);
+            long doubleToLongBits6 = Double.doubleToLongBits(this.f70865c);
+            long doubleToLongBits7 = Double.doubleToLongBits(this.f70866d);
             long doubleToLongBits8 = Double.doubleToLongBits(this.tx);
             long doubleToLongBits9 = Double.doubleToLongBits(this.ty);
             return (((((((((((((((((int) (doubleToLongBits ^ (doubleToLongBits >>> 32))) * 31) + ((int) (doubleToLongBits2 ^ (doubleToLongBits2 >>> 32)))) * 31) + ((int) (doubleToLongBits3 ^ (doubleToLongBits3 >>> 32)))) * 31) + ((int) (doubleToLongBits4 ^ (doubleToLongBits4 >>> 32)))) * 31) + ((int) (doubleToLongBits5 ^ (doubleToLongBits5 >>> 32)))) * 31) + ((int) (doubleToLongBits6 ^ (doubleToLongBits6 >>> 32)))) * 31) + ((int) (doubleToLongBits7 ^ (doubleToLongBits7 >>> 32)))) * 31) + ((int) (doubleToLongBits8 ^ (doubleToLongBits8 >>> 32)))) * 31) + ((int) (doubleToLongBits9 ^ (doubleToLongBits9 >>> 32)));
@@ -160,7 +160,7 @@ public class Matrix {
             if (equals(ROTATE_270)) {
                 return "Rotate 270°";
             }
-            return "Matrix{u=" + this.u + ", v=" + this.v + ", w=" + this.w + ", a=" + this.f70683a + ", b=" + this.f70684b + ", c=" + this.f70685c + ", d=" + this.f70686d + ", tx=" + this.tx + ", ty=" + this.ty + ExtendedMessageFormat.END_FE;
+            return "Matrix{u=" + this.u + ", v=" + this.v + ", w=" + this.w + ", a=" + this.f70863a + ", b=" + this.f70864b + ", c=" + this.f70865c + ", d=" + this.f70866d + ", tx=" + this.tx + ", ty=" + this.ty + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

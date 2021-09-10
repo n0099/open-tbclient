@@ -16,16 +16,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public m f67445a;
+    public m f67625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67446b;
+    public String f67626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67447c;
+    public String f67627c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f67448d;
+    public JSONObject f67628d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f67447c = str;
+            this.f67627c = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -99,7 +99,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
-            this.f67448d = jSONObject;
+            this.f67628d = jSONObject;
             return this;
         }
         return (a) invokeL.objValue;
@@ -112,13 +112,13 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("tag", this.f67446b);
-                jSONObject.put(NotificationCompatJellybean.KEY_LABEL, this.f67447c);
-                if (this.f67448d != null) {
-                    jSONObject.put("extra", this.f67448d);
+                jSONObject.put("tag", this.f67626b);
+                jSONObject.put(NotificationCompatJellybean.KEY_LABEL, this.f67627c);
+                if (this.f67628d != null) {
+                    jSONObject.put("extra", this.f67628d);
                 }
-                if (this.f67445a != null) {
-                    jSONObject.put("material_meta", this.f67445a.aP());
+                if (this.f67625a != null) {
+                    jSONObject.put("material_meta", this.f67625a.aP());
                 }
             } catch (Exception unused) {
             }
@@ -131,7 +131,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mVar)) == null) {
-            this.f67445a = mVar;
+            this.f67625a = mVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -141,7 +141,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f67446b = str;
+            this.f67626b = str;
             return this;
         }
         return (a) invokeL.objValue;

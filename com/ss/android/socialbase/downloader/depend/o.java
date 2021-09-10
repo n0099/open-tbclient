@@ -25,11 +25,11 @@ public interface o extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static o f75699a;
+            public static o f75879a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f75700b;
+            public IBinder f75880b;
 
             public C2067a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public interface o extends IInterface {
                         return;
                     }
                 }
-                this.f75700b = iBinder;
+                this.f75880b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.o
@@ -57,7 +57,7 @@ public interface o extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadDiskSpaceAidlCallback");
-                        if (!this.f75700b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f75880b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                             a.b().a();
                         } else {
                             obtain2.readException();
@@ -73,7 +73,7 @@ public interface o extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75700b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75880b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -112,7 +112,7 @@ public interface o extends IInterface {
         public static o b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2067a.f75699a : (o) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2067a.f75879a : (o) invokeV.objValue;
         }
 
         @Override // android.os.IInterface

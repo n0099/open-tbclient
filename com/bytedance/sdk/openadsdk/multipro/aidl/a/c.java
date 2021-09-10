@@ -17,10 +17,10 @@ public class c extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, RemoteCallbackList<ICommonDialogListener>> f67867a;
+    public static HashMap<String, RemoteCallbackList<ICommonDialogListener>> f68047a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f67868b;
+    public static volatile c f68048b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class c extends a {
                 return;
             }
         }
-        f67867a = new HashMap<>();
+        f68047a = new HashMap<>();
     }
 
     public c() {
@@ -57,14 +57,14 @@ public class c extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f67868b == null) {
+            if (f68048b == null) {
                 synchronized (c.class) {
-                    if (f67868b == null) {
-                        f67868b = new c();
+                    if (f68048b == null) {
+                        f68048b = new c();
                     }
                 }
             }
-            return f67868b;
+            return f68048b;
         }
         return (c) invokeV.objValue;
     }
@@ -73,7 +73,7 @@ public class c extends a {
     public void broadcastDialogListener(String str, int i2) throws RemoteException {
         RemoteCallbackList<ICommonDialogListener> remove;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) || (remove = f67867a.remove(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) || (remove = f68047a.remove(str)) == null) {
             return;
         }
         int beginBroadcast = remove.beginBroadcast();
@@ -103,6 +103,6 @@ public class c extends a {
         }
         RemoteCallbackList<ICommonDialogListener> remoteCallbackList = new RemoteCallbackList<>();
         remoteCallbackList.register(iCommonDialogListener);
-        f67867a.put(str, remoteCallbackList);
+        f68047a.put(str, remoteCallbackList);
     }
 }

@@ -17,11 +17,11 @@ public final class VideoAdValidity {
     public static final VideoAdValidity VALID;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ VideoAdValidity[] f75240b;
+    public static final /* synthetic */ VideoAdValidity[] f75420b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f75241a;
+    public String f75421a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public final class VideoAdValidity {
         SHOWED = new VideoAdValidity("SHOWED", 2, "已经展示的广告");
         VideoAdValidity videoAdValidity = new VideoAdValidity("NONE_CACHE", 3, "视频未缓存的广告");
         NONE_CACHE = videoAdValidity;
-        f75240b = new VideoAdValidity[]{VALID, OVERDUE, SHOWED, videoAdValidity};
+        f75420b = new VideoAdValidity[]{VALID, OVERDUE, SHOWED, videoAdValidity};
     }
 
     public VideoAdValidity(String str, int i2, String str2) {
@@ -62,7 +62,7 @@ public final class VideoAdValidity {
                 return;
             }
         }
-        this.f75241a = str2;
+        this.f75421a = str2;
     }
 
     public static VideoAdValidity valueOf(String str) {
@@ -74,12 +74,12 @@ public final class VideoAdValidity {
     public static VideoAdValidity[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (VideoAdValidity[]) f75240b.clone() : (VideoAdValidity[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (VideoAdValidity[]) f75420b.clone() : (VideoAdValidity[]) invokeV.objValue;
     }
 
     public final String getMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75241a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75421a : (String) invokeV.objValue;
     }
 }

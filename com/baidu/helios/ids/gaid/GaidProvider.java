@@ -32,22 +32,22 @@ public class GaidProvider extends c.a.r.h.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.C1379a f40428d;
+    public a.C0737a f40539d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f40429e;
+    public c f40540e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f40430f;
+    public f f40541f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f40431g;
+    public b f40542g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<a.d<String>> f40432h;
+    public List<a.d<String>> f40543h;
 
     /* renamed from: i  reason: collision with root package name */
-    public g f40433i;
+    public g f40544i;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -55,10 +55,10 @@ public class GaidProvider extends c.a.r.h.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.d f40434e;
+        public final /* synthetic */ a.d f40545e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GaidProvider f40435f;
+        public final /* synthetic */ GaidProvider f40546f;
 
         public a(GaidProvider gaidProvider, a.d dVar) {
             Interceptable interceptable = $ic;
@@ -75,18 +75,18 @@ public class GaidProvider extends c.a.r.h.a {
                     return;
                 }
             }
-            this.f40435f = gaidProvider;
-            this.f40434e = dVar;
+            this.f40546f = gaidProvider;
+            this.f40545e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f40435f.f40431g.f40436a.get()) {
-                    this.f40435f.j(this.f40434e);
+                if (this.f40546f.f40542g.f40547a.get()) {
+                    this.f40546f.j(this.f40545e);
                 } else {
-                    this.f40435f.f40432h.add(this.f40434e);
+                    this.f40546f.f40543h.add(this.f40545e);
                 }
             }
         }
@@ -98,7 +98,7 @@ public class GaidProvider extends c.a.r.h.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AtomicBoolean f40436a;
+        public AtomicBoolean f40547a;
 
         public b(GaidProvider gaidProvider) {
             Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class GaidProvider extends c.a.r.h.a {
                     return;
                 }
             }
-            this.f40436a = new AtomicBoolean(false);
+            this.f40547a = new AtomicBoolean(false);
         }
     }
 
@@ -125,22 +125,22 @@ public class GaidProvider extends c.a.r.h.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f40437a;
+        public long f40548a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f40438b;
+        public boolean f40549b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c.a.r.g.c.a.e f40439c;
+        public c.a.r.g.c.a.e f40550c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f40440d;
+        public String f40551d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ArrayList<String> f40441e;
+        public ArrayList<String> f40552e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GaidProvider f40442f;
+        public final /* synthetic */ GaidProvider f40553f;
 
         public c(GaidProvider gaidProvider) {
             Interceptable interceptable = $ic;
@@ -157,84 +157,84 @@ public class GaidProvider extends c.a.r.h.a {
                     return;
                 }
             }
-            this.f40442f = gaidProvider;
-            this.f40438b = true;
-            this.f40439c = new c.a.r.g.c.a.e();
-            this.f40441e = new ArrayList<>();
+            this.f40553f = gaidProvider;
+            this.f40549b = true;
+            this.f40550c = new c.a.r.g.c.a.e();
+            this.f40552e = new ArrayList<>();
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40440d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40551d : (String) invokeV.objValue;
         }
 
         public void b(long j2, long j3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) && this.f40439c.c(j2, j3)) {
-                this.f40438b = true;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) && this.f40550c.c(j2, j3)) {
+                this.f40549b = true;
             }
         }
 
         public void c(String str) {
             String str2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (str2 = this.f40440d) == str) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (str2 = this.f40551d) == str) {
                 return;
             }
             if (str == null || !str.equals(str2)) {
-                this.f40440d = str;
-                this.f40438b = true;
+                this.f40551d = str;
+                this.f40549b = true;
             }
         }
 
         public long d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40437a : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40548a : invokeV.longValue;
         }
 
         public void e(long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) || this.f40437a == j2) {
+            if (!(interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) || this.f40548a == j2) {
                 return;
             }
-            this.f40437a = j2;
-            this.f40438b = true;
+            this.f40548a = j2;
+            this.f40549b = true;
         }
 
         public void f(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f40441e.contains(str)) {
+            if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f40552e.contains(str)) {
                 return;
             }
-            this.f40441e.add(str);
-            this.f40438b = true;
+            this.f40552e.add(str);
+            this.f40549b = true;
         }
 
         public boolean g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                String g2 = this.f40442f.f40428d.g("cache.dat", true);
+                String g2 = this.f40553f.f40539d.g("cache.dat", true);
                 if (!TextUtils.isEmpty(g2)) {
                     try {
                         JSONObject jSONObject = new JSONObject(g2);
-                        this.f40440d = jSONObject.optString("form_id");
-                        this.f40437a = jSONObject.getLong("lst_fe_ts");
+                        this.f40551d = jSONObject.optString("form_id");
+                        this.f40548a = jSONObject.getLong("lst_fe_ts");
                         jSONObject.getInt("c_form_ver");
-                        this.f40439c.b(jSONObject.getLong("flags"));
-                        this.f40441e.clear();
+                        this.f40550c.b(jSONObject.getLong("flags"));
+                        this.f40552e.clear();
                         JSONObject optJSONObject = jSONObject.optJSONObject("his_form_ids");
                         if (optJSONObject != null) {
                             int i2 = optJSONObject.getInt("count");
                             for (int i3 = 0; i3 < i2; i3++) {
                                 String string = optJSONObject.getString("id_" + i3);
                                 if (TextUtils.isEmpty(string)) {
-                                    this.f40441e.clear();
+                                    this.f40552e.clear();
                                     return false;
                                 }
-                                this.f40441e.add(string);
+                                this.f40552e.add(string);
                             }
                         }
                         return true;
@@ -250,25 +250,25 @@ public class GaidProvider extends c.a.r.h.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                if (this.f40438b) {
+                if (this.f40549b) {
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("form_id", this.f40440d);
-                        jSONObject.put("lst_fe_ts", this.f40437a);
+                        jSONObject.put("form_id", this.f40551d);
+                        jSONObject.put("lst_fe_ts", this.f40548a);
                         jSONObject.put("c_form_ver", 1);
-                        jSONObject.put("flags", this.f40439c.d());
-                        int size = this.f40441e.size();
+                        jSONObject.put("flags", this.f40550c.d());
+                        int size = this.f40552e.size();
                         if (size > 0) {
                             int min = Math.min(size, 5);
                             JSONObject jSONObject2 = new JSONObject();
                             jSONObject.put("his_form_ids", jSONObject2);
                             jSONObject2.put("count", min);
                             for (int i2 = 0; i2 < min; i2++) {
-                                jSONObject2.put("id_" + i2, this.f40441e.get((size - min) + i2));
+                                jSONObject2.put("id_" + i2, this.f40552e.get((size - min) + i2));
                             }
                         }
-                        this.f40442f.f40428d.i("cache.dat", jSONObject.toString(), true);
-                        this.f40438b = false;
+                        this.f40553f.f40539d.i("cache.dat", jSONObject.toString(), true);
+                        this.f40549b = false;
                         return true;
                     } catch (Exception unused) {
                     }
@@ -285,10 +285,10 @@ public class GaidProvider extends c.a.r.h.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f40443a;
+        public IBinder f40554a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40444b;
+        public String f40555b;
 
         public d(IBinder iBinder) {
             Interceptable interceptable = $ic;
@@ -305,9 +305,9 @@ public class GaidProvider extends c.a.r.h.a {
                     return;
                 }
             }
-            this.f40443a = iBinder;
+            this.f40554a = iBinder;
             try {
-                this.f40444b = com.baidu.helios.ids.gaid.c.a(c.a.r.h.d.a.c());
+                this.f40555b = com.baidu.helios.ids.gaid.c.a(c.a.r.h.d.a.c());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -320,8 +320,8 @@ public class GaidProvider extends c.a.r.h.a {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(this.f40444b);
-                    this.f40443a.transact(1, obtain, obtain2, 0);
+                    obtain.writeInterfaceToken(this.f40555b);
+                    this.f40554a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -339,9 +339,9 @@ public class GaidProvider extends c.a.r.h.a {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(this.f40444b);
+                    obtain.writeInterfaceToken(this.f40555b);
                     obtain.writeInt(z ? 1 : 0);
-                    this.f40443a.transact(2, obtain, obtain2, 0);
+                    this.f40554a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -356,7 +356,7 @@ public class GaidProvider extends c.a.r.h.a {
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40443a : (IBinder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40554a : (IBinder) invokeV.objValue;
         }
     }
 
@@ -366,7 +366,7 @@ public class GaidProvider extends c.a.r.h.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GaidProvider f40445e;
+        public final /* synthetic */ GaidProvider f40556e;
 
         /* loaded from: classes5.dex */
         public class a implements Runnable {
@@ -374,10 +374,10 @@ public class GaidProvider extends c.a.r.h.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ IBinder f40446e;
+            public final /* synthetic */ IBinder f40557e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ e f40447f;
+            public final /* synthetic */ e f40558f;
 
             /* renamed from: com.baidu.helios.ids.gaid.GaidProvider$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
@@ -386,13 +386,13 @@ public class GaidProvider extends c.a.r.h.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f40448e;
+                public final /* synthetic */ String f40559e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ boolean f40449f;
+                public final /* synthetic */ boolean f40560f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ a f40450g;
+                public final /* synthetic */ a f40561g;
 
                 public RunnableC1658a(a aVar, String str, boolean z) {
                     Interceptable interceptable = $ic;
@@ -409,29 +409,29 @@ public class GaidProvider extends c.a.r.h.a {
                             return;
                         }
                     }
-                    this.f40450g = aVar;
-                    this.f40448e = str;
-                    this.f40449f = z;
+                    this.f40561g = aVar;
+                    this.f40559e = str;
+                    this.f40560f = z;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        if (!this.f40450g.f40447f.f40445e.f40431g.f40436a.get()) {
-                            this.f40450g.f40447f.f40445e.i();
-                            this.f40450g.f40447f.f40445e.f40431g.f40436a.set(true);
+                        if (!this.f40561g.f40558f.f40556e.f40542g.f40547a.get()) {
+                            this.f40561g.f40558f.f40556e.i();
+                            this.f40561g.f40558f.f40556e.f40542g.f40547a.set(true);
                         }
-                        this.f40450g.f40447f.f40445e.f40429e.b(this.f40449f ? 1L : 2L, 3L);
-                        if (!TextUtils.isEmpty(this.f40448e)) {
+                        this.f40561g.f40558f.f40556e.f40540e.b(this.f40560f ? 1L : 2L, 3L);
+                        if (!TextUtils.isEmpty(this.f40559e)) {
                             try {
-                                String b2 = c.a.r.h.a.b("A20", new c.a.r.g.c.a.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(this.f40448e.getBytes("UTF-8")));
-                                this.f40450g.f40447f.f40445e.f40429e.c(b2);
-                                this.f40450g.f40447f.f40445e.f40429e.f(b2);
+                                String b2 = c.a.r.h.a.b("A20", new c.a.r.g.c.a.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(this.f40559e.getBytes("UTF-8")));
+                                this.f40561g.f40558f.f40556e.f40540e.c(b2);
+                                this.f40561g.f40558f.f40556e.f40540e.f(b2);
                             } catch (Exception unused) {
                             }
                         }
-                        this.f40450g.f40447f.f40445e.f40429e.h();
+                        this.f40561g.f40558f.f40556e.f40540e.h();
                     }
                 }
             }
@@ -451,8 +451,8 @@ public class GaidProvider extends c.a.r.h.a {
                         return;
                     }
                 }
-                this.f40447f = eVar;
-                this.f40446e = iBinder;
+                this.f40558f = eVar;
+                this.f40557e = iBinder;
             }
 
             @Override // java.lang.Runnable
@@ -460,14 +460,14 @@ public class GaidProvider extends c.a.r.h.a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     try {
-                        d dVar = new d(this.f40446e);
+                        d dVar = new d(this.f40557e);
                         String a2 = dVar.a();
                         boolean a3 = dVar.a(false);
-                        if (this.f40447f.f40445e.f40433i != null) {
-                            this.f40447f.f40445e.f40433i.removeMessages(0);
+                        if (this.f40558f.f40556e.f40544i != null) {
+                            this.f40558f.f40556e.f40544i.removeMessages(0);
                         }
-                        this.f40447f.f40445e.f29616b.f29623d.submit(new RunnableC1658a(this, a2, a3));
-                        this.f40447f.f40445e.f29616b.f29620a.unbindService(this.f40447f);
+                        this.f40558f.f40556e.f15446b.f15453d.submit(new RunnableC1658a(this, a2, a3));
+                        this.f40558f.f40556e.f15446b.f15450a.unbindService(this.f40558f);
                     } catch (Exception unused) {
                     }
                 }
@@ -489,14 +489,14 @@ public class GaidProvider extends c.a.r.h.a {
                     return;
                 }
             }
-            this.f40445e = gaidProvider;
+            this.f40556e = gaidProvider;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                this.f40445e.f29616b.f29624e.submit(new a(this, iBinder));
+                this.f40556e.f15446b.f15454e.submit(new a(this, iBinder));
             }
         }
 
@@ -514,10 +514,10 @@ public class GaidProvider extends c.a.r.h.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f40451a;
+        public String f40562a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40452b;
+        public String f40563b;
 
         public f() {
             Interceptable interceptable = $ic;
@@ -533,8 +533,8 @@ public class GaidProvider extends c.a.r.h.a {
                 }
             }
             try {
-                this.f40451a = com.baidu.helios.ids.gaid.c.a(c.a.r.h.d.a.a());
-                this.f40452b = com.baidu.helios.ids.gaid.c.a(c.a.r.h.d.a.b());
+                this.f40562a = com.baidu.helios.ids.gaid.c.a(c.a.r.h.d.a.a());
+                this.f40563b = com.baidu.helios.ids.gaid.c.a(c.a.r.h.d.a.b());
             } catch (Exception unused) {
             }
         }
@@ -546,13 +546,13 @@ public class GaidProvider extends c.a.r.h.a {
         public final String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40451a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40562a : (String) invokeV.objValue;
         }
 
         public final String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40452b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40563b : (String) invokeV.objValue;
         }
     }
 
@@ -562,7 +562,7 @@ public class GaidProvider extends c.a.r.h.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GaidProvider f40453a;
+        public final /* synthetic */ GaidProvider f40564a;
 
         /* loaded from: classes5.dex */
         public class a implements Runnable {
@@ -570,7 +570,7 @@ public class GaidProvider extends c.a.r.h.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ g f40454e;
+            public final /* synthetic */ g f40565e;
 
             public a(g gVar) {
                 Interceptable interceptable = $ic;
@@ -587,17 +587,17 @@ public class GaidProvider extends c.a.r.h.a {
                         return;
                     }
                 }
-                this.f40454e = gVar;
+                this.f40565e = gVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f40454e.f40453a.f40431g.f40436a.get()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f40565e.f40564a.f40542g.f40547a.get()) {
                     return;
                 }
-                this.f40454e.f40453a.f40431g.f40436a.set(true);
-                this.f40454e.f40453a.i();
+                this.f40565e.f40564a.f40542g.f40547a.set(true);
+                this.f40565e.f40564a.i();
             }
         }
 
@@ -619,14 +619,14 @@ public class GaidProvider extends c.a.r.h.a {
                     return;
                 }
             }
-            this.f40453a = gaidProvider;
+            this.f40564a = gaidProvider;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
-                this.f40453a.f29616b.f29623d.submit(new a(this));
+                this.f40564a.f15446b.f15453d.submit(new a(this));
             }
         }
     }
@@ -647,15 +647,15 @@ public class GaidProvider extends c.a.r.h.a {
                 return;
             }
         }
-        this.f40429e = new c(this);
-        this.f40432h = new ArrayList();
+        this.f40540e = new c(this);
+        this.f40543h = new ArrayList();
     }
 
     @Override // c.a.r.h.a
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40429e.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40540e.a() : (String) invokeV.objValue;
     }
 
     @Override // c.a.r.h.a
@@ -664,45 +664,45 @@ public class GaidProvider extends c.a.r.h.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             b bVar = new b(this);
-            this.f40431g = bVar;
-            this.f40428d = this.f29615a.f(Config.GAID);
-            Context context = this.f29616b.f29620a;
-            this.f40430f = new f(null);
+            this.f40542g = bVar;
+            this.f40539d = this.f15445a.f(Config.GAID);
+            Context context = this.f15446b.f15450a;
+            this.f40541f = new f(null);
             PackageManager packageManager = context.getPackageManager();
             try {
-                a2 = this.f40430f.a();
+                a2 = this.f40541f.a();
             } catch (PackageManager.NameNotFoundException unused) {
             }
             if (a2 == null) {
-                bVar.f40436a.set(true);
+                bVar.f40547a.set(true);
                 return;
             }
             packageManager.getPackageInfo(a2, 0);
-            this.f40429e.g();
+            this.f40540e.g();
             long currentTimeMillis = System.currentTimeMillis();
-            if (Math.abs(currentTimeMillis - this.f40429e.d()) > 604800000) {
-                this.f40429e.e(currentTimeMillis);
-                this.f40429e.h();
+            if (Math.abs(currentTimeMillis - this.f40540e.d()) > 604800000) {
+                this.f40540e.e(currentTimeMillis);
+                this.f40540e.h();
                 try {
-                    String c2 = this.f40430f.c();
+                    String c2 = this.f40541f.c();
                     if (c2 == null) {
-                        bVar.f40436a.set(true);
+                        bVar.f40547a.set(true);
                         return;
                     } else if (!context.bindService(new Intent(c2).setPackage(a2), new e(this), 1)) {
-                        bVar.f40436a.set(true);
+                        bVar.f40547a.set(true);
                         return;
                     } else {
                         g gVar = new g(this, Looper.getMainLooper());
-                        this.f40433i = gVar;
+                        this.f40544i = gVar;
                         gVar.sendEmptyMessageDelayed(0, 50000L);
                         return;
                     }
                 } catch (Exception unused2) {
-                    bVar.f40436a.set(true);
+                    bVar.f40547a.set(true);
                     return;
                 }
             }
-            bVar.f40436a.set(true);
+            bVar.f40547a.set(true);
         }
     }
 
@@ -710,17 +710,17 @@ public class GaidProvider extends c.a.r.h.a {
     public void g(a.d<String> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.f29616b.f29623d.submit(new a(this, dVar));
+            this.f15446b.f15453d.submit(new a(this, dVar));
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (a.d<String> dVar : this.f40432h) {
+            for (a.d<String> dVar : this.f40543h) {
                 j(dVar);
             }
-            this.f40432h.clear();
+            this.f40543h.clear();
         }
     }
 
@@ -728,10 +728,10 @@ public class GaidProvider extends c.a.r.h.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
             Bundle bundle = new Bundle();
-            if (TextUtils.isEmpty(this.f40429e.a())) {
+            if (TextUtils.isEmpty(this.f40540e.a())) {
                 dVar.a(-1, null, bundle);
             } else {
-                dVar.onResult(this.f40429e.a(), bundle);
+                dVar.onResult(this.f40540e.a(), bundle);
             }
         }
     }

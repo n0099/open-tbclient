@@ -25,24 +25,24 @@ public final class StatApi {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Context f69038d;
+    public static Context f69218d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IStatConfig f69039a;
+    public IStatConfig f69219a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f69040b;
+    public boolean f69220b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ISyncHttpImpl f69041c;
+    public ISyncHttpImpl f69221c;
 
     /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatApi f69042a;
+        public static StatApi f69222a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -58,7 +58,7 @@ public final class StatApi {
                     return;
                 }
             }
-            f69042a = new StatApi(null);
+            f69222a = new StatApi(null);
         }
     }
 
@@ -76,10 +76,10 @@ public final class StatApi {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f69038d == null && context != null) {
-                f69038d = context.getApplicationContext();
+            if (f69218d == null && context != null) {
+                f69218d = context.getApplicationContext();
             }
-            return f69038d != null;
+            return f69218d != null;
         }
         return invokeL.booleanValue;
     }
@@ -87,13 +87,13 @@ public final class StatApi {
     public static Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f69038d : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f69218d : (Context) invokeV.objValue;
     }
 
     public static StatApi getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f69042a : (StatApi) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f69222a : (StatApi) invokeV.objValue;
     }
 
     public static void init(Context context, IStatConfig iStatConfig) {
@@ -104,12 +104,12 @@ public final class StatApi {
                 return;
             }
             StatApi statApi = getInstance();
-            statApi.f69039a = iStatConfig;
+            statApi.f69219a = iStatConfig;
             try {
-                if (statApi.f69040b) {
+                if (statApi.f69220b) {
                     return;
                 }
-                statApi.f69040b = true;
+                statApi.f69220b = true;
                 e.a().e();
                 LogSender.getInstance().triggerSending("normal_log");
             } catch (Exception e2) {
@@ -128,7 +128,7 @@ public final class StatApi {
 
     public static void onBack(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, str) == null) && getInstance().f69040b && !getInstance().a()) {
+        if ((interceptable == null || interceptable.invokeL(65543, null, str) == null) && getInstance().f69220b && !getInstance().a()) {
             try {
                 StatService.c(str, StatService.ETag.back, null);
             } catch (Exception e2) {
@@ -139,7 +139,7 @@ public final class StatApi {
 
     public static void onEvent(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && getInstance().f69040b && !getInstance().a()) {
+        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && getInstance().f69220b && !getInstance().a()) {
             onEventWithValues(str, null, null, null);
         }
     }
@@ -167,7 +167,7 @@ public final class StatApi {
 
     public static void onEventStart(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65562, null, str) == null) || !getInstance().f69040b || getInstance().a() || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(65562, null, str) == null) || !getInstance().f69220b || getInstance().a() || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -186,7 +186,7 @@ public final class StatApi {
 
     public static void onEventWithValues(String str, Collection<String> collection) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65565, null, str, collection) == null) || !getInstance().f69040b || getInstance().a() || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(65565, null, str, collection) == null) || !getInstance().f69220b || getInstance().a() || TextUtils.isEmpty(str)) {
             return;
         }
         onEventWithValues(str, collection, null, null);
@@ -194,7 +194,7 @@ public final class StatApi {
 
     public static void onIn(String str, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(65569, null, str, j2) == null) && getInstance().f69040b && !getInstance().a()) {
+        if ((interceptable == null || interceptable.invokeLJ(65569, null, str, j2) == null) && getInstance().f69220b && !getInstance().a()) {
             try {
                 if (0 < j2) {
                     ArrayList arrayList = new ArrayList();
@@ -211,7 +211,7 @@ public final class StatApi {
 
     public static void onOut(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65570, null, str) == null) && getInstance().f69040b && !getInstance().a()) {
+        if ((interceptable == null || interceptable.invokeL(65570, null, str) == null) && getInstance().f69220b && !getInstance().a()) {
             try {
                 StatService.c(str, StatService.ETag.out, null);
             } catch (Exception e2) {
@@ -222,7 +222,7 @@ public final class StatApi {
 
     public static void onPush(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65571, null, str) == null) && getInstance().f69040b && !getInstance().a()) {
+        if ((interceptable == null || interceptable.invokeL(65571, null, str) == null) && getInstance().f69220b && !getInstance().a()) {
             try {
                 StatService.c(str, StatService.ETag.push, null);
             } catch (Exception e2) {
@@ -234,7 +234,7 @@ public final class StatApi {
     public static void setSyncHttpImpl(ISyncHttpImpl iSyncHttpImpl) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65572, null, iSyncHttpImpl) == null) {
-            getInstance().f69041c = iSyncHttpImpl;
+            getInstance().f69221c = iSyncHttpImpl;
         }
     }
 
@@ -247,13 +247,13 @@ public final class StatApi {
     public ISyncHttpImpl getHttpImpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69041c : (ISyncHttpImpl) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69221c : (ISyncHttpImpl) invokeV.objValue;
     }
 
     public IStatConfig getSettings() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69039a : (IStatConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69219a : (IStatConfig) invokeV.objValue;
     }
 
     public StatApi() {
@@ -279,7 +279,7 @@ public final class StatApi {
 
     public static void onEventEndWithValue(String str, int i2, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(65551, null, str, i2, str2, str3) == null) || !getInstance().f69040b || getInstance().a() || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLILL(65551, null, str, i2, str2, str3) == null) || !getInstance().f69220b || getInstance().a() || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -298,7 +298,7 @@ public final class StatApi {
 
     public static void onEventWithValue(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65564, null, str, str2, str3) == null) || !getInstance().f69040b || getInstance().a() || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65564, null, str, str2, str3) == null) || !getInstance().f69220b || getInstance().a() || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -324,7 +324,7 @@ public final class StatApi {
 
     public static void onEvent(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) && getInstance().f69040b && !getInstance().a()) {
+        if ((interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) && getInstance().f69220b && !getInstance().a()) {
             onEventWithValues(str, (Collection<String>) null, str2);
         }
     }
@@ -338,7 +338,7 @@ public final class StatApi {
 
     public static void onEventEndWithValues(String str, int i2, Collection<String> collection, Map<String, Object> map, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{str, Integer.valueOf(i2), collection, map, str2}) == null) || !getInstance().f69040b || getInstance().a() || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{str, Integer.valueOf(i2), collection, map, str2}) == null) || !getInstance().f69220b || getInstance().a() || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -371,7 +371,7 @@ public final class StatApi {
 
     public static void onEventWithValues(String str, Collection<String> collection, Map<String, Object> map, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65568, null, str, collection, map, str2) == null) || !getInstance().f69040b || getInstance().a() || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65568, null, str, collection, map, str2) == null) || !getInstance().f69220b || getInstance().a() || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -383,7 +383,7 @@ public final class StatApi {
 
     public static void onEventEndWithValue(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65553, null, str, str2, str3) == null) || !getInstance().f69040b || getInstance().a() || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65553, null, str, str2, str3) == null) || !getInstance().f69220b || getInstance().a() || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -416,7 +416,7 @@ public final class StatApi {
 
     public static void onEventEndWithValues(String str, Collection<String> collection, Map<String, Object> map, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65561, null, str, collection, map, str2) == null) || !getInstance().f69040b || getInstance().a() || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65561, null, str, collection, map, str2) == null) || !getInstance().f69220b || getInstance().a() || TextUtils.isEmpty(str)) {
             return;
         }
         try {

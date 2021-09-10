@@ -5,6 +5,7 @@ import c.a.a0.b.a.e;
 import c.a.a0.b.a.k.c;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -51,13 +52,13 @@ public class ForegroundRenderer extends MediaBaseRenderer {
                     int h2 = eVar.h(mediaSegment, mediaSegment.textureId, null);
                     GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;
                     GLES20.glViewport(gLViewPortLocation.x, gLViewPortLocation.y, gLViewPortLocation.width, gLViewPortLocation.height);
-                    GLES20.glEnable(3042);
+                    GLES20.glEnable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
                     GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
                     this.mFullScreen2D.setVertexPoint(GlUtil.IDENTITY_MATRIX);
                     this.mFullScreen2D.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
                     this.mFullScreen2D.drawFrame(h2, fArr);
                     this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
-                    GLES20.glDisable(3042);
+                    GLES20.glDisable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
                 }
                 return;
             }

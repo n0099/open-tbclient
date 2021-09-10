@@ -14,10 +14,10 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.b;
 import c.a.e.a.f;
 import c.a.e.a.g;
-import c.a.e.a.h;
 import c.a.e.a.i;
 import c.a.e.e.l.d;
 import c.a.e.e.p.l;
+import c.a.e.f.a.h;
 import c.a.e.l.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -45,7 +45,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseActivity f36119e;
+        public final /* synthetic */ BdBaseActivity f36228e;
 
         public a(BdBaseActivity bdBaseActivity) {
             Interceptable interceptable = $ic;
@@ -62,14 +62,14 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
                     return;
                 }
             }
-            this.f36119e = bdBaseActivity;
+            this.f36228e = bdBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseActivity bdBaseActivity = this.f36119e;
+                BdBaseActivity bdBaseActivity = this.f36228e;
                 bdBaseActivity.onPreLoad(bdBaseActivity.onGetPreLoadListView());
             }
         }
@@ -99,8 +99,8 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         if (!(interceptable == null || interceptable.invokeL(65537, this, view) == null) || view == null) {
             return;
         }
-        if (view instanceof c.a.e.f.a.i) {
-            ((c.a.e.f.a.i) view).refresh();
+        if (view instanceof h) {
+            ((h) view).refresh();
         }
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
@@ -125,7 +125,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Resources b2 = h.a().b();
+            Resources b2 = c.a.e.a.h.a().b();
             return (b2 == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : b2;
         }
         return (Resources) invokeV.objValue;
@@ -176,7 +176,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
             c.a.e.a.a.b(this);
             super.onCreate(bundle);
             this.mId = BdUniqueId.gen();
-            b.f().n(getPageContext().getPageActivity());
+            b.f().o(getPageContext().getPageActivity());
         }
     }
 
@@ -188,7 +188,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
             d.h().b(this.mId);
-            b.f().l(getPageContext().getPageActivity());
+            b.f().m(getPageContext().getPageActivity());
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }

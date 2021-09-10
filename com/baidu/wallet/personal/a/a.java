@@ -20,16 +20,16 @@ public abstract class a<T> extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<T> f63235a;
+    public List<T> f63415a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f63236b;
+    public boolean f63416b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LayoutInflater f63237c;
+    public LayoutInflater f63417c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC1857a f63238d;
+    public InterfaceC1857a f63418d;
 
     /* renamed from: com.baidu.wallet.personal.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
@@ -65,15 +65,15 @@ public abstract class a<T> extends BaseAdapter {
                 return;
             }
         }
-        this.f63235a = new ArrayList();
-        this.f63237c = LayoutInflater.from(context);
+        this.f63415a = new ArrayList();
+        this.f63417c = LayoutInflater.from(context);
     }
 
     private View a(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, viewGroup, i2)) == null) {
-            View inflate = this.f63236b ? this.f63237c.inflate(a(i2), viewGroup, false) : this.f63237c.inflate(a(i2), (ViewGroup) null);
+            View inflate = this.f63416b ? this.f63417c.inflate(a(i2), viewGroup, false) : this.f63417c.inflate(a(i2), (ViewGroup) null);
             inflate.setTag(a(i2, inflate));
             if (inflate != null) {
                 a(inflate, i2);
@@ -91,10 +91,10 @@ public abstract class a<T> extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f63235a == null) {
+                if (this.f63415a == null) {
                     return;
                 }
-                this.f63235a.clear();
+                this.f63415a.clear();
                 notifyDataSetChanged();
             }
         }
@@ -110,10 +110,10 @@ public abstract class a<T> extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
             synchronized (this) {
-                if (this.f63235a == null) {
+                if (this.f63415a == null) {
                     return;
                 }
-                this.f63235a.add(t);
+                this.f63415a.add(t);
             }
         }
     }
@@ -123,7 +123,7 @@ public abstract class a<T> extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<T> list = this.f63235a;
+            List<T> list = this.f63415a;
             if (list == null) {
                 return 0;
             }
@@ -137,9 +137,9 @@ public abstract class a<T> extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            List<T> list = this.f63235a;
+            List<T> list = this.f63415a;
             if (list != null && i2 < list.size() && i2 >= 0) {
-                return this.f63235a.get(i2);
+                return this.f63415a.get(i2);
             }
             return null;
         }
@@ -175,16 +175,16 @@ public abstract class a<T> extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.notifyDataSetChanged();
-            if (this.f63238d == null) {
+            if (this.f63418d == null) {
                 return;
             }
-            if (this.f63235a.size() == 0) {
-                interfaceC1857a = this.f63238d;
+            if (this.f63415a.size() == 0) {
+                interfaceC1857a = this.f63418d;
                 z = true;
-            } else if (this.f63235a.size() <= 0) {
+            } else if (this.f63415a.size() <= 0) {
                 return;
             } else {
-                interfaceC1857a = this.f63238d;
+                interfaceC1857a = this.f63418d;
                 z = false;
             }
             interfaceC1857a.a(z);

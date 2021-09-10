@@ -44,7 +44,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideActivity f57155a;
+        public final /* synthetic */ NewUserGuideActivity f57314a;
 
         public a(NewUserGuideActivity newUserGuideActivity) {
             Interceptable interceptable = $ic;
@@ -61,16 +61,16 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f57155a = newUserGuideActivity;
+            this.f57314a = newUserGuideActivity;
         }
 
         @Override // com.baidu.tieba.tblauncherInterestGuide.model.NewUserGuideModel.b
         public void a(InterestFrsData interestFrsData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, interestFrsData) == null) {
-                this.f57155a.mNewUserGuideModel.C(false);
-                this.f57155a.mNewUserGuideModel.B(interestFrsData);
-                ((NewUserGuideMainFragment) ((FragmentPagerAdapter) this.f57155a.mViewPager.getAdapter()).getItem(1)).setData(interestFrsData);
+                this.f57314a.mNewUserGuideModel.C(false);
+                this.f57314a.mNewUserGuideModel.B(interestFrsData);
+                ((NewUserGuideMainFragment) ((FragmentPagerAdapter) this.f57314a.mViewPager.getAdapter()).getItem(1)).setData(interestFrsData);
             }
         }
 
@@ -78,9 +78,9 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         public void b(InterestFrsData interestFrsData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interestFrsData) == null) {
-                this.f57155a.mNewUserGuideModel.C(true);
-                this.f57155a.mNewUserGuideModel.B(null);
-                this.f57155a.showToast(R.string.neterror);
+                this.f57314a.mNewUserGuideModel.C(true);
+                this.f57314a.mNewUserGuideModel.B(null);
+                this.f57314a.showToast(R.string.neterror);
             }
         }
     }
@@ -91,7 +91,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideActivity f57156e;
+        public final /* synthetic */ NewUserGuideActivity f57315e;
 
         public b(NewUserGuideActivity newUserGuideActivity) {
             Interceptable interceptable = $ic;
@@ -108,14 +108,14 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f57156e = newUserGuideActivity;
+            this.f57315e = newUserGuideActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) this.f57156e.mViewPager.getAdapter()).getItem(0);
+                NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) this.f57315e.mViewPager.getAdapter()).getItem(0);
                 if (i2 == 0) {
                     newUserGuideIntroduceFragment.startGoOnAnim();
                 } else {
@@ -127,8 +127,8 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i2, float f2, int i3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) && this.f57156e.mNewUserGuideModel.z() && i2 == 0 && f2 > 0.0f) {
-                this.f57156e.startMainTabEnterFourm();
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) && this.f57315e.mNewUserGuideModel.z() && i2 == 0 && f2 > 0.0f) {
+                this.f57315e.startMainTabEnterFourm();
             }
         }
 
@@ -136,7 +136,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && i2 == 1) {
-                this.f57156e.mViewPager.setTag(null);
+                this.f57315e.mViewPager.setTag(null);
             }
         }
     }

@@ -37,6 +37,7 @@ public final class RecommendFrsStaticAutoGenerateUrlCollectorImpl implements ICm
             HashMap hashMap = new HashMap();
             new ArrayList();
             hashMap.put("2002001", "com.baidu.tieba.homepage.framework.RecommendFrsStatic");
+            hashMap.put("2921619", "com.baidu.tieba.homepage.framework.RecommendFrsStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;

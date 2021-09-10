@@ -15,7 +15,7 @@ public class p implements com.kwad.sdk.core.webview.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a.c f72410a;
+    public com.kwad.sdk.core.webview.a.c f72590a;
 
     /* loaded from: classes10.dex */
     public static final class a implements com.kwad.sdk.core.b {
@@ -23,7 +23,7 @@ public class p implements com.kwad.sdk.core.webview.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f72411a;
+        public String f72591a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class p implements com.kwad.sdk.core.webview.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                com.kwad.sdk.utils.q.a(jSONObject, "lifeStatus", this.f72411a);
+                com.kwad.sdk.utils.q.a(jSONObject, "lifeStatus", this.f72591a);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -75,12 +75,12 @@ public class p implements com.kwad.sdk.core.webview.a.a {
 
     private void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || this.f72410a == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || this.f72590a == null) {
             return;
         }
         a aVar = new a();
-        aVar.f72411a = str;
-        this.f72410a.a(aVar);
+        aVar.f72591a = str;
+        this.f72590a.a(aVar);
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -95,7 +95,7 @@ public class p implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            this.f72410a = cVar;
+            this.f72590a = cVar;
         }
     }
 
@@ -103,7 +103,7 @@ public class p implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f72410a = null;
+            this.f72590a = null;
         }
     }
 

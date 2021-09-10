@@ -145,7 +145,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                         }
                         c2 = 65535;
                     } else if (hashCode == 1572) {
-                        if (findAIvalue.equals(Constants.VIA_REPORT_TYPE_WPA_STATE)) {
+                        if (findAIvalue.equals("15")) {
                             c2 = 5;
                         }
                         c2 = 65535;

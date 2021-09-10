@@ -22,6 +22,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import h.c.i0;
+import h.c.l0;
 import java.nio.ByteBuffer;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -366,10 +368,8 @@ public class MediaCodecVideoDecoder {
         @Override // org.webrtc.VideoDecoderFactory
         @javax.annotation.Nullable
         @Deprecated
-        public VideoDecoder createDecoder(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? VideoDecoderFactory_CC.$default$createDecoder(this, str) : (VideoDecoder) invokeL.objValue;
+        public /* synthetic */ VideoDecoder createDecoder(String str) {
+            return l0.$default$createDecoder(this, str);
         }
 
         @Override // org.webrtc.VideoDecoderFactory
@@ -378,43 +378,43 @@ public class MediaCodecVideoDecoder {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoCodecInfo)) == null) {
-                if (isCodecSupported(this.supportedHardwareCodecs, videoCodecInfo)) {
-                    Logging.d(MediaCodecVideoDecoder.TAG, "Create HW video decoder for " + videoCodecInfo.name);
-                    return new WrappedNativeVideoDecoder(this, videoCodecInfo) { // from class: org.webrtc.MediaCodecVideoDecoder.HwDecoderFactory.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ HwDecoderFactory this$0;
-                        public final /* synthetic */ VideoCodecInfo val$codec;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, videoCodecInfo};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$codec = videoCodecInfo;
-                        }
-
-                        @Override // org.webrtc.WrappedNativeVideoDecoder, org.webrtc.VideoDecoder
-                        public long createNativeVideoDecoder() {
-                            InterceptResult invokeV;
-                            Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? MediaCodecVideoDecoder.nativeCreateDecoder(this.val$codec.name, MediaCodecVideoDecoder.useSurface()) : invokeV.longValue;
-                        }
-                    };
+                if (!isCodecSupported(this.supportedHardwareCodecs, videoCodecInfo)) {
+                    Logging.d(MediaCodecVideoDecoder.TAG, "No HW video decoder for codec " + videoCodecInfo.name);
+                    return null;
                 }
-                Logging.d(MediaCodecVideoDecoder.TAG, "No HW video decoder for codec " + videoCodecInfo.name);
-                return null;
+                Logging.d(MediaCodecVideoDecoder.TAG, "Create HW video decoder for " + videoCodecInfo.name);
+                return new WrappedNativeVideoDecoder(this, videoCodecInfo) { // from class: org.webrtc.MediaCodecVideoDecoder.HwDecoderFactory.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ HwDecoderFactory this$0;
+                    public final /* synthetic */ VideoCodecInfo val$codec;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, videoCodecInfo};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$codec = videoCodecInfo;
+                    }
+
+                    @Override // org.webrtc.WrappedNativeVideoDecoder, org.webrtc.VideoDecoder
+                    public long createNativeVideoDecoder() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? MediaCodecVideoDecoder.nativeCreateDecoder(this.val$codec.name, MediaCodecVideoDecoder.useSurface()) : invokeV.longValue;
+                    }
+                };
             }
             return (VideoDecoder) invokeL.objValue;
         }
@@ -522,15 +522,16 @@ public class MediaCodecVideoDecoder {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, videoFrame) == null) {
                 synchronized (this.newFrameLock) {
-                    if (this.renderedBuffer != null) {
+                    if (this.renderedBuffer == null) {
+                        VideoFrame.Buffer buffer = videoFrame.getBuffer();
+                        buffer.retain();
+                        this.renderedBuffer = new DecodedTextureBuffer(buffer, this.bufferToRender.presentationTimeStampMs, this.bufferToRender.timeStampMs, this.bufferToRender.ntpTimeStampMs, this.bufferToRender.decodeTimeMs, SystemClock.elapsedRealtime() - this.bufferToRender.endDecodeTimeMs);
+                        this.bufferToRender = null;
+                        this.newFrameLock.notifyAll();
+                    } else {
                         Logging.e(MediaCodecVideoDecoder.TAG, "Unexpected onFrame() called while already holding a texture.");
                         throw new IllegalStateException("Already holding a texture.");
                     }
-                    VideoFrame.Buffer buffer = videoFrame.getBuffer();
-                    buffer.retain();
-                    this.renderedBuffer = new DecodedTextureBuffer(buffer, this.bufferToRender.presentationTimeStampMs, this.bufferToRender.timeStampMs, this.bufferToRender.ntpTimeStampMs, this.bufferToRender.decodeTimeMs, SystemClock.elapsedRealtime() - this.bufferToRender.endDecodeTimeMs);
-                    this.bufferToRender = null;
-                    this.newFrameLock.notifyAll();
                 }
             }
         }
@@ -822,8 +823,6 @@ public class MediaCodecVideoDecoder {
     @CalledByNativeUnchecked
     private DecodedTextureBuffer dequeueTextureBuffer(int i2) {
         InterceptResult invokeI;
-        StringBuilder sb;
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) {
             checkOnMediaCodecThread();
@@ -841,19 +840,10 @@ public class MediaCodecVideoDecoder {
                     this.droppedFrames++;
                     DecodedOutputBuffer remove = this.dequeuedSurfaceOutputBuffers.remove();
                     if (i2 > 0) {
-                        sb = new StringBuilder();
-                        str = "Draining decoder. Dropping frame with TS: ";
+                        Logging.w(TAG, "Draining decoder. Dropping frame with TS: " + remove.presentationTimeStampMs + ". Total number of dropped frames: " + this.droppedFrames);
                     } else {
-                        sb = new StringBuilder();
-                        sb.append("Too many output buffers ");
-                        sb.append(this.dequeuedSurfaceOutputBuffers.size());
-                        str = ". Dropping frame with TS: ";
+                        Logging.w(TAG, "Too many output buffers " + this.dequeuedSurfaceOutputBuffers.size() + ". Dropping frame with TS: " + remove.presentationTimeStampMs + ". Total number of dropped frames: " + this.droppedFrames);
                     }
-                    sb.append(str);
-                    sb.append(remove.presentationTimeStampMs);
-                    sb.append(". Total number of dropped frames: ");
-                    sb.append(this.droppedFrames);
-                    Logging.w(TAG, sb.toString());
                     this.mediaCodec.releaseOutputBuffer(remove.index, false);
                     return new DecodedTextureBuffer(null, remove.presentationTimeStampMs, remove.timeStampMs, remove.ntpTimeStampMs, remove.decodeTimeMs, SystemClock.elapsedRealtime() - remove.endDecodeTimeMs);
                 } else {
@@ -966,8 +956,8 @@ public class MediaCodecVideoDecoder {
                                         if (i7 == intValue) {
                                             Logging.d(TAG, "Found target decoder " + str2 + ". Color: 0x" + Integer.toHexString(i7));
                                             if (Build.MODEL.contains("NV2001") || ((Build.MODEL.contains("Y13") || Build.MODEL.contains("R7")) && Build.MANUFACTURER.contains("rockchip"))) {
-                                                Logging.d(TAG, "On Duer NV2001 .  enforce Color: 0x" + Integer.toHexString(21));
                                                 i7 = 21;
+                                                Logging.d(TAG, "On Duer NV2001 .  enforce Color: 0x" + Integer.toHexString(21));
                                             }
                                             return new DecoderProperties(str2, i7);
                                         }
@@ -1021,56 +1011,56 @@ public class MediaCodecVideoDecoder {
                 } else if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP9) {
                     supportedH264HwCodecPrefixes = supportedVp9HwCodecPrefixes;
                     str = "video/x-vnd.on2.vp9";
-                } else if (videoCodecType != VideoCodecType.VIDEO_CODEC_H264) {
-                    throw new RuntimeException("initDecode: Non-supported codec " + videoCodecType);
-                } else {
+                } else if (videoCodecType == VideoCodecType.VIDEO_CODEC_H264) {
                     supportedH264HwCodecPrefixes = supportedH264HwCodecPrefixes();
                     str = "video/avc";
+                } else {
+                    throw new RuntimeException("initDecode: Non-supported codec " + videoCodecType);
                 }
                 DecoderProperties findDecoder = findDecoder(str, supportedH264HwCodecPrefixes);
-                if (findDecoder == null) {
-                    throw new RuntimeException("Cannot find HW decoder for " + videoCodecType);
-                }
-                Logging.d(TAG, "Java initDecode: " + videoCodecType + ZeusCrashHandler.NAME_SEPERATOR + i2 + " x " + i3 + ". Color: 0x" + Integer.toHexString(findDecoder.colorFormat) + ". Use Surface: " + useSurface());
-                runningInstance = this;
-                this.mediaCodecThread = Thread.currentThread();
-                try {
-                    this.width = i2;
-                    this.height = i3;
-                    this.stride = i2;
-                    this.sliceHeight = i3;
-                    if (useSurface() && (create = SurfaceTextureHelper.create("Decoder SurfaceTextureHelper", eglBase.getEglBaseContext())) != null) {
-                        TextureListener textureListener = new TextureListener(this, create);
-                        this.textureListener = textureListener;
-                        textureListener.setSize(i2, i3);
-                        this.surface = new Surface(create.getSurfaceTexture());
-                    }
-                    MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i2, i3);
-                    if (!useSurface()) {
-                        createVideoFormat.setInteger("color-format", findDecoder.colorFormat);
-                    }
-                    Logging.d(TAG, "  Format: " + createVideoFormat);
-                    MediaCodec createByCodecName = MediaCodecVideoEncoder.createByCodecName(findDecoder.codecName);
-                    this.mediaCodec = createByCodecName;
-                    if (createByCodecName == null) {
-                        Logging.e(TAG, "Can not create media decoder");
+                if (findDecoder != null) {
+                    Logging.d(TAG, "Java initDecode: " + videoCodecType + ZeusCrashHandler.NAME_SEPERATOR + i2 + " x " + i3 + ". Color: 0x" + Integer.toHexString(findDecoder.colorFormat) + ". Use Surface: " + useSurface());
+                    runningInstance = this;
+                    this.mediaCodecThread = Thread.currentThread();
+                    try {
+                        this.width = i2;
+                        this.height = i3;
+                        this.stride = i2;
+                        this.sliceHeight = i3;
+                        if (useSurface() && (create = SurfaceTextureHelper.create("Decoder SurfaceTextureHelper", eglBase.getEglBaseContext())) != null) {
+                            TextureListener textureListener = new TextureListener(this, create);
+                            this.textureListener = textureListener;
+                            textureListener.setSize(i2, i3);
+                            this.surface = new Surface(create.getSurfaceTexture());
+                        }
+                        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i2, i3);
+                        if (!useSurface()) {
+                            createVideoFormat.setInteger("color-format", findDecoder.colorFormat);
+                        }
+                        Logging.d(TAG, "  Format: " + createVideoFormat);
+                        MediaCodec createByCodecName = MediaCodecVideoEncoder.createByCodecName(findDecoder.codecName);
+                        this.mediaCodec = createByCodecName;
+                        if (createByCodecName == null) {
+                            Logging.e(TAG, "Can not create media decoder");
+                            return false;
+                        }
+                        createByCodecName.configure(createVideoFormat, this.surface, (MediaCrypto) null, 0);
+                        this.mediaCodec.start();
+                        this.colorFormat = findDecoder.colorFormat;
+                        this.outputBuffers = this.mediaCodec.getOutputBuffers();
+                        this.inputBuffers = this.mediaCodec.getInputBuffers();
+                        this.decodeStartTimeMs.clear();
+                        this.hasDecodedFirstFrame = false;
+                        this.dequeuedSurfaceOutputBuffers.clear();
+                        this.droppedFrames = 0;
+                        Logging.d(TAG, "Input buffers: " + this.inputBuffers.length + ". Output buffers: " + this.outputBuffers.length);
+                        return true;
+                    } catch (IllegalStateException e2) {
+                        Logging.e(TAG, "initDecode failed", e2);
                         return false;
                     }
-                    createByCodecName.configure(createVideoFormat, this.surface, (MediaCrypto) null, 0);
-                    this.mediaCodec.start();
-                    this.colorFormat = findDecoder.colorFormat;
-                    this.outputBuffers = this.mediaCodec.getOutputBuffers();
-                    this.inputBuffers = this.mediaCodec.getInputBuffers();
-                    this.decodeStartTimeMs.clear();
-                    this.hasDecodedFirstFrame = false;
-                    this.dequeuedSurfaceOutputBuffers.clear();
-                    this.droppedFrames = 0;
-                    Logging.d(TAG, "Input buffers: " + this.inputBuffers.length + ". Output buffers: " + this.outputBuffers.length);
-                    return true;
-                } catch (IllegalStateException e2) {
-                    Logging.e(TAG, "initDecode failed", e2);
-                    return false;
                 }
+                throw new RuntimeException("Cannot find HW decoder for " + videoCodecType);
             }
             throw new RuntimeException("initDecode: Forgot to release()?");
         }
@@ -1226,21 +1216,22 @@ public class MediaCodecVideoDecoder {
     private void reset(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65561, this, i2, i3) == null) {
-            if (this.mediaCodecThread == null || this.mediaCodec == null) {
-                throw new RuntimeException("Incorrect reset call for non-initialized decoder.");
+            if (this.mediaCodecThread != null && this.mediaCodec != null) {
+                Logging.d(TAG, "Java reset: " + i2 + " x " + i3);
+                this.mediaCodec.flush();
+                this.width = i2;
+                this.height = i3;
+                TextureListener textureListener = this.textureListener;
+                if (textureListener != null) {
+                    textureListener.setSize(i2, i3);
+                }
+                this.decodeStartTimeMs.clear();
+                this.dequeuedSurfaceOutputBuffers.clear();
+                this.hasDecodedFirstFrame = false;
+                this.droppedFrames = 0;
+                return;
             }
-            Logging.d(TAG, "Java reset: " + i2 + " x " + i3);
-            this.mediaCodec.flush();
-            this.width = i2;
-            this.height = i3;
-            TextureListener textureListener = this.textureListener;
-            if (textureListener != null) {
-                textureListener.setSize(i2, i3);
-            }
-            this.decodeStartTimeMs.clear();
-            this.dequeuedSurfaceOutputBuffers.clear();
-            this.hasDecodedFirstFrame = false;
-            this.droppedFrames = 0;
+            throw new RuntimeException("Incorrect reset call for non-initialized decoder.");
         }
     }
 
@@ -1249,10 +1240,11 @@ public class MediaCodecVideoDecoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65562, this, i2) == null) {
             checkOnMediaCodecThread();
-            if (useSurface()) {
-                throw new IllegalStateException("returnDecodedOutputBuffer() called for surface decoding.");
+            if (!useSurface()) {
+                this.mediaCodec.releaseOutputBuffer(i2, false);
+                return;
             }
-            this.mediaCodec.releaseOutputBuffer(i2, false);
+            throw new IllegalStateException("returnDecodedOutputBuffer() called for surface decoding.");
         }
     }
 
@@ -1263,7 +1255,7 @@ public class MediaCodecVideoDecoder {
                 Logging.w(TAG, "Egl context already set.");
                 eglBase.release();
             }
-            eglBase = EglBase_CC.create(context);
+            eglBase = i0.b(context);
         }
     }
 

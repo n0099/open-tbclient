@@ -1,6 +1,6 @@
 package com.baidu.tbadk.distribute;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -54,7 +54,7 @@ public class DistributeRequest extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             LogTogetherReqIdl.Builder builder2 = new LogTogetherReqIdl.Builder();
             builder.Ad = this.adReqList;
-            w.a(builder, false);
+            x.a(builder, false);
             builder2.data = builder.build(false);
             return builder2.build(false);
         }

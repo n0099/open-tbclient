@@ -33,7 +33,7 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaPersonCenterPrivilegeActivity f49569e;
+        public final /* synthetic */ AlaPersonCenterPrivilegeActivity f49704e;
 
         public a(AlaPersonCenterPrivilegeActivity alaPersonCenterPrivilegeActivity) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
                     return;
                 }
             }
-            this.f49569e = alaPersonCenterPrivilegeActivity;
+            this.f49704e = alaPersonCenterPrivilegeActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49569e.finish();
+                this.f49704e.finish();
             }
         }
     }

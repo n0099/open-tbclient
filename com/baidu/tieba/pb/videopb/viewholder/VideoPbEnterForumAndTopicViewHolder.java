@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.e.e.p.k;
-import c.a.p0.s.q.c2;
+import c.a.q0.s.q.d2;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.RecommendTopicData;
@@ -25,16 +25,16 @@ public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f55475a;
+    public Context f55625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FlowLabelLayout f55476b;
+    public FlowLabelLayout f55626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadForumEnterButton f55477c;
+    public ThreadForumEnterButton f55627c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<TopicEnterButton> f55478d;
+    public List<TopicEnterButton> f55628d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoPbEnterForumAndTopicViewHolder(Context context, View view) {
@@ -54,18 +54,18 @@ public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder 
                 return;
             }
         }
-        this.f55475a = context;
-        this.f55476b = (FlowLabelLayout) ((ViewGroup) view).getChildAt(0);
+        this.f55625a = context;
+        this.f55626b = (FlowLabelLayout) ((ViewGroup) view).getChildAt(0);
     }
 
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ThreadForumEnterButton threadForumEnterButton = this.f55477c;
+            ThreadForumEnterButton threadForumEnterButton = this.f55627c;
             if (threadForumEnterButton != null) {
                 threadForumEnterButton.onChangeSkinType();
             }
-            List<TopicEnterButton> list = this.f55478d;
+            List<TopicEnterButton> list = this.f55628d;
             if (list != null) {
                 for (TopicEnterButton topicEnterButton : list) {
                     topicEnterButton.onChangeSkinType();
@@ -74,34 +74,34 @@ public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder 
         }
     }
 
-    public void setData(c2 c2Var) {
+    public void setData(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2Var) == null) || c2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var) == null) || d2Var == null) {
             return;
         }
-        this.f55476b.removeAllViews();
-        List<TopicEnterButton> list = this.f55478d;
+        this.f55626b.removeAllViews();
+        List<TopicEnterButton> list = this.f55628d;
         if (list != null) {
             list.clear();
         }
-        if (!k.isEmpty(c2Var.Z())) {
-            ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.f55475a);
-            this.f55477c = threadForumEnterButton;
-            threadForumEnterButton.bindData(c2Var);
-            this.f55476b.addView(this.f55477c, new ViewGroup.LayoutParams(-2, -2));
+        if (!k.isEmpty(d2Var.Z())) {
+            ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.f55625a);
+            this.f55627c = threadForumEnterButton;
+            threadForumEnterButton.bindData(d2Var);
+            this.f55626b.addView(this.f55627c, new ViewGroup.LayoutParams(-2, -2));
         }
-        WorksInfoData worksInfoData = c2Var.J2;
+        WorksInfoData worksInfoData = d2Var.L2;
         if (worksInfoData == null || ListUtils.isEmpty(worksInfoData.topicListData)) {
             return;
         }
-        if (this.f55478d == null) {
-            this.f55478d = new LinkedList();
+        if (this.f55628d == null) {
+            this.f55628d = new LinkedList();
         }
-        for (RecommendTopicData.RecommendTopicListData recommendTopicListData : c2Var.J2.topicListData) {
-            TopicEnterButton topicEnterButton = new TopicEnterButton(this.f55475a);
+        for (RecommendTopicData.RecommendTopicListData recommendTopicListData : d2Var.L2.topicListData) {
+            TopicEnterButton topicEnterButton = new TopicEnterButton(this.f55625a);
             topicEnterButton.bindData(recommendTopicListData);
-            this.f55476b.addView(topicEnterButton, new ViewGroup.LayoutParams(-2, -2));
-            this.f55478d.add(topicEnterButton);
+            this.f55626b.addView(topicEnterButton, new ViewGroup.LayoutParams(-2, -2));
+            this.f55628d.add(topicEnterButton);
         }
     }
 }

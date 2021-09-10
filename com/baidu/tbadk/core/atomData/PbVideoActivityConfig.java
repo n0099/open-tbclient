@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.s.q.c2;
+import c.a.q0.s.q.d2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -231,18 +231,18 @@ public class PbVideoActivityConfig extends IntentConfig {
         return (PbVideoActivityConfig) invokeLLII.objValue;
     }
 
-    public PbVideoActivityConfig createFromThreadCfg(c2 c2Var, String str, String str2, int i2, boolean z, boolean z2, boolean z3) {
+    public PbVideoActivityConfig createFromThreadCfg(d2 d2Var, String str, String str2, int i2, boolean z, boolean z2, boolean z3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{c2Var, str, str2, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            if (c2Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{d2Var, str, str2, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (d2Var == null) {
                 return this;
             }
             Intent intent = getIntent();
-            intent.putExtra("thread_id", c2Var.q1());
-            intent.putExtra("is_good", c2Var.o0());
-            intent.putExtra("is_top", c2Var.p0());
-            intent.putExtra("thread_time", c2Var.t0());
+            intent.putExtra("thread_id", d2Var.s1());
+            intent.putExtra("is_good", d2Var.q0());
+            intent.putExtra("is_top", d2Var.r0());
+            intent.putExtra("thread_time", d2Var.v0());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -252,11 +252,11 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra("request_code", i2);
             intent.putExtra("is_from_thread_config", true);
-            long num = c2Var.J0() == null ? 0L : c2Var.J0().getNum();
+            long num = d2Var.L0() == null ? 0L : d2Var.L0().getNum();
             intent.putExtra("extra_pb_cache_key", "zan=" + num);
-            if (c2Var.J() != null && c2Var.J().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", c2Var.J().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", c2Var.J().getGodUserData().getIsLike());
+            if (d2Var.J() != null && d2Var.J().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", d2Var.J().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", d2Var.J().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();

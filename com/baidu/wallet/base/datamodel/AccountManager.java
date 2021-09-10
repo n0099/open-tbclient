@@ -202,7 +202,7 @@ public final class AccountManager implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AccountManager f60132a;
+                    public final /* synthetic */ AccountManager f60312a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -219,7 +219,7 @@ public final class AccountManager implements NoProguard {
                                 return;
                             }
                         }
-                        this.f60132a = this;
+                        this.f60312a = this;
                     }
 
                     @Override // com.baidu.wallet.router.RouterCallback

@@ -46,13 +46,6 @@ public class VideoSource extends MediaSource {
         }
     }
 
-    public void adaptOutputFormat(int i2, int i3, int i4, int i5, int i6) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            nativeAdaptOutputFormat(getNativeVideoTrackSource(), i2, i3, i4, i5, i6);
-        }
-    }
-
     public CapturerObserver getCapturerObserver() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -63,5 +56,12 @@ public class VideoSource extends MediaSource {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getNativeMediaSource() : invokeV.longValue;
+    }
+
+    public void adaptOutputFormat(int i2, int i3, int i4, int i5, int i6) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+            nativeAdaptOutputFormat(getNativeVideoTrackSource(), i2, i3, i4, i5, i6);
+        }
     }
 }

@@ -9,14 +9,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.s.u.c;
-import c.a.p0.u.n;
+import c.a.q0.s.u.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.SelectClassDialogActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.data.VideoCategoryClassData;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,16 +27,16 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import org.aspectj.runtime.reflect.SignatureImpl;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000N\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\b\u0016\u0018\u00002\u00020\u0001B\u0013\b\u0016\u0012\b\u00105\u001a\u0004\u0018\u000104¢\u0006\u0004\b6\u00107B\u001d\b\u0016\u0012\b\u00105\u001a\u0004\u0018\u000104\u0012\b\u00109\u001a\u0004\u0018\u000108¢\u0006\u0004\b6\u0010:B%\b\u0016\u0012\b\u00105\u001a\u0004\u0018\u000104\u0012\b\u00109\u001a\u0004\u0018\u000108\u0012\u0006\u0010<\u001a\u00020;¢\u0006\u0004\b6\u0010=J\u0017\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\r\u0010\u0007\u001a\u00020\u0004¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\t\u0010\bR\"\u0010\u000b\u001a\u00020\n8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b\u000b\u0010\f\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R\"\u0010\u0012\u001a\u00020\u00118\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017R\"\u0010\u0018\u001a\u00020\u00118\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b\u0018\u0010\u0013\u001a\u0004\b\u0019\u0010\u0015\"\u0004\b\u001a\u0010\u0017R\"\u0010\u001c\u001a\u00020\u001b8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001e\u0010\u001f\"\u0004\b \u0010!R\"\u0010#\u001a\u00020\"8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b#\u0010$\u001a\u0004\b%\u0010&\"\u0004\b'\u0010(R\"\u0010)\u001a\u00020\u00118\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b)\u0010\u0013\u001a\u0004\b*\u0010\u0015\"\u0004\b+\u0010\u0017R\"\u0010,\u001a\u00020\u001b8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b,\u0010\u001d\u001a\u0004\b-\u0010\u001f\"\u0004\b.\u0010!R$\u0010/\u001a\u0004\u0018\u00010\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b/\u00100\u001a\u0004\b1\u00102\"\u0004\b3\u0010\u0006¨\u0006>"}, d2 = {"Lcom/baidu/tieba/write/write/work/selectview/SelectClassView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tbadk/data/VideoCategoryClassData;", "bean", "", "bindData", "(Lcom/baidu/tbadk/data/VideoCategoryClassData;)V", "init", "()V", "onChangeSkin", "Landroid/view/View;", "mBottomLine", "Landroid/view/View;", "getMBottomLine", "()Landroid/view/View;", "setMBottomLine", "(Landroid/view/View;)V", "Landroid/widget/TextView;", "mCenterContent", "Landroid/widget/TextView;", "getMCenterContent", "()Landroid/widget/TextView;", "setMCenterContent", "(Landroid/widget/TextView;)V", "mCenterContentTips", "getMCenterContentTips", "setMCenterContentTips", "Landroid/widget/ImageView;", "mClassTitleSign", "Landroid/widget/ImageView;", "getMClassTitleSign", "()Landroid/widget/ImageView;", "setMClassTitleSign", "(Landroid/widget/ImageView;)V", "", "mIsSelectedTags", "Z", "getMIsSelectedTags", "()Z", "setMIsSelectedTags", "(Z)V", "mLeftTitle", "getMLeftTitle", "setMLeftTitle", "mRightArrow", "getMRightArrow", "setMRightArrow", "mVideoCategoryClassData", "Lcom/baidu/tbadk/data/VideoCategoryClassData;", "getMVideoCategoryClassData", "()Lcom/baidu/tbadk/data/VideoCategoryClassData;", "setMVideoCategoryClassData", "Landroid/content/Context;", "context", "<init>", "(Landroid/content/Context;)V", "Landroid/util/AttributeSet;", "attrs", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "", "defStyleAttr", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "write_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SelectClassView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f59043e;
+    public boolean f59223e;
 
     /* renamed from: f  reason: collision with root package name */
-    public n f59044f;
+    public VideoCategoryClassData f59224f;
     public View mBottomLine;
     public TextView mCenterContent;
     public TextView mCenterContentTips;
@@ -44,13 +44,13 @@ public class SelectClassView extends LinearLayout {
     public TextView mLeftTitle;
     public ImageView mRightArrow;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectClassView f59045e;
+        public final /* synthetic */ SelectClassView f59225e;
 
         public a(SelectClassView selectClassView) {
             Interceptable interceptable = $ic;
@@ -67,19 +67,19 @@ public class SelectClassView extends LinearLayout {
                     return;
                 }
             }
-            this.f59045e = selectClassView;
+            this.f59225e = selectClassView;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                SelectClassDialogActivityConfig selectClassDialogActivityConfig = new SelectClassDialogActivityConfig(this.f59045e.getContext());
-                n mVideoCategoryClassData = this.f59045e.getMVideoCategoryClassData();
-                selectClassDialogActivityConfig.setFirstOption(mVideoCategoryClassData != null ? mVideoCategoryClassData.a() : null);
-                n mVideoCategoryClassData2 = this.f59045e.getMVideoCategoryClassData();
-                selectClassDialogActivityConfig.setSecondOption(mVideoCategoryClassData2 != null ? mVideoCategoryClassData2.b() : null);
-                selectClassDialogActivityConfig.setIsSelectedTags(this.f59045e.getMIsSelectedTags());
+                SelectClassDialogActivityConfig selectClassDialogActivityConfig = new SelectClassDialogActivityConfig(this.f59225e.getContext());
+                VideoCategoryClassData mVideoCategoryClassData = this.f59225e.getMVideoCategoryClassData();
+                selectClassDialogActivityConfig.setFirstOption(mVideoCategoryClassData != null ? mVideoCategoryClassData.getFirstClass() : null);
+                VideoCategoryClassData mVideoCategoryClassData2 = this.f59225e.getMVideoCategoryClassData();
+                selectClassDialogActivityConfig.setSecondOption(mVideoCategoryClassData2 != null ? mVideoCategoryClassData2.getSecondClass() : null);
+                selectClassDialogActivityConfig.setIsSelectedTags(this.f59225e.getMIsSelectedTags());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectClassDialogActivityConfig));
             }
         }
@@ -106,16 +106,16 @@ public class SelectClassView extends LinearLayout {
         init();
     }
 
-    public final void bindData(n nVar) {
+    public final void bindData(VideoCategoryClassData videoCategoryClassData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) {
-            this.f59044f = nVar;
-            if (nVar != null) {
-                String a2 = nVar.a();
+        if (interceptable == null || interceptable.invokeL(1048576, this, videoCategoryClassData) == null) {
+            this.f59224f = videoCategoryClassData;
+            if (videoCategoryClassData != null) {
+                String firstClass = videoCategoryClassData.getFirstClass();
                 boolean z = true;
-                if (!(a2 == null || a2.length() == 0)) {
-                    String b2 = nVar.b();
-                    if (b2 != null && b2.length() != 0) {
+                if (!(firstClass == null || firstClass.length() == 0)) {
+                    String secondClass = videoCategoryClassData.getSecondClass();
+                    if (secondClass != null && secondClass.length() != 0) {
                         z = false;
                     }
                     if (!z) {
@@ -133,7 +133,7 @@ public class SelectClassView extends LinearLayout {
                         if (textView3 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
                         }
-                        textView3.setText(nVar.a() + SignatureImpl.SEP + nVar.b());
+                        textView3.setText(videoCategoryClassData.getFirstClass() + SignatureImpl.SEP + videoCategoryClassData.getSecondClass());
                         return;
                     }
                 }
@@ -206,7 +206,7 @@ public class SelectClassView extends LinearLayout {
     public final boolean getMIsSelectedTags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59043e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59223e : invokeV.booleanValue;
     }
 
     public final TextView getMLeftTitle() {
@@ -235,10 +235,10 @@ public class SelectClassView extends LinearLayout {
         return (ImageView) invokeV.objValue;
     }
 
-    public final n getMVideoCategoryClassData() {
+    public final VideoCategoryClassData getMVideoCategoryClassData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59044f : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59224f : (VideoCategoryClassData) invokeV.objValue;
     }
 
     public final void init() {
@@ -272,21 +272,16 @@ public class SelectClassView extends LinearLayout {
     public void onChangeSkin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ImageView imageView = this.mClassTitleSign;
-            if (imageView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mClassTitleSign");
-            }
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_start, SkinManager.getColor(R.color.CAM_X0301), WebPManager.ResourceStateType.NORMAL));
             TextView textView = this.mLeftTitle;
             if (textView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mLeftTitle");
             }
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
-            ImageView imageView2 = this.mRightArrow;
-            if (imageView2 == null) {
+            ImageView imageView = this.mRightArrow;
+            if (imageView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mRightArrow");
             }
-            WebPManager.setPureDrawable(imageView2, R.drawable.icon_list_arrow20_right, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(imageView, R.drawable.icon_list_arrow20_right, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             View view = this.mBottomLine;
             if (view == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mBottomLine");
@@ -302,9 +297,9 @@ public class SelectClassView extends LinearLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
             }
             c d2 = c.d(textView3);
-            d2.z(R.string.F_X01);
-            d2.y(R.dimen.T_X07);
-            d2.u(R.color.CAM_X0105);
+            d2.B(R.string.F_X01);
+            d2.A(R.dimen.T_X07);
+            d2.w(R.color.CAM_X0105);
         }
     }
 
@@ -339,7 +334,7 @@ public class SelectClassView extends LinearLayout {
     public final void setMIsSelectedTags(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f59043e = z;
+            this.f59223e = z;
         }
     }
 
@@ -357,10 +352,10 @@ public class SelectClassView extends LinearLayout {
         }
     }
 
-    public final void setMVideoCategoryClassData(n nVar) {
+    public final void setMVideoCategoryClassData(VideoCategoryClassData videoCategoryClassData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, nVar) == null) {
-            this.f59044f = nVar;
+        if (interceptable == null || interceptable.invokeL(1048594, this, videoCategoryClassData) == null) {
+            this.f59224f = videoCategoryClassData;
         }
     }
 

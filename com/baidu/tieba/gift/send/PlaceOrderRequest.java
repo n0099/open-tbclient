@@ -1,7 +1,7 @@
 package com.baidu.tieba.gift.send;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -63,7 +63,7 @@ public class PlaceOrderRequest extends NetMessage {
             builder.account_type = Integer.valueOf(this.accountType);
             builder.currency = Integer.valueOf(this.currency);
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             PlaceOrderReqIdl.Builder builder2 = new PlaceOrderReqIdl.Builder();
             builder2.data = builder.build(false);

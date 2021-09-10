@@ -15,10 +15,10 @@ public class InviteFriendData extends AbstractImageProvider implements TbCheckBo
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52893e;
+    public String f53039e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f52894f;
+    public boolean f53040f;
 
     public InviteFriendData() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class InviteFriendData extends AbstractImageProvider implements TbCheckBo
                 return;
             }
         }
-        this.f52894f = false;
+        this.f53040f = false;
     }
 
     @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
@@ -52,7 +52,7 @@ public class InviteFriendData extends AbstractImageProvider implements TbCheckBo
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(this.f52893e);
+            arrayList.add(this.f53039e);
             return arrayList;
         }
         return (ArrayList) invokeV.objValue;
@@ -62,14 +62,14 @@ public class InviteFriendData extends AbstractImageProvider implements TbCheckBo
     public boolean isChecked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52894f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53040f : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public void setChecked(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f52894f = z;
+            this.f53040f = z;
         }
     }
 }

@@ -45,15 +45,16 @@ public class VideoTrack extends MediaStreamTrack {
     public void addSink(VideoSink videoSink) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, videoSink) == null) {
-            if (videoSink == null) {
-                throw new IllegalArgumentException("The VideoSink is not allowed to be null");
-            }
-            if (this.sinks.containsKey(videoSink)) {
+            if (videoSink != null) {
+                if (this.sinks.containsKey(videoSink)) {
+                    return;
+                }
+                long nativeWrapSink = nativeWrapSink(videoSink);
+                this.sinks.put(videoSink, Long.valueOf(nativeWrapSink));
+                nativeAddSink(getNativeMediaStreamTrack(), nativeWrapSink);
                 return;
             }
-            long nativeWrapSink = nativeWrapSink(videoSink);
-            this.sinks.put(videoSink, Long.valueOf(nativeWrapSink));
-            nativeAddSink(getNativeMediaStreamTrack(), nativeWrapSink);
+            throw new IllegalArgumentException("The VideoSink is not allowed to be null");
         }
     }
 

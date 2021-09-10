@@ -22,7 +22,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30444a;
+    public static boolean f30526a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +43,7 @@ public class c {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f30444a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f30526a : invokeV.booleanValue;
     }
 
     public static void b(boolean z, Activity activity) {
@@ -110,27 +110,27 @@ public class c {
         if (interceptable == null || interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, activity, z) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (i2 < 19 || activity == null) {
-                f30444a = false;
+                f30526a = false;
             } else if (i2 >= 23) {
                 k(activity, z);
                 i.b a2 = i.a(activity);
                 a2.d(true);
                 a2.c(true);
                 a2.b();
-                f30444a = true;
+                f30526a = true;
             } else {
                 i.b a3 = i.a(activity);
                 a3.d(true);
                 a3.c(true);
                 if (!a3.b()) {
-                    f30444a = false;
+                    f30526a = false;
                 } else if (Build.VERSION.SDK_INT < 21) {
                     g(activity);
-                    f30444a = true;
+                    f30526a = true;
                 } else {
                     h(activity);
                     c(activity, true);
-                    f30444a = true;
+                    f30526a = true;
                 }
             }
         }

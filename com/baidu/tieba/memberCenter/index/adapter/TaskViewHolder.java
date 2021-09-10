@@ -1,8 +1,8 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import c.a.q0.w1.c.i;
-import c.a.q0.w1.c.k.q;
+import c.a.r0.x1.c.i;
+import c.a.r0.x1.c.k.q;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -16,10 +16,10 @@ public class TaskViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public i f54140a;
+    public i f54286a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f54141b;
+    public View.OnClickListener f54287b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TaskViewHolder(View view, BaseFragmentActivity baseFragmentActivity, View.OnClickListener onClickListener) {
@@ -39,24 +39,24 @@ public class TaskViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f54141b = onClickListener;
-        this.f54140a = new i(view, baseFragmentActivity, onClickListener);
+        this.f54287b = onClickListener;
+        this.f54286a = new i(view, baseFragmentActivity, onClickListener);
     }
 
     public void fillView(q qVar) {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, qVar) == null) || qVar == null || (iVar = this.f54140a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, qVar) == null) || qVar == null || (iVar = this.f54286a) == null) {
             return;
         }
         iVar.a(qVar);
-        this.f54140a.c();
+        this.f54286a.c();
     }
 
     public void setCommenClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f54141b = onClickListener;
+            this.f54287b = onClickListener;
         }
     }
 }

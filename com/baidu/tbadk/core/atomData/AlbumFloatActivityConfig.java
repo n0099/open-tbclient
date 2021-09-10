@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -10,7 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class AlbumFloatActivityConfig extends AlbumActivityConfig {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String BAR_ID = "bar_id";
+    public static final String BAR_NAME = "bar_name";
+    public static final String CAN_CHANGE_BAR_NAME = "can_change_bar_name";
+    public static final String VIDEO_ABSTRACT = "video_abstract";
+    public static final String VIDEO_TITLE = "video_title";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -34,14 +40,49 @@ public class AlbumFloatActivityConfig extends AlbumActivityConfig {
         }
     }
 
+    public void setBarID(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            getIntent().putExtra("bar_id", str);
+        }
+    }
+
+    public void setBarName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            getIntent().putExtra("bar_name", str);
+        }
+    }
+
+    public void setCanChangeBarName(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            getIntent().putExtra(CAN_CHANGE_BAR_NAME, z);
+        }
+    }
+
     public void setExtraData(AntiData antiData, PostPrefixData postPrefixData, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, antiData, postPrefixData, str, str2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, antiData, postPrefixData, str, str2) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(IntentConfig.FORUM_FIRST_DIR, str);
         getIntent().putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
         getIntent().putExtra("prefix_data", postPrefixData);
         getIntent().putExtra("anti_data", antiData);
+    }
+
+    public void setVideoAbstract(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            getIntent().putExtra(VIDEO_ABSTRACT, str);
+        }
+    }
+
+    public void setVideoTitle(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            getIntent().putExtra("video_title", str);
+        }
     }
 }

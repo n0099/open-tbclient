@@ -20,14 +20,14 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f2838c;
+    public static volatile c f2829c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f2839a;
+    public ArrayList<String> f2830a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f2840b;
+    public a f2831b;
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
@@ -35,10 +35,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2841a;
+        public String f2832a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f2842b;
+        public final /* synthetic */ c f2833b;
 
         public a(c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public class c {
                     return;
                 }
             }
-            this.f2842b = cVar;
-            this.f2841a = str;
+            this.f2833b = cVar;
+            this.f2832a = str;
         }
 
         public final void b(String str) {
@@ -89,7 +89,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                String str = this.f2841a;
+                String str = this.f2832a;
                 if (str != null) {
                     b(str);
                 }
@@ -104,21 +104,21 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 super.onPostExecute((a) bool);
-                this.f2842b.f2840b = null;
-                if (this.f2842b.f2839a.size() > 0) {
-                    Iterator it = this.f2842b.f2839a.iterator();
+                this.f2833b.f2831b = null;
+                if (this.f2833b.f2830a.size() > 0) {
+                    Iterator it = this.f2833b.f2830a.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         String str = (String) it.next();
-                        if (str != null && str.equals(this.f2841a)) {
-                            this.f2842b.f2839a.remove(str);
+                        if (str != null && str.equals(this.f2832a)) {
+                            this.f2833b.f2830a.remove(str);
                             break;
                         }
                     }
                 }
-                this.f2842b.f();
+                this.f2833b.f();
             }
         }
     }
@@ -136,21 +136,21 @@ public class c {
                 return;
             }
         }
-        this.f2839a = new ArrayList<>();
+        this.f2830a = new ArrayList<>();
     }
 
     public static c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f2838c == null) {
+            if (f2829c == null) {
                 synchronized (c.class) {
-                    if (f2838c == null) {
-                        f2838c = new c();
+                    if (f2829c == null) {
+                        f2829c = new c();
                     }
                 }
             }
-            return f2838c;
+            return f2829c;
         }
         return (c) invokeV.objValue;
     }
@@ -161,7 +161,7 @@ public class c {
             return;
         }
         boolean z = false;
-        Iterator<String> it = this.f2839a.iterator();
+        Iterator<String> it = this.f2830a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -173,16 +173,16 @@ public class c {
             }
         }
         if (!z) {
-            this.f2839a.add(pluginSetting.packageName);
+            this.f2830a.add(pluginSetting.packageName);
         }
         f();
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f2839a.size() > 0 && this.f2840b == null) {
-            a aVar = new a(this, this.f2839a.get(0));
-            this.f2840b = aVar;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f2830a.size() > 0 && this.f2831b == null) {
+            a aVar = new a(this, this.f2830a.get(0));
+            this.f2831b = aVar;
             aVar.execute(new String[0]);
         }
     }

@@ -20,7 +20,7 @@ public final class av implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f77115a;
+    public final /* synthetic */ Context f77295a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ boolean f82a;
@@ -40,7 +40,7 @@ public final class av implements Runnable {
                 return;
             }
         }
-        this.f77115a = context;
+        this.f77295a = context;
         this.f82a = z;
     }
 
@@ -57,24 +57,24 @@ public final class av implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             com.xiaomi.channel.commonutils.logger.b.m73a("do sync info");
             ie ieVar = new ie(com.xiaomi.push.service.at.a(), false);
-            b m114a = b.m114a(this.f77115a);
+            b m114a = b.m114a(this.f77295a);
             ieVar.c(hp.v.f513a);
             ieVar.b(m114a.m115a());
-            ieVar.d(this.f77115a.getPackageName());
+            ieVar.d(this.f77295a.getPackageName());
             HashMap hashMap = new HashMap();
             ieVar.f654a = hashMap;
-            Context context = this.f77115a;
+            Context context = this.f77295a;
             com.xiaomi.push.n.a(hashMap, "app_version", com.xiaomi.push.g.m341a(context, context.getPackageName()));
             Map<String, String> map2 = ieVar.f654a;
-            Context context2 = this.f77115a;
+            Context context2 = this.f77295a;
             com.xiaomi.push.n.a(map2, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.g.a(context2, context2.getPackageName())));
             com.xiaomi.push.n.a(ieVar.f654a, "push_sdk_vn", "3_8_5");
             com.xiaomi.push.n.a(ieVar.f654a, "push_sdk_vc", Integer.toString(30805));
             com.xiaomi.push.n.a(ieVar.f654a, "token", m114a.b());
-            com.xiaomi.push.i.a(this.f77115a, ieVar.f654a);
+            com.xiaomi.push.i.a(this.f77295a, ieVar.f654a);
             if (!com.xiaomi.push.l.d()) {
-                String a2 = bm.a(com.xiaomi.push.i.f(this.f77115a));
-                String h2 = com.xiaomi.push.i.h(this.f77115a);
+                String a2 = bm.a(com.xiaomi.push.i.f(this.f77295a));
+                String h2 = com.xiaomi.push.i.h(this.f77295a);
                 if (!TextUtils.isEmpty(h2)) {
                     a2 = a2 + "," + h2;
                 }
@@ -82,33 +82,33 @@ public final class av implements Runnable {
                     com.xiaomi.push.n.a(ieVar.f654a, Constants.EXTRA_KEY_IMEI_MD5, a2);
                 }
             }
-            ax.a(this.f77115a).a(ieVar.f654a);
+            ax.a(this.f77295a).a(ieVar.f654a);
             com.xiaomi.push.n.a(ieVar.f654a, Constants.EXTRA_KEY_REG_ID, m114a.m122c());
             com.xiaomi.push.n.a(ieVar.f654a, Constants.EXTRA_KEY_REG_SECRET, m114a.d());
-            com.xiaomi.push.n.a(ieVar.f654a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.f77115a).replace(",", "-"));
+            com.xiaomi.push.n.a(ieVar.f654a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.f77295a).replace(",", "-"));
             if (this.f82a) {
                 Map<String, String> map3 = ieVar.f654a;
-                c2 = au.c(MiPushClient.getAllAlias(this.f77115a));
+                c2 = au.c(MiPushClient.getAllAlias(this.f77295a));
                 com.xiaomi.push.n.a(map3, Constants.EXTRA_KEY_ALIASES_MD5, c2);
                 Map<String, String> map4 = ieVar.f654a;
-                c3 = au.c(MiPushClient.getAllTopic(this.f77115a));
+                c3 = au.c(MiPushClient.getAllTopic(this.f77295a));
                 com.xiaomi.push.n.a(map4, Constants.EXTRA_KEY_TOPICS_MD5, c3);
                 map = ieVar.f654a;
-                d4 = au.c(MiPushClient.getAllUserAccount(this.f77115a));
+                d4 = au.c(MiPushClient.getAllUserAccount(this.f77295a));
                 str = Constants.EXTRA_KEY_ACCOUNTS_MD5;
             } else {
                 Map<String, String> map5 = ieVar.f654a;
-                d2 = au.d(MiPushClient.getAllAlias(this.f77115a));
+                d2 = au.d(MiPushClient.getAllAlias(this.f77295a));
                 com.xiaomi.push.n.a(map5, Constants.EXTRA_KEY_ALIASES, d2);
                 Map<String, String> map6 = ieVar.f654a;
-                d3 = au.d(MiPushClient.getAllTopic(this.f77115a));
+                d3 = au.d(MiPushClient.getAllTopic(this.f77295a));
                 com.xiaomi.push.n.a(map6, Constants.EXTRA_KEY_TOPICS, d3);
                 map = ieVar.f654a;
-                d4 = au.d(MiPushClient.getAllUserAccount(this.f77115a));
+                d4 = au.d(MiPushClient.getAllUserAccount(this.f77295a));
                 str = Constants.EXTRA_KEY_ACCOUNTS;
             }
             com.xiaomi.push.n.a(map, str, d4);
-            an.a(this.f77115a).a((an) ieVar, hf.f77590i, false, (hs) null);
+            an.a(this.f77295a).a((an) ieVar, hf.f77770i, false, (hs) null);
         }
     }
 }

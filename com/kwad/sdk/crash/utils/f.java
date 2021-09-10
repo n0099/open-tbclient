@@ -65,10 +65,10 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final File f72521a;
+    public static final File f72701a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f72522b;
+    public static final File f72702b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -84,8 +84,8 @@ public final class f {
                 return;
             }
         }
-        f72521a = new File("/proc/self/fd");
-        f72522b = new File("/proc/self/task");
+        f72701a = new File("/proc/self/fd");
+        f72702b = new File("/proc/self/task");
     }
 
     public static int a() {
@@ -93,8 +93,8 @@ public final class f {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Objects.requireNonNull(f72521a);
-            if (f72521a.exists() && f72521a.isDirectory() && (listFiles = f72521a.listFiles()) != null) {
+            Objects.requireNonNull(f72701a);
+            if (f72701a.exists() && f72701a.isDirectory() && (listFiles = f72701a.listFiles()) != null) {
                 return listFiles.length;
             }
             return 0;
@@ -292,17 +292,17 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65548, null, exceptionMessage, memoryInfo, context) == null) {
             SystemUtil.a c2 = SystemUtil.c();
-            c2.f72517e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-            c2.f72513a = SystemUtil.a();
+            c2.f72697e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+            c2.f72693a = SystemUtil.a();
             long pss = Debug.getPss();
-            c2.f72516d = pss;
-            memoryInfo.mTotalMB = (int) (c2.f72513a / 1048576);
-            memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f72460a / 1048576.0d);
-            memoryInfo.mJavaHeapMB = (int) (c2.f72517e / 1048576);
-            memoryInfo.mVssMB = (int) (c2.f72514b / 1024);
-            memoryInfo.mRssMB = (int) (c2.f72515c / 1024);
+            c2.f72696d = pss;
+            memoryInfo.mTotalMB = (int) (c2.f72693a / 1048576);
+            memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f72640a / 1048576.0d);
+            memoryInfo.mJavaHeapMB = (int) (c2.f72697e / 1048576);
+            memoryInfo.mVssMB = (int) (c2.f72694b / 1024);
+            memoryInfo.mRssMB = (int) (c2.f72695c / 1024);
             memoryInfo.mPssMB = (int) (pss / 1024);
-            memoryInfo.mThreadsCount = c2.f72518f;
+            memoryInfo.mThreadsCount = c2.f72698f;
             memoryInfo.mFdCount = a();
             if (context != null) {
                 memoryInfo.mAvailableMB = (int) (SystemUtil.c(context) / 1048576);
@@ -311,7 +311,7 @@ public final class f {
             if (memoryInfo.mFdCount > 800) {
                 exceptionMessage.mCrashType = exceptionMessage.getTypeFdOOM();
                 exceptionMessage.mFdOverflow = "True";
-                File[] listFiles = f72521a.listFiles();
+                File[] listFiles = f72701a.listFiles();
                 if (listFiles != null && listFiles.length > 0) {
                     for (File file : listFiles) {
                         try {
@@ -331,7 +331,7 @@ public final class f {
                 }
             }
             exceptionMessage.mThreadOverflow = "False";
-            if (c2.f72518f > 400) {
+            if (c2.f72698f > 400) {
                 exceptionMessage.mCrashType = exceptionMessage.getTypeThreadOOM();
                 exceptionMessage.mThreadOverflow = "True";
                 a(memoryInfo);
@@ -370,7 +370,7 @@ public final class f {
     public static void a(MemoryInfo memoryInfo) {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65549, null, memoryInfo) == null) || (listFiles = f72522b.listFiles()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65549, null, memoryInfo) == null) || (listFiles = f72702b.listFiles()) == null) {
             return;
         }
         for (File file : listFiles) {
@@ -612,12 +612,12 @@ public final class f {
             com.kwad.sdk.core.d.a.b(e2);
             absolutePath = parentFile.getAbsolutePath();
         }
-        if (com.kwad.sdk.crash.c.f72461b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f72462c.matcher(absolutePath).matches()) {
+        if (com.kwad.sdk.crash.c.f72641b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f72642c.matcher(absolutePath).matches()) {
             exceptionMessage.mVirtualApp = context.getPackageName();
             return;
         }
-        Matcher matcher = com.kwad.sdk.crash.c.f72463d.matcher(absolutePath);
-        Matcher matcher2 = com.kwad.sdk.crash.c.f72464e.matcher(absolutePath);
+        Matcher matcher = com.kwad.sdk.crash.c.f72643d.matcher(absolutePath);
+        Matcher matcher2 = com.kwad.sdk.crash.c.f72644e.matcher(absolutePath);
         if (matcher.matches()) {
             group = matcher.group(1);
         } else if (!matcher2.matches()) {

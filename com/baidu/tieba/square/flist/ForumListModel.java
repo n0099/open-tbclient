@@ -2,7 +2,7 @@ package com.baidu.tieba.square.flist;
 
 import c.a.e.a.f;
 import c.a.e.e.d.l;
-import c.a.p0.s.r.a;
+import c.a.q0.s.r.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;

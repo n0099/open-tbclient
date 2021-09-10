@@ -1,154 +1,457 @@
 package c.a.q0.q0;
 
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-import androidx.core.view.InputDeviceCompat;
-import c.a.p0.s.f0.f;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.os.Process;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.faceshop.FacePurchaseRecordsActivity;
-import com.baidu.tieba.faceshop.FacePurchaseRecordsData;
+import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 /* loaded from: classes3.dex */
 public class k {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static String f13710e = "tb_perfor_samllflow_time";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static volatile k f13711f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TbPageContext<FacePurchaseRecordsActivity> f23692a;
+    public boolean f13712a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f23693b;
+    public long f13713b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final NavigationBar f23694c;
+    public long f13714c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final NoNetworkView f23695d;
+    public long f13715d;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final BdListView f23696e;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(51155094, "Lc/a/q0/q0/k;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(51155094, "Lc/a/q0/q0/k;");
+        }
+    }
 
-    /* renamed from: f  reason: collision with root package name */
-    public final c.a.p0.s.f0.g f23697f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public View f23698g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public j f23699h;
-
-    public k(TbPageContext<FacePurchaseRecordsActivity> tbPageContext) {
+    public k() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f23692a = tbPageContext;
-        tbPageContext.getPageActivity().setContentView(R.layout.face_purchase_records_layout);
-        View findViewById = tbPageContext.getPageActivity().findViewById(R.id.purchase_record);
-        this.f23693b = findViewById;
-        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
-        this.f23694c = navigationBar;
-        navigationBar.setTitleText(tbPageContext.getResources().getString(R.string.purchase_record));
-        this.f23694c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f23695d = (NoNetworkView) this.f23693b.findViewById(R.id.view_no_network);
-        this.f23696e = (BdListView) this.f23693b.findViewById(R.id.purchase_record_list);
-        c.a.p0.s.f0.g gVar = new c.a.p0.s.f0.g(tbPageContext);
-        this.f23697f = gVar;
-        this.f23696e.setPullRefresh(gVar);
-        this.f23698g = BdListViewHelper.d(this.f23692a.getPageActivity(), this.f23696e, BdListViewHelper.HeadType.DEFAULT);
+        this.f13712a = false;
+        this.f13714c = 86400L;
+        this.f13715d = 0L;
+        this.f13713b = c.a.q0.s.d0.b.j().l(f13710e, 0L);
+        BdBaseApplication.getInst().setStartSmallFlowTime(this.f13713b);
+        this.f13715d = this.f13714c;
+        BdBaseApplication.getInst().setSmallFlowInterval(this.f13715d);
     }
 
-    public void a(NoNetworkView.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f23695d.addNetworkChangeListener(bVar);
-        }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            BdListViewHelper.c(this.f23698g, BdListViewHelper.HeadType.DEFAULT, z);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f23696e.completePullRefreshPostDelayed(0L);
-        }
-    }
-
-    public j d() {
+    public static k d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f23699h : (j) invokeV.objValue;
-    }
-
-    public void e(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            c.a.p0.s.c layoutMode = this.f23692a.getLayoutMode();
-            layoutMode.k(i2 == 1);
-            layoutMode.j(this.f23693b);
-            this.f23694c.onChangeSkinType(this.f23692a, i2);
-            this.f23695d.onChangeSkinType(this.f23692a, i2);
-            this.f23697f.D(i2);
-        }
-    }
-
-    public void f(FacePurchaseRecordsData facePurchaseRecordsData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, facePurchaseRecordsData) == null) {
-            if (this.f23699h == null) {
-                j jVar = new j(this.f23692a.getOrignalPage());
-                this.f23699h = jVar;
-                this.f23696e.setAdapter((ListAdapter) jVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f13711f == null) {
+                synchronized (k.class) {
+                    if (f13711f == null) {
+                        f13711f = new k();
+                    }
+                }
             }
-            this.f23699h.e(facePurchaseRecordsData);
-            c();
+            return f13711f;
+        }
+        return (k) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x009b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x0024 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:84:0x006b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:87:0x0024 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:88:0x0024 */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x004e, code lost:
+        r3 = r6[2].trim();
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x009d  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x00b4 A[Catch: Exception -> 0x00b7, TRY_LEAVE, TryCatch #5 {Exception -> 0x00b7, blocks: (B:59:0x00af, B:61:0x00b4), top: B:71:0x00af }] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x00af A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r3v10 */
+    /* JADX WARN: Type inference failed for: r3v12 */
+    /* JADX WARN: Type inference failed for: r3v13 */
+    /* JADX WARN: Type inference failed for: r3v14, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r3v9 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int a() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int myPid = Process.myPid();
+            Process process = 0;
+            try {
+                Process exec = Runtime.getRuntime().exec("top -n 1");
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(exec.getInputStream()));
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
+                                break;
+                            } else if (readLine.trim().startsWith(String.valueOf(myPid))) {
+                                String[] split = readLine.split("\\s+");
+                                if (split.length > 2 && split[2] != null && split[2].contains("%")) {
+                                    break;
+                                }
+                                int length = split.length;
+                                int i2 = 0;
+                                while (true) {
+                                    if (i2 < length) {
+                                        String str3 = split[i2];
+                                        if (str3 != null && str3.contains("%")) {
+                                            process = str3.trim();
+                                            break;
+                                        }
+                                        i2++;
+                                    } else {
+                                        break;
+                                    }
+                                }
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            str = process;
+                            process = exec;
+                            try {
+                                e.printStackTrace();
+                                if (process != null) {
+                                    try {
+                                        process.destroy();
+                                    } catch (Exception unused) {
+                                        str2 = str;
+                                        if (str2 != null) {
+                                        }
+                                        return c.a.e.e.m.b.e(str2, -1);
+                                    }
+                                }
+                                if (bufferedReader != null) {
+                                    bufferedReader.close();
+                                }
+                                str2 = str;
+                                if (str2 != null) {
+                                }
+                                return c.a.e.e.m.b.e(str2, -1);
+                            } catch (Throwable th) {
+                                th = th;
+                                if (process != null) {
+                                    try {
+                                        process.destroy();
+                                    } catch (Exception unused2) {
+                                        throw th;
+                                    }
+                                }
+                                if (bufferedReader != null) {
+                                    bufferedReader.close();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            process = exec;
+                            if (process != null) {
+                            }
+                            if (bufferedReader != null) {
+                            }
+                            throw th;
+                        }
+                    }
+                    if (exec != null) {
+                        try {
+                            exec.destroy();
+                        } catch (Exception unused3) {
+                            str2 = process;
+                        }
+                    }
+                    bufferedReader.close();
+                    str2 = process;
+                } catch (Exception e3) {
+                    e = e3;
+                    bufferedReader = null;
+                    process = exec;
+                    str = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedReader = null;
+                }
+            } catch (Exception e4) {
+                e = e4;
+                str = null;
+                bufferedReader = null;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedReader = null;
+            }
+            if (str2 != null) {
+                String[] split2 = str2.split("%");
+                if (split2.length > 0) {
+                    str2 = split2[0];
+                }
+            }
+            return c.a.e.e.m.b.e(str2, -1);
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x003d, code lost:
+        r1 = r4.replaceAll("\\s+", "_");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x005d, code lost:
+        if (r3 != null) goto L19;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x006a A[Catch: Exception -> 0x006d, TRY_LEAVE, TryCatch #2 {Exception -> 0x006d, blocks: (B:36:0x0065, B:38:0x006a), top: B:49:0x0065 }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0065 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String b() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Process process;
+        BufferedReader bufferedReader2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int myPid = Process.myPid();
+            String str = null;
+            str = null;
+            str = null;
+            str = null;
+            Process process2 = null;
+            try {
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                try {
+                    process = Runtime.getRuntime().exec("top -n 1");
+                    try {
+                        bufferedReader2 = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader2.readLine();
+                                if (readLine != null) {
+                                    if (readLine.trim().contains(String.valueOf(myPid))) {
+                                        break;
+                                    }
+                                } else {
+                                    break;
+                                }
+                            } catch (Exception e2) {
+                                e = e2;
+                                e.printStackTrace();
+                                if (process != null) {
+                                    process.destroy();
+                                }
+                            }
+                        }
+                        if (process != null) {
+                            process.destroy();
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                        bufferedReader2 = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        bufferedReader = null;
+                        process2 = process;
+                        if (process2 != null) {
+                            try {
+                                process2.destroy();
+                            } catch (Exception unused) {
+                                throw th;
+                            }
+                        }
+                        if (bufferedReader != null) {
+                            bufferedReader.close();
+                        }
+                        throw th;
+                    }
+                } catch (Exception unused2) {
+                }
+            } catch (Exception e4) {
+                e = e4;
+                process = null;
+                bufferedReader2 = null;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedReader = null;
+                if (process2 != null) {
+                }
+                if (bufferedReader != null) {
+                }
+                throw th;
+            }
+            bufferedReader2.close();
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                Runtime runtime = Runtime.getRuntime();
+                return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
+            } catch (Exception e2) {
+                BdLog.e(e2);
+                return -1L;
+            }
+        }
+        return invokeV.longValue;
+    }
+
+    public j e(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+            if (g()) {
+                switch (i2) {
+                    case 1000:
+                        m mVar = new m();
+                        mVar.f13709a = "frs";
+                        return mVar;
+                    case 1001:
+                        m mVar2 = new m();
+                        mVar2.f13709a = "pb";
+                        return mVar2;
+                    case 1002:
+                        i iVar = new i();
+                        iVar.f13709a = "im";
+                        return iVar;
+                    case 1003:
+                    case 1006:
+                    case 1007:
+                    default:
+                        return null;
+                    case 1004:
+                        m mVar3 = new m();
+                        mVar3.f13709a = "photo_live";
+                        return mVar3;
+                    case 1005:
+                        e eVar = new e();
+                        eVar.f13709a = "home_page";
+                        return eVar;
+                    case 1008:
+                        m mVar4 = new m();
+                        mVar4.f13709a = "user_center";
+                        return mVar4;
+                    case 1009:
+                        m mVar5 = new m();
+                        mVar5.f13709a = "sign_all";
+                        return mVar5;
+                    case 1010:
+                        m mVar6 = new m();
+                        mVar6.f13709a = "person_center";
+                        return mVar6;
+                    case 1011:
+                        m mVar7 = new m();
+                        mVar7.f13709a = "person_center_home";
+                        return mVar7;
+                    case 1012:
+                        m mVar8 = new m();
+                        mVar8.f13709a = "person_center_post";
+                        return mVar8;
+                    case 1013:
+                        m mVar9 = new m();
+                        mVar9.f13709a = "person_center_dynamic";
+                        return mVar9;
+                }
+            }
+            return null;
+        }
+        return (j) invokeI.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !c.a.e.e.p.j.z() ? "N" : c.a.e.e.p.j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : c.a.e.e.p.j.v() ? "4G" : c.a.e.e.p.j.u() ? "3G" : c.a.e.e.p.j.t() ? "2G" : "N" : (String) invokeV.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!this.f13712a || (System.currentTimeMillis() - this.f13713b) / 1000 <= this.f13715d) {
+                return this.f13712a;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (z) {
+                long j2 = this.f13713b;
+                if (0 == j2 || currentTimeMillis - j2 >= this.f13715d) {
+                    this.f13713b = currentTimeMillis;
+                    BdBaseApplication.getInst().setStartSmallFlowTime(this.f13713b);
+                    c.a.q0.s.d0.b.j().w(f13710e, this.f13713b);
+                }
+            } else {
+                this.f13713b = 0L;
+                BdBaseApplication.getInst().setStartSmallFlowTime(0L);
+                c.a.q0.s.d0.b.j().w(f13710e, this.f13713b);
+            }
+            this.f13712a = z;
+            BdBaseApplication.getInst().setIsSmallFlow(z);
+            if (BdStatisticsManager.getInstance().isMainProcess()) {
+                l.b().f();
+            }
         }
     }
 
-    public void g(NoNetworkView.b bVar) {
+    public void i(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f23695d.removeNetworkChangeListener(bVar);
+        if (!(interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) || j2 <= 0) {
+            return;
         }
-    }
-
-    public void h(AdapterView.OnItemClickListener onItemClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onItemClickListener) == null) {
-            this.f23696e.setOnItemClickListener(onItemClickListener);
-        }
-    }
-
-    public void i(f.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gVar) == null) {
-            this.f23697f.a(gVar);
-        }
+        this.f13715d = j2;
+        BdBaseApplication.getInst().setSmallFlowInterval(j2);
     }
 }

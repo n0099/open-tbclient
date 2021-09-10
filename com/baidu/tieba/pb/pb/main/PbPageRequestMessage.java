@@ -2,9 +2,9 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.b1.w;
-import c.a.q0.x2.j0.a;
-import c.a.q0.x2.l0.b;
+import c.a.q0.d1.x;
+import c.a.r0.y2.j0.a;
+import c.a.r0.y2.l0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -193,7 +193,7 @@ public class PbPageRequestMessage extends NetMessage {
                 b2.h(this.updateType);
                 builder.ad_ext_params = b2.a();
                 builder.source_type = Integer.valueOf(this.sourceType);
-                w.c(builder, true, false, true);
+                x.c(builder, true, false, true);
                 builder.immersion_video_comment_source = Integer.valueOf(this.immersionVideoCommentSource);
                 PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();
                 builder3.data = builder.build(false);
@@ -291,7 +291,7 @@ public class PbPageRequestMessage extends NetMessage {
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.forumId = Long.valueOf(c.a.e.e.m.b.f(str, 0L));
+            this.forumId = Long.valueOf(c.a.e.e.m.b.g(str, 0L));
         }
     }
 

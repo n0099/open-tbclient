@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.j.a.d;
 import c.a.e.e.p.j;
-import c.a.q0.h0.e;
-import c.a.q0.h0.f;
+import c.a.r0.h0.e;
+import c.a.r0.h0.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -30,10 +30,10 @@ public class DnsProxyStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f49916a;
+    public static int f50051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f49917b;
+    public static int f50052b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -221,20 +221,20 @@ public class DnsProxyStatic {
                 URL url = new URL(eVar.b().i());
                 c.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("workflow", "dnsproxy_unuse");
-                statsItem.c("sucnum", Integer.valueOf(f49917b));
+                statsItem.c("sucnum", Integer.valueOf(f50052b));
                 statsItem.c("failnum", 1);
                 statsItem.b("host", url.getHost());
                 statsItem.b("reason", dVar.f2313h);
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                f49917b = 0;
+                f50052b = 0;
                 return;
             } catch (Throwable th) {
                 BdLog.detailException(th);
                 return;
             }
         }
-        int i2 = f49917b + 1;
-        f49917b = i2;
+        int i2 = f50052b + 1;
+        f50052b = i2;
         if (i2 >= 100) {
             g();
         }
@@ -256,27 +256,27 @@ public class DnsProxyStatic {
         if (bArr != null && bArr.length == 0) {
             z = true;
         }
-        c.a.q0.h0.i.d.m().p(dVar.l, !z);
+        c.a.r0.h0.i.d.m().p(dVar.l, !z);
         if (z) {
             try {
                 URL url = new URL(eVar.b().i());
                 c.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("workflow", "dnsproxy_use");
-                statsItem.c("sucnum", Integer.valueOf(f49916a));
+                statsItem.c("sucnum", Integer.valueOf(f50051a));
                 statsItem.c("failnum", 1);
                 statsItem.b("host", url.getHost());
                 statsItem.b("ip", dVar.l);
                 statsItem.b("reason", dVar.f2313h);
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                f49916a = 0;
+                f50051a = 0;
                 return;
             } catch (Throwable th) {
                 BdLog.detailException(th);
                 return;
             }
         }
-        int i2 = f49916a + 1;
-        f49916a = i2;
+        int i2 = f50051a + 1;
+        f50051a = i2;
         if (i2 >= 100) {
             h();
         }
@@ -292,15 +292,15 @@ public class DnsProxyStatic {
 
     public static final void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || f49917b <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || f50052b <= 0) {
             return;
         }
         try {
             c.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("workflow", "dnsproxy_unuse");
-            statsItem.c("sucnum", Integer.valueOf(f49917b));
+            statsItem.c("sucnum", Integer.valueOf(f50052b));
             BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-            f49917b = 0;
+            f50052b = 0;
         } catch (Throwable th) {
             BdLog.detailException(th);
         }
@@ -308,15 +308,15 @@ public class DnsProxyStatic {
 
     public static final void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, null) == null) || f49916a <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(65545, null) == null) || f50051a <= 0) {
             return;
         }
         try {
             c.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("workflow", "dnsproxy_use");
-            statsItem.c("sucnum", Integer.valueOf(f49916a));
+            statsItem.c("sucnum", Integer.valueOf(f50051a));
             BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-            f49916a = 0;
+            f50051a = 0;
         } catch (Throwable th) {
             BdLog.detailException(th);
         }

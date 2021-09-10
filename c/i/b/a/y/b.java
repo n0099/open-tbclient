@@ -15,34 +15,34 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f33958a;
+    public byte[] f34067a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f33959b;
+    public byte[] f34068b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33960c;
+    public int f34069c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int[] f33961d;
+    public int[] f34070d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int[] f33962e;
+    public int[] f34071e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f33963f;
+    public int f34072f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f33964g;
+    public int f34073g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f33965h;
+    public int f34074h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final MediaCodec.CryptoInfo f33966i;
+    public final MediaCodec.CryptoInfo f34075i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final C1504b f33967j;
+    public final C1504b f34076j;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -58,10 +58,10 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final MediaCodec.CryptoInfo f33968a;
+        public final MediaCodec.CryptoInfo f34077a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final MediaCodec.CryptoInfo.Pattern f33969b;
+        public final MediaCodec.CryptoInfo.Pattern f34078b;
 
         public /* synthetic */ C1504b(MediaCodec.CryptoInfo cryptoInfo, a aVar) {
             this(cryptoInfo);
@@ -70,8 +70,8 @@ public final class b {
         public final void b(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                this.f33969b.set(i2, i3);
-                this.f33968a.setPattern(this.f33969b);
+                this.f34078b.set(i2, i3);
+                this.f34077a.setPattern(this.f34078b);
             }
         }
 
@@ -90,8 +90,8 @@ public final class b {
                     return;
                 }
             }
-            this.f33968a = cryptoInfo;
-            this.f33969b = new MediaCodec.CryptoInfo.Pattern(0, 0);
+            this.f34077a = cryptoInfo;
+            this.f34078b = new MediaCodec.CryptoInfo.Pattern(0, 0);
         }
     }
 
@@ -108,16 +108,16 @@ public final class b {
                 return;
             }
         }
-        MediaCodec.CryptoInfo b2 = v.f33729a >= 16 ? b() : null;
-        this.f33966i = b2;
-        this.f33967j = v.f33729a >= 24 ? new C1504b(b2, null) : null;
+        MediaCodec.CryptoInfo b2 = v.f33838a >= 16 ? b() : null;
+        this.f34075i = b2;
+        this.f34076j = v.f33838a >= 24 ? new C1504b(b2, null) : null;
     }
 
     @TargetApi(16)
     public MediaCodec.CryptoInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33966i : (MediaCodec.CryptoInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34075i : (MediaCodec.CryptoInfo) invokeV.objValue;
     }
 
     @TargetApi(16)
@@ -130,15 +130,15 @@ public final class b {
     public void c(int i2, int[] iArr, int[] iArr2, byte[] bArr, byte[] bArr2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), iArr, iArr2, bArr, bArr2, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            this.f33963f = i2;
-            this.f33961d = iArr;
-            this.f33962e = iArr2;
-            this.f33959b = bArr;
-            this.f33958a = bArr2;
-            this.f33960c = i3;
-            this.f33964g = i4;
-            this.f33965h = i5;
-            if (v.f33729a >= 16) {
+            this.f34072f = i2;
+            this.f34070d = iArr;
+            this.f34071e = iArr2;
+            this.f34068b = bArr;
+            this.f34067a = bArr2;
+            this.f34069c = i3;
+            this.f34073g = i4;
+            this.f34074h = i5;
+            if (v.f33838a >= 16) {
                 d();
             }
         }
@@ -148,15 +148,15 @@ public final class b {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MediaCodec.CryptoInfo cryptoInfo = this.f33966i;
-            cryptoInfo.numSubSamples = this.f33963f;
-            cryptoInfo.numBytesOfClearData = this.f33961d;
-            cryptoInfo.numBytesOfEncryptedData = this.f33962e;
-            cryptoInfo.key = this.f33959b;
-            cryptoInfo.iv = this.f33958a;
-            cryptoInfo.mode = this.f33960c;
-            if (v.f33729a >= 24) {
-                this.f33967j.b(this.f33964g, this.f33965h);
+            MediaCodec.CryptoInfo cryptoInfo = this.f34075i;
+            cryptoInfo.numSubSamples = this.f34072f;
+            cryptoInfo.numBytesOfClearData = this.f34070d;
+            cryptoInfo.numBytesOfEncryptedData = this.f34071e;
+            cryptoInfo.key = this.f34068b;
+            cryptoInfo.iv = this.f34067a;
+            cryptoInfo.mode = this.f34069c;
+            if (v.f33838a >= 24) {
+                this.f34076j.b(this.f34073g, this.f34074h);
             }
         }
     }

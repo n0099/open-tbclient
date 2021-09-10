@@ -157,15 +157,16 @@ public class VideoFrame implements RefCounted {
                 return;
             }
         }
-        if (buffer == null) {
-            throw new IllegalArgumentException("buffer not allowed to be null");
-        }
-        if (i2 % 90 != 0) {
+        if (buffer != null) {
+            if (i2 % 90 == 0) {
+                this.buffer = buffer;
+                this.rotation = i2;
+                this.timestampNs = j2;
+                return;
+            }
             throw new IllegalArgumentException("rotation must be a multiple of 90");
         }
-        this.buffer = buffer;
-        this.rotation = i2;
-        this.timestampNs = j2;
+        throw new IllegalArgumentException("buffer not allowed to be null");
     }
 
     @CalledByNative
@@ -178,13 +179,25 @@ public class VideoFrame implements RefCounted {
     public int getRotatedHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.rotation % 180 == 0 ? this.buffer.getHeight() : this.buffer.getWidth() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.rotation % 180 == 0) {
+                return this.buffer.getHeight();
+            }
+            return this.buffer.getWidth();
+        }
+        return invokeV.intValue;
     }
 
     public int getRotatedWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.rotation % 180 == 0 ? this.buffer.getWidth() : this.buffer.getHeight() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.rotation % 180 == 0) {
+                return this.buffer.getWidth();
+            }
+            return this.buffer.getHeight();
+        }
+        return invokeV.intValue;
     }
 
     @CalledByNative

@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.data;
 
-import c.a.q0.i2.b;
+import c.a.r0.j2.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;

@@ -26,7 +26,7 @@ public final class MaybeFromCompletable<T> extends Maybe<T> implements HasUpstre
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f78732d;
+        public Disposable f78970d;
 
         public FromCompletableObserver(MaybeObserver<? super T> maybeObserver) {
             Interceptable interceptable = $ic;
@@ -50,8 +50,8 @@ public final class MaybeFromCompletable<T> extends Maybe<T> implements HasUpstre
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f78732d.dispose();
-                this.f78732d = DisposableHelper.DISPOSED;
+                this.f78970d.dispose();
+                this.f78970d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -59,14 +59,14 @@ public final class MaybeFromCompletable<T> extends Maybe<T> implements HasUpstre
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f78732d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f78970d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f78732d = DisposableHelper.DISPOSED;
+                this.f78970d = DisposableHelper.DISPOSED;
                 this.actual.onComplete();
             }
         }
@@ -75,7 +75,7 @@ public final class MaybeFromCompletable<T> extends Maybe<T> implements HasUpstre
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f78732d = DisposableHelper.DISPOSED;
+                this.f78970d = DisposableHelper.DISPOSED;
                 this.actual.onError(th);
             }
         }
@@ -83,8 +83,8 @@ public final class MaybeFromCompletable<T> extends Maybe<T> implements HasUpstre
         @Override // io.reactivex.CompletableObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f78732d, disposable)) {
-                this.f78732d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f78970d, disposable)) {
+                this.f78970d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

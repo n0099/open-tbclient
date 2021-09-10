@@ -13,14 +13,14 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.a.e;
-import c.a.o0.a.f;
-import c.a.o0.a.g;
-import c.a.o0.a.h0.f.b;
-import c.a.o0.a.k;
-import c.a.o0.a.p.e.c;
-import c.a.o0.a.p.e.d;
-import c.a.o0.a.v2.n0;
+import c.a.p0.a.e;
+import c.a.p0.a.f;
+import c.a.p0.a.g;
+import c.a.p0.a.h0.f.b;
+import c.a.p0.a.k;
+import c.a.p0.a.p.e.c;
+import c.a.p0.a.p.e.d;
+import c.a.p0.a.v2.n0;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailorConfig;
@@ -50,7 +50,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
     public b mCommonEventHandler;
     public SwanAppSelectPopView mSelectPopWindow;
     public SwanAppSelectPopView.a mSelectPopWindowListener;
-    public c.a.o0.a.h0.f.c mWebViewHookHandler;
+    public c.a.p0.a.h0.f.c mWebViewHookHandler;
     public d mWebViewManager;
 
     /* loaded from: classes6.dex */
@@ -59,7 +59,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NgWebView f45794e;
+        public final /* synthetic */ NgWebView f45909e;
 
         public a(NgWebView ngWebView) {
             Interceptable interceptable = $ic;
@@ -76,16 +76,16 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
                     return;
                 }
             }
-            this.f45794e = ngWebView;
+            this.f45909e = ngWebView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NgWebView ngWebView = this.f45794e;
+                NgWebView ngWebView = this.f45909e;
                 ngWebView.calcPopWindowPos(ngWebView.mSelectPopWindow);
-                this.f45794e.showPopWindow();
+                this.f45909e.showPopWindow();
             }
         }
     }
@@ -103,7 +103,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
                 return;
             }
         }
-        DEBUG = k.f7049a;
+        DEBUG = k.f7077a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -193,7 +193,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
     private void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
-            c.a.o0.a.v2.b.a(this);
+            c.a.p0.a.v2.b.a(this);
             disableFeature(BdSailorConfig.SAILOR_EXT_WEBVIEWPAGER);
             disableControls();
         }
@@ -244,13 +244,13 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         }
     }
 
-    @Override // com.baidu.browser.sailor.BdSailorWebView, c.a.o0.a.p.e.c
+    @Override // com.baidu.browser.sailor.BdSailorWebView, c.a.p0.a.p.e.c
     public boolean canGoBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             boolean canGoBack = super.canGoBack();
-            c.a.o0.a.h0.f.c cVar = this.mWebViewHookHandler;
+            c.a.p0.a.h0.f.c cVar = this.mWebViewHookHandler;
             return cVar != null ? cVar.v(canGoBack) : canGoBack;
         }
         return invokeV.booleanValue;
@@ -277,14 +277,14 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         return invokeI.booleanValue;
     }
 
-    @Override // c.a.o0.a.p.e.c
+    @Override // c.a.p0.a.p.e.c
     public View covertToView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.browser.sailor.BdSailorWebView, c.a.o0.a.p.e.c
+    @Override // com.baidu.browser.sailor.BdSailorWebView, c.a.p0.a.p.e.c
     @DebugTrace
     public void destroy() {
         Interceptable interceptable = $ic;
@@ -357,7 +357,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         aVar.doSelectionSearch(str);
     }
 
-    @Override // c.a.o0.a.h0.f.a
+    @Override // c.a.p0.a.h0.f.a
     public String getContainerId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -368,7 +368,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.browser.sailor.BdSailorWebView, c.a.o0.a.p.e.c
+    @Override // com.baidu.browser.sailor.BdSailorWebView, c.a.p0.a.p.e.c
     public /* bridge */ /* synthetic */ AbsoluteLayout getCurrentWebView() {
         return super.getCurrentWebView();
     }
@@ -387,25 +387,25 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         return (AbsoluteLayout) invokeV.objValue;
     }
 
-    @Override // c.a.o0.a.p.e.c
+    @Override // c.a.p0.a.p.e.c
     public int getWebViewScrollX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? getCurrentWebView().getWebViewScrollX() : invokeV.intValue;
     }
 
-    @Override // c.a.o0.a.p.e.c
+    @Override // c.a.p0.a.p.e.c
     public int getWebViewScrollY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? getCurrentWebView().getWebViewScrollY() : invokeV.intValue;
     }
 
-    @Override // com.baidu.browser.sailor.BdSailorWebView, c.a.o0.a.p.e.c
+    @Override // com.baidu.browser.sailor.BdSailorWebView, c.a.p0.a.p.e.c
     public void goBack() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            c.a.o0.a.h0.f.c cVar = this.mWebViewHookHandler;
+            c.a.p0.a.h0.f.c cVar = this.mWebViewHookHandler;
             if (cVar == null || !cVar.p()) {
                 super.goBack();
             }
@@ -428,7 +428,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, motionEvent)) == null) ? getCurrentWebView().getTouchMode() == 6 : invokeL.booleanValue;
     }
 
-    @Override // c.a.o0.a.h0.f.a
+    @Override // c.a.p0.a.h0.f.a
     public boolean isWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -438,7 +438,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.o0.a.h0.f.a
+    @Override // c.a.p0.a.h0.f.a
     public void onJSLoaded() {
         d dVar;
         Interceptable interceptable = $ic;
@@ -526,7 +526,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         }
     }
 
-    @Override // c.a.o0.a.p.e.c
+    @Override // c.a.p0.a.p.e.c
     public void setDefaultViewSize(int i2, int i3, String str) {
         int i4;
         Pair<Integer, Integer> pair;
@@ -559,7 +559,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         }
     }
 
-    public void setOnWebViewHookHandler(c.a.o0.a.h0.f.c cVar) {
+    public void setOnWebViewHookHandler(c.a.p0.a.h0.f.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, cVar) == null) {
             this.mWebViewHookHandler = cVar;
@@ -615,7 +615,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         }
     }
 
-    @Override // c.a.o0.a.p.e.c
+    @Override // c.a.p0.a.p.e.c
     public void webViewScrollTo(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048608, this, i2, i3) == null) {

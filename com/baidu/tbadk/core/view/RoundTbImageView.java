@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class RoundTbImageView extends TbClipImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int P;
     public int Q;
+    public int R;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundTbImageView(Context context) {
@@ -46,8 +46,8 @@ public class RoundTbImageView extends TbClipImageView {
             setGifIconSupport(false);
             setDrawBorder(false);
             setBorderSurroundContent(false);
-            setDefaultBgResource(this.Q);
-            setDefaultResource(this.P);
+            setDefaultBgResource(this.R);
+            setDefaultResource(this.Q);
             setAutoChangeStyle(true);
             setScaleType(ImageView.ScaleType.CENTER_CROP);
             setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -95,8 +95,8 @@ public class RoundTbImageView extends TbClipImageView {
                 return;
             }
         }
-        this.P = R.drawable.transparent_bg;
-        this.Q = R.color.CAM_X0209;
+        this.Q = R.drawable.transparent_bg;
+        this.R = R.color.CAM_X0209;
         init();
     }
 }

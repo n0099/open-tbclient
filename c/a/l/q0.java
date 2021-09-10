@@ -21,17 +21,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class q0 extends c.a.l.a<c.a.p0.s.q.a> {
+public class q0 extends c.a.l.a<c.a.q0.s.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public static final int q;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f3862j;
+    public View f3855j;
     public TextView k;
     public TextView l;
     public OriginalThreadCardView m;
-    public c.a.p0.s.q.a n;
+    public c.a.q0.s.q.a n;
     public boolean o;
     public OriginalThreadCardView.b p;
 
@@ -41,7 +41,7 @@ public class q0 extends c.a.l.a<c.a.p0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ q0 f3863a;
+        public final /* synthetic */ q0 f3856a;
 
         public a(q0 q0Var) {
             Interceptable interceptable = $ic;
@@ -58,22 +58,22 @@ public class q0 extends c.a.l.a<c.a.p0.s.q.a> {
                     return;
                 }
             }
-            this.f3863a = q0Var;
+            this.f3856a = q0Var;
         }
 
         @Override // com.baidu.tieba.card.OriginalThreadCardView.b
         public void a(OriginalThreadInfo originalThreadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || this.f3863a.n == null || this.f3863a.n.getThreadData() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || this.f3856a.n == null || this.f3856a.n.getThreadData() == null) {
                 return;
             }
-            if (this.f3863a.c() != null) {
-                this.f3863a.c().a(this.f3863a.m, this.f3863a.n);
+            if (this.f3856a.c() != null) {
+                this.f3856a.c().a(this.f3856a.m, this.f3856a.n);
             }
-            String f0 = this.f3863a.n.getThreadData().f0();
-            c.a.q0.a0.m.a(f0);
-            this.f3863a.r(f0);
-            this.f3863a.f3788e.o(new a.C0096a(1));
+            String f0 = this.f3856a.n.getThreadData().f0();
+            c.a.r0.a0.m.a(f0);
+            this.f3856a.r(f0);
+            this.f3856a.f3781e.o(new a.C0095a(1));
         }
     }
 
@@ -113,11 +113,14 @@ public class q0 extends c.a.l.a<c.a.p0.s.q.a> {
         }
         this.o = false;
         this.p = new a(this);
-        View inflate = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
-        this.f3862j = inflate;
-        this.k = (TextView) inflate.findViewById(R.id.thread_card_title);
-        this.l = (TextView) this.f3862j.findViewById(R.id.thread_card_abstract);
-        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f3862j.findViewById(R.id.original_thread_view);
+        if (TbadkCoreApplication.getInst().getPersonalizeViewData().q != null && TbadkCoreApplication.getInst().getPersonalizeViewData().q.getParent() == null) {
+            this.f3855j = TbadkCoreApplication.getInst().getPersonalizeViewData().q;
+        } else {
+            this.f3855j = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
+        }
+        this.k = (TextView) this.f3855j.findViewById(R.id.thread_card_title);
+        this.l = (TextView) this.f3855j.findViewById(R.id.thread_card_abstract);
+        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f3855j.findViewById(R.id.original_thread_view);
         this.m = originalThreadCardView;
         originalThreadCardView.setSubClickListener(this.p);
     }
@@ -126,11 +129,11 @@ public class q0 extends c.a.l.a<c.a.p0.s.q.a> {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3862j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3855j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
-    public void k(c.a.q0.a0.b0<c.a.p0.s.q.a> b0Var) {
+    public void k(c.a.r0.a0.b0<c.a.q0.s.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b0Var) == null) {
             super.k(b0Var);
@@ -148,7 +151,7 @@ public class q0 extends c.a.l.a<c.a.p0.s.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: q */
-    public void onBindDataToView(c.a.p0.s.q.a aVar) {
+    public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null || aVar.getThreadData() == null) {
             return;
@@ -156,15 +159,15 @@ public class q0 extends c.a.l.a<c.a.p0.s.q.a> {
         this.n = aVar;
         ThreadCardUtils.setTitle(this.k, aVar.getThreadData(), this.o);
         ThreadCardUtils.setAbstract(this.l, this.k, aVar.getThreadData(), q, this.o);
-        this.m.fillData(aVar.getThreadData().v1);
+        this.m.fillData(aVar.getThreadData().x1);
     }
 
     public final void r(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            c.a.q0.a0.m.l(this.k, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            c.a.q0.a0.m.l(this.l, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.m.setReadState(c.a.q0.a0.m.k(str));
+            c.a.r0.a0.m.l(this.k, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            c.a.r0.a0.m.l(this.l, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            this.m.setReadState(c.a.r0.a0.m.k(str));
         }
     }
 

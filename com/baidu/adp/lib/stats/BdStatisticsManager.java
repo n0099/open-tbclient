@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.location.Address;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
 import android.text.TextUtils;
@@ -71,16 +72,22 @@ public class BdStatisticsManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
         }
@@ -108,7 +115,7 @@ public class BdStatisticsManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdStatisticsManager f36173a;
+        public final /* synthetic */ BdStatisticsManager f36282a;
 
         public b(BdStatisticsManager bdStatisticsManager) {
             Interceptable interceptable = $ic;
@@ -125,15 +132,15 @@ public class BdStatisticsManager {
                     return;
                 }
             }
-            this.f36173a = bdStatisticsManager;
+            this.f36282a = bdStatisticsManager;
         }
 
         @Override // c.a.e.e.n.m.a.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f36173a.isSwitchReady = true;
-                if (this.f36173a.mIsMainProcess) {
+                this.f36282a.isSwitchReady = true;
+                if (this.f36282a.mIsMainProcess) {
                     g.h().f();
                 }
                 BdStatisticsManager.mHandler.removeMessages(2);
@@ -208,7 +215,7 @@ public class BdStatisticsManager {
                 return;
             }
         }
-        mHandler = new a();
+        mHandler = new a(Looper.getMainLooper());
     }
 
     public BdStatisticsManager() {

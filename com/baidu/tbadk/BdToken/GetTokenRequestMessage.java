@@ -1,6 +1,6 @@
 package com.baidu.tbadk.BdToken;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -46,7 +46,7 @@ public class GetTokenRequestMessage extends NetMessage {
             builder.token = this.mToken;
             builder.shoubaicuid = this.mBaiduCuid;
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             GetTokenReqIdl.Builder builder2 = new GetTokenReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -27,25 +27,25 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Queue<Integer> f34926a;
+    public final Queue<Integer> f35035a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34927b;
+    public boolean f35036b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f34928c;
+    public long f35037c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f34929d;
+    public long f35038d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SoftReference<JumpUnknownSourceActivity> f34930e;
+    public SoftReference<JumpUnknownSourceActivity> f35039e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f34931f;
+    public Handler f35040f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f34932g;
+    public Runnable f35041g;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -53,7 +53,7 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f34933e;
+        public final /* synthetic */ k f35042e;
 
         public a(k kVar) {
             Interceptable interceptable = $ic;
@@ -70,14 +70,14 @@ public class k {
                     return;
                 }
             }
-            this.f34933e = kVar;
+            this.f35042e = kVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f34933e.l();
+                this.f35042e.l();
             }
         }
     }
@@ -88,7 +88,7 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f34934e;
+        public final /* synthetic */ k f35043e;
 
         public b(k kVar) {
             Interceptable interceptable = $ic;
@@ -105,26 +105,26 @@ public class k {
                     return;
                 }
             }
-            this.f34934e = kVar;
+            this.f35043e = kVar;
         }
 
         @Override // c.p.a.e.b.a.a.b
         public void b() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f34934e.f34926a.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35043e.f35035a.isEmpty()) {
                 return;
             }
             long c2 = c.p.a.e.b.j.a.r().c("install_on_resume_install_interval", AppConfig.TIMESTAMP_AVAILABLE_DURATION);
-            long currentTimeMillis = System.currentTimeMillis() - this.f34934e.f34929d;
+            long currentTimeMillis = System.currentTimeMillis() - this.f35043e.f35038d;
             if (currentTimeMillis < c2) {
-                if (this.f34934e.f34931f.hasCallbacks(this.f34934e.f34932g)) {
+                if (this.f35043e.f35040f.hasCallbacks(this.f35043e.f35041g)) {
                     return;
                 }
-                this.f34934e.f34931f.postDelayed(this.f34934e.f34932g, c2 - currentTimeMillis);
+                this.f35043e.f35040f.postDelayed(this.f35043e.f35041g, c2 - currentTimeMillis);
                 return;
             }
-            this.f34934e.f34929d = System.currentTimeMillis();
-            this.f34934e.l();
+            this.f35043e.f35038d = System.currentTimeMillis();
+            this.f35043e.l();
         }
 
         @Override // c.p.a.e.b.a.a.b
@@ -141,13 +141,13 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f34935e;
+        public final /* synthetic */ Context f35044e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Integer f34936f;
+        public final /* synthetic */ Integer f35045f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ k f34937g;
+        public final /* synthetic */ k f35046g;
 
         public c(k kVar, Context context, Integer num) {
             Interceptable interceptable = $ic;
@@ -164,16 +164,16 @@ public class k {
                     return;
                 }
             }
-            this.f34937g = kVar;
-            this.f34935e = context;
-            this.f34936f = num;
+            this.f35046g = kVar;
+            this.f35044e = context;
+            this.f35045f = num;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f34937g.h(this.f34935e, this.f34936f.intValue(), false);
+                this.f35046g.h(this.f35044e, this.f35045f.intValue(), false);
             }
         }
     }
@@ -184,16 +184,16 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f34938e;
+        public final /* synthetic */ Context f35047e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f34939f;
+        public final /* synthetic */ int f35048f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f34940g;
+        public final /* synthetic */ boolean f35049g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ k f34941h;
+        public final /* synthetic */ k f35050h;
 
         public d(k kVar, Context context, int i2, boolean z) {
             Interceptable interceptable = $ic;
@@ -210,17 +210,17 @@ public class k {
                     return;
                 }
             }
-            this.f34941h = kVar;
-            this.f34938e = context;
-            this.f34939f = i2;
-            this.f34940g = z;
+            this.f35050h = kVar;
+            this.f35047e = context;
+            this.f35048f = i2;
+            this.f35049g = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f34941h.a(this.f34938e, this.f34939f, this.f34940g);
+                this.f35050h.a(this.f35047e, this.f35048f, this.f35049g);
             }
         }
     }
@@ -230,7 +230,7 @@ public class k {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final k f34942a;
+        public static final k f35051a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -246,7 +246,7 @@ public class k {
                     return;
                 }
             }
-            f34942a = new k(null);
+            f35051a = new k(null);
         }
     }
 
@@ -257,7 +257,7 @@ public class k {
     public static k d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? e.f34942a : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? e.f35051a : (k) invokeV.objValue;
     }
 
     public int a(Context context, int i2, boolean z) {
@@ -268,7 +268,7 @@ public class k {
                 return h(context, i2, z);
             }
             if (n()) {
-                this.f34931f.postDelayed(new d(this, context, i2, z), 1000L);
+                this.f35040f.postDelayed(new d(this, context, i2, z), 1000L);
                 return 1;
             } else if (c.p.a.e.b.a.a.c().k()) {
                 c.p.a.e.b.c.a.i("leaves", "on Foreground");
@@ -277,22 +277,22 @@ public class k {
                 return 1;
             } else {
                 boolean z2 = Build.VERSION.SDK_INT < 29;
-                if (this.f34926a.isEmpty() && !this.f34927b && z2) {
+                if (this.f35035a.isEmpty() && !this.f35036b && z2) {
                     return h(context, i2, z);
                 }
                 int b2 = c.p.a.e.b.j.a.r().b("install_queue_size", 3);
-                synchronized (this.f34926a) {
-                    while (this.f34926a.size() > b2) {
-                        this.f34926a.poll();
+                synchronized (this.f35035a) {
+                    while (this.f35035a.size() > b2) {
+                        this.f35035a.poll();
                     }
                 }
                 if (z2) {
-                    this.f34931f.removeCallbacks(this.f34932g);
-                    this.f34931f.postDelayed(this.f34932g, c.p.a.e.b.j.a.d(i2).c("install_queue_timeout", 20000L));
+                    this.f35040f.removeCallbacks(this.f35041g);
+                    this.f35040f.postDelayed(this.f35041g, c.p.a.e.b.j.a.d(i2).c("install_queue_timeout", 20000L));
                 }
-                synchronized (this.f34926a) {
-                    if (!this.f34926a.contains(Integer.valueOf(i2))) {
-                        this.f34926a.offer(Integer.valueOf(i2));
+                synchronized (this.f35035a) {
+                    if (!this.f35035a.contains(Integer.valueOf(i2))) {
+                        this.f35035a.offer(Integer.valueOf(i2));
                     }
                 }
                 return 1;
@@ -304,7 +304,7 @@ public class k {
     public void f(JumpUnknownSourceActivity jumpUnknownSourceActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jumpUnknownSourceActivity) == null) {
-            this.f34930e = new SoftReference<>(jumpUnknownSourceActivity);
+            this.f35039e = new SoftReference<>(jumpUnknownSourceActivity);
         }
     }
 
@@ -322,9 +322,9 @@ public class k {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             int D = c.p.a.e.a.d.D(context, i2, z);
             if (D == 1) {
-                this.f34927b = true;
+                this.f35036b = true;
             }
-            this.f34928c = System.currentTimeMillis();
+            this.f35037c = System.currentTimeMillis();
             return D;
         }
         return invokeCommon.intValue;
@@ -334,9 +334,9 @@ public class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            SoftReference<JumpUnknownSourceActivity> softReference = this.f34930e;
+            SoftReference<JumpUnknownSourceActivity> softReference = this.f35039e;
             JumpUnknownSourceActivity jumpUnknownSourceActivity = softReference == null ? null : softReference.get();
-            this.f34930e = null;
+            this.f35039e = null;
             return jumpUnknownSourceActivity;
         }
         return (JumpUnknownSourceActivity) invokeV.objValue;
@@ -347,21 +347,21 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (Build.VERSION.SDK_INT < 29 || c.p.a.e.b.a.a.c().k()) {
-                synchronized (this.f34926a) {
-                    poll = this.f34926a.poll();
+                synchronized (this.f35035a) {
+                    poll = this.f35035a.poll();
                 }
-                this.f34931f.removeCallbacks(this.f34932g);
+                this.f35040f.removeCallbacks(this.f35041g);
                 if (poll != null) {
                     Context n = c.p.a.e.b.g.e.n();
                     if (Looper.myLooper() != Looper.getMainLooper()) {
-                        this.f34931f.post(new c(this, n, poll));
+                        this.f35040f.post(new c(this, n, poll));
                     } else {
                         h(n, poll.intValue(), false);
                     }
-                    this.f34931f.postDelayed(this.f34932g, 20000L);
+                    this.f35040f.postDelayed(this.f35041g, 20000L);
                     return;
                 }
-                this.f34927b = false;
+                this.f35036b = false;
             }
         }
     }
@@ -369,7 +369,7 @@ public class k {
     public final boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? System.currentTimeMillis() - this.f34928c < 1000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? System.currentTimeMillis() - this.f35037c < 1000 : invokeV.booleanValue;
     }
 
     public k() {
@@ -385,10 +385,10 @@ public class k {
                 return;
             }
         }
-        this.f34926a = new ArrayDeque();
-        this.f34927b = false;
-        this.f34931f = new Handler(Looper.getMainLooper());
-        this.f34932g = new a(this);
+        this.f35035a = new ArrayDeque();
+        this.f35036b = false;
+        this.f35040f = new Handler(Looper.getMainLooper());
+        this.f35041g = new a(this);
         c.p.a.e.b.a.a.c().f(new b(this));
     }
 }

@@ -22,7 +22,7 @@ public class EventAnalysis {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, a> f42951a;
+    public Map<String, a> f43066a;
 
     /* renamed from: com.baidu.mobstat.EventAnalysis$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -37,13 +37,13 @@ public class EventAnalysis {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f42952a;
+        public String f43067a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42953b;
+        public String f43068b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f42954c;
+        public long f43069c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class EventAnalysis {
                 return;
             }
         }
-        this.f42951a = new HashMap();
+        this.f43066a = new HashMap();
     }
 
     private void a(Context context, long j2, String str, String str2, int i2, long j3, long j4, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
@@ -186,19 +186,19 @@ public class EventAnalysis {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Long.valueOf(j2), str, str2, Long.valueOf(j3), extraInfo, map, Boolean.valueOf(z)}) == null) {
             String a2 = a(str, str2);
-            a aVar = this.f42951a.get(a2);
+            a aVar = this.f43066a.get(a2);
             if (aVar == null) {
                 bc c2 = bc.c();
                 c2.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is not started or alread ended");
-            } else if ((str != null && !str.equals(aVar.f42952a)) || (str2 != null && !str2.equals(aVar.f42953b))) {
+            } else if ((str != null && !str.equals(aVar.f43067a)) || (str2 != null && !str2.equals(aVar.f43068b))) {
                 bc.c().b("[WARNING] eventId/label pair not match");
             } else {
-                this.f42951a.remove(a2);
-                long j4 = j3 - aVar.f42954c;
+                this.f43066a.remove(a2);
+                long j4 = j3 - aVar.f43069c;
                 if (j4 < 0) {
                     bc.c().b("[WARNING] onEventEnd must be invoked after onEventStart");
                 }
-                onEventDuration(context, j2, str, str2, aVar.f42954c, j4, extraInfo, map, z);
+                onEventDuration(context, j2, str, str2, aVar.f43069c, j4, extraInfo, map, z);
             }
         }
     }
@@ -207,15 +207,15 @@ public class EventAnalysis {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, str, str2, Long.valueOf(j2)}) == null) {
             a aVar = new a(null);
-            aVar.f42954c = j2;
-            aVar.f42952a = str;
-            aVar.f42953b = str2;
+            aVar.f43069c = j2;
+            aVar.f43067a = str;
+            aVar.f43068b = str2;
             String a2 = a(str, str2);
-            if (this.f42951a.containsKey(a2)) {
+            if (this.f43066a.containsKey(a2)) {
                 bc c2 = bc.c();
                 c2.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is duplicated, older is removed");
             }
-            this.f42951a.put(a2, aVar);
+            this.f43066a.put(a2, aVar);
         }
     }
 
@@ -332,10 +332,10 @@ public class EventAnalysis {
         return invokeLI.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:78:0x0168, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:78:0x0167, code lost:
         if (r4.equalsIgnoreCase(r23) != false) goto L88;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x001f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x001e, code lost:
         if (r37.equals("") != false) goto L5;
      */
     /*
@@ -445,68 +445,12 @@ public class EventAnalysis {
                             str24 = str15;
                             jSONArray4 = jSONArray;
                         }
-                        try {
-                            optInt = jSONObject3.optInt("v");
-                            str11 = str21;
-                            try {
-                                optInt2 = jSONObject3.optInt("at");
-                                str15 = str24;
-                                str16 = str23;
-                                if (optInt2 != 3) {
-                                    try {
-                                        str17 = jSONArray5;
-                                        optJSONArray = jSONObject3.optJSONArray("h2");
-                                        jSONArray5 = jSONObject3.optJSONArray("h3");
-                                        str18 = str15;
-                                        str19 = str18;
-                                    } catch (JSONException unused4) {
-                                        jSONObject2 = jSONObject;
-                                        str12 = jSONArray5;
-                                    }
-                                } else {
-                                    str18 = jSONObject3.optString("h2");
-                                    str17 = jSONArray5;
-                                    jSONArray5 = null;
-                                    optJSONArray = null;
-                                    str19 = jSONObject3.optString("h3");
-                                }
-                                try {
-                                    optString5 = jSONObject3.optString("ext");
-                                    str20 = str18;
-                                    optString6 = jSONObject3.optString("attribute");
-                                    optInt3 = jSONObject3.optInt("h5");
-                                    optString7 = jSONObject3.optString("sign");
-                                } catch (JSONException unused5) {
-                                }
-                            } catch (JSONException unused6) {
-                                jSONObject2 = jSONObject4;
-                                str12 = jSONArray5;
-                                str14 = str23;
-                                str15 = str24;
-                            }
-                        } catch (JSONException unused7) {
-                            str11 = str21;
-                            str12 = jSONArray5;
-                            str14 = str23;
-                            str15 = str24;
-                            jSONObject2 = jSONObject4;
-                            jSONArray5 = str12;
-                            i12 = i8 + 1;
-                            str23 = str14;
-                            jSONObject4 = jSONObject2;
-                            str22 = str13;
-                            i11 = i9;
-                            length = i7;
-                            str21 = str11;
-                            str24 = str15;
-                            jSONArray4 = jSONArray;
-                        }
-                    } catch (JSONException unused8) {
+                    } catch (JSONException unused4) {
                         str11 = str21;
                         str12 = jSONArray5;
                         i7 = length;
                     }
-                } catch (JSONException unused9) {
+                } catch (JSONException unused5) {
                     str11 = str21;
                     str12 = jSONArray5;
                     i7 = length;
@@ -514,6 +458,62 @@ public class EventAnalysis {
                     str15 = str24;
                     i8 = i12;
                     i9 = i11;
+                    jSONObject2 = jSONObject4;
+                    jSONArray5 = str12;
+                    i12 = i8 + 1;
+                    str23 = str14;
+                    jSONObject4 = jSONObject2;
+                    str22 = str13;
+                    i11 = i9;
+                    length = i7;
+                    str21 = str11;
+                    str24 = str15;
+                    jSONArray4 = jSONArray;
+                }
+                try {
+                    optInt = jSONObject3.optInt("v");
+                    str11 = str21;
+                    try {
+                        optInt2 = jSONObject3.optInt("at");
+                        str15 = str24;
+                        str16 = str23;
+                        if (optInt2 != 3) {
+                            try {
+                                str17 = jSONArray5;
+                                optJSONArray = jSONObject3.optJSONArray("h2");
+                                jSONArray5 = jSONObject3.optJSONArray("h3");
+                                str18 = str15;
+                                str19 = str18;
+                            } catch (JSONException unused6) {
+                                jSONObject2 = jSONObject;
+                                str12 = jSONArray5;
+                            }
+                        } else {
+                            str18 = jSONObject3.optString("h2");
+                            str17 = jSONArray5;
+                            jSONArray5 = null;
+                            optJSONArray = null;
+                            str19 = jSONObject3.optString("h3");
+                        }
+                        try {
+                            optString5 = jSONObject3.optString("ext");
+                            str20 = str18;
+                            optString6 = jSONObject3.optString("attribute");
+                            optInt3 = jSONObject3.optInt("h5");
+                            optString7 = jSONObject3.optString("sign");
+                        } catch (JSONException unused7) {
+                        }
+                    } catch (JSONException unused8) {
+                        jSONObject2 = jSONObject4;
+                        str12 = jSONArray5;
+                        str14 = str23;
+                        str15 = str24;
+                    }
+                } catch (JSONException unused9) {
+                    str11 = str21;
+                    str12 = jSONArray5;
+                    str14 = str23;
+                    str15 = str24;
                     jSONObject2 = jSONObject4;
                     jSONArray5 = str12;
                     i12 = i8 + 1;

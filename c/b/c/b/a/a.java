@@ -13,10 +13,10 @@ public class a extends FileObserver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f31367a;
+    public final c f31476a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f31368b;
+    public volatile boolean f31477b;
 
     /* renamed from: c.b.c.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -25,10 +25,10 @@ public class a extends FileObserver {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31369e;
+        public int f31478e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f31370f;
+        public final /* synthetic */ a f31479f;
 
         public C1447a(a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -45,16 +45,16 @@ public class a extends FileObserver {
                     return;
                 }
             }
-            this.f31370f = aVar;
-            this.f31369e = i2;
+            this.f31479f = aVar;
+            this.f31478e = i2;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SystemClock.sleep(this.f31369e);
-                this.f31370f.f31368b = true;
+                SystemClock.sleep(this.f31478e);
+                this.f31479f.f31477b = true;
             }
         }
     }
@@ -78,9 +78,9 @@ public class a extends FileObserver {
                 return;
             }
         }
-        this.f31368b = true;
+        this.f31477b = true;
         if (cVar != null && !TextUtils.isEmpty(str)) {
-            this.f31367a = cVar;
+            this.f31476a = cVar;
             return;
         }
         throw new IllegalArgumentException("params is not right path is null or ANRManager is null");
@@ -89,9 +89,9 @@ public class a extends FileObserver {
     @Override // android.os.FileObserver
     public void onEvent(int i2, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) && this.f31368b && i2 == 8 && !TextUtils.isEmpty(str) && str.contains("trace") && this.f31367a != null) {
-            this.f31368b = false;
-            c cVar = this.f31367a;
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) && this.f31477b && i2 == 8 && !TextUtils.isEmpty(str) && str.contains("trace") && this.f31476a != null) {
+            this.f31477b = false;
+            c cVar = this.f31476a;
             cVar.e(200, "/data/anr/" + str, 80);
             getClass();
             new C1447a(this, 5000).start();

@@ -29,7 +29,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f44729a;
+    public static a f44844a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.sapi2.activity.social.a$a  reason: collision with other inner class name */
@@ -39,10 +39,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ThirdLoginCallback f44730a;
+        public final /* synthetic */ ThirdLoginCallback f44845a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f44731b;
+        public final /* synthetic */ a f44846b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public C1697a(a aVar, Looper looper, ThirdLoginCallback thirdLoginCallback) {
@@ -62,27 +62,27 @@ public class a {
                     return;
                 }
             }
-            this.f44731b = aVar;
-            this.f44730a = thirdLoginCallback;
+            this.f44846b = aVar;
+            this.f44845a = thirdLoginCallback;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) || this.f44730a == null) {
+            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) || this.f44845a == null) {
                 return;
             }
             WebAuthResult webAuthResult = new WebAuthResult();
             webAuthResult.setResultCode(i2);
             webAuthResult.setResultMsg(str);
-            this.f44730a.onFailure(webAuthResult);
+            this.f44845a.onFailure(webAuthResult);
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i2, String str, HashMap<String, String> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, hashMap) == null) {
-                this.f44731b.b(str, this.f44730a);
+                this.f44846b.b(str, this.f44845a);
             }
         }
     }
@@ -146,10 +146,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f44729a == null) {
-                f44729a = new a();
+            if (f44844a == null) {
+                f44844a = new a();
             }
-            return f44729a;
+            return f44844a;
         }
         return (a) invokeV.objValue;
     }

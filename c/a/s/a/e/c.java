@@ -11,7 +11,7 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f29791a;
+    public static final boolean f29837a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,26 +27,26 @@ public final class c {
                 return;
             }
         }
-        f29791a = c.a.s.a.a.d().b();
+        f29837a = c.a.s.a.a.d().b();
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && f29791a) {
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && f29837a) {
             String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
     public static void b(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && f29791a) {
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && f29837a) {
             String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f29791a) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f29837a) {
             String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }

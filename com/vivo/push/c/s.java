@@ -16,13 +16,13 @@ public final class s implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ InsideNotificationItem f76395a;
+    public final /* synthetic */ InsideNotificationItem f76575a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ com.vivo.push.b.s f76396b;
+    public final /* synthetic */ com.vivo.push.b.s f76576b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ r f76397c;
+    public final /* synthetic */ r f76577c;
 
     public s(r rVar, InsideNotificationItem insideNotificationItem, com.vivo.push.b.s sVar) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public final class s implements Runnable {
                 return;
             }
         }
-        this.f76397c = rVar;
-        this.f76395a = insideNotificationItem;
-        this.f76396b = sVar;
+        this.f76577c = rVar;
+        this.f76575a = insideNotificationItem;
+        this.f76576b = sVar;
     }
 
     @Override // java.lang.Runnable
@@ -55,28 +55,28 @@ public final class s implements Runnable {
         char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            r rVar = this.f76397c;
-            PushMessageCallback pushMessageCallback = ((ab) rVar).f76363b;
-            context = rVar.f76547a;
-            if (!pushMessageCallback.onNotificationMessageArrived(context, com.vivo.push.util.q.a(this.f76395a))) {
-                context2 = this.f76397c.f76547a;
-                InsideNotificationItem insideNotificationItem = this.f76395a;
-                long f2 = this.f76396b.f();
-                r rVar2 = this.f76397c;
-                PushMessageCallback pushMessageCallback2 = ((ab) rVar2).f76363b;
-                context3 = rVar2.f76547a;
+            r rVar = this.f76577c;
+            PushMessageCallback pushMessageCallback = ((ab) rVar).f76543b;
+            context = rVar.f76727a;
+            if (!pushMessageCallback.onNotificationMessageArrived(context, com.vivo.push.util.q.a(this.f76575a))) {
+                context2 = this.f76577c.f76727a;
+                InsideNotificationItem insideNotificationItem = this.f76575a;
+                long f2 = this.f76576b.f();
+                r rVar2 = this.f76577c;
+                PushMessageCallback pushMessageCallback2 = ((ab) rVar2).f76543b;
+                context3 = rVar2.f76727a;
                 com.vivo.push.util.l lVar = new com.vivo.push.util.l(context2, insideNotificationItem, f2, pushMessageCallback2.isAllowNet(context3));
-                boolean isShowBigPicOnMobileNet = this.f76395a.isShowBigPicOnMobileNet();
-                String purePicUrl = this.f76395a.getPurePicUrl();
+                boolean isShowBigPicOnMobileNet = this.f76575a.isShowBigPicOnMobileNet();
+                String purePicUrl = this.f76575a.getPurePicUrl();
                 if (TextUtils.isEmpty(purePicUrl)) {
-                    purePicUrl = this.f76395a.getCoverUrl();
+                    purePicUrl = this.f76575a.getCoverUrl();
                 }
                 if (!TextUtils.isEmpty(purePicUrl)) {
                     com.vivo.push.util.p.c("OnNotificationArrivedTask", "showCode=" + isShowBigPicOnMobileNet);
                     if (!isShowBigPicOnMobileNet) {
-                        context5 = this.f76397c.f76547a;
+                        context5 = this.f76577c.f76727a;
                         com.vivo.push.util.p.a(context5, "mobile net unshow");
-                        context6 = this.f76397c.f76547a;
+                        context6 = this.f76577c.f76727a;
                         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context6.getSystemService("connectivity")).getActiveNetworkInfo();
                         if (activeNetworkInfo != null && activeNetworkInfo.getState() == NetworkInfo.State.CONNECTED) {
                             int type = activeNetworkInfo.getType();
@@ -86,15 +86,15 @@ public final class s implements Runnable {
                         }
                         if (c2 == 1) {
                             purePicUrl = null;
-                            this.f76395a.clearCoverUrl();
-                            this.f76395a.clearPurePicUrl();
+                            this.f76575a.clearCoverUrl();
+                            this.f76575a.clearPurePicUrl();
                         }
                     } else {
-                        context4 = this.f76397c.f76547a;
+                        context4 = this.f76577c.f76727a;
                         com.vivo.push.util.p.a(context4, "mobile net show");
                     }
                 }
-                lVar.execute(this.f76395a.getIconUrl(), purePicUrl);
+                lVar.execute(this.f76575a.getIconUrl(), purePicUrl);
                 return;
             }
             com.vivo.push.util.p.d("OnNotificationArrivedTask", "this notification has Intercept");

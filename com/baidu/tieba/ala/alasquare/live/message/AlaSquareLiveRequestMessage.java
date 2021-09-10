@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.alasquare.live.message;
 
 import c.a.e.e.p.j;
 import c.a.e.e.p.l;
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
@@ -58,7 +58,7 @@ public class AlaSquareLiveRequestMessage extends NetMessage {
                 builder.scr_dip = Integer.valueOf((int) l.h(TbadkCoreApplication.getInst()));
                 builder.network_type = String.valueOf(j.K());
                 if (z) {
-                    w.a(builder, true);
+                    x.a(builder, true);
                 }
                 LiveSquareReqIdl.Builder builder2 = new LiveSquareReqIdl.Builder();
                 builder2.data = builder.build(false);

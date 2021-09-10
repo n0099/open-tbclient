@@ -13,16 +13,16 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51618a;
+    public int f51783a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51619b;
+    public int f51784b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51620c;
+    public int f51785c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f51621d;
+    public boolean f51786d;
 
     public GridSpacingItemDecoration(int i2, int i3, int i4, boolean z) {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.f51618a = i2;
-        this.f51619b = i3;
-        this.f51620c = i4;
-        this.f51621d = z;
+        this.f51783a = i2;
+        this.f51784b = i3;
+        this.f51785c = i4;
+        this.f51786d = z;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -50,23 +50,23 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
             int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
-            int i2 = this.f51618a;
+            int i2 = this.f51783a;
             int i3 = childAdapterPosition % i2;
-            if (this.f51621d) {
-                int i4 = this.f51619b;
+            if (this.f51786d) {
+                int i4 = this.f51784b;
                 rect.left = i4 - ((i3 * i4) / i2);
                 rect.right = ((i3 + 1) * i4) / i2;
                 if (childAdapterPosition < i2) {
                     rect.top = i4;
                 }
-                rect.bottom = this.f51619b;
+                rect.bottom = this.f51784b;
                 return;
             }
-            int i5 = this.f51619b;
+            int i5 = this.f51784b;
             rect.left = (i3 * i5) / i2;
             rect.right = i5 - (((i3 + 1) * i5) / i2);
             if (childAdapterPosition >= i2) {
-                rect.top = this.f51620c;
+                rect.top = this.f51785c;
             }
         }
     }

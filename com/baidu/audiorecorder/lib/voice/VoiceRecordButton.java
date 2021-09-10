@@ -21,8 +21,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.j;
-import c.a.p0.s.s.a;
-import c.a.p0.x.n;
+import c.a.q0.s.s.a;
+import c.a.q0.x.n;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -67,29 +67,29 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     public TextView T;
     public float U;
     public float V;
-    public c.a.p0.s.s.a W;
+    public c.a.q0.s.s.a W;
     public long a0;
     public long b0;
     public EditorTools c0;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f38334e;
+    public long f38453e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f38335f;
+    public final int[] f38454f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38336g;
+    public int f38455g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38337h;
+    public int f38456h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f38338i;
+    public final int f38457i;
     public int i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f38339j;
+    public final int f38458j;
     public final int[] j0;
     public final int k;
     public final g k0;
@@ -119,7 +119,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VoiceRecordButton f38340e;
+        public final /* synthetic */ VoiceRecordButton f38459e;
 
         public a(VoiceRecordButton voiceRecordButton) {
             Interceptable interceptable = $ic;
@@ -136,11 +136,11 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                     return;
                 }
             }
-            this.f38340e = voiceRecordButton;
+            this.f38459e = voiceRecordButton;
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -154,12 +154,12 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.i3.q0.a f38341e;
+        public final /* synthetic */ c.a.r0.j3.q0.a f38460e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VoiceRecordButton f38342f;
+        public final /* synthetic */ VoiceRecordButton f38461f;
 
-        public b(VoiceRecordButton voiceRecordButton, c.a.q0.i3.q0.a aVar) {
+        public b(VoiceRecordButton voiceRecordButton, c.a.r0.j3.q0.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,25 +174,25 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                     return;
                 }
             }
-            this.f38342f = voiceRecordButton;
-            this.f38341e = aVar;
+            this.f38461f = voiceRecordButton;
+            this.f38460e = aVar;
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             VoiceData$VoiceModel voiceData$VoiceModel;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f38342f.o();
-                if (this.f38342f.getVoiceManager() == null || (voiceData$VoiceModel = this.f38342f.m0) == null) {
+                this.f38461f.o();
+                if (this.f38461f.getVoiceManager() == null || (voiceData$VoiceModel = this.f38461f.m0) == null) {
                     return;
                 }
-                c.a.q0.i3.q0.a aVar2 = this.f38341e;
+                c.a.r0.j3.q0.a aVar2 = this.f38460e;
                 if (aVar2 != null) {
                     aVar2.b(voiceData$VoiceModel.voiceId);
                 }
-                this.f38342f.m0 = null;
+                this.f38461f.m0 = null;
             }
         }
     }
@@ -203,7 +203,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VoiceRecordButton f38343e;
+        public final /* synthetic */ VoiceRecordButton f38462e;
 
         public c(VoiceRecordButton voiceRecordButton) {
             Interceptable interceptable = $ic;
@@ -220,17 +220,17 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                     return;
                 }
             }
-            this.f38343e = voiceRecordButton;
+            this.f38462e = voiceRecordButton;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f38343e.Q == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f38462e.Q == null) {
                 return;
             }
-            this.f38343e.Q.setVisibility(4);
-            this.f38343e.Q.setText("");
+            this.f38462e.Q.setVisibility(4);
+            this.f38462e.Q.setText("");
         }
     }
 
@@ -240,7 +240,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VoiceRecordButton f38344e;
+        public final /* synthetic */ VoiceRecordButton f38463e;
 
         public d(VoiceRecordButton voiceRecordButton) {
             Interceptable interceptable = $ic;
@@ -257,17 +257,17 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                     return;
                 }
             }
-            this.f38344e = voiceRecordButton;
+            this.f38463e = voiceRecordButton;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f38344e.O == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f38463e.O == null) {
                 return;
             }
-            this.f38344e.O.setVisibility(4);
-            this.f38344e.O.setText("");
+            this.f38463e.O.setVisibility(4);
+            this.f38463e.O.setText("");
         }
     }
 
@@ -277,7 +277,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VoiceRecordButton f38345e;
+        public final /* synthetic */ VoiceRecordButton f38464e;
 
         public e(VoiceRecordButton voiceRecordButton) {
             Interceptable interceptable = $ic;
@@ -294,17 +294,17 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                     return;
                 }
             }
-            this.f38345e = voiceRecordButton;
+            this.f38464e = voiceRecordButton;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f38345e.O == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f38464e.O == null) {
                 return;
             }
-            this.f38345e.O.setVisibility(4);
-            this.f38345e.O.setText("");
+            this.f38464e.O.setVisibility(4);
+            this.f38464e.O.setText("");
         }
     }
 
@@ -314,7 +314,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VoiceRecordButton f38346e;
+        public final /* synthetic */ VoiceRecordButton f38465e;
 
         public f(VoiceRecordButton voiceRecordButton) {
             Interceptable interceptable = $ic;
@@ -331,17 +331,17 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                     return;
                 }
             }
-            this.f38346e = voiceRecordButton;
+            this.f38465e = voiceRecordButton;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f38346e.O == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f38465e.O == null) {
                 return;
             }
-            this.f38346e.O.setVisibility(4);
-            this.f38346e.O.setText("");
+            this.f38465e.O.setVisibility(4);
+            this.f38465e.O.setText("");
         }
     }
 
@@ -351,7 +351,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VoiceRecordButton f38347a;
+        public final /* synthetic */ VoiceRecordButton f38466a;
 
         public g(VoiceRecordButton voiceRecordButton) {
             Interceptable interceptable = $ic;
@@ -368,27 +368,27 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                     return;
                 }
             }
-            this.f38347a = voiceRecordButton;
+            this.f38466a = voiceRecordButton;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                if (this.f38347a.V >= 360.0f) {
-                    this.f38347a.V = 360.0f;
-                    this.f38347a.o = 0;
+                if (this.f38466a.V >= 360.0f) {
+                    this.f38466a.V = 360.0f;
+                    this.f38466a.o = 0;
                 } else {
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    this.f38347a.a0 = uptimeMillis;
-                    this.f38347a.b0 = uptimeMillis + 200;
-                    this.f38347a.V += this.f38347a.U * (((float) (uptimeMillis - this.f38347a.a0)) / 1000.0f);
-                    sendEmptyMessageAtTime(1, this.f38347a.b0);
-                    VoiceRecordButton.j(this.f38347a);
+                    this.f38466a.a0 = uptimeMillis;
+                    this.f38466a.b0 = uptimeMillis + 200;
+                    this.f38466a.V += this.f38466a.U * (((float) (uptimeMillis - this.f38466a.a0)) / 1000.0f);
+                    sendEmptyMessageAtTime(1, this.f38466a.b0);
+                    VoiceRecordButton.j(this.f38466a);
                 }
-                VoiceRecordButton voiceRecordButton = this.f38347a;
+                VoiceRecordButton voiceRecordButton = this.f38466a;
                 voiceRecordButton.n = voiceRecordButton.o % 6;
-                this.f38347a.invalidate();
+                this.f38466a.invalidate();
             }
         }
 
@@ -458,7 +458,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    @Override // c.a.p0.x.n
+    @Override // c.a.q0.x.n
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -506,7 +506,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (VoiceManager.i) invokeV.objValue;
     }
 
-    public c.a.q0.i3.q0.a getRecorderManager() {
+    public c.a.r0.j3.q0.a getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -516,10 +516,10 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             }
             return voiceManager.getRecorderManager();
         }
-        return (c.a.q0.i3.q0.a) invokeV.objValue;
+        return (c.a.r0.j3.q0.a) invokeV.objValue;
     }
 
-    @Override // c.a.p0.x.n
+    @Override // c.a.q0.x.n
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -546,7 +546,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.m0 : (VoiceData$VoiceModel) invokeV.objValue;
     }
 
-    @Override // c.a.p0.x.n
+    @Override // c.a.q0.x.n
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -554,7 +554,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    @Override // c.a.p0.x.n
+    @Override // c.a.q0.x.n
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -616,29 +616,29 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    @Override // c.a.p0.x.b
-    public void onAction(c.a.p0.x.a aVar) {
+    @Override // c.a.q0.x.b
+    public void onAction(c.a.q0.x.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048591, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (aVar.f15086a == 9) {
+        if (aVar.f15079a == 9) {
             reset();
-            sendAction(new c.a.p0.x.a(2, 6, null));
+            sendAction(new c.a.q0.x.a(2, 6, null));
         }
-        if (aVar.f15086a == 52) {
-            if (aVar.f15088c instanceof VoiceData$VoiceModel) {
+        if (aVar.f15079a == 52) {
+            if (aVar.f15081c instanceof VoiceData$VoiceModel) {
                 s();
-                onRefreshByPlayStatus((VoiceData$VoiceModel) aVar.f15088c);
-                this.m0 = (VoiceData$VoiceModel) aVar.f15088c;
+                onRefreshByPlayStatus((VoiceData$VoiceModel) aVar.f15081c);
+                this.m0 = (VoiceData$VoiceModel) aVar.f15081c;
                 return;
             }
             reset();
-            sendAction(new c.a.p0.x.a(2, 6, null));
+            sendAction(new c.a.q0.x.a(2, 6, null));
         }
     }
 
-    @Override // c.a.p0.x.n
+    @Override // c.a.q0.x.n
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
@@ -673,8 +673,8 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             this.m0 = null;
-            sendAction(new c.a.p0.x.a(11, -1, str));
-            sendAction(new c.a.p0.x.a(2, 6, null));
+            sendAction(new c.a.q0.x.a(11, -1, str));
+            sendAction(new c.a.q0.x.a(2, 6, null));
         }
     }
 
@@ -699,7 +699,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             int measuredHeight = this.R.getMeasuredHeight();
             int measuredWidth2 = this.O.getMeasuredWidth();
             int measuredHeight2 = this.O.getMeasuredHeight();
-            int i7 = this.f38336g;
+            int i7 = this.f38455g;
             this.O.layout((i6 - measuredWidth2) >> 1, i3 + i7, (measuredWidth2 + i6) >> 1, i7 + i3 + measuredHeight2);
             int bottom = this.O.getBottom();
             int i8 = (i6 - measuredWidth) >> 1;
@@ -721,13 +721,13 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             int measuredWidth5 = this.S.getMeasuredWidth();
             this.S.layout((i6 - measuredWidth5) >> 1, bottom, (measuredWidth5 + i6) >> 1, this.S.getMeasuredHeight() + bottom);
             int measuredWidth6 = this.T.getMeasuredWidth();
-            this.T.layout((i6 - measuredWidth6) >> 1, (this.N.getTop() - this.T.getMeasuredHeight()) - this.f38339j, (measuredWidth6 + i6) >> 1, (i3 + this.N.getTop()) - this.f38339j);
+            this.T.layout((i6 - measuredWidth6) >> 1, (this.N.getTop() - this.T.getMeasuredHeight()) - this.f38458j, (measuredWidth6 + i6) >> 1, (i3 + this.N.getTop()) - this.f38458j);
             this.R.getLeft();
             this.R.getRight();
             int measuredWidth7 = this.P.getMeasuredWidth();
             int measuredHeight5 = this.P.getMeasuredHeight();
             int bottom2 = this.R.getBottom();
-            int[] iArr = this.f38335f;
+            int[] iArr = this.f38454f;
             this.P.layout((i6 - measuredWidth7) >> 1, iArr[3] + bottom2, (measuredWidth7 + i6) >> 1, bottom2 + iArr[3] + measuredHeight5);
             this.L.set((i6 - this.J.getIntrinsicWidth()) >> 1, this.S.getTop() - this.k, (i6 + this.J.getIntrinsicHeight()) >> 1, (this.S.getTop() + this.J.getIntrinsicHeight()) - this.k);
             this.J.setBounds(this.L);
@@ -757,7 +757,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                 }
             }
             setMeasuredDimension(i4, i5);
-            this.f38336g = getContext().getResources().getDimensionPixelSize(R.dimen.ds6) + ((i5 - getContext().getResources().getDimensionPixelSize(R.dimen.ds460)) / 2);
+            this.f38455g = getContext().getResources().getDimensionPixelSize(R.dimen.ds6) + ((i5 - getContext().getResources().getDimensionPixelSize(R.dimen.ds460)) / 2);
         }
     }
 
@@ -869,9 +869,9 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
             this.n0 = Math.max(i2, this.n0);
             long uptimeMillis = SystemClock.uptimeMillis();
-            if (uptimeMillis - this.f38334e > 200) {
+            if (uptimeMillis - this.f38453e > 200) {
                 this.n0 = 0;
-                this.f38334e = uptimeMillis;
+                this.f38453e = uptimeMillis;
             }
             int i3 = this.n0;
             if (i3 < 10) {
@@ -953,9 +953,9 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         VoiceData$VoiceModel voiceData$VoiceModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            c.a.q0.i3.q0.a recorderManager = getRecorderManager();
+            c.a.r0.j3.q0.a recorderManager = getRecorderManager();
             if (this.W == null) {
-                c.a.p0.s.s.a aVar = new c.a.p0.s.s.a(j.a(getContext()).getPageActivity());
+                c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(j.a(getContext()).getPageActivity());
                 this.W = aVar;
                 aVar.setMessage(getContext().getString(R.string.voice_restart_tip)).setPositiveButton(getContext().getString(R.string.voice_restart), new b(this, recorderManager)).setNegativeButton(getContext().getString(R.string.cancel), new a(this)).create(j.a(getContext()));
             }
@@ -981,8 +981,8 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             this.O.setVisibility(4);
             this.n = 0;
             s();
-            sendAction(new c.a.p0.x.a(10, -1, voiceData$VoiceModel));
-            sendAction(new c.a.p0.x.a(2, 6, " "));
+            sendAction(new c.a.q0.x.a(10, -1, voiceData$VoiceModel));
+            sendAction(new c.a.q0.x.a(2, 6, " "));
         }
     }
 
@@ -1016,8 +1016,8 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    @Override // c.a.p0.x.n
-    public void sendAction(c.a.p0.x.a aVar) {
+    @Override // c.a.q0.x.n
+    public void sendAction(c.a.q0.x.a aVar) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048613, this, aVar) == null) || (editorTools = this.c0) == null) {
@@ -1032,7 +1032,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    @Override // c.a.p0.x.n
+    @Override // c.a.q0.x.n
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, editorTools) == null) {
@@ -1040,7 +1040,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         }
     }
 
-    @Override // c.a.p0.x.n
+    @Override // c.a.q0.x.n
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
@@ -1101,8 +1101,8 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                 return;
             }
         }
-        this.f38334e = 0L;
-        this.f38335f = new int[4];
+        this.f38453e = 0L;
+        this.f38454f = new int[4];
         this.n = 0;
         this.o = 0;
         this.p = 0;
@@ -1129,10 +1129,10 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.k0 = new g(this, null);
         this.n0 = 0;
         this.o0 = 0;
-        this.f38335f[0] = context.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.f38335f[1] = context.getResources().getDimensionPixelSize(R.dimen.ds8);
-        this.f38335f[2] = context.getResources().getDimensionPixelSize(R.dimen.ds22);
-        this.f38335f[3] = context.getResources().getDimensionPixelSize(R.dimen.ds36);
+        this.f38454f[0] = context.getResources().getDimensionPixelSize(R.dimen.ds24);
+        this.f38454f[1] = context.getResources().getDimensionPixelSize(R.dimen.ds8);
+        this.f38454f[2] = context.getResources().getDimensionPixelSize(R.dimen.ds22);
+        this.f38454f[3] = context.getResources().getDimensionPixelSize(R.dimen.ds36);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.ds134);
         this.r = dimensionPixelSize;
         int dimensionPixelSize2 = dimensionPixelSize + context.getResources().getDimensionPixelSize(R.dimen.ds14);
@@ -1148,10 +1148,10 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             this.v = context.getResources().getDimensionPixelSize(R.dimen.ds70);
             this.w = context.getResources().getDimensionPixelSize(R.dimen.ds210);
         }
-        this.f38336g = context.getResources().getDimensionPixelSize(R.dimen.ds26);
-        this.f38337h = context.getResources().getDimensionPixelSize(R.dimen.ds10);
-        this.f38338i = context.getResources().getDimensionPixelSize(R.dimen.ds14);
-        this.f38339j = context.getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.f38455g = context.getResources().getDimensionPixelSize(R.dimen.ds26);
+        this.f38456h = context.getResources().getDimensionPixelSize(R.dimen.ds10);
+        this.f38457i = context.getResources().getDimensionPixelSize(R.dimen.ds14);
+        this.f38458j = context.getResources().getDimensionPixelSize(R.dimen.ds4);
         this.k = context.getResources().getDimensionPixelSize(R.dimen.ds4);
         this.l = context.getResources().getDimensionPixelSize(R.dimen.ds12);
         this.m = context.getResources().getDimensionPixelSize(R.dimen.ds2);

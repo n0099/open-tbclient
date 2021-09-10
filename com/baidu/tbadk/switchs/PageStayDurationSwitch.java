@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import c.a.e.e.f.a;
-import c.a.p0.m0.e;
+import c.a.q0.o0.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +31,7 @@ public class PageStayDurationSwitch extends a {
     public void changeSettingByType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            e.b().g(1 == i2);
+            e.b().i(1 == i2);
         }
     }
 

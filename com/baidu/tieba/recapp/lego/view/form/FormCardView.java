@@ -10,8 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.e.a.e;
 import c.a.e.e.p.l;
-import c.a.p0.c.f;
-import c.a.q0.x2.y;
+import c.a.q0.c.f;
+import c.a.r0.y2.y;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -36,19 +36,19 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public TitleView f56274f;
+    public TitleView f56434f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CommitView f56275g;
+    public CommitView f56435g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f56276h;
+    public LinearLayout f56436h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f56277i;
+    public LinearLayout f56437i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f56278j;
+    public ImageView f56438j;
     public TextView k;
     public TextView l;
     public View m;
@@ -67,7 +67,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FormCardView f56279e;
+        public final /* synthetic */ FormCardView f56439e;
 
         public a(FormCardView formCardView) {
             Interceptable interceptable = $ic;
@@ -84,15 +84,15 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                     return;
                 }
             }
-            this.f56279e = formCardView;
+            this.f56439e = formCardView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                FormCardView formCardView = this.f56279e;
-                formCardView.handlePostData(formCardView.p, this.f56279e.f56275g.getPostUrl(), this.f56279e.q);
+                FormCardView formCardView = this.f56439e;
+                formCardView.handlePostData(formCardView.p, this.f56439e.f56435g.getPostUrl(), this.f56439e.q);
             }
         }
     }
@@ -103,7 +103,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FormCardView f56280a;
+        public final /* synthetic */ FormCardView f56440a;
 
         public b(FormCardView formCardView) {
             Interceptable interceptable = $ic;
@@ -120,7 +120,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                     return;
                 }
             }
-            this.f56280a = formCardView;
+            this.f56440a = formCardView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,33 +137,33 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                             if (width == 0) {
                                 return;
                             }
-                            int i3 = (this.f56280a.r * height) / width;
-                            int i4 = this.f56280a.o.backgroundInfo.f56172c;
+                            int i3 = (this.f56440a.r * height) / width;
+                            int i4 = this.f56440a.o.backgroundInfo.f56332c;
                             if (i4 == 1) {
-                                this.f56280a.f56278j.getLayoutParams().width = this.f56280a.r;
-                                this.f56280a.f56278j.getLayoutParams().height = i3;
+                                this.f56440a.f56438j.getLayoutParams().width = this.f56440a.r;
+                                this.f56440a.f56438j.getLayoutParams().height = i3;
                             } else if (i4 == 2) {
-                                this.f56280a.f56278j.getLayoutParams().width = this.f56280a.r;
-                                this.f56280a.f56278j.getLayoutParams().height = this.f56280a.s;
+                                this.f56440a.f56438j.getLayoutParams().width = this.f56440a.r;
+                                this.f56440a.f56438j.getLayoutParams().height = this.f56440a.s;
                             }
-                            int b2 = c.a.q0.o1.o.k.b.b(this.f56280a.o.backgroundInfo.f56171b);
-                            if (!c.a.q0.o1.o.k.b.a(b2)) {
-                                this.f56280a.m.setBackgroundColor(b2);
+                            int b2 = c.a.r0.p1.o.k.b.b(this.f56440a.o.backgroundInfo.f56331b);
+                            if (!c.a.r0.p1.o.k.b.a(b2)) {
+                                this.f56440a.m.setBackgroundColor(b2);
                             }
-                            aVar.h(this.f56280a.f56278j);
+                            aVar.h(this.f56440a.f56438j);
                             return;
                         }
                     } catch (Exception unused) {
-                        this.f56280a.f56278j.setImageBitmap(null);
-                        this.f56280a.f56278j.setVisibility(8);
+                        this.f56440a.f56438j.setImageBitmap(null);
+                        this.f56440a.f56438j.setVisibility(8);
                         return;
                     } catch (OutOfMemoryError unused2) {
-                        this.f56280a.f56278j.setImageBitmap(null);
-                        this.f56280a.f56278j.setVisibility(8);
+                        this.f56440a.f56438j.setImageBitmap(null);
+                        this.f56440a.f56438j.setVisibility(8);
                         return;
                     }
                 }
-                this.f56280a.f56278j.setVisibility(8);
+                this.f56440a.f56438j.setVisibility(8);
             }
         }
     }
@@ -174,7 +174,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FormCardView f56281a;
+        public final /* synthetic */ FormCardView f56441a;
 
         public c(FormCardView formCardView) {
             Interceptable interceptable = $ic;
@@ -191,7 +191,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                     return;
                 }
             }
-            this.f56281a = formCardView;
+            this.f56441a = formCardView;
         }
 
         @Override // c.a.e.a.e
@@ -200,18 +200,18 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (obj instanceof f) {
                     f fVar = (f) obj;
-                    if (fVar.f12952a) {
-                        this.f56281a.o.setCommitState(true);
-                        this.f56281a.v();
-                    } else if (!TextUtils.isEmpty(fVar.f12954c)) {
-                        new c.a.p0.s.f0.c().b(fVar.f12954c);
-                        this.f56281a.o.setCommitState(false);
+                    if (fVar.f12785a) {
+                        this.f56441a.o.setCommitState(true);
+                        this.f56441a.v();
+                    } else if (!TextUtils.isEmpty(fVar.f12787c)) {
+                        new c.a.q0.s.f0.c().b(fVar.f12787c);
+                        this.f56441a.o.setCommitState(false);
                     } else {
-                        new c.a.p0.s.f0.c().d(R.drawable.icon_toast_game_error, R.string.form_commit_fail_string);
-                        this.f56281a.o.setCommitState(false);
+                        new c.a.q0.s.f0.c().d(R.drawable.icon_toast_game_error, R.string.form_commit_fail_string);
+                        this.f56441a.o.setCommitState(false);
                     }
                 }
-                this.f56281a.f56275g.setClickable(true);
+                this.f56441a.f56435g.setClickable(true);
             }
         }
     }
@@ -287,11 +287,11 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             hashMap.put("item_id", str2);
             hashMap.put("url", str);
             m(str, hashMap);
-            this.f56275g.setClickable(false);
+            this.f56435g.setClickable(false);
             return;
         }
-        new c.a.p0.s.f0.c().d(R.drawable.icon_toast_game_error, R.string.form_commit_error_string);
-        this.f56275g.setClickable(true);
+        new c.a.q0.s.f0.c().d(R.drawable.icon_toast_game_error, R.string.form_commit_error_string);
+        this.f56435g.setClickable(true);
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
@@ -301,13 +301,13 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.card_form, (ViewGroup) null);
             this.m = inflate;
-            this.f56274f = (TitleView) inflate.findViewById(R.id.form_title_view);
+            this.f56434f = (TitleView) inflate.findViewById(R.id.form_title_view);
             ImageView imageView = (ImageView) this.m.findViewById(R.id.tb_img_background);
-            this.f56278j = imageView;
+            this.f56438j = imageView;
             imageView.setEnabled(false);
-            this.f56275g = (CommitView) this.m.findViewById(R.id.form_commit_view);
-            this.f56277i = (LinearLayout) this.m.findViewById(R.id.item_content_view);
-            this.f56276h = (LinearLayout) this.m.findViewById(R.id.form_commit_success_view);
+            this.f56435g = (CommitView) this.m.findViewById(R.id.form_commit_view);
+            this.f56437i = (LinearLayout) this.m.findViewById(R.id.item_content_view);
+            this.f56436h = (LinearLayout) this.m.findViewById(R.id.form_commit_success_view);
             this.k = (TextView) this.m.findViewById(R.id.form_success_title);
             this.l = (TextView) this.m.findViewById(R.id.form_success_desc);
             r();
@@ -339,9 +339,9 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, hashMap) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.f56275g.setClickable(true);
+                this.f56435g.setClickable(true);
             } else {
-                c.a.q0.x2.b0.b.a().d(null, str, hashMap, new c(this));
+                c.a.r0.y2.b0.b.a().d(null, str, hashMap, new c(this));
             }
         }
     }
@@ -351,13 +351,13 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.m.setBackgroundResource(R.drawable.form_defalut_bg_image);
             if (this.o.backgroundInfo != null) {
-                this.f56278j.setVisibility(0);
-                if (!TextUtils.isEmpty(this.o.backgroundInfo.f56170a)) {
-                    c.a.e.e.l.d.h().m(this.o.backgroundInfo.f56170a, 10, new b(this), this.t.getUniqueId());
+                this.f56438j.setVisibility(0);
+                if (!TextUtils.isEmpty(this.o.backgroundInfo.f56330a)) {
+                    c.a.e.e.l.d.h().m(this.o.backgroundInfo.f56330a, 10, new b(this), this.t.getUniqueId());
                     return;
                 }
             }
-            this.f56278j.setVisibility(8);
+            this.f56438j.setVisibility(8);
         }
     }
 
@@ -369,10 +369,10 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             float dimension2 = this.mContext.getResources().getDimension(R.dimen.fontsize28);
             int color = this.mContext.getResources().getColor(R.color.form_font_color);
             if (fVar != null) {
-                this.k.setText(fVar.f56181a);
+                this.k.setText(fVar.f56341a);
                 this.k.setTextColor(-1);
                 this.k.setTextSize(0, dimension);
-                this.l.setText(fVar.f56182b);
+                this.l.setText(fVar.f56342b);
                 this.l.setTextColor(color);
                 this.l.setTextSize(0, dimension2);
             }
@@ -397,7 +397,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         for (int i2 = 0; i2 < size; i2++) {
             FormCard.b bVar = this.o.itemList.get(i2);
             if (bVar != null) {
-                switch (bVar.f56173a) {
+                switch (bVar.f56333a) {
                     case 1:
                         q(bVar, new TitleView(this.n), i2, size);
                         continue;
@@ -426,14 +426,14 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             formItemBaseView.updateView(bVar);
             u(formItemBaseView, i2, i3);
             registerListener(formItemBaseView);
-            this.f56277i.addView(formItemBaseView);
+            this.f56437i.addView(formItemBaseView);
         }
     }
 
     public final void r() {
         CommitView commitView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (commitView = this.f56275g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (commitView = this.f56435g) == null) {
             return;
         }
         commitView.getCommitButton().setOnClickListener(new a(this));
@@ -445,25 +445,25 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             if (this.p == null) {
                 this.p = new ArrayList();
             }
-            c.a.q0.o1.o.k.a.a(this.p, dVar);
+            c.a.r0.p1.o.k.a.a(this.p, dVar);
         }
     }
 
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f56277i.removeAllViews();
+            this.f56437i.removeAllViews();
             List<d> list = this.p;
             if (list != null) {
-                c.a.q0.o1.o.k.a.c(list);
+                c.a.r0.p1.o.k.a.c(list);
             } else {
                 this.p = new ArrayList();
             }
-            this.f56275g.setVisibility(0);
-            this.f56277i.setVisibility(0);
-            this.f56276h.setVisibility(8);
-            this.f56275g.setClickable(true);
-            this.f56278j.setImageBitmap(null);
+            this.f56435g.setVisibility(0);
+            this.f56437i.setVisibility(0);
+            this.f56436h.setVisibility(8);
+            this.f56435g.setClickable(true);
+            this.f56438j.setImageBitmap(null);
         }
     }
 
@@ -496,9 +496,9 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f56275g.setVisibility(4);
-            this.f56277i.setVisibility(4);
-            this.f56276h.setVisibility(0);
+            this.f56435g.setVisibility(4);
+            this.f56437i.setVisibility(4);
+            this.f56436h.setVisibility(0);
         }
     }
 
@@ -513,24 +513,24 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         this.o = formCard;
         this.q = formCard.getItemId();
         t(formCard.mWidth, formCard.mHeight);
-        this.f56274f.scaleMargin(this.u);
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f56274f.getLayoutParams();
+        this.f56434f.scaleMargin(this.u);
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f56434f.getLayoutParams();
         if (marginLayoutParams != null) {
             marginLayoutParams.topMargin = (int) (((int) this.n.getApplicationContext().getResources().getDimension(R.dimen.form_size90)) * this.u);
         }
-        this.f56275g.scaleMargin(this.u);
-        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f56275g.getLayoutParams();
+        this.f56435g.scaleMargin(this.u);
+        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f56435g.getLayoutParams();
         if (marginLayoutParams2 != null) {
             marginLayoutParams2.bottomMargin = (int) (((int) this.n.getApplicationContext().getResources().getDimension(R.dimen.form_size90)) * this.u);
         }
-        this.f56274f.updateView(formCard.titleInfo);
-        this.f56275g.updateView(formCard.commitInfo);
-        c.a.q0.x2.b0.b.a().b(new c.a.q0.x2.b0.a(this.f56275g.getPostUrl()));
+        this.f56434f.updateView(formCard.titleInfo);
+        this.f56435g.updateView(formCard.commitInfo);
+        c.a.r0.y2.b0.b.a().b(new c.a.r0.y2.b0.a(this.f56435g.getPostUrl()));
         n();
         p();
         o();
-        registerListener(this.f56274f);
-        registerListener(this.f56275g);
+        registerListener(this.f56434f);
+        registerListener(this.f56435g);
         if (formCard.isCommitSuccess()) {
             v();
         }

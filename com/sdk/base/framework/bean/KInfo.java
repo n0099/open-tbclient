@@ -14,7 +14,7 @@ public class KInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: cn  reason: collision with root package name */
-    public String f75352cn;
+    public String f75532cn;
     public String ic;
     public boolean idfd;
     public boolean idfs;
@@ -40,7 +40,7 @@ public class KInfo {
     public String getCn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75352cn : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75532cn : (String) invokeV.objValue;
     }
 
     public String getIc() {
@@ -88,7 +88,7 @@ public class KInfo {
     public void setCn(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f75352cn = str;
+            this.f75532cn = str;
         }
     }
 

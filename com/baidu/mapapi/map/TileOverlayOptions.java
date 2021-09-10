@@ -18,36 +18,36 @@ public final class TileOverlayOptions {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Bundle f41524c = null;
+    public static Bundle f41635c = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f41525j = "TileOverlayOptions";
+    public static final String f41636j = "TileOverlayOptions";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41526a;
+    public int f41637a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TileProvider f41527b;
+    public TileProvider f41638b;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f41528d;
+    public int f41639d;
     public int datasource;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41529e;
+    public int f41640e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41530f;
+    public int f41641f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41531g;
+    public int f41642g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f41532h;
+    public int f41643h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41533i;
+    public int f41644i;
     public String urlString;
 
     static {
@@ -78,27 +78,27 @@ public final class TileOverlayOptions {
                 return;
             }
         }
-        this.f41526a = CyberPlayerManager.StorageQuotaWarning;
-        this.f41528d = 20;
-        this.f41529e = 3;
-        this.f41530f = 15786414;
-        this.f41531g = -20037726;
-        this.f41532h = -15786414;
-        this.f41533i = 20037726;
+        this.f41637a = CyberPlayerManager.StorageQuotaWarning;
+        this.f41639d = 20;
+        this.f41640e = 3;
+        this.f41641f = 15786414;
+        this.f41642g = -20037726;
+        this.f41643h = -15786414;
+        this.f41644i = 20037726;
         Bundle bundle = new Bundle();
-        f41524c = bundle;
-        bundle.putInt("rectr", this.f41530f);
-        f41524c.putInt("rectb", this.f41531g);
-        f41524c.putInt("rectl", this.f41532h);
-        f41524c.putInt("rectt", this.f41533i);
+        f41635c = bundle;
+        bundle.putInt("rectr", this.f41641f);
+        f41635c.putInt("rectb", this.f41642g);
+        f41635c.putInt("rectl", this.f41643h);
+        f41635c.putInt("rectt", this.f41644i);
     }
 
     private TileOverlayOptions a(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65538, this, i2, i3)) == null) {
-            this.f41528d = i2;
-            this.f41529e = i3;
+            this.f41639d = i2;
+            this.f41640e = i3;
             return this;
         }
         return (TileOverlayOptions) invokeII.objValue;
@@ -108,12 +108,12 @@ public final class TileOverlayOptions {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            f41524c.putString("url", this.urlString);
-            f41524c.putInt("datasource", this.datasource);
-            f41524c.putInt("maxDisplay", this.f41528d);
-            f41524c.putInt("minDisplay", this.f41529e);
-            f41524c.putInt("sdktiletmpmax", this.f41526a);
-            return f41524c;
+            f41635c.putString("url", this.urlString);
+            f41635c.putInt("datasource", this.datasource);
+            f41635c.putInt("maxDisplay", this.f41639d);
+            f41635c.putInt("minDisplay", this.f41640e);
+            f41635c.putInt("sdktiletmpmax", this.f41637a);
+            return f41635c;
         }
         return (Bundle) invokeV.objValue;
     }
@@ -121,14 +121,14 @@ public final class TileOverlayOptions {
     public TileOverlay a(BaiduMap baiduMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baiduMap)) == null) ? new TileOverlay(baiduMap, this.f41527b) : (TileOverlay) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baiduMap)) == null) ? new TileOverlay(baiduMap, this.f41638b) : (TileOverlay) invokeL.objValue;
     }
 
     public TileOverlayOptions setMaxTileTmp(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.f41526a = i2;
+            this.f41637a = i2;
             return this;
         }
         return (TileOverlayOptions) invokeI.objValue;
@@ -146,10 +146,10 @@ public final class TileOverlayOptions {
                 double latitudeE62 = ll2mc2.getLatitudeE6();
                 double longitudeE62 = ll2mc.getLongitudeE6();
                 if (latitudeE6 > latitudeE62 && longitudeE62 > longitudeE6) {
-                    f41524c.putInt("rectr", (int) longitudeE62);
-                    f41524c.putInt("rectb", (int) latitudeE62);
-                    f41524c.putInt("rectl", (int) longitudeE6);
-                    f41524c.putInt("rectt", (int) latitudeE6);
+                    f41635c.putInt("rectr", (int) longitudeE62);
+                    f41635c.putInt("rectb", (int) latitudeE62);
+                    f41635c.putInt("rectl", (int) longitudeE6);
+                    f41635c.putInt("rectt", (int) latitudeE6);
                 }
                 return this;
             }
@@ -177,7 +177,7 @@ public final class TileOverlayOptions {
             } else {
                 this.datasource = 0;
             }
-            this.f41527b = tileProvider;
+            this.f41638b = tileProvider;
             int maxDisLevel = tileProvider.getMaxDisLevel();
             int minDisLevel = tileProvider.getMinDisLevel();
             if (maxDisLevel <= 21 && minDisLevel >= 3) {

@@ -17,17 +17,17 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile e f2776d;
+    public static volatile e f2767d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Class<?>> f2777a;
+    public HashMap<String, Class<?>> f2768a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2778b;
+    public int f2769b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2779c;
+    public int f2770c;
 
     static {
         InterceptResult invokeClinit;
@@ -57,24 +57,24 @@ public class e {
                 return;
             }
         }
-        this.f2777a = null;
-        this.f2778b = 0;
-        this.f2779c = 0;
-        this.f2777a = new HashMap<>();
+        this.f2768a = null;
+        this.f2769b = 0;
+        this.f2770c = 0;
+        this.f2768a = new HashMap<>();
     }
 
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2776d == null) {
+            if (f2767d == null) {
                 synchronized (e.class) {
-                    if (f2776d == null) {
-                        f2776d = new e();
+                    if (f2767d == null) {
+                        f2767d = new e();
                     }
                 }
             }
-            return f2776d;
+            return f2767d;
         }
         return (e) invokeV.objValue;
     }
@@ -84,30 +84,30 @@ public class e {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            Class<?> cls2 = this.f2777a.get(cls.getName());
+            Class<?> cls2 = this.f2768a.get(cls.getName());
             if (cls2 == null) {
                 if (PluginBaseRemoteService.class.isAssignableFrom(cls)) {
-                    int i2 = this.f2779c;
+                    int i2 = this.f2770c;
                     if (i2 == 10) {
                         BdLog.e("can not find service,Has started 10 Remoteservice");
                         return null;
                     }
-                    this.f2779c = i2 + 1;
-                    str = "com.baidu.adp.plugin.proxy.service.RemoteServiceProxy" + this.f2779c;
+                    this.f2770c = i2 + 1;
+                    str = "com.baidu.adp.plugin.proxy.service.RemoteServiceProxy" + this.f2770c;
                 } else if (PluginBaseService.class.isAssignableFrom(cls)) {
-                    int i3 = this.f2778b;
+                    int i3 = this.f2769b;
                     if (i3 == 20) {
                         BdLog.e("can not find service,Has started 20 service");
                         return null;
                     }
-                    this.f2778b = i3 + 1;
-                    str = "com.baidu.adp.plugin.proxy.service.ServiceProxy" + this.f2778b;
+                    this.f2769b = i3 + 1;
+                    str = "com.baidu.adp.plugin.proxy.service.ServiceProxy" + this.f2769b;
                 } else {
                     str = PluginBaseThirdService.class.isAssignableFrom(cls) ? "com.baidu.adp.plugin.proxy.service.ThirdServiceProxy" : "";
                 }
                 try {
                     cls2 = Class.forName(str);
-                    this.f2777a.put(cls.getName(), cls2);
+                    this.f2768a.put(cls.getName(), cls2);
                     return cls2;
                 } catch (Exception e2) {
                     BdLog.e(e2);

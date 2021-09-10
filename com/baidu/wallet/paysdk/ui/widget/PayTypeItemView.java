@@ -34,19 +34,19 @@ public class PayTypeItemView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f63116a;
+    public NetImageView f63296a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f63117b;
+    public TextView f63297b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BorderTipTextView f63118c;
+    public BorderTipTextView f63298c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f63119d;
+    public TextView f63299d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f63120e;
+    public ImageView f63300e;
     public Context mContext;
     public PayTypeItemViewData mData;
     public ProgressBar mProgress;
@@ -230,11 +230,11 @@ public class PayTypeItemView extends RelativeLayout {
             ProgressBar progressBar = (ProgressBar) inflate.findViewById(ResUtils.id(getContext(), "ebpay_mini_progress_bar"));
             this.mProgress = progressBar;
             progressBar.setVisibility(8);
-            this.f63120e = (ImageView) inflate.findViewById(ResUtils.id(getContext(), "paytype_select"));
-            this.f63116a = (NetImageView) findViewById(ResUtils.id(this.mContext, "ebpay_paytype_logo"));
-            this.f63117b = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_name"));
+            this.f63300e = (ImageView) inflate.findViewById(ResUtils.id(getContext(), "paytype_select"));
+            this.f63296a = (NetImageView) findViewById(ResUtils.id(this.mContext, "ebpay_paytype_logo"));
+            this.f63297b = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_name"));
             if (!TextUtils.isEmpty(payTypeItemViewData.name)) {
-                this.f63117b.setText(payTypeItemViewData.name);
+                this.f63297b.setText(payTypeItemViewData.name);
             }
             TextView textView = (TextView) inflate.findViewById(ResUtils.id(getContext(), "paytype_free_amount"));
             if (ItemViewType.BANKCARD == payTypeItemViewData.type) {
@@ -248,64 +248,64 @@ public class PayTypeItemView extends RelativeLayout {
                 z = false;
             }
             inflate.findViewById(ResUtils.id(getContext(), "paytype_recommended")).setVisibility(payTypeItemViewData.isRecommended ? 0 : 4);
-            this.f63118c = (BorderTipTextView) findViewById(ResUtils.id(this.mContext, "paytype_tip"));
+            this.f63298c = (BorderTipTextView) findViewById(ResUtils.id(this.mContext, "paytype_tip"));
             if (!TextUtils.isEmpty(payTypeItemViewData.tips) && (!z || !payTypeItemViewData.tips.equals(textView.getText()))) {
-                this.f63118c.setVisibility(0);
+                this.f63298c.setVisibility(0);
                 if (payTypeItemViewData.isNeedToColored()) {
                     a(payTypeItemViewData, onClickListener);
                 } else {
-                    this.f63118c.setText(payTypeItemViewData.tips, payTypeItemViewData.highlight);
+                    this.f63298c.setText(payTypeItemViewData.tips, payTypeItemViewData.highlight);
                 }
             } else {
-                this.f63118c.setVisibility(8);
+                this.f63298c.setVisibility(8);
             }
-            this.f63119d = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_hint"));
+            this.f63299d = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_hint"));
             if (!TextUtils.isEmpty(payTypeItemViewData.hintMsg)) {
-                this.f63119d.setVisibility(0);
-                this.f63119d.setText(payTypeItemViewData.hintMsg);
-                LinearLayout linearLayout = (LinearLayout) this.f63119d.getParent();
+                this.f63299d.setVisibility(0);
+                this.f63299d.setText(payTypeItemViewData.hintMsg);
+                LinearLayout linearLayout = (LinearLayout) this.f63299d.getParent();
                 linearLayout.setPadding(linearLayout.getPaddingLeft(), linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), 0);
                 if (onClickListener2 != null) {
-                    this.f63119d.setOnClickListener(onClickListener2);
+                    this.f63299d.setOnClickListener(onClickListener2);
                 }
             } else {
-                this.f63119d.setVisibility(8);
+                this.f63299d.setVisibility(8);
             }
             ItemViewType itemViewType = payTypeItemViewData.type;
             if (itemViewType == ItemViewType.ADD_NEWCARD) {
-                this.f63120e.setImageDrawable(ResUtils.getDrawable(this.mContext, "dxm_wallet_base_paytype_item_right_arrow"));
-                this.f63120e.setVisibility(0);
-                this.f63116a.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_add_newcard"));
-                this.f63118c.setVisibility(8);
+                this.f63300e.setImageDrawable(ResUtils.getDrawable(this.mContext, "dxm_wallet_base_paytype_item_right_arrow"));
+                this.f63300e.setVisibility(0);
+                this.f63296a.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_add_newcard"));
+                this.f63298c.setVisibility(8);
             } else if (itemViewType == ItemViewType.BALANCE) {
-                this.f63116a.setImageDrawable(ResUtils.getDrawable(this.mContext, "dxm_wallet_base_paytype_balance"));
+                this.f63296a.setImageDrawable(ResUtils.getDrawable(this.mContext, "dxm_wallet_base_paytype_balance"));
             } else if (itemViewType == ItemViewType.CREDIT) {
-                this.f63116a.setImageDrawable(ResUtils.getDrawable(this.mContext, "dxm_wallet_base_paytype_credit"));
+                this.f63296a.setImageDrawable(ResUtils.getDrawable(this.mContext, "dxm_wallet_base_paytype_credit"));
             } else if (itemViewType == ItemViewType.BANKCARD && !TextUtils.isEmpty(payTypeItemViewData.logoUrl)) {
-                this.f63116a.setImageUrl(payTypeItemViewData.logoUrl);
+                this.f63296a.setImageUrl(payTypeItemViewData.logoUrl);
             }
             if (payTypeItemViewData.isAvaible) {
                 ViewHelper.setAlpha(inflate, 1.0f);
                 if (payTypeItemViewData.type == ItemViewType.ADD_NEWCARD) {
-                    this.f63120e.setVisibility(0);
+                    this.f63300e.setVisibility(0);
                     return;
                 } else if (payTypeItemViewData.isChecked) {
-                    this.f63120e.setVisibility(0);
-                    this.f63120e.setSelected(true);
+                    this.f63300e.setVisibility(0);
+                    this.f63300e.setSelected(true);
                     return;
                 } else {
-                    this.f63120e.setSelected(false);
-                    this.f63120e.setVisibility(4);
+                    this.f63300e.setSelected(false);
+                    this.f63300e.setVisibility(4);
                     return;
                 }
             }
-            ViewHelper.setAlphaPartly(inflate, 0.4f, this.f63118c);
+            ViewHelper.setAlphaPartly(inflate, 0.4f, this.f63298c);
             if (payTypeItemViewData.isNeedToColored()) {
                 inflate.setEnabled(false);
             } else {
                 inflate.setEnabled(true);
             }
-            this.f63120e.setVisibility(8);
+            this.f63300e.setVisibility(8);
         }
     }
 
@@ -326,7 +326,7 @@ public class PayTypeItemView extends RelativeLayout {
     public void setItemState(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f63120e.setVisibility(8);
+            this.f63300e.setVisibility(8);
             if (z) {
                 this.mProgress.setVisibility(0);
             } else {
@@ -349,10 +349,10 @@ public class PayTypeItemView extends RelativeLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View.OnClickListener f63121a;
+            public final /* synthetic */ View.OnClickListener f63301a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ PayTypeItemView f63122b;
+            public final /* synthetic */ PayTypeItemView f63302b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -369,15 +369,15 @@ public class PayTypeItemView extends RelativeLayout {
                         return;
                     }
                 }
-                this.f63122b = this;
-                this.f63121a = onClickListener;
+                this.f63302b = this;
+                this.f63301a = onClickListener;
             }
 
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f63121a.onClick(view);
+                    this.f63301a.onClick(view);
                 }
             }
 
@@ -392,13 +392,13 @@ public class PayTypeItemView extends RelativeLayout {
         }, startIndex, i2, 18);
         spannableString.setSpan(new ForegroundColorSpan(ResUtils.getColor(this.mContext, "dxm_wallet_base_mainColor")), startIndex, i2, 18);
         if (!TextUtils.isEmpty(payTypeItemViewData.jump_url)) {
-            this.f63118c.setClickable(true);
-            this.f63118c.setEnabled(true);
+            this.f63298c.setClickable(true);
+            this.f63298c.setEnabled(true);
         } else {
-            this.f63118c.setClickable(false);
-            this.f63118c.setEnabled(false);
+            this.f63298c.setClickable(false);
+            this.f63298c.setEnabled(false);
         }
-        this.f63118c.setMovementMethod(new LinkNoScrollMovementMethod());
-        this.f63118c.setText(spannableString);
+        this.f63298c.setMovementMethod(new LinkNoScrollMovementMethod());
+        this.f63298c.setText(spannableString);
     }
 }

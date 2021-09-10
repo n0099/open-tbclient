@@ -29,13 +29,13 @@ public class d extends c.a.w.b.e.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f30369h;
+    public View f30451h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f30370i;
+    public LinearLayout f30452i;
 
     /* renamed from: j  reason: collision with root package name */
-    public f f30371j;
+    public f f30453j;
     public e k;
     public g l;
     public InterfaceC1409d m;
@@ -57,7 +57,7 @@ public class d extends c.a.w.b.e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f30372e;
+        public final /* synthetic */ d f30454e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -74,16 +74,16 @@ public class d extends c.a.w.b.e.a {
                     return;
                 }
             }
-            this.f30372e = dVar;
+            this.f30454e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f30372e.v == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f30454e.v == null) {
                 return;
             }
-            this.f30372e.v.onClick(view);
+            this.f30454e.v.onClick(view);
         }
     }
 
@@ -93,7 +93,7 @@ public class d extends c.a.w.b.e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f30373e;
+        public final /* synthetic */ d f30455e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class d extends c.a.w.b.e.a {
                     return;
                 }
             }
-            this.f30373e = dVar;
+            this.f30455e = dVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -130,12 +130,12 @@ public class d extends c.a.w.b.e.a {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || this.f30373e.u) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || this.f30455e.u) {
                 return;
             }
-            this.f30373e.u = true;
-            this.f30373e.n.setSpeed(1.0f);
-            this.f30373e.n.setMinAndMaxFrame(d.z, d.A);
+            this.f30455e.u = true;
+            this.f30455e.n.setSpeed(1.0f);
+            this.f30455e.n.setMinAndMaxFrame(d.z, d.A);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -152,7 +152,7 @@ public class d extends c.a.w.b.e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f30374a;
+        public final /* synthetic */ d f30456a;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -169,16 +169,16 @@ public class d extends c.a.w.b.e.a {
                     return;
                 }
             }
-            this.f30374a = dVar;
+            this.f30456a = dVar;
         }
 
         @Override // com.baidu.live.business.refresh.SmartBubbleAnimatedView.e
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30374a.q == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30456a.q == null) {
                 return;
             }
-            this.f30374a.q.onAnimationEnd();
+            this.f30456a.q.onAnimationEnd();
         }
     }
 
@@ -233,8 +233,8 @@ public class d extends c.a.w.b.e.a {
                 return;
             }
         }
-        y = c.a.w.b.e.b.a().f30364i;
-        z = c.a.w.b.e.b.a().f30365j;
+        y = c.a.w.b.e.b.a().f30446i;
+        z = c.a.w.b.e.b.a().f30447j;
         A = c.a.w.b.e.b.a().k;
     }
 
@@ -256,9 +256,9 @@ public class d extends c.a.w.b.e.a {
                 return;
             }
         }
-        this.f30369h = null;
-        this.f30370i = null;
-        this.f30371j = null;
+        this.f30451h = null;
+        this.f30452i = null;
+        this.f30453j = null;
         this.k = null;
         this.l = null;
         this.m = null;
@@ -287,13 +287,13 @@ public class d extends c.a.w.b.e.a {
                 i2 = c.a.w.c.a.d.live_feed_page_pull_down_tb;
             }
             View inflate = LayoutInflater.from(c()).inflate(i2, (ViewGroup) null);
-            this.f30369h = inflate;
-            this.f30370i = (LinearLayout) inflate.findViewById(c.a.w.c.a.c.pull_root);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.f30369h.findViewById(c.a.w.c.a.c.continuous_loading_view);
+            this.f30451h = inflate;
+            this.f30452i = (LinearLayout) inflate.findViewById(c.a.w.c.a.c.pull_root);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.f30451h.findViewById(c.a.w.c.a.c.continuous_loading_view);
             this.n = continuousAnimationView;
             continuousAnimationView.setOnClickListener(this.w);
             r();
-            return this.f30369h;
+            return this.f30451h;
         }
         return (View) invokeV.objValue;
     }
@@ -308,7 +308,7 @@ public class d extends c.a.w.b.e.a {
             }
             e eVar = this.k;
             if (eVar != null) {
-                eVar.a(this.f30369h, z2);
+                eVar.a(this.f30451h, z2);
             }
         }
     }
@@ -340,7 +340,7 @@ public class d extends c.a.w.b.e.a {
         if (!(interceptable == null || interceptable.invokeZ(1048579, this, z2) == null) || d()) {
             return;
         }
-        f fVar = this.f30371j;
+        f fVar = this.f30453j;
         if (fVar != null && this.t) {
             fVar.onListPullRefresh(z2);
         }
@@ -412,7 +412,7 @@ public class d extends c.a.w.b.e.a {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             SmartBubbleAnimatedView smartBubbleAnimatedView = this.p;
             if (smartBubbleAnimatedView != null && smartBubbleAnimatedView.getParent() != null) {
-                this.f30370i.removeView(this.p);
+                this.f30452i.removeView(this.p);
             }
             if (!s() || (continuousAnimationView = this.n) == null) {
                 return;
@@ -461,7 +461,7 @@ public class d extends c.a.w.b.e.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (t() && this.s && this.r != null && this.f30370i != null) {
+            if (t() && this.s && this.r != null && this.f30452i != null) {
                 this.n.setVisibility(8);
                 if (this.p == null) {
                     SmartBubbleAnimatedView smartBubbleAnimatedView = new SmartBubbleAnimatedView(c());
@@ -471,9 +471,9 @@ public class d extends c.a.w.b.e.a {
                 this.p.tipText = this.r.b();
                 this.p.delayDuring = this.r.a();
                 if (this.p.getParent() != null) {
-                    this.f30370i.removeView(this.p);
+                    this.f30452i.removeView(this.p);
                 }
-                this.f30370i.addView(this.p);
+                this.f30452i.addView(this.p);
                 this.p.setOnBubbleAnimateListener(new c(this));
                 i iVar = this.q;
                 if (iVar != null) {

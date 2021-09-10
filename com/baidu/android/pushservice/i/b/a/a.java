@@ -39,35 +39,35 @@ public final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<C1604a> f37463a;
+        public static Parser<C1604a> f37582a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final C1604a f37464b;
+        public static final C1604a f37583b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f37465c;
+        public int f37584c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f37466d;
+        public long f37585d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Object f37467e;
+        public Object f37586e;
 
         /* renamed from: f  reason: collision with root package name */
-        public C1605a f37468f;
+        public C1605a f37587f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f37469g;
+        public long f37588g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Object f37470h;
+        public Object f37589h;
 
         /* renamed from: i  reason: collision with root package name */
-        public ByteString f37471i;
+        public ByteString f37590i;
 
         /* renamed from: j  reason: collision with root package name */
-        public byte f37472j;
+        public byte f37591j;
         public int k;
 
         /* renamed from: com.baidu.android.pushservice.i.b.a.a$a$a  reason: collision with other inner class name */
@@ -76,23 +76,23 @@ public final class a {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static Parser<C1605a> f37473a;
+            public static Parser<C1605a> f37592a;
 
             /* renamed from: b  reason: collision with root package name */
-            public static final C1605a f37474b;
+            public static final C1605a f37593b;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f37475c;
+            public int f37594c;
 
             /* renamed from: d  reason: collision with root package name */
-            public Object f37476d;
+            public Object f37595d;
 
             /* renamed from: e  reason: collision with root package name */
-            public byte f37477e;
+            public byte f37596e;
 
             /* renamed from: f  reason: collision with root package name */
-            public int f37478f;
+            public int f37597f;
 
             /* renamed from: com.baidu.android.pushservice.i.b.a.a$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
@@ -101,10 +101,10 @@ public final class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public int f37479a;
+                public int f37598a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public Object f37480b;
+                public Object f37599b;
 
                 public C1606a() {
                     Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public final class a {
                             return;
                         }
                     }
-                    this.f37480b = "";
+                    this.f37599b = "";
                     g();
                 }
 
@@ -143,8 +143,8 @@ public final class a {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                         super.clear();
-                        this.f37480b = "";
-                        this.f37479a &= -2;
+                        this.f37599b = "";
+                        this.f37598a &= -2;
                         return this;
                     }
                     return (C1606a) invokeV.objValue;
@@ -158,8 +158,8 @@ public final class a {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c1605a)) == null) {
                         if (c1605a != C1605a.a() && c1605a.c()) {
-                            this.f37479a |= 1;
-                            this.f37480b = c1605a.f37476d;
+                            this.f37598a |= 1;
+                            this.f37599b = c1605a.f37595d;
                         }
                         return this;
                     }
@@ -180,7 +180,7 @@ public final class a {
                         C1605a c1605a = null;
                         try {
                             try {
-                                C1605a parsePartialFrom = C1605a.f37473a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                                C1605a parsePartialFrom = C1605a.f37592a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                                 if (parsePartialFrom != null) {
                                     mergeFrom(parsePartialFrom);
                                 }
@@ -213,8 +213,8 @@ public final class a {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                         if (str != null) {
-                            this.f37479a |= 1;
-                            this.f37480b = str;
+                            this.f37598a |= 1;
+                            this.f37599b = str;
                             return this;
                         }
                         throw null;
@@ -264,9 +264,9 @@ public final class a {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
                         C1605a c1605a = new C1605a(this, (AnonymousClass1) null);
-                        int i2 = (this.f37479a & 1) != 1 ? 0 : 1;
-                        c1605a.f37476d = this.f37480b;
-                        c1605a.f37475c = i2;
+                        int i2 = (this.f37598a & 1) != 1 ? 0 : 1;
+                        c1605a.f37595d = this.f37599b;
+                        c1605a.f37594c = i2;
                         return c1605a;
                     }
                     return (C1605a) invokeV.objValue;
@@ -296,7 +296,7 @@ public final class a {
                         return;
                     }
                 }
-                f37473a = new AbstractParser<C1605a>() { // from class: com.baidu.android.pushservice.i.b.a.a.a.a.1
+                f37592a = new AbstractParser<C1605a>() { // from class: com.baidu.android.pushservice.i.b.a.a.a.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -324,7 +324,7 @@ public final class a {
                     }
                 };
                 C1605a c1605a = new C1605a();
-                f37474b = c1605a;
+                f37593b = c1605a;
                 c1605a.h();
             }
 
@@ -341,8 +341,8 @@ public final class a {
                         return;
                     }
                 }
-                this.f37477e = (byte) -1;
-                this.f37478f = -1;
+                this.f37596e = (byte) -1;
+                this.f37597f = -1;
             }
 
             public C1605a(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -360,8 +360,8 @@ public final class a {
                         return;
                     }
                 }
-                this.f37477e = (byte) -1;
-                this.f37478f = -1;
+                this.f37596e = (byte) -1;
+                this.f37597f = -1;
                 h();
                 boolean z = false;
                 while (!z) {
@@ -371,8 +371,8 @@ public final class a {
                                 int readTag = codedInputStream.readTag();
                                 if (readTag != 0) {
                                     if (readTag == 10) {
-                                        this.f37475c |= 1;
-                                        this.f37476d = codedInputStream.readBytes();
+                                        this.f37594c |= 1;
+                                        this.f37595d = codedInputStream.readBytes();
                                     } else if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     }
                                 }
@@ -411,8 +411,8 @@ public final class a {
                         return;
                     }
                 }
-                this.f37477e = (byte) -1;
-                this.f37478f = -1;
+                this.f37596e = (byte) -1;
+                this.f37597f = -1;
             }
 
             public /* synthetic */ C1605a(GeneratedMessageLite.Builder builder, AnonymousClass1 anonymousClass1) {
@@ -428,7 +428,7 @@ public final class a {
             public static C1605a a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f37474b : (C1605a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f37593b : (C1605a) invokeV.objValue;
             }
 
             public static C1606a e() {
@@ -440,7 +440,7 @@ public final class a {
             private void h() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-                    this.f37476d = "";
+                    this.f37595d = "";
                 }
             }
 
@@ -450,23 +450,23 @@ public final class a {
             public C1605a getDefaultInstanceForType() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f37474b : (C1605a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f37593b : (C1605a) invokeV.objValue;
             }
 
             public boolean c() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f37475c & 1) == 1 : invokeV.booleanValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f37594c & 1) == 1 : invokeV.booleanValue;
             }
 
             public ByteString d() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    Object obj = this.f37476d;
+                    Object obj = this.f37595d;
                     if (obj instanceof String) {
                         ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                        this.f37476d = copyFromUtf8;
+                        this.f37595d = copyFromUtf8;
                         return copyFromUtf8;
                     }
                     return (ByteString) obj;
@@ -496,7 +496,7 @@ public final class a {
             public Parser<C1605a> getParserForType() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? f37473a : (Parser) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? f37592a : (Parser) invokeV.objValue;
             }
 
             @Override // com.google.protobuf.MessageLite
@@ -504,12 +504,12 @@ public final class a {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                    int i2 = this.f37478f;
+                    int i2 = this.f37597f;
                     if (i2 != -1) {
                         return i2;
                     }
-                    int computeBytesSize = (this.f37475c & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, d()) : 0;
-                    this.f37478f = computeBytesSize;
+                    int computeBytesSize = (this.f37594c & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, d()) : 0;
+                    this.f37597f = computeBytesSize;
                     return computeBytesSize;
                 }
                 return invokeV.intValue;
@@ -520,11 +520,11 @@ public final class a {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                    byte b2 = this.f37477e;
+                    byte b2 = this.f37596e;
                     if (b2 != -1) {
                         return b2 == 1;
                     }
-                    this.f37477e = (byte) 1;
+                    this.f37596e = (byte) 1;
                     return true;
                 }
                 return invokeV.booleanValue;
@@ -542,7 +542,7 @@ public final class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048588, this, codedOutputStream) == null) {
                     getSerializedSize();
-                    if ((this.f37475c & 1) == 1) {
+                    if ((this.f37594c & 1) == 1) {
                         codedOutputStream.writeBytes(1, d());
                     }
                 }
@@ -561,25 +561,25 @@ public final class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public int f37481a;
+            public int f37600a;
 
             /* renamed from: b  reason: collision with root package name */
-            public long f37482b;
+            public long f37601b;
 
             /* renamed from: c  reason: collision with root package name */
-            public Object f37483c;
+            public Object f37602c;
 
             /* renamed from: d  reason: collision with root package name */
-            public C1605a f37484d;
+            public C1605a f37603d;
 
             /* renamed from: e  reason: collision with root package name */
-            public long f37485e;
+            public long f37604e;
 
             /* renamed from: f  reason: collision with root package name */
-            public Object f37486f;
+            public Object f37605f;
 
             /* renamed from: g  reason: collision with root package name */
-            public ByteString f37487g;
+            public ByteString f37606g;
 
             public c() {
                 Interceptable interceptable = $ic;
@@ -594,10 +594,10 @@ public final class a {
                         return;
                     }
                 }
-                this.f37483c = "";
-                this.f37484d = C1605a.a();
-                this.f37486f = "";
-                this.f37487g = ByteString.EMPTY;
+                this.f37602c = "";
+                this.f37603d = C1605a.a();
+                this.f37605f = "";
+                this.f37606g = ByteString.EMPTY;
                 g();
             }
 
@@ -621,22 +621,22 @@ public final class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     super.clear();
-                    this.f37482b = 0L;
-                    int i2 = this.f37481a & (-2);
-                    this.f37481a = i2;
-                    this.f37483c = "";
-                    this.f37481a = i2 & (-3);
-                    this.f37484d = C1605a.a();
-                    int i3 = this.f37481a & (-5);
-                    this.f37481a = i3;
-                    this.f37485e = 0L;
+                    this.f37601b = 0L;
+                    int i2 = this.f37600a & (-2);
+                    this.f37600a = i2;
+                    this.f37602c = "";
+                    this.f37600a = i2 & (-3);
+                    this.f37603d = C1605a.a();
+                    int i3 = this.f37600a & (-5);
+                    this.f37600a = i3;
+                    this.f37604e = 0L;
                     int i4 = i3 & (-9);
-                    this.f37481a = i4;
-                    this.f37486f = "";
+                    this.f37600a = i4;
+                    this.f37605f = "";
                     int i5 = i4 & (-17);
-                    this.f37481a = i5;
-                    this.f37487g = ByteString.EMPTY;
-                    this.f37481a = i5 & (-33);
+                    this.f37600a = i5;
+                    this.f37606g = ByteString.EMPTY;
+                    this.f37600a = i5 & (-33);
                     return this;
                 }
                 return (c) invokeV.objValue;
@@ -646,8 +646,8 @@ public final class a {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-                    this.f37481a |= 1;
-                    this.f37482b = j2;
+                    this.f37600a |= 1;
+                    this.f37601b = j2;
                     return this;
                 }
                 return (c) invokeJ.objValue;
@@ -658,8 +658,8 @@ public final class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c1605a)) == null) {
                     if (c1605a != null) {
-                        this.f37484d = c1605a;
-                        this.f37481a |= 4;
+                        this.f37603d = c1605a;
+                        this.f37600a |= 4;
                         return this;
                     }
                     throw null;
@@ -681,8 +681,8 @@ public final class a {
                         a(c1604a.d());
                     }
                     if (c1604a.e()) {
-                        this.f37481a |= 2;
-                        this.f37483c = c1604a.f37467e;
+                        this.f37600a |= 2;
+                        this.f37602c = c1604a.f37586e;
                     }
                     if (c1604a.g()) {
                         b(c1604a.h());
@@ -691,8 +691,8 @@ public final class a {
                         b(c1604a.j());
                     }
                     if (c1604a.k()) {
-                        this.f37481a |= 16;
-                        this.f37486f = c1604a.f37470h;
+                        this.f37600a |= 16;
+                        this.f37605f = c1604a.f37589h;
                     }
                     if (c1604a.m()) {
                         a(c1604a.n());
@@ -707,8 +707,8 @@ public final class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, byteString)) == null) {
                     if (byteString != null) {
-                        this.f37481a |= 32;
-                        this.f37487g = byteString;
+                        this.f37600a |= 32;
+                        this.f37606g = byteString;
                         return this;
                     }
                     throw null;
@@ -730,7 +730,7 @@ public final class a {
                     C1604a c1604a = null;
                     try {
                         try {
-                            C1604a parsePartialFrom = C1604a.f37463a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            C1604a parsePartialFrom = C1604a.f37582a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                             if (parsePartialFrom != null) {
                                 mergeFrom(parsePartialFrom);
                             }
@@ -763,8 +763,8 @@ public final class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
                     if (str != null) {
-                        this.f37481a |= 2;
-                        this.f37483c = str;
+                        this.f37600a |= 2;
+                        this.f37602c = str;
                         return this;
                     }
                     throw null;
@@ -785,8 +785,8 @@ public final class a {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) {
-                    this.f37481a |= 8;
-                    this.f37485e = j2;
+                    this.f37600a |= 8;
+                    this.f37604e = j2;
                     return this;
                 }
                 return (c) invokeJ.objValue;
@@ -796,11 +796,11 @@ public final class a {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, c1605a)) == null) {
-                    if ((this.f37481a & 4) == 4 && this.f37484d != C1605a.a()) {
-                        c1605a = C1605a.a(this.f37484d).mergeFrom(c1605a).buildPartial();
+                    if ((this.f37600a & 4) == 4 && this.f37603d != C1605a.a()) {
+                        c1605a = C1605a.a(this.f37603d).mergeFrom(c1605a).buildPartial();
                     }
-                    this.f37484d = c1605a;
-                    this.f37481a |= 4;
+                    this.f37603d = c1605a;
+                    this.f37600a |= 4;
                     return this;
                 }
                 return (c) invokeL.objValue;
@@ -811,8 +811,8 @@ public final class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
                     if (str != null) {
-                        this.f37481a |= 16;
-                        this.f37486f = str;
+                        this.f37600a |= 16;
+                        this.f37605f = str;
                         return this;
                     }
                     throw null;
@@ -853,30 +853,30 @@ public final class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
                     C1604a c1604a = new C1604a(this, (AnonymousClass1) null);
-                    int i2 = this.f37481a;
+                    int i2 = this.f37600a;
                     int i3 = (i2 & 1) != 1 ? 0 : 1;
-                    c1604a.f37466d = this.f37482b;
+                    c1604a.f37585d = this.f37601b;
                     if ((i2 & 2) == 2) {
                         i3 |= 2;
                     }
-                    c1604a.f37467e = this.f37483c;
+                    c1604a.f37586e = this.f37602c;
                     if ((i2 & 4) == 4) {
                         i3 |= 4;
                     }
-                    c1604a.f37468f = this.f37484d;
+                    c1604a.f37587f = this.f37603d;
                     if ((i2 & 8) == 8) {
                         i3 |= 8;
                     }
-                    c1604a.f37469g = this.f37485e;
+                    c1604a.f37588g = this.f37604e;
                     if ((i2 & 16) == 16) {
                         i3 |= 16;
                     }
-                    c1604a.f37470h = this.f37486f;
+                    c1604a.f37589h = this.f37605f;
                     if ((i2 & 32) == 32) {
                         i3 |= 32;
                     }
-                    c1604a.f37471i = this.f37487g;
-                    c1604a.f37465c = i3;
+                    c1604a.f37590i = this.f37606g;
+                    c1604a.f37584c = i3;
                     return c1604a;
                 }
                 return (C1604a) invokeV.objValue;
@@ -906,7 +906,7 @@ public final class a {
                     return;
                 }
             }
-            f37463a = new AbstractParser<C1604a>() { // from class: com.baidu.android.pushservice.i.b.a.a.a.1
+            f37582a = new AbstractParser<C1604a>() { // from class: com.baidu.android.pushservice.i.b.a.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -934,7 +934,7 @@ public final class a {
                 }
             };
             C1604a c1604a = new C1604a();
-            f37464b = c1604a;
+            f37583b = c1604a;
             c1604a.r();
         }
 
@@ -951,7 +951,7 @@ public final class a {
                     return;
                 }
             }
-            this.f37472j = (byte) -1;
+            this.f37591j = (byte) -1;
             this.k = -1;
         }
 
@@ -970,7 +970,7 @@ public final class a {
                     return;
                 }
             }
-            this.f37472j = (byte) -1;
+            this.f37591j = (byte) -1;
             this.k = -1;
             r();
             boolean z = false;
@@ -981,29 +981,29 @@ public final class a {
                             int readTag = codedInputStream.readTag();
                             if (readTag != 0) {
                                 if (readTag == 8) {
-                                    this.f37465c |= 1;
-                                    this.f37466d = codedInputStream.readInt64();
+                                    this.f37584c |= 1;
+                                    this.f37585d = codedInputStream.readInt64();
                                 } else if (readTag == 18) {
-                                    this.f37465c |= 2;
-                                    this.f37467e = codedInputStream.readBytes();
+                                    this.f37584c |= 2;
+                                    this.f37586e = codedInputStream.readBytes();
                                 } else if (readTag == 26) {
-                                    C1605a.C1606a builder = (this.f37465c & 4) == 4 ? this.f37468f.toBuilder() : null;
-                                    C1605a c1605a = (C1605a) codedInputStream.readMessage(C1605a.f37473a, extensionRegistryLite);
-                                    this.f37468f = c1605a;
+                                    C1605a.C1606a builder = (this.f37584c & 4) == 4 ? this.f37587f.toBuilder() : null;
+                                    C1605a c1605a = (C1605a) codedInputStream.readMessage(C1605a.f37592a, extensionRegistryLite);
+                                    this.f37587f = c1605a;
                                     if (builder != null) {
                                         builder.mergeFrom(c1605a);
-                                        this.f37468f = builder.buildPartial();
+                                        this.f37587f = builder.buildPartial();
                                     }
-                                    this.f37465c |= 4;
+                                    this.f37584c |= 4;
                                 } else if (readTag == 32) {
-                                    this.f37465c |= 8;
-                                    this.f37469g = codedInputStream.readInt64();
+                                    this.f37584c |= 8;
+                                    this.f37588g = codedInputStream.readInt64();
                                 } else if (readTag == 42) {
-                                    this.f37465c |= 16;
-                                    this.f37470h = codedInputStream.readBytes();
+                                    this.f37584c |= 16;
+                                    this.f37589h = codedInputStream.readBytes();
                                 } else if (readTag == 50) {
-                                    this.f37465c |= 32;
-                                    this.f37471i = codedInputStream.readBytes();
+                                    this.f37584c |= 32;
+                                    this.f37590i = codedInputStream.readBytes();
                                 } else if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                 }
                             }
@@ -1042,7 +1042,7 @@ public final class a {
                     return;
                 }
             }
-            this.f37472j = (byte) -1;
+            this.f37591j = (byte) -1;
             this.k = -1;
         }
 
@@ -1059,7 +1059,7 @@ public final class a {
         public static C1604a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f37464b : (C1604a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f37583b : (C1604a) invokeV.objValue;
         }
 
         public static c o() {
@@ -1071,12 +1071,12 @@ public final class a {
         private void r() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-                this.f37466d = 0L;
-                this.f37467e = "";
-                this.f37468f = C1605a.a();
-                this.f37469g = 0L;
-                this.f37470h = "";
-                this.f37471i = ByteString.EMPTY;
+                this.f37585d = 0L;
+                this.f37586e = "";
+                this.f37587f = C1605a.a();
+                this.f37588g = 0L;
+                this.f37589h = "";
+                this.f37590i = ByteString.EMPTY;
             }
         }
 
@@ -1086,35 +1086,35 @@ public final class a {
         public C1604a getDefaultInstanceForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f37464b : (C1604a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f37583b : (C1604a) invokeV.objValue;
         }
 
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f37465c & 1) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f37584c & 1) == 1 : invokeV.booleanValue;
         }
 
         public long d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37466d : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37585d : invokeV.longValue;
         }
 
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f37465c & 2) == 2 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f37584c & 2) == 2 : invokeV.booleanValue;
         }
 
         public ByteString f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                Object obj = this.f37467e;
+                Object obj = this.f37586e;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.f37467e = copyFromUtf8;
+                    this.f37586e = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -1125,14 +1125,14 @@ public final class a {
         public boolean g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.f37465c & 4) == 4 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.f37584c & 4) == 4 : invokeV.booleanValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<C1604a> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? f37463a : (Parser) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? f37582a : (Parser) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -1144,21 +1144,21 @@ public final class a {
                 if (i2 != -1) {
                     return i2;
                 }
-                int computeInt64Size = (this.f37465c & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.f37466d) : 0;
-                if ((this.f37465c & 2) == 2) {
+                int computeInt64Size = (this.f37584c & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.f37585d) : 0;
+                if ((this.f37584c & 2) == 2) {
                     computeInt64Size += CodedOutputStream.computeBytesSize(2, f());
                 }
-                if ((this.f37465c & 4) == 4) {
-                    computeInt64Size += CodedOutputStream.computeMessageSize(3, this.f37468f);
+                if ((this.f37584c & 4) == 4) {
+                    computeInt64Size += CodedOutputStream.computeMessageSize(3, this.f37587f);
                 }
-                if ((this.f37465c & 8) == 8) {
-                    computeInt64Size += CodedOutputStream.computeInt64Size(4, this.f37469g);
+                if ((this.f37584c & 8) == 8) {
+                    computeInt64Size += CodedOutputStream.computeInt64Size(4, this.f37588g);
                 }
-                if ((this.f37465c & 16) == 16) {
+                if ((this.f37584c & 16) == 16) {
                     computeInt64Size += CodedOutputStream.computeBytesSize(5, l());
                 }
-                if ((this.f37465c & 32) == 32) {
-                    computeInt64Size += CodedOutputStream.computeBytesSize(6, this.f37471i);
+                if ((this.f37584c & 32) == 32) {
+                    computeInt64Size += CodedOutputStream.computeBytesSize(6, this.f37590i);
                 }
                 this.k = computeInt64Size;
                 return computeInt64Size;
@@ -1169,13 +1169,13 @@ public final class a {
         public C1605a h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f37468f : (C1605a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f37587f : (C1605a) invokeV.objValue;
         }
 
         public boolean i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (this.f37465c & 8) == 8 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (this.f37584c & 8) == 8 : invokeV.booleanValue;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -1183,11 +1183,11 @@ public final class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                byte b2 = this.f37472j;
+                byte b2 = this.f37591j;
                 if (b2 != -1) {
                     return b2 == 1;
                 }
-                this.f37472j = (byte) 1;
+                this.f37591j = (byte) 1;
                 return true;
             }
             return invokeV.booleanValue;
@@ -1196,23 +1196,23 @@ public final class a {
         public long j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f37469g : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f37588g : invokeV.longValue;
         }
 
         public boolean k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? (this.f37465c & 16) == 16 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? (this.f37584c & 16) == 16 : invokeV.booleanValue;
         }
 
         public ByteString l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-                Object obj = this.f37470h;
+                Object obj = this.f37589h;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.f37470h = copyFromUtf8;
+                    this.f37589h = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -1223,13 +1223,13 @@ public final class a {
         public boolean m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? (this.f37465c & 32) == 32 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? (this.f37584c & 32) == 32 : invokeV.booleanValue;
         }
 
         public ByteString n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f37471i : (ByteString) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f37590i : (ByteString) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1262,23 +1262,23 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048598, this, codedOutputStream) == null) {
                 getSerializedSize();
-                if ((this.f37465c & 1) == 1) {
-                    codedOutputStream.writeInt64(1, this.f37466d);
+                if ((this.f37584c & 1) == 1) {
+                    codedOutputStream.writeInt64(1, this.f37585d);
                 }
-                if ((this.f37465c & 2) == 2) {
+                if ((this.f37584c & 2) == 2) {
                     codedOutputStream.writeBytes(2, f());
                 }
-                if ((this.f37465c & 4) == 4) {
-                    codedOutputStream.writeMessage(3, this.f37468f);
+                if ((this.f37584c & 4) == 4) {
+                    codedOutputStream.writeMessage(3, this.f37587f);
                 }
-                if ((this.f37465c & 8) == 8) {
-                    codedOutputStream.writeInt64(4, this.f37469g);
+                if ((this.f37584c & 8) == 8) {
+                    codedOutputStream.writeInt64(4, this.f37588g);
                 }
-                if ((this.f37465c & 16) == 16) {
+                if ((this.f37584c & 16) == 16) {
                     codedOutputStream.writeBytes(5, l());
                 }
-                if ((this.f37465c & 32) == 32) {
-                    codedOutputStream.writeBytes(6, this.f37471i);
+                if ((this.f37584c & 32) == 32) {
+                    codedOutputStream.writeBytes(6, this.f37590i);
                 }
             }
         }
@@ -1293,29 +1293,29 @@ public final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<c> f37488a;
+        public static Parser<c> f37607a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final c f37489b;
+        public static final c f37608b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f37490c;
+        public int f37609c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f37491d;
+        public int f37610d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Object f37492e;
+        public Object f37611e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f37493f;
+        public long f37612f;
 
         /* renamed from: g  reason: collision with root package name */
-        public byte f37494g;
+        public byte f37613g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f37495h;
+        public int f37614h;
 
         /* renamed from: com.baidu.android.pushservice.i.b.a.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
@@ -1324,16 +1324,16 @@ public final class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public int f37496a;
+            public int f37615a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f37497b;
+            public int f37616b;
 
             /* renamed from: c  reason: collision with root package name */
-            public Object f37498c;
+            public Object f37617c;
 
             /* renamed from: d  reason: collision with root package name */
-            public long f37499d;
+            public long f37618d;
 
             public C1607a() {
                 Interceptable interceptable = $ic;
@@ -1348,7 +1348,7 @@ public final class a {
                         return;
                     }
                 }
-                this.f37498c = "";
+                this.f37617c = "";
                 g();
             }
 
@@ -1372,14 +1372,14 @@ public final class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     super.clear();
-                    this.f37497b = 0;
-                    int i2 = this.f37496a & (-2);
-                    this.f37496a = i2;
-                    this.f37498c = "";
+                    this.f37616b = 0;
+                    int i2 = this.f37615a & (-2);
+                    this.f37615a = i2;
+                    this.f37617c = "";
                     int i3 = i2 & (-3);
-                    this.f37496a = i3;
-                    this.f37499d = 0L;
-                    this.f37496a = i3 & (-5);
+                    this.f37615a = i3;
+                    this.f37618d = 0L;
+                    this.f37615a = i3 & (-5);
                     return this;
                 }
                 return (C1607a) invokeV.objValue;
@@ -1389,8 +1389,8 @@ public final class a {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                    this.f37496a |= 1;
-                    this.f37497b = i2;
+                    this.f37615a |= 1;
+                    this.f37616b = i2;
                     return this;
                 }
                 return (C1607a) invokeI.objValue;
@@ -1400,8 +1400,8 @@ public final class a {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-                    this.f37496a |= 4;
-                    this.f37499d = j2;
+                    this.f37615a |= 4;
+                    this.f37618d = j2;
                     return this;
                 }
                 return (C1607a) invokeJ.objValue;
@@ -1421,8 +1421,8 @@ public final class a {
                         a(cVar.d());
                     }
                     if (cVar.e()) {
-                        this.f37496a |= 2;
-                        this.f37498c = cVar.f37492e;
+                        this.f37615a |= 2;
+                        this.f37617c = cVar.f37611e;
                     }
                     if (cVar.h()) {
                         a(cVar.i());
@@ -1446,7 +1446,7 @@ public final class a {
                     c cVar = null;
                     try {
                         try {
-                            c parsePartialFrom = c.f37488a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            c parsePartialFrom = c.f37607a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                             if (parsePartialFrom != null) {
                                 mergeFrom(parsePartialFrom);
                             }
@@ -1516,18 +1516,18 @@ public final class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                     c cVar = new c(this, (AnonymousClass1) null);
-                    int i2 = this.f37496a;
+                    int i2 = this.f37615a;
                     int i3 = (i2 & 1) != 1 ? 0 : 1;
-                    cVar.f37491d = this.f37497b;
+                    cVar.f37610d = this.f37616b;
                     if ((i2 & 2) == 2) {
                         i3 |= 2;
                     }
-                    cVar.f37492e = this.f37498c;
+                    cVar.f37611e = this.f37617c;
                     if ((i2 & 4) == 4) {
                         i3 |= 4;
                     }
-                    cVar.f37493f = this.f37499d;
-                    cVar.f37490c = i3;
+                    cVar.f37612f = this.f37618d;
+                    cVar.f37609c = i3;
                     return cVar;
                 }
                 return (c) invokeV.objValue;
@@ -1557,7 +1557,7 @@ public final class a {
                     return;
                 }
             }
-            f37488a = new AbstractParser<c>() { // from class: com.baidu.android.pushservice.i.b.a.a.c.1
+            f37607a = new AbstractParser<c>() { // from class: com.baidu.android.pushservice.i.b.a.a.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1585,7 +1585,7 @@ public final class a {
                 }
             };
             c cVar = new c();
-            f37489b = cVar;
+            f37608b = cVar;
             cVar.m();
         }
 
@@ -1602,8 +1602,8 @@ public final class a {
                     return;
                 }
             }
-            this.f37494g = (byte) -1;
-            this.f37495h = -1;
+            this.f37613g = (byte) -1;
+            this.f37614h = -1;
         }
 
         public c(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -1621,8 +1621,8 @@ public final class a {
                     return;
                 }
             }
-            this.f37494g = (byte) -1;
-            this.f37495h = -1;
+            this.f37613g = (byte) -1;
+            this.f37614h = -1;
             m();
             boolean z = false;
             while (!z) {
@@ -1631,14 +1631,14 @@ public final class a {
                         int readTag = codedInputStream.readTag();
                         if (readTag != 0) {
                             if (readTag == 8) {
-                                this.f37490c |= 1;
-                                this.f37491d = codedInputStream.readInt32();
+                                this.f37609c |= 1;
+                                this.f37610d = codedInputStream.readInt32();
                             } else if (readTag == 18) {
-                                this.f37490c |= 2;
-                                this.f37492e = codedInputStream.readBytes();
+                                this.f37609c |= 2;
+                                this.f37611e = codedInputStream.readBytes();
                             } else if (readTag == 24) {
-                                this.f37490c |= 4;
-                                this.f37493f = codedInputStream.readInt64();
+                                this.f37609c |= 4;
+                                this.f37612f = codedInputStream.readInt64();
                             } else if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                             }
                         }
@@ -1676,8 +1676,8 @@ public final class a {
                     return;
                 }
             }
-            this.f37494g = (byte) -1;
-            this.f37495h = -1;
+            this.f37613g = (byte) -1;
+            this.f37614h = -1;
         }
 
         public /* synthetic */ c(GeneratedMessageLite.Builder builder, AnonymousClass1 anonymousClass1) {
@@ -1693,13 +1693,13 @@ public final class a {
         public static c a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f37489b : (c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f37608b : (c) invokeV.objValue;
         }
 
         public static c a(byte[] bArr) throws InvalidProtocolBufferException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) ? f37488a.parseFrom(bArr) : (c) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) ? f37607a.parseFrom(bArr) : (c) invokeL.objValue;
         }
 
         public static C1607a j() {
@@ -1711,9 +1711,9 @@ public final class a {
         private void m() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-                this.f37491d = 0;
-                this.f37492e = "";
-                this.f37493f = 0L;
+                this.f37610d = 0;
+                this.f37611e = "";
+                this.f37612f = 0L;
             }
         }
 
@@ -1723,39 +1723,39 @@ public final class a {
         public c getDefaultInstanceForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f37489b : (c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f37608b : (c) invokeV.objValue;
         }
 
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f37490c & 1) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f37609c & 1) == 1 : invokeV.booleanValue;
         }
 
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37491d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37610d : invokeV.intValue;
         }
 
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f37490c & 2) == 2 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f37609c & 2) == 2 : invokeV.booleanValue;
         }
 
         public String f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                Object obj = this.f37492e;
+                Object obj = this.f37611e;
                 if (obj instanceof String) {
                     return (String) obj;
                 }
                 ByteString byteString = (ByteString) obj;
                 String stringUtf8 = byteString.toStringUtf8();
                 if (byteString.isValidUtf8()) {
-                    this.f37492e = stringUtf8;
+                    this.f37611e = stringUtf8;
                 }
                 return stringUtf8;
             }
@@ -1766,10 +1766,10 @@ public final class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                Object obj = this.f37492e;
+                Object obj = this.f37611e;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.f37492e = copyFromUtf8;
+                    this.f37611e = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -1781,7 +1781,7 @@ public final class a {
         public Parser<c> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? f37488a : (Parser) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? f37607a : (Parser) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -1789,18 +1789,18 @@ public final class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                int i2 = this.f37495h;
+                int i2 = this.f37614h;
                 if (i2 != -1) {
                     return i2;
                 }
-                int computeInt32Size = (this.f37490c & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.f37491d) : 0;
-                if ((this.f37490c & 2) == 2) {
+                int computeInt32Size = (this.f37609c & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.f37610d) : 0;
+                if ((this.f37609c & 2) == 2) {
                     computeInt32Size += CodedOutputStream.computeBytesSize(2, g());
                 }
-                if ((this.f37490c & 4) == 4) {
-                    computeInt32Size += CodedOutputStream.computeInt64Size(3, this.f37493f);
+                if ((this.f37609c & 4) == 4) {
+                    computeInt32Size += CodedOutputStream.computeInt64Size(3, this.f37612f);
                 }
-                this.f37495h = computeInt32Size;
+                this.f37614h = computeInt32Size;
                 return computeInt32Size;
             }
             return invokeV.intValue;
@@ -1809,13 +1809,13 @@ public final class a {
         public boolean h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (this.f37490c & 4) == 4 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (this.f37609c & 4) == 4 : invokeV.booleanValue;
         }
 
         public long i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f37493f : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f37612f : invokeV.longValue;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -1823,11 +1823,11 @@ public final class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                byte b2 = this.f37494g;
+                byte b2 = this.f37613g;
                 if (b2 != -1) {
                     return b2 == 1;
                 }
-                this.f37494g = (byte) 1;
+                this.f37613g = (byte) 1;
                 return true;
             }
             return invokeV.booleanValue;
@@ -1863,14 +1863,14 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, codedOutputStream) == null) {
                 getSerializedSize();
-                if ((this.f37490c & 1) == 1) {
-                    codedOutputStream.writeInt32(1, this.f37491d);
+                if ((this.f37609c & 1) == 1) {
+                    codedOutputStream.writeInt32(1, this.f37610d);
                 }
-                if ((this.f37490c & 2) == 2) {
+                if ((this.f37609c & 2) == 2) {
                     codedOutputStream.writeBytes(2, g());
                 }
-                if ((this.f37490c & 4) == 4) {
-                    codedOutputStream.writeInt64(3, this.f37493f);
+                if ((this.f37609c & 4) == 4) {
+                    codedOutputStream.writeInt64(3, this.f37612f);
                 }
             }
         }

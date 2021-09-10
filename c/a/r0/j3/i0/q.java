@@ -1,0 +1,68 @@
+package c.a.r0.j3.i0;
+
+import androidx.core.app.NotificationCompat;
+import com.baidu.tbadk.core.data.AbstractData;
+import com.baidu.tbadk.data.MetaData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
+public class q {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f20878a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public MetaData f20879b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<AbstractData> f20880c;
+
+    public q() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f20880c = new ArrayList();
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            try {
+                this.f20878a = jSONObject.optString("id");
+                MetaData metaData = new MetaData();
+                this.f20879b = metaData;
+                metaData.parserJson(jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR));
+                JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
+                this.f20880c = new ArrayList();
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    for (int i2 = 0; i2 < length; i2++) {
+                        AbstractData abstractData = new AbstractData();
+                        abstractData.parserJson(optJSONArray.getJSONObject(i2));
+                        this.f20880c.add(abstractData);
+                    }
+                }
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+}

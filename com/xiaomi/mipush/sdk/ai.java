@@ -11,7 +11,7 @@ public /* synthetic */ class ai {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f77096a;
+    public static final /* synthetic */ int[] f77276a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,45 +28,45 @@ public /* synthetic */ class ai {
             }
         }
         int[] iArr = new int[hf.values().length];
-        f77096a = iArr;
+        f77276a = iArr;
         try {
-            iArr[hf.f77582a.ordinal()] = 1;
+            iArr[hf.f77762a.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f77096a[hf.f77583b.ordinal()] = 2;
+            f77276a[hf.f77763b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f77096a[hf.f77584c.ordinal()] = 3;
+            f77276a[hf.f77764c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f77096a[hf.f77585d.ordinal()] = 4;
+            f77276a[hf.f77765d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f77096a[hf.f77586e.ordinal()] = 5;
+            f77276a[hf.f77766e.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f77096a[hf.f77587f.ordinal()] = 6;
+            f77276a[hf.f77767f.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
         try {
-            f77096a[hf.f77588g.ordinal()] = 7;
+            f77276a[hf.f77768g.ordinal()] = 7;
         } catch (NoSuchFieldError unused7) {
         }
         try {
-            f77096a[hf.f77589h.ordinal()] = 8;
+            f77276a[hf.f77769h.ordinal()] = 8;
         } catch (NoSuchFieldError unused8) {
         }
         try {
-            f77096a[hf.f77590i.ordinal()] = 9;
+            f77276a[hf.f77770i.ordinal()] = 9;
         } catch (NoSuchFieldError unused9) {
         }
         try {
-            f77096a[hf.f77591j.ordinal()] = 10;
+            f77276a[hf.f77771j.ordinal()] = 10;
         } catch (NoSuchFieldError unused10) {
         }
     }

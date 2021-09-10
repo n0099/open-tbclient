@@ -11,13 +11,13 @@ public class b extends a.AbstractRunnableC1671a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f42245a;
+    public final /* synthetic */ e f42356a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f42246b;
+    public final /* synthetic */ String f42357b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ a f42247c;
+    public final /* synthetic */ a f42358c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, e eVar, String str) {
@@ -37,9 +37,9 @@ public class b extends a.AbstractRunnableC1671a {
                 return;
             }
         }
-        this.f42247c = aVar;
-        this.f42245a = eVar;
-        this.f42246b = str;
+        this.f42358c = aVar;
+        this.f42356a = eVar;
+        this.f42357b = str;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.a.AbstractRunnableC1671a
@@ -48,12 +48,12 @@ public class b extends a.AbstractRunnableC1671a {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c cVar = new c("GET", this.f42245a);
-            i2 = this.f42247c.f42242a;
+            c cVar = new c("GET", this.f42356a);
+            i2 = this.f42358c.f42353a;
             cVar.b(i2);
-            i3 = this.f42247c.f42243b;
+            i3 = this.f42358c.f42354b;
             cVar.a(i3);
-            cVar.a(this.f42246b);
+            cVar.a(this.f42357b);
         }
     }
 }

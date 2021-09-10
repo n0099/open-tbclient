@@ -18,35 +18,35 @@ public final class m {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f31494a = null;
+    public static Context f31603a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f31495b = 0;
+    public static long f31604b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f31496c = "default";
+    public static String f31605c = "default";
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f31497d;
+    public static boolean f31606d;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: e  reason: collision with root package name */
-    public static c.b.c.b.h.b f31498e;
+    public static c.b.c.b.h.b f31607e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f31499f;
+    public static c f31608f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static d f31500g;
+    public static d f31609g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile ConcurrentHashMap<Integer, String> f31501h;
+    public static volatile ConcurrentHashMap<Integer, String> f31610h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static c.b.c.b.h.k f31502i;
+    public static c.b.c.b.h.k f31611i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static volatile int f31503j;
+    public static volatile int f31612j;
     public static volatile String k;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,9 +63,9 @@ public final class m {
                 return;
             }
         }
-        f31499f = new c();
-        f31500g = new d();
-        f31502i = null;
+        f31608f = new c();
+        f31609g = new d();
+        f31611i = null;
     }
 
     public m() {
@@ -85,34 +85,34 @@ public final class m {
     public static c.b.c.b.h.b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f31498e : (c.b.c.b.h.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f31607e : (c.b.c.b.h.b) invokeV.objValue;
     }
 
     public static void b(Context context, g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, gVar) == null) {
-            f31495b = System.currentTimeMillis();
-            f31494a = context;
-            f31498e = new c.b.c.b.h.b(context, gVar);
+            f31604b = System.currentTimeMillis();
+            f31603a = context;
+            f31607e = new c.b.c.b.h.b(context, gVar);
         }
     }
 
     public static d c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f31500g : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f31609g : (d) invokeV.objValue;
     }
 
     public static c.b.c.b.h.k d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (f31502i == null) {
+            if (f31611i == null) {
                 synchronized (m.class) {
-                    f31502i = new c.b.c.b.h.k(f31494a);
+                    f31611i = new c.b.c.b.h.k(f31603a);
                 }
             }
-            return f31502i;
+            return f31611i;
         }
         return (c.b.c.b.h.k) invokeV.objValue;
     }
@@ -120,43 +120,43 @@ public final class m {
     public static Context e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f31494a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f31603a : (Context) invokeV.objValue;
     }
 
     public static c f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f31499f : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f31608f : (c) invokeV.objValue;
     }
 
     public static long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f31495b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f31604b : invokeV.longValue;
     }
 
     public static String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f31496c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f31605c : (String) invokeV.objValue;
     }
 
     public static boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f31497d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f31606d : invokeV.booleanValue;
     }
 
     public static ConcurrentHashMap<Integer, String> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f31501h : (ConcurrentHashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f31610h : (ConcurrentHashMap) invokeV.objValue;
     }
 
     public static int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f31503j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f31612j : invokeV.intValue;
     }
 
     public static String l() {

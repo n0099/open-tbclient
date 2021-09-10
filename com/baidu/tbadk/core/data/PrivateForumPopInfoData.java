@@ -16,16 +16,16 @@ public class PrivateForumPopInfoData extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f47311e;
+    public String f47427e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47312f;
+    public String f47428f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47313g;
+    public String f47429g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Integer f47314h;
+    public Integer f47430h;
 
     public PrivateForumPopInfoData() {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class PrivateForumPopInfoData extends OrmObject {
                 return;
             }
         }
-        this.f47311e = null;
-        this.f47312f = null;
-        this.f47313g = null;
-        this.f47314h = null;
+        this.f47427e = null;
+        this.f47428f = null;
+        this.f47429g = null;
+        this.f47430h = null;
     }
 
     public void A(PrivatePopInfo privatePopInfo) {
@@ -52,10 +52,10 @@ public class PrivateForumPopInfoData extends OrmObject {
             return;
         }
         try {
-            this.f47311e = privatePopInfo.pop_type;
-            this.f47312f = privatePopInfo.pop_content;
-            this.f47313g = privatePopInfo.pop_url;
-            this.f47314h = privatePopInfo.pop_forum_id;
+            this.f47427e = privatePopInfo.pop_type;
+            this.f47428f = privatePopInfo.pop_content;
+            this.f47429g = privatePopInfo.pop_url;
+            this.f47430h = privatePopInfo.pop_forum_id;
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }
@@ -64,52 +64,52 @@ public class PrivateForumPopInfoData extends OrmObject {
     public void B(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f47312f = str;
+            this.f47428f = str;
         }
     }
 
     public void C(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
-            this.f47314h = num;
+            this.f47430h = num;
         }
     }
 
     public void D(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f47311e = str;
+            this.f47427e = str;
         }
     }
 
     public void E(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f47313g = str;
+            this.f47429g = str;
         }
     }
 
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f47312f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f47428f : (String) invokeV.objValue;
     }
 
     public Integer x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f47314h : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f47430h : (Integer) invokeV.objValue;
     }
 
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f47311e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f47427e : (String) invokeV.objValue;
     }
 
     public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f47313g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f47429g : (String) invokeV.objValue;
     }
 }

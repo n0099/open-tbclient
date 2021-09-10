@@ -12,13 +12,13 @@ public class K {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List f76627a;
+    public List f76807a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f76628b;
+    public String f76808b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f76629c;
+    public String f76809c;
 
     public K() {
         Interceptable interceptable = $ic;
@@ -37,6 +37,6 @@ public class K {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76628b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76808b : (String) invokeV.objValue;
     }
 }

@@ -27,22 +27,22 @@ public class MediaController extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageButton f47157e;
+    public ImageButton f47272e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47158f;
+    public View f47273f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f47159g;
+    public View f47274g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f47160h;
+    public TextView f47275h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SeekBar f47161i;
+    public SeekBar f47276i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f47162j;
+    public TextView f47277j;
     public long k;
     public Timer l;
     public Handler m;
@@ -50,7 +50,7 @@ public class MediaController extends RelativeLayout {
     public SwanVideoView o;
     public boolean p;
     public boolean q;
-    public c.a.o0.v.h.a r;
+    public c.a.p0.v.h.a r;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -58,7 +58,7 @@ public class MediaController extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MediaController f47163e;
+        public final /* synthetic */ MediaController f47278e;
 
         public a(MediaController mediaController) {
             Interceptable interceptable = $ic;
@@ -75,22 +75,22 @@ public class MediaController extends RelativeLayout {
                     return;
                 }
             }
-            this.f47163e = mediaController;
+            this.f47278e = mediaController;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47163e.o == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47278e.o == null) {
                 return;
             }
-            if (this.f47163e.o.isPlaying()) {
-                this.f47163e.f47157e.setBackgroundResource(c.a.o0.v.c.btn_play);
-                this.f47163e.o.pause();
+            if (this.f47278e.o.isPlaying()) {
+                this.f47278e.f47272e.setBackgroundResource(c.a.p0.v.c.btn_play);
+                this.f47278e.o.pause();
                 return;
             }
-            this.f47163e.f47157e.setBackgroundResource(c.a.o0.v.c.btn_pause);
-            this.f47163e.o.start();
+            this.f47278e.f47272e.setBackgroundResource(c.a.p0.v.c.btn_pause);
+            this.f47278e.o.start();
         }
     }
 
@@ -100,7 +100,7 @@ public class MediaController extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MediaController f47164e;
+        public final /* synthetic */ MediaController f47279e;
 
         public b(MediaController mediaController) {
             Interceptable interceptable = $ic;
@@ -117,14 +117,14 @@ public class MediaController extends RelativeLayout {
                     return;
                 }
             }
-            this.f47164e = mediaController;
+            this.f47279e = mediaController;
         }
 
         @Override // android.widget.SeekBar.OnSeekBarChangeListener
         public void onProgressChanged(SeekBar seekBar, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                this.f47164e.k(i2);
+                this.f47279e.k(i2);
             }
         }
 
@@ -132,7 +132,7 @@ public class MediaController extends RelativeLayout {
         public void onStartTrackingTouch(SeekBar seekBar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
-                this.f47164e.p = true;
+                this.f47279e.p = true;
             }
         }
 
@@ -140,13 +140,13 @@ public class MediaController extends RelativeLayout {
         public void onStopTrackingTouch(SeekBar seekBar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) {
-                if (this.f47164e.o.getDuration() > 0) {
-                    this.f47164e.k = seekBar.getProgress();
-                    if (this.f47164e.o != null) {
-                        this.f47164e.o.seekTo(seekBar.getProgress());
+                if (this.f47279e.o.getDuration() > 0) {
+                    this.f47279e.k = seekBar.getProgress();
+                    if (this.f47279e.o != null) {
+                        this.f47279e.o.seekTo(seekBar.getProgress());
                     }
                 }
-                this.f47164e.p = false;
+                this.f47279e.p = false;
             }
         }
     }
@@ -157,7 +157,7 @@ public class MediaController extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MediaController f47165e;
+        public final /* synthetic */ MediaController f47280e;
 
         public c(MediaController mediaController) {
             Interceptable interceptable = $ic;
@@ -174,16 +174,16 @@ public class MediaController extends RelativeLayout {
                     return;
                 }
             }
-            this.f47165e = mediaController;
+            this.f47280e = mediaController;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47165e.o == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47280e.o == null) {
                 return;
             }
-            this.f47165e.o.setMuted(!this.f47165e.o.isMute());
+            this.f47280e.o.setMuted(!this.f47280e.o.isMute());
         }
     }
 
@@ -193,10 +193,10 @@ public class MediaController extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f47166e;
+        public boolean f47281e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MediaController f47167f;
+        public final /* synthetic */ MediaController f47282f;
 
         public d(MediaController mediaController) {
             Interceptable interceptable = $ic;
@@ -213,16 +213,16 @@ public class MediaController extends RelativeLayout {
                     return;
                 }
             }
-            this.f47167f = mediaController;
+            this.f47282f = mediaController;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47166e = !this.f47166e;
-                if (this.f47167f.r != null) {
-                    this.f47167f.r.b(this.f47166e);
+                this.f47281e = !this.f47281e;
+                if (this.f47282f.r != null) {
+                    this.f47282f.r.b(this.f47281e);
                 }
             }
         }
@@ -234,7 +234,7 @@ public class MediaController extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MediaController f47168e;
+        public final /* synthetic */ MediaController f47283e;
 
         /* loaded from: classes6.dex */
         public class a implements Runnable {
@@ -242,7 +242,7 @@ public class MediaController extends RelativeLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f47169e;
+            public final /* synthetic */ e f47284e;
 
             public a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -259,17 +259,17 @@ public class MediaController extends RelativeLayout {
                         return;
                     }
                 }
-                this.f47169e = eVar;
+                this.f47284e = eVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f47169e.f47168e.o != null && this.f47169e.f47168e.o.getVideoPlayerCallback() != null) {
-                        this.f47169e.f47168e.o.getVideoPlayerCallback().a(this.f47169e.f47168e.o);
+                    if (this.f47284e.f47283e.o != null && this.f47284e.f47283e.o.getVideoPlayerCallback() != null) {
+                        this.f47284e.f47283e.o.getVideoPlayerCallback().a(this.f47284e.f47283e.o);
                     }
-                    this.f47169e.f47168e.onPositionUpdate();
+                    this.f47284e.f47283e.onPositionUpdate();
                 }
             }
         }
@@ -289,14 +289,14 @@ public class MediaController extends RelativeLayout {
                     return;
                 }
             }
-            this.f47168e = mediaController;
+            this.f47283e = mediaController;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47168e.getMainThreadHandler().post(new a(this));
+                this.f47283e.getMainThreadHandler().post(new a(this));
             }
         }
     }
@@ -307,7 +307,7 @@ public class MediaController extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MediaController f47170e;
+        public final /* synthetic */ MediaController f47285e;
 
         /* loaded from: classes6.dex */
         public class a implements Runnable {
@@ -315,7 +315,7 @@ public class MediaController extends RelativeLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ f f47171e;
+            public final /* synthetic */ f f47286e;
 
             public a(f fVar) {
                 Interceptable interceptable = $ic;
@@ -332,14 +332,14 @@ public class MediaController extends RelativeLayout {
                         return;
                     }
                 }
-                this.f47171e = fVar;
+                this.f47286e = fVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f47171e.f47170e.hide();
+                    this.f47286e.f47285e.hide();
                 }
             }
         }
@@ -359,14 +359,14 @@ public class MediaController extends RelativeLayout {
                     return;
                 }
             }
-            this.f47170e = mediaController;
+            this.f47285e = mediaController;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47170e.getMainThreadHandler().post(new a(this));
+                this.f47285e.getMainThreadHandler().post(new a(this));
             }
         }
     }
@@ -414,7 +414,7 @@ public class MediaController extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeI(65544, this, i2) == null) || this.q) {
             return;
         }
-        SeekBar seekBar = this.f47161i;
+        SeekBar seekBar = this.f47276i;
         if (seekBar != null) {
             seekBar.setMax(i2);
         }
@@ -434,23 +434,23 @@ public class MediaController extends RelativeLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(c.a.o0.v.e.media_controller, this);
-            ImageButton imageButton = (ImageButton) inflate.findViewById(c.a.o0.v.d.btn_play);
-            this.f47157e = imageButton;
+            View inflate = LayoutInflater.from(getContext()).inflate(c.a.p0.v.e.media_controller, this);
+            ImageButton imageButton = (ImageButton) inflate.findViewById(c.a.p0.v.d.btn_play);
+            this.f47272e = imageButton;
             imageButton.setOnClickListener(new a(this));
-            this.f47160h = (TextView) inflate.findViewById(c.a.o0.v.d.tv_position);
-            this.f47161i = (SeekBar) inflate.findViewById(c.a.o0.v.d.seekbar);
-            this.f47162j = (TextView) inflate.findViewById(c.a.o0.v.d.tv_duration);
-            this.f47161i.setOnSeekBarChangeListener(new b(this));
-            this.f47159g = inflate.findViewById(c.a.o0.v.d.btn_mute);
+            this.f47275h = (TextView) inflate.findViewById(c.a.p0.v.d.tv_position);
+            this.f47276i = (SeekBar) inflate.findViewById(c.a.p0.v.d.seekbar);
+            this.f47277j = (TextView) inflate.findViewById(c.a.p0.v.d.tv_duration);
+            this.f47276i.setOnSeekBarChangeListener(new b(this));
+            this.f47274g = inflate.findViewById(c.a.p0.v.d.btn_mute);
             SwanVideoView swanVideoView = this.o;
-            this.f47159g.setBackgroundResource(swanVideoView != null && swanVideoView.isMute() ? c.a.o0.v.c.mute_on : c.a.o0.v.c.mute_off);
-            this.f47159g.setOnClickListener(new c(this));
-            View findViewById = inflate.findViewById(c.a.o0.v.d.btn_toggle_screen);
-            this.f47158f = findViewById;
+            this.f47274g.setBackgroundResource(swanVideoView != null && swanVideoView.isMute() ? c.a.p0.v.c.mute_on : c.a.p0.v.c.mute_off);
+            this.f47274g.setOnClickListener(new c(this));
+            View findViewById = inflate.findViewById(c.a.p0.v.d.btn_toggle_screen);
+            this.f47273f = findViewById;
             findViewById.setOnClickListener(new d(this));
-            this.f47161i.setEnabled(false);
-            this.f47157e.setEnabled(false);
+            this.f47276i.setEnabled(false);
+            this.f47272e.setEnabled(false);
         }
     }
 
@@ -524,7 +524,7 @@ public class MediaController extends RelativeLayout {
     public final void j(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (textView = this.f47162j) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (textView = this.f47277j) == null) {
             return;
         }
         textView.setText(formatTimeText(i2));
@@ -533,7 +533,7 @@ public class MediaController extends RelativeLayout {
     public final void k(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (textView = this.f47160h) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (textView = this.f47275h) == null) {
             return;
         }
         textView.setText(formatTimeText(i2));
@@ -559,38 +559,38 @@ public class MediaController extends RelativeLayout {
     public void onTotalCacheUpdate(int i2) {
         SeekBar seekBar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (seekBar = this.f47161i) == null || i2 == seekBar.getSecondaryProgress()) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (seekBar = this.f47276i) == null || i2 == seekBar.getSecondaryProgress()) {
             return;
         }
-        this.f47161i.setSecondaryProgress(i2);
+        this.f47276i.setSecondaryProgress(i2);
     }
 
     public void onVideoOrientationChange(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f47158f.setBackgroundResource(z ? c.a.o0.v.c.btn_halfscreen : c.a.o0.v.c.btn_fullscreen);
+            this.f47273f.setBackgroundResource(z ? c.a.p0.v.c.btn_halfscreen : c.a.p0.v.c.btn_fullscreen);
         }
     }
 
     public void setMute(boolean z) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (view = this.f47159g) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (view = this.f47274g) == null) {
             return;
         }
-        view.setBackgroundResource(z ? c.a.o0.v.c.mute_on : c.a.o0.v.c.mute_off);
+        view.setBackgroundResource(z ? c.a.p0.v.c.mute_on : c.a.p0.v.c.mute_off);
     }
 
     public void setProgress(int i2) {
         SeekBar seekBar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || (seekBar = this.f47161i) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || (seekBar = this.f47276i) == null) {
             return;
         }
         seekBar.setProgress(i2);
     }
 
-    public void setToggleScreenListener(c.a.o0.v.h.a aVar) {
+    public void setToggleScreenListener(c.a.p0.v.h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, aVar) == null) {
             this.r = aVar;
@@ -606,45 +606,45 @@ public class MediaController extends RelativeLayout {
                 case -1:
                 case 0:
                     i();
-                    this.f47157e.setEnabled(true);
-                    this.f47157e.setBackgroundResource(c.a.o0.v.c.btn_play);
-                    this.f47161i.setEnabled(false);
+                    this.f47272e.setEnabled(true);
+                    this.f47272e.setBackgroundResource(c.a.p0.v.c.btn_play);
+                    this.f47276i.setEnabled(false);
                     SwanVideoView swanVideoView = this.o;
                     k(swanVideoView == null ? 0 : swanVideoView.getCurrentPosition());
                     SwanVideoView swanVideoView2 = this.o;
                     j(swanVideoView2 != null ? swanVideoView2.getDuration() : 0);
                     return;
                 case 1:
-                    this.f47157e.setEnabled(false);
-                    this.f47161i.setEnabled(false);
+                    this.f47272e.setEnabled(false);
+                    this.f47276i.setEnabled(false);
                     return;
                 case 2:
-                    this.f47157e.setEnabled(true);
-                    this.f47157e.setBackgroundResource(c.a.o0.v.c.btn_play);
-                    this.f47161i.setEnabled(true);
+                    this.f47272e.setEnabled(true);
+                    this.f47272e.setBackgroundResource(c.a.p0.v.c.btn_play);
+                    this.f47276i.setEnabled(true);
                     SwanVideoView swanVideoView3 = this.o;
                     j(swanVideoView3 == null ? 0 : swanVideoView3.getDuration());
-                    SeekBar seekBar = this.f47161i;
+                    SeekBar seekBar = this.f47276i;
                     SwanVideoView swanVideoView4 = this.o;
                     seekBar.setMax(swanVideoView4 != null ? swanVideoView4.getDuration() : 0);
                     return;
                 case 3:
                     h();
-                    this.f47161i.setEnabled(true);
-                    this.f47157e.setEnabled(true);
-                    this.f47157e.setBackgroundResource(c.a.o0.v.c.btn_pause);
+                    this.f47276i.setEnabled(true);
+                    this.f47272e.setEnabled(true);
+                    this.f47272e.setBackgroundResource(c.a.p0.v.c.btn_pause);
                     return;
                 case 4:
-                    this.f47157e.setEnabled(true);
-                    this.f47157e.setBackgroundResource(c.a.o0.v.c.btn_play);
+                    this.f47272e.setEnabled(true);
+                    this.f47272e.setBackgroundResource(c.a.p0.v.c.btn_play);
                     return;
                 case 5:
                     i();
-                    SeekBar seekBar2 = this.f47161i;
+                    SeekBar seekBar2 = this.f47276i;
                     seekBar2.setProgress(seekBar2.getMax());
-                    this.f47161i.setEnabled(false);
-                    this.f47157e.setEnabled(true);
-                    this.f47157e.setBackgroundResource(c.a.o0.v.c.btn_play);
+                    this.f47276i.setEnabled(false);
+                    this.f47272e.setEnabled(true);
+                    this.f47272e.setBackgroundResource(c.a.p0.v.c.btn_play);
                     return;
                 default:
                     return;

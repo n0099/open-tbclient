@@ -17,7 +17,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentLinkedQueue<com.bytedance.sdk.component.d.a.a> f64873a;
+    public static final ConcurrentLinkedQueue<com.bytedance.sdk.component.d.a.a> f65053a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class d {
                 return;
             }
         }
-        f64873a = new ConcurrentLinkedQueue<>();
+        f65053a = new ConcurrentLinkedQueue<>();
     }
 
     public static void a(a aVar, long j2, long j3) {
@@ -41,7 +41,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{aVar, Long.valueOf(j2), Long.valueOf(j3)}) == null) || aVar == null) {
             return;
         }
-        f64873a.offer(new com.bytedance.sdk.component.d.a.a(aVar.a(), aVar.getCorePoolSize(), aVar.getMaximumPoolSize(), j2, j3));
+        f65053a.offer(new com.bytedance.sdk.component.d.a.a(aVar.a(), aVar.getCorePoolSize(), aVar.getMaximumPoolSize(), j2, j3));
         a(false);
     }
 
@@ -50,13 +50,13 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
             c g2 = e.g();
-            if ((z || f64873a.size() >= 60) && g2 != null) {
-                synchronized (f64873a) {
-                    if (f64873a.isEmpty()) {
+            if ((z || f65053a.size() >= 60) && g2 != null) {
+                synchronized (f65053a) {
+                    if (f65053a.isEmpty()) {
                         return;
                     }
-                    com.bytedance.sdk.component.d.a.a[] aVarArr = (com.bytedance.sdk.component.d.a.a[]) f64873a.toArray(new com.bytedance.sdk.component.d.a.a[f64873a.size()]);
-                    f64873a.clear();
+                    com.bytedance.sdk.component.d.a.a[] aVarArr = (com.bytedance.sdk.component.d.a.a[]) f65053a.toArray(new com.bytedance.sdk.component.d.a.a[f65053a.size()]);
+                    f65053a.clear();
                     int i2 = 0;
                     if (aVarArr.length != 0) {
                         HashMap hashMap = new HashMap();

@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f29557b = 5;
+    public static int f15387b = 5;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f29558c = 40;
+    public static int f15388c = 40;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.helios.common.cc.a f29559a;
+    public com.baidu.helios.common.cc.a f15389a;
 
     static {
         InterceptResult invokeClinit;
@@ -50,15 +50,15 @@ public class c {
                 return;
             }
         }
-        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(f29558c);
-        this.f29559a = aVar;
-        aVar.a(0, f29558c, true);
+        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(f15388c);
+        this.f15389a = aVar;
+        aVar.a(0, f15388c, true);
     }
 
     public void a(com.baidu.helios.common.cc.a aVar, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048576, this, aVar, i2, i3, i4) == null) {
-            com.baidu.helios.common.cc.a d2 = this.f29559a.d(i2, i2 + i3);
+            com.baidu.helios.common.cc.a d2 = this.f15389a.d(i2, i2 + i3);
             if (i4 != 0) {
                 if (i4 != 1) {
                     if (i4 == 2) {
@@ -72,7 +72,7 @@ public class c {
                 d2.b(aVar);
             }
             for (int i5 = 0; i5 < i3; i5++) {
-                this.f29559a.a(i2 + i5, d2.d(i5));
+                this.f15389a.a(i2 + i5, d2.d(i5));
             }
         }
     }
@@ -80,6 +80,6 @@ public class c {
     public byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29559a.a() : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15389a.a() : (byte[]) invokeV.objValue;
     }
 }

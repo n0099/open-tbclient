@@ -13,7 +13,7 @@ public final class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ b f76071g;
+    public final /* synthetic */ b f76251g;
 
     public c(b bVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class c implements Runnable {
                 return;
             }
         }
-        this.f76071g = bVar;
+        this.f76251g = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -39,7 +39,7 @@ public final class c implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ArrayList<OAuthListener> arrayList = new ArrayList();
-            list = this.f76071g.f76070f.f76067c;
+            list = this.f76251g.f76250f.f76247c;
             arrayList.addAll(list);
             for (OAuthListener oAuthListener : arrayList) {
                 oAuthListener.onQrcodeScanned();

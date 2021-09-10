@@ -13,20 +13,20 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static c f68117e;
+    public static c f68297e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f68118a;
+    public Context f68298a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f68119b;
+    public Object f68299b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f68120c;
+    public Method f68300c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f68121d;
+    public Method f68301d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -41,18 +41,18 @@ public class c {
                 return;
             }
         }
-        this.f68118a = null;
-        this.f68119b = null;
-        this.f68120c = null;
-        this.f68121d = null;
+        this.f68298a = null;
+        this.f68299b = null;
+        this.f68300c = null;
+        this.f68301d = null;
         Context a2 = o.a();
-        this.f68118a = a2;
+        this.f68298a = a2;
         if (a2 != null) {
             Object systemService = a2.getSystemService("storage");
-            this.f68119b = systemService;
+            this.f68299b = systemService;
             try {
-                this.f68120c = systemService.getClass().getMethod("getVolumeList", new Class[0]);
-                this.f68121d = this.f68119b.getClass().getMethod("getVolumeState", String.class);
+                this.f68300c = systemService.getClass().getMethod("getVolumeList", new Class[0]);
+                this.f68301d = this.f68299b.getClass().getMethod("getVolumeState", String.class);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -63,14 +63,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f68117e == null) {
+            if (f68297e == null) {
                 synchronized (c.class) {
-                    if (f68117e == null) {
-                        f68117e = new c();
+                    if (f68297e == null) {
+                        f68297e = new c();
                     }
                 }
             }
-            return f68117e;
+            return f68297e;
         }
         return (c) invokeV.objValue;
     }
@@ -80,8 +80,8 @@ public class c {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Object obj = this.f68119b;
-            if (obj != null && (method = this.f68120c) != null && this.f68121d != null) {
+            Object obj = this.f68299b;
+            if (obj != null && (method = this.f68300c) != null && this.f68301d != null) {
                 try {
                     Object[] objArr = (Object[]) method.invoke(obj, new Object[0]);
                     if (objArr != null && objArr.length != 0) {
@@ -89,7 +89,7 @@ public class c {
                         Method method3 = objArr[0].getClass().getMethod("isEmulated", new Class[0]);
                         if (method2 != null && method3 != null) {
                             for (Object obj2 : objArr) {
-                                if (((Boolean) method3.invoke(obj2, new Object[0])).booleanValue() && this.f68121d.invoke(this.f68119b, (String) method2.invoke(obj2, new Object[0])).equals("mounted")) {
+                                if (((Boolean) method3.invoke(obj2, new Object[0])).booleanValue() && this.f68301d.invoke(this.f68299b, (String) method2.invoke(obj2, new Object[0])).equals("mounted")) {
                                     return true;
                                 }
                             }

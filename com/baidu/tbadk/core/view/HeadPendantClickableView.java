@@ -4,8 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.p0.b.d;
-import c.a.p0.s.q.c2;
+import c.a.q0.b.d;
+import c.a.q0.s.q.d2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -18,6 +18,7 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.YyExtData;
@@ -35,7 +36,7 @@ public class HeadPendantClickableView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener mOnClickListener;
-    public c2 r;
+    public d2 r;
     public Context s;
     public View.OnClickListener t;
 
@@ -45,7 +46,7 @@ public class HeadPendantClickableView extends HeadPendantView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HeadPendantClickableView f47521e;
+        public final /* synthetic */ HeadPendantClickableView f47641e;
 
         public a(HeadPendantClickableView headPendantClickableView) {
             Interceptable interceptable = $ic;
@@ -62,7 +63,7 @@ public class HeadPendantClickableView extends HeadPendantView {
                     return;
                 }
             }
-            this.f47521e = headPendantClickableView;
+            this.f47641e = headPendantClickableView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -73,27 +74,27 @@ public class HeadPendantClickableView extends HeadPendantView {
             String str4;
             String str5;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47521e.r == null || this.f47521e.r.J() == null || StringUtils.isNull(this.f47521e.r.J().getName_show()) || StringUtils.isNull(this.f47521e.r.J().getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47641e.r == null || this.f47641e.r.J() == null || StringUtils.isNull(this.f47641e.r.J().getName_show()) || StringUtils.isNull(this.f47641e.r.J().getUserId())) {
                 return;
             }
-            if (this.f47521e.r.X1) {
-                if (this.f47521e.r.m1() == 69) {
+            if (this.f47641e.r.Z1) {
+                if (this.f47641e.r.o1() == 69) {
                     str5 = YYLiveUtil.SOURCE_HOME_RECOMMEND_LIVE_HEAD;
                 } else {
-                    str5 = this.f47521e.r.m1() == 40 ? YYLiveUtil.SOURCE_HOME_RECOMMEND_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_RECOMMEND_TUWEN_HEAD;
+                    str5 = this.f47641e.r.o1() == 40 ? YYLiveUtil.SOURCE_HOME_RECOMMEND_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_RECOMMEND_TUWEN_HEAD;
                 }
                 str = str5;
                 str2 = AddFriendActivityConfig.TYPE_HOME_HEAD;
-            } else if (this.f47521e.r.U1()) {
-                if (this.f47521e.r.m1() == 69) {
+            } else if (this.f47641e.r.X1()) {
+                if (this.f47641e.r.o1() == 69) {
                     str4 = YYLiveUtil.SOURCE_HOME_CONCERN_LIVE_HEAD;
                 } else {
-                    str4 = this.f47521e.r.m1() == 40 ? YYLiveUtil.SOURCE_HOME_CONCERN_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_CONCERN_TUWEN_HEAD;
+                    str4 = this.f47641e.r.o1() == 40 ? YYLiveUtil.SOURCE_HOME_CONCERN_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_CONCERN_TUWEN_HEAD;
                 }
                 str = str4;
                 str2 = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
-            } else if (this.f47521e.r.isFromFrs()) {
-                if (this.f47521e.r.m1() == 69) {
+            } else if (this.f47641e.r.isFromFrs()) {
+                if (this.f47641e.r.o1() == 69) {
                     str3 = YYLiveUtil.SOURCE_FRS_LIVE_CARD_TAB;
                 } else {
                     str3 = YYLiveUtil.SOURCE_FRS_LIVE_HEAD_ + TbSingleton.getInstance().getFrsCurTabType();
@@ -104,18 +105,31 @@ public class HeadPendantClickableView extends HeadPendantView {
                 str = YYLiveUtil.SOURCE_NOT_DEFINE;
                 str2 = "";
             }
-            AlaInfoData alaInfo = this.f47521e.r.J().getAlaInfo();
+            AlaInfoData alaInfo = this.f47641e.r.J().getAlaInfo();
             if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
-                TbPageContext tbPageContext = this.f47521e.getTbPageContext();
+                TbPageContext tbPageContext = this.f47641e.getTbPageContext();
                 YyExtData yyExtData = alaInfo.mYyExtData;
                 YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, str);
-                HeadPendantClickableView headPendantClickableView = this.f47521e;
-                headPendantClickableView.j(headPendantClickableView.r.q1(), String.valueOf(this.f47521e.r.T()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+                HeadPendantClickableView headPendantClickableView = this.f47641e;
+                headPendantClickableView.j(headPendantClickableView.r.s1(), String.valueOf(this.f47641e.r.T()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f47521e.s, this.f47521e.r.J().getUserId(), this.f47521e.r.J().getName_show(), this.f47521e.r.Z(), str2, this.f47521e.r.q1(), this.f47521e.r.D0())));
+                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.f47641e.s, this.f47641e.r.J().getUserId(), this.f47641e.r.J().getName_show(), this.f47641e.r.Z(), str2, this.f47641e.r.s1(), this.f47641e.r.F0());
+                personInfoActivityConfig.setIsVideoThread(this.f47641e.r.q1() != null);
+                if (this.f47641e.r.V0() != 1) {
+                    if (this.f47641e.r.V0() != 2) {
+                        if (this.f47641e.r.V0() == 5) {
+                            personInfoActivityConfig.setVideoPersonFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL);
+                        }
+                    } else {
+                        personInfoActivityConfig.setVideoPersonFrom("frs");
+                    }
+                } else {
+                    personInfoActivityConfig.setVideoPersonFrom("home");
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
             }
-            if (this.f47521e.t != null) {
-                this.f47521e.t.onClick(view);
+            if (this.f47641e.t != null) {
+                this.f47641e.t.onClick(view);
             }
         }
     }
@@ -191,25 +205,25 @@ public class HeadPendantClickableView extends HeadPendantView {
         }
     }
 
-    public void setData(c2 c2Var) {
+    public void setData(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c2Var) == null) {
-            setData(c2Var, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, d2Var) == null) {
+            setData(d2Var, false);
         }
     }
 
-    public void setData(c2 c2Var, boolean z) {
+    public void setData(d2 d2Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, c2Var, z) == null) || c2Var == null || c2Var.J() == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, d2Var, z) == null) || d2Var == null || d2Var.J() == null) {
             return;
         }
-        this.r = c2Var;
-        MetaData J = c2Var.J();
+        this.r = d2Var;
+        MetaData J = d2Var.J();
         setContentDescription(J.getName_show() + this.s.getString(R.string.somebodys_portrait));
         getHeadView().setUserId(J.getUserId());
         getHeadView().setUserName(J.getUserName());
         getHeadView().setUrl(J.getAvater());
-        if (J.isDefaultAvatar && d.w0()) {
+        if (J.isDefaultAvatar && d.a0()) {
             getHeadView().startLoad(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
         } else if (!StringUtils.isNull(J.getAvater()) && J.getAvater().startsWith("http")) {
             getHeadView().startLoad(J.getAvater(), 10, false);
@@ -258,8 +272,8 @@ public class HeadPendantClickableView extends HeadPendantView {
         if (!(interceptable == null || interceptable.invokeLZ(1048582, this, metaData, z) == null) || metaData == null) {
             return;
         }
-        c2 c2Var = new c2();
-        c2Var.r3(metaData);
-        setData(c2Var, z);
+        d2 d2Var = new d2();
+        d2Var.y3(metaData);
+        setData(d2Var, z);
     }
 }

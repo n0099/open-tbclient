@@ -12,16 +12,16 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final double f35321a;
+    public final double f35430a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f35322b;
+    public final int f35431b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f35323c;
+    public double f35432c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35324d;
+    public int f35433d;
 
     public f(double d2) {
         Interceptable interceptable = $ic;
@@ -38,31 +38,31 @@ public class f {
                 return;
             }
         }
-        this.f35323c = -1.0d;
-        this.f35321a = d2;
-        this.f35322b = d2 == 0.0d ? Integer.MAX_VALUE : (int) Math.ceil(1.0d / d2);
+        this.f35432c = -1.0d;
+        this.f35430a = d2;
+        this.f35431b = d2 == 0.0d ? Integer.MAX_VALUE : (int) Math.ceil(1.0d / d2);
     }
 
     public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35323c : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35432c : invokeV.doubleValue;
     }
 
     public void b(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2)}) == null) {
-            double d3 = 1.0d - this.f35321a;
-            int i2 = this.f35324d;
-            if (i2 > this.f35322b) {
-                this.f35323c = Math.exp((d3 * Math.log(this.f35323c)) + (this.f35321a * Math.log(d2)));
+            double d3 = 1.0d - this.f35430a;
+            int i2 = this.f35433d;
+            if (i2 > this.f35431b) {
+                this.f35432c = Math.exp((d3 * Math.log(this.f35432c)) + (this.f35430a * Math.log(d2)));
             } else if (i2 > 0) {
                 double d4 = (d3 * i2) / (i2 + 1.0d);
-                this.f35323c = Math.exp((d4 * Math.log(this.f35323c)) + ((1.0d - d4) * Math.log(d2)));
+                this.f35432c = Math.exp((d4 * Math.log(this.f35432c)) + ((1.0d - d4) * Math.log(d2)));
             } else {
-                this.f35323c = d2;
+                this.f35432c = d2;
             }
-            this.f35324d++;
+            this.f35433d++;
         }
     }
 }

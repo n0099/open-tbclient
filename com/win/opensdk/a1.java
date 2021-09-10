@@ -11,10 +11,10 @@ public class a1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f76767a;
+    public String f76947a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Info f76768b;
+    public Info f76948b;
 
     public a1(Info info) {
         Interceptable interceptable = $ic;
@@ -31,9 +31,9 @@ public class a1 {
                 return;
             }
         }
-        this.f76768b = info;
+        this.f76948b = info;
         if (info != null) {
-            this.f76767a = info.getPid();
+            this.f76947a = info.getPid();
         }
     }
 }

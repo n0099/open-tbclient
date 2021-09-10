@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.b1.l0;
-import c.a.p0.s.q.c2;
+import c.a.q0.d1.m0;
+import c.a.q0.s.q.d2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -85,26 +85,26 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         }
     }
 
-    public void setData(c2 c2Var) {
+    public void setData(d2 d2Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2Var) == null) || c2Var == null || c2Var.j1() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var) == null) || d2Var == null || d2Var.l1() == null) {
             return;
         }
-        AlaUserInfoData alaUserInfoData = c2Var.j1().user_info;
-        if (c2Var.J() != null) {
-            str = c2Var.J().getName_show();
+        AlaUserInfoData alaUserInfoData = d2Var.l1().user_info;
+        if (d2Var.J() != null) {
+            str = d2Var.J().getName_show();
         } else {
             str = alaUserInfoData != null ? alaUserInfoData.user_name : "";
         }
-        if (l0.d(str) > 10) {
-            str = l0.m(str, 10) + "...";
+        if (m0.d(str) > 10) {
+            str = m0.m(str, 10) + "...";
         }
         if (alaUserInfoData != null) {
             this.alaCardUserHeadImg.startLoad(alaUserInfoData.portrait, 28, false);
         }
         this.alaCardUserName.setText(str);
-        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), StringHelper.numFormatOverWan(c2Var.j1().audience_count)));
+        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), StringHelper.numFormatOverWan(d2Var.l1().audience_count)));
     }
 
     public void setUserHeadImgVisible(int i2) {

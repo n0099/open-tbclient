@@ -18,10 +18,10 @@ public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f68675a = "";
+    public static volatile String f68855a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f68676b;
+    public static volatile boolean f68856b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,10 +39,10 @@ public class k {
         }
         String str = "";
         try {
-            if (TextUtils.isEmpty(f68675a)) {
-                f68675a = com.bytedance.sdk.openadsdk.core.c.a(com.bytedance.sdk.openadsdk.core.o.a()).b("oaid", "");
-                if (f68675a != null) {
-                    str = f68675a;
+            if (TextUtils.isEmpty(f68855a)) {
+                f68855a = com.bytedance.sdk.openadsdk.core.c.a(com.bytedance.sdk.openadsdk.core.o.a()).b("oaid", "");
+                if (f68855a != null) {
+                    str = f68855a;
                 }
                 com.bytedance.sdk.openadsdk.o.a.a(7, str);
             }
@@ -52,10 +52,10 @@ public class k {
 
     public static void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, null) == null) || TextUtils.isEmpty(f68675a)) {
+        if (!(interceptable == null || interceptable.invokeV(65543, null) == null) || TextUtils.isEmpty(f68855a)) {
             return;
         }
-        com.bytedance.sdk.openadsdk.core.h.a("sdk_app_log_oaid", f68675a);
+        com.bytedance.sdk.openadsdk.core.h.a("sdk_app_log_oaid", f68855a);
     }
 
     public static void a(Context context) {
@@ -88,9 +88,9 @@ public class k {
                                 if (TextUtils.isEmpty(oaid.id)) {
                                     return;
                                 }
-                                boolean unused = k.f68676b = true;
-                                String unused2 = k.f68675a = oaid.id;
-                                com.bytedance.sdk.openadsdk.o.a.a(7, k.f68675a == null ? "" : k.f68675a);
+                                boolean unused = k.f68856b = true;
+                                String unused2 = k.f68855a = oaid.id;
+                                com.bytedance.sdk.openadsdk.o.a.a(7, k.f68855a == null ? "" : k.f68855a);
                                 k.d();
                             } catch (Throwable unused3) {
                             }
@@ -106,19 +106,19 @@ public class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(f68675a)) {
-                f68675a = com.bytedance.sdk.openadsdk.core.h.a("sdk_app_log_oaid", 86400000L);
-                com.bytedance.sdk.openadsdk.o.a.a(7, f68675a == null ? "" : f68675a);
+            if (TextUtils.isEmpty(f68855a)) {
+                f68855a = com.bytedance.sdk.openadsdk.core.h.a("sdk_app_log_oaid", 86400000L);
+                com.bytedance.sdk.openadsdk.o.a.a(7, f68855a == null ? "" : f68855a);
             }
-            if (TextUtils.isEmpty(f68675a) && !f68676b) {
+            if (TextUtils.isEmpty(f68855a) && !f68856b) {
                 TTCustomController f2 = com.bytedance.sdk.openadsdk.core.h.d().f();
                 if (f2 != null && !TextUtils.isEmpty(f2.getDevOaid())) {
-                    f68675a = f2.getDevOaid();
+                    f68855a = f2.getDevOaid();
                     d();
                 }
-                com.bytedance.sdk.openadsdk.o.a.a(7, f68675a == null ? "" : f68675a);
+                com.bytedance.sdk.openadsdk.o.a.a(7, f68855a == null ? "" : f68855a);
             }
-            return f68675a == null ? "" : f68675a;
+            return f68855a == null ? "" : f68855a;
         }
         return (String) invokeV.objValue;
     }

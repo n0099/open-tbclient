@@ -15,7 +15,7 @@ public class WBAESCipherImplement extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f44337a;
+    public long f44452a;
 
     static {
         InterceptResult invokeClinit;
@@ -73,7 +73,7 @@ public class WBAESCipherImplement extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             long initKeyDataMemory = initKeyDataMemory(bArr, null);
-            this.f44337a = initKeyDataMemory;
+            this.f44452a = initKeyDataMemory;
             return initKeyDataMemory > 0;
         }
         return invokeL.booleanValue;
@@ -84,7 +84,7 @@ public class WBAESCipherImplement extends a {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2, i2)) == null) {
-            long j2 = this.f44337a;
+            long j2 = this.f44452a;
             if (j2 <= 0) {
                 return false;
             }

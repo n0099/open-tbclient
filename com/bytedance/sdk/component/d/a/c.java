@@ -15,31 +15,31 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f64860a;
+    public final String f65040a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64861b;
+    public int f65041b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64862c;
+    public int f65042c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f64863d;
+    public int f65043d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f64864e;
+    public long f65044e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f64865f;
+    public long f65045f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f64866g;
+    public long f65046g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f64867h;
+    public long f65047h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f64868i;
+    public int f65048i;
 
     public c(String str, int i2, int i3, long j2, long j3, long j4, long j5, int i4) {
         Interceptable interceptable = $ic;
@@ -56,21 +56,21 @@ public class c {
                 return;
             }
         }
-        this.f64861b = 0;
-        this.f64862c = 0;
-        this.f64864e = 0L;
-        this.f64865f = 0L;
-        this.f64866g = 0L;
-        this.f64867h = 0L;
-        this.f64868i = 0;
-        this.f64860a = str;
-        this.f64861b = i2;
-        this.f64862c = i3;
-        this.f64864e = j2;
-        this.f64865f = j3;
-        this.f64866g = j4;
-        this.f64867h = j5;
-        this.f64868i = i4;
+        this.f65041b = 0;
+        this.f65042c = 0;
+        this.f65044e = 0L;
+        this.f65045f = 0L;
+        this.f65046g = 0L;
+        this.f65047h = 0L;
+        this.f65048i = 0;
+        this.f65040a = str;
+        this.f65041b = i2;
+        this.f65042c = i3;
+        this.f65044e = j2;
+        this.f65045f = j3;
+        this.f65046g = j4;
+        this.f65047h = j5;
+        this.f65048i = i4;
     }
 
     public JSONObject a() {
@@ -79,18 +79,18 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.f64868i <= 0) {
+                if (this.f65048i <= 0) {
                     return null;
                 }
-                jSONObject.put("poolType", this.f64860a);
-                jSONObject.put("corePoolSize", this.f64861b);
-                jSONObject.put("maximumPoolSize", this.f64862c);
-                jSONObject.put("largestPoolSize", this.f64863d);
-                jSONObject.put("waitLargestTime", this.f64864e);
-                jSONObject.put("waitAvgTime", (((float) this.f64865f) * 1.0f) / this.f64868i);
-                jSONObject.put("taskCostLargestTime", this.f64866g);
-                jSONObject.put("taskCostAvgTime", (((float) this.f64867h) * 1.0f) / this.f64868i);
-                jSONObject.put("logCount", this.f64868i);
+                jSONObject.put("poolType", this.f65040a);
+                jSONObject.put("corePoolSize", this.f65041b);
+                jSONObject.put("maximumPoolSize", this.f65042c);
+                jSONObject.put("largestPoolSize", this.f65043d);
+                jSONObject.put("waitLargestTime", this.f65044e);
+                jSONObject.put("waitAvgTime", (((float) this.f65045f) * 1.0f) / this.f65048i);
+                jSONObject.put("taskCostLargestTime", this.f65046g);
+                jSONObject.put("taskCostAvgTime", (((float) this.f65047h) * 1.0f) / this.f65048i);
+                jSONObject.put("logCount", this.f65048i);
                 return jSONObject;
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -103,66 +103,66 @@ public class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64860a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65040a : (String) invokeV.objValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f64864e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f65044e : invokeV.longValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f64866g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f65046g : invokeV.longValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f64868i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f65048i : invokeV.intValue;
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.f64865f += j2;
+            this.f65045f += j2;
         }
     }
 
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f64866g = j2;
+            this.f65046g = j2;
         }
     }
 
     public void d(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.f64867h += j2;
+            this.f65047h += j2;
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f64863d = i2;
+            this.f65043d = i2;
         }
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f64864e = j2;
+            this.f65044e = j2;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f64868i += i2;
+            this.f65048i += i2;
         }
     }
 }

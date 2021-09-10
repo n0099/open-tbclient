@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.main.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
-import c.a.p0.s.f0.t.b;
+import c.a.q0.s.f0.t.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
@@ -44,13 +44,13 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements b
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                c.a.p0.s.f0.n.b bVar = new c.a.p0.s.f0.n.b();
+                c.a.q0.s.f0.n.b bVar = new c.a.q0.s.f0.n.b();
                 bVar.r(R.color.CAM_X0109);
                 setConfig(bVar);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                c.a.p0.s.f0.n.b bVar2 = new c.a.p0.s.f0.n.b();
+                c.a.q0.s.f0.n.b bVar2 = new c.a.q0.s.f0.n.b();
                 bVar2.q(R.color.CAM_X0302);
                 bVar2.i(R.drawable.icon_pure_add10_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
                 bVar2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));

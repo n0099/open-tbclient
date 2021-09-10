@@ -1,6 +1,6 @@
 package com.baidu.tieba.setting.im.more;
 
-import c.a.q0.a3.b.a.a;
+import c.a.r0.b3.b.a.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

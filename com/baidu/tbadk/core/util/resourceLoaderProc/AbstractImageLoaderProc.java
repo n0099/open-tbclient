@@ -202,7 +202,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? c.a.p0.s.k.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? c.a.q0.s.k.c().g() : invokeV.booleanValue;
     }
 
     public Bitmap resizeBitmapSize(Bitmap bitmap, int i2, int i3) {
@@ -213,7 +213,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                 return null;
             }
             if (bitmap.getWidth() > i2 || bitmap.getHeight() > i3) {
-                c.a.p0.b0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+                c.a.q0.c0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
                 return BitmapHelper.resizeBitmap(bitmap, i2, i3, true);
             }
             return bitmap;
@@ -257,7 +257,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                 long currentTimeMillis = System.currentTimeMillis();
                 aVar.A(i2);
                 aVar.z(i3);
-                c.a.p0.b0.c.k().d(str, aVar);
+                c.a.q0.c0.c.k().d(str, aVar);
                 c.a.e.e.l.a.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
@@ -333,7 +333,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            a m = c.a.p0.b0.c.k().m(str);
+            a m = c.a.q0.c0.c.k().m(str);
             if (z) {
                 c.a.e.e.l.a.i(m != null, System.currentTimeMillis() - currentTimeMillis);
             }
@@ -500,7 +500,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                     ImageLogger.imagePerfNetLog(str, false, str3, Boolean.valueOf(z), webClient2.mStat, "bytes<1", currentTimeMillis2, webClient2.isMobileProxy(), getProcType());
                 }
                 byte[] bArr2 = bArr;
-                c.a.p0.b0.c.k().i(TbConfig.getPbImageSize() + bArr2.length);
+                c.a.q0.c0.c.k().i(TbConfig.getPbImageSize() + bArr2.length);
                 if (getProcType() == 19) {
                     i7 = 1;
                     Object[] objArr3 = new Object[1];

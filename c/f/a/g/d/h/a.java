@@ -16,7 +16,7 @@ public class a implements X509TrustManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final X509Certificate[] f32184a;
+    public static final X509Certificate[] f32293a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class a implements X509TrustManager {
                 return;
             }
         }
-        f32184a = new X509Certificate[0];
+        f32293a = new X509Certificate[0];
     }
 
     public a() {
@@ -67,6 +67,6 @@ public class a implements X509TrustManager {
     public X509Certificate[] getAcceptedIssuers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f32184a : (X509Certificate[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f32293a : (X509Certificate[]) invokeV.objValue;
     }
 }

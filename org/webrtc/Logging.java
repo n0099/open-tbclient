@@ -282,15 +282,6 @@ public class Logging {
         }
     }
 
-    public static void e(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, th) == null) {
-            log(Severity.LS_ERROR, str, str2);
-            log(Severity.LS_ERROR, str, th.toString());
-            log(Severity.LS_ERROR, str, getStackTraceString(th));
-        }
-    }
-
     public static void enableLogThreads() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
@@ -305,15 +296,16 @@ public class Logging {
         }
     }
 
-    public static void enableLogToDebugOutput(Severity severity) {
+    public static synchronized void enableLogToDebugOutput(Severity severity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, severity) == null) {
             synchronized (Logging.class) {
-                if (loggable != null) {
+                if (loggable == null) {
+                    nativeEnableLogToDebugOutput(severity.ordinal());
+                    loggingEnabled = true;
+                } else {
                     throw new IllegalStateException("Logging to native debug output not supported while Loggable is injected. Delete the Loggable before calling this method.");
                 }
-                nativeEnableLogToDebugOutput(severity.ordinal());
-                loggingEnabled = true;
             }
         }
     }
@@ -349,24 +341,36 @@ public class Logging {
     }
 
     public static void log(Severity severity, String str, String str2) {
+        Level level;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65549, null, severity, str, str2) == null) {
-            if (str == null || str2 == null) {
-                throw new IllegalArgumentException("Logging tag or message may not be null.");
-            }
-            if (loggable != null) {
-                if (severity.ordinal() < loggableSeverity.ordinal()) {
+            if (str != null && str2 != null) {
+                if (loggable != null) {
+                    if (severity.ordinal() < loggableSeverity.ordinal()) {
+                        return;
+                    }
+                    loggable.onLogMessage(str2, severity, str);
+                    return;
+                } else if (loggingEnabled) {
+                    nativeLog(severity.ordinal(), str, str2);
+                    return;
+                } else {
+                    int i2 = AnonymousClass1.$SwitchMap$org$webrtc$Logging$Severity[severity.ordinal()];
+                    if (i2 == 1) {
+                        level = Level.SEVERE;
+                    } else if (i2 == 2) {
+                        level = Level.WARNING;
+                    } else if (i2 != 3) {
+                        level = Level.FINE;
+                    } else {
+                        level = Level.INFO;
+                    }
+                    Logger logger = fallbackLogger;
+                    logger.log(level, str + ": " + str2);
                     return;
                 }
-                loggable.onLogMessage(str2, severity, str);
-            } else if (loggingEnabled) {
-                nativeLog(severity.ordinal(), str, str2);
-            } else {
-                int i2 = AnonymousClass1.$SwitchMap$org$webrtc$Logging$Severity[severity.ordinal()];
-                Level level = i2 != 1 ? i2 != 2 ? i2 != 3 ? Level.FINE : Level.INFO : Level.WARNING : Level.SEVERE;
-                Logger logger = fallbackLogger;
-                logger.log(level, str + ": " + str2);
             }
+            throw new IllegalArgumentException("Logging tag or message may not be null.");
         }
     }
 
@@ -389,6 +393,15 @@ public class Logging {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65555, null, str, str2) == null) {
             log(Severity.LS_WARNING, str, str2);
+        }
+    }
+
+    public static void e(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, th) == null) {
+            log(Severity.LS_ERROR, str, str2);
+            log(Severity.LS_ERROR, str, th.toString());
+            log(Severity.LS_ERROR, str, getStackTraceString(th));
         }
     }
 

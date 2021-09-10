@@ -30,7 +30,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f2880a;
+    public static Object f2871a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.e.h.k.a$a  reason: collision with other inner class name */
@@ -108,10 +108,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f2881a;
+        public boolean f2872a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2882b;
+        public String f2873b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -141,7 +141,7 @@ public class a {
                 return;
             }
         }
-        f2880a = new Object();
+        f2871a = new Object();
     }
 
     public static Object b(Object obj, Object obj2) {
@@ -274,7 +274,7 @@ public class a {
             if (classLoader == null || classLoader2 == null) {
                 return null;
             }
-            synchronized (f2880a) {
+            synchronized (f2871a) {
                 boolean z2 = true;
                 try {
                     Class.forName("dalvik.system.BaseDexClassLoader");
@@ -503,8 +503,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(65551, null, z, th)) == null) {
             c cVar = new c();
-            cVar.f2881a = z;
-            cVar.f2882b = th != null ? th.getLocalizedMessage() : null;
+            cVar.f2872a = z;
+            cVar.f2873b = th != null ? th.getLocalizedMessage() : null;
             return cVar;
         }
         return (c) invokeZL.objValue;

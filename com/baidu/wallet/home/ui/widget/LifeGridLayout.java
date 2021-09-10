@@ -21,13 +21,13 @@ public class LifeGridLayout extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GridLayout f61141a;
+    public GridLayout f61321a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NHTitleView f61142b;
+    public NHTitleView f61322b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f61143c;
+    public List<BaseItemView> f61323c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LifeGridLayout(Context context) {
@@ -47,7 +47,7 @@ public class LifeGridLayout extends BaseItemLayout {
                 return;
             }
         }
-        this.f61143c = new ArrayList();
+        this.f61323c = new ArrayList();
     }
 
     private void a(GridLayout gridLayout) {
@@ -61,7 +61,7 @@ public class LifeGridLayout extends BaseItemLayout {
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61143c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61323c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -70,9 +70,9 @@ public class LifeGridLayout extends BaseItemLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_life_layout_finance"), this);
             GridLayout gridLayout = (GridLayout) findViewById(ResUtils.id(getContext(), "grid_layout"));
-            this.f61141a = gridLayout;
+            this.f61321a = gridLayout;
             gridLayout.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_whiteColor"));
-            this.f61142b = (NHTitleView) findViewById(ResUtils.id(getContext(), "tip_view"));
+            this.f61322b = (NHTitleView) findViewById(ResUtils.id(getContext(), "tip_view"));
         }
     }
 
@@ -92,18 +92,18 @@ public class LifeGridLayout extends BaseItemLayout {
     public void refreshData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f61142b.setData(this.mConfigData, getWalletInterface());
+            this.f61322b.setData(this.mConfigData, getWalletInterface());
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
-            this.f61141a.setColumnCount(4);
-            this.f61141a.setHorizontalSpacing(0);
-            this.f61141a.setVerticalSpacing(0);
-            this.f61141a.setPadding(20, 20, 20, 30);
-            a(this.f61141a);
+            this.f61321a.setColumnCount(4);
+            this.f61321a.setHorizontalSpacing(0);
+            this.f61321a.setVerticalSpacing(0);
+            this.f61321a.setPadding(20, 20, 20, 30);
+            a(this.f61321a);
             for (HomeCfgResponse.DataItem dataItem : dataItemArr) {
                 LifeItemViewForType3 lifeItemViewForType3 = new LifeItemViewForType3(getContext());
                 lifeItemViewForType3.setData(dataItem, getWalletInterface());
-                this.f61141a.addView(lifeItemViewForType3);
-                this.f61143c.add(lifeItemViewForType3);
+                this.f61321a.addView(lifeItemViewForType3);
+                this.f61323c.add(lifeItemViewForType3);
             }
         }
     }
@@ -127,6 +127,6 @@ public class LifeGridLayout extends BaseItemLayout {
                 return;
             }
         }
-        this.f61143c = new ArrayList();
+        this.f61323c = new ArrayList();
     }
 }

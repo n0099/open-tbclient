@@ -29,13 +29,13 @@ public class t extends BaseBean<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PwdRequest f62253a;
+    public PwdRequest f62433a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62254b;
+    public String f62434b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f62255c;
+    public boolean f62435c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> t(Context context) {
@@ -55,14 +55,14 @@ public class t extends BaseBean<Object> {
                 return;
             }
         }
-        this.f62253a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f62433a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     private void a(List<RestNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, list) == null) && this.f62255c && !TextUtils.isEmpty(this.f62254b)) {
+        if ((interceptable == null || interceptable.invokeL(65537, this, list) == null) && this.f62435c && !TextUtils.isEmpty(this.f62434b)) {
             try {
-                JSONObject jSONObject = new JSONObject(this.f62254b);
+                JSONObject jSONObject = new JSONObject(this.f62434b);
                 jSONObject.remove("half_screen_pwd_verify");
                 Iterator<String> keys = jSONObject.keys();
                 if (keys != null) {
@@ -94,19 +94,19 @@ public class t extends BaseBean<Object> {
             ArrayList arrayList = new ArrayList();
             String seed = PasswordController.getSeed();
             String encryptProxy = SecurePay.getInstance().encryptProxy(seed);
-            int i2 = this.f62253a.mRequestType;
+            int i2 = this.f62433a.mRequestType;
             if (i2 != 2 && i2 != 1) {
-                String encryptProxy2 = SecurePay.getInstance().encryptProxy(PasswordController.handlePwdSimple(this.f62253a.mConfirmPayPass));
-                String handlePwd = PasswordController.handlePwd(this.f62253a.mConfirmPayPass, seed);
+                String encryptProxy2 = SecurePay.getInstance().encryptProxy(PasswordController.handlePwdSimple(this.f62433a.mConfirmPayPass));
+                String handlePwd = PasswordController.handlePwd(this.f62433a.mConfirmPayPass, seed);
                 String str = SecurePay.getInstance().getpwProxy();
                 arrayList.add(new RestNameValuePair("new_mobile_pwd", encryptProxy2));
                 arrayList.add(new RestNameValuePair("confirm_new_mobile_pwd", handlePwd));
-                arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f62253a.mConfirmPayPass)));
+                arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f62433a.mConfirmPayPass)));
                 arrayList.add(new RestNameValuePair("key_no", str));
-                arrayList.add(new RestNameValuePair("sess_key", this.f62253a.mSessionKey));
+                arrayList.add(new RestNameValuePair("sess_key", this.f62433a.mSessionKey));
             } else {
-                if (!TextUtils.isEmpty(this.f62253a.mPayPass)) {
-                    String handlePwd2 = PasswordController.handlePwd(this.f62253a.mPayPass, seed);
+                if (!TextUtils.isEmpty(this.f62433a.mPayPass)) {
+                    String handlePwd2 = PasswordController.handlePwd(this.f62433a.mPayPass, seed);
                     String str2 = SecurePay.getInstance().getpwProxy();
                     arrayList.add(new RestNameValuePair("mobile_pwd", handlePwd2));
                     arrayList.add(new RestNameValuePair("key", str2));
@@ -114,7 +114,7 @@ public class t extends BaseBean<Object> {
                 a(arrayList);
             }
             arrayList.add(new RestNameValuePair("seed", encryptProxy));
-            PwdRequest pwdRequest = this.f62253a;
+            PwdRequest pwdRequest = this.f62433a;
             if (pwdRequest.mRequestType == 2 && TextUtils.equals(pwdRequest.fromType, BeanConstants.FROM_BIND)) {
                 BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
                 arrayList.add(new RestNameValuePair("scenario", "bindcard"));
@@ -124,7 +124,7 @@ public class t extends BaseBean<Object> {
                 } else {
                     arrayList.add(new RestNameValuePair("request_type", BindFastRequest.getCardRequestType(1)));
                 }
-                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f62253a.serviceType));
+                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f62433a.serviceType));
             }
             return arrayList;
         }
@@ -136,7 +136,7 @@ public class t extends BaseBean<Object> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.f62253a.mRequestType;
+            int i2 = this.f62433a.mRequestType;
             if (i2 == 2) {
                 return 257;
             }
@@ -150,7 +150,7 @@ public class t extends BaseBean<Object> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.f62253a.mRequestType;
+            int i2 = this.f62433a.mRequestType;
             if (i2 == 2) {
                 String str = PayRequestCache.getInstance().isPaying() ? BeanConstants.API_VERIFY_PAY_PWD : BeanConstants.API_VERIFY_MOBILE_PWD_NEW;
                 return DomainConfig.getInstance().getAppPayHost() + str;
@@ -168,14 +168,14 @@ public class t extends BaseBean<Object> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f62254b = str;
+            this.f62434b = str;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f62255c = z;
+            this.f62435c = z;
         }
     }
 }

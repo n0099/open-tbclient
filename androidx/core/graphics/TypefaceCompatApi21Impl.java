@@ -204,7 +204,7 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
                 return null;
             }
             try {
-                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo(fontInfoArr, i2).getUri(), r.f42169a, cancellationSignal);
+                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo(fontInfoArr, i2).getUri(), r.f42280a, cancellationSignal);
                 if (openFileDescriptor == null) {
                     if (openFileDescriptor != null) {
                         openFileDescriptor.close();

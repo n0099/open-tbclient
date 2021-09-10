@@ -24,7 +24,7 @@ public class d implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f67422a;
+    public final WeakReference<Context> f67602a;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class d implements h {
                 return;
             }
         }
-        this.f67422a = new WeakReference<>(context);
+        this.f67602a = new WeakReference<>(context);
     }
 
     @Override // c.p.a.a.a.c.h
@@ -94,13 +94,13 @@ public class d implements h {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ t f67423a;
+                    public final /* synthetic */ t f67603a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String[] f67424b;
+                    public final /* synthetic */ String[] f67604b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f67425c;
+                    public final /* synthetic */ d f67605c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -117,20 +117,20 @@ public class d implements h {
                                 return;
                             }
                         }
-                        this.f67425c = this;
-                        this.f67423a = tVar;
-                        this.f67424b = strArr;
+                        this.f67605c = this;
+                        this.f67603a = tVar;
+                        this.f67604b = strArr;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.q.d.a
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            t tVar2 = this.f67423a;
+                            t tVar2 = this.f67603a;
                             if (tVar2 != null) {
                                 tVar2.a();
                             }
-                            com.bytedance.sdk.openadsdk.j.a.a().a(true, this.f67424b);
+                            com.bytedance.sdk.openadsdk.j.a.a().a(true, this.f67604b);
                         }
                     }
 
@@ -138,7 +138,7 @@ public class d implements h {
                     public void a(String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) {
-                            t tVar2 = this.f67423a;
+                            t tVar2 = this.f67603a;
                             if (tVar2 != null) {
                                 tVar2.a(str2);
                             }

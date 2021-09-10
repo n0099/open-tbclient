@@ -22,22 +22,22 @@ public class g extends DynamicDrawableSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f3073e;
+    public Drawable f3064e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Uri f3074f;
+    public Uri f3065f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3075g;
+    public int f3066g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f3076h;
+    public Context f3067h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f3077i;
+    public a f3068i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Rect f3078j;
+    public Rect f3069j;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -62,22 +62,22 @@ public class g extends DynamicDrawableSpan {
                 return;
             }
         }
-        this.f3078j = new Rect();
-        this.f3075g = i2;
-        this.f3077i = aVar;
+        this.f3069j = new Rect();
+        this.f3066g = i2;
+        this.f3068i = aVar;
     }
 
     public void a(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-            this.f3073e = drawable;
+            this.f3064e = drawable;
         }
     }
 
     public void b(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
-            this.f3078j.set(i2, i3, i4, i5);
+            this.f3069j.set(i2, i3, i4, i5);
         }
     }
 
@@ -103,18 +103,18 @@ public class g extends DynamicDrawableSpan {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Drawable drawable = this.f3073e;
+            Drawable drawable = this.f3064e;
             if (drawable == null) {
-                a aVar = this.f3077i;
+                a aVar = this.f3068i;
                 drawable = aVar != null ? aVar.a(this) : null;
             }
             if (drawable != null) {
                 return drawable;
             }
             try {
-                if (this.f3074f != null) {
-                    InputStream openInputStream = this.f3076h.getContentResolver().openInputStream(this.f3074f);
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(this.f3076h.getResources(), BitmapFactory.decodeStream(openInputStream));
+                if (this.f3065f != null) {
+                    InputStream openInputStream = this.f3067h.getContentResolver().openInputStream(this.f3065f);
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(this.f3067h.getResources(), BitmapFactory.decodeStream(openInputStream));
                     try {
                         bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
                         openInputStream.close();
@@ -123,7 +123,7 @@ public class g extends DynamicDrawableSpan {
                         drawable = bitmapDrawable;
                     }
                 } else {
-                    drawable = this.f3076h.getResources().getDrawable(this.f3075g);
+                    drawable = this.f3067h.getResources().getDrawable(this.f3066g);
                     drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 }
             } catch (Exception unused2) {
@@ -138,15 +138,15 @@ public class g extends DynamicDrawableSpan {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) {
-            if (this.f3073e == null && this.f3077i != null) {
+            if (this.f3064e == null && this.f3068i != null) {
                 if (fontMetricsInt != null) {
-                    int i4 = -this.f3078j.bottom;
+                    int i4 = -this.f3069j.bottom;
                     fontMetricsInt.ascent = i4;
                     fontMetricsInt.descent = 0;
                     fontMetricsInt.top = i4;
                     fontMetricsInt.bottom = 0;
                 }
-                return this.f3078j.right;
+                return this.f3069j.right;
             }
             return super.getSize(paint, charSequence, i2, i3, fontMetricsInt);
         }

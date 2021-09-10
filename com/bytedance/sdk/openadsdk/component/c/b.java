@@ -41,34 +41,34 @@ public class b implements TTInteractionAd {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f65527a;
+    public final String f65707a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f65528b;
+    public final Context f65708b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final m f65529c;
+    public final m f65709c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Dialog f65530d;
+    public Dialog f65710d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.ui.a f65531e;
+    public com.bytedance.sdk.openadsdk.dislike.ui.a f65711e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TTInteractionAd.AdInteractionListener f65532f;
+    public TTInteractionAd.AdInteractionListener f65712f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.downloadnew.core.a f65533g;
+    public com.bytedance.sdk.openadsdk.downloadnew.core.a f65713g;
 
     /* renamed from: h  reason: collision with root package name */
-    public k f65534h;
+    public k f65714h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f65535i;
+    public ImageView f65715i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f65536j;
+    public ImageView f65716j;
 
     public b(Context context, m mVar) {
         Interceptable interceptable = $ic;
@@ -85,9 +85,9 @@ public class b implements TTInteractionAd {
                 return;
             }
         }
-        this.f65527a = ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE;
-        this.f65528b = context;
-        this.f65529c = mVar;
+        this.f65707a = ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE;
+        this.f65708b = context;
+        this.f65709c = mVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTInteractionAd
@@ -95,7 +95,7 @@ public class b implements TTInteractionAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            m mVar = this.f65529c;
+            m mVar = this.f65709c;
             if (mVar == null) {
                 return -1;
             }
@@ -109,7 +109,7 @@ public class b implements TTInteractionAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            m mVar = this.f65529c;
+            m mVar = this.f65709c;
             if (mVar != null) {
                 return mVar.av();
             }
@@ -122,7 +122,7 @@ public class b implements TTInteractionAd {
     public void setAdInteractionListener(TTInteractionAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, adInteractionListener) == null) {
-            this.f65532f = adInteractionListener;
+            this.f65712f = adInteractionListener;
         }
     }
 
@@ -130,7 +130,7 @@ public class b implements TTInteractionAd {
     public void setDownloadListener(TTAppDownloadListener tTAppDownloadListener) {
         com.bytedance.sdk.openadsdk.downloadnew.core.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, tTAppDownloadListener) == null) || (aVar = this.f65533g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, tTAppDownloadListener) == null) || (aVar = this.f65713g) == null) {
             return;
         }
         aVar.a(tTAppDownloadListener);
@@ -142,7 +142,7 @@ public class b implements TTInteractionAd {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, dislikeInteractionCallback) == null) || dislikeInteractionCallback == null) {
             return;
         }
-        this.f65531e.setDislikeInteractionCallback(dislikeInteractionCallback);
+        this.f65711e.setDislikeInteractionCallback(dislikeInteractionCallback);
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTInteractionAd
@@ -158,7 +158,7 @@ public class b implements TTInteractionAd {
             }
             k = true;
             try {
-                this.f65530d.show();
+                this.f65710d.show();
                 return;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -172,12 +172,12 @@ public class b implements TTInteractionAd {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            ImageLoaderWrapper.from(this.f65529c.ad().get(0)).to(new ILoaderListener<Bitmap>(this) { // from class: com.bytedance.sdk.openadsdk.component.c.b.5
+            ImageLoaderWrapper.from(this.f65709c.ad().get(0)).to(new ILoaderListener<Bitmap>(this) { // from class: com.bytedance.sdk.openadsdk.component.c.b.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f65541a;
+                public final /* synthetic */ b f65721a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -194,16 +194,16 @@ public class b implements TTInteractionAd {
                             return;
                         }
                     }
-                    this.f65541a = this;
+                    this.f65721a = this;
                 }
 
                 @Override // com.bytedance.sdk.component.image.ILoaderListener
                 public void onFailed(int i2, String str, @Nullable Throwable th) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, th) == null) || this.f65541a.f65534h == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, th) == null) || this.f65721a.f65714h == null) {
                         return;
                     }
-                    this.f65541a.f65534h.b();
+                    this.f65721a.f65714h.b();
                 }
 
                 @Override // com.bytedance.sdk.component.image.ILoaderListener
@@ -211,15 +211,15 @@ public class b implements TTInteractionAd {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageResponse) == null) {
                         if (imageResponse == null || imageResponse.getResult() == null) {
-                            if (this.f65541a.f65534h != null) {
-                                this.f65541a.f65534h.b();
+                            if (this.f65721a.f65714h != null) {
+                                this.f65721a.f65714h.b();
                                 return;
                             }
                             return;
                         }
-                        this.f65541a.f65536j.setImageBitmap(imageResponse.getResult());
-                        if (this.f65541a.f65534h != null) {
-                            this.f65541a.f65534h.a();
+                        this.f65721a.f65716j.setImageBitmap(imageResponse.getResult());
+                        if (this.f65721a.f65714h != null) {
+                            this.f65721a.f65714h.a();
                         }
                     }
                 }
@@ -232,7 +232,7 @@ public class b implements TTInteractionAd {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             k = false;
-            this.f65530d.dismiss();
+            this.f65710d.dismiss();
         }
     }
 
@@ -241,16 +241,16 @@ public class b implements TTInteractionAd {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            com.bytedance.sdk.openadsdk.core.b.a aVar = new com.bytedance.sdk.openadsdk.core.b.a(this.f65528b, this.f65529c, ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE, 3);
-            aVar.a(this.f65536j);
-            aVar.b(this.f65535i);
-            aVar.a(this.f65533g);
+            com.bytedance.sdk.openadsdk.core.b.a aVar = new com.bytedance.sdk.openadsdk.core.b.a(this.f65708b, this.f65709c, ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE, 3);
+            aVar.a(this.f65716j);
+            aVar.b(this.f65715i);
+            aVar.a(this.f65713g);
             aVar.a(new b.a(this) { // from class: com.bytedance.sdk.openadsdk.component.c.b.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f65540a;
+                public final /* synthetic */ b f65720a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -267,55 +267,55 @@ public class b implements TTInteractionAd {
                             return;
                         }
                     }
-                    this.f65540a = this;
+                    this.f65720a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.b.b.a
                 public void a(View view, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) {
-                        if (this.f65540a.f65532f != null) {
-                            this.f65540a.f65532f.onAdClicked();
+                        if (this.f65720a.f65712f != null) {
+                            this.f65720a.f65712f.onAdClicked();
                         }
                         if (i2 == 2 || i2 == 3 || i2 == 5) {
-                            this.f65540a.d();
-                            if (this.f65540a.f65532f != null) {
-                                this.f65540a.f65532f.onAdDismiss();
+                            this.f65720a.d();
+                            if (this.f65720a.f65712f != null) {
+                                this.f65720a.f65712f.onAdDismiss();
                             }
                         }
                     }
                 }
             });
-            this.f65536j.setOnClickListener(aVar);
-            this.f65536j.setOnTouchListener(aVar);
+            this.f65716j.setOnClickListener(aVar);
+            this.f65716j.setOnTouchListener(aVar);
         }
     }
 
     public void a(@NonNull k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
-            this.f65534h = kVar;
-            d.a(this.f65529c);
+            this.f65714h = kVar;
+            d.a(this.f65709c);
             if (getInteractionType() == 4) {
-                this.f65533g = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f65528b, this.f65529c, ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE);
+                this.f65713g = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f65708b, this.f65709c, ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE);
             }
-            this.f65531e = new com.bytedance.sdk.openadsdk.dislike.ui.a(this.f65528b, this.f65529c.aG(), ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE, false);
+            this.f65711e = new com.bytedance.sdk.openadsdk.dislike.ui.a(this.f65708b, this.f65709c.aG(), ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE, false);
             a();
         }
     }
 
     private void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f65530d == null) {
-            com.bytedance.sdk.openadsdk.core.m mVar = new com.bytedance.sdk.openadsdk.core.m(this.f65528b);
-            this.f65530d = mVar;
-            mVar.a(this.f65529c.aH());
-            this.f65530d.setOnShowListener(new DialogInterface.OnShowListener(this) { // from class: com.bytedance.sdk.openadsdk.component.c.b.1
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f65710d == null) {
+            com.bytedance.sdk.openadsdk.core.m mVar = new com.bytedance.sdk.openadsdk.core.m(this.f65708b);
+            this.f65710d = mVar;
+            mVar.a(this.f65709c.aH());
+            this.f65710d.setOnShowListener(new DialogInterface.OnShowListener(this) { // from class: com.bytedance.sdk.openadsdk.component.c.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f65537a;
+                public final /* synthetic */ b f65717a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -332,27 +332,27 @@ public class b implements TTInteractionAd {
                             return;
                         }
                     }
-                    this.f65537a = this;
+                    this.f65717a = this;
                 }
 
                 @Override // android.content.DialogInterface.OnShowListener
                 public void onShow(DialogInterface dialogInterface) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) && this.f65537a.f65530d.isShowing()) {
-                        com.bytedance.sdk.component.utils.k.e("AdEvent", "pangolin ad show " + q.a(this.f65537a.f65529c, (View) null));
-                        d.a(this.f65537a.f65528b, this.f65537a.f65529c, ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE, (Map<String, Object>) null);
-                        if (this.f65537a.f65532f != null) {
-                            this.f65537a.f65532f.onAdShow();
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) && this.f65717a.f65710d.isShowing()) {
+                        com.bytedance.sdk.component.utils.k.e("AdEvent", "pangolin ad show " + q.a(this.f65717a.f65709c, (View) null));
+                        d.a(this.f65717a.f65708b, this.f65717a.f65709c, ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE, (Map<String, Object>) null);
+                        if (this.f65717a.f65712f != null) {
+                            this.f65717a.f65712f.onAdShow();
                         }
                     }
                 }
             });
-            this.f65530d.setOnDismissListener(new DialogInterface.OnDismissListener(this) { // from class: com.bytedance.sdk.openadsdk.component.c.b.2
+            this.f65710d.setOnDismissListener(new DialogInterface.OnDismissListener(this) { // from class: com.bytedance.sdk.openadsdk.component.c.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f65538a;
+                public final /* synthetic */ b f65718a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -369,25 +369,25 @@ public class b implements TTInteractionAd {
                             return;
                         }
                     }
-                    this.f65538a = this;
+                    this.f65718a = this;
                 }
 
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || this.f65538a.f65533g == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || this.f65718a.f65713g == null) {
                         return;
                     }
-                    this.f65538a.f65533g.d();
+                    this.f65718a.f65713g.d();
                 }
             });
-            ((com.bytedance.sdk.openadsdk.core.m) this.f65530d).a(this.f65529c);
-            ((com.bytedance.sdk.openadsdk.core.m) this.f65530d).a(false, new m.a(this) { // from class: com.bytedance.sdk.openadsdk.component.c.b.3
+            ((com.bytedance.sdk.openadsdk.core.m) this.f65710d).a(this.f65709c);
+            ((com.bytedance.sdk.openadsdk.core.m) this.f65710d).a(false, new m.a(this) { // from class: com.bytedance.sdk.openadsdk.component.c.b.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f65539a;
+                public final /* synthetic */ b f65719a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -404,17 +404,17 @@ public class b implements TTInteractionAd {
                             return;
                         }
                     }
-                    this.f65539a = this;
+                    this.f65719a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.m.a
                 public void a(ImageView imageView, ImageView imageView2, FrameLayout frameLayout) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, imageView2, frameLayout) == null) {
-                        this.f65539a.f65536j = imageView;
-                        this.f65539a.f65535i = imageView2;
-                        this.f65539a.b();
-                        this.f65539a.c();
+                        this.f65719a.f65716j = imageView;
+                        this.f65719a.f65715i = imageView2;
+                        this.f65719a.b();
+                        this.f65719a.c();
                     }
                 }
 
@@ -422,7 +422,7 @@ public class b implements TTInteractionAd {
                 public void b(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-                        this.f65539a.f65531e.showDislikeDialog();
+                        this.f65719a.f65711e.showDislikeDialog();
                     }
                 }
 
@@ -430,10 +430,10 @@ public class b implements TTInteractionAd {
                 public void a(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f65539a.d();
-                        d.a(this.f65539a.f65528b, this.f65539a.f65529c, ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE);
-                        if (this.f65539a.f65532f != null) {
-                            this.f65539a.f65532f.onAdDismiss();
+                        this.f65719a.d();
+                        d.a(this.f65719a.f65708b, this.f65719a.f65709c, ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE);
+                        if (this.f65719a.f65712f != null) {
+                            this.f65719a.f65712f.onAdDismiss();
                         }
                         com.bytedance.sdk.component.utils.k.b("TTInteractionAdImpl", "dislike事件发出");
                     }

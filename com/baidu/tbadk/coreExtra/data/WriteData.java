@@ -3,8 +3,7 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
-import c.a.p0.u.n;
-import c.a.q0.i3.r0.c;
+import c.a.r0.j3.r0.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
@@ -12,6 +11,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.tbadk.data.VideoCategoryClassData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
@@ -82,7 +82,7 @@ public class WriteData extends OrmObject implements Serializable {
     public int mBigEmtionCount;
     public int mCategoryFrom;
     public int mCategoryTo;
-    public n mClassAndTagData;
+    public VideoCategoryClassData mClassAndTagData;
     public String mContent;
     public int mDuringTime;
     public TbRichTextEvaluateItemInfo mEvaluateItemInfo;
@@ -393,10 +393,10 @@ public class WriteData extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mCategoryTo : invokeV.intValue;
     }
 
-    public n getClassAndTagData() {
+    public VideoCategoryClassData getClassAndTagData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mClassAndTagData : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mClassAndTagData : (VideoCategoryClassData) invokeV.objValue;
     }
 
     public String getComment_head() {
@@ -1144,10 +1144,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setClassAndTagData(n nVar) {
+    public void setClassAndTagData(VideoCategoryClassData videoCategoryClassData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048700, this, nVar) == null) {
-            this.mClassAndTagData = nVar;
+        if (interceptable == null || interceptable.invokeL(1048700, this, videoCategoryClassData) == null) {
+            this.mClassAndTagData = videoCategoryClassData;
         }
     }
 

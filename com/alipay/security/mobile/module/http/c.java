@@ -13,10 +13,10 @@ public class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ DataReportRequest f36080a;
+    public final /* synthetic */ DataReportRequest f36189a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ b f36081b;
+    public final /* synthetic */ b f36190b;
 
     public c(b bVar, DataReportRequest dataReportRequest) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f36081b = bVar;
-        this.f36080a = dataReportRequest;
+        this.f36190b = bVar;
+        this.f36189a = dataReportRequest;
     }
 
     @Override // java.lang.Runnable
@@ -45,13 +45,13 @@ public class c implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                dataReportService = this.f36081b.f36079c;
-                DataReportResult unused = b.f36076e = dataReportService.reportData(this.f36080a);
+                dataReportService = this.f36190b.f36188c;
+                DataReportResult unused = b.f36185e = dataReportService.reportData(this.f36189a);
             } catch (Throwable th) {
-                DataReportResult unused2 = b.f36076e = new DataReportResult();
-                dataReportResult = b.f36076e;
+                DataReportResult unused2 = b.f36185e = new DataReportResult();
+                dataReportResult = b.f36185e;
                 dataReportResult.success = false;
-                dataReportResult2 = b.f36076e;
+                dataReportResult2 = b.f36185e;
                 dataReportResult2.resultCode = "static data rpc upload error, " + com.alipay.security.mobile.module.a.a.a(th);
                 new StringBuilder("rpc failed:").append(com.alipay.security.mobile.module.a.a.a(th));
             }

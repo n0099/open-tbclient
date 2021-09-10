@@ -1,6 +1,5 @@
 package com.bytedance.sdk.openadsdk.d;
 
-import com.baidu.searchbox.launch.stats.ActivitySpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,10 +25,10 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f67323a;
+        public final /* synthetic */ a f67503a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final File f67324b;
+        public final File f67504b;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
@@ -38,7 +37,7 @@ public abstract class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f67323a.b(this.f67324b);
+                this.f67503a.b(this.f67504b);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -59,8 +58,8 @@ public abstract class a {
                     return;
                 }
             }
-            this.f67323a = aVar;
-            this.f67324b = file;
+            this.f67503a = aVar;
+            this.f67504b = file;
         }
     }
 
@@ -88,7 +87,7 @@ public abstract class a {
                 k.a("LruDiskFile", "setLastModifiedNowError", th);
             }
             List<File> a2 = f.a(file.getParentFile());
-            k.f(ActivitySpeedStats.SPLASH_LOADAD_DURATION, "LruDiskFile touchInBackground files.size() " + a2.size());
+            k.f("splashLoadAd", "LruDiskFile touchInBackground files.size() " + a2.size());
             a(a2);
         }
     }
@@ -108,10 +107,10 @@ public abstract class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.component.d.f f67321a;
+                public final /* synthetic */ com.bytedance.sdk.component.d.f f67501a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f67322b;
+                public final /* synthetic */ a f67502b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -132,15 +131,15 @@ public abstract class a {
                             return;
                         }
                     }
-                    this.f67322b = this;
-                    this.f67321a = fVar;
+                    this.f67502b = this;
+                    this.f67501a = fVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f67321a.run();
+                        this.f67501a.run();
                     }
                 }
             });

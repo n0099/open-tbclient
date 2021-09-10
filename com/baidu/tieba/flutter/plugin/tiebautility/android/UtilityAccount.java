@@ -1,7 +1,7 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import android.content.Context;
-import c.a.p0.m.a;
+import c.a.q0.m.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -56,7 +56,7 @@ public class UtilityAccount implements TiebaUtilityAccountAuto.HostUtilityAccoun
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
-            a.r(applicationContext, "", UrlSchemaHelper.REAL_NAME_AUTH_URL + "&u=" + URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW), true, true, true, true, true, false);
+            a.q(applicationContext, "", UrlSchemaHelper.REAL_NAME_AUTH_URL + "&u=" + URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW), true, true, true, true, true, false);
         }
     }
 

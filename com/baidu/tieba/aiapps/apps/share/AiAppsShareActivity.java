@@ -29,7 +29,7 @@ public class AiAppsShareActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AiAppsShareActivity f49201a;
+        public final /* synthetic */ AiAppsShareActivity f49336a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AiAppsShareActivity aiAppsShareActivity, int i2) {
@@ -49,7 +49,7 @@ public class AiAppsShareActivity extends Activity {
                     return;
                 }
             }
-            this.f49201a = aiAppsShareActivity;
+            this.f49336a = aiAppsShareActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +58,7 @@ public class AiAppsShareActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921366, Boolean.FALSE));
-                this.f49201a.finish();
+                this.f49336a.finish();
             }
         }
     }
@@ -104,7 +104,7 @@ public class AiAppsShareActivity extends Activity {
                 finish();
                 return;
             }
-            c.a.q0.u.b.j.a aVar = new c.a.q0.u.b.j.a();
+            c.a.r0.u.b.j.a aVar = new c.a.r0.u.b.j.a();
             try {
                 aVar.p(new JSONObject(stringExtra));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this, aVar, false)));

@@ -35,10 +35,10 @@ public class CashierDeskPayResult extends H5PayResultProcess implements NoProgua
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62410a;
+    public String f62590a;
 
     /* renamed from: b  reason: collision with root package name */
-    public H5LifeCycleCallback f62411b;
+    public H5LifeCycleCallback f62591b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
@@ -115,7 +115,7 @@ public class CashierDeskPayResult extends H5PayResultProcess implements NoProgua
                 return;
             }
         }
-        this.f62411b = null;
+        this.f62591b = null;
         this.mContext = context;
         this.mH5 = h5ResultParams;
     }
@@ -215,19 +215,19 @@ public class CashierDeskPayResult extends H5PayResultProcess implements NoProgua
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f62410a = a();
+            this.f62590a = a();
             PayRequestCache.getInstance().removeBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
-            if (this.f62410a == null) {
+            if (this.f62590a == null) {
                 afterShow();
                 return;
             }
-            if (this.f62411b == null) {
+            if (this.f62591b == null) {
                 H5LifeCycleCallback h5LifeCycleCallback = new H5LifeCycleCallback(this) { // from class: com.baidu.wallet.paysdk.payresult.presenter.CashierDeskPayResult.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ CashierDeskPayResult f62412a;
+                    public final /* synthetic */ CashierDeskPayResult f62592a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -244,7 +244,7 @@ public class CashierDeskPayResult extends H5PayResultProcess implements NoProgua
                                 return;
                             }
                         }
-                        this.f62412a = this;
+                        this.f62592a = this;
                     }
 
                     @Override // com.baidu.wallet.paysdk.payresult.presenter.H5LifeCycleCallback, android.app.Application.ActivityLifecycleCallbacks
@@ -252,18 +252,18 @@ public class CashierDeskPayResult extends H5PayResultProcess implements NoProgua
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) {
                             pop();
-                            this.f62412a.afterShow();
+                            this.f62592a.afterShow();
                         }
                     }
                 };
-                this.f62411b = h5LifeCycleCallback;
+                this.f62591b = h5LifeCycleCallback;
                 h5LifeCycleCallback.push();
             }
             Bundle bundle = new Bundle();
             bundle.putBoolean("with_anim", false);
             bundle.putBoolean("show_share", false);
-            bundle.putString("url", this.f62410a);
-            bundle.putParcelable("lifecycleLsnr", this.f62411b);
+            bundle.putString("url", this.f62590a);
+            bundle.putParcelable("lifecycleLsnr", this.f62591b);
             BaiduWalletDelegate.getInstance().openH5Module(this.mContext, bundle);
             PayBaseBeanActivity.exitEbpay();
         }

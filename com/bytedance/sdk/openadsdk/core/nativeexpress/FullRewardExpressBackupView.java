@@ -38,25 +38,25 @@ public class FullRewardExpressBackupView extends BackupView {
                 return;
             }
         }
-        this.f66597a = context;
+        this.f66777a = context;
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f66602f = com.bytedance.sdk.openadsdk.q.s.d(this.f66597a, this.m.getExpectExpressWidth());
-            this.f66603g = com.bytedance.sdk.openadsdk.q.s.d(this.f66597a, this.m.getExpectExpressWidth());
+            this.f66782f = com.bytedance.sdk.openadsdk.q.s.d(this.f66777a, this.m.getExpectExpressWidth());
+            this.f66783g = com.bytedance.sdk.openadsdk.q.s.d(this.f66777a, this.m.getExpectExpressWidth());
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(this.f66602f, this.f66603g);
+                layoutParams = new ViewGroup.LayoutParams(this.f66782f, this.f66783g);
             }
-            layoutParams.width = this.f66602f;
-            layoutParams.height = this.f66603g;
+            layoutParams.width = this.f66782f;
+            layoutParams.height = this.f66783g;
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 ((FrameLayout.LayoutParams) layoutParams).gravity = 17;
             }
             setLayoutParams(layoutParams);
-            this.f66598b.k();
+            this.f66778b.k();
             c();
         }
     }
@@ -64,9 +64,9 @@ public class FullRewardExpressBackupView extends BackupView {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            View inflate = LayoutInflater.from(this.f66597a).inflate(com.bytedance.sdk.component.utils.t.f(this.f66597a, "tt_backup_full_reward"), (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.f66777a).inflate(com.bytedance.sdk.component.utils.t.f(this.f66777a, "tt_backup_full_reward"), (ViewGroup) this, true);
             this.l = inflate;
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66597a, "tt_bu_video_container"));
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66777a, "tt_bu_video_container"));
             this.n = frameLayout;
             frameLayout.removeAllViews();
         }
@@ -77,12 +77,12 @@ public class FullRewardExpressBackupView extends BackupView {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar, nativeExpressView) == null) {
             com.bytedance.sdk.component.utils.k.b("FullRewardExpressBackupView", "show backup view");
             setBackgroundColor(-1);
-            this.f66598b = mVar;
+            this.f66778b = mVar;
             this.m = nativeExpressView;
             if (com.bytedance.sdk.openadsdk.q.q.c(mVar.ao()) == 7) {
-                this.f66601e = "rewarded_video";
+                this.f66781e = "rewarded_video";
             } else {
-                this.f66601e = "fullscreen_interstitial_ad";
+                this.f66781e = "fullscreen_interstitial_ad";
             }
             b();
             this.m.addView(this, new ViewGroup.LayoutParams(-2, -2));

@@ -27,6 +27,18 @@ public class CloseHelper {
         }
     }
 
+    public static void close(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (Throwable th) {
+            th.getMessage();
+        }
+    }
+
     public static void close(Cursor cursor) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65537, null, cursor) == null) || cursor == null) {
@@ -48,18 +60,6 @@ public class CloseHelper {
             mediaMetadataRetriever.release();
         } catch (Exception e2) {
             e2.getMessage();
-        }
-    }
-
-    public static void close(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Throwable th) {
-            th.getMessage();
         }
     }
 }

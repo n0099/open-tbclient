@@ -16,7 +16,7 @@ public class j0 extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSmartAppLayout l;
-    public c.a.p0.s.q.a m;
+    public c.a.q0.s.q.a m;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -24,7 +24,7 @@ public class j0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j0 f3819e;
+        public final /* synthetic */ j0 f3812e;
 
         public a(j0 j0Var) {
             Interceptable interceptable = $ic;
@@ -41,16 +41,16 @@ public class j0 extends h {
                     return;
                 }
             }
-            this.f3819e = j0Var;
+            this.f3812e = j0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3819e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3812e.c() == null) {
                 return;
             }
-            this.f3819e.c().a(view, this.f3819e.m);
+            this.f3812e.c().a(view, this.f3812e.m);
         }
     }
 
@@ -97,7 +97,7 @@ public class j0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: s */
-    public void onBindDataToView(c.a.p0.s.q.a aVar) {
+    public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             this.m = aVar;

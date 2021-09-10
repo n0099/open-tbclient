@@ -13,12 +13,14 @@ import tbclient.CommonReq;
 /* loaded from: classes.dex */
 public final class DataReq extends Message {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final Long DEFAULT_BEGIN_THREAD_ID;
     public static final Integer DEFAULT_BEGIN_TIME;
     public static final Integer DEFAULT_CHECK_LOGIN;
     public static final String DEFAULT_COOKIE = "";
     public static final String DEFAULT_EMAIL = "";
     public static final Integer DEFAULT_END_TIME;
     public static final Long DEFAULT_FORUM_ID;
+    public static final Integer DEFAULT_FROM_TYPE;
     public static final Integer DEFAULT_IP_INT;
     public static final String DEFAULT_IP_STR = "";
     public static final Integer DEFAULT_IS_THREAD;
@@ -43,10 +45,14 @@ public final class DataReq extends Message {
     public static final Integer DEFAULT_ST_TYPE;
     public static final Integer DEFAULT_SUBTYPE;
     public static final Integer DEFAULT_SUPPORT_NOUN;
+    public static final Integer DEFAULT_TYPE;
     public static final Long DEFAULT_UID;
     public static final Long DEFAULT_USER_ID;
     public static final String DEFAULT_USER_NAME = "";
+    public static final Integer DEFAULT_WORK_TAB_ID;
     public transient /* synthetic */ FieldHolder $fh;
+    @ProtoField(tag = 38, type = Message.Datatype.UINT64)
+    public final Long begin_thread_id;
     @ProtoField(tag = 7, type = Message.Datatype.UINT32)
     public final Integer begin_time;
     @ProtoField(tag = 10, type = Message.Datatype.UINT32)
@@ -63,6 +69,8 @@ public final class DataReq extends Message {
     public final Integer end_time;
     @ProtoField(tag = 6, type = Message.Datatype.UINT64)
     public final Long forum_id;
+    @ProtoField(tag = 37, type = Message.Datatype.UINT32)
+    public final Integer from_type;
     @ProtoField(tag = 12, type = Message.Datatype.UINT32)
     public final Integer ip_int;
     @ProtoField(tag = 11, type = Message.Datatype.STRING)
@@ -111,17 +119,22 @@ public final class DataReq extends Message {
     public final Integer subtype;
     @ProtoField(tag = 17, type = Message.Datatype.UINT32)
     public final Integer support_noun;
+    @ProtoField(tag = 36, type = Message.Datatype.UINT32)
+    public final Integer type;
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
     public final Long uid;
     @ProtoField(tag = 19, type = Message.Datatype.INT64)
     public final Long user_id;
     @ProtoField(tag = 20, type = Message.Datatype.STRING)
     public final String user_name;
+    @ProtoField(tag = 35, type = Message.Datatype.UINT32)
+    public final Integer work_tab_id;
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public Long begin_thread_id;
         public Integer begin_time;
         public Integer check_login;
 
@@ -131,6 +144,7 @@ public final class DataReq extends Message {
         public String email;
         public Integer end_time;
         public Long forum_id;
+        public Integer from_type;
         public Integer ip_int;
         public String ip_str;
         public Integer is_thread;
@@ -155,9 +169,11 @@ public final class DataReq extends Message {
         public Integer st_type;
         public Integer subtype;
         public Integer support_noun;
+        public Integer type;
         public Long uid;
         public Long user_id;
         public String user_name;
+        public Integer work_tab_id;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -228,6 +244,10 @@ public final class DataReq extends Message {
             this.q_type = dataReq.q_type;
             this.is_view_card = dataReq.is_view_card;
             this.last_thread_time = dataReq.last_thread_time;
+            this.work_tab_id = dataReq.work_tab_id;
+            this.type = dataReq.type;
+            this.from_type = dataReq.from_type;
+            this.begin_thread_id = dataReq.begin_thread_id;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -285,6 +305,10 @@ public final class DataReq extends Message {
         DEFAULT_Q_TYPE = 0;
         DEFAULT_IS_VIEW_CARD = 0;
         DEFAULT_LAST_THREAD_TIME = 0;
+        DEFAULT_WORK_TAB_ID = 0;
+        DEFAULT_TYPE = 0;
+        DEFAULT_FROM_TYPE = 0;
+        DEFAULT_BEGIN_THREAD_ID = 0L;
     }
 
     public /* synthetic */ DataReq(Builder builder, boolean z, a aVar) {
@@ -506,9 +530,33 @@ public final class DataReq extends Message {
             Integer num22 = builder.last_thread_time;
             if (num22 == null) {
                 this.last_thread_time = DEFAULT_LAST_THREAD_TIME;
-                return;
             } else {
                 this.last_thread_time = num22;
+            }
+            Integer num23 = builder.work_tab_id;
+            if (num23 == null) {
+                this.work_tab_id = DEFAULT_WORK_TAB_ID;
+            } else {
+                this.work_tab_id = num23;
+            }
+            Integer num24 = builder.type;
+            if (num24 == null) {
+                this.type = DEFAULT_TYPE;
+            } else {
+                this.type = num24;
+            }
+            Integer num25 = builder.from_type;
+            if (num25 == null) {
+                this.from_type = DEFAULT_FROM_TYPE;
+            } else {
+                this.from_type = num25;
+            }
+            Long l4 = builder.begin_thread_id;
+            if (l4 == null) {
+                this.begin_thread_id = DEFAULT_BEGIN_THREAD_ID;
+                return;
+            } else {
+                this.begin_thread_id = l4;
                 return;
             }
         }
@@ -546,5 +594,9 @@ public final class DataReq extends Message {
         this.q_type = builder.q_type;
         this.is_view_card = builder.is_view_card;
         this.last_thread_time = builder.last_thread_time;
+        this.work_tab_id = builder.work_tab_id;
+        this.type = builder.type;
+        this.from_type = builder.from_type;
+        this.begin_thread_id = builder.begin_thread_id;
     }
 }

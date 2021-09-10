@@ -42,24 +42,6 @@ public class RtcCertificatePem {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? nativeGenerateCertificate(PeerConnection.KeyType.ECDSA, DEFAULT_EXPIRY) : (RtcCertificatePem) invokeV.objValue;
     }
 
-    public static RtcCertificatePem generateCertificate(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? nativeGenerateCertificate(PeerConnection.KeyType.ECDSA, j2) : (RtcCertificatePem) invokeJ.objValue;
-    }
-
-    public static RtcCertificatePem generateCertificate(PeerConnection.KeyType keyType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, keyType)) == null) ? nativeGenerateCertificate(keyType, DEFAULT_EXPIRY) : (RtcCertificatePem) invokeL.objValue;
-    }
-
-    public static RtcCertificatePem generateCertificate(PeerConnection.KeyType keyType, long j2) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, keyType, j2)) == null) ? nativeGenerateCertificate(keyType, j2) : (RtcCertificatePem) invokeLJ.objValue;
-    }
-
     public static native RtcCertificatePem nativeGenerateCertificate(PeerConnection.KeyType keyType, long j2);
 
     @CalledByNative
@@ -74,5 +56,23 @@ public class RtcCertificatePem {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.privateKey : (String) invokeV.objValue;
+    }
+
+    public static RtcCertificatePem generateCertificate(PeerConnection.KeyType keyType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, keyType)) == null) ? nativeGenerateCertificate(keyType, DEFAULT_EXPIRY) : (RtcCertificatePem) invokeL.objValue;
+    }
+
+    public static RtcCertificatePem generateCertificate(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? nativeGenerateCertificate(PeerConnection.KeyType.ECDSA, j2) : (RtcCertificatePem) invokeJ.objValue;
+    }
+
+    public static RtcCertificatePem generateCertificate(PeerConnection.KeyType keyType, long j2) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, keyType, j2)) == null) ? nativeGenerateCertificate(keyType, j2) : (RtcCertificatePem) invokeLJ.objValue;
     }
 }

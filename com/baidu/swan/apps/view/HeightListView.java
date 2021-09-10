@@ -15,7 +15,7 @@ public class HeightListView extends ListView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46529e;
+    public int f46644e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HeightListView(Context context) {
@@ -35,14 +35,14 @@ public class HeightListView extends ListView {
                 return;
             }
         }
-        this.f46529e = -1;
+        this.f46644e = -1;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            int i4 = this.f46529e;
+            int i4 = this.f46644e;
             if (i4 > -1) {
                 i3 = View.MeasureSpec.makeMeasureSpec(i4, Integer.MIN_VALUE);
             }
@@ -53,7 +53,7 @@ public class HeightListView extends ListView {
     public void setListViewHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f46529e = i2;
+            this.f46644e = i2;
         }
     }
 
@@ -76,7 +76,7 @@ public class HeightListView extends ListView {
                 return;
             }
         }
-        this.f46529e = -1;
+        this.f46644e = -1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -98,6 +98,6 @@ public class HeightListView extends ListView {
                 return;
             }
         }
-        this.f46529e = -1;
+        this.f46644e = -1;
     }
 }

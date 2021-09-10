@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.personalize.data;
 
-import c.a.q0.f1.h.j.i;
+import c.a.r0.g1.h.j.i;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -62,10 +62,10 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
             }
             setErrorString(personalizedResIdl.error.usermsg);
         }
-        i.f17827a = false;
+        i.f18351a = false;
         if (i.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
             this.resultData = i.b();
-            i.f17827a = true;
+            i.f18351a = true;
             i.a();
             return;
         }

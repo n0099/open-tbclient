@@ -1,33 +1,545 @@
 package c.a.j0.a;
 
-import c.a.j0.a.d.c;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b extends c {
+public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f3694c;
+    /* renamed from: a  reason: collision with root package name */
+    public JSONObject f3562a;
 
-    /* renamed from: d  reason: collision with root package name */
-    public long f3695d;
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    /* renamed from: e  reason: collision with root package name */
-    public V8ExceptionInfo f3696e;
+    /* renamed from: c.a.j0.a.b$b  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public static class C0076b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f3697f;
+        /* renamed from: a  reason: collision with root package name */
+        public JSONObject f3563a;
 
-    public b() {
+        public C0076b(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f3563a = new JSONObject();
+            I("material_type", str);
+            I("material_url", str2);
+        }
+
+        public C0076b A(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                try {
+                    this.f3563a.put("show_wifi_view", z);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeZ.objValue;
+        }
+
+        public C0076b B(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+                try {
+                    this.f3563a.put("skip_btn_height", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b C(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+                try {
+                    this.f3563a.put("skip_btn_type", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b D(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+                try {
+                    this.f3563a.put("skip_btn_width", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b E(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+                try {
+                    this.f3563a.put("skipTime", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b F(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+                try {
+                    this.f3563a.put("small_logo_height", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b G(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+                try {
+                    this.f3563a.put("small_logo_width", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b H(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jSONObject)) == null) {
+                try {
+                    this.f3563a.put("style", jSONObject);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeL.objValue;
+        }
+
+        public final void I(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
+                try {
+                    this.f3563a.put(str, str2);
+                } catch (Throwable th) {
+                    c.a.j0.a.k.b.i().g(th);
+                }
+            }
+        }
+
+        public b a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new b(this.f3563a, null) : (b) invokeV.objValue;
+        }
+
+        public C0076b b(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+                try {
+                    this.f3563a.put("ad_click_opt", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+                try {
+                    this.f3563a.put("ad_label", str);
+                    if (TextUtils.isEmpty(str)) {
+                        this.f3563a.put("hide_ad_logo", false);
+                    }
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeL.objValue;
+        }
+
+        public C0076b d(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
+                try {
+                    this.f3563a.put("ad_label_height", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b e(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
+                try {
+                    this.f3563a.put("ad_label_width", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b f(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+                try {
+                    this.f3563a.put("publisher", str);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeL.objValue;
+        }
+
+        public C0076b g(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+                try {
+                    this.f3563a.put("app_version", str);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeL.objValue;
+        }
+
+        public C0076b h(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+                try {
+                    this.f3563a.put("bottom_logo_height", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b i(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
+                try {
+                    this.f3563a.put("close_type", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b j(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
+                try {
+                    this.f3563a.put("displayMantle", z);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeZ.objValue;
+        }
+
+        public C0076b k(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
+                try {
+                    this.f3563a.put("bitmapDisplayMode", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b l(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048596, this, z)) == null) {
+                try {
+                    this.f3563a.put("full_screen", z);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeZ.objValue;
+        }
+
+        public C0076b m(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
+                I("gesture_lottie_url", str);
+                return this;
+            }
+            return (C0076b) invokeL.objValue;
+        }
+
+        public C0076b n(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
+                try {
+                    this.f3563a.put("gesture_lottie_sensitivity", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b o(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
+                try {
+                    this.f3563a.put("gesture_lottie_type", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b p(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
+                try {
+                    this.f3563a.put("host_big_logo_res_id", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b q(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
+                try {
+                    this.f3563a.put("host_small_logo_res_id", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b r(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048602, this, z)) == null) {
+                try {
+                    this.f3563a.put("show_host_small_logo", z);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeZ.objValue;
+        }
+
+        public C0076b s(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, jSONObject)) == null) {
+                try {
+                    this.f3563a.put("inner_style", jSONObject);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeL.objValue;
+        }
+
+        public C0076b t(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
+                I("lottie_url", str);
+                return this;
+            }
+            return (C0076b) invokeL.objValue;
+        }
+
+        public C0076b u(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
+                try {
+                    this.f3563a.put("mantleActionText", str);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeL.objValue;
+        }
+
+        public C0076b v(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i2)) == null) {
+                try {
+                    this.f3563a.put("mantleBottomMargin", i2);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeI.objValue;
+        }
+
+        public C0076b w(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
+                I("prod", str);
+                return this;
+            }
+            return (C0076b) invokeL.objValue;
+        }
+
+        public C0076b x(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048608, this, z)) == null) {
+                try {
+                    this.f3563a.put("hide_bd_logo", z);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeZ.objValue;
+        }
+
+        public C0076b y(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048609, this, z)) == null) {
+                try {
+                    this.f3563a.put("Display_Down_Info", z);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeZ.objValue;
+        }
+
+        public C0076b z(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048610, this, z)) == null) {
+                try {
+                    this.f3563a.put("lottie_show", z);
+                } catch (JSONException e2) {
+                    c.a.j0.a.k.b.i().g(e2);
+                }
+                return this;
+            }
+            return (C0076b) invokeZ.objValue;
+        }
+    }
+
+    public /* synthetic */ b(JSONObject jSONObject, a aVar) {
+        this(jSONObject);
+    }
+
+    public JSONObject a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3562a : (JSONObject) invokeV.objValue;
+    }
+
+    public b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -37,61 +549,6 @@ public class b extends c {
                 return;
             }
         }
-        this.f3694c = false;
-    }
-
-    @Override // c.a.j0.a.d.c
-    public synchronized void a(int i2, V8ExceptionInfo v8ExceptionInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, v8ExceptionInfo) == null) {
-            synchronized (this) {
-                if (this.f3696e == null && v8ExceptionInfo != null) {
-                    this.f3696e = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
-                    this.f3697f = i2;
-                    if (this.f3708b != null) {
-                        this.f3708b.a();
-                    }
-                }
-            }
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f3696e = null;
-            this.f3695d = 0L;
-            this.f3697f = -1;
-        }
-    }
-
-    public synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (this.f3694c) {
-                    return;
-                }
-                if (this.f3708b != null && this.f3695d > 0 && this.f3696e != null) {
-                    if (System.currentTimeMillis() - this.f3696e.exceptionTime > this.f3707a && this.f3696e.exceptionTime > this.f3695d) {
-                        this.f3708b.b(new c.a.j0.a.d.b(this.f3697f, this.f3696e, this.f3695d));
-                        d();
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized void f(boolean z, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
-            synchronized (this) {
-                this.f3694c = z;
-                if (z) {
-                    this.f3695d = j2;
-                    this.f3696e = null;
-                }
-            }
-        }
+        this.f3562a = jSONObject;
     }
 }

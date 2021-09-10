@@ -61,7 +61,7 @@ public class ApkSignatureSchemeV2Verifier {
     public static final int SIGNATURE_RSA_PSS_WITH_SHA256 = 257;
     public static final int SIGNATURE_RSA_PSS_WITH_SHA512 = 258;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ByteBufferDataSource implements DataSource {
         public final ByteBuffer mBuf;
 
@@ -90,14 +90,14 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface DataSource {
         void feedIntoMessageDigests(MessageDigest[] messageDigestArr, long j2, int i2) throws IOException;
 
         long size();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class MemoryMappedFileDataSource implements DataSource {
         public final FileChannel mChannel;
         public final long mFilePosition;
@@ -124,7 +124,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SignatureInfo {
         public final long apkSigningBlockOffset;
         public final long centralDirOffset;
@@ -141,7 +141,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SignatureNotFoundException extends Exception {
         public static final long serialVersionUID = 1;
 
@@ -154,7 +154,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class VerbatimX509Certificate extends WrappedX509Certificate {
         public byte[] encodedVerbatim;
 
@@ -651,7 +651,7 @@ public class ApkSignatureSchemeV2Verifier {
 
     public static boolean hasSignature(String str) throws IOException {
         boolean z;
-        RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f42169a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f42280a);
         try {
             findSignature(randomAccessFile);
             z = true;
@@ -728,7 +728,7 @@ public class ApkSignatureSchemeV2Verifier {
     }
 
     public static X509Certificate[][] verify(String str) throws SignatureNotFoundException, SecurityException, IOException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f42169a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f42280a);
         try {
             return verify(randomAccessFile);
         } finally {
@@ -893,7 +893,7 @@ public class ApkSignatureSchemeV2Verifier {
 
     public static boolean hasSignature(File file) throws IOException {
         boolean z;
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42169a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42280a);
         try {
             findSignature(randomAccessFile);
             z = true;
@@ -908,7 +908,7 @@ public class ApkSignatureSchemeV2Verifier {
     }
 
     public static X509Certificate[][] verify(File file) throws SignatureNotFoundException, SecurityException, IOException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42169a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42280a);
         try {
             return verify(randomAccessFile);
         } finally {

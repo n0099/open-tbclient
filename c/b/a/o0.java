@@ -13,10 +13,10 @@ public final class o0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f31277a;
+    public static int f31386a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static DrLogWriter f31278b;
+    public static DrLogWriter f31387b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,14 +39,14 @@ public final class o0 {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, null, i2) == null) {
-            f31277a = i2;
+            f31386a = i2;
         }
     }
 
     public static void b(DrLogWriter drLogWriter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, drLogWriter) == null) {
-            f31278b = drLogWriter;
+            f31387b = drLogWriter;
         }
     }
 
@@ -60,7 +60,7 @@ public final class o0 {
     public static void d(String str, String str2, Throwable th) {
         DrLogWriter drLogWriter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) || (drLogWriter = f31278b) == null || f31277a > 2) {
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) || (drLogWriter = f31387b) == null || f31386a > 2) {
             return;
         }
         drLogWriter.logV(str, str2, th);
@@ -76,7 +76,7 @@ public final class o0 {
     public static void f(String str, String str2, Throwable th) {
         DrLogWriter drLogWriter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, th) == null) || (drLogWriter = f31278b) == null || f31277a > 3) {
+        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, th) == null) || (drLogWriter = f31387b) == null || f31386a > 3) {
             return;
         }
         drLogWriter.logD(str, str2, th);
@@ -92,7 +92,7 @@ public final class o0 {
     public static void h(String str, String str2, Throwable th) {
         DrLogWriter drLogWriter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65544, null, str, str2, th) == null) || (drLogWriter = f31278b) == null || f31277a > 6) {
+        if (!(interceptable == null || interceptable.invokeLLL(65544, null, str, str2, th) == null) || (drLogWriter = f31387b) == null || f31386a > 6) {
             return;
         }
         drLogWriter.logE(str, str2, th);

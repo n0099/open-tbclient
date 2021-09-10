@@ -9,10 +9,10 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.h;
 import c.a.e.e.m.e;
 import c.a.e.e.p.l;
-import c.a.p0.g0.b;
-import c.a.p0.g0.c;
-import c.a.p0.g0.d;
-import c.a.p0.t.c.n;
+import c.a.q0.h0.b;
+import c.a.q0.h0.c;
+import c.a.q0.h0.d;
+import c.a.q0.t.c.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -107,13 +107,13 @@ public class FlutterNewCategoryDelegateStatic extends b {
             if (c2 == null) {
                 return;
             }
-            if (c2.a() == n.f14716h) {
+            if (c2.a() == n.f14714h) {
                 if (!TextUtils.isEmpty(this.mFinalData.b())) {
                     c cVar = new c();
-                    cVar.f13482g = this.mFinalData.b();
-                    cVar.f13480e = 21;
+                    cVar.f13473g = this.mFinalData.b();
+                    cVar.f13471e = 21;
                     if (!TextUtils.isEmpty(this.mFinalData.c())) {
-                        cVar.f13478c = this.mFinalData.c();
+                        cVar.f13469c = this.mFinalData.c();
                     }
                     e.a().postDelayed(new Runnable(this, cVar) { // from class: com.baidu.tieba.flutter.base.view.FlutterNewCategoryDelegateStatic.4
                         public static /* synthetic */ Interceptable $ic;
@@ -149,13 +149,13 @@ public class FlutterNewCategoryDelegateStatic extends b {
                         }
                     }, 2000L);
                 }
-                TbSingleton.getInstance().getChannelConfigModel().d(n.f14716h);
-            } else if (this.mFinalData.a() == n.f14715g) {
+                TbSingleton.getInstance().getChannelConfigModel().d(n.f14714h);
+            } else if (this.mFinalData.a() == n.f14713g) {
                 MessageRedDotView messageRedDotView = this.tipView;
                 if (messageRedDotView != null) {
                     messageRedDotView.setVisibility(0);
                 }
-                TbSingleton.getInstance().getChannelConfigModel().d(n.f14715g);
+                TbSingleton.getInstance().getChannelConfigModel().d(n.f14713g);
             } else {
                 MessageRedDotView messageRedDotView2 = this.tipView;
                 if (messageRedDotView2 != null) {
@@ -217,7 +217,7 @@ public class FlutterNewCategoryDelegateStatic extends b {
         }
     }
 
-    @Override // c.a.p0.g0.b
+    @Override // c.a.q0.h0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -227,8 +227,8 @@ public class FlutterNewCategoryDelegateStatic extends b {
             newEngineFragmentBuilder.url(OpenFlutter.FRAGMENT_NEWCATEGORY);
             newEngineFragmentBuilder.isTabHost(true);
             FlutterFragment build = newEngineFragmentBuilder.build();
-            cVar.f13476a = build;
-            cVar.f13480e = 21;
+            cVar.f13467a = build;
+            cVar.f13471e = 21;
             ((TbFlutterFragment) build).setOnPrimaryListener(new TbFlutterFragmentLifeCircleInterface(this) { // from class: com.baidu.tieba.flutter.base.view.FlutterNewCategoryDelegateStatic.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -261,16 +261,16 @@ public class FlutterNewCategoryDelegateStatic extends b {
                 }
             });
             Resources b2 = h.a().b();
-            cVar.f13477b = b2.getIdentifier("new_category", "string", BdBaseApplication.getInst().getPackageName());
-            cVar.f13481f = b2.getIdentifier("lottie_tab_category", "raw", BdBaseApplication.getInst().getPackageName());
-            cVar.f13484i = c.l;
-            cVar.f13483h = c.a.p0.g0.e.c.d().c("channel");
+            cVar.f13468b = b2.getIdentifier("new_category", "string", BdBaseApplication.getInst().getPackageName());
+            cVar.f13472f = b2.getIdentifier("lottie_tab_category", "raw", BdBaseApplication.getInst().getPackageName());
+            cVar.f13475i = c.l;
+            cVar.f13474h = c.a.q0.h0.e.c.d().c("channel");
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // c.a.p0.g0.b
+    @Override // c.a.q0.h0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -278,14 +278,14 @@ public class FlutterNewCategoryDelegateStatic extends b {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().b().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
             this.tipView = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f48288f = this.mIndicator;
-            aVar.f48285c = l.e(context, 10.0f);
-            aVar.f48283a = this.tipView;
+            aVar.f48418f = this.mIndicator;
+            aVar.f48415c = l.e(context, 10.0f);
+            aVar.f48413a = this.tipView;
             this.mIndicator.addTipWrapContent(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
             this.tipView.refresh(0);
             n nVar = this.mFinalData;
             if (nVar != null) {
-                if (nVar.a() == n.f14715g) {
+                if (nVar.a() == n.f14713g) {
                     this.tipView.setVisibility(0);
                 } else {
                     this.tipView.setVisibility(8);
@@ -298,14 +298,14 @@ public class FlutterNewCategoryDelegateStatic extends b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.p0.g0.b
+    @Override // c.a.q0.h0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.NEW_CATEGORY_TAB_AVAIBLE : invokeV.booleanValue;
     }
 
-    @Override // c.a.p0.g0.b
+    @Override // c.a.q0.h0.b
     public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -314,7 +314,7 @@ public class FlutterNewCategoryDelegateStatic extends b {
         }
     }
 
-    @Override // c.a.p0.g0.b
+    @Override // c.a.q0.h0.b
     public void onRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

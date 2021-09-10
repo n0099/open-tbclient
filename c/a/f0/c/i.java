@@ -24,10 +24,10 @@ public class i extends e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3444a;
+    public static final boolean f3435a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f3445b;
+    public static final String[] f3436b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -65,8 +65,8 @@ public class i extends e {
                 return;
             }
         }
-        f3444a = c.a.f0.a.b.a.f3346a.get().t();
-        f3445b = new String[]{"deeplink", "open"};
+        f3435a = c.a.f0.a.b.a.f3337a.get().t();
+        f3436b = new String[]{"deeplink", "open"};
     }
 
     public i() {
@@ -88,7 +88,7 @@ public class i extends e {
         String[] strArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            for (String str : f3445b) {
+            for (String str : f3436b) {
                 hashMap.put("splash/ad/" + str, "splash_ad/" + str);
             }
         }
@@ -105,7 +105,7 @@ public class i extends e {
                 if (gVar.i()) {
                     return true;
                 }
-                if (f3444a) {
+                if (f3435a) {
                     String str = "invoke: " + gVar.h().toString();
                 }
                 char c2 = 65535;
@@ -119,7 +119,7 @@ public class i extends e {
                 }
                 if (c2 != 0) {
                     if (c2 != 1) {
-                        if (f3444a) {
+                        if (f3435a) {
                             throw new IllegalStateException("scheme action 不支持错误");
                         }
                         return false;
@@ -140,7 +140,7 @@ public class i extends e {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, gVar, aVar)) == null) {
             String str = gVar.f().get("params");
             if (TextUtils.isEmpty(str)) {
-                if (f3444a) {
+                if (f3435a) {
                     throw new IllegalStateException("action deeplink 没有params参数");
                 }
                 return false;
@@ -176,7 +176,7 @@ public class i extends e {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, gVar, aVar)) == null) {
             String str = gVar.f().get("params");
             if (TextUtils.isEmpty(str)) {
-                if (f3444a) {
+                if (f3435a) {
                     throw new IllegalStateException("action deeplink 没有params参数");
                 }
                 return false;
@@ -187,7 +187,7 @@ public class i extends e {
                 if (TextUtils.isEmpty(optString)) {
                     optString = jSONObject.optString("innerUrl");
                 }
-                if (f3444a) {
+                if (f3435a) {
                     String str2 = "openUrl: " + optString;
                 }
                 return g(optString, aVar);
@@ -202,19 +202,19 @@ public class i extends e {
     public final boolean g(@NonNull String str, c.a.f0.c.a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, aVar)) == null) ? c.a.f0.a.b.a.f3346a.get().w(str, new a(this, aVar)) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, aVar)) == null) ? c.a.f0.a.b.a.f3337a.get().w(str, new a(this, aVar)) : invokeLL.booleanValue;
     }
 
     public final void h(Als.Area area) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, area) == null) {
-            if (!TextUtils.isEmpty(c.a.f0.b.g.c.f3400a)) {
+            if (!TextUtils.isEmpty(c.a.f0.b.g.c.f3391a)) {
                 Als.c cVar = new Als.c(Als.Type.DEEP_LINK);
                 cVar.l(Als.Page.NA_DEEPLINK);
                 cVar.e(area);
-                cVar.m(c.a.f0.b.g.c.f3400a);
+                cVar.m(c.a.f0.b.g.c.f3391a);
                 Als.e(cVar);
-            } else if (f3444a) {
+            } else if (f3435a) {
                 throw new IllegalStateException("全局数据仓库获取数据失败，打点失败...");
             }
         }

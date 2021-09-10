@@ -41,7 +41,7 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ EnumMultiset f70283h;
+        public final /* synthetic */ EnumMultiset f70463h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EnumMultiset enumMultiset) {
@@ -61,7 +61,7 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
                     return;
                 }
             }
-            this.f70283h = enumMultiset;
+            this.f70463h = enumMultiset;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +70,7 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         public E a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (E) this.f70283h.enumConstants[i2] : (E) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (E) this.f70463h.enumConstants[i2] : (E) invokeI.objValue;
         }
     }
 
@@ -80,7 +80,7 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ EnumMultiset f70284h;
+        public final /* synthetic */ EnumMultiset f70464h;
 
         /* loaded from: classes10.dex */
         public class a extends Multisets.b<E> {
@@ -88,10 +88,10 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f70285e;
+            public final /* synthetic */ int f70465e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f70286f;
+            public final /* synthetic */ b f70466f;
 
             public a(b bVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -108,8 +108,8 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
                         return;
                     }
                 }
-                this.f70286f = bVar;
-                this.f70285e = i2;
+                this.f70466f = bVar;
+                this.f70465e = i2;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -118,14 +118,14 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
             public E getElement() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (E) this.f70286f.f70284h.enumConstants[this.f70285e] : (E) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (E) this.f70466f.f70464h.enumConstants[this.f70465e] : (E) invokeV.objValue;
             }
 
             @Override // c.i.d.c.s0.a
             public int getCount() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70286f.f70284h.counts[this.f70285e] : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70466f.f70464h.counts[this.f70465e] : invokeV.intValue;
             }
         }
 
@@ -147,7 +147,7 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
                     return;
                 }
             }
-            this.f70284h = enumMultiset;
+            this.f70464h = enumMultiset;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -166,13 +166,13 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f70287e;
+        public int f70467e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f70288f;
+        public int f70468f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ EnumMultiset f70289g;
+        public final /* synthetic */ EnumMultiset f70469g;
 
         public c(EnumMultiset enumMultiset) {
             Interceptable interceptable = $ic;
@@ -189,9 +189,9 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
                     return;
                 }
             }
-            this.f70289g = enumMultiset;
-            this.f70287e = 0;
-            this.f70288f = -1;
+            this.f70469g = enumMultiset;
+            this.f70467e = 0;
+            this.f70468f = -1;
         }
 
         public abstract T a(int i2);
@@ -201,13 +201,13 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                while (this.f70287e < this.f70289g.enumConstants.length) {
-                    int[] iArr = this.f70289g.counts;
-                    int i2 = this.f70287e;
+                while (this.f70467e < this.f70469g.enumConstants.length) {
+                    int[] iArr = this.f70469g.counts;
+                    int i2 = this.f70467e;
                     if (iArr[i2] > 0) {
                         return true;
                     }
-                    this.f70287e = i2 + 1;
+                    this.f70467e = i2 + 1;
                 }
                 return false;
             }
@@ -220,10 +220,10 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 if (hasNext()) {
-                    T a2 = a(this.f70287e);
-                    int i2 = this.f70287e;
-                    this.f70288f = i2;
-                    this.f70287e = i2 + 1;
+                    T a2 = a(this.f70467e);
+                    int i2 = this.f70467e;
+                    this.f70468f = i2;
+                    this.f70467e = i2 + 1;
                     return a2;
                 }
                 throw new NoSuchElementException();
@@ -235,13 +235,13 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                m.e(this.f70288f >= 0);
-                if (this.f70289g.counts[this.f70288f] > 0) {
-                    EnumMultiset.access$210(this.f70289g);
-                    this.f70289g.size -= this.f70289g.counts[this.f70288f];
-                    this.f70289g.counts[this.f70288f] = 0;
+                m.e(this.f70468f >= 0);
+                if (this.f70469g.counts[this.f70468f] > 0) {
+                    EnumMultiset.access$210(this.f70469g);
+                    this.f70469g.size -= this.f70469g.counts[this.f70468f];
+                    this.f70469g.counts[this.f70468f] = 0;
                 }
-                this.f70288f = -1;
+                this.f70468f = -1;
             }
         }
     }

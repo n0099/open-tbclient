@@ -9,7 +9,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f30321a;
+    public static int f30403a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
@@ -17,16 +17,16 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             String str = "";
-            if ((f30321a & 1) != 0) {
+            if ((f30403a & 1) != 0) {
                 str = "banner,";
             }
-            if ((f30321a & 2) != 0) {
+            if ((f30403a & 2) != 0) {
                 str = str + "follow,";
             }
-            if ((f30321a & 4) != 0) {
+            if ((f30403a & 4) != 0) {
                 str = str + "tab,";
             }
-            if ((f30321a & 8) != 0) {
+            if ((f30403a & 8) != 0) {
                 str = str + "feed,";
             }
             if (!TextUtils.isEmpty(str)) {
@@ -40,7 +40,7 @@ public class b {
     public static void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, null, i2) == null) {
-            f30321a = i2;
+            f30403a = i2;
         }
     }
 }

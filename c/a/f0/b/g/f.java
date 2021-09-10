@@ -36,13 +36,13 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3412a;
+    public static final boolean f3403a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f3413b;
+    public static d f3404b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<h> f3414c;
+    public static List<h> f3405c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -51,16 +51,16 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ File f3415e;
+        public final /* synthetic */ File f3406e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f3416f;
+        public final /* synthetic */ String f3407f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f3417g;
+        public final /* synthetic */ String f3408g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ File f3418h;
+        public final /* synthetic */ File f3409h;
 
         /* renamed from: c.a.f0.b.g.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -69,7 +69,7 @@ public class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f3419a;
+            public final /* synthetic */ a f3410a;
 
             public C0072a(a aVar) {
                 Interceptable interceptable = $ic;
@@ -86,22 +86,22 @@ public class f {
                         return;
                     }
                 }
-                this.f3419a = aVar;
+                this.f3410a = aVar;
             }
 
             @Override // c.a.f0.a.c.e.b
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (g.e() && !TextUtils.isEmpty(this.f3419a.f3417g) && !TextUtils.equals(c.a.f0.a.c.f.b(this.f3419a.f3415e), this.f3419a.f3417g)) {
-                        if (f.f3412a) {
-                            String str = "md5 check fail  url:" + this.f3419a.f3416f;
+                    if (g.e() && !TextUtils.isEmpty(this.f3410a.f3408g) && !TextUtils.equals(c.a.f0.a.c.f.b(this.f3410a.f3406e), this.f3410a.f3408g)) {
+                        if (f.f3403a) {
+                            String str = "md5 check fail  url:" + this.f3410a.f3407f;
                         }
-                        this.f3419a.f3415e.delete();
+                        this.f3410a.f3406e.delete();
                         return;
                     }
-                    a aVar = this.f3419a;
-                    f.v(aVar.f3415e, aVar.f3418h);
+                    a aVar = this.f3410a;
+                    f.v(aVar.f3406e, aVar.f3409h);
                 }
             }
         }
@@ -121,10 +121,10 @@ public class f {
                     return;
                 }
             }
-            this.f3415e = file;
-            this.f3416f = str;
-            this.f3417g = str2;
-            this.f3418h = file2;
+            this.f3406e = file;
+            this.f3407f = str;
+            this.f3408g = str2;
+            this.f3409h = file2;
         }
 
         @Override // java.lang.Runnable
@@ -132,9 +132,9 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    c.a.f0.a.c.e.b(this.f3415e, this.f3416f, new C0072a(this));
+                    c.a.f0.a.c.e.b(this.f3406e, this.f3407f, new C0072a(this));
                 } catch (Exception e2) {
-                    if (c.a.f0.a.b.a.f3346a.get().t()) {
+                    if (c.a.f0.a.b.a.f3337a.get().t()) {
                         e2.toString();
                     }
                 }
@@ -148,7 +148,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f3420e;
+        public final /* synthetic */ h f3411e;
 
         public b(h hVar) {
             Interceptable interceptable = $ic;
@@ -165,14 +165,14 @@ public class f {
                     return;
                 }
             }
-            this.f3420e = hVar;
+            this.f3411e = hVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f.x(this.f3420e);
+                f.x(this.f3411e);
             }
         }
     }
@@ -183,7 +183,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f3421e;
+        public final /* synthetic */ List f3412e;
 
         public c(List list) {
             Interceptable interceptable = $ic;
@@ -200,27 +200,27 @@ public class f {
                     return;
                 }
             }
-            this.f3421e = list;
+            this.f3412e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = f.f3412a;
-                List list = this.f3421e;
+                boolean unused = f.f3403a;
+                List list = this.f3412e;
                 if (list == null || list.size() == 0) {
                     return;
                 }
                 ArrayList arrayList = new ArrayList(3);
-                Iterator it = this.f3421e.iterator();
+                Iterator it = this.f3412e.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     h hVar = (h) it.next();
                     if (hVar == null) {
-                        boolean unused2 = f.f3412a;
+                        boolean unused2 = f.f3403a;
                         break;
                     } else if (c.a.f0.a.c.h.a(hVar.v)) {
                         f.h(hVar);
@@ -229,12 +229,12 @@ public class f {
                     }
                 }
                 if (arrayList.size() > 0) {
-                    if (f.f3413b == null) {
-                        d unused3 = f.f3413b = new d(arrayList, null);
-                        c.a.f0.a.b.a.f3346a.get().p().registerReceiver(f.f3413b, f.f3413b.getIntentFilter());
+                    if (f.f3404b == null) {
+                        d unused3 = f.f3404b = new d(arrayList, null);
+                        c.a.f0.a.b.a.f3337a.get().p().registerReceiver(f.f3404b, f.f3404b.getIntentFilter());
                         return;
                     }
-                    f.f3413b.setNeedDownloadList(arrayList);
+                    f.f3404b.setNeedDownloadList(arrayList);
                 }
             }
         }
@@ -318,7 +318,7 @@ public class f {
                 return;
             }
         }
-        f3412a = c.a.f0.a.a.a.f3344a;
+        f3403a = c.a.f0.a.a.a.f3335a;
     }
 
     public static int e(h hVar) {
@@ -348,11 +348,11 @@ public class f {
             if (currentTimeMillis - a2 < hVar.t * 60000) {
                 i2 |= 16;
             }
-            File o = o(hVar.f3428g);
+            File o = o(hVar.f3419g);
             if (o == null || !o.exists()) {
                 i2 |= 4;
             }
-            if (f3412a) {
+            if (f3403a) {
                 String str = "物料不满足展示条件 reason ：" + i2;
             }
             return i2;
@@ -371,7 +371,7 @@ public class f {
                 ArrayList arrayList = new ArrayList(list.size());
                 for (h hVar : list) {
                     if (hVar != null) {
-                        arrayList.add(k(hVar.f3428g));
+                        arrayList.add(k(hVar.f3419g));
                         arrayList.add(k(hVar.y));
                         arrayList.add(k(hVar.G));
                     }
@@ -389,8 +389,8 @@ public class f {
 
     public static void h(h hVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, hVar) == null) && URLUtil.isNetworkUrl(hVar.f3428g)) {
-            i(hVar.f3428g, hVar.f3431j);
+        if ((interceptable == null || interceptable.invokeL(65544, null, hVar) == null) && URLUtil.isNetworkUrl(hVar.f3419g)) {
+            i(hVar.f3419g, hVar.f3422j);
             if (!TextUtils.isEmpty(hVar.y)) {
                 i(hVar.y, "");
             }
@@ -416,13 +416,13 @@ public class f {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0025, code lost:
-        if (c.a.f0.b.g.f.f3412a == false) goto L13;
+        if (c.a.f0.b.g.f.f3403a == false) goto L13;
      */
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0027, code lost:
         r4.printStackTrace();
      */
     /* JADX WARN: Code restructure failed: missing block: B:31:0x0044, code lost:
-        if (c.a.f0.b.g.f.f3412a == false) goto L13;
+        if (c.a.f0.b.g.f.f3403a == false) goto L13;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -451,7 +451,7 @@ public class f {
                         } catch (Exception e3) {
                             e = e3;
                             bufferedReader = bufferedReader2;
-                            if (f3412a) {
+                            if (f3403a) {
                                 e.printStackTrace();
                             }
                             if (bufferedReader != null) {
@@ -469,7 +469,7 @@ public class f {
                                 try {
                                     bufferedReader.close();
                                 } catch (Exception e5) {
-                                    if (f3412a) {
+                                    if (f3403a) {
                                         e5.printStackTrace();
                                     }
                                 }
@@ -558,33 +558,33 @@ public class f {
         String j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            if (f3414c != null) {
-                if (f3412a) {
-                    String str = "from cache splashDataItemList:" + f3414c.size();
+            if (f3405c != null) {
+                if (f3403a) {
+                    String str = "from cache splashDataItemList:" + f3405c.size();
                 }
-                return f3414c;
+                return f3405c;
             }
-            f3414c = Collections.synchronizedList(new ArrayList());
+            f3405c = Collections.synchronizedList(new ArrayList());
             File n = n();
             if (n.exists() && (j2 = j(n)) != null) {
-                if (f3412a) {
+                if (f3403a) {
                     String str2 = "from local content:" + j2;
                 }
                 try {
                     JSONArray jSONArray = new JSONArray(j2);
-                    if (f3412a) {
+                    if (f3403a) {
                         String str3 = "JSONArray" + jSONArray.length();
                     }
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        f3414c.add(h.b(jSONArray.optJSONObject(i2)));
+                        f3405c.add(h.b(jSONArray.optJSONObject(i2)));
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                if (f3412a) {
-                    String str4 = "from local splashDataItemList:" + f3414c.size();
+                if (f3403a) {
+                    String str4 = "from local splashDataItemList:" + f3405c.size();
                 }
-                return f3414c;
+                return f3405c;
             }
             return null;
         }
@@ -602,7 +602,7 @@ public class f {
                     JSONArray jSONArray = new JSONArray(j(n));
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         h b2 = h.b((JSONObject) jSONArray.get(i2));
-                        hashMap.put(b2.f3423b, b2);
+                        hashMap.put(b2.f3414b, b2);
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
@@ -649,9 +649,9 @@ public class f {
                     } else {
                         i2 |= f2;
                         try {
-                            jSONObject.put(hVar.f3424c, f2);
+                            jSONObject.put(hVar.f3415c, f2);
                         } catch (JSONException e2) {
-                            if (f3412a) {
+                            if (f3403a) {
                                 e2.printStackTrace();
                             }
                         }
@@ -676,7 +676,7 @@ public class f {
         FileWriter fileWriter;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, list, file)) == null) {
-            if (f3412a) {
+            if (f3403a) {
                 String str = "persistListToFile size:" + list.size();
             }
             int i3 = 0;
@@ -701,7 +701,7 @@ public class f {
                     }
                     stringBuffer.append(hVarArr[i2].k());
                     stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
-                    if (f3412a) {
+                    if (f3403a) {
                         String str2 = "persistListToFile:" + stringBuffer.toString();
                     }
                     fileWriter = new FileWriter(file);
@@ -716,7 +716,7 @@ public class f {
                 try {
                     fileWriter.close();
                 } catch (Exception e3) {
-                    if (f3412a) {
+                    if (f3403a) {
                         e3.printStackTrace();
                     }
                 }
@@ -724,14 +724,14 @@ public class f {
             } catch (IOException e4) {
                 fileWriter2 = fileWriter;
                 e = e4;
-                if (f3412a) {
+                if (f3403a) {
                     e.printStackTrace();
                 }
                 if (fileWriter2 != null) {
                     try {
                         fileWriter2.close();
                     } catch (Exception e5) {
-                        if (f3412a) {
+                        if (f3403a) {
                             e5.printStackTrace();
                         }
                     }
@@ -744,7 +744,7 @@ public class f {
                     try {
                         fileWriter2.close();
                     } catch (Exception e6) {
-                        if (f3412a) {
+                        if (f3403a) {
                             e6.printStackTrace();
                         }
                     }
@@ -783,12 +783,12 @@ public class f {
             if (p == null || p.size() == 0) {
                 return;
             }
-            if (f3412a) {
+            if (f3403a) {
                 String str = "updateSplashDataItem--->getSplashDataItemList:" + p.size();
             }
             for (int i2 = 0; i2 < p.size(); i2++) {
                 h hVar2 = p.get(i2);
-                if (TextUtils.equals(hVar.f3423b, hVar2.f3423b)) {
+                if (TextUtils.equals(hVar.f3414b, hVar2.f3414b)) {
                     h.l(hVar2, hVar);
                     arrayList.add(hVar2);
                 } else {
@@ -816,7 +816,7 @@ public class f {
         if (!(interceptable == null || interceptable.invokeL(65562, null, list) == null) || list == null || list.size() == 0) {
             return;
         }
-        f3414c = Collections.synchronizedList(list);
+        f3405c = Collections.synchronizedList(list);
         u(list, n());
     }
 }

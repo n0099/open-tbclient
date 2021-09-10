@@ -19,13 +19,13 @@ public class MistLayorView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Paint f63485a;
+    public final Paint f63665a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f63486b;
+    public final int f63666b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f63487c;
+    public Rect f63667c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MistLayorView(Context context, AttributeSet attributeSet) {
@@ -46,15 +46,15 @@ public class MistLayorView extends View {
                 return;
             }
         }
-        this.f63487c = new Rect();
-        this.f63485a = new Paint();
-        this.f63486b = Color.argb(127, 0, 0, 0);
+        this.f63667c = new Rect();
+        this.f63665a = new Paint();
+        this.f63666b = Color.argb(127, 0, 0, 0);
     }
 
     public Rect getFocusFrame() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63487c : (Rect) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63667c : (Rect) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -64,25 +64,25 @@ public class MistLayorView extends View {
             super.onDraw(canvas);
             int width = canvas.getWidth();
             int height = canvas.getHeight();
-            this.f63485a.setColor(this.f63486b);
-            if (this.f63487c.width() == 0) {
-                canvas.drawRect(0.0f, 0.0f, width, height, this.f63485a);
+            this.f63665a.setColor(this.f63666b);
+            if (this.f63667c.width() == 0) {
+                canvas.drawRect(0.0f, 0.0f, width, height, this.f63665a);
                 return;
             }
             float f2 = width;
-            canvas.drawRect(0.0f, 0.0f, f2, this.f63487c.top, this.f63485a);
-            Rect rect = this.f63487c;
-            canvas.drawRect(0.0f, rect.top, rect.left, rect.bottom + 1, this.f63485a);
-            Rect rect2 = this.f63487c;
-            canvas.drawRect(rect2.right + 1, rect2.top, f2, rect2.bottom + 1, this.f63485a);
-            canvas.drawRect(0.0f, this.f63487c.bottom + 1, f2, height, this.f63485a);
+            canvas.drawRect(0.0f, 0.0f, f2, this.f63667c.top, this.f63665a);
+            Rect rect = this.f63667c;
+            canvas.drawRect(0.0f, rect.top, rect.left, rect.bottom + 1, this.f63665a);
+            Rect rect2 = this.f63667c;
+            canvas.drawRect(rect2.right + 1, rect2.top, f2, rect2.bottom + 1, this.f63665a);
+            canvas.drawRect(0.0f, this.f63667c.bottom + 1, f2, height, this.f63665a);
         }
     }
 
     public void setFocusFrame(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rect) == null) {
-            this.f63487c = rect;
+            this.f63667c = rect;
             invalidate();
         }
     }

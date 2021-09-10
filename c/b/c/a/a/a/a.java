@@ -26,10 +26,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static InterfaceC1446a f31365a;
+    public static InterfaceC1446a f31474a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f31366b;
+    public static boolean f31475b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.b.c.a.a.a.a$a  reason: collision with other inner class name */
@@ -112,7 +112,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, list)) == null) {
-            if (TextUtils.isEmpty(str) || f31365a == null || f31366b) {
+            if (TextUtils.isEmpty(str) || f31474a == null || f31475b) {
                 return str;
             }
             LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -136,12 +136,12 @@ public class a {
                 }
                 String encodeToString = Base64.encodeToString(a2, 2);
                 LinkedList linkedList2 = new LinkedList();
-                if (f31365a.a()) {
+                if (f31474a.a()) {
                     LinkedList linkedList3 = new LinkedList();
                     linkedList3.add(encodeToString);
                     linkedList2.add(new Pair("ss_queries", linkedList3));
                 }
-                if (f31365a.b() && list != null) {
+                if (f31474a.b() && list != null) {
                     list.add(new Pair<>("X-SS-QUERIES", b(encodeToString, "UTF-8")));
                 }
                 if (!linkedHashMap.isEmpty()) {
@@ -239,7 +239,7 @@ public class a {
                 return false;
             }
             list.add(new Pair<>(str, map.get(str)));
-            if (f31365a.c()) {
+            if (f31474a.c()) {
                 return true;
             }
             map.remove(str);

@@ -27,10 +27,11 @@ public class CallSessionFileRotatingLogSink {
                 return;
             }
         }
-        if (str == null) {
-            throw new IllegalArgumentException("dirPath may not be null.");
+        if (str != null) {
+            this.nativeSink = nativeAddSink(str, i2, severity.ordinal());
+            return;
         }
-        this.nativeSink = nativeAddSink(str, i2, severity.ordinal());
+        throw new IllegalArgumentException("dirPath may not be null.");
     }
 
     public static byte[] getLogData(String str) {

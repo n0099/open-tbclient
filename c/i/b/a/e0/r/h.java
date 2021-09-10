@@ -16,10 +16,10 @@ public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f33504a;
+    public static final Pattern f33613a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f33505b;
+    public static final Pattern f33614b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,8 +35,8 @@ public final class h {
                 return;
             }
         }
-        f33504a = Pattern.compile("^NOTE(( |\t).*)?$");
-        f33505b = Pattern.compile("^\ufeff?WEBVTT(( |\t).*)?$");
+        f33613a = Pattern.compile("^NOTE(( |\t).*)?$");
+        f33614b = Pattern.compile("^\ufeff?WEBVTT(( |\t).*)?$");
     }
 
     public static Matcher a(l lVar) {
@@ -51,14 +51,14 @@ public final class h {
             if (k2 == null) {
                 return null;
             }
-            if (f33504a.matcher(k2).matches()) {
+            if (f33613a.matcher(k2).matches()) {
                 do {
                     k = lVar.k();
                     if (k != null) {
                     }
                 } while (!k.isEmpty());
             } else {
-                Matcher matcher = f.f33494b.matcher(k2);
+                Matcher matcher = f.f33603b.matcher(k2);
                 if (matcher.matches()) {
                     return matcher;
                 }
@@ -100,7 +100,7 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, lVar) == null) {
             String k = lVar.k();
-            if (k == null || !f33505b.matcher(k).matches()) {
+            if (k == null || !f33614b.matcher(k).matches()) {
                 throw new SubtitleDecoderException("Expected WEBVTT. Got " + k);
             }
         }

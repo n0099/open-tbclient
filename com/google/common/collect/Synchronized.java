@@ -141,7 +141,7 @@ public final class Synchronized {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ SynchronizedAsMapValues f70562f;
+            public final /* synthetic */ SynchronizedAsMapValues f70742f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(SynchronizedAsMapValues synchronizedAsMapValues, Iterator it) {
@@ -161,7 +161,7 @@ public final class Synchronized {
                         return;
                     }
                 }
-                this.f70562f = synchronizedAsMapValues;
+                this.f70742f = synchronizedAsMapValues;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -170,7 +170,7 @@ public final class Synchronized {
             public Collection<V> a(Collection<V> collection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) ? Synchronized.q(collection, this.f70562f.mutex) : (Collection) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) ? Synchronized.q(collection, this.f70742f.mutex) : (Collection) invokeL.objValue;
             }
         }
 
@@ -1782,7 +1782,7 @@ public final class Synchronized {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ SynchronizedTable f70563e;
+            public final /* synthetic */ SynchronizedTable f70743e;
 
             public a(SynchronizedTable synchronizedTable) {
                 Interceptable interceptable = $ic;
@@ -1799,7 +1799,7 @@ public final class Synchronized {
                         return;
                     }
                 }
-                this.f70563e = synchronizedTable;
+                this.f70743e = synchronizedTable;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1808,7 +1808,7 @@ public final class Synchronized {
             public Map<C, V> apply(Map<C, V> map) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) ? Synchronized.i(map, this.f70563e.mutex) : (Map) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) ? Synchronized.i(map, this.f70743e.mutex) : (Map) invokeL.objValue;
             }
         }
 
@@ -1818,7 +1818,7 @@ public final class Synchronized {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ SynchronizedTable f70564e;
+            public final /* synthetic */ SynchronizedTable f70744e;
 
             public b(SynchronizedTable synchronizedTable) {
                 Interceptable interceptable = $ic;
@@ -1835,7 +1835,7 @@ public final class Synchronized {
                         return;
                     }
                 }
-                this.f70564e = synchronizedTable;
+                this.f70744e = synchronizedTable;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1844,7 +1844,7 @@ public final class Synchronized {
             public Map<R, V> apply(Map<R, V> map) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) ? Synchronized.i(map, this.f70564e.mutex) : (Map) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) ? Synchronized.i(map, this.f70744e.mutex) : (Map) invokeL.objValue;
             }
         }
 
@@ -2743,7 +2743,7 @@ public final class Synchronized {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ SynchronizedAsMapEntries f70559f;
+            public final /* synthetic */ SynchronizedAsMapEntries f70739f;
 
             /* renamed from: com.google.common.collect.Synchronized$SynchronizedAsMapEntries$a$a  reason: collision with other inner class name */
             /* loaded from: classes10.dex */
@@ -2752,10 +2752,10 @@ public final class Synchronized {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Map.Entry f70560e;
+                public final /* synthetic */ Map.Entry f70740e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ a f70561f;
+                public final /* synthetic */ a f70741f;
 
                 public C1964a(a aVar, Map.Entry entry) {
                     Interceptable interceptable = $ic;
@@ -2772,8 +2772,8 @@ public final class Synchronized {
                             return;
                         }
                     }
-                    this.f70561f = aVar;
-                    this.f70560e = entry;
+                    this.f70741f = aVar;
+                    this.f70740e = entry;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -2782,7 +2782,7 @@ public final class Synchronized {
                 public Map.Entry<K, Collection<V>> delegate() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70560e : (Map.Entry) invokeV.objValue;
+                    return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70740e : (Map.Entry) invokeV.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -2791,7 +2791,7 @@ public final class Synchronized {
                 public Collection<V> getValue() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Synchronized.q((Collection) this.f70560e.getValue(), this.f70561f.f70559f.mutex) : (Collection) invokeV.objValue;
+                    return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Synchronized.q((Collection) this.f70740e.getValue(), this.f70741f.f70739f.mutex) : (Collection) invokeV.objValue;
                 }
             }
 
@@ -2813,7 +2813,7 @@ public final class Synchronized {
                         return;
                     }
                 }
-                this.f70559f = synchronizedAsMapEntries;
+                this.f70739f = synchronizedAsMapEntries;
             }
 
             /* JADX DEBUG: Method merged with bridge method */

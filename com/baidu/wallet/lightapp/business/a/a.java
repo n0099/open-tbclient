@@ -17,7 +17,7 @@ public class a extends BaseBean {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61816a;
+    public String f61996a;
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
@@ -33,7 +33,7 @@ public class a extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("cate[lbconfig]", this.f61816a));
+            arrayList.add(new RestNameValuePair("cate[lbconfig]", this.f61996a));
             return arrayList;
         }
         return (List) invokeV.objValue;

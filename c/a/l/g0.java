@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.l.a;
 import c.a.l.v0.a;
-import c.a.p0.s.q.c2;
+import c.a.q0.s.q.d2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.RichTextLayout;
 import com.baidu.tbadk.TbPageContext;
@@ -22,7 +22,7 @@ public class g0 extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RichTextLayout l;
-    public c.a.p0.s.q.a m;
+    public c.a.q0.s.q.a m;
     public int n;
     public String o;
 
@@ -32,7 +32,7 @@ public class g0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g0 f3810e;
+        public final /* synthetic */ g0 f3803e;
 
         public a(g0 g0Var) {
             Interceptable interceptable = $ic;
@@ -49,18 +49,18 @@ public class g0 extends h {
                     return;
                 }
             }
-            this.f3810e = g0Var;
+            this.f3803e = g0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             g0 g0Var;
-            a.InterfaceC0094a interfaceC0094a;
+            a.InterfaceC0093a interfaceC0093a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0094a = (g0Var = this.f3810e).f3792i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0093a = (g0Var = this.f3803e).f3785i) == null) {
                 return;
             }
-            interfaceC0094a.a(g0Var.m);
+            interfaceC0093a.a(g0Var.m);
         }
     }
 
@@ -70,7 +70,7 @@ public class g0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g0 f3811a;
+        public final /* synthetic */ g0 f3804a;
 
         public b(g0 g0Var) {
             Interceptable interceptable = $ic;
@@ -87,19 +87,19 @@ public class g0 extends h {
                     return;
                 }
             }
-            this.f3811a = g0Var;
+            this.f3804a = g0Var;
         }
 
         @Override // c.a.l.v0.a.b
-        public boolean a(a.C0096a c0096a) {
+        public boolean a(a.C0095a c0095a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0096a)) == null) {
-                if (this.f3811a.m != null && this.f3811a.m.getThreadData() != null && !this.f3811a.e().booleanValue()) {
-                    c2 threadData = this.f3811a.m.getThreadData();
-                    c.a.q0.a0.m.a(threadData.f0());
-                    c.a.q0.a0.m.l(this.f3811a.l.mTitle, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.q0.a0.m.l(this.f3811a.l.mAbstract, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
+                if (this.f3804a.m != null && this.f3804a.m.getThreadData() != null && !this.f3804a.e().booleanValue()) {
+                    d2 threadData = this.f3804a.m.getThreadData();
+                    c.a.r0.a0.m.a(threadData.f0());
+                    c.a.r0.a0.m.l(this.f3804a.l.mTitle, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.a0.m.l(this.f3804a.l.mAbstract, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -159,7 +159,7 @@ public class g0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: t */
-    public void onBindDataToView(c.a.p0.s.q.a aVar) {
+    public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.m = aVar;
@@ -177,10 +177,10 @@ public class g0 extends h {
         }
     }
 
-    public void v(a.InterfaceC0094a interfaceC0094a) {
+    public void v(a.InterfaceC0093a interfaceC0093a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0094a) == null) {
-            this.f3792i = interfaceC0094a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0093a) == null) {
+            this.f3785i = interfaceC0093a;
         }
     }
 

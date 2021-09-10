@@ -16,10 +16,10 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Long f3182a;
+    public static Long f3173a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Long f3183b;
+    public static Long f3174b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,14 +35,14 @@ public final class a {
                 return;
             }
         }
-        f3182a = 0L;
-        f3183b = 0L;
+        f3173a = 0L;
+        f3174b = 0L;
     }
 
     public static final void a() {
         Long l;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (l = f3183b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (l = f3174b) == null) {
             return;
         }
         if (l == null) {
@@ -51,7 +51,7 @@ public final class a {
         if (l.longValue() > 0) {
             JSONObject jSONObject = new JSONObject();
             try {
-                Long l2 = f3183b;
+                Long l2 = f3174b;
                 if (l2 == null) {
                     Intrinsics.throwNpe();
                 }
@@ -62,14 +62,14 @@ public final class a {
             b bVar = new b(Constants.DEFAULT_UIN);
             bVar.b(jSONObject);
             d.b(bVar);
-            f3183b = 0L;
+            f3174b = 0L;
         }
     }
 
     public static final void b() {
         Long l;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (l = f3182a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (l = f3173a) == null) {
             return;
         }
         if (l == null) {
@@ -78,7 +78,7 @@ public final class a {
         if (l.longValue() > 0) {
             JSONObject jSONObject = new JSONObject();
             try {
-                Long l2 = f3182a;
+                Long l2 = f3173a;
                 if (l2 == null) {
                     Intrinsics.throwNpe();
                 }
@@ -89,14 +89,14 @@ public final class a {
             b bVar = new b(Constants.DEFAULT_UIN);
             bVar.b(jSONObject);
             d.b(bVar);
-            f3182a = 0L;
+            f3173a = 0L;
         }
     }
 
     public static final void c(Long l) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, l) == null) {
-            f3182a = l;
+            f3173a = l;
         }
     }
 
@@ -123,7 +123,7 @@ public final class a {
     public static final void e(Long l) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, l) == null) {
-            f3183b = l;
+            f3174b = l;
         }
     }
 

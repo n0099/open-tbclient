@@ -9,18 +9,18 @@ import android.os.HandlerThread;
 import android.util.Log;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.RTCAudioSamples;
+import com.baidu.rtc.record.RTCVideoFileRenderer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import h.c.i0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import org.webrtc.EglBase;
-import org.webrtc.EglBase_CC;
 import org.webrtc.GlRectDrawer;
 import org.webrtc.VideoFrame;
 import org.webrtc.VideoFrameDrawer;
@@ -115,7 +115,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
         if (!(interceptable == null || interceptable.invokeL(65537, this, rTCAudioSamples) == null) || rTCAudioSamples == null) {
             return;
         }
-        this.audioThreadHandler.post(new Runnable() { // from class: com.baidu.rtc.record._$$Lambda$RTCVideoFileRenderer$IR4KFudZn8pFkt9qCB0HXfxm5xE
+        this.audioThreadHandler.post(new Runnable() { // from class: c.a.i0.e.c
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,7 +123,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             public final void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    RTCVideoFileRenderer.lambda$audioSamplesRecord$2(RTCVideoFileRenderer.this, rTCAudioSamples);
+                    RTCVideoFileRenderer.this.a(rTCAudioSamples);
                 }
             }
         });
@@ -283,7 +283,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                 MediaCodec createEncoderByType = MediaCodec.createEncoderByType(this.encodeParams.getVideoCodec());
                 this.videoEncoder = createEncoderByType;
                 createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.rtc.record._$$Lambda$RTCVideoFileRenderer$4X3W21YKlCQ0fnPh79e7wedKXWM
+                this.renderThreadHandler.post(new Runnable() { // from class: c.a.i0.e.b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -291,7 +291,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            RTCVideoFileRenderer.lambda$initVideoEncoder$0(RTCVideoFileRenderer.this);
+                            RTCVideoFileRenderer.this.b();
                         }
                     }
                 });
@@ -301,78 +301,12 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
         }
     }
 
-    public static /* synthetic */ void lambda$audioSamplesRecord$2(RTCVideoFileRenderer rTCVideoFileRenderer, RTCAudioSamples rTCAudioSamples) {
-        if (rTCVideoFileRenderer.audioEncoder == null) {
-            rTCVideoFileRenderer.initStartAudioEncoder(rTCAudioSamples);
-        }
-        int dequeueInputBuffer = rTCVideoFileRenderer.audioEncoder.dequeueInputBuffer(0L);
-        if (dequeueInputBuffer >= 0) {
-            ByteBuffer byteBuffer = rTCVideoFileRenderer.audioInputBuffers[dequeueInputBuffer];
-            byteBuffer.clear();
-            byte[] data = rTCAudioSamples.getData();
-            byteBuffer.put(data);
-            rTCVideoFileRenderer.audioEncoder.queueInputBuffer(dequeueInputBuffer, 0, data.length, rTCVideoFileRenderer.presTime, 0);
-            rTCVideoFileRenderer.presTime += ((data.length / 2) * 1000000) / rTCVideoFileRenderer.encodeParams.getAudioSampleRate();
-        }
-        rTCVideoFileRenderer.drainAudio();
-    }
-
-    public static /* synthetic */ void lambda$initVideoEncoder$0(RTCVideoFileRenderer rTCVideoFileRenderer) {
-        rTCVideoFileRenderer.eglBase = EglBase_CC.create(rTCVideoFileRenderer.sharedContext, EglBase.CONFIG_RECORDABLE);
-        Surface createInputSurface = rTCVideoFileRenderer.videoEncoder.createInputSurface();
-        rTCVideoFileRenderer.surface = createInputSurface;
-        rTCVideoFileRenderer.eglBase.createSurface(createInputSurface);
-        rTCVideoFileRenderer.eglBase.makeCurrent();
-        rTCVideoFileRenderer.drawer = new GlRectDrawer();
-    }
-
-    public static /* synthetic */ void lambda$release$3(RTCVideoFileRenderer rTCVideoFileRenderer) {
-        MediaCodec mediaCodec = rTCVideoFileRenderer.audioEncoder;
-        if (mediaCodec != null) {
-            mediaCodec.flush();
-            rTCVideoFileRenderer.audioEncoder.stop();
-            rTCVideoFileRenderer.audioEncoder.release();
-            rTCVideoFileRenderer.audioEncoder = null;
-        }
-        try {
-            if (rTCVideoFileRenderer.mediaMuxer != null && rTCVideoFileRenderer.muxerStarted) {
-                rTCVideoFileRenderer.mediaMuxer.stop();
-                rTCVideoFileRenderer.mediaMuxer.release();
-                if (rTCVideoFileRenderer.mCallback != null) {
-                    rTCVideoFileRenderer.mCallback.onRecordCompleted(true, rTCVideoFileRenderer.outputFileName);
-                }
-            } else if (rTCVideoFileRenderer.mCallback != null) {
-                rTCVideoFileRenderer.mCallback.onRecordCompleted(false, "Record is not started!");
-            }
-        } catch (IllegalStateException e2) {
-            String str = "Stop media muxer exception : " + e2.getLocalizedMessage();
-            RecorderCallback recorderCallback = rTCVideoFileRenderer.mCallback;
-            if (recorderCallback != null) {
-                recorderCallback.onRecordCompleted(false, e2.getLocalizedMessage());
-            }
-        }
-        rTCVideoFileRenderer.audioThread.quit();
-    }
-
-    public static /* synthetic */ void lambda$release$4(RTCVideoFileRenderer rTCVideoFileRenderer) {
-        MediaCodec mediaCodec = rTCVideoFileRenderer.videoEncoder;
-        if (mediaCodec != null) {
-            mediaCodec.flush();
-            rTCVideoFileRenderer.videoEncoder.stop();
-            rTCVideoFileRenderer.videoEncoder.release();
-            rTCVideoFileRenderer.videoEncoder = null;
-        }
-        rTCVideoFileRenderer.renderThread.quit();
-        EglBase eglBase = rTCVideoFileRenderer.eglBase;
-        if (eglBase != null) {
-            eglBase.release();
-        }
-    }
-
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
-    public void renderFrameOnRenderThread(VideoFrame videoFrame) {
+    /* renamed from: renderFrameOnRenderThread */
+    public void c(VideoFrame videoFrame) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, this, videoFrame) == null) {
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, videoFrame) == null) {
             if (this.frameDrawer == null) {
                 this.frameDrawer = new VideoFrameDrawer();
             }
@@ -383,15 +317,83 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
         }
     }
 
+    public /* synthetic */ void a(RTCAudioSamples rTCAudioSamples) {
+        if (this.audioEncoder == null) {
+            initStartAudioEncoder(rTCAudioSamples);
+        }
+        int dequeueInputBuffer = this.audioEncoder.dequeueInputBuffer(0L);
+        if (dequeueInputBuffer >= 0) {
+            ByteBuffer byteBuffer = this.audioInputBuffers[dequeueInputBuffer];
+            byteBuffer.clear();
+            byte[] data = rTCAudioSamples.getData();
+            byteBuffer.put(data);
+            this.audioEncoder.queueInputBuffer(dequeueInputBuffer, 0, data.length, this.presTime, 0);
+            this.presTime += ((data.length / 2) * 1000000) / this.encodeParams.getAudioSampleRate();
+        }
+        drainAudio();
+    }
+
+    public /* synthetic */ void b() {
+        this.eglBase = i0.c(this.sharedContext, EglBase.CONFIG_RECORDABLE);
+        Surface createInputSurface = this.videoEncoder.createInputSurface();
+        this.surface = createInputSurface;
+        this.eglBase.createSurface(createInputSurface);
+        this.eglBase.makeCurrent();
+        this.drawer = new GlRectDrawer();
+    }
+
+    public /* synthetic */ void d() {
+        MediaCodec mediaCodec = this.audioEncoder;
+        if (mediaCodec != null) {
+            mediaCodec.flush();
+            this.audioEncoder.stop();
+            this.audioEncoder.release();
+            this.audioEncoder = null;
+        }
+        try {
+            if (this.mediaMuxer != null && this.muxerStarted) {
+                this.mediaMuxer.stop();
+                this.mediaMuxer.release();
+                if (this.mCallback != null) {
+                    this.mCallback.onRecordCompleted(true, this.outputFileName);
+                }
+            } else if (this.mCallback != null) {
+                this.mCallback.onRecordCompleted(false, "Record is not started!");
+            }
+        } catch (IllegalStateException e2) {
+            String str = "Stop media muxer exception : " + e2.getLocalizedMessage();
+            RecorderCallback recorderCallback = this.mCallback;
+            if (recorderCallback != null) {
+                recorderCallback.onRecordCompleted(false, e2.getLocalizedMessage());
+            }
+        }
+        this.audioThread.quit();
+    }
+
+    public /* synthetic */ void e() {
+        MediaCodec mediaCodec = this.videoEncoder;
+        if (mediaCodec != null) {
+            mediaCodec.flush();
+            this.videoEncoder.stop();
+            this.videoEncoder.release();
+            this.videoEncoder = null;
+        }
+        this.renderThread.quit();
+        EglBase eglBase = this.eglBase;
+        if (eglBase != null) {
+            eglBase.release();
+        }
+    }
+
     @Override // org.webrtc.VideoSink
     public void onFrame(final VideoFrame videoFrame) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, videoFrame) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, videoFrame) == null) {
             videoFrame.retain();
             if (this.videoEncoder == null) {
                 initVideoEncoder();
             }
-            this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.rtc.record._$$Lambda$RTCVideoFileRenderer$Z3ulws2pi3dcvoGS1q2LU3OTpMQ
+            this.renderThreadHandler.post(new Runnable() { // from class: c.a.i0.e.e
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -399,7 +401,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        RTCVideoFileRenderer.this.renderFrameOnRenderThread(videoFrame);
+                        RTCVideoFileRenderer.this.c(videoFrame);
                     }
                 }
             });
@@ -409,7 +411,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
     @Override // com.baidu.rtc.RTCAudioSamples.RTCRemoteSamplesReadyCallback
     public void onRtcAudioRemoteSamplesReady(RTCAudioSamples rTCAudioSamples) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rTCAudioSamples) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, rTCAudioSamples) == null) {
             if (this.audioEncodeBufferSize + rTCAudioSamples.getData().length > 3840) {
                 RTCAudioSamples rTCAudioSamples2 = new RTCAudioSamples(rTCAudioSamples.getAudioFormat(), rTCAudioSamples.getChannelCount(), rTCAudioSamples.getSampleRate(), Arrays.copyOfRange(this.mByteBuffer, 0, this.audioEncodeBufferSize));
                 this.audioEncodeBufferSize = 0;
@@ -422,11 +424,11 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
 
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.isRunning = false;
             Handler handler = this.audioThreadHandler;
             if (handler != null) {
-                handler.post(new Runnable() { // from class: com.baidu.rtc.record._$$Lambda$RTCVideoFileRenderer$3Rniwa9Q_TpRL66PXoAH_jTeAC0
+                handler.post(new Runnable() { // from class: c.a.i0.e.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -434,14 +436,14 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            RTCVideoFileRenderer.lambda$release$3(RTCVideoFileRenderer.this);
+                            RTCVideoFileRenderer.this.d();
                         }
                     }
                 });
             }
             Handler handler2 = this.renderThreadHandler;
             if (handler2 != null) {
-                handler2.post(new Runnable() { // from class: com.baidu.rtc.record._$$Lambda$RTCVideoFileRenderer$L4ugvnTVIS7nvLQRQyzDiLIBHRY
+                handler2.post(new Runnable() { // from class: c.a.i0.e.d
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -449,7 +451,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            RTCVideoFileRenderer.lambda$release$4(RTCVideoFileRenderer.this);
+                            RTCVideoFileRenderer.this.e();
                         }
                     }
                 });

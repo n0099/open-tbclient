@@ -30,19 +30,19 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f44128a = "d";
+    public static final String f44243a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f44129b = "Set-Cookie";
+    public static final String f44244b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f44130c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
+    public static final String f44245c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f44131d = "Cookie";
+    public static final String f44246d = "Cookie";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f44132e = "https://";
+    public static final String f44247e = "https://";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -110,12 +110,12 @@ public class d {
                 sb.append("https://");
                 sb.append(uri.getHost());
                 String cookie = cookieManager.getCookie(sb.toString());
-                String str = f44128a;
+                String str = f44243a;
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("asyncCookie");
                 sb2.append(passHttpParamDTO.asyncCookie);
                 e.a(str, sb2.toString());
-                String str2 = f44128a;
+                String str2 = f44243a;
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("webviewCookies");
                 sb3.append(cookie);
@@ -144,7 +144,7 @@ public class d {
                                 if (!httpCookie.hasExpired()) {
                                     str3 = str3 + httpCookie.getName() + "=" + httpCookie.getValue() + ";";
                                 }
-                                String str5 = f44128a;
+                                String str5 = f44243a;
                                 StringBuilder sb4 = new StringBuilder();
                                 sb4.append("httpCookie webview item name:");
                                 sb4.append(httpCookie.getName());
@@ -166,14 +166,14 @@ public class d {
                     return;
                 }
                 String substring = str3.substring(0, str3.length() - 1);
-                String str6 = f44128a;
+                String str6 = f44243a;
                 StringBuilder sb5 = new StringBuilder();
                 sb5.append("cookieStr");
                 sb5.append(substring);
                 e.a(str6, sb5.toString());
                 httpURLConnection.setRequestProperty("Cookie", substring);
             } catch (Exception e2) {
-                e.a(f44128a, "asyncWebviewCookie2NA:" + e2.toString());
+                e.a(f44243a, "asyncWebviewCookie2NA:" + e2.toString());
             }
         }
     }
@@ -185,7 +185,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, context, httpURLConnection, passHttpParamDTO) == null) {
             try {
-                String str = f44128a;
+                String str = f44243a;
                 StringBuilder sb = new StringBuilder();
                 sb.append("asyncCookie");
                 sb.append(passHttpParamDTO.asyncCookie);
@@ -226,7 +226,7 @@ public class d {
                     }
                 }
             } catch (Exception e2) {
-                String str3 = f44128a;
+                String str3 = f44243a;
                 e.a(str3, "asyncNaCookie2Webview:" + e2.toString());
             }
         }

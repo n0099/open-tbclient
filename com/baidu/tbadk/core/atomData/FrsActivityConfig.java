@@ -8,12 +8,12 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.b;
 import c.a.e.e.p.l;
-import c.a.p0.b.d;
-import c.a.p0.b.g.a;
-import c.a.p0.b1.e0;
-import c.a.p0.s.q.c2;
-import c.a.q0.v0.m2.k;
-import c.a.q0.x2.y;
+import c.a.q0.b.d;
+import c.a.q0.b.g.a;
+import c.a.q0.d1.f0;
+import c.a.q0.s.q.d2;
+import c.a.r0.w0.n2.k;
+import c.a.r0.y2.y;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -195,7 +195,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
                 i2 = 6;
             }
-            if (d.z() && a.f12793c != a.d()) {
+            if (d.q() && a.f12775c != a.d()) {
                 frsRequestData.H(k.d(a.d()));
             }
             frsRequestData.setSortType(k.d(i2));
@@ -223,7 +223,7 @@ public class FrsActivityConfig extends IntentConfig {
             }
             frsRequestData.O(null);
             frsRequestData.a0(stringExtra3);
-            frsRequestData.N(b.f(e0.a(), 0L));
+            frsRequestData.N(b.g(f0.a(), 0L));
             frsRequestData.setStType(stringExtra2);
             frsRequestData.J(1);
             frsRequestData.setNeedCache(true);
@@ -231,7 +231,7 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.I(longExtra);
             k.e(i2, frsRequestData);
             frsRequestData.Q(1);
-            if (c2.J3.get() && y.o().b() != null) {
+            if (d2.M3.get() && y.o().b() != null) {
                 int d2 = y.o().b().d(stringExtra, false);
                 int e2 = y.o().b().e(stringExtra, false);
                 if (frsRequestData.A() == 1) {

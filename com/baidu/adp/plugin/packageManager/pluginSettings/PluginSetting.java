@@ -84,12 +84,12 @@ public class PluginSetting implements Serializable, Cloneable {
                 }
                 String[] split2 = split[i2].split("-");
                 if (split2 != null && split2.length == 2) {
-                    int d2 = b.d(split2[0], -1);
-                    int d3 = b.d(split2[1], -1);
-                    if (d2 >= 0 && d3 >= 0 && d2 <= d3) {
+                    int e2 = b.e(split2[0], -1);
+                    int e3 = b.e(split2[1], -1);
+                    if (e2 >= 0 && e3 >= 0 && e2 <= e3) {
                         int i3 = i2 * 2;
-                        iArr[i3] = d2;
-                        iArr[i3 + 1] = d3;
+                        iArr[i3] = e2;
+                        iArr[i3 + 1] = e3;
                     } else {
                         BdLog.e("cmdRange2Int split  toInt error");
                         return null;

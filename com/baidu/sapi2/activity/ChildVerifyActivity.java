@@ -59,7 +59,7 @@ public class ChildVerifyActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ChildVerifyActivity f44551a;
+                public final /* synthetic */ ChildVerifyActivity f44666a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -76,7 +76,7 @@ public class ChildVerifyActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44551a = this;
+                    this.f44666a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.WebviewPageFinishCallback
@@ -103,7 +103,7 @@ public class ChildVerifyActivity extends BaseActivity {
                             }
                             accountRealNameCallback.onFinish(accountRealNameResult);
                         }
-                        this.f44551a.finish();
+                        this.f44666a.finish();
                     }
                 }
             });

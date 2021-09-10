@@ -15,7 +15,7 @@ public interface l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f32360a;
+        public final long f32469a;
 
         public a(long j2) {
             Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public interface l {
                     return;
                 }
             }
-            this.f32360a = j2;
+            this.f32469a = j2;
         }
 
         @Override // c.i.b.a.a0.l
@@ -59,7 +59,7 @@ public interface l {
         public long h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32360a : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32469a : invokeV.longValue;
         }
     }
 

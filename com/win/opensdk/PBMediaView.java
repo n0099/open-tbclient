@@ -15,7 +15,7 @@ public class PBMediaView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public h0 f76670a;
+    public h0 f76850a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PBMediaView(Context context) {
@@ -78,8 +78,8 @@ public class PBMediaView extends FrameLayout {
                 return;
             }
         }
-        this.f76670a = new h0(context);
-        addView(this.f76670a.f76858c, new FrameLayout.LayoutParams(-1, -1));
+        this.f76850a = new h0(context);
+        addView(this.f76850a.f77038c, new FrameLayout.LayoutParams(-1, -1));
         try {
             ImageView imageView = new ImageView(context);
             int i5 = (int) ((context.getResources().getDisplayMetrics().density * 15.0f) + 0.5f);
@@ -94,6 +94,6 @@ public class PBMediaView extends FrameLayout {
     public h0 getHtmlWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76670a : (h0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76850a : (h0) invokeV.objValue;
     }
 }

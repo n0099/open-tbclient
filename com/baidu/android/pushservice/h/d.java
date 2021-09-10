@@ -14,19 +14,19 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f37177a;
+    public static a f37296a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f37178b;
+    public static d f37297b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f37179c;
+    public static final int f37298c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f37180d;
+    public static final int f37299d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f37181e;
+    public static final int f37300e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,9 +43,9 @@ public class d {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f37179c = availableProcessors;
-        f37180d = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f37181e = f37179c << 3;
+        f37298c = availableProcessors;
+        f37299d = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f37300e = f37298c << 3;
     }
 
     public d() {
@@ -66,7 +66,7 @@ public class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f37182a;
+            public final /* synthetic */ d f37301a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -83,19 +83,19 @@ public class d {
                         return;
                     }
                 }
-                this.f37182a = this;
+                this.f37301a = this;
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f37182a.b();
+                    this.f37301a.b();
                 }
             }
         });
-        a aVar = new a(f37180d, f37181e, 2L, TimeUnit.MINUTES, new b());
-        f37177a = aVar;
+        a aVar = new a(f37299d, f37300e, 2L, TimeUnit.MINUTES, new b());
+        f37296a = aVar;
         aVar.allowCoreThreadTimeOut(true);
     }
 
@@ -104,10 +104,10 @@ public class d {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f37178b == null || (aVar = f37177a) == null || aVar.isShutdown() || f37177a.isTerminated()) {
-                f37178b = new d();
+            if (f37297b == null || (aVar = f37296a) == null || aVar.isShutdown() || f37296a.isTerminated()) {
+                f37297b = new d();
             }
-            return f37178b;
+            return f37297b;
         }
         return (d) invokeV.objValue;
     }
@@ -117,12 +117,12 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
             try {
-                f37177a.submit(cVar);
+                f37296a.submit(cVar);
                 return true;
             } catch (Exception unused) {
-                a aVar = f37177a;
-                if (aVar == null || aVar.getCorePoolSize() == 0 || f37177a.getPoolSize() == 0) {
-                    f37177a = new a(f37180d, f37181e, 2L, TimeUnit.MINUTES, new b());
+                a aVar = f37296a;
+                if (aVar == null || aVar.getCorePoolSize() == 0 || f37296a.getPoolSize() == 0) {
+                    f37296a = new a(f37299d, f37300e, 2L, TimeUnit.MINUTES, new b());
                     return false;
                 }
                 return false;
@@ -134,12 +134,12 @@ public class d {
     public void b() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = f37177a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = f37296a) == null) {
             return;
         }
         try {
             aVar.getQueue().clear();
-            f37177a.shutdown();
+            f37296a.shutdown();
         } catch (Exception unused) {
         }
     }

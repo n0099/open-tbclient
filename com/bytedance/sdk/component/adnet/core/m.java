@@ -16,28 +16,28 @@ public class m<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final T f64172a;
+    public final T f64352a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a.C1882a f64173b;
+    public final a.C1882a f64353b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final VAdError f64174c;
+    public final VAdError f64354c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64175d;
+    public boolean f64355d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f64176e;
+    public long f64356e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f64177f;
+    public long f64357f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, Object> f64178g;
+    public Map<String, Object> f64358g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f64179h;
+    public long f64359h;
 
     /* loaded from: classes9.dex */
     public interface a<T> {
@@ -61,15 +61,15 @@ public class m<T> {
                 return;
             }
         }
-        this.f64175d = false;
-        this.f64176e = 0L;
-        this.f64177f = 0L;
-        this.f64179h = 0L;
-        this.f64172a = t;
-        this.f64173b = c1882a;
-        this.f64174c = null;
+        this.f64355d = false;
+        this.f64356e = 0L;
+        this.f64357f = 0L;
+        this.f64359h = 0L;
+        this.f64352a = t;
+        this.f64353b = c1882a;
+        this.f64354c = null;
         if (c1882a != null) {
-            this.f64179h = c1882a.f64203a;
+            this.f64359h = c1882a.f64383a;
         }
     }
 
@@ -83,7 +83,7 @@ public class m<T> {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-            this.f64177f = j2;
+            this.f64357f = j2;
             return this;
         }
         return (m) invokeJ.objValue;
@@ -98,14 +98,14 @@ public class m<T> {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64174c == null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64354c == null : invokeV.booleanValue;
     }
 
     public m a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            this.f64176e = j2;
+            this.f64356e = j2;
             return this;
         }
         return (m) invokeJ.objValue;
@@ -117,8 +117,8 @@ public class m<T> {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            a.C1882a c1882a = this.f64173b;
-            return (c1882a == null || (map = c1882a.f64210h) == null || (str3 = map.get(str)) == null) ? str2 : str3;
+            a.C1882a c1882a = this.f64353b;
+            return (c1882a == null || (map = c1882a.f64390h) == null || (str3 = map.get(str)) == null) ? str2 : str3;
         }
         return (String) invokeLL.objValue;
     }
@@ -138,22 +138,22 @@ public class m<T> {
                 return;
             }
         }
-        this.f64175d = false;
-        this.f64176e = 0L;
-        this.f64177f = 0L;
-        this.f64179h = 0L;
-        this.f64172a = null;
-        this.f64173b = null;
-        this.f64174c = vAdError;
+        this.f64355d = false;
+        this.f64356e = 0L;
+        this.f64357f = 0L;
+        this.f64359h = 0L;
+        this.f64352a = null;
+        this.f64353b = null;
+        this.f64354c = vAdError;
         if (0 != 0 || vAdError == null) {
             return;
         }
         i iVar = vAdError.networkResponse;
         if (iVar != null) {
-            this.f64179h = iVar.f64154a;
+            this.f64359h = iVar.f64334a;
         } else {
-            this.f64179h = vAdError.getErrorCode();
+            this.f64359h = vAdError.getErrorCode();
         }
-        com.bytedance.sdk.component.adnet.d.c.b("Response", "Response error code = " + this.f64179h);
+        com.bytedance.sdk.component.adnet.d.c.b("Response", "Response error code = " + this.f64359h);
     }
 }

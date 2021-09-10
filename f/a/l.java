@@ -21,23 +21,23 @@ public class l implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final SimpleDateFormat f78200j;
+    public static final SimpleDateFormat f78380j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Integer f78201e;
+    public Integer f78381e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f78202f;
+    public final Object f78382f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final DxmSdkSensorsDataAPI f78203g;
+    public final DxmSdkSensorsDataAPI f78383g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final g f78204h;
+    public final g f78384h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final f f78205i;
+    public final f f78385i;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public class l implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        f78200j = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        f78380j = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
     }
 
     public l(DxmSdkSensorsDataAPI dxmSdkSensorsDataAPI, g gVar, f fVar) {
@@ -70,11 +70,11 @@ public class l implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f78201e = 0;
-        this.f78202f = new Object();
-        this.f78203g = dxmSdkSensorsDataAPI;
-        this.f78204h = gVar;
-        this.f78205i = fVar;
+        this.f78381e = 0;
+        this.f78382f = new Object();
+        this.f78383g = dxmSdkSensorsDataAPI;
+        this.f78384h = gVar;
+        this.f78385i = fVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -117,20 +117,20 @@ public class l implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
             try {
-                synchronized (this.f78202f) {
-                    if (this.f78201e.intValue() == 0) {
-                        if (this.f78205i.b() == null) {
-                            this.f78205i.a(f78200j.format(Long.valueOf(System.currentTimeMillis())));
+                synchronized (this.f78382f) {
+                    if (this.f78381e.intValue() == 0) {
+                        if (this.f78385i.b() == null) {
+                            this.f78385i.a(f78380j.format(Long.valueOf(System.currentTimeMillis())));
                         }
-                        this.f78204h.b().booleanValue();
+                        this.f78384h.b().booleanValue();
                         try {
-                            this.f78203g.i();
+                            this.f78383g.i();
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
-                        this.f78203g.F();
+                        this.f78383g.F();
                     }
-                    this.f78201e = Integer.valueOf(this.f78201e.intValue() + 1);
+                    this.f78381e = Integer.valueOf(this.f78381e.intValue() + 1);
                 }
             } catch (Exception e3) {
                 e3.printStackTrace();
@@ -143,18 +143,18 @@ public class l implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
             try {
-                synchronized (this.f78202f) {
-                    Integer valueOf = Integer.valueOf(this.f78201e.intValue() - 1);
-                    this.f78201e = valueOf;
+                synchronized (this.f78382f) {
+                    Integer valueOf = Integer.valueOf(this.f78381e.intValue() - 1);
+                    this.f78381e = valueOf;
                     if (valueOf.intValue() == 0) {
                         try {
-                            this.f78203g.K();
-                            this.f78203g.j();
+                            this.f78383g.K();
+                            this.f78383g.j();
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
                         try {
-                            this.f78203g.p();
+                            this.f78383g.p();
                         } catch (Exception e3) {
                             e3.printStackTrace();
                         }

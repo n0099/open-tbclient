@@ -17,6 +17,8 @@ import org.json.JSONObject;
 public class ImageUploadResult extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static int CHUNK_ERROR = 2230203;
+    public static int CHUNK_FILE_ERROR = 2230204;
+    public static int CHUNK_NET_ERROR = 110003;
     public static int INTER_ERROR_FILE_ERROR = -1;
     public static int INTER_ERROR_SEND_CALCELLED = -3;
     public static int INTER_ERROR_SEND_ERROR = -2;
@@ -189,6 +191,12 @@ public class ImageUploadResult extends OrmObject implements Serializable {
             }
         }
         return (ImageUploadResult) invokeL.objValue;
+    }
+
+    public static boolean shouldReply(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? i2 == CHUNK_ERROR || i2 == CHUNK_NET_ERROR || i2 == CHUNK_FILE_ERROR : invokeI.booleanValue;
     }
 
     public UploadedImageInfo getUploadedPicInfo() {

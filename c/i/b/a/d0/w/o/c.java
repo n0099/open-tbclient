@@ -12,10 +12,10 @@ public abstract class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f33256a;
+    public final String f33365a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<String> f33257b;
+    public final List<String> f33366b;
 
     public c(String str, List<String> list) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public abstract class c {
                 return;
             }
         }
-        this.f33256a = str;
-        this.f33257b = Collections.unmodifiableList(list);
+        this.f33365a = str;
+        this.f33366b = Collections.unmodifiableList(list);
     }
 }

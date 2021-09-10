@@ -27,11 +27,11 @@ public interface g extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static g f75689a;
+            public static g f75869a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f75690b;
+            public IBinder f75870b;
 
             public C2062a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public interface g extends IInterface {
                         return;
                     }
                 }
-                this.f75690b = iBinder;
+                this.f75870b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.g
@@ -62,7 +62,7 @@ public interface g extends IInterface {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
                         obtain.writeString(str);
                         obtain.writeString(str2);
-                        if (!this.f75690b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f75870b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(str, str2);
                         }
                         obtain2.readException();
@@ -79,7 +79,7 @@ public interface g extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75690b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75870b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -151,7 +151,7 @@ public interface g extends IInterface {
         public static g a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2062a.f75689a : (g) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2062a.f75869a : (g) invokeV.objValue;
         }
     }
 }

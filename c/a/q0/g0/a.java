@@ -1,74 +1,100 @@
 package c.a.q0.g0;
 
-import c.a.p0.s.q.c2;
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class a extends BaseCardInfo {
+public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f18305f;
     public transient /* synthetic */ FieldHolder $fh;
+    public View attachedView;
+    public boolean isAttached;
+    public boolean isWrapStyle;
 
-    /* renamed from: e  reason: collision with root package name */
-    public c2 f18306e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(41919574, "Lc/a/q0/g0/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(41919574, "Lc/a/q0/g0/a;");
-                return;
-            }
-        }
-        f18305f = BdUniqueId.gen();
-    }
-
-    public a() {
+    public a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.isWrapStyle = false;
+        this.attachedView = view;
     }
 
-    public void g(c2 c2Var) {
+    public void attachView(View view, boolean z) {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c2Var) == null) {
-            this.f18306e = c2Var;
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, z) == null) || view == null || (view2 = this.attachedView) == null || view2.getParent() != null) {
+            return;
+        }
+        this.isAttached = true;
+        e.b(view, this.isWrapStyle).a(view, this.attachedView, z);
+        onViewAttached();
+    }
+
+    public void dettachView(View view) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || view == null || (view2 = this.attachedView) == null || view2.getParent() == null || !(view instanceof ViewGroup)) {
+            return;
+        }
+        try {
+            onViewDettached();
+            ((ViewGroup) view).removeView(this.attachedView);
+            this.isAttached = false;
+        } catch (Exception unused) {
         }
     }
 
-    public c2 getThreadData() {
+    public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18306e : (c2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.attachedView : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
-    public BdUniqueId getType() {
+    public boolean isViewAttached() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f18305f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isAttached : invokeV.booleanValue;
+    }
+
+    public void onViewAttached() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    public void onViewDettached() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public void setWrapStyle(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.isWrapStyle = z;
+        }
+    }
+
+    public void attachView(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            attachView(view, false);
+        }
     }
 }

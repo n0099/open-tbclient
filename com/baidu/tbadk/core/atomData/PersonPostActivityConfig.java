@@ -59,7 +59,7 @@ public class PersonPostActivityConfig extends IntentConfig {
         }
         if (uri != null) {
             getIntent().putExtra("key_uid", uri.getQueryParameter("user_id"));
-            getIntent().putExtra("key_sex", b.d(uri.getQueryParameter("sex"), 0));
+            getIntent().putExtra("key_sex", b.e(uri.getQueryParameter("sex"), 0));
             getIntent().putExtra(KEY_PORTRAIT_URL, uri.getQueryParameter("portrait"));
         }
     }

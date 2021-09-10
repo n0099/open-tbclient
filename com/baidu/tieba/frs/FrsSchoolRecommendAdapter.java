@@ -2,12 +2,12 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.p0.s.q.s1;
-import c.a.p0.s.q.t1;
-import c.a.q0.v0.k;
-import c.a.q0.v0.q2.d;
-import c.a.q0.v0.x;
-import c.a.q0.v0.z0;
+import c.a.q0.s.q.t1;
+import c.a.q0.s.q.u1;
+import c.a.r0.w0.k;
+import c.a.r0.w0.r2.d;
+import c.a.r0.w0.x;
+import c.a.r0.w0.z0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class FrsSchoolRecommendAdapter extends k<s1, FrsSchoolRecommendViewHolder> {
+public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public d x;
@@ -80,37 +80,37 @@ public class FrsSchoolRecommendAdapter extends k<s1, FrsSchoolRecommendViewHolde
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.x = new d(this.o, this.f2970i);
+            this.x = new d(this.o, this.f2961i);
             return new FrsSchoolRecommendViewHolder(this, this.x);
         }
         return (FrsSchoolRecommendViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.q0.v0.k, c.a.e.l.e.a
+    @Override // c.a.r0.w0.k, c.a.e.l.e.a
     /* renamed from: v0 */
-    public View a0(int i2, View view, ViewGroup viewGroup, s1 s1Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
+    public View a0(int i2, View view, ViewGroup viewGroup, t1 t1Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, s1Var, frsSchoolRecommendViewHolder})) == null) {
-            super.a0(i2, view, viewGroup, s1Var, frsSchoolRecommendViewHolder);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, t1Var, frsSchoolRecommendViewHolder})) == null) {
+            super.a0(i2, view, viewGroup, t1Var, frsSchoolRecommendViewHolder);
             this.x = frsSchoolRecommendViewHolder.mCardView;
-            ArrayList<t1> D4 = s1Var.D4();
-            if (D4.size() <= 0) {
+            ArrayList<u1> O4 = t1Var.O4();
+            if (O4.size() <= 0) {
                 return null;
             }
             x xVar = new x();
             xVar.showTopDivider = true;
-            xVar.mGroupTitle = s1Var.getTitle();
-            for (int i3 = 0; i3 != D4.size(); i3++) {
-                t1 t1Var = D4.get(i3);
-                if (t1Var != null) {
+            xVar.mGroupTitle = t1Var.getTitle();
+            for (int i3 = 0; i3 != O4.size(); i3++) {
+                u1 u1Var = O4.get(i3);
+                if (u1Var != null) {
                     z0 z0Var = new z0();
-                    z0Var.f27382a.setUserId(t1Var.d());
-                    z0Var.f27382a.setUserName(t1Var.e());
-                    z0Var.f27382a.setPortrait(t1Var.c());
-                    z0Var.f27382a.getGodUserData().setIsLike(t1Var.b() == 1);
-                    z0Var.f27382a.getGodUserData().setIntro(t1Var.a());
+                    z0Var.f28047a.setUserId(u1Var.d());
+                    z0Var.f28047a.setUserName(u1Var.e());
+                    z0Var.f28047a.setPortrait(u1Var.c());
+                    z0Var.f28047a.getGodUserData().setIsLike(u1Var.b() == 1);
+                    z0Var.f28047a.getGodUserData().setIntro(u1Var.a());
                     xVar.g(z0Var);
                 }
             }

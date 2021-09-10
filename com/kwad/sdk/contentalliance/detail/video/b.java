@@ -16,16 +16,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f71240a;
+    public long f71420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f71241b;
+    public long f71421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f71242c;
+    public long f71422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f71243d;
+    public int f71423d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class b {
                 return;
             }
         }
-        this.f71241b = -1L;
+        this.f71421b = -1L;
     }
 
     public b(@NonNull AdTemplate adTemplate, long j2) {
@@ -58,11 +58,11 @@ public class b {
                 return;
             }
         }
-        this.f71241b = -1L;
-        this.f71240a = com.kwad.sdk.core.response.b.c.o(adTemplate);
-        this.f71241b = j2;
-        this.f71242c = com.kwad.sdk.core.response.b.c.t(adTemplate);
-        this.f71243d = com.kwad.sdk.core.response.b.c.e(adTemplate);
+        this.f71421b = -1L;
+        this.f71420a = com.kwad.sdk.core.response.b.c.o(adTemplate);
+        this.f71421b = j2;
+        this.f71422c = com.kwad.sdk.core.response.b.c.t(adTemplate);
+        this.f71423d = com.kwad.sdk.core.response.b.c.e(adTemplate);
     }
 
     @NonNull
@@ -78,8 +78,8 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("contentType", this.f71243d);
-                jSONObject.put("adStyle", this.f71242c);
+                jSONObject.put("contentType", this.f71423d);
+                jSONObject.put("adStyle", this.f71422c);
             } catch (JSONException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
